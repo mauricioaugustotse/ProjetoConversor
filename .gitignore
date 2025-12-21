@@ -1,0 +1,4 @@
+.env
+Chave Secreta API_Mauricio_local.txt
+__pycache__/
+.vscode/
