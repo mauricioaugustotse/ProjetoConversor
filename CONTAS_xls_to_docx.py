@@ -270,9 +270,9 @@ def processar_e_gerar_docx(caminho_arquivo, verbose=False):
 
     # 5. Cálculos dos totais
     soma_valor_original = df['Valor'].sum()
-    filtro_mauricio_negativo = (df['Tags'] == 'mauricio') & (df['Parcela'] < 0)
-    soma_parcela_especifica = df[~filtro_mauricio_negativo]['Parcela'].sum()
-    print("Somas dos totais finalizadas com a lógica existente.")
+    filtro_parcela_tags = df['Tags'].isin(['carol', 'm&c'])
+    soma_parcela_especifica = df.loc[filtro_parcela_tags, 'Parcela'].sum()
+    print("Somas dos totais finalizadas com a lógica atualizada (tags: carol, m&c).")
 
     # 6. Geração do documento Word (.docx)
     doc = docx.Document()
