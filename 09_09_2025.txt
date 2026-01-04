@@ -1,0 +1,76 @@
+RELATÓRIO TÉCNICO DE SESSÃO DO TRIBUNAL SUPERIOR ELEITORAL (TSE)
+
+**JUÍZO:** Tribunal Superior Eleitoral (Plenário)
+**FONTE:** Sessão Plenária de 09/09/2025 (Vídeo ID: Mfac40CKmUM)
+**DATA DA SESSÃO:** 09 de setembro de 2025 [[14:09](http://www.youtube.com/watch?v=Mfac40CKmUM&t=849)]
+
+---
+
+### COMPOSIÇÃO DA MESA JULGADORA [[14:20](http://www.youtube.com/watch?v=Mfac40CKmUM&t=860)]
+
+* **Presidência:** Ministra Cármen Lúcia.
+* **Ministros Presentes:**
+* Min. André Mendonça (Relator do caso principal).
+* Min. Dias Toffoli (participação por videoconferência).
+* Min. Isabel Gallotti (Corregedora-Geral Eleitoral).
+* Min. Antonio Carlos Ferreira.
+* Min. Floriano de Azevedo Marques.
+* Min. Estela Aranha.
+
+
+* **Ministério Público Eleitoral:** Vice-Procurador-Geral Eleitoral, Dr. Alexandre Espinosa Bravo Barbosa.
+
+---
+
+### PROCESSO 1: Agravo Regimental no Agravo em Recurso Especial Eleitoral nº 0600758-23 [[16:04](http://www.youtube.com/watch?v=Mfac40CKmUM&t=964)]
+
+**1. DADOS CADASTRAIS**
+
+* **Relator:** Ministro André Mendonça.
+* **Cidade de Origem:** Gameleira.
+* **UF:** Pernambuco (PE).
+* **Eleição Referente:** Eleições 2014 [[16:27](http://www.youtube.com/watch?v=Mfac40CKmUM&t=987)].
+* **Parties (Recorrentes):** Coligação "Gameleira no Rumo Certo" e outros [[17:55](http://www.youtube.com/watch?v=Mfac40CKmUM&t=1075)].
+
+**2. ANÁLISE DO CONTEÚDO JURÍDICO**
+O caso versa sobre **conduta vedada a agentes públicos** (Lei 9.504/1997), consubstanciada na manutenção de publicidade institucional em período vedado. A controvérsia fática envolve a permanência de placas de obras públicas contendo o brasão e o *slogan* da gestão municipal durante o período eleitoral proibitivo. O núcleo do problema reside na licitude ou ilicitude da manutenção dessas placas (publicidade estática) que, embora instaladas antes do período vedado, permaneceram expostas durante a campanha.
+
+**3. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Súmula 24 do TSE:** Citada para vedar o reexame do acervo probatório em sede extraordinária ("moldura fática do acórdão recorrido") [[18:54](http://www.youtube.com/watch?v=Mfac40CKmUM&t=1134)].
+* **Súmula 26 do TSE:** Invocada em dois momentos: pela repetição de argumentos do recurso especial sem impugnação específica dos fundamentos da decisão de inadmissibilidade e pela deficiência recursal no agravo interno [[18:28](http://www.youtube.com/watch?v=Mfac40CKmUM&t=1108)], [[21:19](http://www.youtube.com/watch?v=Mfac40CKmUM&t=1279)].
+* **Súmula 30 do TSE:** Aplicada para demonstrar que o acórdão regional estava em consonância com a jurisprudência dominante da Corte [[19:57](http://www.youtube.com/watch?v=Mfac40CKmUM&t=1197)].
+
+**4. PRECEDENTES CITADOS**
+
+* **Tribunal:** TSE.
+* **Processo:** Agravo Regimental no Recurso Especial Eleitoral nº 61.872.
+* **Relator:** Min. Henrique Neves da Silva.
+* **Julgamento:** Decisão publicada no DJE de 27/10/2014.
+* **Razão de Decidir:** Estabeleceu a tese de que é ilícita a permanência de publicidade institucional em período vedado, independentemente de haver ou não menção expressa ao nome da autoridade ou candidato, bastando a identificação da gestão (brasão/slogan) [[19:36](http://www.youtube.com/watch?v=Mfac40CKmUM&t=1176)].
+
+**5. RACIOCÍNIO DESENVOLVIDO**
+O Ministro Relator André Mendonça estruturou seu voto em quatro fundamentos principais para negar seguimento ao recurso, mantidos no julgamento do Agravo Regimental:
+
+* **Óbice Processual (Súmula 26):** A parte agravante limitou-se a reiterar os argumentos do recurso anterior, falhando no dever de dialeticidade recursal ao não atacar especificamente os fundamentos da decisão agravada.
+* **Impossibilidade de Reexame Fático (Súmula 24):** A instância ordinária (TRE-PE) já havia assentado faticamente que houve a manutenção das placas com brasão/slogan. Alterar essa conclusão exigiria revolvimento de provas, vedado nesta instância.
+* **Mérito/Jurisprudência (Súmula 30):** O Relator refutou a tese da defesa de que a publicidade seria lícita por ser meramente informativa ou não citar nomes. O entendimento do TSE é estrito: a publicidade institucional (símbolos da gestão) deve ser ocultada ou retirada no defeso eleitoral.
+* **Dissídio Jurisprudencial:** Não foi demonstrado o cotejo analítico necessário para configurar a divergência, tendo a parte se limitado à transcrição de ementas, o que é insuficiente processualmente [[20:08](http://www.youtube.com/watch?v=Mfac40CKmUM&t=1208)].
+
+**6. PONTOS PROCESSUAIS RELEVANTES**
+
+* Tratou-se da primeira vez que o processo foi trazido ao Plenário (julgamento de Agravo Regimental contra decisão monocrática).
+* Não houve sustentação oral registrada no vídeo.
+* A decisão foi tomada à **unanimidade**, com votos expressos de acompanhamento dos Ministros Dias Toffoli, Isabel Gallotti, Antonio Carlos Ferreira, Floriano de Azevedo Marques e Estela Aranha.
+
+**7. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Resultado:** Negado provimento ao Agravo Regimental [[24:04](http://www.youtube.com/watch?v=Mfac40CKmUM&t=1444)].
+* **Sanção Mantida:** Multa aplicada pelo juízo de origem (Ribeirão/PE) e confirmada pelo TRE-PE [[17:49](http://www.youtube.com/watch?v=Mfac40CKmUM&t=1069)].
+* A decisão confirma a ilicitude da conduta e mantém a penalidade pecuniária imposta à Coligação e aos responsáveis.
+
+---
+
+*Nota: A sessão prosseguiu para julgamento de listas (blocos de processos sem destaque) sob relatoria dos Ministros Antonio Carlos Ferreira e Floriano de Azevedo Marques, os quais, conforme vedação expressa nas instruções deste relatório, não foram detalhados.*
+
+**ENCERRAMENTO DA SESSÃO:** [[25:51](http://www.youtube.com/watch?v=Mfac40CKmUM&t=1551)]

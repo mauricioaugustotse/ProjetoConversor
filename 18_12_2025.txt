@@ -1,0 +1,214 @@
+RELATÓRIO TÉCNICO DE SESSÃO DO TRIBUNAL SUPERIOR ELEITORAL (TSE)
+
+**Data da Sessão:** 18 de dezembro de 2025
+**Presidente:** Ministra Cármen Lúcia
+**Composição da Mesa:** Ministra Cármen Lúcia (Presidente), Ministro Nunes Marques (Vice-Presidente - por vídeo), Ministro André Mendonça, Ministro Antônio Carlos Ferreira (Corregedor-Geral), Ministro Vilas Boas Cueva, Ministro Floriano de Azevedo Marques, Ministra Estela Aranha.
+**Ministério Público Eleitoral:** Vice-Procurador-Geral Alexandre Espinosa Bravo Barbosa.
+
+---
+
+### 1. LISTA TRÍPLICE – CLASSE JURISTA (TRE/RO)
+
+**[[23:57](http://www.youtube.com/watch?v=Dg7XT--0ztc&t=1437)]**
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Trata-se de apreciação de Lista Tríplice para preenchimento de vaga de juiz efetivo (classe jurista) no Tribunal Regional Eleitoral de Rondônia. A análise focou não apenas nos requisitos objetivos dos candidatos, mas principalmente na aplicação das novas regras de paridade de gênero estabelecidas pela Resolução do TSE, verificando se a composição da lista respeitava a política afirmativa de inclusão feminina na magistratura eleitoral.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Resolução TSE nº 23.746/2025** (Altera a Res.-TSE 23.517, incluindo promoção de mulheres).
+* **Resolução TSE nº 23.517** (Normas gerais sobre listas tríplices).
+
+**3. PRECEDENTES CITADOS**
+
+* **TSE, Lista Tríplice nº 0600613, Rel. Min. Isabel Gallotti:** Citado para reforçar a observância, sempre que possível, da participação de mulheres e homens com perspectiva interseccional.
+* **TSE, Lista Tríplice nº 0600265, Rel. Min. André Mendonça (j. 19/08/2025):** Citado para fixar o marco temporal da exigência de paridade (data da comunicação pelo TRE).
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Ministro Relator (Floriano de Azevedo Marques):**
+* **Premissa Normativa:** A Res.-TSE 23.746 impõe política afirmativa de gênero. É necessário verificar a composição atual do tribunal de origem para validar a lista.
+* **Análise Fática:** O TRE/RO possui atualmente 3 mulheres titulares e 2 suplentes. Do total de vagas, 38,46% são ocupadas por mulheres.
+* **Conclusão:** A lista apresentada contém duas mulheres e um homem. Isso promove e reforça a presença feminina, atendendo aos requisitos da resolução. Todos os candidatos cumprem os requisitos objetivos.
+
+
+* **Votação:** Aprovada à unanimidade.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Número do Processo:** Lista Tríplice nº 0600180-72.
+* **UF/Cidade de Origem:** Rondônia (Porto Velho/RO).
+* **Indicados:** José Vítor Costa Júnior, Letícia Botelho, Joilma Gleis Schiavi Gomes.
+* **Ministro Relator:** Floriano de Azevedo Marques.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* Encaminhamento da lista ao Presidente da República para escolha e nomeação do membro efetivo.
+
+---
+
+### 2. CONSULTA – MATÉRIA ELEITORAL (TRE/AP)
+
+**[[30:15](http://www.youtube.com/watch?v=Dg7XT--0ztc&t=1815)]**
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Consulta formulada por parlamentar visando esclarecer o impacto de decisões do STF (ADIs sobre sobras eleitorais) na representação de mulheres, negros e indígenas nas casas legislativas. O núcleo jurídico envolveu os limites da competência consultiva do TSE, especificamente a vedação de responder a questionamentos sobre casos concretos ou sobre efeitos de decisões judiciais já transitadas em julgado.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Código Eleitoral (Lei 4.737/1965), art. 23, XII:** Limita a função consultiva a casos "em tese" e exige abstração.
+
+**3. PRECEDENTES CITADOS**
+
+* **STF (ADIs 7.228, 7.263, 7.325):** Decisões sobre a regra 80/20 na distribuição de sobras eleitorais.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Ministro Relator (Antônio Carlos Ferreira):**
+* **Método:** Análise dos requisitos de admissibilidade da consulta (legitimidade, pertinência, abstração).
+* **Fundamentação:** A consulta buscava, em parte, dados estatísticos (o que não é matéria de consulta) e, em outra parte, uma análise sobre efeitos retroativos de decisões do STF em casos concretos.
+* **Tese:** A via consultiva não serve para antecipar pronunciamentos do TSE sobre casos concretos ou para interpretar a modulação de efeitos de decisões do STF que já transitaram em julgado. Falta o requisito da abstração.
+
+
+* **Conclusão:** Não conhecimento da consulta.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Número do Processo:** Consulta nº 0600018-89 (citado como 06018/89).
+* **UF/Cidade de Origem:** Amapá (Macapá/AP).
+* **Consulente:** Deputada Federal Silvia Nobre Lopes.
+* **Ministro Relator:** Antônio Carlos Ferreira.
+* **Proclamação:** Consulta não conhecida (unanimidade).
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* Arquivamento da consulta sem resposta de mérito, mantendo-se a incerteza jurídica da consulente sobre o tema específico via este instrumento.
+
+---
+
+### 3. REFERENDO EM TUTELA CAUTELAR – FRAUDE À COTA DE GÊNERO (SENA MADUREIRA/AC)
+
+**[[35:49](http://www.youtube.com/watch?v=Dg7XT--0ztc&t=2149)]**
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Trata-se de referendo de liminar que suspendeu a cassação de uma vereadora eleita. O problema central é a **fraude à cota de gênero** nas eleições de 2024. A questão jurídica inovadora é a discussão sobre a preservação (ou não) dos votos dados a candidatas mulheres e à legenda, em contraposição à jurisprudência de 2020 que anulava toda a votação (Drap) do partido.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Lei 9.504/1997 (Lei das Eleições):** Art. 10, § 3º (Cota de gênero).
+
+**3. PRECEDENTES CITADOS**
+
+* **TSE, REspe 0600305 (Ceará), Rel. André Ramos Tavares:** Precedente das eleições de 2020 que determina a anulação de todos os votos do partido em caso de fraude.
+* **TSE, Recurso Ordinário 0602977 (Julgamento iniciado em 27/11/2025):** Voto do Min. Antônio Carlos Ferreira sinalizando mudança de entendimento para preservar votos de mulheres não envolvidas na fraude.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Ministro Relator (André Mendonça):**
+* **Plausibilidade Jurídica (Fumus Boni Iuris):** Reconhece que, embora o TRE/AC tenha seguido a jurisprudência de 2020 (cassação total), o TSE está rediscutindo a matéria para as eleições de 2024. Há uma possibilidade real de "overruling" ou distinção para preservar mandatos de mulheres legitimamente eleitas.
+* **Perigo da Demora (Periculum in Mora):** O afastamento imediato do cargo é irreversível.
+* **Conclusão:** Concedeu a liminar para manter a vereadora no cargo até que o TSE defina a tese final sobre a anulação de votos em fraudes de cota de gênero para o pleito de 2024.
+
+
+* **Divergências/Vistas:** A Ministra Estela Aranha pediu vista.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Número do Processo:** Referendo na Tutela Cautelar Antecedente nº 0601170-75.
+* **UF/Cidade de Origem:** Acre (Sena Madureira/AC).
+* **Partes:** Elissandra Matos da Cunha (Requerente/Vereadora) vs. Ministério Público Eleitoral (Requerido).
+* **Ministro Relator:** André Mendonça.
+* **Proclamação:** Julgamento suspenso por pedido de vista da Min. Estela Aranha. A liminar monocrática continua vigorando.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* A vereadora permanece no exercício do mandato provisoriamente. O caso sinaliza uma potencial virada jurisprudencial do TSE para proteger a representatividade feminina mesmo quando o partido comete fraude.
+
+---
+
+### 4. AGRAVO REGIMENTAL – PRESTAÇÃO DE CONTAS E PROVA TARIFADA (SÃO PAULO/SP)
+
+**[[42:16](http://www.youtube.com/watch?v=Dg7XT--0ztc&t=2536)]**
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Julgamento sobre desaprovação de contas de campanha de Deputado Estadual (Eleições 2022). O cerne da disputa é a exigência de **contratos individuais** para comprovar gastos com militância/panfletagem versus a liberdade de prova (art. 369 CPC). Discute-se se a Resolução do TSE cria um sistema de "prova tarifada" que obriga a apresentação de contratos formais para cada cabo eleitoral.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Resolução TSE nº 23.607/2019, Art. 35, § 2º (atual § 12):** Exige detalhamento das despesas com pessoal (identificação, local, horas, atividades).
+* **Código de Processo Civil (CPC), Art. 369:** Princípio da liberdade dos meios de prova.
+* **Súmulas TSE 24 e 30:** Reexame de fatos e provas.
+
+**3. PRECEDENTES CITADOS**
+
+* **TSE, AgR-REspe 0601470:** Citado pelo relator para justificar a necessidade de prova documental robusta.
+* **TSE, AgR-REspe 0607354 (Rel. André Ramos Tavares):** Citado para afirmar que panfletagem é gasto com pessoal e exige cumprimento do Art. 35.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Ministro Relator (André Mendonça):**
+* Negou provimento. Entendeu que a ausência dos contratos individuais e as inconsistências nos valores e dias trabalhados impedem a aprovação das contas. Aplicou Súmula 24 (impossibilidade de reexaminar provas).
+
+
+* **Divergência (Ministro Floriano de Azevedo Marques):**
+* **Tese:** O sistema eleitoral não admite "prova tarifada". O Art. 35 da Resolução exige "identificação" e "detalhamento", não necessariamente um contrato formal para cada panfleteiro, se houver outras provas (recibos, fotos, relatórios).
+* **Aplicação:** O candidato apresentou fotos, relatórios de equipes e recibos. Exigir contrato individual é formalismo excessivo que viola o CPC. Votou para aprovar (ou determinar reanálise sem a exigência exclusiva do contrato).
+
+
+* **Voto de Minerva/Acompanhamentos:**
+* Ministro Antônio Carlos (Corregedor) abriu divergência da divergência (acompanhando o relator), mas com ressalva teórica: concorda que não existe prova tarifada em tese, mas *no caso concreto* (in concreto), as provas apresentadas eram inconsistentes (valores não batiam).
+* Ministros Vilas Boas Cueva, Estela Aranha e Nunes Marques acompanharam o Relator.
+
+
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Número do Processo:** Agravo Regimental no REspe nº 0605153-64.
+* **UF/Cidade de Origem:** São Paulo (São Paulo/SP).
+* **Partes:** Eduardo Matarazzo Suplicy (Candidato/Agravante). Advogado: Dr. Michel Bertone Soares.
+* **Ministro Relator:** André Mendonça.
+* **Proclamação:** Por maioria, negou-se provimento ao agravo (mantida a desaprovação). Vencido o Min. Floriano.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* Manutenção da desaprovação das contas e devolução de valores ao erário (sem multa majorada, pois não houve má-fé explícita, apenas irregularidade na comprovação).
+
+---
+
+### 5. RECURSO EM MANDADO DE SEGURANÇA – LICENÇA DE SERVIDOR (TRE/SP)
+
+**[[01:01:07](http://www.youtube.com/watch?v=Dg7XT--0ztc&t=3667)]**
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Questão administrativa envolvendo servidor do TRE/SP que solicitou licença não remunerada para acompanhar cônjuge no exterior (Alemanha). A controvérsia reside no conceito de "deslocamento" previsto na Lei 8.112/90: se abrange situações onde a mudança de domicílio foi voluntária (após férias) ou se exige um deslocamento funcional/compulsório do cônjuge.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Lei 8.112/1990 (Estatuto dos Servidores Federais), Art. 84, § 1º:** Licença por motivo de afastamento do cônjuge.
+
+**3. PRECEDENTES CITADOS**
+
+* Jurisprudência administrativa sobre a necessidade de "deslocamento efetivo" e não mera permanência voluntária após viagem de lazer.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Ministra Relatora (Estela Aranha):**
+* **Fatos:** O servidor viajou de férias (2020), ficou retido pela pandemia, mas depois optou por residir lá voluntariamente (esposa fez curso e trabalhou).
+* **Direito:** O direito subjetivo à licença exige a comprovação do deslocamento do cônjuge para outro ponto. No caso, houve uma *opção* de permanência após férias, e não um deslocamento profissional originário que obrigasse a mudança da unidade familiar.
+* **Mandado de Segurança:** Exige prova pré-constituída. Não ficou provado que a permanência foi alheia à vontade ou por dever funcional do cônjuge.
+* **Voto:** Negar provimento.
+
+
+* **Pedido de Vista:** Ministro Antônio Carlos Ferreira.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Número do Processo:** RMS nº 0608272.
+* **UF/Cidade de Origem:** São Paulo (TRE/SP).
+* **Partes:** Hélio Alves de Souza Lima (Recorrente).
+* **Ministra Relatora:** Estela Aranha.
+* **Proclamação:** Julgamento suspenso (Pedido de Vista).
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* O servidor permanece sem a licença pleiteada até decisão final do plenário, devendo, em tese, retornar às funções ou regularizar a situação funcional sob pena de abandono de cargo (implícito).

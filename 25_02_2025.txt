@@ -1,0 +1,165 @@
+Abaixo apresento o relatório técnico da Sessão Plenária do Tribunal Superior Eleitoral (TSE) realizada em 25 de fevereiro de 2025.
+
+**DADOS DA SESSÃO**
+
+* **Data da Sessão:** 25/02/2025 (Terça-feira).
+* **Ministros Presentes:** Cármen Lúcia (Presidente), Nunes Marques (Vice-Presidente), André Mendonça, Isabel Gallotti (Corregedora-Geral), Antonio Carlos Ferreira, Floriano de Azevedo Marques (por videoconferência) e André Ramos Tavares.
+* **Representante do MPE:** Dr. Alexandre Espinosa (Vice-Procurador-Geral Eleitoral).
+
+---
+
+### **1. PROCESSO ADMINISTRATIVO: LISTA TRÍPLICE Nº 0613590-49**
+
+**[[09:25](http://www.youtube.com/watch?v=M10XRCKcFrs&t=565)]**
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Trata-se de apreciação de **Lista Tríplice** encaminhada pelo Tribunal Regional Eleitoral do Espírito Santo (TRE-ES) para preenchimento de vaga de **Juiz Substituto na classe de Advogado** (jurista), em decorrência do término do biênio do Dr. Eduardo Xible Salles Ramos. A análise restringiu-se à verificação dos requisitos objetivos e subjetivos dos indicados para o cargo.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Constituição Federal:** (Competência do TSE para homologar listas tríplices oriundas dos TREs).
+* **Normas infralegais:** Resolução-TSE nº 23.517 (Disciplina a elaboração de listas tríplices). Citada no voto: "(...) os três indicados preenchem os requisitos objetivos estabelecidos na Resolução-TSE nº 23.517".
+
+**3. PRECEDENTES CITADOS**
+Não houve citação de jurisprudência específica, apenas a menção à análise da Assessoria Consultiva (Assec) do TSE.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Premissas:** A relatora baseou-se no parecer técnico da assessoria do tribunal e na instrução dos autos.
+* **Fatos:** Após complementação documental, certificou-se que todos os advogados cumpriam as exigências legais (tempo de prática jurídica, idoneidade, etc.).
+* **Conclusão:** Voto pelo encaminhamento da lista ao Poder Executivo, atestando a regularidade formal e material das indicações.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Procedimento Administrativo:** Publicado o edital, não houve impugnação aos nomes indicados.
+* **Quórum:** Unanimidade.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Encaminhamento:** A lista será remetida ao **Presidente da República** para escolha e nomeação de um dos integrantes.
+
+**DADOS ESPECÍFICOS DO PROCESSO:**
+
+* **Número:** 0613590-49.
+* **UF:** Espírito Santo (ES).
+* **Cidade de Origem:** Vitória.
+* **Ministro Relator:** Min. Isabel Gallotti.
+* **Indicados:**
+1. Luna Oliveira Lucchesi Ramacciotti;
+2. Sandra Maria Teixeira Nobre Grassi;
+3. David Metzker Dias Soares.
+
+
+* **Advogados:** (Os próprios indicados atuam em causa própria/administrativa neste contexto).
+
+---
+
+### **2. AGRAVO REGIMENTAL NO AGRAVO DE INSTRUMENTO Nº 0600220-25**
+
+**[[12:59](http://www.youtube.com/watch?v=M10XRCKcFrs&t=779)]**
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Recurso referente ao **Registro de Candidatura (RCAND)** nas **Eleições Municipais de 2024**. O candidato ao cargo de **Vereador** teve o registro indeferido com base na Lei da Ficha Limpa.
+
+* **Núcleo do problema:** Inelegibilidade por rejeição de contas (ou conduta vedada grave), enquadrada no art. 1º, inciso I, alínea “g”, da LC 64/1990. A discussão processual centrou-se no **erro grosseiro** na interposição recursal.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Legislação Federal:** Lei Complementar nº 64/1990, art. 1º, inciso I, alínea “g” (inelegibilidade por rejeição de contas).
+* **Súmulas do TSE:**
+* **Súmula nº 36:** "(...) é inadmissível a interposição de recurso ordinário eleitoral contra acórdão regional proferido em processo de registro de candidatura nas eleições municipais...".
+
+
+
+**3. PRECEDENTES CITADOS**
+
+* O Relator mencionou genericamente "precedentes deste Tribunal" que sustentam a inaplicabilidade da fungibilidade em casos de erro grosseiro.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Questão Processual (Obice):** O agravante interpôs **Recurso Ordinário** contra acórdão do TRE que confirmou indeferimento de registro em eleição *municipal*.
+* **Tese Jurídica:** O recurso cabível seria o Especial Eleitoral. A interposição de Recurso Ordinário nessas hipóteses constitui **erro grosseiro**, afastando a aplicação do princípio da fungibilidade recursal.
+* **Conclusão:** Manutenção da negativa de seguimento ao recurso.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Inadequação da Via Recursal:** Aplicação rigorosa da taxatividade recursal eleitoral (Recurso Ordinário apenas para eleições federais/estaduais ou casos específicos de inelegibilidade originária).
+* **Quórum:** Unanimidade.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Manutenção do Indeferimento:** O candidato permanece com o registro indeferido para o pleito de 2024.
+
+**DADOS ESPECÍFICOS DO PROCESSO:**
+
+* **Número:** 0600220-25.
+* **Eleição:** 2024.
+* **UF:** Rio Grande do Sul (RS).
+* **Cidade de Origem:** Santana do Livramento.
+* **Ministro Relator:** Min. André Mendonça.
+* **Partes:**
+* **Agravante:** Solimar Charopen Gonçalves (Candidato).
+* **Agravado:** Ministério Público Eleitoral.
+
+
+
+---
+
+### **3. AGRAVO REGIMENTAL NO RECURSO ESPECIAL ELEITORAL Nº 0600112-54**
+
+**[[16:10](http://www.youtube.com/watch?v=M10XRCKcFrs&t=970)]**
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Processo de **Registro de Candidatura (RCAND)** para o cargo de **Prefeito** nas **Eleições de 2024**.
+
+* **Núcleo do problema:** Impugnação ao registro deferido na origem. Alegações de vínculo com organização criminosa ("facção"), ocultação de bens (transferência de sociedade para genitora) e ausência de certidão criminal.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Súmulas do TSE:**
+* **Súmula nº 26:** "É inadmissível o recurso que deixa de impugnar especificamente fundamento da decisão recorrida...".
+
+
+
+**3. PRECEDENTES CITADOS**
+
+* Mencionada a discussão concomitante no **REspe nº 0600242**, de relatoria do Min. Antonio Carlos Ferreira (julgado em 20/12/2024), que tratava da temática de organização criminosa envolvendo a mesma parte, mas que não impactou o resultado deste julgamento por ausência de provas.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Voto-Vista (Min. Antonio Carlos Ferreira):** O ministro havia pedido vista para examinar a alegada conexão do candidato eleito com organização criminosa.
+* **Mérito/Provas:** Concluiu que **não existem nos autos elementos informativos** que indiquem vínculo com facção criminosa.
+* **Ocultação de Bens:** A suposta transferência de empresa para a mãe não configura, por si só, causa de inelegibilidade e não foi comprovada como fraude.
+* **Certidão Criminal:** A falha na apresentação da certidão da Justiça Estadual foi devidamente sanada.
+
+
+* **Processual:** O agravante não impugnou especificamente os fundamentos da decisão do TRE, atraindo a **Súmula 26 do TSE**.
+* **Conclusão:** Acompanhou o relator para **não conhecer** do agravo, mantendo o deferimento do registro.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Pedido de Vista:** O julgamento havia iniciado em sessão virtual (08 a 14/11/2024) e foi concluído nesta sessão presencial após o voto-vista.
+* **Quórum:** Unanimidade (Relator Min. Floriano de Azevedo Marques acompanhado por todos).
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Deferimento Mantido:** Validação da candidatura e da eleição do prefeito eleito.
+
+**DADOS ESPECÍFICOS DO PROCESSO:**
+
+* **Número:** 0600112-54.
+* **Eleição:** 2024.
+* **UF:** São Paulo (SP).
+* **Cidade de Origem:** Caieiras.
+* **Ministro Relator:** Min. Floriano de Azevedo Marques.
+* **Ministro Vistor:** Min. Antonio Carlos Ferreira.
+* **Partes:**
+* **Agravante:** Nivaldo Batista Xavier.
+* **Agravados:** Gilmar Soares Vicente (Prefeito eleito) e Coligação "A Coragem que fez Caieiras Mudar".
+
+
+
+---
+
+**OBSERVAÇÕES FINAIS**
+A Presidente encerrou a sessão [[23:39](http://www.youtube.com/watch?v=M10XRCKcFrs&t=1419)] registrando os **93 anos da Justiça Eleitoral** (criada em 1932), exaltando seu papel na garantia da democracia participativa e na segurança do voto. Informou a realização de **Sessão Extraordinária** no dia seguinte, 26/02/2025, às 10h.

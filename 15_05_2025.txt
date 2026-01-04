@@ -1,0 +1,71 @@
+**Relatório Técnico de Sessão de Julgamento do TSE**
+
+**Data da Sessão:** 15 de Maio de 2025 (Quinta-feira).
+**Presidente da Sessão:** Ministra Cármen Lúcia.
+**Composição da Corte:** Ministros Cármen Lúcia, Nunes Marques (Presidente em exercício durante o julgamento do item 1), André Mendonça (Vice-Presidente em exercício), Isabel Gallotti (Corregedora-Geral), Antonio Carlos Ferreira, Floriano de Azevedo Marques, André Ramos Tavares e Gilmar Mendes (Decano do STF, em substituição).
+**Vice-Procurador-Geral Eleitoral:** Dr. Alexandre Espinosa Bravo Barbosa.
+
+---
+
+### [[13:21](http://www.youtube.com/watch?v=p7pjk8ggDMs&t=801)] JULGAMENTO DE AGRAVO REGIMENTAL NO RECURSO ESPECIAL ELEITORAL
+
+**1. DADOS DO PROCESSO**
+
+* **Número do Processo:** 0600464-46.2024.6.26.0141 (Número retificado em sessão pelo Presidente do julgamento às [[20:08](http://www.youtube.com/watch?v=p7pjk8ggDMs&t=1208)]. O processo foi inicialmente apregoado como 0600387-09).
+* **Relator:** Ministro Floriano de Azevedo Marques.
+* **Presidente do Julgamento (Ad Hoc):** Ministro Nunes Marques.
+* **Eleição:** Eleições Municipais de 2024.
+* **Cidade de Origem:** Taubaté.
+* **UF:** São Paulo (SP).
+* **Parties (Identificadas no voto):**
+* **Agravante:** Candidato ao cargo de Prefeito de Taubaté (nome não declinado expressamente).
+* **Agravada:** Coligação "Taubaté Que a Gente Quer".
+
+
+
+**2. ANÁLISE DO CONTEÚDO JURÍDICO**
+O caso trata de **propaganda eleitoral irregular** consistente no **impulsionamento de conteúdo negativo** na internet. O núcleo da controvérsia reside na utilização da ferramenta de impulsionamento pago na rede social *Facebook* para veicular críticas desairosas a candidato adversário, o que é vedado pela legislação eleitoral. Foram identificados dez anúncios/vídeos impulsionados com ataques à gestão e à pessoa do candidato opositor.
+
+**3. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Legislação Federal Eleitoral:**
+* **Lei nº 9.504/1997 (Lei das Eleições):** Art. 57-C, § 2º (fundamenta a aplicação da multa por impulsionamento irregular).
+
+
+* **Súmulas do TSE:**
+* **Súmula 26:** Citada para fundamentar o não conhecimento do agravo quando a parte não infirma especificamente os fundamentos da decisão agravada.
+* **Súmula 30:** Citada para demonstrar que o acórdão regional estava em consonância com a jurisprudência dominante do TSE.
+
+
+
+**4. PRECEDENTES CITADOS**
+
+* **Tribunal:** TSE.
+* **Relatores mencionados:** Ministro André Mendonça, Ministro André Ramos Tavares e Ministro Tarcisio Vieira de Carvalho Neto.
+* **Razão da citação:** Reforçar o entendimento consolidado da Corte de que o impulsionamento só é lícito para promoção benéfica de candidaturas, sendo vedado para críticas ou indução ao não voto ("propaganda negativa"), e que tal vedação não fere a liberdade de expressão.
+
+**5. RACIOCÍNIO DESENVOLVIDO (VOTO DO RELATOR)**
+
+* **Premissas:** O Relator, Ministro Floriano de Azevedo Marques, partiu da premissa normativa de que, embora a crítica política seja parte da liberdade de expressão, o **meio** utilizado (impulsionamento pago) possui restrição legal estrita (apenas para beneficiar candidato).
+* **Análise Fática:** Ficou incontroverso nos autos que os 10 vídeos impulsionados continham ataques diretos, como acusações de que o opositor "quebrou a cidade", "deixou a cidade endividada" e críticas à sua conduta profissional anterior ("jogando joguinho").
+* **Colisão de Princípios:** O voto enfrentou a alegação de defesa baseada na liberdade de expressão. O Relator esclareceu que a proibição não é sobre a crítica em si, mas sobre o financiamento (impulsionamento) dessa crítica. A jurisprudência do TSE entende que a vedação ao impulsionamento negativo é constitucional e visa manter a paridade de armas.
+* **Aspecto Processual:** O recurso não ultrapassou a barreira da admissibilidade (conhecimento) pois a defesa apenas repetiu argumentos anteriores sem atacar os fundamentos da decisão denegatória (incidência da Súmula 26) e porque a decisão do TRE-SP estava alinhada à jurisprudência do TSE (Súmula 30).
+
+**6. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Retificação de Pauta:** Houve uma correção no número do processo durante o julgamento (de 0600387-09 para 0600464-46), feita pelo Ministro Nunes Marques.
+* **Quórum e Votação:** Votação unânime. Todos os ministros presentes acompanharam o Relator.
+* **Sustentação Oral:** Não houve sustentação oral registrada no vídeo.
+
+**7. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Sanção Mantida:** Multa no valor total de **R$ 50.000,00** (R$ 5.000,00 por cada um dos dez anúncios irregulares), com base no art. 57-C, § 2º, da Lei 9.504/1997.
+* **Resultado:** Agravo Regimental não conhecido (mantendo-se a decisão monocrática e o acórdão do TRE-SP).
+
+---
+
+### [[23:51](http://www.youtube.com/watch?v=p7pjk8ggDMs&t=1431)] ENCERRAMENTO E LISTAS
+
+A sessão prosseguiu com o julgamento em bloco de listas de processos (Lista nº 1 do Min. Antonio Carlos Ferreira e Lista nº 1 do Min. André Ramos Tavares), cujos detalhes foram omitidos deste relatório conforme instrução de vedação ("IGNORE julgamento em lista ao final da sessão").
+
+A sessão foi encerrada às [[25:11](http://www.youtube.com/watch?v=p7pjk8ggDMs&t=1511)].

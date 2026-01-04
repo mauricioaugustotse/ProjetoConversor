@@ -1,0 +1,168 @@
+RELATÓRIO TÉCNICO DE SESSÃO DO TRIBUNAL SUPERIOR ELEITORAL (TSE)
+
+**Data da Sessão:** 11 de fevereiro de 2025
+**Ministros Presentes:** Cármen Lúcia (Presidente), Nunes Marques (Vice-Presidente), André Mendonça, Isabel Gallotti (Corregedora-Geral), Antonio Carlos Ferreira, Floriano de Azevedo Marques (por videoconferência) e André Ramos Tavares.
+**Ministras Substitutas Presentes:** Edilene Lôbo e Vera Lúcia Santana Araújo.
+**Vice-Procurador-Geral Eleitoral:** Alexandre Espinosa Bravo Barbosa.
+
+---
+
+### JULGAMENTO 1: Agravo Regimental no Recurso Especial Eleitoral nº 0600224-02
+
+[[35:54](http://www.youtube.com/watch?v=ehuLp_S5tQM&t=2154)] **Início do Julgamento**
+
+**1. DADOS DO PROCESSO**
+
+* **Número do Processo:** 0600224-02.
+* **Cidade de Origem:** Bandeirantes.
+* **UF:** Mato Grosso do Sul (MS).
+* **Eleição:** 2024 (Cargo: Prefeito).
+* **Ministro Relator:** André Mendonça.
+* **Parties (Partes):**
+* **Agravante:** Álvaro Nackle Urt (Candidato).
+* **Agravados:** Coligação "Vamos Fazer Muito Mais" e Ministério Público Eleitoral.
+
+
+
+**2. ANÁLISE DO CONTEÚDO JURÍDICO**
+O caso trata do **indeferimento de registro de candidatura** com base na **Lei da Ficha Limpa (LC 64/1990)**. O candidato teve seu mandato de prefeito (2017-2020) cassado pela Câmara de Vereadores (Decreto Legislativo nº 45/2020) por infrações político-administrativas. A controvérsia gira em torno da suspensão ou não dos efeitos dessa cassação por decisões da Justiça Comum e o marco temporal para considerar tais decisões (data do pleito vs. data posterior).
+
+**3. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Lei Complementar 64/1990:** Art. 1º, inciso I, alínea “c” (Inelegibilidade de prefeitos que perderem o cargo por infringência à Lei Orgânica).
+* **Resolução-TSE nº 23.609/2019:** Art. 52, *caput* (Causas de inelegibilidade aferidas no pedido de registro, ressalvadas alterações até a data do primeiro turno).
+* **Súmula 41 do TSE:** "Não cabe à Justiça Eleitoral decidir sobre o acerto ou desacerto de decisões proferidas por outros órgãos do Judiciário ou dos tribunais de contas que configurem causa de inelegibilidade".
+
+**4. PRECEDENTES CITADOS**
+
+* **STF, ADI nº 7197:** Citada pelo relator André Mendonça para fundamentar que alterações fáticas/jurídicas supervenientes para afastar inelegibilidade devem ocorrer até a data do pleito.
+* **STF, RE nº 1.096.029 (Tema 986 RG):** Rel. Min. Dias Toffoli (18/05/2020). Citado para justificar a necessidade de novas eleições independentemente da nulidade dos votos.
+
+**5. RACIOCÍNIO DESENVOLVIDO**
+
+* **Voto do Relator (Min. André Mendonça):**
+* O candidato obteve uma liminar no TJ-MS que garantia sua elegibilidade, mas não anulava o decreto de cassação. O Relator entendeu que a Justiça Comum usurpou competência da Eleitoral ao declarar "elegibilidade" sem anular o ato de cassação (afastando a Súmula 41 do TSE).
+* **Ponto Crucial (Fato Superveniente):** Após o recurso, o candidato obteve decisão no STJ (em 02/12/2024) suspendendo o decreto de cassação.
+* **Tese Temporal:** O Relator rejeita a aplicação dessa decisão do STJ porque ocorreu **após a data do primeiro turno das eleições de 2024**. Aplica-se o entendimento do STF (ADI 7197) de que alterações supervenientes só aproveitam ao candidato se ocorrerem até o dia da eleição.
+* **Conclusão:** Mantém-se a inelegibilidade e o indeferimento do registro.
+
+
+
+**6. PONTOS PROCESSUAIS RELEVANTES**
+
+* O Relator indeferiu pedido de efeito suspensivo ao agravo.
+* Discussão sobre a segurança jurídica e a estabilidade do processo eleitoral (marco temporal do 1º turno).
+
+**7. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Decisão proposta:** Desprovimento do agravo regimental.
+* **Consequência:** Determinação de **renovação das eleições (novas eleições)** para os cargos majoritários em Bandeirantes/MS, independentemente da publicação do acórdão.
+* **Status Atual:** Pedido de vista antecipada pelo Ministro **Nunes Marques**.
+
+---
+
+### JULGAMENTO 2: Recurso Especial Eleitoral nº 0600347-08
+
+[[50:43](http://www.youtube.com/watch?v=ehuLp_S5tQM&t=3043)] **Início do Julgamento**
+
+**1. DADOS DO PROCESSO**
+
+* **Número do Processo:** 0600347-08.
+* **Cidade de Origem:** Marituba.
+* **UF:** Pará (PA).
+* **Eleição:** 2024 (Cargo: Vice-Prefeita).
+* **Ministro Relator:** Antonio Carlos Ferreira.
+* **Parties (Partes):**
+* **Recorrente:** Coligação "Frente Popular Marituba Quer Mudança".
+* **Recorrida:** Bárbara Bessa Marques (Candidata eleita).
+
+
+* **Advogado Mencionado:** Dr. Jacob Kennedy Gonçalves (pela recorrente).
+
+**2. ANÁLISE DO CONTEÚDO JURÍDICO**
+O processo discute a **desincompatibilização de fato**. A candidata exonerou-se formalmente do cargo de Secretária Municipal de Administração no prazo legal, mas foi nomeada logo em seguida como "Assessora Especial" na mesma pasta. A coligação adversária alega que ela continuou exercendo, na prática, as funções de Secretária (desincompatibilização simulada).
+
+**3. FUNDAMENTAÇÃO NORMATIVA**
+
+* **LC 64/1990:** Prazos de desincompatibilização (3 meses para Secretário vs. 2 meses para cargos em comissão comuns, conforme explicado no voto).
+* **Súmula 24 do TSE:** Vedação ao reexame de fatos e provas em sede de recurso especial.
+
+**4. PRECEDENTES CITADOS**
+
+* Precedente do TSE (julgamento de 06/02/2025): Citado pela Min. Isabel Gallotti, estabelecendo que a mera alusão a obras ou interação com munícipes não comprova continuidade do exercício de fato da função de secretário, configurando apenas atos de campanha.
+
+**5. RACIOCÍNIO DESENVOLVIDO**
+
+* **Histórico:** O Relator (Min. Antonio Carlos) havia votado anteriormente pelo provimento do recurso (indeferimento do registro), entendendo haver burla à desincompatibilização.
+* **Voto Divergente (Min. Isabel Gallotti):**
+* Analisa as provas (fotos/vídeos em redes sociais) e conclui que não são robustas para provar o exercício de funções típicas de Secretária de Administração.
+* Os eventos citados (mutirão de limpeza, festival, pavimentação) seriam típicos de outras pastas (Infraestrutura/Cultura) ou compatíveis com atos de campanha política e com o cargo de assessora que ela ocupava legitimamente.
+* Não há provas documentais ou testemunhais de atos administrativos assinados por ela como Secretária após a exoneração.
+* Invoca a Súmula 24, pois reverter a decisão do TRE (que julgou as provas insuficientes) demandaria reexame fático.
+* **Conclusão:** Nega provimento ao recurso, mantendo o deferimento do registro.
+
+
+
+**6. PONTOS PROCESSUAIS RELEVANTES**
+
+* Julgamento retomado com voto-vista.
+* Divergência aberta pela Corregedora-Geral em relação ao Relator.
+
+**7. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Status Atual:** Pedido de vista pelo Ministro **André Ramos Tavares**. O julgamento está suspenso (placar parcial: Relator indefere registro vs. Divergência defere registro).
+
+---
+
+### JULGAMENTO 3: Agravo Regimental no Recurso Especial Eleitoral nº 0600283-14
+
+[[01:03:19](http://www.youtube.com/watch?v=ehuLp_S5tQM&t=3799)] **Início do Julgamento**
+
+**1. DADOS DO PROCESSO**
+
+* **Número do Processo:** 0600283-14.
+* **Cidade de Origem:** Ubatuba.
+* **UF:** São Paulo (SP).
+* **Eleição:** 2024 (Cargo: Prefeito).
+* **Ministro Relator:** André Ramos Tavares.
+* **Parties (Partes):**
+* **Agravante:** Movimento Democrático Brasileiro (MDB) - Municipal.
+* **Agravada:** Flávia Comitte do Nascimento (Prefeita eleita).
+
+
+* **Advogados Mencionados:** Dr. Caio Vinícius Araújo de Souza e Dr. Felipe Santos Correia (pelo MDB).
+
+**2. ANÁLISE DO CONTEÚDO JURÍDICO**
+Trata-se de impugnação ao registro de candidatura de prefeita eleita que teve mandato anterior cassado pela Câmara Municipal (Decreto Legislativo 01/2023). O cerne é se as decisões da Justiça Comum suspenderam a inelegibilidade ou apenas a afastaram do cargo provisoriamente por "poder geral de cautela".
+
+**3. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Lei Complementar 64/1990:** Art. 1º, inciso I, alínea “c” (Inelegibilidade por cassação de mandato).
+* **Lei Orgânica do Município:** Base da cassação legislativa.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Voto do Relator (Min. Ramos Tavares):**
+* A candidata obteve liminar no TJ-SP para retornar ao cargo.
+* Porém, na sentença de mérito da ação anulatória (maio de 2024), o juiz julgou **improcedente** o pedido de anulação da cassação, validando o decreto legislativo.
+* O juiz manteve a candidata no cargo apenas por "poder geral de cautela" para evitar instabilidade administrativa (alternância de poder) no fim do mandato, e não por reconhecer ilegalidade na cassação.
+* **Conclusão:** A inelegibilidade da alínea "c" permanece intacta, pois o decreto de cassação foi considerado válido pela Justiça Comum. A manutenção no cargo foi precária e não afastou os efeitos secundários da condenação (inelegibilidade).
+* A decisão do TJ serviu apenas para gestão administrativa, não para fins eleitorais de capacidade passiva.
+
+
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* O Relator destaca a distinção entre manter-se no cargo por cautela e a anulação jurídica da causa de inelegibilidade.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Decisão proposta:** Provimento do agravo e do recurso especial para **indeferir** o registro de candidatura.
+* **Consequência:** Determinação imediata de **novas eleições** para prefeito e vice em Ubatuba/SP, independentemente da publicação do acórdão.
+* **Status Atual:** Pedido de vista pelo Ministro **Nunes Marques**.
+
+---
+
+### ENCERRAMENTO
+
+[[01:19:13](http://www.youtube.com/watch?v=ehuLp_S5tQM&t=4753)] A Presidente Cármen Lúcia declarou encerrada a sessão, após a aprovação de listas de julgamento sem destaques (ignoradas neste relatório conforme instrução).

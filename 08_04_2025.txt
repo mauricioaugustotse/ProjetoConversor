@@ -1,0 +1,76 @@
+RELATÓRIO TÉCNICO DE SESSÃO DO TRIBUNAL SUPERIOR ELEITORAL
+
+**Sessão Plenária Jurisdicional Ordinária**
+**Data:** 08/04/2025 [[16:52](http://www.youtube.com/watch?v=P1ykygm3ZLQ&t=1012)]
+**Presidência:** Ministra Cármen Lúcia.
+
+**Composição da Corte (Ministros Presentes):**
+
+* Min. Cármen Lúcia (Presidente)
+* Min. Nunes Marques (Vice-Presidente - por videoconferência)
+* Min. André Mendonça
+* Min. Isabel Gallotti (Corregedora-Geral)
+* Min. Antonio Carlos Ferreira
+* Min. Floriano de Azevedo Marques
+* Min. André Ramos Tavares
+* **PGE:** Vice-Procurador-Geral Eleitoral, Dr. Alexandre Espinosa Bravo Barbosa.
+
+---
+
+### JULGAMENTO 1: Agravo Regimental no Agravo em Recurso Especial Eleitoral nº 0600044-89
+
+**[[19:10](http://www.youtube.com/watch?v=P1ykygm3ZLQ&t=1150)]**
+
+**1. DADOS GERAIS DO PROCESSO**
+
+* **Número:** 0600044-89.
+* **Classe:** Agravo Regimental no Agravo em Recurso Especial Eleitoral.
+* **Relator:** Min. André Mendonça.
+* **Cidade de Origem:** Viseu.
+* **UF:** Pará (PA).
+* **Eleição:** 2024.
+* **Parties (Partes):**
+* **Agravante:** Cristiano Dutra Vale.
+* **Agravado:** Partido Social Democrático (identificado na transcrição como "PSB municipal").
+
+
+* **Advogados:** Não houve sustentação oral ou menção nominal a advogados neste julgamento específico no vídeo.
+
+**2. ANÁLISE DO CONTEÚDO JURÍDICO**
+O caso trata de representação por **conduta vedada a agente público** em contexto de campanha eleitoral. O núcleo do litígio envolve a manutenção de publicidade institucional no site oficial da Prefeitura de Viseu/PA durante o período vedado (três meses anteriores ao pleito). As publicações promoviam a imagem pessoal do gestor (agravante). A controvérsia jurídica central reside na desnecessidade de comprovação de dolo ou de impacto direto no equilíbrio do pleito para a configuração do ilícito, bastando a veiculação objetiva.
+
+**3. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Súmula nº 26 do TSE:** Citada para fundamentar a ausência de impugnação específica aos fundamentos da decisão agravada.
+* **Súmula nº 24 do TSE:** Invocada quanto à impossibilidade de reexame de fatos e provas em sede de recurso especial ("inalterável nesta seara recursal").
+* **Súmula nº 30 do TSE:** Utilizada para afastar o dissídio jurisprudencial, visto que o acórdão recorrido está em consonância com a jurisprudência da Corte.
+* **Súmula nº 28 do TSE:** Aplicada devido à falta de cotejo analítico na alegação de divergência jurisprudencial (mera transcrição de ementas).
+
+**4. PRECEDENTES CITADOS**
+
+* **Tribunal:** TSE.
+* **Classe/Número:** Agravo no Recurso Especial Eleitoral nº 0600481 (Procedência: São Paulo).
+* **Relator:** Min. Benedito Gonçalves.
+* **Razão de Decidir:** "A manutenção da publicidade institucional em período vedado caracteriza o ilícito, ainda que autorizada e veiculada anteriormente, sendo desnecessária a prova do intuito eleitoreiro e de potencial para desequilibrar a disputa, pois ocorre de modo objetivo" [[22:16](http://www.youtube.com/watch?v=P1ykygm3ZLQ&t=1336)].
+
+**5. RACIOCÍNIO DESENVOLVIDO**
+
+* **Relator (Min. André Mendonça):** O Ministro destacou que o Tribunal Regional Eleitoral do Pará (TRE-PA) assentou, com base no conjunto fático-probatório, a existência de publicações no site oficial da prefeitura promovendo o gestor durante o período vedado.
+* **Natureza Objetiva do Ilícito:** O voto reforçou a tese de que a conduta vedada de publicidade institucional opera de modo objetivo. Não é necessário perquirir a intenção (dolo) do agente ou se a conduta teve "impacto direto" ou "potencial para desequilibrar" a disputa para que a multa seja aplicada. A simples manutenção da publicidade no período proscrito já aperfeiçoa o ilícito.
+* **Óbices Sumulares:** O recurso encontrou barreiras processuais intransponíveis (Súmulas 24, 26, 28 e 30), pois o agravante não impugnou especificamente os fundamentos, tentou revolver fatos e não demonstrou divergência jurisprudencial de forma analítica.
+
+**6. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Proclamação:** O julgamento foi unânime. Votaram acompanhando o relator: Min. Isabel Gallotti, Min. Antonio Carlos Ferreira, Min. Floriano de Azevedo Marques, Min. André Ramos Tavares, Min. Nunes Marques e a Presidente Min. Cármen Lúcia.
+* **Retirada de Pauta (Outro Processo):** Antes deste julgamento, foi anunciada a retirada de pauta do Agravo Regimental no REspe nº 0600043-52 (Serra/ES), a pedido do relator Min. Nunes Marques [[18:52](http://www.youtube.com/watch?v=P1ykygm3ZLQ&t=1132)].
+
+**7. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Resultado:** Negado provimento ao Agravo Regimental.
+* **Sanção Mantida:** Multa por conduta vedada (o valor não foi explicitado no voto oral, mas confirmou-se a sanção aplicada na origem).
+* **Manutenção do Acórdão Regional:** A decisão do TRE-PA foi integralmente mantida.
+
+---
+
+**Observações Finais da Sessão:**
+Ao final [[26:28](http://www.youtube.com/watch?v=P1ykygm3ZLQ&t=1588)], a Presidente convocou Sessão Extraordinária para o dia seguinte (09/04/2025, quarta-feira, às 09h), em virtude do feriado forense da Semana Santa (Lei da Justiça) que recairia no dia 15/04.

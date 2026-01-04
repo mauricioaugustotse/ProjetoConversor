@@ -1,0 +1,107 @@
+Com base na análise técnica do vídeo da Sessão Plenária do Tribunal Superior Eleitoral, apresento o relatório detalhado dos julgamentos realizados.
+
+**DADOS DA SESSÃO**
+
+* **Data da Sessão:** 14 de agosto de 2025.
+* **Ministros Presentes:** Cármen Lúcia (Presidente), Nunes Marques (Vice-Presidente), André Mendonça, Isabel Gallotti (Corregedora-Geral), Antonio Carlos Ferreira, Floriano de Azevedo Marques e Estela Aranha.
+* **PGE:** Vice-Procurador-Geral Eleitoral Alexandre Espinosa Bravo Barbosa.
+
+---
+
+### [[27:03](http://www.youtube.com/watch?v=GidlRSEhuCo&t=1623)] 1. RECURSO ESPECIAL ELEITORAL Nº 0600126-87
+
+**DADOS DO PROCESSO**
+
+* **Eleição:** Eleições Municipais de 2024.
+* **Cidade de Origem:** Queimadas.
+* **UF:** Bahia (BA).
+* **Recorrente:** Partido Social Democrático (PSD) - Municipal.
+* **Recorridos:** André Batista de Oliveira e Federação Brasil da Esperança.
+* **Relator:** Ministro Antonio Carlos Ferreira.
+* **Advogada (Sustentação Oral):** Dra. Marilda de Paula Silveira (pelo recorrente).
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+O cerne da controvérsia reside na **inelegibilidade decorrente de renúncia ao mandato parlamentar** para evitar processo de cassação (fraude à lei), especificamente no contexto de quebra de decoro parlamentar por violência doméstica. O candidato a vereador renunciou ao mandato um dia antes (ou horas antes) da sessão que decidiria sobre a abertura do processo de cassação na Câmara Municipal. O TRE-BA havia deferido o registro, argumentando vício no processo de cassação e posterior concessão de cautelar suspensiva pela Justiça Comum.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Legislação Federal:**
+* **Lei Complementar nº 64/1990 (Lei de Inelegibilidades):** Art. 1º, inciso I, alínea *k* (citada expressamente como fundamento para o indeferimento).
+* **Decreto-Lei nº 201/1967:** Mencionado quanto ao rito de cassação de vereadores.
+* **Código Eleitoral:** Art. 257, §1º (sobre a execução imediata).
+
+
+* **Normas Infralegais:**
+* **Resolução TSE nº 23.609/2019:** Art. 52 (regulamenta a aferição da inelegibilidade).
+
+
+
+**3. PRECEDENTES CITADOS**
+
+* **Súmula nº 41 do TSE:** Invocada pela advogada para sustentar que não cabe à Justiça Eleitoral julgar o mérito ou procedimento das razões que levam à cassação ("Não cabe à Justiça Eleitoral decidir sobre o acerto ou desacerto das decisões proferidas em outros processos...").
+* **ADI 7197 (STF):** Citada pelo Relator para fundamentar que a inelegibilidade deve ser aferida com base na situação jurídica existente até a data do primeiro turno, tornando irrelevante decisão judicial superveniente posterior a esse marco.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Natureza Objetiva da Alínea 'k':** O Relator e o Colegiado firmaram a tese de que a inelegibilidade da alínea *k* é objetiva. Para sua incidência, bastam dois requisitos simultâneos: 1) o oferecimento de representação apta a autorizar a abertura de processo de cassação; e 2) a renúncia do parlamentar após esse fato.
+* **Irrelevância de Vícios Internos corporis:** O TSE reafirmou que não possui competência para analisar a regularidade formal do rito legislativo da Câmara de Vereadores (matéria da Justiça Comum).
+* **Confissão e Causalidade:** Foi destacado, tanto na sustentação quanto nos votos, que o próprio candidato confessou (em vídeo) ter renunciado para evitar a cassação, o que comprova o dolo de frustrar a aplicação da lei.
+* **Superveniência de Decisão (ADI 7197):** A liminar obtida na Justiça Comum suspendendo o processo administrativo foi considerada irrelevante para afastar a inelegibilidade, pois ocorreu após o pleito (data do primeiro turno), não alterando o status jurídico do candidato no momento crítico de aferição.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Sustentação Oral:** Realizada pela Dra. Marilda de Paula Silveira, que enfatizou a Súmula 41 e a objetividade da renúncia antecipada.
+* **Votação:** Unânime. Todos os ministros acompanharam o relator.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Provimento do Recurso:** Reforma do acórdão do TRE-BA.
+* **Indeferimento do Registro:** O candidato André Batista de Oliveira teve seu registro de candidatura indeferido.
+* **Execução Imediata:** Determinação de comunicação imediata ao TRE-BA e à Câmara Municipal de Queimadas para o **afastamento imediato** do recorrido do cargo de vereador.
+
+---
+
+### [[44:18](http://www.youtube.com/watch?v=GidlRSEhuCo&t=2658)] 2. MANDADO DE SEGURANÇA Nº 0613678-87 (Agravo Interno)
+
+**DADOS DO PROCESSO**
+
+* **Eleição:** Não especificada explicitamente no trecho, mas refere-se a recálculo de quociente partidário (sobras) de pleito proporcional anterior.
+* **Cidade de Origem:** Araruama.
+* **UF:** Rio de Janeiro (RJ).
+* **Impetrante/Agravado:** Diego Fernandes da Silva.
+* **Impetrado:** Tribunal Regional Eleitoral do Rio de Janeiro (Ato da Desembargadora Kátia Valverde Junqueira).
+* **Terceiros Interessados:** Diretório Municipal do Partido Novo e Wagner Domingues de Macedo.
+* **Relator:** Ministro Floriano de Azevedo Marques (reajustou o voto para acompanhar a divergência).
+* **Relator da Divergência:** Ministro Nunes Marques.
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+A questão central é a **competência originária para julgamento de Mandado de Segurança**. Discute-se se o TSE é competente para julgar *mandamus* impetrado contra ato monocrático de relator (Desembargadora) de Tribunal Regional Eleitoral. O ato coator envolvia a contabilização de votos de uma candidata (Damiana Sidinéia Oliveira) para fins de quociente partidário, o que alteraria a composição da Câmara Municipal.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Lei Orgânica da Magistratura Nacional (LOMAN - LC 35/1979):** Art. 21, inciso VI (atribui competência aos tribunais para julgar MS contra seus próprios atos).
+* **Código Eleitoral:** Art. 64, §4º (sobre a manutenção dos efeitos da decisão mesmo em caso de incompetência).
+* **Código de Processo Civil (CPC/2015):** Art. 64, §§ 3º e 4º (remessa ao juízo competente e conservação dos efeitos da decisão).
+
+**3. PRECEDENTES CITADOS**
+
+* **Súmula nº 34 do TSE:** Citada pelo Ministro Nunes Marques: "Não compete ao Tribunal Superior Eleitoral processar e julgar mandado de segurança contra ato de membro de Tribunal Regional Eleitoral."
+* **Jurisprudência do STF:** A Presidente Cármen Lúcia mencionou o entendimento do STF (voto histórico do Min. Sepúlveda Pertence) de que Tribunais Superiores não são "órgãos de distribuição" e não devem conhecer de MS por incompetência, salvo risco de decadência.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Incompetência Absoluta:** Prevaleceu o entendimento (iniciado por Nunes Marques e aderido pelos demais, inclusive o Relator) de que o TSE não tem competência para julgar ato de membro de TRE. A competência é do próprio TRE (Colegiado).
+* **Teratologia vs. Competência:** O Relator originário (Floriano) havia concedido a ordem baseada na teratologia (ilegalidade flagrante) da decisão do TRE-RJ, que criava instabilidade jurídica na diplomação. Contudo, a divergência pontuou que a ilegalidade do ato não outorga competência ao TSE para superá-la ("Competente não é quem quer, é quem pode").
+* **Solução Intermediária (Translatio Iudicii):** Para evitar prejuízo irreparável (alteração na composição da Câmara), o Tribunal decidiu não conhecer do pedido, remeter os autos ao TRE-RJ, mas **manter a liminar ativa** até que o juízo competente (TRE-RJ) se pronuncie.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Reajuste de Voto:** O Relator, Min. Floriano, reajustou seu voto durante a sessão para concordar com a tese da incompetência trazida por Nunes Marques, desde que mantida a liminar.
+* **Quórum:** Unanimidade na tese final (incompetência + remessa + manutenção da liminar).
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Não conhecimento:** O Mandado de Segurança não foi conhecido pelo TSE.
+* **Declinação de Competência:** Envio dos autos ao Tribunal Regional Eleitoral do Rio de Janeiro.
+* **Manutenção da Tutela:** Os efeitos da liminar (que impedia a alteração na totalização/diplomação) foram mantidos até o reexame pelo TRE-RJ.
+* **Recomendação:** Foi expressamente consignada uma recomendação de "urgência e prioridade" no exame do feito pelo Tribunal fluminense.

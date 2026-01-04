@@ -1,0 +1,127 @@
+Apresento a seguir o relatório técnico da sessão jurisdicional do Tribunal Superior Eleitoral, realizado conforme os parâmetros estritos da solicitação.
+
+---
+
+**DATA DA SESSÃO:** 04 de setembro de 2025
+**MINISTROS PRESENTES:**
+
+* **Presidente:** Cármen Lúcia.
+* **Ministros:** Nunes Marques (Vice-Presidente), André Mendonça, Isabel Gallotti (Corregedora-Geral), Antonio Carlos Ferreira, Floriano de Azevedo Marques e Estela Aranha.
+* **Vice-Procurador-Geral Eleitoral:** Alexandre Espinosa Bravo Barbosa.
+
+---
+
+# JULGAMENTO 1: RECURSOS EM MANDADO DE SEGURANÇA (CONJUNTO)
+
+**[[18:23](http://www.youtube.com/watch?v=MgRPOeLEAeg&t=1103)] DADOS DO PROCESSO**
+
+1. **Número dos Processos:** RMS nº 0600018–02 e RMS nº 0600022–39.
+2. **Eleição a que se refere:** Eleições Gerais de 2022 (Deputado Estadual).
+3. **Cidade de Origem:** Belém.
+4. **UF:** Pará (PA).
+5. **Relator:** Ministro Antonio Carlos Ferreira.
+6. **Partes Envolvidas:**
+* **Recorrentes:** Paulo Henrique Ribeiro Soares Júnior (1º suplente do PL) e Rildo de Oliveira Pessoa (1º suplente do Podemos).
+* **Recorridos:** Francisco de Chagas Silva Melo Filho (Presidente da ALEPA - Assembleia Legislativa do Pará), João de Nazaré Pincarrilho Neto (Suplente empossado) e Diretório Estadual do Podemos.
+* **Terceiro citado:** Tony Cunha (Deputado titular que renunciou).
+
+
+7. **Advogados:** Não houve menção nominal ou sustentação oral registrada no vídeo.
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+O núcleo da controvérsia reside na definição da **competência da Justiça Eleitoral** para intervir em atos  interna corporis* do Poder Legislativo referentes à ordem de convocação de suplentes após a diplomação. O caso concreto envolve a vacância do cargo de Deputado Estadual decorrente da renúncia do titular (Tony Cunha, eleito pelo PSC e migrado para o PL após fusão/incorporação) para assumir a Prefeitura de Marabá. Disputam a vaga: o suplente do partido original (extinto PSC, incorporado pelo Podemos), o suplente do partido atual do titular (PL) e o suplente do partido incorporador (Podemos). O TRE-PA declarou-se incompetente.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Jurisprudência Consolidada:** A fundamentação baseia-se na premissa de que a competência da Justiça Eleitoral cessa com a diplomação dos eleitos.
+* **Constituição Federal:** Invocação implícita do princípio da separação de poderes (atos interna corporis).
+
+**3. PRECEDENTES CITADOS**
+
+* **Supremo Tribunal Federal (STF):** Citada a orientação de que a lista de suplentes é fixada na diplomação e que controvérsias ulteriores, salvo infidelidade partidária, fogem à competência eleitoral.
+* **Superior Tribunal de Justiça (STJ):** Referência ao entendimento de que disputas sobre ordem de suplência são matéria da Justiça Comum Estadual (à míngua de fator eleitoral específico).
+* **Tribunal Superior Eleitoral (TSE):** "Jurisprudência clássica" (termos do Relator) sobre o fim da competência eleitoral após a diplomação.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Premissa:** O Relator Antonio Carlos Ferreira estabeleceu que a Justiça Eleitoral (JE) só é competente para discutir a ordem de suplentes se a questão envolver diretamente o processo eleitoral (antes da diplomação) ou matérias específicas constitucionais como a infidelidade partidária.
+* **Subsunção:** O caso trata de ato do Presidente da Assembleia Legislativa ocorrido em 2025 (pós-diplomação de 2022). Não se trata de Ação de Perda de Mandato Eletivo por Infidelidade Partidária, mas de Mandado de Segurança contra ato de posse.
+* **Conclusão:** Confirmou-se o acórdão regional do TRE-PA. A JE é incompetente para processar o feito, pois a discussão sobre quem deve assumir a vaga (suplente do partido incorporado, incorporador ou do partido de migração) após a diplomação é matéria afeta à Justiça Comum ou interna da Casa Legislativa.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Tempestividade:** Recursos reconhecidos como tempestivos.
+* **Votação:** Unânime. O Ministro Floriano de Azevedo Marques destacou que a diplomação é o marco final da jurisdição eleitoral e também o ato que fixa a ordem de sucessão.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Extinção do Processo:** Manutenção da decisão do TRE-PA que extinguiu os mandados de segurança sem resolução de mérito por incompetência absoluta da Justiça Eleitoral.
+* **Resultado:** Negado provimento aos recursos ordinários.
+
+---
+
+# JULGAMENTO 2: AGRAVO REGIMENTAL EM RECURSO ESPECIAL ELEITORAL
+
+**[[30:43](http://www.youtube.com/watch?v=MgRPOeLEAeg&t=1843)] DADOS DO PROCESSO**
+
+1. **Número do Processo:** AgR no REspe nº 0600321–37.
+2. **Eleição a que se refere:** Eleições Municipais de 2024 (Vereador).
+3. **Cidade de Origem:** Caraúbas do Piauí.
+4. **UF:** Piauí (PI).
+5. **Relator:** Ministro Floriano de Azevedo Marques.
+6. **Partes Envolvidas:**
+* **Agravante (Falecido):** Francisco das Chagas Brito (Candidato a Vereador).
+* **Interessado (Ingresso deferido):** Federação Brasil da Esperança (PT/PCdoB/PV).
+
+
+7. **Ministro com Destaque:** Nunes Marques (havia pedido destaque em sessão virtual anterior).
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+O julgamento versa sobre **Registro de Candidatura (RCand)** e **Quitação Eleitoral**. O problema central é a validade de uma candidatura indeferida por contas não prestadas (referentes a 2016), onde a regularização (sentença de procedência na prestação de contas) ocorreu apenas *após* a data da eleição de 2024. Adicionalmente, houve o falecimento do candidato no curso do processo, exigindo análise da sucessão processual pela Federação para aproveitamento dos votos (legenda).
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Lei das Eleições (Lei 9.504/1997):**
+* **Art. 16-A:** Citado para justificar o interesse da Federação em validar os votos do candidato *sub judice*, que seriam computados para a legenda.
+
+
+* **Resoluções do TSE:**
+* **Res.-TSE nº 23.729/2024:** Fixa que alterações fáticas ou jurídicas supervenientes devem ocorrer até a data do pleito.
+* **Res.-TSE nº 23.607/2019 (Art. 80, §1º, I e IV):** Estabelece que o julgamento de contas não prestadas impede a quitação até o fim da legislatura e que o pedido de regularização não tem efeito suspensivo.
+
+
+* **Súmulas do TSE:**
+* **Súmula 26:** Óbice processual (falta de impugnação específica), superada excepcionalmente pelo fato novo.
+* **Súmula 43:** Alterações fáticas/jurídicas supervenientes ao registro que afastem a inelegibilidade devem ocorrer até a data do pleito.
+
+
+
+**3. PRECEDENTES CITADOS**
+
+* **STF (Supremo Tribunal Federal):**
+* **ADI 7197:** Estabeleceu a data da eleição como marco final para alterações supervenientes.
+* **ADI 7677:** Declarou a constitucionalidade das normas sobre contas não prestadas.
+
+
+* **TSE:**
+* Agravo em REspe (Rel. Min. Ricardo Lewandowski): Sobre interesse jurídico do partido/federação.
+* Precedentes dos Ministros André Mendonça e Isabel Gallotti sobre o marco temporal do 1º turno.
+
+
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Questão Preliminar (Morte do Candidato):** O candidato Francisco das Chagas Brito faleceu em 16/12/2024. O recurso ficou prejudicado quanto a ele (diplomação pessoal impossível). Contudo, a Federação demonstrou interesse jurídico para validação dos votos para o cálculo do quociente partidário.
+* **Mérito (Fato Superveniente):** O candidato tinha contas de 2016 julgadas "não prestadas". Ele pediu regularização, mas a sentença deferindo a regularização só saiu em **31 de outubro de 2024**.
+* **Tese Aplicada:** A regularização da situação jurídica (fato superveniente) ocorreu *após* a data do 1º turno das eleições (06/10/2024). Segundo a jurisprudência do STF (ADI 7197) e Súmula 43/TSE, fatos ocorridos após a votação não podem retroagir para deferir o registro. Logo, na data da eleição, ele estava inapto (sem quitação).
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Superação da Súmula 26:** O Relator superou a deficiência na fundamentação do recurso para analisar o mérito devido ao "fato novo" (sentença de contas) e à relevância do direito (elegibilidade).
+* **Intervenção de Terceiro:** Deferido o ingresso da Federação Brasil da Esperança no polo ativo.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Manutenção do Indeferimento:** O registro de candidatura permanece indeferido.
+* **Nulidade dos Votos:** Como o registro foi negado em definitivo, os votos atribuídos ao candidato falecido são nulos e não serão contados nem para a legenda, impactando os quocientes eleitoral e partidário em Caraúbas do Piauí.
+* **Proclamação:** Ingresso da Federação deferido; recurso prejudicado quanto ao falecido; no mérito (quanto à Federação), **negado provimento** por unanimidade.

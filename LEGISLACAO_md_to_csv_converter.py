@@ -1,14 +1,16 @@
 ﻿# -*- coding: utf-8 -*-
 """
-Script AUTOMÁTICO e ESTRUTURADO para converter um arquivo Markdown de legislação
-em um arquivo CSV formatado para importação no Notion, respeitando a hierarquia
-de artigos, parágrafos, incisos e alíneas.
+Script AUTOMÁTICO e ESTRUTURADO para converter um arquivo de legislação
+(Markdown, PDF ou DOCX) em um arquivo CSV formatado para importação no Notion,
+respeitando a hierarquia de artigos, parágrafos, incisos e alíneas.
 """
 
 import csv
 import re
 import os
 import glob
+
+SUPPORTED_EXTENSIONS = (".md", ".pdf", ".docx")
 
 
 def normalize_ordinals(text):
@@ -186,24 +188,135 @@ def save_current_item(rows, title, text_lines):
             print(f"[VERBOSE] Item '{title_normalized or title}' extraido e limpo.")
     return [], "", cleaned_text
 
+def select_input_file():
+    """Abre o explorer para selecionar o arquivo de entrada."""
+    try:
+        import tkinter as tk
+        from tkinter import filedialog
+    except Exception as exc:
+        print(f"[AVISO] Não foi possível carregar o explorer: {exc}")
+        return None
+
+    try:
+        root = tk.Tk()
+        root.withdraw()
+        root.update()
+        file_path = filedialog.askopenfilename(
+            title="Selecione o arquivo de legislação",
+            filetypes=[
+                ("Arquivos suportados", "*.md *.pdf *.docx"),
+                ("Markdown", "*.md"),
+                ("PDF", "*.pdf"),
+                ("Word", "*.docx"),
+                ("Todos os arquivos", "*.*"),
+            ],
+        )
+        root.destroy()
+    except Exception as exc:
+        print(f"[AVISO] Não foi possível abrir o explorer: {exc}")
+        return None
+
+    return file_path if file_path else None
+
+def find_local_input_file():
+    """Procura arquivo .md/.pdf/.docx na pasta atual."""
+    print("\n[INFO] Nenhum arquivo selecionado. Procurando por arquivo .md, .pdf ou .docx na pasta atual...")
+    candidates = []
+    for name in glob.glob("*"):
+        if not os.path.isfile(name):
+            continue
+        if os.path.splitext(name)[1].lower() in SUPPORTED_EXTENSIONS:
+            candidates.append(name)
+    candidates = sorted(set(candidates))
+
+    if not candidates:
+        print("\n[ERRO] Nenhum arquivo .md, .pdf ou .docx foi encontrado. Coloque o arquivo de legislação na mesma pasta.")
+        return None
+
+    if len(candidates) > 1:
+        print(f"[AVISO] Múltiplos arquivos encontrados. Usando o primeiro: '{candidates[0]}'")
+    else:
+        print(f"[INFO] Arquivo encontrado: '{candidates[0]}'")
+    return candidates[0]
+
+def read_markdown_content(file_path):
+    try:
+        with open(file_path, 'r', encoding='utf-8') as md_file:
+            return md_file.read()
+    except Exception as exc:
+        print(f"\n[ERRO] Não foi possível ler o arquivo Markdown: {exc}")
+        return None
+
+def read_pdf_content(file_path):
+    try:
+        import fitz
+    except Exception:
+        print("\n[ERRO] PyMuPDF (pymupdf) não está instalado. Instale com: python -m pip install pymupdf")
+        return None
+
+    try:
+        with fitz.open(file_path) as doc:
+            return "\n".join(page.get_text("text") for page in doc)
+    except Exception as exc:
+        print(f"\n[ERRO] Não foi possível ler o arquivo PDF: {exc}")
+        return None
+
+def read_docx_content(file_path):
+    try:
+        from docx import Document
+    except Exception:
+        print("\n[ERRO] python-docx não está instalado. Instale com: python -m pip install python-docx")
+        return None
+
+    try:
+        doc = Document(file_path)
+        lines = []
+        for paragraph in doc.paragraphs:
+            text = (paragraph.text or "").strip()
+            if text:
+                lines.append(text)
+        for table in doc.tables:
+            for row in table.rows:
+                cells = [cell.text.strip() for cell in row.cells if cell.text and cell.text.strip()]
+                if cells:
+                    lines.append(" | ".join(cells))
+        return "\n".join(lines)
+    except Exception as exc:
+        print(f"\n[ERRO] Não foi possível ler o arquivo DOCX: {exc}")
+        return None
+
+def load_input_content(file_path):
+    ext = os.path.splitext(file_path)[1].lower()
+    if ext == ".md":
+        return read_markdown_content(file_path)
+    if ext == ".pdf":
+        return read_pdf_content(file_path)
+    if ext == ".docx":
+        return read_docx_content(file_path)
+    print("\n[ERRO] Formato não suportado. Use .md, .pdf ou .docx.")
+    return None
+
 def find_and_convert_markdown_to_csv():
     """
-    Função principal que localiza o .md, processa a estrutura e gera o .csv.
+    Função principal que localiza o arquivo, processa a estrutura e gera o .csv.
     """
-    print("--- Conversor Estruturado de Markdown de Leis para CSV (Notion) ---")
+    print("--- Conversor Estruturado de Leis (MD/PDF/DOCX) para CSV (Notion) ---")
 
-    print("\n[INFO] Procurando por arquivo .md na pasta...")
-    markdown_files = glob.glob('*.md')
+    print("\n[INFO] Selecione o arquivo (.md, .pdf ou .docx) no explorer.")
+    input_filename = select_input_file()
+    if input_filename:
+        print(f"[INFO] Arquivo selecionado: '{input_filename}'")
+        if os.path.splitext(input_filename)[1].lower() not in SUPPORTED_EXTENSIONS:
+            print("\n[ERRO] O arquivo selecionado não possui extensão suportada (.md, .pdf, .docx).")
+            return
+    else:
+        input_filename = find_local_input_file()
+        if not input_filename:
+            return
 
-    if not markdown_files:
-        print("\n[ERRO] Nenhum arquivo .md foi encontrado. Coloque o arquivo de legislação na mesma pasta.")
-        return
-
-    input_filename = markdown_files[0]
-    print(f"[INFO] Arquivo encontrado: '{input_filename}'")
-    
-    base_name = os.path.splitext(input_filename)[0]
-    output_filename = f"{base_name}.csv"
+    base_name = os.path.splitext(os.path.basename(input_filename))[0]
+    output_dir = os.path.dirname(input_filename) or "."
+    output_filename = os.path.join(output_dir, f"{base_name}.csv")
 
     print(f"\nIniciando a conversão estruturada para '{output_filename}'...")
 
@@ -228,8 +341,10 @@ def find_and_convert_markdown_to_csv():
         re.IGNORECASE,
     )
 
-    with open(input_filename, 'r', encoding='utf-8') as md_file:
-        content = md_file.read()
+    content = load_input_content(input_filename)
+    if not content:
+        print("\n[ERRO] Não foi possível carregar o conteúdo do arquivo de entrada.")
+        return
 
     start_index = -1
     match = re.search(r"Art\.\s*1", content, re.IGNORECASE)
@@ -533,7 +648,7 @@ def find_and_convert_markdown_to_csv():
         
         print("\n---------------------------------------------------------")
         if not all_rows:
-            print("[AVISO] Nenhum artigo foi extraído. Verifique o formato do arquivo .md.")
+            print("[AVISO] Nenhum artigo foi extraído. Verifique o formato do arquivo de entrada.")
         else:
             print(f"[SUCESSO] Conversão concluída! {len(all_rows)} itens foram processados.")
             print(f"O arquivo CSV foi salvo como: '{output_filename}'")

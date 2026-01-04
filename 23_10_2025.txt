@@ -1,0 +1,126 @@
+RELATÓRIO TÉCNICO DE JULGAMENTO – TRIBUNAL SUPERIOR ELEITORAL
+
+**DADOS GERAIS DA SESSÃO**
+
+* **Data da Sessão:** 23 de outubro de 2025.
+* **Horário de Início:** 09:33 (conforme timestamp de abertura).
+* **Composição da Mesa (Ministros Presentes):**
+* Min. Cármen Lúcia (Presidente – abre a sessão).
+* Min. Kassio Nunes Marques (Presidente em exercício durante o julgamento principal).
+* Min. André Mendonça.
+* Min. Cristiano Zanin.
+* Min. Isabel Gallotti (Corregedora).
+* Min. Antônio Carlos Ferreira.
+* Min. Floriano de Azevedo Marques.
+* Min. Estela Aranha.
+
+
+* **Ministério Público Eleitoral:** Vice-PGE Alexandre Espinosa Bravo Barbosa.
+
+---
+
+### [[11:32](http://www.youtube.com/watch?v=mLhFu5T0c0U&t=692)] PROCESSO: Recurso Especial Eleitoral nº 0600318-54
+
+**1. DADOS DE IDENTIFICAÇÃO**
+
+* **Eleição:** Eleições Municipais de 2024.
+* **Cargo:** Prefeito.
+* **Cidade de Origem:** São Sebastião da Grama.
+* **UF:** São Paulo (SP).
+* **Relator:** Ministro Floriano de Azevedo Marques.
+* **Partes Envolvidas:**
+* **Recorrente:** José Francisco Marta (Candidato a Prefeito/Prefeito Eleito).
+* **Recorrido/Coligação:** Coligação "É Hora de Avançar" (mencionado no voto do relator).
+
+
+* **Advogado (Sustentação Oral):** Dr. Júlio Dias Taliberti (pelo recorrente).
+
+**2. ANÁLISE DO CONTEÚDO JURÍDICO**
+O julgamento versa sobre o **Registro de Candidatura** (RCAND) e a incidência de **inelegibilidade** prevista na Lei Complementar nº 64/1990 (Lei de Inelegibilidades), decorrente de condenação por **improbidade administrativa** (dano ao erário e enriquecimento ilícito).
+Discute-se, centralmente:
+
+1. Se a condenação na Justiça Comum preenche os requisitos cumulativos da alínea *l* (dano ao erário + enriquecimento ilícito).
+2. A existência de dolo específico na conduta do gestor.
+3. O **marco temporal** para a consideração de fatos supervenientes (suspensão da condenação pelo STJ) que afastam a inelegibilidade: se a data do 1º turno (conforme jurisprudência do TSE) ou a data da diplomação (conforme novo art. 26-D da LC 64/90).
+
+**3. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Constituição Federal:** Princípio da anualidade/anterioridade (art. 16) – suscitado pela defesa.
+* **Lei Complementar nº 64/1990:**
+* Art. 1º, inciso I, alínea *l*: Causa de inelegibilidade por improbidade administrativa (dano ao erário e enriquecimento ilícito).
+* Art. 26-D: Novo dispositivo invocado pela defesa sobre o marco temporal da diplomação (Lei Complementar nº 219/2025 mencionada pelo advogado).
+
+
+* **Lei nº 8.429/1992 (Lei de Improbidade):**
+* Art. 9º: Enriquecimento ilícito (afastado na sentença original, segundo relator).
+* Art. 10: Dano ao erário (base da condenação).
+
+
+* **Lei nº 9.504/1997 (Lei das Eleições):** Art. 11, § 10.
+* **Resoluções do TSE:**
+* Res.-TSE nº 23.609/2019 (Art. 52).
+* Res.-TSE nº 23.729/2024 (alteração do marco temporal para o dia do pleito).
+
+
+* **Súmulas do TSE:**
+* Súmula nº 41: Vedação ao reexame de fatos e provas e refazimento de conclusões da Justiça Comum.
+* Súmula nº 43: Alterações fáticas supervenientes.
+
+
+
+**4. PRECEDENTES CITADOS**
+
+* **STF - ADI 7197:** Citada pelo Relator e Defesa. Fixou entendimento sobre alterações fáticas e jurídicas supervenientes.
+* **TSE - Caso "Bandeirantes":** Agravo em Recurso Especial, Rel. Min. André Mendonça. Estabeleceu a data do 1º turno como marco final para alterações supervenientes.
+* **TSE - Caso "Catanduva":** Mencionado pela defesa como precedente recente.
+
+**5. RACIOCÍNIO DESENVOLVIDO**
+
+* **Tese da Defesa (Dr. Júlio Dias Taliberti):**
+* A condenação na justiça comum foi apenas por dano ao erário (art. 10), tendo o enriquecimento ilícito (art. 9º) sido expressamente afastado. A Justiça Eleitoral não poderia "recriar" o enriquecimento ilícito sob pena de violar a Súmula 41.
+* Houve decisão liminar do STJ suspendendo a condenação antes da diplomação.
+* O novo art. 26-D da LC 64/90 define a diplomação como marco final, devendo ser aplicado imediatamente.
+
+
+* **Voto do Relator (Min. Floriano de Azevedo Marques) - VENCIDO:**
+* **Deferimento.** Entendeu que não houve demonstração clara de **dolo específico** do candidato no acórdão da Justiça Comum (apenas culpa/negligência no dever de cuidado).
+* Argumentou que a condenação original foi baseada apenas no art. 10 (dano ao erário) e que o valor envolvido (R$ 800,00) e as circunstâncias não provam enriquecimento ilícito do prefeito, mas sim ato de terceiros (notas frias obtidas por subordinados).
+* Sobre o fato superveniente: Reiterou que a jurisprudência fixa o 1º turno como limite, e a liminar do STJ veio depois (dezembro). Porém, afastou a inelegibilidade pelo mérito dos requisitos da alínea *l*.
+
+
+* **Voto da Divergência (Min. Estela Aranha) - VENCEDOR:**
+* **Indeferimento.** Aplicou a compreensão de que a Justiça Eleitoral pode analisar a fundamentação do acórdão comum para aferir os requisitos da inelegibilidade (sem violar a Súmula 41).
+* Identificou **enriquecimento ilícito** e **dolo** na descrição fática: esquema de compra de notas fiscais "frias" (pagando 10% do valor) para justificar viagens do próprio prefeito.
+* **Marco Temporal:** Reafirmou que o fato superveniente (decisão do STJ) ocorreu após o 1º turno (04/12), não podendo ser considerado (precedente Bandeirantes/Res. 23.729). Além disso, a liminar do STJ foi posteriormente revogada.
+
+
+* **Acompanhamentos à Divergência:**
+* **Min. André Mendonça:** Destacou que o acórdão estadual traz elementos concretos de dolo específico e esquema montado.
+* **Min. Cristiano Zanin:** Ressaltou a existência de esquema para cobrir despesas com dinheiro público, configurando dolo específico, e a revogação da liminar no STJ.
+* **Min. Isabel Gallotti:** Entendeu demonstrado o dolo específico.
+* **Min. Antônio Carlos Ferreira:** Acompanhou integralmente a divergência.
+* **Min. Kassio Nunes Marques:** Acompanhou a divergência.
+
+
+
+**6. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Sustentação Oral:** Realizada pela defesa, elogiada tecnicamente pelos Ministros Floriano, André Mendonça e Zanin.
+* **Pedido de Vista/Adiantamento:** Não houve pedido de vista na sessão; os votos foram proferidos em sequência.
+* **Presença Especial:** Participação do Ministro Cristiano Zanin (do STF) na bancada do TSE.
+
+**7. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Proclamação:** O Tribunal, por maioria (6x1), **negou provimento** ao Recurso Especial Eleitoral.
+* **Resultado:** Mantido o indeferimento do registro de candidatura de José Francisco Marta.
+* **Consequência:** O candidato eleito não poderá ser diplomado ou terá seu diploma cassado (caso já diplomado por força de liminar anterior), impedindo a posse/exercício definitivo do mandato de Prefeito em São Sebastião da Grama.
+* **Redator do Acórdão:** Ministra Estela Aranha.
+
+---
+
+### [[52:58](http://www.youtube.com/watch?v=mLhFu5T0c0U&t=3178)] JULGAMENTOS EM LISTA (SÍNTESE)
+
+Conforme vedação expressa nas instruções ("IGNORE julgamento em lista ao final da sessão"), registra-se apenas que foram julgadas quatro listas de processos (Agravos Internos e Embargos de Declaração) de relatoria dos Ministros Kassio Nunes Marques, André Mendonça e Floriano de Azevedo Marques. Todos os julgamentos da lista foram unânimes, negando provimento ou rejeitando embargos, sem destaques orais detalhados sobre o mérito individual de cada caso.
+
+**ENCERRAMENTO**
+A sessão foi encerrada às 09:55 (timestamp aproximado de fechamento [[54:55](http://www.youtube.com/watch?v=mLhFu5T0c0U&t=3295)]).

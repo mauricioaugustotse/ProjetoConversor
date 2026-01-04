@@ -1,0 +1,263 @@
+**RELATÓRIO TÉCNICO DE SESSÃO PLENÁRIA DO TRIBUNAL SUPERIOR ELEITORAL**
+
+**Juiz Analista:** IA (Gemini)
+**Data da Sessão:** 18 de setembro de 2025
+**Fonte:** [Vídeo da Sessão Plenária](https://www.youtube.com/watch?v=zgbuF6KA6us)
+
+---
+
+### **1. PROCESSO ADMINISTRATIVO Nº 0613685–35 (LISTA TRÍPLICE)**
+
+**DADOS DO PROCESSO:**
+
+* **Data da sessão:** 18/09/2025.
+* **Eleição a que se refere:** Não se aplica (processo administrativo).
+* **Processo:** Lista Tríplice nº 0613685–35.2025.6.00.0000.
+* **Cidade de origem:** Rio Branco.
+* **UF:** AC (Acre).
+* **Nome das partes/interessados:** Tribunal Regional Eleitoral do Acre (Interessado).
+* **Indicados em Lista Tríplice:**
+1. Thomaz Carneiro Drummond.
+2. Roberto Barreto de Almeida.
+3. Luciano Oliveira de Melo.
+
+
+* **Ministros presentes:** Cármen Lúcia (Presidente), Nunes Marques, André Mendonça, Isabel Gallotti, Antonio Carlos Ferreira, Floriano de Azevedo Marques, Estela Aranha.
+* **Ministro Relator:** Nunes Marques.
+* **Advogados:** Não mencionados nominalmente na sustentação oral.
+* **Jurisprudência citada:** Não houve citação expressa de precedente específico, apenas menção genérica a precedentes da Corte sobre cargos de natureza efetiva.
+* **Legislação:** CF/88 (art. 120, inc. III); Código Eleitoral (art. 23, inc. XI); Resolução TSE nº 23.517/2017 (art. 5º, §8º).
+
+**ANÁLISE DO CONTEÚDO JURÍDICO:**
+
+1. **Núcleo do problema:** Análise dos requisitos constitucionais e legais dos advogados indicados para compor o TRE/AC na classe de jurista (juiz substituto), em vaga decorrente do término do primeiro biênio do Dr. Roberto Barreto de Almeida.
+2. **Fundamentação Normativa:** O relator verificou o cumprimento do decênio de exercício profissional ou a dispensa deste requisito para quem já figurou em listas anteriores (Res.-TSE 23.517/2017).
+3. **Raciocínio Desenvolvido:**
+* [[36:01](http://www.youtube.com/watch?v=zgbuF6KA6us&t=2161)] O relator confirmou que dois candidatos (Roberto Barreto e Luciano Oliveira) já figuraram em listas anteriores, dispensando nova comprovação de exercício profissional.
+* O candidato Thomaz Drummond comprovou o decênio exigido.
+* A ocupação de cargo efetivo não sujeito a exoneração *ad nutum* não foi considerada óbice, conforme jurisprudência da Corte.
+
+
+4. **Conclusão e Efeitos:**
+* Encaminhamento da lista ao Poder Executivo.
+* Aprovação unânime.
+
+
+
+---
+
+### **2. PROCESSO ADMINISTRATIVO Nº 0613058–75 (LISTA TRÍPLICE)**
+
+**DADOS DO PROCESSO:**
+
+* **Data da sessão:** 18/09/2025.
+* **Eleição a que se refere:** Não se aplica.
+* **Processo:** Lista Tríplice nº 0613058–75.2024.6.00.0000.
+* **Cidade de origem:** Boa Vista.
+* **UF:** RR (Roraima).
+* **Nome das partes/interessados:** Tribunal Regional Eleitoral de Roraima (Interessado).
+* **Indicados em Lista Tríplice:**
+1. Alan Kardec Lopes Mendonça Filho.
+2. André Luiz Galdino.
+3. Cláudio Belmino Rabello Evangelista (em substituição a Tiago Amorim dos Santos).
+
+
+* **Ministros presentes:** Composição completa (vide item anterior).
+* **Ministro Relator:** Floriano de Azevedo Marques.
+* **Jurisprudência citada:** Questão de Ordem na Lista Tríplice 0600265-70 (Rel. André Mendonça, j. 18/08/2025).
+* **Legislação:** Resolução TSE nº 23.517/2017; Resolução TSE nº 23.746 (mencionada quanto à anterioridade do processo para justificar ausência de paridade de gênero na lista).
+
+**ANÁLISE DO CONTEÚDO JURÍDICO:**
+
+1. **Núcleo do problema:** Recomposição de lista tríplice para membro efetivo do TRE/RR após determinação de substituição de um dos indicados (Dr. Tiago Amorim) e análise da incidência de novas regras sobre gênero.
+2. **Raciocínio Desenvolvido:**
+* [[41:26](http://www.youtube.com/watch?v=zgbuF6KA6us&t=2486)] **Questão de Gênero:** O Relator pontuou que, apesar da lista não conter mulheres, o processo de escolha iniciou-se antes da vigência da Resolução TSE 23.746, aplicando-se a regra de transição firmada no precedente da QO 0600265-70 (Rel. André Mendonça).
+* O novo indicado, Cláudio Belmino, preenche os requisitos e já figurou em listas anteriores.
+
+
+3. **Conclusão e Efeitos:**
+* Encaminhamento da lista ao Presidente da República.
+* Aprovação unânime.
+
+
+
+---
+
+### **3. AGRAVO REGIMENTAL NA PRESTAÇÃO DE CONTAS ANUAL Nº 0600297–17**
+
+**DADOS DO PROCESSO:**
+
+* **Data da sessão:** 18/09/2025.
+* **Eleição a que se refere:** Exercício Financeiro de 2020 (Prestação de Contas Anual).
+* **Processo:** AgR na PC nº 0600297–17.2020.6.00.0000.
+* **Cidade de origem:** Brasília (Nacional).
+* **UF:** DF.
+* **Nome das partes:** União Brasil - Diretório Nacional (Agravante).
+* **Ministros presentes:** Cármen Lúcia, Nunes Marques, André Mendonça, Isabel Gallotti, Antonio Carlos Ferreira, Floriano de Azevedo Marques. (Impedimento/Suspeição: Estela Aranha não vota pois sucede Ramos Tavares que já havia votado).
+* **Ministro Relator:** Antonio Carlos Ferreira.
+* **Jurisprudência do TSE mencionada:** PC nº 0601059-57 (Rel. Isabel Gallotti, j. 03/04/2025).
+* **Legislação:** Resolução TSE nº 23.604 (art. 18, *caput* e §2º).
+
+**ANÁLISE DO CONTEÚDO JURÍDICO:**
+
+1. **Núcleo do problema:** Regularidade de despesas com impulsionamento de conteúdo no Facebook (R$ 168.000,00) pagas através de boletos emitidos por intermediadora financeira (*dLocal Brasil Pagamentos*), dificultando a rastreabilidade direta entre o partido e a plataforma de anúncios.
+2. **Fundamentação Normativa:** Exigência de transparência e rastreabilidade dos gastos públicos (Fundo Partidário). Necessidade de identificação do emitente e destinatário nos documentos fiscais.
+3. **Raciocínio Desenvolvido:**
+* **Voto do Relator (Antonio Carlos Ferreira):** [[50:57](http://www.youtube.com/watch?v=zgbuF6KA6us&t=3057)] Manteve a glosa (reprovação) da despesa. Argumentou que os boletos da *dLocal* não tinham o campo "sacador avalista" preenchido com o nome do Facebook (diferente da outra empresa, *Adyen*, que tinha). A falta de vínculo claro nos documentos impede a auditoria, seguindo precedente da Min. Gallotti.
+* **Divergência (Nunes Marques):** [[55:31](http://www.youtube.com/watch?v=zgbuF6KA6us&t=3331)] Votou pela aprovação da despesa. Argumentou que, cruzando a nota fiscal do Facebook com o boleto, é possível identificar o vínculo através do "número da conta do anunciante". Ressaltou que a Nota Fiscal identifica expressamente o partido (União Brasil/Democratas) como tomador do serviço e que a *dLocal* atua apenas como financeira, sendo impossível ao partido exigir que a *Big Tech* mude seu sistema de cobrança. Defendeu uma visão menos formalista diante da prova do serviço.
+* **Voto de Floriano de Azevedo Marques:** [[01:10:08](http://www.youtube.com/watch?v=zgbuF6KA6us&t=4208)] Embora tenha reconhecido a lógica prática de Nunes Marques, optou por uma visão "ortodoxa" para não criar precedente que relaxe a fiscalização, alinhando-se ao Relator na manutenção da glosa.
+* **Voto de Isabel Gallotti:** [[01:12:51](http://www.youtube.com/watch?v=zgbuF6KA6us&t=4371)] Acompanhou o relator. O ônus da prova é do partido, que deveria juntar contrato ou outros elementos que ligassem o código do boleto ao partido, não cabendo ao servidor do TSE fazer essa "investigação".
+
+
+4. **Pontos Processuais Relevantes:**
+* Destaque formulado pelo Min. Nunes Marques após início no Plenário Virtual.
+* O Relator já havia provido parcialmente o agravo para liberar despesas menores (aluguel de veículos e plano de saúde), mantendo apenas a glosa do Facebook.
+
+
+5. **Conclusão e Efeitos:**
+* **Decisão:** Por maioria, vencidos Nunes Marques e Floriano de Azevedo Marques (ver nota abaixo), deu-se **parcial provimento** apenas para afastar irregularidades menores (veículos/plano de saúde). A glosa principal (Facebook) foi mantida.
+* *Nota Técnica sobre o Resultado:* A proclamação da Presidente [[01:17:31](http://www.youtube.com/watch?v=zgbuF6KA6us&t=4651)] citou Floriano como vencido, embora em seu voto oral ele tenha dito "me alinho ao relator" quanto ao mérito da fiscalização. Prevalece o registro da proclamação oficial.
+* Valor final a devolver ao erário ajustado (decotado em R$ 288.216,50 do total original).
+
+
+
+---
+
+### **4. AGRAVO REGIMENTAL NO AGRAVO EM RESPE Nº 0600624–48**
+
+**DADOS DO PROCESSO:**
+
+* **Data da sessão:** 18/09/2025.
+* **Eleição a que se refere:** Eleições Municipais de 2024.
+* **Processo:** AgR no AREspe nº 0600624–48.2024.6.08.0000 (Numeração de origem provável do ES).
+* **Cidade de origem:** Pedro Canário.
+* **UF:** ES (Espírito Santo).
+* **Nome das partes:** Cleisson Martins Rezende e outro (Agravantes).
+* **Ministros presentes:** Composição completa.
+* **Ministro Relator:** Floriano de Azevedo Marques.
+* **Jurisprudência do TSE mencionada:** Súmulas 24, 26, 28 e 30 do TSE.
+* **Legislação:** Resolução TSE nº 23.607 (art. 27, §§ 1º e 1º-A) - Limites de autofinanciamento.
+
+**ANÁLISE DO CONTEÚDO JURÍDICO:**
+
+1. **Núcleo do problema:** Desaprovação de contas de campanha de Prefeito/Vice devido à extrapolação do limite de autofinanciamento (recursos próprios). O excesso foi de R$ 22.957,00.
+2. **Raciocínio Desenvolvido:**
+* [[01:18:55](http://www.youtube.com/watch?v=zgbuF6KA6us&t=4735)] O Relator negou seguimento ao recurso aplicando súmulas processuais.
+* **Mérito:** A extrapolação do limite de autofinanciamento fere a isonomia do pleito (paridade de armas).
+* **Proporcionalidade:** Afastada, pois o valor excedido (quase 23 mil reais) é nominalmente grave, distinguindo-se do precedente citado pela defesa que tratava de valor irrisório.
+* **Súmula 30:** O acórdão regional está em conformidade com a jurisprudência do TSE.
+* **Súmula 26:** O agravo apenas reiterou argumentos anteriores sem impugnar especificamente os fundamentos da decisão agravada.
+
+
+3. **Conclusão e Efeitos:**
+* Não conhecimento do Agravo Regimental.
+* Manutenção da multa e desaprovação das contas.
+* Decisão unânime.
+
+
+Esta é a **Complementação Técnica do Relatório**, elaborada para suprir as lacunas identificadas na análise inicial, focando nos destaques realizados pelos Ministros na parte final da sessão (processos retirados do Plenário Virtual ou trazidos para esclarecimento de *ratio decidendi*).
+
+---
+
+### 1. VERIFICAÇÃO DE COMPLETUDE
+
+Considerando a análise anterior e a revisão integral da mídia:
+
+* **Intervalos não cobertos:** O intervalo final da sessão, especificamente entre **[01:21:00] e**, contém discussões jurídicas relevantes sobre dois processos específicos que foram destacados pelos Ministros Isabel Gallotti e André Mendonça. Estes não são meros julgamentos em lista, pois envolveram debates sobre teses jurídicas (distribuição de sobras e fraude à cota de gênero).
+* **Temas jurídicos pendentes:**
+* **Art. 109 do Código Eleitoral (Sobras Eleitorais):** Discussão trazida pela Min. Isabel Gallotti sobre a interpretação da cláusula de barreira de 10% para o candidato na distribuição das sobras.
+* **Standard Probatório na Fraude à Cota de Gênero (Súmula 73/TSE):** Discussão trazida pelo Min. André Mendonça sobre a suficiência do vínculo familiar entre candidatos para configurar a fraude.
+
+
+
+---
+
+### 2. TEMAS PENDENTES (Lacunas Específicas)
+
+* **Institutos jurídicos:** *Cláusula de desempenho individual nas sobras eleitorais* (cálculo de 10% do quociente eleitoral exigido do candidato, não apenas do partido).
+* **Normas citadas:** Art. 109 do Código Eleitoral (Lei 4.737/1965) e Art. 10 da Lei 9.504/1997.
+* **Jurisprudência:** Súmula 73 do TSE (elementos configuradores da fraude à cota de gênero).
+
+---
+
+### 3. COMPLEMENTAÇÃO DOS JULGAMENTOS
+
+Abaixo, os processos debatidos na fase final da sessão que exigem análise individualizada.
+
+#### **3.1. AGRAVO REGIMENTAL NO RECURSO ESPECIAL Nº 0600139–16**
+
+**DADOS DO PROCESSO:**
+
+* **Data da sessão:** 18/09/2025.
+* **Timestamp:**.
+* **Eleição:** Municipais (Vereador).
+* **Processo:** AgR no REspe nº 0600139–16.
+* **Cidade de origem:** Armação dos Búzios.
+* **UF:** RJ (Rio de Janeiro).
+* **Ministro Relator:** Isabel Gallotti.
+* **Legislação:** Código Eleitoral, art. 109 (Sobras Eleitorais).
+
+**ANÁLISE DO CONTEÚDO JURÍDICO:**
+
+1. **Núcleo do problema:** Discussão sobre a metodologia de cálculo para distribuição das sobras eleitorais em pleito proporcional (vereador). A controvérsia reside na interpretação da exigência de votação nominal mínima do candidato (10% do quociente eleitoral).
+2. **Fundamentação Normativa:** Art. 109 do Código Eleitoral.
+3. **Raciocínio Desenvolvido:**
+* A Min. Isabel Gallotti retirou o processo de julgamento (pedido de vista/destaque para melhor exame) ao constatar uma peculiaridade no acórdão do TRE-RJ.
+* O Regional teria considerado que, para a distribuição da sobra, bastaria que o **partido** tivesse a média exigida, dispensando que o **candidato** tivesse alcançado individualmente os 10% do quociente eleitoral, o que, *prima facie*, contraria a jurisprudência e a letra da lei que exige duplo requisito (partido e candidato).
+* A Ministra destacou a necessidade de verificar se a aplicação correta da norma alteraria os eleitos, dado que o Tribunal de origem deferiu o registro de candidatura baseando-se nessa interpretação.
+
+
+4. **Efeitos e Providências:**
+* **Julgamento Suspenso:** A relatora retirou o processo de pauta para conferência dos cálculos e da tese jurídica aplicada na origem.
+
+
+
+---
+
+#### **3.2. AGRAVO REGIMENTAL NO AGRAVO EM RECURSO ESPECIAL Nº 0600057–23**
+
+**DADOS DO PROCESSO:**
+
+* **Data da sessão:** 18/09/2025.
+* **Timestamp:**.
+* **Eleição:** Municipais de 2020.
+* **Processo:** AgR no AREspe nº 0600057–23.2020.6.15.0000 (numeração inferida PB).
+* **Cidade de origem:** Itapororoca.
+* **UF:** PB (Paraíba).
+* **Ministro Relator:** Floriano de Azevedo Marques.
+* **Ministro que trouxe o destaque:** André Mendonça.
+* **Jurisprudência do TSE mencionada:** Súmula 73 do TSE.
+
+**ANÁLISE DO CONTEÚDO JURÍDICO:**
+
+1. **Núcleo do problema:** Fraude à cota de gênero (lançamento de candidaturas femininas fictícias). O caso envolvia candidata com votação zerada, ausência de movimentação financeira e vínculo de parentesco com outro candidato.
+2. **Fundamentação Normativa:** Lei 9.504/1997, art. 10, § 3º.
+3. **Raciocínio Desenvolvido:**
+* **Dúvida do Min. André Mendonça:** O Ministro trouxe o caso para debater o peso do "vínculo familiar" como prova de fraude. No caso concreto, a candidata era irmã de um candidato de outro partido (adversário).
+* Mendonça expressou preocupação de que o simples fato de ter um parente candidato em outra agremiação, somado à votação inexpressiva, estivesse sendo usado como "prova tarifada" de fraude, o que poderia penalizar candidatas que desistem tacitamente ou não obtêm votos por razões legítimas.
+* **Aplicação da Súmula 73:** O Relator (Floriano) e o próprio Mendonça reconheceram que a **Súmula 73 do TSE** estabelece que a votação zerada ou pífia, a ausência de campanha e a prestação de contas zerada ou padronizada são suficientes para caracterizar a fraude. O vínculo familiar agrava o quadro (ajudando o parente em detrimento da própria campanha).
+* **Conclusão (Signaling):** André Mendonça ressalvou seu entendimento pessoal (de exigir prova mais robusta da intenção de fraudar), mas curvou-se à jurisprudência consolidada (Súmula 73) para manter a colegialidade e a segurança jurídica.
+
+
+4. **Conclusão e Efeitos:**
+* Negado provimento ao Agravo.
+* Mantida a cassação da chapa por fraude à cota de gênero.
+* Decisão Unânime.
+
+
+
+---
+
+### 4. ANÁLISE APROFUNDADA DA JURISPRUDÊNCIA CITADA (Complementação)
+
+**SÚMULA 73 DO TSE**
+
+* **Contexto de Citação:** Processo de Itapororoca/PB (Item 3.2).
+* **Conteúdo Jurídico:** A fraude à cota de gênero de que trata o art. 10, § 3º, da Lei nº 9.504/1997 pode ser configurada mediante a prova de: (i) votação zerada ou inexpressiva; (ii) prestação de contas zerada, padronizada ou inexistente; e (iii) ausência de atos efetivos de campanha.
+* **Importância no Julgamento:** A súmula opera como um balizador do *standard* probatório. No vídeo, ficou claro que a Corte não exige "prova diabólica" (prova direta da intenção subjetiva de fraudar), contentando-se com os elementos objetivos listados no verbete sumular. O debate travado pelo Min. André Mendonça reforçou a vigência plena desta súmula para as eleições de 2024, alertando partidos e candidatos sobre a presunção que recai sobre candidaturas com essas características.
+
+**ART. 109 DO CÓDIGO ELEITORAL (Interpretação)**
+
+* **Contexto de Citação:** Processo de Búzios/RJ (Item 3.1).
+* **Conteúdo Jurídico:** Regra as sobras eleitorais. A redação (alterada pelas Leis 14.211/2021) exige que, para concorrer às sobras, o partido tenha 80% do Quociente Eleitoral E o candidato tenha, individualmente, votos iguais ou superiores a 20% desse quociente (na primeira fase) ou regras específicas nas fases subsequentes (a depender da ADI no STF).
+* **Ponto Crítico:** A dúvida da Min. Gallotti sugere que Tribunais Regionais podem estar aplicando a regra de forma equivocada, permitindo que partidos que atingiram o quociente "arrastem" candidatos sem densidade eleitoral mínima (abaixo dos 10% ou 20% a depender da fase), violando o princípio da representatividade qualificada que a norma visa proteger.

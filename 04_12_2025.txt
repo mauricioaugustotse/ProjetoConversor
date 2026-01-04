@@ -1,0 +1,134 @@
+**RELATÓRIO TÉCNICO DE SESSÃO PLENÁRIA DO TRIBUNAL SUPERIOR ELEITORAL**
+
+**Juiz Eleitoral Responsável pela Análise:** [Sessões do TSE]
+**Data da Sessão:** 04 de dezembro de 2025 (Quinta-feira)
+**Presidência:** Ministra Cármen Lúcia
+
+**COMPOSIÇÃO DA CORTE NA SESSÃO:**
+
+* **Ministra Cármen Lúcia** (Presidente)
+* **Ministro André Mendonça** (Videoconferência)
+* **Ministro Cristiano Zanin**
+* **Ministro Antônio Carlos Ferreira**
+* **Ministro Villas Bôas Cueva**
+* **Ministro Floriano de Azevedo Marques**
+* **Ministra Estela Aranha**
+* **Ministro Kassio Nunes Marques** (Ausência justificada)
+* **Vice-Procurador-Geral Eleitoral:** Dr. Alexandre Espinosa Bravo Barbosa
+
+---
+
+### 1. JULGAMENTO: REGISTRO DE FEDERAÇÃO PARTIDÁRIA Nº 0600839–93
+
+**[[14:06](http://www.youtube.com/watch?v=u1Tv2NYJQqo&t=846)]**
+
+* **Natureza:** Sessão Administrativa.
+* **Cidade de Origem/UF:** Brasília/DF.
+* **Requerente:** Federação Renovação Solidária Nacional.
+* **Partidos Envolvidos:** Partido da Renovação Democrática (PRD) e Solidariedade.
+* **Ministra Relatora:** Estela Aranha.
+* **Advogados:** Não mencionados nominalmente, apenas registrada a presença de membros do partido.
+
+#### 1.1. ANÁLISE DO CONTEÚDO JURÍDICO
+
+O processo versa sobre o pedido de registro do estatuto e do programa da "Federação Renovação Solidária Nacional", constituída pela união das agremiações partidárias PRD e Solidariedade. A análise técnica centrou-se na verificação dos requisitos formais exigidos para a constituição dessa espécie de aliança partidária duradoura (mínimo de 4 anos).
+
+#### 1.2. FUNDAMENTAÇÃO NORMATIVA
+
+* **Legislação Federal:** Lei nº 9.096/1995 (Lei dos Partidos Políticos), Art. 11-A (citado no voto).
+* **Normas Infralegais:** Res.-TSE nº 23.670/2021, Art. 1º e Art. 2º.
+
+#### 1.3. RACIOCÍNIO DESENVOLVIDO
+
+A Ministra Relatora destacou que o requerimento foi instruído com toda a documentação exigida pelo Art. 11-A, § 6º, da Lei 9.096/95 e pela resolução de regência. Houve o ajuste das regras estatutárias para alinhamento às previsões legais e jurisprudenciais do TSE. Tratando-se de cumprimento estrito de requisitos objetivos, o voto foi pela homologação.
+
+#### 1.4. EFEITOS E PROVIDÊNCIAS PRÁTICAS
+
+* **Decisão:** Deferimento do pedido de registro da Federação.
+* **Proclamação:** Unânime, nos termos do voto da relatora. A Federação passa a atuar como uma única agremiação partidária perante a Justiça Eleitoral.
+
+---
+
+### 2. JULGAMENTO: AGRAVOS REGIMENTAIS EM RECURSOS ORDINÁRIOS (0600006-62, 0600008-32, 0600010-02)
+
+**[[18:57](http://www.youtube.com/watch?v=u1Tv2NYJQqo&t=1137)]**
+
+* **Eleição:** Pleito de 2022 (Deputado Estadual e Federal).
+* **Cidade de Origem/UF:** Macapá/AP.
+* **Agravantes:** Arnóbio Flexa Nascimento e outros.
+* **Agravados:** Jaime da Silva Perez, Raifran Macedo Barroso, Alessandra Furtado de Souza e Silva, Carlos Murilo Pinheiro, José William da Silva Leite, Hildo Gomes de Oliveira, Joriosvaldo Queiroz Oliveira.
+* **Ministro Relator:** André Mendonça.
+
+#### 2.1. ANÁLISE DO CONTEÚDO JURÍDICO
+
+Trata-se de Ações de Impugnação de Mandato Eletivo (AIMEs) alegando abuso de poder econômico e fraude à lei na distribuição do Fundo Especial de Financiamento de Campanha (FEFC). A tese dos autores baseava-se na suposta inobservância dos percentuais mínimos de repasse para candidaturas femininas e de pessoas negras pelo Diretório Nacional dos partidos envolvidos (PP, PTB e PROS).
+
+#### 2.2. FUNDAMENTAÇÃO NORMATIVA
+
+* **Súmulas:** Súmula nº 26 do TSE (citada para fundamentar a inadmissibilidade recursal por ausência de impugnação específica).
+
+#### 2.3. PRECEDENTES CITADOS
+
+* **TSE:** Prestação de Contas nº 0601643-37, Rel. Min. Raul Araújo (citado pelo Relator André Mendonça para reforçar que a fiscalização de cotas ocorre na prestação de contas nacional).
+
+#### 2.4. RACIOCÍNIO DESENVOLVIDO
+
+* **Voto do Relator (Min. André Mendonça):** O Relator manteve a decisão de origem que extinguiu os feitos sem resolução de mérito (ou improcedência) por inadequação da via eleita. Argumentou que a fiscalização dos percentuais de repasse do FEFC (gênero e raça) deve ser realizada nos autos da **Prestação de Contas do Diretório Nacional**, competência originária do TSE, e não em ações eleitorais (AIMEs) nos TREs, salvo se houvesse elementos típicos de fraude, o que não foi demonstrado. A mera desproporção no repasse não autoriza, por si só, a cassação de mandato via AIME.
+* **Voto-Vista/Destaque (Min. Floriano de Azevedo Marques):** Destacou o processo devido à desproporção gritante (ex: 90% dos recursos para homens no PP), o que poderia sugerir desincentivo às candidaturas femininas. No entanto, acompanhou o Relator, reconhecendo que, tecnicamente, o foro de controle é a prestação de contas nacional, ressalvando em *obiter dictum* que o TSE precisará enfrentar essa distorção futura para garantir a efetividade da participação feminina.
+
+#### 2.5. PONTOS PROCESSUAIS RELEVANTES
+
+O caso havia sido destacado do plenário virtual pelo Min. Floriano de Azevedo Marques para melhor exame da desproporção de recursos. Houve debate sobre a autonomia partidária *versus* a necessidade de garantir a competitividade das candidaturas de cotas.
+
+#### 2.6. EFEITOS E PROVIDÊNCIAS PRÁTICAS
+
+* **Decisão:** Negado provimento aos agravos regimentais.
+* **Proclamação:** Unânime. Mantidos os mandatos dos recorridos.
+
+---
+
+### 3. JULGAMENTO: RECURSO ESPECIAL ELEITORAL Nº 0600080-91
+
+**[[35:56](http://www.youtube.com/watch?v=u1Tv2NYJQqo&t=2156)]**
+
+* **Eleição:** Pleito de 2024 (Prefeito).
+* **Cidade de Origem/UF:** Prainha/PA.
+* **Recorrente:** Coligação "Bora Continuar Avançando".
+* **Recorrido:** Gandor Kalil Hage Neto (Candidato a Prefeito).
+* **Ministro Relator:** Antônio Carlos Ferreira.
+* **Advogado:** Dr. João Luiz Brasil Batista Rolim de Castro (pelo recorrido).
+
+#### 3.1. ANÁLISE DO CONTEÚDO JURÍDICO
+
+O cerne da controvérsia é a inelegibilidade por rejeição de contas (art. 1º, I, *g*, da LC 64/90). O candidato teve contas de convênios (PEJA, PNAE, PNATE - gestão 2005-2008) julgadas irregulares pelo TCU, com imputação de débito, mas com o reconhecimento da **prescrição da pretensão punitiva** (multa). Discutiu-se se a prescrição da sanção afasta a configuração da inelegibilidade, mesmo persistindo o débito (ressarcimento ao erário).
+
+#### 3.2. FUNDAMENTAÇÃO NORMATIVA
+
+* **Legislação:** Lei Complementar nº 64/1990, Art. 1º, inciso I, alínea *g* (Inelegibilidade por rejeição de contas).
+* **Legislação:** Lei Complementar nº 184/2021 (Alterou a LC 64/90, inserindo o § 4º-A).
+* **Legislação:** Lei nº 8.443/1992 (Lei Orgânica do TCU), Art. 57 (Multa).
+
+#### 3.3. PRECEDENTES CITADOS
+
+* **TSE:** "Caso Paranhos" (Recente precedente que havia fixado tese de que apenas a imputação de débito bastaria, independente da multa).
+* **TSE:** REspe nº 2841, Rel. Min. Napoleão Nunes Maia Filho (sobre a necessidade de prazo razoável/prescrição).
+* **STF:** Reclamação nº 75.020 (Segunda Turma), j. 27/10/2025. Redator p/ Acórdão Min. André Mendonça. Este precedente foi determinante para o *overruling* (superação) do entendimento anterior do TSE.
+
+#### 3.4. RACIOCÍNIO DESENVOLVIDO
+
+* **Contexto:** O Relator (Min. Antônio Carlos) inicialmente votara pelo indeferimento do registro, aplicando o entendimento do "Caso Paranhos" (débito mantém a inelegibilidade mesmo com prescrição da multa).
+* **Divergência/Reajuste:** O Min. André Mendonça abriu divergência (seguida por vista da Min. Estela Aranha) baseada na decisão superveniente do STF na **Reclamação 75.020**. A Segunda Turma do Supremo fixou que a prescrição da pretensão punitiva pelo Tribunal de Contas **esvazia a inelegibilidade** da alínea *g*, pois retira o caráter de irregularidade insanável dolosa apta a impedir a candidatura.
+* **Mudança de Posicionamento:** Diante da autoridade da decisão do STF, o Relator (Min. Antônio Carlos) e os demais ministros (incluindo Floriano de Azevedo Marques, que tinha posição contrária) reajustaram seus votos para alinhar-se ao Supremo.
+* **Tese Aplicada:** Reconhecida a prescrição da pretensão punitiva pela Corte de Contas, afasta-se a inelegibilidade, independentemente da manutenção da condenação ao ressarcimento (débito).
+
+#### 3.5. PONTOS PROCESSUAIS RELEVANTES
+
+Ocorreu um fenômeno claro de *overruling* provocado por decisão da Corte Constitucional (STF). Houve reajuste de voto do Relator em mesa. A Min. Estela Aranha também discorreu sobre o dolo específico, concluindo que ele existia (ocultação deliberada de documentos), mas que a questão da prescrição era prejudicial e suficiente para deferir o registro.
+
+#### 3.6. EFEITOS E PROVIDÊNCIAS PRÁTICAS
+
+* **Decisão:** Negado provimento ao Recurso Especial da Coligação impugnante.
+* **Resultado Prático:** Deferimento do registro de candidatura de Gandor Kalil Hage Neto mantido. O candidato permanece elegível e os votos são válidos.
+* **Proclamação:** Unânime, nos termos do voto reajustado do Relator.
+
+[https://youtu.be/u1Tv2NYJQqo?list=PLljYw1P54c4xZp8GKvAW8ogzKaKOSbMp7](https://youtu.be/u1Tv2NYJQqo?list=PLljYw1P54c4xZp8GKvAW8ogzKaKOSbMp7)

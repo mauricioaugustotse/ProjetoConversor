@@ -1,0 +1,180 @@
+RELATÓRIO TÉCNICO DE SESSÃO DO TRIBUNAL SUPERIOR ELEITORAL (TSE)
+
+**DATA DA SESSÃO:** 18 de junho de 2024
+**PRESIDÊNCIA:** Ministra Cármen Lúcia.
+**MINISTROS PRESENTES:**
+
+* Min. Cármen Lúcia (Presidente)
+* Min. Kassio Nunes Marques (Vice-Presidente)
+* Min. Raul Araújo (Corregedor-Geral Eleitoral)
+* Min. André Mendonça
+* Min. Isabel Gallotti
+* Min. Floriano de Azevedo Marques
+* Min. André Ramos Tavares
+* Ministras Substitutas presentes (sem voto nos casos citados, salvo se substituindo): Edilene Lôbo e Vera Lúcia Santana Araújo.
+**REPRESENTANTE DA PGR:** Vice-Procurador-Geral Eleitoral, Alexandre Espinosa Bravo Barbosa.
+
+---
+
+### 1. JULGAMENTO DE LISTA TRÍPLICE (TRE/PR)
+
+**[[08:14](http://www.youtube.com/watch?v=Y9RjTfa1XzU&t=494)]**
+
+**PROCESSO:** Lista Tríplice nº 0600181-06 (Numeração citada em áudio)
+**CLASSE:** Lista Tríplice (LT)
+**UF:** Paraná (PR)
+**CIDADE DE ORIGEM:** Curitiba
+**RELATOR:** Min. Floriano de Azevedo Marques
+
+**1.1. DADOS DO PROCESSO**
+
+* **Objeto:** Preenchimento de vaga de juiz substituto da classe dos juristas (advogados) no Tribunal Regional Eleitoral do Paraná.
+* **Indicados na Lista:**
+1. Alessandro Agnolin
+2. Tatiane de Cássia Viezzer
+3. Gustavo Luis Batten
+
+
+* **Advogados Presentes:** Dr. Alessandro Agnolin (acompanhamento por videoconferência).
+
+**1.2. ANÁLISE DO CONTEÚDO JURÍDICO**
+Trata-se de procedimento administrativo para verificação dos requisitos constitucionais e legais de advogados indicados pelo Tribunal de Justiça local para compor a Corte Eleitoral. O núcleo da análise é a idoneidade e o cumprimento de requisitos objetivos (tempo de prática, ausência de impedimentos).
+
+**1.3. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Questão levantada:** Houve um apontamento em nome da candidata Tatiane de Cássia Viezzer referente a um processo em primeiro grau.
+* **Esclarecimento:** Após diligências, verificou-se tratar de uma ação de divórcio, o que, segundo o Relator, "não macula o nome da candidata".
+* **Unidade Técnica:** Atestou a satisfação de todos os requisitos legais.
+* **Impugnações:** Inexistentes.
+
+**1.4. RACIOCÍNIO DESENVOLVIDO**
+O Relator aplicou o método de verificação de requisitos objetivos. Constatada a regularidade da documentação e a inexistência de óbices morais ou legais (o apontamento existente referia-se a questão de família, irrelevante para a idoneidade pública), o voto foi pelo encaminhamento.
+
+**1.5. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Decisão:** Aprovada a lista por unanimidade.
+* **Providência:** Encaminhamento da lista ao Poder Executivo (Presidente da República) para escolha e nomeação de um dos indicados.
+
+---
+
+### 2. CONSULTAS (INELEGIBILIDADE E REELEIÇÃO)
+
+**[[11:43](http://www.youtube.com/watch?v=Y9RjTfa1XzU&t=703)]**
+
+**PROCESSOS:** Consulta nº 0600704-52, Consulta nº 0600537-35, Consulta nº 0600172-78.
+**CLASSE:** Consulta (Cta)
+**UF:** Distrito Federal (Brasília) - Eficácia Nacional
+**RELATOR:** Min. André Ramos Tavares
+**CONSULENTES:**
+
+* Yandra Barreto Ferreira (Deputada Federal - Sergipe)
+* Movimento Democrático Brasileiro (MDB) - Nacional
+* Partido Liberal (PL) - Nacional
+
+**2.1. ANÁLISE DO CONTEÚDO JURÍDICO**
+O tema central versa sobre a inelegibilidade decorrente de reeleição e a figura do "prefeito itinerante" ou "profissional".
+As consultas questionam, em síntese:
+
+1. Prefeito reeleito (2 mandatos consecutivos) que se desincompatibiliza, candidata-se a cargo proporcional (Deputado Estadual/Federal), é eleito e exerce o mandato.
+2. Pode este cidadão, após exercer o mandato legislativo, candidatar-se novamente a Prefeito em **município diverso** no pleito subsequente?
+3. A ruptura do vínculo pelo exercício de mandato legislativo intermediário afastaria a vedação ao terceiro mandato (art. 14, §5º, CF)?
+
+**2.2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Constituição Federal:**
+* **Art. 14, § 5º:** ("O Presidente da República, os Governadores de Estado e do Distrito Federal, os Prefeitos e quem os houver sucedido, ou substituído no curso dos mandatos poderão ser reeleitos para um único período subsequente").
+* **Art. 37:** Princípio da Impessoalidade.
+* **Princípio Republicano:** Alternância de poder e temporariedade dos mandatos.
+
+
+
+**2.3. PRECEDENTES CITADOS**
+
+* **STF (Supremo Tribunal Federal):**
+* **Recurso Extraordinário nº 637.485 (Rio de Janeiro):** Citado pelo Min. Kassio Nunes Marques e pelo Relator. Tese de Repercussão Geral: A proibição da segunda reeleição é absoluta, tornando inelegível o cidadão que já exerceu dois mandatos consecutivos, ainda que em ente da federação diverso (vedação ao prefeito itinerante). Relator original no STF: Min. Gilmar Mendes.
+
+
+
+**2.4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Voto do Relator (Min. André Ramos Tavares):**
+* **Premissa:** A vedação à terceira eleição (segunda reeleição) é absoluta.
+* **Interpretação:** A Constituição fala em "período subsequente" e não "eleição subsequente".
+* **Tese:** O exercício de mandato parlamentar (legislativo) entre os mandatos de executivo é uma circunstância lateral incapaz de "zerar" a contagem ou afastar a inelegibilidade para o Executivo. Permitir isso violaria o princípio republicano e criaria a perpetuação de grupos políticos ou indivíduos no poder executivo, ainda que em municípios diferentes.
+* **Conclusão:** Resposta **NEGATIVA** à possibilidade de candidatura (ou seja, o ex-prefeito reeleito **não** pode se candidatar a prefeito em outro município logo após exercer mandato de deputado).
+
+
+* **Voto-Vista/Destaque (Min. Kassio Nunes Marques):**
+* **Divergência Teórica (Distinguishing):** O Ministro levantou a reflexão de que o precedente do STF (RE 637.485) tratava de situações onde o prefeito saía de um município vizinho para outro, usando a máquina.
+* **Argumento:** Quando o sujeito é eleito Deputado Federal, ele obtém votos além das fronteiras municipais e passa a integrar outro Poder (Legislativo), rompendo o vínculo jurídico com o Executivo anterior.
+* **Posicionamento Prático:** Apesar de ver uma distinção teórica (*distinguishing*), optou por acompanhar o relator para manter a segurança jurídica e evitar mudanças jurisprudenciais às vésperas das eleições ("consciência de pertinência" e proximidade do pleito). Ressalvou o entendimento para reflexão futura.
+
+
+* **Votos de Acompanhamento com Ressalvas:**
+* **Min. Raul Araújo:** Concordou com a tese de *distinguishing* do Min. Kassio (há uma desvinculação importante quando se assume cargo legislativo), mas acompanhou o relator para evitar insegurança jurídica no momento.
+* **Min. Floriano de Azevedo Marques:** Alertou que flexibilizar essa regra poderia permitir que parentes se candidatassem, criando uma espiral de perpetuação familiar no poder.
+
+
+
+**2.5. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Resultado:** Consultas conhecidas.
+* **Resposta:**
+* **Negativa** ao primeiro questionamento (pode se candidatar? **Não**).
+* **Afirmativa** aos demais (confirmando a inelegibilidade).
+
+
+* **Consequência:** Fixação de entendimento de que prefeitos reeleitos que assumem mandatos de deputado **não** podem voltar a concorrer a prefeito (em qualquer município) no pleito imediatamente seguinte ao mandato parlamentar que interrompeu a sequência.
+
+---
+
+### 3. EMBARGOS DE DECLARAÇÃO EM RECURSO ESPECIAL (TRE/RR)
+
+**[[37:16](http://www.youtube.com/watch?v=Y9RjTfa1XzU&t=2236)]**
+
+**PROCESSO:** ED no Recurso Especial Eleitoral nº 0601635-18
+**UF:** Roraima (RR)
+**CIDADE DE ORIGEM:** Boa Vista
+**RELATOR:** Min. André Ramos Tavares
+**EMBARGANTE:** José Otacir Barroso do Nascimento (conhecido como "Otaci").
+**EMBARGADO:** Partido União Brasil - Estadual.
+
+**3.1. DADOS DO CASO E ANÁLISE JURÍDICA**
+
+* **Acusação Original:** Abuso de poder econômico nas Eleições de 2020.
+* **Fato:** Distribuição de cestas básicas (80 unidades) no primeiro semestre de 2020 (durante a pandemia de COVID-19) e exploração midiática em redes sociais.
+* **Contexto:** O embargante era Deputado Federal na época e pré-candidato a Prefeito (não eleito). A ação visava sancioná-lo com inelegibilidade.
+
+**3.2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Enunciado nº 24 do TSE:** (Trata do reexame de fatos e provas em sede especial). O Relator argumentou que estava fazendo um reenquadramento jurídico da moldura fática, e não reexame de provas.
+* **Legislação:** Abuso de poder econômico (Lei Complementar nº 64/1990).
+
+**3.3. RACIOCÍNIO DESENVOLVIDO**
+
+* **Voto do Relator (Min. André Ramos Tavares):**
+* **Mudança de Posicionamento:** O Relator acolheu os embargos com **efeitos infringentes** (modificativos).
+* **Argumento da Gravidade:** Considerou que a condenação anterior foi "quase automática" pela simples entrega das cestas, sem demonstrar a gravidade exigida para cassação/inelegibilidade.
+* **Quantidade e Contexto:** Foram apenas 80 cestas em um município de 413 mil habitantes. A ação foi voltada a uma classe específica (músicos e artistas) afetada pela pandemia, configurando ato de solidariedade e não eleitoreiro grave.
+* **Exploração Midiática:** Apenas duas postagens, sem dados de alcance (visualizações/compartilhamentos), insuficientes para provar desequilíbrio no pleito.
+* **Resultado Eleitoral:** O candidato investigado teve 14% dos votos contra 85% do vencedor, indicando irrelevância da conduta no resultado.
+
+
+* **Voto Divergente (Min. Cármen Lúcia):**
+* **Preliminar Processual:** Entendeu que não havia requisitos para Embargos de Declaração (omissão, contradição, obscuridade).
+* **Mérito:** Argumentou que o Plenário já havia analisado o caso e decidido por unanimidade anteriormente. A revisão agora soaria como uma "ação rescisória" dentro do próprio processo, o que é vedado processualmente. Para a Ministra, houve exploração eleitoreira de fato (o candidato divulgou "12 toneladas" mas distribuiu pouco) e a gravidade já havia sido reconhecida pelas instâncias ordinárias.
+
+
+
+**3.4. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Efeitos Infringentes:** Excepcionalidade processual onde os embargos alteram o resultado do julgamento.
+* **Sustentação Oral:** Não houve nesta sessão, apenas julgamento.
+* **Quórum:** Maioria (6 a 1). Vencida a Presidente.
+
+**3.5. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Decisão Final:** Embargos acolhidos com efeitos infringentes.
+* **Sanção:** Reforma do acórdão regional para julgar **IMPROCEDENTES** os pedidos da Ação de Investigação Judicial Eleitoral (AIJE).
+* **Consequência:** Afastamento da inelegibilidade e da condenação por abuso de poder econômico.
+* **Execução:** Comunicação imediata ao TRE de Roraima, independente de publicação.

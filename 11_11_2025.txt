@@ -1,0 +1,152 @@
+**RELATÓRIO TÉCNICO DE SESSÃO DO TRIBUNAL SUPERIOR ELEITORAL**
+
+**DATA DA SESSÃO:** 11 de novembro de 2025 (Terça-feira).
+**COMPOSIÇÃO DA MESA JULGADORA:**
+
+* **Presidência:** Ministra Cármen Lúcia.
+* **Vice-Presidente:** Ministro Nunes Marques.
+* **Ministros Presentes:** Isabel Gallotti (Corregedora-Geral), André Mendonça, Antônio Carlos Ferreira, Floriano de Azevedo Marques e Estela Aranha.
+* **Ministério Público Eleitoral:** Vice-Procurador-Geral Eleitoral, Dr. Alexandre Espinosa Bravo Barbosa.
+
+---
+
+### **1. PROCESSO ADMINISTRATIVO Nº 0600180-92**
+
+**[[34:00](http://www.youtube.com/watch?v=jW916EhYYjk&t=2040)]**
+
+* **Natureza:** Criação de Zona Eleitoral ou Remanejamento.
+* **Relator:** Ministro Antônio Carlos Ferreira.
+* **Origem:** Belo Horizonte – Minas Gerais (MG).
+* **Interessado:** Tribunal Regional Eleitoral de Minas Gerais (TRE-MG).
+* **Assunto:** Homologação de proposta de remanejamento de municípios e transferências de sedes de zonas eleitorais (aprovada pela Resolução TRE-MG nº 1.249/2023).
+
+**1.1. ANÁLISE E DECISÃO**
+
+* **Fundamentação Normativa:** Resolução-TSE nº 23.422/2014.
+* **Raciocínio:** O relator informou que a Corregedoria-Geral e as áreas técnicas do TSE (SGI, SOF) assentiram com a homologação, pois os requisitos legais de revisão e rezoneamento foram atendidos.
+* **Decisão/Proclamação:** O Tribunal, por unanimidade, homologou o acórdão do TRE-MG, nos termos do voto do relator.
+
+---
+
+### **2. PROCESSO ADMINISTRATIVO Nº 0600452-86**
+
+**[[36:56](http://www.youtube.com/watch?v=jW916EhYYjk&t=2216)]**
+
+* **Natureza:** Criação de Zona Eleitoral ou Remanejamento.
+* **Relatora:** Ministra Estela Aranha.
+* **Origem:** Uberlândia – Minas Gerais (MG).
+* **Interessado:** Tribunal Regional Eleitoral de Minas Gerais (TRE-MG).
+* **Assunto:** Redistribuição do eleitorado e readequação de limites territoriais de cinco zonas eleitorais (278ª, 279ª, 299ª, 314ª e 335ª).
+
+**2.1. ANÁLISE E DECISÃO**
+
+* **Fundamentação Normativa:** Resolução-TSE nº 23.422/2014.
+* **Raciocínio:** A medida visa distribuir a demanda dos cartórios de forma equitativa sem impacto orçamentário. A relatora ressaltou a impossibilidade de implementação em ano eleitoral.
+* **Decisão/Proclamação:** Homologada a proposta por unanimidade, com determinação de concretização da medida em 2025 ou a partir de 2027 (respeitando a anualidade/calendário eleitoral).
+
+---
+
+### **3. PROCESSO ADMINISTRATIVO Nº 0600423**
+
+**[[40:02](http://www.youtube.com/watch?v=jW916EhYYjk&t=2402)]**
+*(Nota: O número completo final não foi vocalizado integralmente, apenas o radical)*
+
+* **Natureza:** Criação de Zona Eleitoral ou Remanejamento.
+* **Relatora:** Ministra Estela Aranha.
+* **Origem:** Campo Grande – Mato Grosso do Sul (MS).
+* **Interessado:** Tribunal Regional Eleitoral de Mato Grosso do Sul (TRE-MS).
+* **Assunto:** Redistribuição de eleitores entre diversas zonas eleitorais (8ª, 35ª, 36ª, 44ª, 53ª e 64ª) de Campo Grande.
+
+**3.1. ANÁLISE E DECISÃO**
+
+* **Fundamentação Normativa:** Resolução-TSE nº 23.422/2014.
+* **Decisão/Proclamação:** Homologada a proposta por unanimidade, determinando-se a concretização em 2025 ou a partir de 2027.
+
+---
+
+### **4. RECURSO ORDINÁRIO Nº 0600940-96**
+
+**[[43:45](http://www.youtube.com/watch?v=jW916EhYYjk&t=2625)]**
+
+* **Relatora:** Ministra Isabel Gallotti.
+* **Voto-Vista:** Ministro André Mendonça.
+* **Origem:** Boa Vista – Roraima (RR).
+* **Eleição:** Gerais de 2022 (Governo do Estado).
+* **Recorrentes/Envolvidos:**
+* **Antônio Olivério Garcia de Almeida (Antônio Denarium):** Governador (Candidato à reeleição).
+* **Edilson Damião Lima:** Vice-Governador.
+* **Partidos/Coligação:** Republicanos Estadual, Progressistas (PP) Estadual, Coligação "Roraima Muito Melhor".
+
+
+* **Advogados:** Dr. Wber Moura (citado na videoconferência).
+
+**4.1. ANÁLISE DO CONTEÚDO JURÍDICO (Voto-Vista Min. André Mendonça)**
+
+O julgamento trata de Ação de Investigação Judicial Eleitoral (AIJE) por abuso de poder político e econômico. O voto-vista do Ministro André Mendonça analisou quatro condutas principais imputadas à chapa vencedora:
+
+**A) Programa "Cesta da Família" [[52:04](http://www.youtube.com/watch?v=jW916EhYYjk&t=3124)]:**
+
+* **Acusação:** Fusão de programas ("Renda Cidadã" e "Cesta da Família Emergencial") criando um novo programa em 2022 com aumento exponencial de beneficiários (de 10 mil para 50 mil) em ano eleitoral.
+* **Defesa:** Alegou mera continuidade e unificação de programas pré-existentes.
+* **Análise do Ministro:** Rejeitou a tese de continuidade. Houve um salto de 10.000 para 50.000 famílias atendidas e um gasto em agosto/2022 (R$ 7 milhões) superior à soma de dois anos anteriores. O programa teve "contornos típicos de nova política assistencial" criada pela Lei Estadual 1.639/2022, violando a vedação de criação de programas em ano eleitoral.
+* **Conclusão no Ponto:** Caracterizado o abuso de poder político e econômico, dada a magnitude (40.000 novos beneficiários num universo eleitoral onde a diferença entre candidatos foi de 44.000 votos).
+
+**B) Programa "Morar Melhor" [[01:17:06](http://www.youtube.com/watch?v=jW916EhYYjk&t=4626)]:**
+
+* **Acusação:** Execução de reformas em residências (baixa renda) sem execução orçamentária no ano anterior (2021).
+* **Defesa:** Baseado na Lei Federal 11.888/2008 e pequena quantidade de atendimentos (92 pessoas).
+* **Análise do Ministro:** A lei federal citada trata de assistência técnica (projetos), não de custeio de obras (reformas), o que diferencia o escopo. Não houve execução orçamentária em 2021 (apenas um empenho em dezembro, liquidado em 2022, indício de maquiagem contábil). Embora "apenas" 92 obras tenham sido concluídas, mais de 1.800 pessoas foram "contempladas" (na lista de espera), gerando expectativa de benefício condicionada à continuidade do governo.
+* **Conclusão no Ponto:** Caracterizado o ilícito e o abuso.
+
+**C) Repasses Financeiros a Municípios (R$ 70 milhões) [[01:29:40](http://www.youtube.com/watch?v=jW916EhYYjk&t=5380)]:**
+
+* **Acusação:** Transferências voluntárias a 12 municípios sob pretexto de calamidade (chuvas), com viés eleitoreiro.
+* **Divergência (Ponto de discordância com a Relatora):** O Ministro André Mendonça divergiu da Relatora neste ponto.
+* **Raciocínio:**
+* Os decretos de calamidade pública não foram impugnados.
+* A descentralização dos recursos (repassar ao Prefeito em vez do Estado executar) *dilui* o capital político (citou a teoria da "diluição da gratidão" – Precedente do Min. Edson Fachin, AgR no REspe 25.857).
+* Apontou erros materiais nos laudos técnicos (datas de 2021 em documentos de 2022), mas considerou as fotos fidedignas e o contexto de emergência válido.
+
+
+* **Conclusão no Ponto:** Afastou o abuso de poder neste tópico ("In dubio pro suffragio").
+
+**D) Publicidade Institucional / Promoção Pessoal [[01:55:26](http://www.youtube.com/watch?v=jW916EhYYjk&t=6926)]:**
+
+* **Acusação:** Uso de redes sociais e publicidade oficial para promoção do Governador.
+* **Divergência:** O Ministro entendeu que as postagens não excederam a prestação de contas e que publicações de 2021 perderam a capacidade de influenciar o pleito de 2022 ("força do tempo").
+* **Conclusão no Ponto:** Afastou a sanção por promoção pessoal.
+
+**4.2. FUNDAMENTAÇÃO NORMATIVA CITADA**
+
+* **Lei nº 9.504/1997 (Lei das Eleições):** Art. 73, §10 (proibição de distribuição gratuita de bens/programas sociais em ano eleitoral sem execução orçamentária anterior); Art. 73, §4º e §5º (sanções de multa e cassação).
+* **Lei Complementar nº 64/1990:** Art. 22 (Abuso de poder) e inciso XVI (gravidade quantitativa e qualitativa).
+* **Constituição Federal:** Art. 37, §1º (impessoalidade na publicidade).
+* **Legislação Estadual:** Lei Estadual 1.639/2022 (criou o Cesta da Família).
+
+**4.3. PRECEDENTES CITADOS**
+
+* **TSE, RO 0603306-3 (Min. Mauro Campbell):** Desnecessidade de litisconsórcio passivo necessário entre candidato e autor da conduta em AIJE.
+* **TSE, RO 3185-62 (Min. Luis Felipe Salomão):** Caso "Cheque Moradia" (Pará) – abuso por intensificação de programa habitacional.
+* **TSE, REspe 25.857 (Min. Edson Fachin):** Teoria da diluição do capital político/gratidão em repasses descentralizados.
+
+**4.4. EFEITOS E PROVIDÊNCIAS PRÁTICAS (Voto Min. André Mendonça)**
+
+* **Voto:** Acompanha parcialmente a relatora (Min. Isabel Gallotti) para **NEGAR PROVIMENTO** aos recursos dos réus principais, mantendo a condenação baseada nos programas "Cesta da Família" e "Morar Melhor".
+* **Sanções:**
+1. **Cassação** dos diplomas de Governador e Vice.
+2. **Inelegibilidade** (8 anos) para Antônio Denarium.
+3. **Novas Eleições:** Determinação de execução imediata do julgado e realização de novo pleito (Art. 224 do Código Eleitoral).
+
+
+* **Ponto de Divergência:** Afastou as condutas de "Repasse de Verbas" e "Publicidade", reduzindo o escopo da condenação, mas mantendo o resultado final (cassação) pela gravidade dos outros dois tópicos.
+
+**4.5. SITUAÇÃO PROCESSUAL NA SESSÃO**
+
+* A Ministra Relatora fez um aparte **[[02:08:05](http://www.youtube.com/watch?v=jW916EhYYjk&t=7685)]** reconhecendo o erro material nas datas dos laudos (apontado por Mendonça), mas reforçando que os dados pluviométricos usados nos laudos eram antigos (de 2021 para justificar chuvas de 2022), mantendo sua posição pela condenação integral.
+* **Pedido de Vista:** O Ministro **Nunes Marques** (Vice-Presidente) pediu vista dos autos **[[02:10:48](http://www.youtube.com/watch?v=jW916EhYYjk&t=7848)]**.
+* **Resultado Parcial:** O julgamento foi suspenso. Até o momento, Relatora e Min. André Mendonça votam pela cassação e novas eleições (com divergências na fundamentação das condutas específicas).
+
+---
+
+**ENCERRAMENTO DA SESSÃO**
+**[[02:13:47](http://www.youtube.com/watch?v=jW916EhYYjk&t=8027)]** A Presidente declarou encerrada a sessão, agradecendo a presença dos estudantes e professores das faculdades mencionadas (UNIPÊ, Mackenzie Brasília e UPIS).

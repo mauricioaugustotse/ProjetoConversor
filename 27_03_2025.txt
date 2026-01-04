@@ -1,0 +1,162 @@
+RELATÓRIO TÉCNICO DE SESSÃO DO TRIBUNAL SUPERIOR ELEITORAL (TSE)
+
+**Data da Sessão:** 27 de março de 2025 (Quinta-feira)
+**Vídeo Analisado:** Sessão Plenária – 27 de Março 2025
+**Presidência:** Ministra Cármen Lúcia.
+
+**Composição da Corte (Ministros Presentes):**
+
+* Min. Cármen Lúcia (Presidente)
+* Min. Kassio Nunes Marques (Vice-Presidente)
+* Min. André Mendonça
+* Min. Isabel Gallotti (Corregedora-Geral)
+* Min. Antonio Carlos Ferreira
+* Min. Floriano de Azevedo Marques
+* Min. André Ramos Tavares
+
+**Ministério Público Eleitoral:**
+
+* Vice-PGE Alexandre Espinosa Bravo Barbosa.
+
+---
+
+### 1. SESSÃO ADMINISTRATIVA
+
+#### 1.1. Lista Tríplice – TRE/BA (Classe de Advogado)
+
+[[20:50](http://www.youtube.com/watch?v=JBlR8U0NmA8&t=1250)]
+
+**1.1.1. Identificação do Processo**
+
+* **Número do Processo:** Lista Tríplice nº 0600009-30.
+* **Origem:** Salvador, Bahia (TRE/BA).
+* **Relator:** Min. Antonio Carlos Ferreira.
+* **Objeto:** Provimento de cargo de Juiz Substituto na classe de Jurista (Advogado).
+
+**1.1.2. Indicados na Lista**
+
+1. Miércio Cerqueira Monteiro.
+2. Sérgio Egídio Tiago Pereira.
+3. Mateus Caires Merremelli Gusmão.
+
+**1.1.3. Fundamentação e Decisão**
+
+* **Raciocínio:** O Relator informou que a Assessoria Consultiva do Tribunal confirmou o preenchimento dos requisitos objetivos previstos na Resolução-TSE nº 23.517, bem como a idoneidade moral dos candidatos.
+* **Fundamentação Normativa:** Constituição Federal (art. 120, § 1º, III) e Res.-TSE nº 23.517 (arts. 1º e 10).
+* **Conclusão e Efeitos:** Aprovada a lista por unanimidade para encaminhamento ao Poder Executivo para escolha e nomeação.
+
+---
+
+#### 1.2. Lista Tríplice – TRE/CE (Classe de Advogado)
+
+[[22:54](http://www.youtube.com/watch?v=JBlR8U0NmA8&t=1374)]
+
+**1.2.1. Identificação do Processo**
+
+* **Número do Processo:** Lista Tríplice nº 0600001-53.
+* **Origem:** Fortaleza, Ceará (TRE/CE).
+* **Relator:** Min. André Ramos Tavares.
+* **Objeto:** Provimento de cargo de Juiz Substituto na classe de Jurista (vaga decorrente do término do biênio de Rogério Feitosa Carvalho Mota).
+
+**1.2.2. Indicados na Lista**
+
+1. Leonardo Roberto Oliveira de Vasconcelos.
+2. André Barbosa de Aguiar.
+3. Joiceane Bezerra de Menezes.
+
+**1.2.3. Fundamentação e Decisão**
+
+* **Raciocínio:** O Relator destacou o cumprimento do decênio de exercício da advocacia e a ausência de impugnações após publicação do edital.
+* **Conclusão e Efeitos:** Aprovada a lista por unanimidade para encaminhamento ao Presidente da República para escolha e nomeação.
+
+---
+
+### 2. SESSÃO JURISDICIONAL
+
+#### 2.1. Propaganda Eleitoral Irregular (Impulsionamento de Conteúdo Negativo)
+
+[[26:08](http://www.youtube.com/watch?v=JBlR8U0NmA8&t=1568)]
+
+**2.1.1. Identificação do Caso**
+
+* **Processo:** Agravo Regimental no Agravo em Recurso Especial Eleitoral nº 0600516-11.
+* **Origem:** São Gonçalo do Amarante, Rio Grande do Norte (RN).
+* **Eleição:** Eleições 2024.
+* **Relator:** Min. André Mendonça.
+* **Partes (Agravantes):** Flávio Henrique de Oliveira e Jaime Calado Pereira dos Santos.
+* **Parte (Agravada):** Coligação "São Gonçalo da Gente".
+
+**2.1.2. Análise do Conteúdo Jurídico**
+O caso trata de propaganda eleitoral antecipada/irregular mediante **impulsionamento de conteúdo negativo** na internet contra adversário político. O TRE/RN havia condenado os pré-candidatos ao pagamento de multa de R$ 7.000,00, reconhecendo a reiteração da conduta.
+
+**2.1.3. Fundamentação Normativa**
+
+* **Lei nº 9.504/1997 (Lei das Eleições):** Art. 57-C, § 3º (citado como fundamento para a vedação do impulsionamento que não visa beneficiar o próprio candidato, mas atacar adversário).
+* **Súmula do TSE nº 30:** Inadmissibilidade de recurso especial quando o acórdão recorrido está em consonância com a jurisprudência do TSE.
+* **Súmula do TSE nº 26:** Inadmissibilidade de recurso que não impugna especificamente os fundamentos da decisão recorrida.
+
+**2.1.4. Raciocínio Desenvolvido**
+
+* **Relator (Min. André Mendonça):** Reafirmou que a jurisprudência da Corte veda o impulsionamento de conteúdo negativo (crítica a adversário). Destacou que os agravantes não conseguiram impugnar especificamente a decisão anterior (incidência da Súmula 26) e apenas repetiram argumentos genéricos de que a publicação ocorreu antes do período eleitoral e não conteria pedido de voto. O Relator manteve a multa acima do mínimo legal devido à reiteração da conduta.
+* **Precedentes Citados:** AgR-AREspe 0604459-80 (Rel. Min. André Ramos Tavares) – sobre a necessidade de impugnação específica.
+
+**2.1.5. Pontos Processuais e Resultado Parcial**
+
+* **Voto do Relator:** Negar provimento aos agravos regimentais.
+* **Intercorrência:** O Ministro **Nunes Marques** antecipou pedido de **vista** dos autos.
+* **Proclamação:** Julgamento suspenso. Aguardam os demais ministros.
+
+---
+
+#### 2.2. Perda de Cargo Eletivo (Desfiliação Partidária e Perda Superveniente de Objeto)
+
+[[33:05](http://www.youtube.com/watch?v=JBlR8U0NmA8&t=1985)]
+
+**2.2.1. Identificação do Caso**
+
+* **Processo:** Embargos de Declaração na Ação de Perda de Cargo Eletivo nº 0600118-15.
+* **Origem:** São Paulo (SP).
+* **Eleição:** Eleições Gerais 2022 (cargo de Deputado Federal) e Eleições Municipais 2024 (prefeito).
+* **Relator:** Min. André Ramos Tavares.
+* **Voto-Vista/Destaque:** Min. Floriano de Azevedo Marques.
+* **Partes (Embargantes):** Marcelo de Lima Fernandes (ex-deputado) e Partido Socialista Brasileiro (PSB).
+* **Parte (Embargado):** Solidariedade (Diretório Nacional).
+* **Terceiro Interessado (Pleito de ingresso):** PODE (Podemos).
+
+**2.2.2. Análise do Conteúdo Jurídico**
+O processo original decretou a perda do mandato de deputado federal de Marcelo de Lima Fernandes por infidelidade partidária (saiu do Solidariedade para o PSB e depois para o Podemos). O julgamento dos embargos foi retomado após pedido de destaque. O ponto central evoluiu para a **perda superveniente do interesse recursal**, dado que o embargante foi eleito e empossado Prefeito de São Bernardo do Campo nas eleições de 2024.
+
+**2.2.3. Fundamentação Normativa**
+
+* **Constituição Federal:** Art. 54, II, 'd' (proibição de acumulação de cargos eletivos – deputado e prefeito).
+* **Código de Processo Civil (CPC):** Art. 998 (direito de desistência do recurso a qualquer tempo).
+* **Resolução-TSE nº 22.610/2007:** Art. 4º (citado para indeferir o ingresso do PODE, pois o interesse do partido seria apenas eventual/remoto).
+
+**2.2.4. Raciocínio Desenvolvido**
+
+* **Relator (Min. André Ramos Tavares):**
+1. **Quanto ao PODE:** Indeferiu o ingresso no feito. O partido não tem interesse jurídico direto, pois o ex-deputado já perdeu o cargo e, mesmo que revertesse a decisão, não poderia assumir (pois virou prefeito).
+2. **Quanto ao PSB:** Homologou o pedido de desistência recursal (art. 998 CPC).
+3. **Quanto a Marcelo de Lima Fernandes:** Votou pelo **não conhecimento** dos embargos. Argumentou que, ao tomar posse como Prefeito, o embargante fez uma escolha voluntária incompatível com o mandato de Deputado Federal. Tentar recuperar o mandato parlamentar agora seria tentar validar uma "escolha privada" entre cargos públicos, o que viola o interesse público e a estabilidade das relações políticas.
+
+
+* **Min. Floriano de Azevedo Marques:** Havia pedido destaque para discutir a cláusula de barreira versus fidelidade partidária, mas reconheceu que a eleição do embargante para o Executivo esvaziou o objeto da discussão ("perda de objeto"). Acompanhou integralmente o relator.
+
+**2.2.5. Conclusão e Efeitos Práticos**
+
+* **Decisão:** Unânime.
+* **Dispositivo:**
+1. Indeferido o ingresso do PODE.
+2. Homologada a desistência do PSB.
+3. Não conhecidos os embargos do ex-parlamentar por perda superveniente de interesse.
+
+
+* **Consequência:** Mantém-se a perda do mandato de deputado federal (já executada), consolidando a situação política atual onde o réu exerce a prefeitura.
+
+---
+
+### 3. ENCERRAMENTO
+
+A sessão jurisdicional foi encerrada após o julgamento destes destaques, sendo seguidos pelos julgamentos em lista (omitidos deste relatório conforme instrução).
+
+**Link do Vídeo:** [https://www.youtube.com/watch?v=JBlR8U0NmA8](https://www.youtube.com/watch?v=JBlR8U0NmA8)

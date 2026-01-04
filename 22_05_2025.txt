@@ -1,0 +1,150 @@
+RELATÓRIO TÉCNICO DE SESSÃO DO TRIBUNAL SUPERIOR ELEITORAL
+
+**JUÍZO TÉCNICO:** Análise de Sessão Plenária Jurisdicional
+**FONTE:** [Sessão Plenária – 22/05/2025]
+
+---
+
+### **1. DADOS GERAIS DA SESSÃO**
+
+* **Data da Sessão:** 22/05/2025 (Quinta-feira) [[20:00](http://www.youtube.com/watch?v=8_55cI-0Szc&t=1200)]
+* **Ministros Presentes:**
+* Min. Cármen Lúcia (Presidente)
+* Min. Kassio Nunes Marques (Vice-Presidente)
+* Min. André Mendonça
+* Min. Isabel Gallotti (Corregedora-Geral)
+* Min. Antonio Carlos Ferreira
+* Min. Floriano de Azevedo Marques
+* Min. André Ramos Tavares
+
+
+* **Ministério Público Eleitoral:** Vice-Procurador-Geral Eleitoral, Dr. Alexandre Espinosa Bravo Barbosa.
+
+---
+
+### **2. JULGAMENTOS INDIVIDUAIS**
+
+Abaixo, a análise técnica pormenorizada dos processos julgados individualmente (destaques da pauta).
+
+---
+
+#### **PROCESSO 1: Agravo Regimental no Recurso Especial Eleitoral nº 0600289-62**
+
+**Timestamp de Início:** [[21:58](http://www.youtube.com/watch?v=8_55cI-0Szc&t=1318)]
+
+**1) Data do Julgamento:** 22/05/2025
+**2) Eleição:** Eleições Municipais de 2024
+**3) Lista Tríplice:** Não se aplica.
+**4) Número do Processo:** 0600289-62
+**5) Cidade de Origem:** Conde
+**6) UF:** Paraíba (PB)
+**7) Partes:**
+* **Agravante:** Aluísio Lundgren Corrêa Regis (Candidato ao cargo de Prefeito).
+* **Agravada:** Coligação "Fé e Povo por um Conde Cada Vez Melhor".
+**8) Ministros votantes:** Unanimidade (Cármen Lúcia, Nunes Marques, André Mendonça, Isabel Gallotti, Antonio Carlos Ferreira, Floriano de Azevedo Marques, Ramos Tavares).
+**9) Advogados mencionados:** Não houve menção nominal de advogados na tribuna para este caso específico no trecho.
+**10) Ministro Relator:** Min. Floriano de Azevedo Marques.
+**11) Jurisprudência do STF:** Não citada explicitamente neste voto.
+**12) Jurisprudência do TSE:** Citada genericamente quanto à perda de objeto em registro de candidatura após a eleição sem êxito do candidato. Menção a precedente do Min. Antonio Carlos Ferreira.
+**13) Resolução do TSE:** Não citada especificamente.
+**14) Legislação:**
+* **Constituição Federal:** Art. 14, § 7º (Inelegibilidade por parentesco/reflexa).
+* **Código Eleitoral:** Art. 224, § 3º (Novas eleições).
+
+**ANÁLISE DO CONTEÚDO JURÍDICO**
+O caso trata de um pedido de **Registro de Candidatura** (RCAND) para o cargo de Prefeito, impugnado com base na **inelegibilidade reflexa** (parentesco), prevista na Constituição Federal. O núcleo da controvérsia deslocou-se do mérito da inelegibilidade para a **perda superveniente do objeto recursal**. O candidato teve o registro indeferido nas instâncias ordinárias, concorreu *sub judice*, mas não foi eleito (obteve apenas 1,12% dos votos válidos, enquanto a eleita obteve 65,62%).
+
+**FUNDAMENTAÇÃO NORMATIVA**
+
+* **Constituição Federal (Art. 14, § 7º):** Base da impugnação original (inelegibilidade por parentesco).
+* **Código Eleitoral (Art. 224, § 3º):** Citado para demonstrar que, mesmo que houvesse a cassação da chapa eleita, haveria novas eleições, e o agravante não assumiria, reforçando a inutilidade do provimento final.
+
+**PRECEDENTES CITADOS**
+
+* **Tribunal:** TSE.
+* **Relator:** Min. Antonio Carlos Ferreira.
+* **Razão de Decidir:** As condições de elegibilidade e causas de inelegibilidade são aferidas a cada eleição (autonomia dos pleitos). O julgamento de um registro indeferido de candidato não eleito não projeta efeitos para pleitos futuros, devendo o candidato submeter-se a novo crivo posteriormente.
+
+**RACIOCÍNIO DESENVOLVIDO**
+O Relator aplicou o método da **prejudicialidade por perda de objeto**.
+
+1. **Premissa Fática:** O candidato não foi eleito (derrota expressiva). A decisão final sobre o registro não altera o resultado da urna.
+2. **Premissa Jurídica:** O processo de registro de candidatura serve para aferir a aptidão para um pleito específico. Se o pleito passou e o candidato não se elegeu, não há utilidade em discutir a tese jurídica em abstrato para "salvar" a elegibilidade para o futuro, pois em novas eleições, novas condições serão analisadas.
+3. **Conclusão:** Manutenção da decisão monocrática que negou seguimento ao recurso pela inutilidade do provimento jurisdicional.
+
+**PONTOS PROCESSUAIS RELEVANTES**
+
+* **Admissibilidade:** Recurso não conhecido (ou desprovido o agravo) por falta de interesse de agir superveniente (perda de objeto).
+* **Proclamação:** Unânime.
+
+**EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Efeito:** Arquivamento do feito. O candidato permanece com o registro indeferido na eleição de 2024, mas isso não gera inelegibilidade automática (como a da Lei da Ficha Limpa) para o futuro por si só, apenas a discussão da causa (parentesco) que deverá ser reavaliada se ele se candidatar novamente.
+
+---
+
+#### **PROCESSO 2: Agravo Regimental no Mandado de Segurança nº 0600020-93**
+
+**Timestamp de Início:** [[26:39](http://www.youtube.com/watch?v=8_55cI-0Szc&t=1599)]
+
+**1) Data do Julgamento:** 22/05/2025
+**2) Eleição:** Eleições Gerais de 2022
+**3) Lista Tríplice:** Não se aplica.
+**4) Número do Processo:** 0600020-93
+**5) Cidade de Origem:** Maceió
+**6) UF:** Alagoas (AL)
+**7) Partes:**
+* **Agravante (Impetrante do MS):** Republicanos Estadual.
+* **Agravado:** Paulo Fernando dos Santos (Deputado/Suplente).
+**8) Ministros votantes:**
+* **Vencidos (Relator):** Floriano de Azevedo Marques, André Ramos Tavares, Isabel Gallotti.
+* **Vencedores (Divergência):** Kassio Nunes Marques, André Mendonça, Antonio Carlos Ferreira, Cármen Lúcia.
+**9) Advogados mencionados:** Não citados nominalmente na discussão do mérito.
+**10) Ministro Relator:** Min. Floriano de Azevedo Marques (Vencido). **Redator para o Acórdão:** Min. Kassio Nunes Marques.
+**11) Jurisprudência do STF:** Súmula 624 do STF (citada por Min. Antonio Carlos Ferreira).
+**12) Jurisprudência do TSE:**
+* **Súmula 34 do TSE:** "Não compete ao Tribunal Superior Eleitoral processar e julgar mandado de segurança contra ato de membro de Tribunal Regional Eleitoral".
+* **Súmula 22 do TSE:** Não cabimento de MS contra decisão judicial recorrível.
+* Precedentes citados pelo Min. André Mendonça: AgR-REspe 0600960-95 (Rel. Carlos Horbach) e RO 0601357-06 (Rel. Cármen Lúcia) sobre necessidade de efetivo prejuízo.
+**13) Resolução do TSE:** Não citada especificamente.
+**14) Legislação:**
+* **Constituição Federal:** Art. 5º, LX (Publicidade dos atos processuais); Art. 93, IX (Publicidade das decisões).
+* **Código Eleitoral:** Art. 219 (Princípio *pas de nullité sans grief*).
+* **Loman (LC 35/79):** Art. 21, VI (Competência originária dos tribunais para MS contra seus próprios atos).
+* **CPC:** Art. 120 (Assistência).
+
+**ANÁLISE DO CONTEÚDO JURÍDICO**
+Trata-se de **Mandado de Segurança** impetrado originariamente no TSE contra ato supostamente praticado no âmbito do TRE-AL (pela Relatora ou pelo colegiado), envolvendo a decretação indevida de **segredo de justiça** em uma Representação por captação ilícita de recursos (Eleições 2022).
+O núcleo do problema é processual: o partido (Republicanos) alegou nulidade dos atos praticados enquanto o processo correu sob sigilo indevido, o que teria impedido sua participação como assistente. O Relator (Floriano) concedia parcialmente a segurança para anular os atos. A Divergência (Nunes Marques) focou na **incompetência do TSE** e na ausência de prejuízo.
+
+**FUNDAMENTAÇÃO NORMATIVA**
+
+* **Tese do Relator (Vencida):** Baseada na **Publicidade (CF, art. 93, IX)** e no prejuízo concreto ao devido processo legal, pois o sigilo impediu a fiscalização e a coleta de provas pelo assistente.
+* **Tese da Divergência (Vencedora):** Baseada na **LOMAN (Art. 21, VI)** e na **Súmula 34/TSE**. O TSE não é instância para julgar MS contra ato de membro ou colegiado de TRE. Além disso, aplicou-se o **Art. 219 do Código Eleitoral** (*pas de nullité sans grief*), entendendo que não houve prejuízo demonstrado, pois o assistente recebe o processo no estado em que se encontra.
+
+**RACIOCÍNIO DESENVOLVIDO**
+
+* **Relator (Floriano) e Min. Ramos Tavares:** Defenderam que o sigilo foi abusivo ("preservar imagem de sindicato" não é motivo legal) e causou prejuízo probatório irreparável ao partido interessado (suplente), justificando a intervenção do TSE para anular os atos.
+* **Divergência (Min. Nunes Marques - Voto Condutor):**
+1. **Incompetência:** O ato coator é de membro do TRE ou do próprio TRE. O TSE não tem competência originária para isso (Súmula 34). O recurso correto seria o ordinário ou especial dentro dos próprios autos, não um MS originário no TSE (sucedâneo recursal).
+2. **Ausência de Teratologia:** O TRE já havia levantado o sigilo e suspendido o feito para manifestação das partes. Não houve ato ilegal ou teratológico vigente.
+3. **Assistência Simples:** O assistente entra no processo na fase em que ele está. Não há direito a "voltar" o processo para produzir provas que o assistido principal não produziu.
+4. **Conclusão:** Provimento do Agravo Regimental para **não conhecer** do Mandado de Segurança.
+
+
+
+**PONTOS PROCESSUAIS RELEVANTES**
+
+* **Preliminar de Incompetência:** Acolhida pela maioria. O TSE afirmou não ser o foro para julgar atos de Desembargadores de TRE via Mandado de Segurança.
+* **Pedido de Vista:** O caso retornou de vista do Min. Ramos Tavares (que acompanhou o Relator).
+* **Placar:** 4 x 3. (Venceram: Nunes Marques, Mendonça, Antonio Carlos, Cármen Lúcia. Vencidos: Floriano, Ramos Tavares, Gallotti).
+
+**EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Decisão:** O Agravo Regimental foi provido.
+* **Consequência:** O Mandado de Segurança **não foi conhecido** (extinto sem resolução de mérito) e as liminares anteriormente concedidas (que anulavam os atos do processo original) foram **cassadas**.
+* **Prática:** O processo original de Representação (captação ilícita) no TRE-AL deve retomar seu curso de onde parou, validando-se os atos anteriormente praticados, sem o retorno à fase instrutória pleiteada pelo Republicanos.
+
+---
+
+*Relatório encerrado em conformidade com o conteúdo audiovisual da Sessão Plenária de 22/05/2025.*

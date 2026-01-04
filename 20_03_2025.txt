@@ -1,0 +1,196 @@
+Relatório técnico da Sessão Plenária Jurisdicional do Tribunal Superior Eleitoral (TSE), realizada em 20 de março de 2025.
+
+**DADOS GERAIS DA SESSÃO**
+
+* **Data da Sessão:** 20 de março de 2025.
+* **Presidência:** Ministra Cármen Lúcia.
+* **Composição da Corte:** Ministros Kassio Nunes Marques (Vice-Presidente), André Mendonça, Isabel Gallotti (Corregedora-Geral), Antonio Carlos Ferreira, Floriano de Azevedo Marques e André Ramos Tavares.
+* **Vice-Procurador-Geral Eleitoral:** Dr. Alexandre Espinosa Bravo Barbosa.
+
+---
+
+### **1. PROCESSO: Agravo Regimental no Recurso Especial Eleitoral nº 0600196-67**
+
+**DADOS DO PROCESSO:**
+
+* **Relatora:** Ministra Isabel Gallotti.
+* **Eleição:** 2024 (Municipal).
+* **Cidade de Origem:** Aquidabã.
+* **UF:** Sergipe (SE).
+* **Partes:**
+* **Agravante:** Coligação "Aquidabã, Minha Terra, Minha Gente".
+* **Agravada:** Ana Helena Carvalho Fontes (Candidata eleita ao cargo de Prefeita).
+
+
+* **Advogado:** Dr. Fabiano Freire Feitosa (pela agravante).
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+O julgamento versa sobre **Registro de Candidatura** e **Inelegibilidade Reflexa por Parentesco** (art. 14, § 7º, da CF/88). O ponto central da controvérsia é a definição da natureza do vínculo jurídico entre a candidata Ana Helena Carvalho Fontes e seus avós biológicos, que detinham sua guarda. A tese da acusação é de que haveria **filiação socioafetiva** entre a neta e os avós, o que a tornaria, por extensão, irmã socioafetiva de sua tia biológica, Lidiane Lucena (esposa do então prefeito reeleito, Francimar de Lucena). Se reconhecida a filiação socioafetiva, a candidata seria cunhada do prefeito, incidindo na inelegibilidade reflexa de segundo grau. A defesa sustenta que o vínculo é apenas de avós e neta (parentesco de 3º grau por afinidade em relação ao prefeito), o que não gera inelegibilidade.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Constituição Federal:** Art. 14, § 7º (inelegibilidade reflexa de parentes consanguíneos ou afins até o segundo grau); Art. 93, IX (fundamentação das decisões).
+* **Código Civil:** Art. 1.593 (parentesco natural ou civil/socioafetividade).
+* **Código de Processo Civil (CPC):** Art. 282 (aproveitamento dos atos processuais/mérito a favor da parte); Arts. 489 e 1.022 (omissão/embargos).
+* **Estatuto da Criança e do Adolescente (ECA):** Instituto da guarda (caráter excepcional e transitório).
+* **Súmula do TSE:** Súmula nº 24 (vedação ao reexame de fatos e provas em sede especial).
+
+**3. PRECEDENTES CITADOS**
+
+* **Superior Tribunal de Justiça (STJ):** Jurisprudência mencionada pela Relatora sobre os requisitos da filiação socioafetiva (laço afetivo de pai/filho + reconhecimento público/fama). Menciona que mero auxílio financeiro não configura filiação.
+* **TSE:** Precedentes sobre a necessidade de prova robusta para configuração de inelegibilidade (citados pelos Ministros Ramos Tavares e Floriano de Azevedo Marques).
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+[[26:42](http://www.youtube.com/watch?v=Abi5ND2Q7ao&t=1602)] A Relatora, Min. Isabel Gallotti, ratificou seu voto (já proferido em plenário virtual) pelo desprovimento do agravo.
+
+* **Premissas Probatórias:** A Corte Regional (TRE-SE) havia indeferido o registro baseando-se em: (i) guarda concedida aos avós aos 2 meses de vida; (ii) vídeo no Instagram onde a tia se refere aos avós como "meu pai e minha mãe" (mas a defesa provou que quem fala é a tia, filha biológica, e não a candidata); (iii) tratamento de "irmã" entre tia e sobrinha; (iv) custeio de despesas pelos avós.
+* **Revaloração Jurídica:** A Ministra argumentou que a guarda foi concedida por motivo financeiro (pais estudantes na época), tendo caráter transitório e não implicando, por si só, adoção ou filiação socioafetiva. O custeio de educação e saúde é obrigação legal ou solidariedade familiar, insuficiente para transmudar a relação de avós/neta em pais/filha.
+* **Fama Pública:** Destacou que a sociedade local (município pequeno) a reconhece como neta, inclusive o adversário político em entrevista. A prova testemunhal foi considerada frágil/contraditória.
+* **Conclusão:** Não há prova robusta dos requisitos da socioafetividade (trato de filha e reconhecimento público). Mantém-se o vínculo biológico (neta), afastando a inelegibilidade, pois o parentesco com o prefeito é de 3º grau.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Destaque:** O processo foi destacado do Plenário Virtual pelo Min. Floriano de Azevedo Marques para debate físico.
+* **Nulidade vs. Mérito:** A Relatora reconheceu que houve negativa de prestação jurisdicional pelo TRE-SE (omissão sobre provas), mas aplicou o art. 282 do CPC para superar a nulidade e decidir o mérito diretamente a favor da candidata, deferindo o registro.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Resultado:** Agravo regimental desprovido por unanimidade.
+* **Efeito:** Mantido o deferimento do registro de candidatura de Ana Helena Carvalho Fontes e a validade de sua eleição como Prefeita de Aquidabã.
+
+---
+
+### **2. PROCESSO: Agravo Regimental no Recurso Especial Eleitoral nº 0600098-15**
+
+**DADOS DO PROCESSO:**
+
+* **Relator Original:** Ministro Floriano de Azevedo Marques.
+* **Redator para o Acórdão (Provável):** Divergência aberta (pendente).
+* **Eleição:** 2024 (Municipal).
+* **Cidade de Origem:** Morpará.
+* **UF:** Bahia (BA).
+* **Partes:**
+* **Agravante:** Bartolomeu Paes Landim (Candidato a Vereador).
+* **Agravada:** Federação Brasil da Esperança - Morpará/BA.
+
+
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+O caso trata de **Desincompatibilização** de dirigente de pessoa jurídica que mantém contrato com o Poder Público. O candidato era presidente de uma Colônia de Pescadores e Aquicultores que firmou um **Acordo de Cooperação Técnica (ACT)** com o INSS para facilitar o envio de requerimentos previdenciários (INSS Digital). O TRE-BA equiparou esse acordo a um contrato de prestação de serviços, exigindo afastamento 6 meses antes do pleito (o que não ocorreu).
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Lei Complementar nº 64/1990:** Art. 1º, II, alínea *i* (inelegibilidade de quem exerce direção em pessoa jurídica que mantenha contrato com órgão do poder público nos 6 meses anteriores ao pleito). Menciona-se também a alínea *g* (dirigentes sindicais), mas esta não foi o fundamento do acórdão recorrido.
+* **Decreto nº 11.531/2023:** Arts. 1º e 2º (Distinção legal entre Convênio e Acordo de Cooperação Técnica).
+* **Súmulas do TSE:** Súmulas 24 e 30.
+
+**3. PRECEDENTES CITADOS**
+
+* **TSE:** Min. Antonio Carlos citou julgado do Min. Gilmar Mendes sobre a reserva legal proporcional e a interpretação restritiva das inelegibilidades.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+[[55:09](http://www.youtube.com/watch?v=Abi5ND2Q7ao&t=3309)] O Relator (Min. Floriano) votou anteriormente pelo não conhecimento do agravo (incidência das Súmulas 24 e 30).
+
+* **Divergência (Min. Antonio Carlos Ferreira):** [[56:04](http://www.youtube.com/watch?v=Abi5ND2Q7ao&t=3364)] Abriu divergência para prover o recurso. Argumentou que "Acordo de Cooperação Técnica" não se equipara a contrato administrativo ou convênio com repasse financeiro.
+* A entidade atua como mera intermediária/facilitadora, sem contraprestação financeira.
+* A alínea *i* do art. 1º, II, da LC 64/90 exige contrato de execução de obras, serviços ou fornecimento de bens. O ACT não envolve esses elementos, nem licitação.
+* Interpretação restritiva das inelegibilidades: equiparar ACT a contrato prejudicaria parcerias benéficas para a população (facilitação de acesso ao INSS) pelo receio de inelegibilidade dos gestores.
+
+
+* **Pedido de Vista:** A Ministra Presidente Cármen Lúcia pediu vista antecipada para analisar a repercussão da tese sobre associações que mantêm acordos sem repasse financeiro.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Pedido de Vista:** O julgamento foi suspenso pelo pedido de vista da Min. Cármen Lúcia.
+* **Placar Parcial:** 1 voto pelo desprovimento/não conhecimento (Relator Floriano) x 1 voto pelo provimento/deferimento (Antonio Carlos).
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Suspenso:** Aguarda-se o voto-vista para definição se o registro será deferido ou indeferido.
+
+---
+
+### **3. PROCESSO: Agravo Regimental no Recurso Especial Eleitoral nº 0600055-91**
+
+**DADOS DO PROCESSO:**
+
+* **Relator Original:** Ministro Floriano de Azevedo Marques.
+* **Eleição:** 2024.
+* **Cidade de Origem:** São Cristóvão.
+* **UF:** Sergipe (SE).
+* **Partes:**
+* **Agravante:** Júlio Nascimento Júnior (Pré-candidato a Prefeito).
+* **Agravado:** Partido Social Democrático (PSD) Municipal.
+
+
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Trata-se de **Propaganda Eleitoral Antecipada** e o uso das chamadas **"Palavras Mágicas"** (*magic words*). O pré-candidato fez postagens no Instagram com frases como "Pronto, preparado e querendo fazer mais", "Mais trabalho vem aí" e exaltando a gestão do atual prefeito Marcos Santana. O TRE-SE condenou por entender que o conjunto configurava pedido explícito de voto (palavras mágicas).
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Lei nº 9.504/1997 (Lei das Eleições):** Art. 36-A (atos permitidos na pré-campanha, desde que não haja pedido explícito de voto).
+* **Resolução TSE nº 23.610 (alterada pela Res. 23.732):** Art. 3º-A (conceito de pedido explícito de votos e palavras mágicas).
+
+**3. PRECEDENTES CITADOS**
+
+* **TSE:** Recurso Especial nº 5124 (Rel. Min. Luiz Fux), de 2016 - *leading case* sobre a ampla liberdade de expressão na pré-campanha e a necessidade de pedido explícito.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+[[01:11:24](http://www.youtube.com/watch?v=Abi5ND2Q7ao&t=4284)] O Relator (Min. Floriano) votou por manter a multa (propaganda irregular).
+
+* **Divergência (Min. Antonio Carlos Ferreira):** [[01:13:09](http://www.youtube.com/watch?v=Abi5ND2Q7ao&t=4389)] Votou para dar provimento e julgar improcedente a representação.
+* Defende que as frases ("Pronto, preparado", "O futuro a gente constrói com trabalho") enquadram-se na permissão do Art. 36-A (divulgação de posicionamento pessoal e exaltamento de qualidades).
+* Critica a aplicação subjetiva da teoria das "palavras mágicas". Defende que a análise deve ser primeiro: "O ato é permitido pelo 36-A?". Se sim, não se deve buscar palavras mágicas subsidiariamente para punir.
+* A liberdade de expressão na pré-campanha visa informar o eleitor.
+
+
+* **Debate:** A Ministra Cármen Lúcia interveio [[01:26:56](http://www.youtube.com/watch?v=Abi5ND2Q7ao&t=5216)] expressando preocupação em não "destruir" a jurisprudência das palavras mágicas, que visa garantir a isonomia e evitar abusos. O Min. Floriano [[01:31:21](http://www.youtube.com/watch?v=Abi5ND2Q7ao&t=5481)] reforçou que, embora a liberdade seja vital, a antecipação de campanha ("continuidade de gestão", "trabalho vem aí") quebra a paridade de armas.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Pedido de Vista:** A Ministra Cármen Lúcia pediu vista para alinhar o entendimento sobre os limites das "palavras mágicas" frente ao Art. 36-A.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Suspenso:** Julgamento suspenso com placar de 1x1 (Relator nega provimento, Divergência dá provimento).
+
+---
+
+### **4. PROCESSO: Agravo Regimental no Recurso Especial Eleitoral nº 0600100-87**
+
+**DADOS DO PROCESSO:**
+
+* **Relator:** Ministro André Ramos Tavares.
+* **Eleição:** 2024.
+* **Cidade de Origem:** Maragogi.
+* **UF:** Alagoas (AL).
+* **Partes:**
+* **Agravante:** Fernando Sérgio Lira Neto (Prefeito/Ex-prefeito).
+* **Agravado:** Movimento Democrático Brasileiro (MDB) Municipal.
+
+
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Também versa sobre **Propaganda Eleitoral Antecipada** envolvendo a expressão **"Bora de Dani"** (referência à pré-candidata Dani). O Tribunal Regional considerou a expressão equivalente a pedido de voto ("Vamos de Dani").
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Lei nº 9.504/1997:** Art. 36-A.
+
+**3. PRECEDENTES CITADOS**
+
+* **TSE:** O Relator André Ramos Tavares mencionou [[01:36:02](http://www.youtube.com/watch?v=Abi5ND2Q7ao&t=5762)] que o TSE já julgou caso idêntico da mesma cidade (Maragogi) envolvendo a candidata Dani e a mesma expressão, mantendo a multa (Relatoria Min. Isabel Gallotti, nov/2024).
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+[[01:34:25](http://www.youtube.com/watch?v=Abi5ND2Q7ao&t=5665)] O Min. Antonio Carlos Ferreira, apesar de suas ressalvas teóricas no processo anterior, neste caso acompanhou o Relator para **manter a multa** (negar provimento).
+
+* **Motivo:** A expressão "Bora" equivale a "Vamos", e a jurisprudência para 2024 já se consolidou no sentido de que "Vamos juntos" ou "Vamos de [Nome]" configura pedido explícito (palavra mágica). Para manter a segurança jurídica e coerência com o julgamento anterior da mesma cidade, ele aderiu à condenação.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Conexão de Teses:** A Ministra Cármen Lúcia também pediu vista deste processo [[01:37:09](http://www.youtube.com/watch?v=Abi5ND2Q7ao&t=5829)], apesar da aparente convergência no resultado, para garantir que a fundamentação sobre "palavras mágicas" seja coerente com o processo de São Cristóvão (Item 3 deste relatório) e orientar uniformemente os Regionais.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Suspenso:** Julgamento suspenso pelo pedido de vista da Presidente.

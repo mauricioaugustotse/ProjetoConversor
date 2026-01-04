@@ -1,0 +1,85 @@
+Segue o relatório técnico da sessão plenária jurisdicional do Tribunal Superior Eleitoral, elaborado exclusivamente com base nas informações extraídas do vídeo fornecido.
+
+---
+
+# RELATÓRIO DE SESSÃO DO TRIBUNAL SUPERIOR ELEITORAL
+
+**DATA DA SESSÃO:** 09/12/2025
+**MINISTROS PRESENTES:** Cármen Lúcia (Presidente), Kassio Nunes Marques (Vice-Presidente), André Mendonça, Antonio Carlos Ferreira, Villas Bôas Cueva, Floriano de Azevedo Marques e Estela Aranha.
+**MINISTRO(A) AUSENTE/JUSTIFICADO(A):** Isabel Gallotti (mencionada como tendo votado na sessão virtual anterior).
+**VICE-PROCURADOR-GERAL ELEITORAL:** Alexandre Espinosa Bravo Barbosa.
+
+---
+
+## 1. Agravo Regimental no Recurso Especial Eleitoral nº 0600254-16
+
+**DADOS DO PROCESSO:**
+
+* **Número:** 0600254-16 [[22:07](http://www.youtube.com/watch?v=3tON2-BByxo&t=1327)]
+* **Relator:** Min. Antonio Carlos Ferreira
+* **Cidade de Origem:** Aracaju
+* **UF:** Sergipe (SE)
+* **Eleição/Contexto:** Prestação de Contas Anual – Exercício Financeiro de 2022 [[22:44](http://www.youtube.com/watch?v=3tON2-BByxo&t=1364)]
+* **Partes:**
+* **Agravante:** Alessandro Vieira [[22:19](http://www.youtube.com/watch?v=3tON2-BByxo&t=1339)]
+* **Interessado:** Diretório Estadual do Partido da Social Democracia Brasileira (PSDB) de Sergipe [[22:39](http://www.youtube.com/watch?v=3tON2-BByxo&t=1359)]
+
+
+* **Advogados:** Não mencionados nominalmente (citado apenas o recebimento de memoriais [[23:50](http://www.youtube.com/watch?v=3tON2-BByxo&t=1430)]).
+
+### 1.1. ANÁLISE DO CONTEÚDO JURÍDICO
+
+O julgamento versa sobre a prestação de contas anual do diretório estadual do PSDB/SE referente ao ano de 2022. O núcleo da controvérsia reside na decisão do TRE-SE que julgou as contas como "não prestadas" devido à inércia do partido em apresentar a documentação tempestivamente. O ponto central debatido foi a possibilidade (ou não) de se considerar documentos apresentados extemporaneamente (263 dias após o prazo) para fins de regularização ou redução do valor a ser devolvido ao erário.
+
+### 1.2. FUNDAMENTAÇÃO NORMATIVA
+
+* **Resolução-TSE nº 23.604/2019:**
+* Citado o Art. 47, parágrafo único (obrigação de devolver integralmente os recursos em caso de contas julgadas não prestadas) [[27:09](http://www.youtube.com/watch?v=3tON2-BByxo&t=1629)].
+
+
+* **Súmulas do TSE:**
+* **Súmula nº 24:** (Impossibilidade de reexame de fatos e provas em sede especial) [[24:52](http://www.youtube.com/watch?v=3tON2-BByxo&t=1492)].
+* **Súmula nº 30:** (Acórdão em consonância com a jurisprudência do Tribunal) [[24:59](http://www.youtube.com/watch?v=3tON2-BByxo&t=1499)].
+* **Súmula nº 26:** (Inadmissibilidade de recurso que não impugna especificamente os fundamentos da decisão combatida – repetição *ipsis litteris* dos argumentos) [[25:15](http://www.youtube.com/watch?v=3tON2-BByxo&t=1515)].
+
+
+
+### 1.3. PRECEDENTES CITADOS
+
+Não houve citação nominal de precedentes específicos (julgados com data e relatoria), apenas referência genérica à "jurisprudência deste Tribunal" fundamentando a aplicação da Súmula 30.
+
+### 1.4. RACIOCÍNIO DESENVOLVIDO
+
+* **Voto do Relator (Min. Antonio Carlos Ferreira):**
+* Destacou que o agravante repetiu *ipsis litteris* os argumentos do recurso especial, não atacando os fundamentos da decisão agravada, o que atrai a incidência da Súmula 26 do TSE [[25:08](http://www.youtube.com/watch?v=3tON2-BByxo&t=1508)].
+* Reforçou a impossibilidade de reexame probatório (Súmula 24) e a consonância da decisão regional com a jurisprudência do TSE (Súmula 30).
+
+
+* **Voto da Min. Estela Aranha (Destaque):**
+* Esclareceu que pediu destaque pelo valor elevado da condenação (aproximadamente R$ 1 milhão, segundo sua análise, embora o Relator tenha citado R$ 340 mil de devolução ao fundo).
+* **Fato determinante:** A agremiação foi notificada regularmente e deixou transcorrer o prazo *in albis*. Constituiu advogado e juntou documentos apenas 263 dias após o fim do prazo [[26:41](http://www.youtube.com/watch?v=3tON2-BByxo&t=1601)].
+* **Tese aplicada:** O julgamento de contas "não prestadas" implica, por força normativa (Res. 23.604/2019), o dever de devolver integralmente os recursos públicos. Não se aplica a jurisprudência que permite uso de documentos extemporâneos para ajuste de valores (enriquecimento ilícito) quando a intempestividade é crassa e resulta em "não prestação" e não apenas em "desaprovação" [[27:17](http://www.youtube.com/watch?v=3tON2-BByxo&t=1637)].
+
+
+* **Acompanhamentos:**
+* Os Ministros Floriano de Azevedo Marques, Nunes Marques e André Mendonça acompanharam integralmente, ratificando a impossibilidade de aferição contábil dada a extemporaneidade.
+
+
+
+### 1.5. PONTOS PROCESSUAIS RELEVANTES
+
+* **Destaque:** O processo havia sido iniciado em plenário virtual (21 a 28/11/2025), mas foi retirado para o plenário físico por pedido de destaque da Ministra Estela Aranha para melhor exame do valor elevado da condenação [[22:54](http://www.youtube.com/watch?v=3tON2-BByxo&t=1374)].
+* **Composição de Votação:** O Ministro Villas Bôas Cueva não votou para preservar o voto da Ministra Isabel Gallotti (ausente nesta assentada), que já havia votado no plenário virtual acompanhando o relator [[23:19](http://www.youtube.com/watch?v=3tON2-BByxo&t=1399)].
+* **Resultado:** Proclamação por unanimidade no sentido de **não conhecer** do agravo interno.
+
+### 1.6. EFEITOS E PROVIDÊNCIAS PRÁTICAS
+
+* **Manutenção da decisão do TRE-SE:** As contas permanecem julgadas como "não prestadas".
+* **Sanção Pecuniária:** Obrigação de devolução integral dos recursos públicos (Fundo Partidário e FEFC) recebidos pelo diretório estadual em 2022. O valor citado pelo relator ultrapassa R$ 340.000,00 [[24:13](http://www.youtube.com/watch?v=3tON2-BByxo&t=1453)], enquanto a Min. Estela Aranha mencionou cifras próximas a R$ 1 milhão [[26:14](http://www.youtube.com/watch?v=3tON2-BByxo&t=1574)].
+
+---
+
+**OBSERVAÇÕES ADICIONAIS:**
+
+* **Processo Adiado:** O Agravo Regimental no Agravo em Recurso Especial Eleitoral nº 0600516-11 (São Gonçalo do Amarante/RN), de relatoria do Min. André Mendonça, foi adiado. Encontra-se com vista ao Min. Nunes Marques [[21:46](http://www.youtube.com/watch?v=3tON2-BByxo&t=1306)].
+* **Listas de Julgamento:** As Listas nº 1 (Rel. André Mendonça), nº 1, 2 e 3 (Rel. Antonio Carlos Ferreira) foram julgadas em bloco ao final da sessão, sem destaque ou discussão, resultando na manutenção das decisões monocráticas (negativa de provimento ou não conhecimento) [[30:15](http://www.youtube.com/watch?v=3tON2-BByxo&t=1815)].

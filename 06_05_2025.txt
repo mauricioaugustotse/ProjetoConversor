@@ -1,0 +1,175 @@
+**RELATÓRIO TÉCNICO DE SESSÃO DO TRIBUNAL SUPERIOR ELEITORAL**
+
+**JUÍZO ANALÍTICO:** Sessão Plenária Jurisdicional e Administrativa
+**FONTE:** Canal Oficial do TSE no YouTube
+
+---
+
+### **DADOS GERAIS DA SESSÃO**
+
+**1) Data da sessão:** 06/05/2025 (Terça-feira).
+**8) Ministros presentes:** Cármen Lúcia (Presidente), Kassio Nunes Marques (Vice-Presidente), Isabel Gallotti (Corregedora-Geral), André Mendonça, Antonio Carlos Ferreira, Floriano de Azevedo Marques e André Ramos Tavares.
+**PGE:** Vice-Procurador-Geral Eleitoral, Dr. Alexandre Espinosa Bravo Barbosa.
+
+---
+
+### **JULGAMENTO 1: LISTA TRÍPLICE – TRE/SC**
+
+**[[26:12](http://www.youtube.com/watch?v=P-L7SeDXERI&t=1572)] DADOS DO PROCESSO:**
+
+**2) Eleição:** Não aplicável (Processo Administrativo).
+**3) Indicados em Lista Tríplice:**
+
+* Pedro Paulo Faria de Carvalho Braga
+* Juliano Carporal Menegotto
+* Luiza César Portela
+**4) Número do processo:** Lista Tríplice nº 0600029-21.
+**5) Cidade de origem:** Florianópolis.
+**6) UF:** Santa Catarina (SC).
+**10) Ministro Relator:** André Mendonça.
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO:**
+Trata-se de análise dos requisitos objetivos e subjetivos (idoneidade moral) de advogados indicados para compor o TRE-SC na classe de jurista (juiz substituto). Os pontos de tensão envolveram:
+
+1. **Nepotismo:** O indicado Pedro Paulo é filho de Desembargador falecido do TJ-SC.
+2. **Idoneidade Moral:** O indicado Juliano possuía queixa-crime por delito contra a honra.
+
+**2. FUNDAMENTAÇÃO NORMATIVA:**
+
+* **Normas Infralegais:** Resolução TSE nº 23.517/2017 (citada como regência dos requisitos objetivos).
+
+**3. PRECEDENTES CITADOS:**
+
+* **TSE:** Jurisprudência da Corte no sentido de que não caracteriza nepotismo a indicação de parente de magistrado já falecido ou aposentado (analogia).
+
+**4. RACIOCÍNIO DESENVOLVIDO:**
+
+* **Relator (André Mendonça):**
+* Quanto ao candidato Pedro Paulo: O óbito do pai (Desembargador) ocorreu antes da formalização da lista, afastando a configuração de nepotismo ou influência indevida, conforme precedentes da Casa.
+* Quanto ao candidato Juliano: A queixa-crime foi rejeitada com trânsito em julgado e foram apresentadas certidões negativas da justiça estadual. A idoneidade moral foi considerada preservada.
+* **Conclusão:** Todos os candidatos cumprem os requisitos.
+
+
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS:**
+
+* **Decisão:** Aprovada a lista por unanimidade.
+* **Providência:** Encaminhamento ao Presidente da República para escolha e nomeação.
+
+---
+
+### **JULGAMENTO 2: AGRAVO REGIMENTAL NO RECURSO ESPECIAL Nº 0600095-22**
+
+**[[32:29](http://www.youtube.com/watch?v=P-L7SeDXERI&t=1949)] DADOS DO PROCESSO:**
+
+**2) Eleição:** 2024 (Registro de Candidatura – Prefeito).
+**4) Número do processo:** 0600095-22.
+**5) Cidade de origem:** Tucuruí.
+**6) UF:** Pará (PA).
+**7) Partes:**
+
+* **Agravantes:** Coligação "A Mudança Certa" e Paulo Ronald Ramos da Silva (Vereador).
+* **Agravados:** Alexandre França Siqueira (Candidato a Prefeito) e Coligação "Bora Trabalhar".
+**9) Advogados mencionados:** Dr. João Luiz Brasil Batista Rolim de Castro (pelo agravante Paulo Ronald).
+**10) Ministro Relator:** André Ramos Tavares.
+**10.1) Redatora para o acórdão:** Isabel Gallotti.
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO:**
+O cerne da controvérsia é definir se uma **liminar concedida em Tutela Cautelar Antecedente** (pelo Min. Benedito Gonçalves em 2023), que suspendeu os efeitos de um acórdão condenatório (AIJE de 2020 por abuso de poder e captação ilícita), teve o condão de suspender apenas a cassação/afastamento do cargo ou se também suspendeu a **inelegibilidade** (sanção autônoma) para o pleito de 2024. O candidato teve o registro deferido pelo TRE-PA sob o argumento de que a liminar suspendia "tudo".
+
+**2. FUNDAMENTAÇÃO NORMATIVA:**
+
+* **Legislação Federal:**
+* Lei Complementar nº 64/1990 (Lei de Inelegibilidades): Art. 1º, I, "d" e "j" (causas de inelegibilidade); Art. 26-C (requisito de pedido expresso para suspensão de inelegibilidade).
+* Código de Processo Civil (CPC): Art. 300 (*caput* - requisitos da tutela); Art. 492 (vedação a decisão diversa da pedida - princípio da congruência).
+* Código Eleitoral: Art. 224, §3º e Art. 257, §2º (efeitos do recurso ordinário).
+
+
+
+**3. PRECEDENTES CITADOS:**
+
+* **TSE:** Precedente do Min. Mauro Campbell (AgR em RO) – o efeito suspensivo *ope legis* alcança apenas a cassação, não a inelegibilidade.
+* **TSE:** Precedente do Min. Benedito Gonçalves – mesma lógica aplicada ao Recurso Especial.
+* **TSE:** Precedente do Min. Carlos Horbach (2021) – citado pelo Relator e Divergência para justificar posições opostas (naquele caso, houve pedido expresso de suspensão da inelegibilidade).
+
+**4. RACIOCÍNIO DESENVOLVIDO:**
+
+* **Voto Vencedor (Divergência – Min. Isabel Gallotti):**
+* **Distinção de Sanções:** A inelegibilidade em AIJE é sanção autônoma, distinta da cassação do diploma.
+* **Princípio da Congruência:** Na petição inicial da Tutela Cautelar (2023), o pedido foi restrito à recondução ao cargo (evitar descontinuidade administrativa). Não houve pedido expresso para suspender a inelegibilidade (Art. 26-C, LC 64/90).
+* **Ausência de *Periculum in Mora*:** À época da liminar (março/2023), faltavam 18 meses para a eleição de 2024, não havendo urgência para suspender a inelegibilidade naquele momento.
+* **Conclusão:** A liminar não suspendeu a inelegibilidade. O registro deve ser indeferido.
+* *Acompanharam:* André Mendonça, Antonio Carlos Ferreira e Floriano de Azevedo Marques.
+
+
+* **Voto Vencido (Relator – Ramos Tavares e Nunes Marques):**
+* **Efeito *Ope Judicis*:** Tratava-se de efeito suspensivo judicial (poder geral de cautela), mais amplo que o *ope legis*.
+* **Integralidade:** O pedido foi para suspender os "efeitos do acórdão" do TRE-PA. Ao deferir sem ressalvas, a liminar suspendeu tudo (cassação, multa e inelegibilidade).
+* **Segurança Jurídica:** Fatiar os efeitos anos depois gera insegurança, pois o candidato concorreu amparado pela decisão.
+
+
+
+**5. PONTOS PROCESSUAIS RELEVANTES:**
+
+* **Súmula 26:** Afastada pela divergência (considerou-se que houve impugnação suficiente).
+* **Preclusão:** Debate sobre se a falta de pedido de suspensão da inelegibilidade no Recurso Especial gerou preclusão para a Cautelar.
+* **Modulação:** Discussão sobre a eficácia da liminar concedida pelo Min. Benedito Gonçalves.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS:**
+
+* **Decisão:** Provimento dos agravos e dos Recursos Especiais (4x2).
+* **Sanção:** **Indeferimento do registro de candidatura** de Alexandre França Siqueira.
+* **Execução:** Determinado o **imediato afastamento do cargo** e a **realização de novas eleições** em Tucuruí/PA.
+* **Comunicação:** Imediata ao TRE-PA.
+
+---
+
+### **JULGAMENTO 3: AGRAVO REGIMENTAL NO RECURSO ESPECIAL Nº 0600196-70**
+
+**[[01:32:02](http://www.youtube.com/watch?v=P-L7SeDXERI&t=5522)] DADOS DO PROCESSO:**
+
+**2) Eleição:** 2024 (Registro de Candidatura – Prefeito).
+**4) Número do processo:** 0600196-70.
+**5) Cidade de origem:** Paulino Neves.
+**6) UF:** Maranhão (MA).
+**7) Partes:**
+
+* **Agravante:** Denise Cristina Gomes Pinheiro.
+* **Agravado:** Raimundo de Oliveira Filho (Candidato a Prefeito).
+* **Interessado:** Roberto Silva.
+**9) Advogados mencionados:** Dr. Antônio Corrêa Noleto Júnior (pelo agravado Raimundo).
+**10) Ministro Relator:** Floriano de Azevedo Marques.
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO:**
+Impugnação ao registro de candidatura baseada em demissão do serviço público (causa de inelegibilidade). A defesa alegou nulidade da demissão (Portaria 626/2012) e violação ao Art. 14, §9º da CF (vida pregressa/moralidade). O TRE-MA manteve o deferimento do registro.
+
+**2. FUNDAMENTAÇÃO NORMATIVA:**
+
+* **Constituição Federal:** Art. 14, §9º (moralidade para exercício do mandato).
+* **Súmulas do TSE:**
+* Súmula 26 (ausência de impugnação específica).
+* Súmula 27 (não comprovação de divergência/violação legal).
+* Súmula 41 (impossibilidade de a Justiça Eleitoral analisar acerto/desacerto de decisões da Justiça Comum ou atos administrativos *sub judice*).
+* Súmula 72 (falta de prequestionamento).
+
+
+
+**3. PRECEDENTES CITADOS:**
+
+* **STF:** Precedente do Min. Luís Roberto Barroso (sobre impugnação específica).
+* **TSE:** Distinção (distinguishing) feita pelo Relator em relação a precedentes do Min. Antonio Carlos Ferreira sobre o Art. 14, §9º CF (casos de alta reprobabilidade vs. inassiduidade funcional).
+
+**4. RACIOCÍNIO DESENVOLVIDO:**
+
+* **Questão Preliminar (Unirrecorribilidade):** A parte interpôs dois agravos contra a mesma decisão (um às 18h53 e outro às 18h56). O segundo não é conhecido.
+* **Mérito:**
+* A ação anulatória contra a demissão foi julgada improcedente por prescrição, mas há decisão judicial válida suspendendo os efeitos da portaria de demissão. Pela Súmula 41, o TSE não pode afastar essa suspensão dada pela Justiça Comum.
+* As infrações administrativas (inassiduidade) não possuem a gravidade (alta reprobabilidade) exigida para atrair a inelegibilidade constitucional direta (Art. 14, §9º) fora das hipóteses legais estritas, diferentemente de casos de corrupção sistêmica.
+* Deficiência na fundamentação recursal (Súmulas 26 e 27).
+
+
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS:**
+
+* **Decisão:** Unanimidade. Agravo regimental **não conhecido** (o primeiro por deficiência/súmulas, o segundo por preclusão consumativa/unirrecorribilidade).
+* **Resultado:** Mantido o deferimento do registro de candidatura.

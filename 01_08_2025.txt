@@ -1,0 +1,109 @@
+Relatório técnico da sessão jurisdicional do Tribunal Superior Eleitoral (TSE), com base na análise do vídeo fornecido.
+
+---
+
+### **JULGAMENTO 1: PRESTAÇÃO DE CONTAS DO MDB (EXERCÍCIO 2020)**
+
+**1) Data da sessão:** 01/08/2025 (Sessão de Abertura do 2º Semestre Forense de 2025).
+**2) Eleição a que se refere:** Não aplicável diretamente a um pleito específico (Prestação de Contas Anuais - Exercício 2020), mas com reflexos financeiros para as eleições subsequentes.
+**3) Nome expresso dos indicados em lista tríplice:** Não aplicável.
+**4) Número dos processos:** Prestação de Contas nº 0600349-13.
+**5) Cidade de origem:** Brasília.
+**6) UF:** DF (Nacional).
+**7) Nome das partes:** Movimento Democrático Brasileiro (MDB) - Diretório Nacional (Requerente).
+**8) Ministros que compõem a sessão:** Cármen Lúcia (Presidente), Nunes Marques (participação remota), André Mendonça, Isabel Gallotti (participação remota), Antonio Carlos Ferreira, Floriano de Azevedo Marques, Edilene Lôbo, Vera Lúcia Santana Araújo. *Nota: A Ministra Estela Aranha tomou posse administrativa nesta data, mas não votou neste processo pois sucede o Min. Ramos Tavares que já havia votado.*
+**9) Advogados:** Não mencionados nominalmente no trecho do julgamento.
+**10) Ministro relator:** Raul Araújo (cujo voto foi proferido em assentada anterior e citado pela Presidente).
+**11) Jurisprudência do STF mencionada:** Não mencionada explicitamente neste trecho.
+**12) Jurisprudência do TSE mencionada:** Não houve citação de precedentes específicos pelo nome/número na proclamação, focando-se na tese.
+**13) Resolução do TSE mencionada:** Não citada especificamente por número no trecho.
+**14) Legislação mencionada:** Lei nº 9.096/1995 (Lei dos Partidos Políticos), art. 44, inciso V; Emenda Constitucional nº 117/2022, art. 2º.
+
+#### **1. ANÁLISE DO CONTEÚDO JURÍDICO**
+
+O julgamento trata da Prestação de Contas Anuais do Diretório Nacional do MDB referente ao exercício financeiro de 2020. O núcleo da controvérsia, objeto de divergência parcial, refere-se à sanção de devolução de valores e, especificamente, à forma de cumprimento da obrigação de aplicar recursos no incentivo à participação feminina na política (cota de gênero em financiamento partidário), considerando as inovações trazidas pela Emenda Constitucional nº 117/2022.
+
+#### **2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Lei nº 9.096/1995 (Art. 44, V):** Dispositivo que obriga os partidos a aplicarem no mínimo 5% dos recursos do Fundo Partidário na criação e manutenção de programas de promoção e difusão da participação política das mulheres.
+* **Emenda Constitucional nº 117/2022 (Art. 2º):** Base normativa utilizada para permitir a regularização dos valores não aplicados em exercícios anteriores nas eleições subsequentes, vedando a condenação pela não aplicação pretérita se houver a compensação futura.
+
+#### **3. PRECEDENTES CITADOS**
+
+* Não foram citados precedentes específicos (jurisprudência externa) durante a proclamação do voto-vista neste trecho, sendo o debate centrado na aplicação da anistia/modulação da EC 117.
+
+#### **4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Relator (Raul Araújo - Voto Vencido em parte):** Havia determinado a aplicação dos valores não utilizados (R$ 1.370.057,47) nas *eleições subsequentes* ao trânsito em julgado.
+* **Divergência (Nunes Marques - Voto Vencedor):** Inaugurou divergência para permitir que a aplicação dos recursos faltantes ocorra na "criação e manutenção de programas de promoção e difusão da participação política das mulheres nos **exercícios seguintes**", e não apenas em campanhas eleitorais imediatas. Caso não o faça nos exercícios seguintes, aí sim os recursos devem ser destinados a campanhas femininas.
+* **Voto-Vista (Cármen Lúcia):** [[01:05:40](http://www.youtube.com/watch?v=TTwwzUCpon8&t=3940)] Acompanhou a divergência. A Ministra verificou se a modulação afetaria contas não julgadas e concluiu que não haveria óbice. Ressaltou que a área técnica do tribunal foi acionada para adaptar o sistema PJE e possibilitar o rastreamento dessa aplicação "nos exercícios seguintes" conforme a nova orientação da EC 117.
+* **Conclusão:** Prevaleceu a tese de que o partido pode regularizar a falha aplicando o montante em programas de incentivo nos exercícios financeiros futuros, amparado pela anistia/regra de transição da emenda constitucional.
+
+#### **5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Voto-Vista:** A Presidente Cármen Lúcia apresentou voto-vista devolvendo o processo que estava com julgamento suspenso.
+* **Sucessão de Ministros:** Foi esclarecido [[01:05:27](http://www.youtube.com/watch?v=TTwwzUCpon8&t=3927)] que o Ministro Antonio Carlos Ferreira e a Ministra Estela Aranha não votariam, pois seus antecessores (Raul Araújo e Ramos Tavares) já haviam proferido voto.
+* **Quórum:** Unanimidade na aprovação com ressalvas e devolução ao erário; Maioria na forma de aplicação dos recursos do incentivo feminino.
+
+#### **6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Aprovação com Ressalvas:** As contas de 2020 do MDB foram aprovadas com ressalvas.
+* **Devolução ao Erário:** Determinado o recolhimento de **R$ 17.903,11** ao Tesouro Nacional (recursos próprios e atualizados).
+* **Obrigação de Fazer:** Aplicação de **R$ 1.370.057,47** em programas de fomento à participação feminina nos exercícios financeiros seguintes. Se descumprido, o valor deverá ser destinado a campanhas de candidatas na eleição subsequente ao trânsito em julgado.
+
+---
+
+### **JULGAMENTO 2: REGISTRO DE CANDIDATURA (MORPARÁ/BA)**
+
+**1) Data da sessão:** 01/08/2025.
+**2) Eleição a que se refere:** Eleições Municipais de 2024.
+**3) Nome expresso dos indicados em lista tríplice:** Não aplicável.
+**4) Número dos processos:** Agravo Regimental no Recurso Especial Eleitoral nº 0600098-15.
+**5) Cidade de origem:** Morpará.
+**6) UF:** Bahia (BA).
+**7) Nome das partes:**
+* **Agravante/Recorrente:** Bartolomeu Paes Landim (Candidato a Vereador).
+* **Agravada/Recorrida:** Federação Brasil da Esperança (FE Brasil).
+**8) Ministros que compõem a sessão:** Cármen Lúcia (Pres.), Nunes Marques, André Mendonça, Isabel Gallotti, Antonio Carlos Ferreira, Floriano de Azevedo Marques, Estela Aranha.
+**9) Advogados:** Não mencionados nominalmente no trecho.
+**10) Ministro relator:** Floriano de Azevedo Marques.
+**11) Jurisprudência do STF mencionada:** Não mencionada explicitamente.
+**12) Jurisprudência do TSE mencionada:**
+* Súmula nº 24 do TSE (citada pelo Relator - vedação ao reexame de provas).
+* REspe nº 26.776/BA (Rel. Dias Toffoli) - citado por Cármen Lúcia sobre legalidade estrita em inelegibilidades.
+* AgR no REspe nº 4.614 (Redator Herman Benjamin) - citado por Cármen Lúcia.
+**13) Resolução do TSE mencionada:** Não citada especificamente.
+**14) Legislação mencionada:** Lei Complementar nº 64/1990 (Lei de Inelegibilidades), Art. 1º, inciso II, alíneas "i" e "g".
+
+#### **1. ANÁLISE DO CONTEÚDO JURÍDICO**
+
+O caso versa sobre o indeferimento do registro de candidatura de vereador (Eleições 2024) sob a alegação de falta de desincompatibilização. O candidato exercia a presidência de uma **Colônia de Pescadores e Agricultores** que mantinha um **Acordo de Cooperação Técnica (ACT)** com o INSS. A discussão central é se esse acordo se equipara a um "contrato com o poder público" para fins de gerar inelegibilidade prevista na LC 64/90.
+
+#### **2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **LC 64/1990, Art. 1º, II, "i":** Torna inelegíveis os que, dentro de 6 meses anteriores ao pleito, hajam exercido cargo ou função de direção, administração ou representação em pessoa jurídica ou em empresa que mantenha **contrato de execução de obras, de prestação de serviços ou de fornecimento de bens** com órgão do Poder Público.
+
+#### **3. PRECEDENTES CITADOS**
+
+* **Súmula 24/TSE:** Invocada pelo Relator para negar provimento, argumentando que rever a natureza do acordo exigiria reexame fático-probatório.
+* **REspe 26.776 (Rel. Min. Dias Toffoli):** Citado para fundamentar que normas restritivas de direitos políticos (inelegibilidades) exigem interpretação estrita (legalidade estrita).
+* **AgR REspe 4.614 (Red. Min. Herman Benjamin):** Citado como precedente favorável à tese de que acordos sem natureza contratual de serviço não geram a inelegibilidade.
+
+#### **4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Relator (Floriano de Azevedo Marques - Vencido):** [[01:13:23](http://www.youtube.com/watch?v=TTwwzUCpon8&t=4403)] Manteve o indeferimento. Argumentou que o TRE-BA concluiu pela necessidade de desincompatibilização e que alterar isso demandaria reexame de provas. Em sua defesa oral posterior [[01:19:17](http://www.youtube.com/watch?v=TTwwzUCpon8&t=4757)], alertou para o risco de "burlas", onde contratos de prestação de serviços sejam mascarados com o nome de "acordos de cooperação", frustrando a lei ("Gato que nasce no forno não é pão").
+* **Divergência (Antonio Carlos Ferreira - Vencedor):** Inaugurou a tese de que o Acordo de Cooperação Técnica (ACT) firmado apenas para operacionalizar requerimentos de pescadores junto ao INSS não possui natureza de contrato de prestação de serviços, obras ou fornecimento de bens.
+* **Voto da Presidente (Cármen Lúcia):** [[01:14:45](http://www.youtube.com/watch?v=TTwwzUCpon8&t=4485)] Acompanhou a divergência. Destacou que a inelegibilidade exige legalidade estrita. O acordo visava apenas facilitar burocracia para os pescadores, sem contraprestação ou execução de obra pública típica. Portanto, não se enquadra na alínea "i" do dispositivo legal. O reenquadramento jurídico dos fatos descritos no acórdão regional é permitido, não violando a Súmula 24.
+* **Acompanhamentos:** Ministra Estela Aranha [[01:22:45](http://www.youtube.com/watch?v=TTwwzUCpon8&t=4965)], Nunes Marques [[01:26:03](http://www.youtube.com/watch?v=TTwwzUCpon8&t=5163)], André Mendonça [[01:27:06](http://www.youtube.com/watch?v=TTwwzUCpon8&t=5226)] e Isabel Gallotti [[01:27:57](http://www.youtube.com/watch?v=TTwwzUCpon8&t=5277)] acompanharam a divergência.
+
+#### **5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Pedido de Vista:** O caso retornou de pedido de vista da Ministra Cármen Lúcia.
+* **Falha Técnica:** [[01:23:33](http://www.youtube.com/watch?v=TTwwzUCpon8&t=5013)] Durante a colheita do voto do Ministro Nunes Marques, houve falha na conexão de vídeo, levando à suspensão momentânea do julgamento deste processo específico. O julgamento foi retomado e concluído às [[01:26:03](http://www.youtube.com/watch?v=TTwwzUCpon8&t=5163)].
+* **Reenquadramento Jurídico vs. Reexame de Provas:** A maioria entendeu ser um caso de reenquadramento (qualificação jurídica dos fatos descritos no acórdão), superando o óbice da Súmula 24 apontado pelo Relator.
+
+#### **6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Provimento do Recurso:** O Agravo Regimental e o Recurso Especial foram providos por maioria.
+* **Deferimento do Registro:** Deferido o registro de candidatura de Bartolomeu Paes Landim ao cargo de vereador em Morpará/BA (Eleições 2024).
+* **Redator do Acórdão:** Ministro Antonio Carlos Ferreira.

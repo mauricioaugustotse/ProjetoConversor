@@ -1,0 +1,102 @@
+RELATÓRIO TÉCNICO DE SESSÃO PLENÁRIA DO TRIBUNAL SUPERIOR ELEITORAL
+
+**Data da Sessão:** 02/09/2025
+**Presidência:** Ministra Cármen Lúcia
+**Composição da Corte:**
+
+* Ministra Cármen Lúcia (Presidente)
+* Ministro Nunes Marques (Vice-Presidente)
+* Ministra Isabel Gallotti (Corregedora-Geral)
+* Ministro André Mendonça
+* Ministro Antonio Carlos Ferreira
+* Ministro Floriano de Azevedo Marques
+* Ministra Estela Aranha
+**Ministério Público Eleitoral:** Vice-Procurador-Geral Eleitoral, Dr. Alexandre Espinosa Bravo Barbosa.
+
+---
+
+### 1. JULGAMENTO: LISTA TRÍPLICE Nº 0600098-53
+
+**[[25:49](http://www.youtube.com/watch?v=NKcimzHYxe4&t=1549)] Início do Julgamento**
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+
+* **Processo:** Lista Tríplice (LT) nº 0600098-53.
+* **Origem:** Rio Branco.
+* **UF:** Acre (AC).
+* **Relator:** Ministro Antonio Carlos Ferreira.
+* **Interessado:** Tribunal Regional Eleitoral do Acre (TRE-AC).
+* **Advogados Indicados (Candidatos):**
+* Felipe Henrique de Souza.
+* Kelly Janini Ferreira de Oliveira.
+* Tales Vinícius de Souza Sales.
+
+
+* **Núcleo do Problema:** Análise do preenchimento dos requisitos constitucionais e legais por advogados indicados pelo Tribunal Regional Eleitoral para compor a Corte Regional na classe de Jurista (Juiz Efetivo). O julgamento visa verificar a regularidade formal e material das indicações (idoneidade, tempo de prática jurídica, ausência de impedimentos) para posterior envio ao Poder Executivo.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Legislação Federal:**
+* Código Eleitoral (Lei nº 4.737/1965): Art. 23, inciso IX (citado como fundamento para o encaminhamento da lista).
+
+
+* **Normas Infralegais:**
+* Resolução-TSE nº 23.517 (Disciplina o procedimento de elaboração de listas tríplices).
+
+
+
+**3. PRECEDENTES CITADOS**
+
+* Não houve citação expressa de jurisprudência específica (acórdãos anteriores) durante a proclamação do voto, dado o caráter administrativo e de verificação de requisitos objetivos do processo.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Premissas Normativas:** O Relator partiu da premissa de que a validação da lista depende do cumprimento estrito das exigências objetivas previstas na Resolução-TSE nº 23.517 e da idoneidade moral dos candidatos.
+* **Método:** Subsunção dos fatos (documentação apresentada) à norma (requisitos da Resolução).
+* **Reconstrução do Voto (Relator Min. Antonio Carlos Ferreira):**
+* O Ministro destacou o parecer da Assessoria Consultiva (Assec), que confirmou o preenchimento dos requisitos objetivos por todos os indicados.
+* Ressaltou a inexistência de impugnações a qualquer um dos nomes.
+* Verificou a ausência de elementos que maculassem a idoneidade moral dos candidatos.
+* Concluiu pela regularidade integral do procedimento administrativo.
+
+
+* **Conclusão:** Voto pelo encaminhamento da lista ao Poder Executivo para escolha e nomeação.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Quórum e Proclamação:** A decisão foi tomada à unanimidade, sem divergências ou ressalvas apresentadas pelos demais Ministros.
+* **Trâmite:** O processo seguiu o rito de sessão administrativa, com leitura rápida do relatório e voto, dada a ausência de contencioso.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Encaminhamento:** Determinação de remessa da Lista Tríplice ao Presidente da República para que este exerça sua competência de nomear um dos advogados indicados para o cargo de Juiz Titular do TRE-AC.
+
+---
+
+### 2. PONTOS PROCESSUAIS RELEVANTES DA SESSÃO (ADIAMENTOS E ATA)
+
+**[[28:35](http://www.youtube.com/watch?v=NKcimzHYxe4&t=1715)] Leitura e Aprovação da Ata**
+
+* Foi aprovada, sem retificações, a ata da sessão ordinária jurisdicional realizada em **28/08/2025**.
+
+**[[29:14](http://www.youtube.com/watch?v=NKcimzHYxe4&t=1754)] Adiamentos de Processos em Pauta**
+A Presidência comunicou o adiamento de julgamentos previstos para a data, em virtude de pedidos de destaque ou indicação prévia.
+
+**Processos Adiados:**
+
+1. **Agravo Regimental no Agravo em Recurso Especial Eleitoral nº 0600340-36** e **nº 0600342-06**.
+* **Relator:** Min. André Mendonça.
+* **Motivo:** Pedido de destaque formulado pelo Ministro Antonio Carlos Ferreira.
+* **Previsão de Retorno:** Provavelmente em 15 dias.
+
+
+2. **Agravo Regimental no Agravo em Recurso Especial Eleitoral nº 0600204-73**.
+* **Origem:** Curitiba, Paraná (PR).
+* **Relator:** Min. André Mendonça.
+* **Motivo:** Pedido de destaque formulado pelo Ministro Antonio Carlos Ferreira (iniciado em plenário virtual e destacado para o físico).
+
+
+
+---
+
+*Nota: Os demais processos mencionados na sessão ([[30:58](http://www.youtube.com/watch?v=NKcimzHYxe4&t=1858)] em diante) foram julgados em bloco ("Listas nº 1 e 2"), conforme vedação expressa nas instruções do relatório ("IGNORE julgamento em lista ao final da sessão"), não sendo, portanto, objeto de detalhamento técnico individualizado neste documento.*

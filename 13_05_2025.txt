@@ -1,0 +1,199 @@
+RELATÓRIO TÉCNICO DE SESSÃO PLENÁRIA DO TRIBUNAL SUPERIOR ELEITORAL
+
+**DATA DA SESSÃO:** 13/05/2025
+**PRESIDÊNCIA:** Ministra Cármen Lúcia
+**MINISTROS PRESENTES:**
+
+* Min. Kassio Nunes Marques (Vice-Presidente)
+* Min. André Mendonça (Videoconferência)
+* Min. Isabel Gallotti (Corregedora-Geral)
+* Min. Antonio Carlos Ferreira
+* Min. Floriano de Azevedo Marques
+* Min. André Ramos Tavares
+**MINISTÉRIO PÚBLICO ELEITORAL:** Dr. Alexandre Espinosa Bravo Barbosa (Vice-Procurador-Geral Eleitoral)
+**SECRETÁRIO DAS SESSÕES:** João Paulo Oliveira
+
+---
+
+### 1. JULGAMENTO: Agravo Regimental no Recurso Especial Eleitoral nº 0600387-09
+
+**[[19:59](http://www.youtube.com/watch?v=dEY4WgS-RMQ&t=1199)] DADOS DO PROCESSO:**
+
+* **Cidade/UF:** Piracicaba/SP
+* **Eleição:** 2024
+* **Relator:** Min. Kassio Nunes Marques
+* **Agravante:** Fabrício José Raetz de Oliveira Polezi
+* **Agravado:** Gesiel Alves Maria
+* **Advogada presente:** Dra. Isabeli Paz de Oliveira Lima (pelo agravante)
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Trata-se de impugnação ao registro de candidatura (RCand) ao cargo de vereador. A controvérsia central reside na inelegibilidade prevista na alínea *k* do inciso I do art. 1º da LC 64/90 (renúncia ao mandato eletivo para evitar processo de cassação). O TRE-SP havia mantido o indeferimento do registro, mas o Ministro Relator, em decisão monocrática, deu provimento ao recurso para deferir a candidatura, entendendo que o requerimento de renúncia era inapto para resultar em processo de perda de mandato. O recurso julgado é um Agravo Regimental interposto por terceiro (Fabrício Polezi).
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Lei Complementar nº 64/1990:** Art. 1º, I, alínea *k* (Inelegibilidade por renúncia).
+* **Súmula do TSE nº 11:** Citada para fundamentar a ilegitimidade recursal ("O partido que não impugnou o pedido de registro de candidatura não tem legitimidade para recorrer da sentença que o deferiu, salvo se se cuidar de matéria constitucional").
+
+**3. PRECEDENTES CITADOS**
+
+* **Tribunal:** TSE (Jurisprudência consolidada sobre a Súmula 11).
+* **Razões:** A ilegitimidade de quem não impugnou na origem para recorrer em matéria infraconstitucional.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+A Ministra Presidente, ao trazer o voto-vista, acompanhou o Relator Nunes Marques pelo **não conhecimento** do recurso.
+
+* **Premissa:** O agravante não impugnou o registro de candidatura na origem.
+* **Aplicação da Norma:** Incidência direta da Súmula 11 do TSE. Embora o agravante alegue interesse, falta-lhe legitimidade ativa recursal, pois a matéria de fundo (inelegibilidade da alínea *k*) é de natureza infraconstitucional.
+* **Conclusão:** O assistente simples não possui legitimidade para interpor recurso autônomo quando a parte assistida não o faz, e a ausência de impugnação inicial barra o recurso superveniente em matérias legais.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Preliminar de Admissibilidade:** O recurso não foi conhecido por falta de legitimidade recursal.
+* **Sustentação/Presença:** Registro da presença da advogada do agravante na sala de videoconferência.
+* **Quórum:** Decisão unânime.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* Manutenção da decisão monocrática que deferiu o registro de candidatura de Gesiel Alves Maria.
+* O Agravo Regimental não foi conhecido.
+
+---
+
+### 2. JULGAMENTO CONJUNTO: Agravo Regimental nos Recursos Especiais Eleitorais nº 0600249-65 e nº 0600147-43
+
+**[[26:34](http://www.youtube.com/watch?v=dEY4WgS-RMQ&t=1594)] DADOS DOS PROCESSOS:**
+
+* **Cidade/UF:** Tabira/PE
+* **Eleição:** Não especificada explicitamente, mas contexto remete a pleito municipal (Prefeito/Vereador).
+* **Relator:** Min. André Ramos Tavares
+* **Agravantes:** Helenoaldo de Santana, Sebastião Dias Filho, Coligação "Por Uma Tabira Melhor", Maria do Socorro Pereira, Leandro Alves do Nascimento, Maria José Almeida da Silva.
+* **Agravados:** Flávio Ferreira Marques e Coligação "Por Uma Tabira Melhor".
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Trata-se de Ações de Investigação Judicial Eleitoral (AIJEs) apurando **Abuso de Poder Político** e conduta vedada.
+
+* **Núcleo do problema:**
+1. Contratação excessiva de servidores temporários em ano eleitoral sem justificativa.
+2. Desvio de servidores municipais para militância política (grupos de WhatsApp com 91 servidores, entre contratados e comissionados).
+
+
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Súmula do TSE nº 26:** Inadmissibilidade de recurso que não impugna especificamente os fundamentos da decisão recorrida.
+
+**3. PRECEDENTES CITADOS**
+
+* **Jurisprudência do TSE:** Exigência de prova robusta e inconteste para configuração de abuso de poder político (aspecto qualitativo e quantitativo).
+* **Relator:** Min. André Ramos Tavares (decisão monocrática mantida).
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+A Presidente Cármen Lúcia, em voto-vista, acompanhou integralmente o Relator:
+
+* **Quanto à contratação de servidores (Flávio Ferreira Marques e Sebastião Dias Filho):** Foi dado provimento aos recursos especiais dos candidatos para julgar improcedentes os pedidos. O acréscimo de 18 servidores temporários foi considerado insuficiente, por si só, para configurar abuso de poder com gravidade para cassação/inelegibilidade. Não houve prova de anuência de Flávio Ferreira nos grupos de WhatsApp.
+* **Quanto ao desvio de função (Helenoaldo de Santana e outros):** Negou-se seguimento aos recursos. Ficou provado no acórdão regional que não era manifestação espontânea, mas atividade cobrada e coordenada de militância por servidores públicos. A defesa apenas reiterou argumentos anteriores, atraindo a Súmula 26.
+* **Conclusão:** Afastada a inelegibilidade de Flávio e Sebastião; mantida a inelegibilidade e sanções de Helenoaldo e demais envolvidos na coordenação dos grupos.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Modulação da prova:** Diferenciação entre a responsabilidade do chefe do executivo (não comprovada anuência nos grupos) e dos coordenadores da militância ilícita.
+* **Preclusão:** Pedido para afastar multa por embargos protelatórios só foi feito no agravo interno, operando-se a preclusão.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Absolvição:** Flávio Ferreira Marques e Sebastião Dias Filho têm a inelegibilidade afastada.
+* **Condenação Mantida:** Helenoaldo de Santana e outros permanecem inelegíveis.
+* **Multa:** Mantida a multa por embargos protelatórios aplicada na origem.
+
+---
+
+### 3. JULGAMENTO: Agravo Regimental no Recurso Especial Eleitoral nº 0600111-87
+
+**[[36:16](http://www.youtube.com/watch?v=dEY4WgS-RMQ&t=2176)] DADOS DO PROCESSO:**
+
+* **Cidade/UF:** Maragogi/AL
+* **Eleição:** 2024
+* **Relator:** Min. André Ramos Tavares
+* **Agravante:** Fernando Sérgio Lira Neto
+* **Agravado:** Movimento Democrático Brasileiro (MDB)
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Representação por **Propaganda Eleitoral Antecipada** (extemporânea).
+
+* **Fato:** Publicação no Instagram com foto e legenda contendo expressões promocionais.
+* **Expressões:** "Bora de Dani" e "Quem vai fazer o trabalho para Maragogi continuar".
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Lei nº 9.504/1997:** Art. 36-A (regras de pré-campanha) e Art. 36, § 3º (multa).
+* **Resolução TSE nº 23.610:** Art. 3º-A, parágrafo único (pedido explícito de voto não se limita à locução "vote em").
+* **Súmulas do TSE nº 28 e 30:** Óbices processuais aplicados monocraticamente.
+
+**3. PRECEDENTES CITADOS**
+
+* **AgR no Agravo Interno 29-31 (Rel. Min. Luís Roberto Barroso):** Conceito de "Palavras Mágicas" (*magic words*) como equivalentes semânticos ao pedido de voto.
+* **AgR no RespE nº 0600727 (Rel. Min. Isabel Gallotti):** Decisão de 2025 reafirmando que frases como "vamos juntos" e referência a pré-candidatura configuram ilícito.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+A Ministra Presidente apresentou voto-vista acompanhando o Relator (após ressalva de entendimento do Min. Antonio Carlos Ferreira em sessão anterior).
+
+* **Evolução Jurisprudencial:** A Ministra destacou que, embora a lei de 2016 tenha liberalizado a pré-campanha, a jurisprudência atual do TSE (últimos anos) retomou o rigor através da teoria das "palavras mágicas".
+* **Aplicação ao caso:** As expressões "Bora de Dani" e o contexto da postagem possuem carga semântica inequívoca de pedido de voto ("Magic Words").
+* **Liberdade de Expressão:** Não é absoluta e não protege o desequilíbrio na disputa (quebra de isonomia e paridade de armas no tempo).
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Divergência Jurisprudencial:** A alegada divergência pelo recorrente não foi demonstrada analiticamente (Súmula 28).
+* **Alinhamento:** A decisão regional estava em consonância com a jurisprudência atual do TSE (Súmula 30).
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Sanção:** Manutenção da multa de R$ 5.000,00 pela propaganda irregular.
+* **Resultado:** Agravo desprovido à unanimidade.
+
+---
+
+### 4. JULGAMENTO: Agravo Regimental no Agravo em Recurso Especial Eleitoral nº 0600132-04
+
+**[[45:53](http://www.youtube.com/watch?v=dEY4WgS-RMQ&t=2753)] DADOS DO PROCESSO:**
+
+* **Cidade/UF:** Jijoca de Jericoacoara/CE
+* **Eleição:** 2024
+* **Relator:** Min. André Ramos Tavares
+* **Agravante:** Márcio Aldigueri Arruda
+* **Agravado:** Republicanos (Municipal)
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Representação por **Propaganda Eleitoral Antecipada**.
+
+* **Fato:** Evento de lançamento de pré-candidatura a prefeito divulgado no Instagram.
+* **Expressões:** "Vamos juntos", "Vamos na vitória", "Fazer a melhor gestão".
+* **Cenário:** Evento com características de comício (local aberto, bandeiras, adereços, cor do partido), extrapolando reunião intrapartidária.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Lei nº 9.504/1997:** Art. 36-A, *caput* e § 2º (atos de pré-campanha permitidos vs. vedados).
+* **Súmula do TSE nº 30:** Jurisprudência consolidada.
+
+**3. PRECEDENTES CITADOS**
+
+* Referência genérica à jurisprudência firmada no julgamento anterior sobre "carga semântica equivalente".
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+O Ministro Relator reiterou seu voto (leitura abreviada):
+
+* **Contexto:** Embora o evento intrapartidário seja permitido, a divulgação ampla nas redes sociais com expressões de vitória ("vamos na vitória") configura pedido de voto.
+* **Visual:** O relator destacou o reforço argumentativo do TRE-CE: as imagens mostravam um "comício" disfarçado (portões abertos, aglomeração, padronização visual), o que desborda dos limites da pré-campanha fechada.
+
+**5. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Sanção:** Manutenção da multa prevista no art. 36, § 3º da Lei 9.504/97.
+* **Resultado:** Agravo desprovido à unanimidade.
+
+---
+
+### [[52:17](http://www.youtube.com/watch?v=dEY4WgS-RMQ&t=3137)] ENCERRAMENTO
+
+A sessão foi encerrada após o julgamento em bloco (listas) de Embargos de Declaração e Agravos Regimentais sem destaque, todos rejeitados ou desprovidos conforme os relatores (Ministros André Mendonça, Antonio Carlos Ferreira e Ramos Tavares).
+
+[https://www.youtube.com/watch?v=dEY4WgS-RMQ](https://www.youtube.com/watch?v=dEY4WgS-RMQ)

@@ -1,0 +1,132 @@
+Com base na análise técnica da sessão plenária do Tribunal Superior Eleitoral (TSE) transmitida no vídeo, apresento o relatório detalhado abaixo.
+
+---
+
+### **DADOS DA SESSÃO**
+
+**1) Data da sessão:** 26 de agosto de 2025.
+**2) Eleição a que se refere:** Eleições Gerais de 2022.
+**8) Ministros presentes:** Cármen Lúcia (Presidente), Nunes Marques (Vice-Presidente), André Mendonça, Isabel Gallotti (Corregedora-Geral), Antônio Carlos Ferreira, Floriano de Azevedo Marques, Estela Aranha.
+*Presença também registrada:* Vice-Procurador-Geral Eleitoral, Dr. Alexandre Espinosa; Ministra Substituta Vera Lúcia.
+
+---
+
+### **JULGAMENTO 1: RECURSO ORDINÁRIO Nº 0600940-96**
+
+**3) Lista Tríplice:** Não aplicável ao caso.
+**4) Número do processo:** 0600940-96.
+**5) Cidade de origem:** Boa Vista.
+**6) UF:** Roraima (RR).
+**7) Partes envolvidas:**
+
+* **Recorrentes:** Antônio Olivério Garcia de Almeida (conhecido como Antônio Denarium - Governador), Edilson Damião Lima (Vice-Governador), Partido Republicanos (Estadual), Partido Progressistas (Estadual).
+* **Recorrida:** Coligação "Roraima Muito Melhor".
+**9) Advogados mencionados:**
+* Dr. Fernando Neves da Silva (defesa de Antônio Denarium).
+* Dr. Sidney Neves (defesa de Edilson Damião Lima).
+* Dr. José Guilherme de Aragão e Dr. Walber Agra (defesa do Progressistas).
+**10) Ministro Relator:** Ministra Isabel Gallotti.
+
+#### **1. ANÁLISE DO CONTEÚDO JURÍDICO**
+
+O julgamento trata de Recursos Ordinários interpostos contra acórdão do TRE-RR que julgou procedente Ação de Investigação Judicial Eleitoral (AIJE). O núcleo do problema envolve **abuso de poder político e econômico** nas Eleições de 2022, consubstanciado em quatro condutas principais atribuídas ao Governador reeleito:
+
+1. **Criação/Desvirtuamento de Programa Social ("Cesta da Família"):** Instituição e ampliação massiva de programa de transferência de renda em ano eleitoral.
+2. **Programa Habitacional ("Morar Melhor"):** Execução de reformas residenciais em ano eleitoral sem lei específica anterior e sem execução orçamentária no ano anterior.
+3. **Transferências Voluntárias ("Auxílio Calamidade"):** Repasse de R$ 69,8 milhões a 12 municípios aliados às vésperas do período vedado, sob justificativa de chuvas, sem critérios técnicos ou controle.
+4. **Publicidade Institucional:** Promoção pessoal do Governador em publicidade oficial e redes sociais institucionais.
+
+#### **2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Constituição Federal:**
+* Art. 37, § 1º (Princípio da impessoalidade na publicidade oficial).
+* Art. 167, I (Vedação de início de programas não incluídos na LOA).
+
+
+* **Lei nº 9.504/1997 (Lei das Eleições):**
+* Art. 73, § 10 (Proibição de distribuição gratuita de bens/benefícios em ano eleitoral, salvo calamidade ou programas em execução orçamentária desde o exercício anterior).
+* Art. 74 (Abuso de autoridade na publicidade institucional).
+
+
+* **Lei Complementar nº 64/1990:**
+* Art. 22 (Abuso de poder político e econômico).
+* Art. 22, XVI (Gravidade das circunstâncias para configuração do ato abusivo).
+
+
+* **Legislação Financeira:**
+* Lei nº 4.320/1964 (Normas gerais de direito financeiro - fases da despesa: empenho, liquidação e pagamento).
+
+
+
+#### **3. PRECEDENTES CITADOS**
+
+* **TSE:** Precedentes sobre a desnecessidade de litisconsórcio passivo necessário entre autor e beneficiário em casos de abuso de poder político (Min. Benedito Gonçalves).
+* **TSE:** Precedente sobre a exigência de "lei específica" para programas sociais em ano eleitoral (Min. Raul Araújo; Min. Gilmar Mendes).
+* **TSE:** Precedente definindo que postagens em perfil privado não configuram publicidade institucional ilícita (Min. Carlos Horbach).
+
+#### **4. RACIOCÍNIO DESENVOLVIDO (VOTO DA RELATORA)**
+
+A Ministra Isabel Gallotti [[24:28](http://www.youtube.com/watch?v=n6tH6ahUHMk&t=1468)] estruturou seu voto abordando preliminares e, no mérito, analisou cada uma das quatro condutas ilícitas:
+
+* **Premissas Processuais (Preliminares):**
+* Rejeitou a nulidade por falta de juntada de votos vencidos escritos na origem, pois foram proferidos oralmente e transcritos (CPC, art. 941).
+* Admitiu os partidos (Republicanos e Progressistas) como **assistentes simples**, dado o interesse jurídico na manutenção do mandato de seus filiados.
+* Rejeitou o litisconsórcio passivo necessário com a CODESAIMA, deputados estaduais e prefeitos, pois as sanções de cassação e inelegibilidade são pessoais aos candidatos.
+
+
+* **Mérito - Conduta 1: Programa "Cesta da Família" [[46:57](http://www.youtube.com/watch?v=n6tH6ahUHMk&t=2817)]:**
+* A Relatora demonstrou que o programa não era mera continuidade do "Renda Cidadã" (programa estadual anterior de R$ 200,00 para 10 mil famílias) nem do "Programa Emergencial/Covid" (federal).
+* Houve um salto de 10.000 para 50.000 beneficiários no ano eleitoral.
+* Custo mensal saltou de média baixa para mais de R$ 7 milhões/mês.
+* Foi criado por lei estadual apenas em janeiro de 2022, configurando programa novo em ano eleitoral.
+
+
+* **Mérito - Conduta 2: Programa "Morar Melhor" [[01:11:05](http://www.youtube.com/watch?v=n6tH6ahUHMk&t=4265)]:**
+* Envolvia reformas de casas (até R$ 6.000,00).
+* **Ilegalidade:** Não havia lei específica anterior (a defesa citou uma lei federal de assistência técnica de 2008, que a Relatora distinguiu totalmente do programa estadual de obras).
+* **Execução Orçamentária:** Não houve execução financeira (liquidação/pagamento) em 2021. Houve apenas empenho no "apagar das luzes" de 2021. Liquidação e pagamentos ocorreram apenas em 2022.
+* Refutou a tese de que apenas 92 pessoas foram beneficiadas; dados provaram que 1.853 famílias receberam a reforma em 2022.
+
+
+* **Mérito - Conduta 3: Repasses aos Municípios (R$ 69,8 mi) [[01:50:05](http://www.youtube.com/watch?v=n6tH6ahUHMk&t=6605)]:**
+* Transferência "pix" para 12 municípios aliados sob pretexto de chuvas.
+* **Discrepância:** Em 2019, 2020 e 2021 também choveu, mas o repasse foi zero.
+* A liberação ocorreu dias após o decreto, sem análise técnica dos danos (ex: pareceres antigos de 2021 usados para justificar verba em 2022).
+* Vínculo eleitoral comprovado por postagens de prefeitos agradecendo a "parceria" e pedindo votos logo após o recebimento.
+
+
+* **Mérito - Conduta 4: Publicidade Institucional [[02:06:55](http://www.youtube.com/watch?v=n6tH6ahUHMk&t=7615)]:**
+* Identificada promoção pessoal nas redes oficiais e site do governo/CODESAIMA (uso de primeira pessoa, menção nominal ao Governador).
+* Afastou a ilicitude das postagens no perfil *privado* do candidato (jurisprudência Min. Carlos Horbach), mas manteve a condenação pela parte institucional.
+
+
+* **Conclusão sobre Gravidade:**
+* A diferença de votos entre o 1º e 2º lugar foi de aprox. 44 mil votos.
+* Somente o "Cesta da Família" atingiu 50 mil famílias; "Morar Melhor" 5 mil cadastros.
+* O volume financeiro (dezenas de milhões) desequilibrou o pleito (o teto de gastos de campanha era R$ 3,5 mi; os gastos ilícitos foram 25x superiores).
+
+
+
+#### **5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Pedido de Vista:** O julgamento foi suspenso por pedido de vista antecipado do **Ministro André Mendonça** [[02:22:31](http://www.youtube.com/watch?v=n6tH6ahUHMk&t=8551)], após o voto da relatora.
+* **Sustentações Orais:** Mencionadas como realizadas em sessão anterior (13/08/2024), mas a Presidente enfatizou que todos os ministros tiveram acesso às gravações e degravações [[23:16](http://www.youtube.com/watch?v=n6tH6ahUHMk&t=1396)].
+* **Intervenção de Advogado:** O advogado solicitou cópia integral do voto lido, o que foi deferido pela Presidente [[02:23:14](http://www.youtube.com/watch?v=n6tH6ahUHMk&t=8594)].
+
+#### **6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+A Relatora **Ministra Isabel Gallotti** votou para:
+
+* **Negar provimento** aos recursos dos candidatos (mantendo a condenação).
+* **Dar parcial provimento** aos partidos apenas para admiti-los como assistentes.
+* **Sanções mantidas:**
+* Cassação dos diplomas de Antônio Denarium e Edilson Damião.
+* Inelegibilidade por 8 anos para Antônio Denarium (caráter pessoal).
+* Determinação de **novas eleições**.
+* Determinação de **execução imediata** do julgado (após a conclusão do julgamento colegiado), independentemente de publicação do acórdão [[02:21:38](http://www.youtube.com/watch?v=n6tH6ahUHMk&t=8498)].
+
+
+
+---
+
+*Observação: As listas de julgamento 1 e 2 mencionadas ao final do vídeo [[02:24:55](http://www.youtube.com/watch?v=n6tH6ahUHMk&t=8695)] foram ignoradas conforme instrução para focar na análise técnica da sessão principal.*

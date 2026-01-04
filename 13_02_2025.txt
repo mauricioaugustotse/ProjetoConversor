@@ -1,0 +1,313 @@
+Relatório técnico da sessão do Tribunal Superior Eleitoral (TSE) realizada em 13 de fevereiro de 2025.
+
+**DADOS DA SESSÃO**
+
+* **Data da Sessão:** 13/02/2025 (Quinta-feira).
+* **Ministros Presentes:** Cármen Lúcia (Presidente), Kassio Nunes Marques (Vice-Presidente), André Mendonça, Isabel Gallotti (Corregedora-Geral), Antonio Carlos Ferreira, Floriano de Azevedo Marques (por videoconferência) e André Ramos Tavares.
+* **Vice-Procurador-Geral Eleitoral:** Alexandre Espinosa Bravo Barbosa.
+
+---
+
+[[35:46](http://www.youtube.com/watch?v=N_xmlU6Mq3Q&t=2146)] **1. Agravo Regimental no Recurso Especial Eleitoral nº 0600081-40**
+
+* **Eleição:** 2024.
+* **Cidade de Origem:** Mogi das Cruzes.
+* **UF:** São Paulo (SP).
+* **Relator:** Min. André Mendonça.
+* **Parties (Partes):**
+* **Agravantes:** Leandro Ribeiro Canteiro e outra.
+* **Agravado:** Podemos (Diretório Municipal).
+
+
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Trata-se de representação por propaganda eleitoral antecipada realizada em rede social (Instagram). O cerne da questão envolve pedido explícito de voto e uso de expressões equivalentes (“palavras mágicas”) antes do período permitido, violando a igualdade de oportunidades.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Súmulas do TSE:** Súmula nº 30 (ausência de prequestionamento), Súmula nº 72 (fundamento não impugnado) e Súmula nº 26 (deficiência de fundamentação recursal).
+
+**3. PRECEDENTES CITADOS**
+
+* Não houve citação nominal de caso específico, apenas referência genérica à jurisprudência do TSE que amparou a decisão regional.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Processual:** O Ministro Relator destacou óbices processuais intransponíveis. A decisão regional estava alinhada à jurisprudência do TSE e não houve impugnação específica de todos os fundamentos da decisão agravada (princípio da dialeticidade).
+* **Conclusão:** A ausência de "impugnação vertical" atrai a incidência da Súmula 26 do TSE, impedindo a revisão do mérito.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* Julgamento unânime.
+* Não houve sustentação oral.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* Negado provimento ao Agravo Regimental.
+* Mantida a multa por propaganda antecipada (implícito pela procedência da representação citada).
+
+---
+
+[[38:47](http://www.youtube.com/watch?v=N_xmlU6Mq3Q&t=2327)] **2. Recurso Especial Eleitoral nº 0600138-81**
+
+* **Eleição:** 2024 (com discussão sobre fatos de 2016 e 2020).
+* **Cidade de Origem:** Abelardo Luz.
+* **UF:** Santa Catarina (SC).
+* **Relator:** Min. Antonio Carlos Ferreira (com Destaque do Min. André Mendonça).
+* **Parties (Partes):**
+* **Recorrentes:** Coligação "Aliança por Abelardo Luz" e Ministério Público Eleitoral.
+* **Recorrido:** Nerci Santin (Candidato a Prefeito).
+
+
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Registro de candidatura e inelegibilidade reflexa. Discussão sobre a configuração de "terceiro mandato" consecutivo (proibido pelo art. 14, § 5º da CF). O candidato exerceu a chefia do executivo por um curto período em 2017 (apenas 4 meses) por força de liminar, sendo posteriormente afastado. Foi eleito em 2020 e reeleito em 2024. A controvérsia é se o período precário de 2017 conta como um "primeiro mandato" para fins de proibição da reeleição em 2024.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Constituição Federal:** Art. 14, § 5º (reeleição e proibição de perpetuação no poder).
+* **Código Eleitoral:** Art. 276, I, "d" (cabimento de recurso).
+
+**3. PRECEDENTES CITADOS**
+
+* **TSE:** AgR-REspe nº 0600067-94 (CE), Rel. Min. Luiz Edson Fachin (citado por Min. André Mendonça e Isabel Gallotti) – caso similar de exercício curto de mandato que não gerou inelegibilidade.
+* **TSE:** Precedente do Min. Edmar Gonzaga (citado no voto do Relator).
+* **TSE:** Precedente do Min. Alexandre de Moraes (citado para distinção pela Min. Isabel Gallotti) – caso onde a liminar durou 1 ano e 8 meses, configurando mandato (diferente do caso atual).
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Premissas:** A interpretação da norma constitucional deve atender aos princípios da periodicidade e alternância, mas sem excesso de formalismo que impeça o sufrágio quando não há perpetuação efetiva.
+* **Distinção (Distinguishing):** O exercício do cargo em 2017 foi precário, durou menos de 4 meses (10/01 a 18/04) e ocorreu muito antes dos 6 meses anteriores ao pleito subsequente. A cassação da liminar teve efeitos *ex tunc*.
+* **Tese Vencedora:** A ocupação efêmera e precária da chefia do Executivo, fora do período crítico pré-eleitoral, não atrai a inelegibilidade para um terceiro mandato consecutivo.
+* **Ressalva (Min. Isabel Gallotti):** Entende que a posse por liminar não é precária em si (é exercício de mandato), mas acompanhou o relator devido à exiguidade do tempo (4 meses), aplicando o princípio da proporcionalidade.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* Recurso do MPE não conhecido (questão de legitimidade/cabimento).
+* Recurso da Coligação conhecido e desprovido.
+* Pedido de destaque pelo Min. André Mendonça permitiu o debate em plenário físico.
+* Votação unânime.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* Deferimento do registro de candidatura mantido.
+* Candidato apto a assumir o cargo (reeleição válida em 2024).
+
+---
+
+[[01:02:44](http://www.youtube.com/watch?v=N_xmlU6Mq3Q&t=3764)] **3. Recurso Especial Eleitoral nº 0600359-43**
+
+* **Eleição:** 2024.
+* **Cidade de Origem:** Munhoz de Melo.
+* **UF:** Paraná (PR).
+* **Relator:** Min. Antonio Carlos Ferreira (com Destaque do Min. André Mendonça).
+* **Parties (Partes):**
+* **Recorrente:** Francisleide de Fátima Moura Nigra (Advogada em causa própria).
+* **Recorrido:** Marcondes Araújo da Costa.
+
+
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Litigância de má-fé e uso de Inteligência Artificial Generativa ("Alucinação de IA"). A recorrente, advogando em causa própria, utilizou IA para redigir petição que citava precedentes jurisprudenciais inexistentes ("julgados não julgados") para fundamentar pedido de impugnação de registro.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Código de Processo Civil (CPC):** Art. 80, inc. II (alterar a verdade dos fatos/induzir juízo a erro); Art. 81 (multa por litigância de má-fé); Art. 77, § 6º (responsabilidade disciplinar de advogados).
+* **Código Eleitoral:** Art. 224, § 3º (citado quanto à perda de objeto, mas afastado pela necessidade de julgar a multa).
+* **Súmula do TSE:** Súmula nº 24 (impossibilidade de reexame de fatos e provas).
+
+**3. PRECEDENTES CITADOS**
+
+* Não houve citação de precedente de mérito externo, pois o caso trata justamente da *inexistência* dos precedentes citados pela parte.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Litigância de Má-fé:** A conduta de inventar jurisprudência (seja por IA ou não) visa ludibriar o julgador e configura deslealdade processual grave.
+* **Dupla Responsabilidade:** Como a recorrente é parte e advogada simultaneamente:
+1. Como **Parte**: Sujeita-se à multa processual do art. 81 do CPC (mantida pelo TSE).
+2. Como **Advogada**: A conduta ética deve ser apurada pela OAB (art. 77, § 6º do CPC), pois o Judiciário não aplica multa disciplinar ao advogado, mas comunica o órgão de classe.
+
+
+* **Tecnologia:** O Tribunal esclareceu que não se pune o uso da tecnologia (IA), mas o uso fraudulento para induzir a erro.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* Afastada a prejudicialidade do recurso (perda de objeto) pois persistia o interesse em afastar a multa aplicada na origem.
+* O Min. André Mendonça sugeriu ajuste na tese para abranger julgados inexistentes criados "por IA ou não", o que foi acolhido.
+* A Min. Isabel Gallotti corrigiu a informação de que o próximo Colégio de Corregedores será no Paraná.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* Negado provimento ao recurso.
+* **Sanção:** Manutenção da multa por litigância de má-fé.
+* **Ofícios:** Determinação de expedição de ofício à OAB e ao Ministério Público Eleitoral para apuração de infrações disciplinares e eventuais crimes.
+
+---
+
+**LINKS MENCIONADOS**
+
+* Vídeo da Sessão: [https://www.youtube.com/watch?v=N_xmlU6Mq3Q](https://www.youtube.com/watch?v=N_xmlU6Mq3Q)
+
+Com base na revisão integral do vídeo e nos critérios de completude solicitados, apresento o relatório complementar.
+
+---
+
+### 1. VERIFICAÇÃO DE COMPLETUDE
+
+**Intervalos de tempo não cobertos:**
+
+* **[00:00:00 - 00:35:45]:** O relatório inicial omitiu a abertura da sessão e o julgamento das **Listas Tríplices** (Classe LT), que ocorreram logo após a aprovação da ata.
+* **[00:52:30 - 01:02:40]:** Houve omissão do julgamento do **Recurso Especial nº 0600456-94** (Santa Cruz do Piauí), que trata de fraude à cota de gênero, tema de alta relevância jurisprudencial.
+* **[01:13:40 - 01:15:30]:** Omitido o **Processo Administrativo nº 0602055-68**, referente ao referendo de Portaria da Presidência.
+
+**Temas jurídicos e dispositivos pendentes:**
+
+* **Fraude à Cota de Gênero (Súmula 73/TSE):** Os elementos constitutivos da fraude (votação zerada, contas padronizadas, ausência de atos de campanha) foram debatidos no caso do Piauí e não constaram na primeira análise.
+* **Requisitos para Lista Tríplice:** A verificação dos requisitos constitucionais para nomeação de juízes juristas (art. 120 da CF).
+* **Estatuto da Auditoria Interna:** Normatização administrativa interna do Tribunal.
+
+---
+
+### 2. TEMAS PENDENTES
+
+* **Listas Tríplices (Jurista):** O procedimento administrativo de escolha de juízes para os TREs, fundamentado no Art. 119 e 120 da Constituição Federal, não foi detalhado.
+* **Prova de Fraude à Cota de Gênero:** A distinção entre "prestação de contas zerada" e "movimentação financeira padronizada" como indícios de fraude ficta.
+* **Referendo de Portaria:** O instrumento administrativo pelo qual o Plenário valida ato monocrático da Presidência (Regimento Interno do TSE).
+
+---
+
+### 3. COMPLEMENTAÇÃO
+
+Abaixo, a análise técnica detalhada dos julgamentos e processos omitidos no relatório original.
+
+#### **1. Lista Tríplice nº 0600645-55**
+
+* **Eleição:** Não se aplica (Processo Administrativo).
+* **Origem:** TRE-BA (Tribunal Regional Eleitoral da Bahia).
+* **UF:** Bahia (BA).
+* **Relator:** Min. André Mendonça.
+* **Interessados (Indicados):** Tiago Ayres, Jaime Barreiros Neto, Rafael de Medeiros Chaves Mattos.
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Indicação de advogados para preenchimento de vaga de Juiz Substituto (Classe Jurista) no TRE-BA. A análise cinge-se à verificação objetiva dos requisitos de idoneidade e tempo de exercício da advocacia.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Constituição Federal:** Art. 120, § 1º, inciso III (composição dos TREs por juristas).
+* **Resolução TSE:** Res.-TSE nº 23.517/2017 (rege a instrução de listas tríplices).
+
+**3. PRECEDENTES CITADOS**
+
+* Não houve citação de contencioso, apenas verificação administrativa.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* O Relator informou que todos os indicados preenchem os requisitos constitucionais e legais (mais de 10 anos de atividade jurídica, idoneidade moral, ausência de filiação partidária impeditiva).
+* Publicação de edital sem impugnações.
+
+**5. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* Lista aprovada e encaminhada ao Poder Executivo (Presidência da República) para nomeação.
+
+---
+
+#### **2. Lista Tríplice nº 0600683-67**
+
+* **Origem:** TRE-BA (Tribunal Regional Eleitoral da Bahia).
+* **UF:** Bahia (BA).
+* **Relator:** Min. André Mendonça.
+* **Interessada (Indicada):** Carina Cristiane Canguçu de Saldanha.
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Trata-se de recondução (segundo mandato consecutivo) para o cargo de Juíza Substituta da Classe dos Juristas. Diferente da lista tríplice inicial, a recondução dispensa nova lista, desde que aprovada pelo Tribunal de origem e pelo TSE.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Constituição Federal:** Art. 121, § 2º (possibilidade de recondução).
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* A candidata já exerce o cargo e pleiteia a renovação por mais um biênio. O Relator atestou o cumprimento dos requisitos e a regularidade do pedido do TRE-BA.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* Indicação de recondução aprovada e encaminhada ao Poder Executivo.
+
+---
+
+#### **3. Agravo Regimental no Recurso Especial Eleitoral nº 0600456-94**
+
+* **Eleição:** 2020 (Vereador).
+* **Cidade de Origem:** Santa Cruz do Piauí.
+* **UF:** Piauí (PI).
+* **Relator:** Min. André Mendonça.
+* **Parties (Partes):**
+* **Agravante:** Ministério Público Eleitoral.
+* **Agravados:** Partido Progressista (PP) de Santa Cruz do Piauí e outros.
+
+
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+**Fraude à Cota de Gênero.** O caso envolve candidaturas fictícias de mulheres (Francisca e Maria) para cumprir a cota mínima de 30% nas eleições proporcionais. O TRE-PI havia julgado improcedente, mas o MPE recorreu.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Lei 9.504/1997:** Art. 10, § 3º (percentual mínimo de gênero).
+* **Súmula TSE:** Súmula nº 73 (fraude à cota de gênero).
+
+**3. PRECEDENTES CITADOS**
+
+* A decisão aplica a jurisprudência consolidada na **Súmula 73/TSE**.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Reconstrução Fática e Probatória:** O Relator identificou a presença concomitante dos elementos que configuram a fraude, conforme a jurisprudência da Corte:
+1. **Votação inexpressiva:** Candidatas com votação zerada ou pífia.
+2. **Movimentação financeira padronizada:** Prestação de contas com valores idênticos e descrição genérica de serviços contábeis/advocatícios, indicando simulação.
+3. **Ausência de atos de campanha:** Não houve pedido de voto, nem mesmo para si mesmas.
+4. **Vínculo familiar:** Uma das candidatas era mãe de outro candidato (concorrente ou da majoritária), reforçando a tese de candidatura "laranja".
+
+
+* **Reforma do Acórdão Regional:** O TSE revalorou os fatos descritos no acórdão regional (sem necessidade de reexame de provas vedado pela Súmula 24), concluindo que os fatos delineados pelo TRE-PI já comprovavam a fraude, apesar da conclusão absolutória na origem.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* O julgamento reforça a posição de que a "padronização de contas" é um forte indício de fraude, equiparando-se à ausência de gastos em termos de valor probatório para a ilicitude.
+* Julgamento unânime.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Provimento do Recurso:** Reconhecimento da fraude.
+* **Sanções (Súmula 73):**
+* Cassação do DRAP (Demonstrativo de Regularidade de Atos Partidários) da chapa de vereadores do PP.
+* Cassação dos diplomas dos eleitos e suplentes.
+* Anulação dos votos recebidos pelo partido.
+* Recálculo dos quocientes eleitoral e partidário.
+* Inelegibilidade declarada apenas para as candidatas fictícias (sanção pessoal).
+
+
+* **Execução Imediata:** Determinação de cumprimento imediato pelo TRE-PI.
+
+---
+
+#### **4. Processo Administrativo nº 0602055-68**
+
+* **Natureza:** Administrativa (Referendo).
+* **Relatora:** Min. Cármen Lúcia (Presidente).
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Referendo da **Portaria TSE nº 65/2025**. A norma institui um Grupo de Trabalho (GT) dedicado à elaboração de estudos e propostas para o "Estatuto da Auditoria Interna" da Justiça Eleitoral e normas correlatas.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* Regimento Interno do TSE (competência do Plenário para referendar atos normativos da Presidência).
+* Resoluções do CNJ sobre controle interno e auditoria (contexto implícito).
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* Necessidade de modernização e padronização dos procedimentos de auditoria interna no âmbito da Justiça Eleitoral.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* Portaria referendada à unanimidade.
+* Início (ou continuidade) dos trabalhos do Grupo Técnico.

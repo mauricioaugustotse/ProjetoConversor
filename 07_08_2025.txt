@@ -1,0 +1,178 @@
+Aqui está o relatório técnico da sessão plenária do Tribunal Superior Eleitoral, baseado exclusivamente no conteúdo do vídeo fornecido.
+
+---
+
+# RELATÓRIO DE SESSÃO DO TRIBUNAL SUPERIOR ELEITORAL (TSE)
+
+**Data da Sessão:** 07 de agosto de 2025 [[14:38](http://www.youtube.com/watch?v=meRpbo0hT7c&t=878)]
+**Presidência (em exercício):** Ministro André Mendonça [[14:50](http://www.youtube.com/watch?v=meRpbo0hT7c&t=890)]
+**Ministros Presentes:** Dias Toffoli, Isabel Gallotti (Corregedora-Geral), Antonio Carlos Ferreira, Floriano de Azevedo Marques, Estela Aranha.
+**Vice-Procurador-Geral Eleitoral:** Dr. Alexandre Espinosa Bravo Barbosa.
+**Ministra Homenageada (Despedida):** Edilene Lôbo (Ministra Substituta).
+
+---
+
+## 1. PROCESSO ADMINISTRATIVO: LISTA TRÍPLICE – TRE/RIO DE JANEIRO
+
+**[[15:36](http://www.youtube.com/watch?v=meRpbo0hT7c&t=936)] Identificação do Caso**
+
+* **Processo:** Lista Tríplice nº 0600265-70.
+* **UF:** Rio de Janeiro (TRE-RJ).
+* **Assunto:** Preenchimento de vaga de juiz titular (Classe dos Advogados).
+* **Ministro Relator:** André Mendonça.
+* **Indicado Mencionado:** Dr. Paulo César Salomão Filho (presente via videoconferência).
+
+**1. Análise do Conteúdo Jurídico**
+O julgamento tratou da homologação de Lista Tríplice para membro titular da classe dos juristas. O ponto central foi a adequação à nova normativa do TSE sobre paridade de gênero. A lista apresentada era composta exclusivamente por homens.
+
+**2. Fundamentação Normativa**
+
+* **Resolução-TSE nº 23.746/2025** (que alterou a Res.-TSE nº 23.517/2017): Citada pelo relator para fundamentar a promoção de mulheres nos cargos providos por advogados.
+
+**3. Raciocínio Desenvolvido**
+
+* **Relator (Min. André Mendonça):** Observou que os requisitos foram preenchidos e não houve impugnação. Contudo, fez uma ressalva ("consignação") baseada na Resolução 23.746/2025. Como a lista atual é exclusivamente masculina, determinou que a lista para a *segunda vaga* de membro titular (também da classe dos juristas) deverá ser composta, de forma necessária e exclusiva, por advogadas, garantindo a alternância e paridade.
+* **Observação Fática:** O Presidente do TRE-RJ informou nos autos que já existem três magistradas na classe jurista (entre titulares e substitutos) na Corte Regional, evidenciando busca pela equalização.
+
+**4. Efeitos e Providências Práticas**
+
+* **Decisão:** Lista encaminhada ao Presidente da República.
+* **Determinação:** Ciência imediata ao TRE-RJ sobre a imprescindibilidade de que a próxima lista tríplice para a outra vaga de titular seja composta exclusivamente por mulheres [[19:28](http://www.youtube.com/watch?v=meRpbo0hT7c&t=1168)].
+
+---
+
+## 2. RECURSO ESPECIAL ELEITORAL – PRAINHA/PA (Registro de Candidatura)
+
+**[[22:36](http://www.youtube.com/watch?v=meRpbo0hT7c&t=1356)] Identificação do Caso**
+
+* **Processo:** REspe nº 0600080-91.
+* **Eleição:** Eleições Municipais de 2024 (Cargo: Prefeito).
+* **Cidade de Origem:** Prainha.
+* **UF:** Pará.
+* **Ministro Relator:** Antonio Carlos Ferreira.
+* **Partes:**
+* **Recorrente:** Coligação "Bora Continuar Avançando" (Republicanos, MDB, PRD, União Brasil).
+* **Recorrido:** Gandor Calil Hage Neto (Candidato eleito).
+
+
+* **Advogados:**
+* Dr. José Maria Rodrigues Alves Júnior (pela Recorrente).
+* Dr. Sydney Sá das Neves e Dr. João Brasil de Castro (pelo Recorrido).
+
+
+
+**1. Análise do Conteúdo Jurídico**
+A controvérsia gira em torno do indeferimento do registro de candidatura com base na inelegibilidade da alínea *g* (rejeição de contas).
+
+* **Problema:** O Tribunal de Contas da União (TCU) rejeitou as contas do candidato (ex-prefeito), imputou débito, mas reconheceu a **prescrição da pretensão punitiva** (multa).
+* **Questão Central:** A prescrição da sanção (multa) pelo TCU afasta a configuração de irregularidade insanável e ato doloso de improbidade para fins eleitorais? E a configuração do dolo (específico vs. genérico) frente à decisão da Justiça Federal.
+
+**2. Fundamentação Normativa**
+
+* **Lei Complementar nº 64/1990:**
+* Art. 1º, I, alínea *g* (inelegibilidade por rejeição de contas).
+* Art. 1º, § 4º-A (imputação de débito como condição autônoma).
+
+
+* **Súmula nº 41 do TSE:** Citada para defender que a Justiça Eleitoral não julga o acerto/desacerto do TCU, mas pode qualificar juridicamente os fatos.
+* **Súmula nº 24 do TSE:** Citada pela divergência (vedação ao reexame de fatos e provas).
+* **Lei nº 14.230/2021 (Lei de Improbidade):** Discussão sobre a exigência de dolo específico.
+
+**3. Precedentes Citados**
+
+* **Caso Araçoiaba/PE (Rel. Min. Isabel Gallotti):** Citado pela defesa como paradigma onde a prescrição integral afastou a inelegibilidade.
+* **Caso Paranhos/MS (Rel. Min. Floriano de Azevedo Marques):** Citado pelo advogado da recorrente e pelo Relator, onde a prescrição apenas da multa *não* afastou a inelegibilidade.
+* **Tema 899 do STF:** Citado pela defesa (prescritibilidade da pretensão de ressarcimento).
+
+**4. Raciocínio Desenvolvido**
+
+* **Advogado da Recorrente:** A prescrição punitiva (multa) não apaga o débito (ressarcimento) nem a irregularidade. O recorrido foi condenado a devolver R$ 1,5 milhão (decisão transitada em julgado na Justiça Federal). O dolo é claro pela omissão do dever de prestar contas.
+* **Advogado do Recorrido:** Sem sanção (prescrita), não há rejeição "na essência". Alega ausência de dolo específico (exigido pela nova Lei de Improbidade), pois a Justiça Federal reconheceu apenas "dolo genérico".
+* **Voto do Relator (Min. Antonio Carlos Ferreira):**
+* Deu provimento ao recurso para **indeferir** o registro.
+* Argumentou que a prescrição da multa pelo TCU não desnatura a inelegibilidade, pois a imputação de débito (ressarcimento) permaneceu.
+* Quanto ao dolo: Embora a Justiça Federal tenha falado em "dolo genérico", a Justiça Eleitoral tem autonomia para reenquadrar os fatos. A omissão deliberada em prestar contas para encobrir irregularidades graves configura **dolo específico**.
+* Refutou a aplicação da Súmula 41 (não está revisando o TCU, mas qualificando a elegibilidade).
+
+
+* **Divergência (Mencionada no relatório, Min. Floriano de Azevedo Marques):** Entendeu que reformar a decisão do TRE (que viu apenas dolo genérico) exigiria reexame de provas (Súmula 24) e manteve o deferimento.
+
+**5. Pontos Processuais Relevantes**
+
+* Pedido de destaque formulado anteriormente pelo Min. André Mendonça.
+* Sustentações orais realizadas na sessão.
+* O julgamento foi suspenso após o voto do relator.
+
+**6. Efeitos e Providências Práticas**
+
+* **Proclamação Parcial:** O Relator votou pelo indeferimento do registro, anulação dos votos e determinação de **novas eleições** em Prainha/PA. O julgamento foi suspenso e será retomado oportunamente.
+
+---
+
+## 3. AGRAVO REGIMENTAL NO RESPE – ITAGUAÍ/RJ (Terceiro Mandato)
+
+**[[01:06:46](http://www.youtube.com/watch?v=meRpbo0hT7c&t=4006)] Identificação do Caso**
+
+* **Processo:** AgR no REspe nº 0600379-88.
+* **Eleição:** Eleições Municipais de 2024 (Cargo: Prefeito).
+* **Cidade de Origem:** Itaguaí.
+* **UF:** Rio de Janeiro.
+* **Ministro Relator:** André Mendonça.
+* **Partes:**
+* **Agravante:** Rubin Vieira de Souza (Candidato).
+* **Agravado:** Antonio Donizete Gasparino de Jesus.
+
+
+* **Advogados:**
+* Dr. Carlos Eduardo Frazão (pelo Agravante).
+* Dra. Rayane Ribeiro Marques da Silva (pelo Agravado).
+
+
+
+**1. Análise do Conteúdo Jurídico**
+A questão versa sobre a configuração de **terceiro mandato consecutivo** (inelegibilidade reflexa).
+
+* **Fato:** O candidato era Presidente da Câmara. O Prefeito e o Vice foram cassados. Ele assumiu a chefia do Executivo nos 6 meses anteriores ao pleito de 2020 (mandato tampão). Foi eleito em 2020 (para o mandato 2021-2024). Tentou reeleição em 2024.
+* **Controvérsia:** A assunção temporária (ou definitiva, por vacância) decorrente da presidência da Câmara conta como primeiro mandato?
+
+**2. Fundamentação Normativa**
+
+* **Constituição Federal:**
+* Art. 14, § 5º (reeleição para um único período subsequente).
+* Art. 14, § 7º (inelegibilidade reflexa/substituição nos 6 meses anteriores).
+* Princípios Republicano e Democrático.
+
+
+
+**3. Precedentes Citados**
+
+* **ADI 4298 e RE 366.488 (STF):** Citados no voto-vista para discutir a natureza da substituição/sucessão e a necessidade de eleições.
+* **Tema 1229 (Repercussão Geral no STF):** Citado pelo Min. Dias Toffoli como razão para o pedido de vista.
+
+**4. Raciocínio Desenvolvido**
+
+* **Relator (Min. André Mendonça):** Votou pelo desprovimento do agravo (mantendo o indeferimento do registro). Considerou que a assunção da prefeitura, seguida de eleição, e nova tentativa de reeleição configura 3º mandato.
+* **Voto-Vista (Min. Isabel Gallotti):** [[01:07:41](http://www.youtube.com/watch?v=meRpbo0hT7c&t=4061)]
+* Acompanhou o Relator.
+* Analisou a Lei Orgânica de Itaguaí, que impedia eleição no último ano (sucessão automática pelo Presidente da Câmara). Considerou que essa norma municipal viola a CF se interpretada para permitir perpetuação.
+* Concluiu que Rubem Vieira sucedeu a chefia (dupla vacância), o que conta como mandato. Reeleger-se em 2024 seria o terceiro período consecutivo no poder executivo.
+
+
+* **Pedido de Vista (Min. Dias Toffoli):** [[01:21:21](http://www.youtube.com/watch?v=meRpbo0hT7c&t=4881)]
+* Argumentou que o STF está prestes a julgar o **Tema 1229** (Rel. Min. Cármen Lúcia) em repercussão geral, que trata exatamente dessa matéria. Para evitar insegurança jurídica ("entra e sai de prefeitos"), pediu vista para aguardar o deslinde no Supremo.
+
+
+
+**5. Efeitos e Providências Práticas**
+
+* **Resultado:** Julgamento suspenso pelo pedido de vista do Ministro Dias Toffoli.
+* **Placar Parcial:** Relator (Mendonça), Nunes Marques e Isabel Gallotti votaram pelo indeferimento do registro (negando provimento ao agravo).
+
+---
+
+## 4. OUTROS PROCESSOS (Listas)
+
+**[[01:25:03](http://www.youtube.com/watch?v=meRpbo0hT7c&t=5103)] Julgamentos em Bloco**
+
+* **Lista 1 (Rel. André Mendonça):** 3 processos. Agravos internos desprovidos à unanimidade.
+* **Lista 1 (Rel. Isabel Gallotti):** 3 processos. Agravos internos desprovidos à unanimidade.

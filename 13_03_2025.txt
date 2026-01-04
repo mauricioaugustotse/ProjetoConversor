@@ -1,0 +1,186 @@
+Relatório técnico da sessão jurisdicional do Tribunal Superior Eleitoral (TSE).
+
+**DADOS GERAIS DA SESSÃO**
+
+* **Data da sessão:** 13 de março de 2025 (quinta-feira) [[25:04](http://www.youtube.com/watch?v=gkPVwqCPtKM&t=1504)].
+* **Presidência:** Ministra Cármen Lúcia.
+* **Composição da Corte (Ministros Presentes):** Cármen Lúcia (Presidente), Kassio Nunes Marques (Vice-Presidente), André Mendonça, Isabel Gallotti (Corregedora-Geral), Antonio Carlos Ferreira, Floriano de Azevedo Marques e André Ramos Tavares [[25:12](http://www.youtube.com/watch?v=gkPVwqCPtKM&t=1512)].
+* **Procuradoria-Geral Eleitoral:** Vice-Procurador-Geral Alexandre Bravo Barbosa Espinosa.
+* **Secretário:** Dr. João Paulo.
+
+---
+
+### **1. PROCESSO: Agravo Regimental no Recurso Especial Eleitoral nº 0600289-82**
+
+[[26:41](http://www.youtube.com/watch?v=gkPVwqCPtKM&t=1601)] **Início do Julgamento**
+
+**1.1. DADOS DE IDENTIFICAÇÃO**
+
+* **Eleição:** Eleições Municipais de 2024.
+* **Cargo:** Vereador.
+* **Cidade de origem:** Niterói.
+* **UF:** Rio de Janeiro (RJ).
+* **Relator:** Ministro André Mendonça.
+* **Partes:**
+* **Agravante/Candidato:** Carlos Alberto de Macedo.
+* **Recorrido:** Ministério Público Eleitoral (implícito pelo contexto da impugnação).
+
+
+
+**1.2. ANÁLISE DO CONTEÚDO JURÍDICO**
+O caso trata do indeferimento do registro de candidatura de vereador que foi pronunciado pelo crime de homicídio contra outro vereador, do qual era suplente, visando assumir o cargo. O TRE-RJ indeferiu o registro fundamentando-se na proteção insuficiente e moralidade, aplicando a vedação de candidatura a integrantes de grupos criminosos/milícias, mesmo sem condenação transitada em julgado ou por órgão colegiado nos moldes estritos da LC 64/90. O núcleo do problema reside na inelegibilidade decorrente de vínculo com organização criminosa paramilitar e a tutela da moralidade administrativa.
+
+**1.3. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Constituição Federal:** Art. 14, § 9º (moralidade para o exercício do mandato); Art. 17, § 4º (vedação de utilização de organização paramilitar por partidos); Art. 37 (princípio da moralidade).
+* **Súmulas do TSE:**
+* Súmula 13 (não autoaplicabilidade do art. 14, § 9º da CF – superada no raciocínio do caso concreto via distinção/outros fundamentos).
+* Súmula 24 (vedação ao reexame de fatos e provas em recurso especial).
+* Súmula 26 (ausência de impugnação específica dos fundamentos da decisão agravada).
+
+
+
+**1.4. PRECEDENTES CITADOS**
+
+* **TSE, REspe 0600275-26 e REspe 0600242-56**, Rel. Min. Antonio Carlos Ferreira (oriundos do Rio de Janeiro).
+* **Razão de decidir:** A Justiça Eleitoral não pode ignorar a infiltração de organizações criminosas na política. Aplicação direta da vedação constitucional de uso de organização paramilitar (CF, art. 17, § 4º) para barrar candidaturas, independentemente de condenação criminal formalizada nos moldes clássicos da inelegibilidade, visando proteger a liberdade do eleitor e a moralidade.
+
+
+
+**1.5. RACIOCÍNIO DESENVOLVIDO**
+
+* **Premissas:** O Relator, Min. André Mendonça, destacou que embora a decisão regional tenha invocado o princípio da proporcionalidade/proteção insuficiente, o indeferimento deve ser mantido com base na jurisprudência do TSE sobre organizações criminosas.
+* **Método e Reconstrução:**
+* O candidato responde por homicídio de um vereador eleito em 2012 para assumir sua vaga como suplente.
+* Identificou-se que o crime buscava garantir a grupo criminoso (milícia) a prática de corrupção, peculato e falsidade sob o manto do mandato.
+* Aplicou-se o precedente da relatoria do Min. Antonio Carlos Ferreira: a vedação do art. 17, § 4º da CF incide diretamente.
+* **Óbice Processual:** O agravo não impugnou verticalmente todos os fundamentos da decisão monocrática, atraindo a Súmula 26.
+* **Acompanhamentos:**
+* Min. Isabel Gallotti: Aderiu integralmente, reforçando que a vedação deriva do art. 17, § 4º da CF.
+* Min. Antonio Carlos Ferreira, Min. Floriano de Azevedo Marques, Min. Ramos Tavares, Min. Kassio Nunes Marques: Acompanharam integralmente.
+* Min. Floriano destacou que a não conclusão do júri não afasta a gravidade das imputações fáticas delineadas no acórdão regional.
+* Min. Ramos Tavares reforçou a desnecessidade de condenação criminal para a incidência do art. 17, § 4º da CF neste contexto de tutela da liberdade do eleitor.
+
+
+
+
+
+**1.6. PONTOS PROCESSUAIS RELEVANTES**
+
+* Houve decisão monocrática prévia mantendo o indeferimento.
+* O julgamento foi unânime.
+* Destacou-se a presença de estudantes de Direito (UFOP e Uninassau) assistindo à sessão.
+
+**1.7. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* Manutenção do indeferimento do registro de candidatura (candidato inapto).
+* Consolidação da jurisprudência sobre a barragem de candidaturas ligadas a milícias/organizações paramilitares.
+
+---
+
+### **2. PROCESSO: Agravo Regimental no Recurso Especial Eleitoral nº 0600254-68**
+
+[[40:07](http://www.youtube.com/watch?v=gkPVwqCPtKM&t=2407)] **Início do Julgamento**
+
+**2.1. DADOS DE IDENTIFICAÇÃO**
+
+* **Eleição:** Eleições Municipais de 2024.
+* **Cargo:** Vereador.
+* **Cidade de origem:** Bragança Paulista.
+* **UF:** São Paulo (SP).
+* **Relator:** Ministro André Mendonça.
+* **Partes:**
+* **Agravante:** Eduardo Simões de Oliveira.
+* **Agravados:** Partido Renovação Democrática (municipal) e Ministério Público Eleitoral.
+
+
+
+**2.2. ANÁLISE DO CONTEÚDO JURÍDICO**
+O processo versa sobre registro de candidatura indeferido devido a condenação criminal por órgão colegiado (sem trânsito em julgado) pelo crime de importunação sexual (art. 215-A do CP). A controvérsia central gira em torno de uma liminar obtida na Justiça Comum (TJ-SP) visando suspender a inelegibilidade com base no art. 26-C da LC 64/90. O TSE analisou se essa liminar atendia aos requisitos legais, especificamente a "plausibilidade da pretensão recursal", concluindo que a decisão da justiça comum apenas citava a probabilidade de embargos infringentes, sem adentrar no mérito da plausibilidade do direito.
+
+**2.3. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Legislação Federal:**
+* Código Penal: Art. 215-A (Importunação sexual).
+* Lei Complementar nº 64/1990: Art. 1º, inciso I, alínea 'e', item 9 (inelegibilidade por crimes contra a dignidade sexual); Art. 26-C (suspensão da inelegibilidade por órgão colegiado).
+
+
+* **Súmulas do TSE:**
+* Súmula 41 (A Justiça Eleitoral não pode ignorar decisão suspensiva da Justiça Comum, *desde que* preenchidos os requisitos).
+* Súmula 24 (Impossibilidade de reexame de fatos e provas).
+* Súmula 26 (Falta de impugnação específica).
+
+
+
+**2.4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Premissas:** O art. 26-C da LC 64/90 exige que a suspensão da inelegibilidade pela Justiça Comum se baseie na *plausibilidade da pretensão recursal*.
+* **Análise do caso:**
+* O TJ-SP concedeu liminar fundamentada apenas na possibilidade de oposição de embargos infringentes (voto não unânime na condenação criminal), sem atestar a plausibilidade jurídica da absolvição ou anulação.
+* O Relator considerou que a decisão do TJ-SP não cumpriu o requisito material do art. 26-C, pois "probabilidade de recurso" não equivale a "plausibilidade do direito/pretensão".
+* Ademais, o recurso especial eleitoral não impugnou verticalmente os fundamentos da decisão agravada, limitando-se a reiterar argumentos (Súmula 26).
+* Não houve alegação de ofensa aos arts. 275 do CE ou 1022 do CPC nas razões do recurso especial.
+
+
+* **Conclusão:** Negativa de provimento ao agravo, mantendo o indeferimento do registro.
+
+**2.5. PONTOS PROCESSUAIS RELEVANTES**
+
+* Houve sustentação implícita da soberania da Justiça Eleitoral para aferir se a decisão da Justiça Comum preenche os requisitos da LC 64/90 (art. 26-C).
+* O Ministro Kassio Nunes Marques pediu vista antecipada do processo após o voto do relator.
+
+**2.6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* Julgamento suspenso por pedido de vista. O Relator votou pelo indeferimento do registro.
+
+---
+
+### **3. PROCESSO: Agravo Regimental no Recurso Especial Eleitoral nº 0600205-98**
+
+[[48:23](http://www.youtube.com/watch?v=gkPVwqCPtKM&t=2903)] **Início do Julgamento**
+
+**3.1. DADOS DE IDENTIFICAÇÃO**
+
+* **Eleição:** Eleições Municipais de 2024.
+* **Cargo:** Vereador.
+* **Cidade de origem:** Piquete.
+* **UF:** São Paulo (SP).
+* **Relatora:** Ministra Isabel Gallotti.
+* **Partes:**
+* **Agravante:** Fernando César de Queiroz Mota.
+* **Agravado:** Ministério Público.
+
+
+
+**3.2. ANÁLISE DO CONTEÚDO JURÍDICO**
+Trata-se de indeferimento de registro de candidatura por inelegibilidade decorrente de rejeição de contas (Lei da Ficha Limpa). O candidato buscava reverter a decisão alegando ausência de dolo e dissídio jurisprudencial. A discussão envolve a análise dos requisitos da alínea 'g' do art. 1º, I, da LC 64/90.
+
+**3.3. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Legislação Federal:** Lei Complementar nº 64/1990, Art. 1º, inciso I, alínea 'g' (rejeição de contas por irregularidade insanável que configure ato doloso de improbidade administrativa).
+* **Súmulas do TSE:** Súmula 72 (falta de prequestionamento).
+
+**3.4. RACIOCÍNIO DESENVOLVIDO**
+
+* A Relatora apontou que a alegada omissão quanto ao elemento volitivo (dolo) não se sustentava, pois a matéria foi tratada no acórdão regional.
+* Argumentos sobre o art. 14 da CF e Lei 8.429 (Improbidade) não foram prequestionados na origem (Súmula 72).
+* A tentativa de demonstrar dissídio jurisprudencial falhou: em dois precedentes não houve reprodução fática (cotejo analítico) e no terceiro não havia similitude fática.
+* Não é possível suprir deficiência do Recurso Especial em sede de Agravo Interno.
+
+**3.5. PONTOS PROCESSUAIS RELEVANTES**
+
+* A Relatora leu apenas a ementa, ciente do pedido de vista antecipado.
+* **Pedido de Vista:** Ministro Floriano de Azevedo Marques pediu vista.
+
+**3.6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* Julgamento suspenso. Relatora votou pelo desprovimento do agravo (manutenção do indeferimento).
+
+---
+
+**OBSERVAÇÕES FINAIS DA PRESIDÊNCIA**
+[[52:38](http://www.youtube.com/watch?v=gkPVwqCPtKM&t=3158)] A Ministra Cármen Lúcia realizou registros finais relevantes:
+
+1. **Encontro de Corregedores:** Realizado no dia anterior, focado no cadastro nacional e inspeções visando as próximas eleições, com ênfase na ética de candidatos.
+2. **Cooperação com ENM:** Assinatura de termo com a Escola Nacional da Magistratura para curso de juízes eleitorais sobre Direito Digital.
+3. **Data Histórica:** Registro dos 40 anos do restabelecimento da democracia no Brasil (15 de março), com exibição de vídeo institucional.

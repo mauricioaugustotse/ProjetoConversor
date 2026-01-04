@@ -1,0 +1,224 @@
+Aqui está o relatório técnico detalhado da sessão plenária do Tribunal Superior Eleitoral realizada em 29 de maio de 2025, com base exclusivamente no conteúdo do vídeo fornecido.
+
+---
+
+# RELATÓRIO TÉCNICO DE SESSÃO DO TRIBUNAL SUPERIOR ELEITORAL
+
+**Data da Sessão:** 29/05/2025
+**Presidência:** Ministra Cármen Lúcia
+**Composição da Corte na Sessão:**
+
+* Ministra Cármen Lúcia (Presidente)
+* Ministro Kassio Nunes Marques (Vice-Presidente - por videoconferência)
+* Ministro André Mendonça
+* Ministra Isabel Gallotti (Corregedora-Geral)
+* Ministro Antonio Carlos Ferreira
+* Ministro Floriano de Azevedo Marques
+* Ministro André Ramos Tavares
+**PGE:** Dr. Alexandre Espinosa Bravo Barbosa (Vice-Procurador-Geral Eleitoral)
+
+---
+
+## [[14:56](http://www.youtube.com/watch?v=qmuWuJvAqWE&t=896)] 1. LISTA TRÍPLICE Nº 0600040-38 (Classe: LT)
+
+**1) Data da sessão:** 29/05/2025
+**2) Eleição a que se refere:** Não se aplica (Processo Administrativo).
+**3) Nome expresso dos indicados:**
+
+* Kerson Maciel Gomes Soares
+* Louise Sousa de Santos Haufes
+* Domingos Sávio Neves Prado
+**4) Número do processo:** Lista Tríplice nº 0600040-38
+**5) Cidade de origem:** Porto Velho
+**6) UF:** Rondônia (RO)
+**7) Nome das partes:** Tribunal Regional Eleitoral de Rondônia (Interessado).
+**8) Ministros presentes:** Cármen Lúcia, Nunes Marques, André Mendonça, Isabel Gallotti, Antonio Carlos Ferreira, Floriano de Azevedo Marques, Ramos Tavares.
+**9) Advogados:** Não mencionados nominalmente como presentes na tribuna.
+**10) Ministro relator:** André Mendonça
+**11) Jurisprudência do STF mencionada:** Não houve menção expressa.
+**12) Jurisprudência do TSE mencionada:** Não houve menção expressa.
+**13) Resolução do TSE mencionada:** Res.-TSE nº 23.517/2017.
+**14) Legislação mencionada:** Não houve citação de lei federal específica além da resolução.
+
+### 1. ANÁLISE DO CONTEÚDO JURÍDICO
+
+Trata-se de apreciação de Lista Tríplice encaminhada pelo TRE-RO para preenchimento de vaga de juiz substituto na classe de jurista (advogado) naquela Corte Regional. O julgamento cingiu-se à verificação do cumprimento dos requisitos objetivos pelos indicados.
+
+### 2. FUNDAMENTAÇÃO NORMATIVA
+
+* **Normas infralegais:** Res.-TSE nº 23.517/2017 (Regulamenta a escolha de advogados para compor os Tribunais Regionais Eleitorais).
+
+### 3. PRECEDENTES CITADOS
+
+Não houve citação de precedentes específicos.
+
+### 4. RACIOCÍNIO DESENVOLVIDO
+
+* **Premissas:** O relator informou que a área técnica do Tribunal avaliou a documentação e confirmou o preenchimento dos requisitos exigidos pela Resolução-TSE nº 23.517/2017.
+* **Conclusão:** Inexistindo impugnação aos nomes e estando a documentação regular, votou-se pelo encaminhamento da lista.
+
+### 5. PONTOS PROCESSUAIS RELEVANTES
+
+* **Proclamação:** A decisão foi unânime.
+
+### 6. EFEITOS E PROVIDÊNCIAS PRÁTICAS
+
+* Encaminhamento da lista ao Presidente da República para escolha e nomeação de um dos advogados indicados.
+
+---
+
+## [[18:32](http://www.youtube.com/watch?v=qmuWuJvAqWE&t=1112)] 2. AGRAVO REGIMENTAL NO RECURSO ESPECIAL ELEITORAL Nº 0600224-02
+
+**1) Data da sessão:** 29/05/2025
+**2) Eleição a que se refere:** Eleições Municipais de 2024.
+**3) Nome expresso dos indicados:** Não se aplica.
+**4) Número do processo:** AgR no REspe nº 0600224-02
+**5) Cidade de origem:** Bandeirantes
+**6) UF:** Mato Grosso do Sul (MS)
+**7) Nome das partes:**
+
+* **Agravante:** Álvaro Nakle Urt (Candidato a Prefeito eleito)
+* **Agravados:** Coligação "Vamos Fazer Muito Mais" e Ministério Público Eleitoral
+**8) Ministros presentes:** Cármen Lúcia, Nunes Marques, André Mendonça, Isabel Gallotti, Antonio Carlos Ferreira, Floriano de Azevedo Marques, Ramos Tavares.
+**9) Advogados:** Não houve sustentação oral registrada neste momento (julgamento de agravo interno).
+**10) Ministro relator:** André Mendonça
+**11) Jurisprudência do STF mencionada:** ADI 7.197.
+**12) Jurisprudência do TSE mencionada:** Súmula 41 do TSE.
+**13) Resolução do TSE mencionada:** Res.-TSE nº 23.609/2019 (art. 52), alterada pela Res.-TSE nº 23.729/2024.
+**14) Legislação mencionada:** Não houve citação de lei federal específica no trecho, focando-se nas resoluções e entendimento sumular.
+
+### 1. ANÁLISE DO CONTEÚDO JURÍDICO
+
+O caso trata de **registro de candidatura (RCAND)** e **inelegibilidade**. O candidato teve o registro indeferido monocraticamente no TSE por inelegibilidade decorrente de cassação de mandato pela Câmara de Vereadores. A controvérsia central reside no **marco temporal** para considerar alterações fáticas ou jurídicas supervenientes que afastem a inelegibilidade. O candidato obteve uma decisão do STJ anulando a cassação da Câmara, porém, essa decisão ocorreu **após a data da eleição**.
+
+### 2. FUNDAMENTAÇÃO NORMATIVA
+
+* **Normas infralegais:** Res.-TSE nº 23.609/2019, art. 52 (fixa que alterações fáticas ou jurídicas para afastar inelegibilidade devem ocorrer até a data do primeiro turno).
+* **Súmulas:** Súmula 41 do TSE (Não cabe à Justiça Eleitoral decidir sobre o acerto ou desacerto das decisões proferidas por outros órgãos que configurem causa de inelegibilidade).
+
+### 3. PRECEDENTES CITADOS
+
+* **Tribunal:** STF.
+* **Precedente:** ADI 7.197.
+* **Razão de decidir:** Utilizado como reforço argumentativo para a fixação do marco temporal limite (data da eleição) para alterações supervenientes.
+
+### 4. RACIOCÍNIO DESENVOLVIDO
+
+* **Histórico:** O candidato teve o mandato cassado pela Câmara Municipal (inelegibilidade de 8 anos). Tentou registrar a candidatura com base em tutela de urgência da Justiça Comum estadual, que foi considerada usurpação de competência da Justiça Eleitoral pelo relator (pois declarava elegibilidade sem anular o ato da Câmara).
+* **Fato Superveniente:** Posteriormente, houve decisão monocrática do Ministro Paulo Sérgio (STJ) anulando a cassação da Câmara. Contudo, essa decisão foi proferida **após as eleições**.
+* **Tese Jurídica (Marco Temporal):** O relator e a Corte firmaram que o termo final para que uma alteração jurídica (como a decisão do STJ) possa beneficiar o candidato no pleito corrente é a **data da eleição (primeiro turno)**, conforme o art. 52 da Resolução-TSE 23.609.
+* **Conclusão:** Como a decisão anulatória do STJ veio após o pleito, ela não serve para deferir o registro nestas eleições. Mantém-se a inelegibilidade e o indeferimento do registro.
+
+### 5. PONTOS PROCESSUAIS RELEVANTES
+
+* **Voto-Vista:** O Ministro Nunes Marques (vistor) devolveu o processo acompanhando integralmente o relator, reforçando a importância da definição do marco temporal para segurança jurídica.
+* **Usurpação de Competência:** Destacou-se que a Justiça Comum não pode declarar "elegibilidade" (matéria eleitoral), mas apenas anular o ato administrativo que gerou a inelegibilidade.
+* **Quórum:** Unanimidade (7 a 0).
+
+### 6. EFEITOS E PROVIDÊNCIAS PRÁTICAS
+
+* **Negativa de provimento** ao agravo regimental.
+* **Novas Eleições:** Determinação de **imediata realização de nova eleição** para os cargos de prefeito e vice-prefeito em Bandeirantes/MS.
+* **Execução Imediata:** A ordem independe da publicação do acórdão ou da interposição de eventuais recursos.
+
+---
+
+## [[31:24](http://www.youtube.com/watch?v=qmuWuJvAqWE&t=1884)] 3. AGRAVO REGIMENTAL NO AGRAVO EM RECURSO ESPECIAL ELEITORAL Nº 0600197-07
+
+**1) Data da sessão:** 29/05/2025
+**2) Eleição a que se refere:** Eleições de 2024.
+**3) Nome expresso dos indicados:** Não se aplica.
+**4) Número do processo:** AgR no AREspe nº 0600197-07
+**5) Cidade de origem:** Jijoca de Jericoacoara
+**6) UF:** Ceará (CE)
+**7) Nome das partes:**
+
+* **Agravante:** Márcio Aldigueri Arruda
+* **Agravada:** Republicanos (Diretório Municipal)
+**8) Ministros presentes:** Cármen Lúcia, Nunes Marques, André Mendonça, Isabel Gallotti, Antonio Carlos Ferreira, Floriano de Azevedo Marques, Ramos Tavares.
+**9) Advogados:** Não mencionados.
+**10) Ministro relator:** Floriano de Azevedo Marques
+**11) Jurisprudência do STF mencionada:** Não houve menção expressa.
+**12) Jurisprudência do TSE mencionada:** Súmulas 24, 26, 28 e 30.
+**13) Resolução do TSE mencionada:** Não citada especificamente no voto oral (foco na Lei 9.504).
+**14) Legislação mencionada:** Lei nº 9.504/1997 (art. 36, §3º e art. 36-A).
+
+### 1. ANÁLISE DO CONTEÚDO JURÍDICO
+
+O caso versa sobre **propaganda eleitoral antecipada**. O agravante foi condenado por realizar "carreata e motociata" com carro de som e ampla participação popular antes do período permitido, configurando ato de campanha e quebra da paridade de armas.
+
+### 2. FUNDAMENTAÇÃO NORMATIVA
+
+* **Legislação:** Lei 9.504/1997, art. 36, §3º (multa por propaganda antecipada) e art. 36-A (atos de pré-campanha permitidos, desde que não haja pedido de voto; interpretado em conjunto com a vedação de atos de campanha explícita).
+* **Súmulas:**
+* Súmula 24 (Vedação ao reexame de fatos e provas).
+* Súmula 26 (Inadmissibilidade quando não infirmados os fundamentos da decisão agravada).
+* Súmula 30 (Dissídio jurisprudencial superado).
+
+
+
+### 3. PRECEDENTES CITADOS
+
+* O relator citou "aresto de minha relatoria" e "julgado da relatoria do Ministro Tarcisio Vieira de Carvalho" para fundamentar a aplicação das súmulas, sem detalhar números específicos na fala.
+
+### 4. RACIOCÍNIO DESENVOLVIDO
+
+* **Reenquadramento fático:** O relator argumentou que o TRE-CE reconheceu a existência de atos típicos de campanha (carreata/motociata com ciência do beneficiário) que feriram a paridade de armas. Para alterar essa conclusão, seria necessário reexaminar provas (vedado pela Súmula 24).
+* **Critérios da Propaganda Antecipada:** Reafirmou que a propaganda é ilícita quando há: 1) pedido explícito de voto; 2) uso de formas proscritas no período de campanha; ou 3) violação à paridade de armas (uso de meios de grande alcance não acessíveis a todos).
+* **Deficiência Recursal:** O agravante apenas reiterou argumentos anteriores sem atacar especificamente os fundamentos da decisão monocrática (Súmula 26).
+
+### 5. PONTOS PROCESSUAIS RELEVANTES
+
+* **Admissibilidade:** O agravo não foi conhecido (não conhecimento) devido aos óbices sumulares.
+
+### 6. EFEITOS E PROVIDÊNCIAS PRÁTICAS
+
+* **Manutenção da Multa:** Mantida a condenação à multa prevista no art. 36, §3º da Lei 9.504/1997.
+
+---
+
+## [[37:14](http://www.youtube.com/watch?v=qmuWuJvAqWE&t=2234)] 4. AGRAVO REGIMENTAL NO RECURSO ESPECIAL ELEITORAL Nº 0600403-63
+
+**1) Data da sessão:** 29/05/2025
+**2) Eleição a que se refere:** Eleições de 2024.
+**3) Nome expresso dos indicados:** Não se aplica.
+**4) Número do processo:** AgR no REspe nº 0600403-63
+**5) Cidade de origem:** Arauá
+**6) UF:** Sergipe (SE)
+**7) Nome das partes:**
+
+* **Agravante:** Fábio Manoel Andrade Costa
+* **Agravada:** Coligação "Para Frente Arauá"
+**8) Ministros presentes:** Cármen Lúcia, Nunes Marques, André Mendonça, Isabel Gallotti, Antonio Carlos Ferreira, Floriano de Azevedo Marques, Ramos Tavares.
+**9) Advogados:** Não mencionados.
+**10) Ministro relator:** André Ramos Tavares
+**11) Jurisprudência do STF mencionada:** Não houve menção expressa.
+**12) Jurisprudência do TSE mencionada:** Não houve menção de súmula específica, apenas "jurisprudência deste Tribunal".
+**13) Resolução do TSE mencionada:** Res.-TSE nº 23.610 (art. 3º-A).
+**14) Legislação mencionada:** Lei nº 9.504/1997 (art. 36, *caput* e §3º).
+
+### 1. ANÁLISE DO CONTEÚDO JURÍDICO
+
+Processo referente a **propaganda eleitoral antecipada**. A condenação decorreu de publicações em redes sociais contendo imagens e frases com referências explícitas ao nome do candidato, à continuidade do mandato e ao voto, equiparadas a "pedido explícito de voto" ou uso de "palavras mágicas".
+
+### 2. FUNDAMENTAÇÃO NORMATIVA
+
+* **Normas infralegais:** Res.-TSE nº 23.610, art. 3º-A (define propaganda antecipada passível de multa).
+* **Legislação:** Lei 9.504/1997, art. 36, §3º (sanção pecuniária).
+
+### 3. PRECEDENTES CITADOS
+
+Não houve citação nominal de precedentes.
+
+### 4. RACIOCÍNIO DESENVOLVIDO
+
+* **Conceito de Pedido Explícito:** O relator destacou que a mensagem veiculada continha elementos que se equiparam ao pedido explícito de votos ("palavras mágicas"), configurando a extemporaneidade.
+* **Regularidade da Multa:** Confirmada a aplicação da multa por violação às regras de pré-campanha.
+
+### 5. PONTOS PROCESSUAIS RELEVANTES
+
+* **Decisão:** Unânime pelo desprovimento do agravo.
+
+### 6. EFEITOS E PROVIDÊNCIAS PRÁTICAS
+
+* Manutenção da multa aplicada ao pré-candidato.

@@ -1,0 +1,229 @@
+Relatório técnico da Sessão Plenária do Tribunal Superior Eleitoral (TSE), com base exclusiva no conteúdo audiovisual fornecido.
+
+---
+
+### **DADOS GERAIS DA SESSÃO**
+
+**1) Data da sessão:** 11 de dezembro de 2025.
+**8) Ministros que compõem a sessão:**
+
+* Min. Cármen Lúcia (Presidente)
+* Min. Nunes Marques (Vice-Presidente, por videoconferência)
+* Min. André Mendonça
+* Min. Antonio Carlos Ferreira
+* Min. Villas Bôas Cueva
+* Min. Floriano de Azevedo Marques
+* Min. Estela Aranha
+* *Presença do Vice-Procurador-Geral Eleitoral:* Dr. Alexandre Espinosa Bravo Barbosa.
+
+---
+
+### **[[19:53](http://www.youtube.com/watch?v=HlH2fhLVb-Q&t=1193)] JULGAMENTO 1: CONSULTA**
+
+**1) Data da sessão:** 11/12/2025
+**2) Eleição a que se refere:** Eleições 2026 (mencionado explicitamente na questão).
+**3) Nome expresso dos indicados:** Não aplicável.
+**4) Número do processo:** Consulta nº 0600075-10.
+**5) Cidade de origem:** Brasília.
+**6) UF:** DF (Nacional).
+**7) Nome das partes:** Consulente: Cidadania (Diretório Nacional).
+**9) Advogados:** Não mencionados nominalmente no trecho.
+**10) Ministro relator:** Min. Antonio Carlos Ferreira.
+**11) Jurisprudência do STF mencionada:** ADI 7.021 (Rel. Min. Luís Roberto Barroso, j. 06/08/2025).
+**12) Jurisprudência do TSE mencionada:** Entendimento de que não se conhece de consulta cujo tema já tenha sido apreciado pelo STF.
+**13) Resolução do TSE mencionada:** Não citada especificamente por número.
+**14) Legislação mencionada:** Lei nº 9.096/1995 (Art. 11-A, §3º, II e §4º); Lei nº 14.208 (Instituição das federações).
+
+#### **RELATÓRIO DE JULGAMENTO**
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+O núcleo da consulta versa sobre **Federações Partidárias**. O partido Cidadania questiona a possibilidade de um partido integrante de federação constituída em 2022 desligar-se antes do prazo mínimo legal de 4 anos sem sofrer as sanções legais (vedação de uso do fundo partidário, etc.), visando às Eleições de 2026.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Lei 9.096/1995:** Art. 11-A, §3º, inciso II (prazo de permanência na federação) e §4º (sanções pelo descumprimento).
+* **Lei 14.208:** Instituição das federações.
+
+**3. PRECEDENTES CITADOS**
+
+* **STF, ADI 7.021, Rel. Min. Luís Roberto Barroso, j. 06/08/2025:** Declarou a constitucionalidade da lei das federações, mas ajustou o prazo de registro. Fixou que, para as Eleições de 2026, partidos federados em 2022 podem alterar composição ou sair antes dos 4 anos sem as sanções do art. 11-A, §4º, da Lei 9.096/1995.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Método:** Subsunção à jurisprudência vinculante do STF.
+* **Reconstrução do voto:** O Relator, Min. Antonio Carlos Ferreira, argumentou que o STF já definiu a questão na ADI 7.021, permitindo a desvinculação excepcional para o pleito de 2026 sem sanções. Como o tema já foi apreciado pelo Supremo, aplica-se a jurisprudência do TSE de não conhecer da consulta (perda de objeto ou desnecessidade de orientação).
+* **Conclusão:** Não conhecimento da consulta.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Proclamação:** Unanimidade pelo não conhecimento.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* A consulta não foi respondida no mérito formalmente, mantendo-se a validade da decisão do STF que já autoriza a conduta questionada pelo partido.
+
+---
+
+### **[[24:20](http://www.youtube.com/watch?v=HlH2fhLVb-Q&t=1460)] JULGAMENTO 2: AGRAVO REGIMENTAL NO RESPE (TUIUTI/SP)**
+
+**1) Data da sessão:** 11/12/2025
+**2) Eleição a que se refere:** Eleições 2024.
+**3) Nome expresso dos indicados:** Não aplicável.
+**4) Número do processo:** REspe nº 0600136-55.
+**5) Cidade de origem:** Tuiuti.
+**6) UF:** SP.
+**7) Nome das partes:**
+* Agravante: Amarildo Antônio de Lima (Candidato a Prefeito).
+* Agravado: Ministério Público Eleitoral.
+**9) Advogados:** Dr. Felipe Santos Correia (pelo recorrente Amarildo).
+**10) Ministro relator:** Min. Nunes Marques.
+**11) Jurisprudência do STF mencionada:** Entendimento sobre necessidade de cumprimento integral da pena (incluindo multa) para início da contagem da inelegibilidade; citação divergente ao Min. Luís Roberto Barroso (sobre isonomia financeira no pagamento de multa).
+**12) Jurisprudência do TSE mencionada:** Súmula 61 do TSE; Precedentes sobre prequestionamento e inovação recursal.
+**13) Resolução do TSE mencionada:** Não citada especificamente.
+**14) Legislação mencionada:** Não houve citação de artigo de lei específico na discussão oral, focando-se em súmulas e teses.
+
+#### **RELATÓRIO DE JULGAMENTO**
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Trata-se de **Registro de Candidatura** e **Inelegibilidade**. Discute-se o termo inicial da contagem do prazo de inelegibilidade após condenação criminal quando há parcelamento da pena de multa. A defesa tentou argumentar que o parcelamento não deveria postergar o início da contagem do prazo de inelegibilidade.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Súmula 61 do TSE:** Citada pelo Min. Floriano para fixar o prazo final da inelegibilidade (até 28/06/2025 no caso concreto, o que inviabilizaria a candidatura em 2024).
+
+**3. PRECEDENTES CITADOS**
+
+* **STF (Tese Geral):** O cumprimento parcial (parcelamento) não exonera o réu, exigindo quitação integral para cessar a inelegibilidade (posição do Relator).
+* **STF (Divergência Teórica):** Min. Floriano cita entendimento do Min. Luís Roberto Barroso de que distinguir quem paga à vista e quem parcela gera desigualdade baseada na capacidade financeira.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Voto do Relator (Nunes Marques):**
+1. **Mérito:** O parcelamento da multa sancionatória exige cumprimento integral para iniciar a contagem do prazo de inelegibilidade.
+2. **Processual:** A tese sobre o marco inicial foi levantada tardiamente, sem prequestionamento na origem.
+
+
+* **Destaque/Voto (Floriano de Azevedo Marques):** Trouxe a discussão para o plenário ("overruling" ou "signaling" teórico). Argumentou que o parcelamento não deveria tornar a inelegibilidade mais onerosa. Contudo, reconheceu que a matéria não foi prequestionada na instância ordinária (TRE-SP) e surgiu apenas no TSE. Além disso, a extinção da pena só ocorreu em 2017, projetando a inelegibilidade para além das eleições de 2024.
+* **Conclusão:** Manutenção do indeferimento do registro.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Questão de Ordem:** Houve determinação de desentranhamento de agravo assinado por advogado sem procuração nos autos (unânime).
+* **Preliminar:** Ausência de prequestionamento da tese de defesa sobre o parcelamento da multa.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Sanção:** Indeferimento do registro de candidatura mantido.
+* **Efeito:** O candidato permanece inapto para o pleito de 2024.
+
+---
+
+### **[[36:14](http://www.youtube.com/watch?v=HlH2fhLVb-Q&t=2174)] JULGAMENTO 3: AGRAVO REGIMENTAL NO RESPE (ITABAIANA/PB)**
+
+**1) Data da sessão:** 11/12/2025
+**2) Eleição a que se refere:** Eleições 2024.
+**3) Nome expresso dos indicados:** Não aplicável.
+**4) Número do processo:** REspe nº 0600390-37.
+**5) Cidade de origem:** Itabaiana.
+**6) UF:** PB.
+**7) Nome das partes:**
+* Agravante: Coligação "A Voz do Povo Cada Vez Mais Forte".
+* Agravada: Ana Carolina Oliveira de Medeiros (Candidata a Vereadora).
+**9) Advogados:**
+* Dr. Rômulo Elloy Malta Ribeiro (pela Coligação agravante).
+* Dr. Rafael Sarmento Fernandes (pela candidata agravada).
+**10) Ministro relator:** Min. Nunes Marques.
+**11) Jurisprudência do STF mencionada:** Não citada especificamente no trecho.
+**12) Jurisprudência do TSE mencionada:** Súmula 20 (revaloração da prova); Súmula 24 (vedação ao reexame de fatos e provas).
+**13) Resolução do TSE mencionada:** Resolução CNJ nº 492/2023 (Protocolo para Julgamento com Perspectiva de Gênero).
+**14) Legislação mencionada:** Regimento Interno do TSE (Art. 36, §§ 6º e 7º).
+
+#### **RELATÓRIO DE JULGAMENTO**
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+O caso trata de **Registro de Candidatura** e comprovação de **Filiação Partidária**. O TRE-PB havia indeferido o registro por considerar que os documentos (fichas) eram unilaterais e sem fé pública. O Relator propõe reverter a decisão baseando-se em provas contextuais (fotos de evento de filiação) e no Julgamento com Perspectiva de Gênero.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Resolução CNJ nº 492/2023:** Obrigatoriedade de considerar desigualdades de gênero (violência política, acesso a recursos) na análise probatória.
+
+**3. PRECEDENTES CITADOS**
+
+* Referência genérica a precedentes que permitem o relator decidir monocraticamente (Art. 36 RITSE).
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Voto do Relator (Nunes Marques):**
+* Superou o óbice da Súmula 24 (reexame de provas) aplicando a **revaloração jurídica** dos fatos descritos no acórdão regional.
+* Fato chave: Postagem em rede social (03/04/2024) por terceiros, retratando a candidata em evento de filiação. Isso confere "caráter bilateral" e fé pública ao ato, suprindo a falha documental.
+* **Perspectiva de Gênero:** O juiz deve considerar as dificuldades específicas das mulheres na política (orientação de campanha, violência política) para flexibilizar rigorismos formais quando há prova material do vínculo.
+* Rejeitou alegação de ausência de prestação de contas por ser inovação recursal.
+
+
+* **Conclusão Proposta:** Deferimento do registro da candidata.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Pedido de Vista:** O Min. Antonio Carlos Ferreira pediu vista antecipada.
+* **Situação:** Julgamento suspenso. Relator votou pelo deferimento do registro.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* Aguardando conclusão do julgamento após o voto-vista.
+
+---
+
+### **[[42:27](http://www.youtube.com/watch?v=HlH2fhLVb-Q&t=2547)] JULGAMENTO 4: AGRAVO REGIMENTAL NO AGRAVO EM RESPE (SÃO DOMINGOS DO NORTE/ES)**
+
+**1) Data da sessão:** 11/12/2025
+**2) Eleição a que se refere:** Eleições 2022.
+**3) Nome expresso dos indicados:** Não aplicável.
+**4) Número do processo:** Agravo em REspe nº 0602298-16.
+**5) Cidade de origem:** São Domingos do Norte.
+**6) UF:** ES.
+**7) Nome das partes:**
+* Agravante: Ana Isabel Malacarne de Oliveira.
+* Agravado: Ministério Público Eleitoral.
+**9) Advogados:** Não citados nominalmente na discussão oral.
+**10) Ministro relator:** Min. Estela Aranha.
+**11) Jurisprudência do STF mencionada:** Não citada especificamente.
+**12) Jurisprudência do TSE mencionada:** Distinção entre "boca de urna física" e manifestação digital individual.
+**13) Resolução do TSE mencionada:** Não citada por número.
+**14) Legislação mencionada:** Lei nº 9.504/1997 (Art. 39, §5º, III e IV - crime de boca de urna; Art. 39-A - manifestação silenciosa; Art. 57-B - impulsionamento).
+
+#### **RELATÓRIO DE JULGAMENTO**
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Trata-se de **Crime Eleitoral** (Boca de Urna / Propaganda no dia da eleição). A ré (não candidata) publicou nos *stories* do Instagram, no dia da eleição de 2022, uma imagem com nome e número de candidatos (santinho digital). Discute-se se isso configura o crime do art. 39, §5º da Lei das Eleições ou se é conduta atípica/permitida.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Lei 9.504/1997, Art. 39, §5º:** Tipificação do crime de divulgação de propaganda no dia do pleito.
+* **Lei 9.504/1997, Art. 39-A:** Permissão para manifestação individual e silenciosa da preferência do eleitor.
+
+**3. PRECEDENTES CITADOS**
+
+* Distingue-se de casos de "derrame de santinhos" ou aglomeração física (boca de urna tradicional), que geram desordem e pressão sobre o eleitor.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Voto da Relatora (Estela Aranha):**
+* **Atipicidade:** A publicação foi única, em perfil pessoal, sem impulsionamento pago, atingindo apenas seguidores ("closed loop").
+* **Interpretação Restritiva:** O tipo penal deve ser interpretado estritamente. A conduta se assemelha mais à manifestação silenciosa (permitida pelo art. 39-A) do que à propaganda ativa e desordenada vedada pela norma.
+* **Potencial Lesivo:** Inexistente. Não houve desinformação nem quebra da isonomia. É uma manifestação comum na "vida digital" moderna.
+
+
+* **Conclusão Proposta:** Absolvição da ré (atipicidade da conduta).
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Histórico:** No plenário virtual, a Ministra Isabel Gallotti já havia votado acompanhando a relatora (o voto dela é preservado mesmo com sua substituição na sessão presencial).
+* **Pedido de Vista:** Min. Antonio Carlos Ferreira pediu vista.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* Julgamento suspenso. A tendência (relatora + voto preservado) é pela absolvição, criando precedente relevante sobre "santinhos em stories" no dia da eleição.
+
+---
+
+**Observação Final:** A sessão foi encerrada às [[52:00](http://www.youtube.com/watch?v=HlH2fhLVb-Q&t=3120)] após a proclamação de uma lista de processos (Lista nº 1, Rel. André Mendonça) julgada em bloco, cujo conteúdo foi ignorado conforme vedação expressa nas instruções.

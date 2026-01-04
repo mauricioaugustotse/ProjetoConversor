@@ -1,0 +1,254 @@
+RELATÓRIO TÉCNICO DE SESSÃO DO TRIBUNAL SUPERIOR ELEITORAL (TSE)
+
+**Sessão Plenária de 21 de Outubro de 2025**
+
+Abaixo, apresenta-se a análise técnica detalhada dos processos julgados na referida sessão, excluindo-se os julgamentos em bloco (listas) finais, conforme diretrizes estabelecidas.
+
+---
+
+### **1. PROCESSO ADMINISTRATIVO: ALTERAÇÃO ESTATUTÁRIA DO PARTIDO NOVO**
+
+**DADOS DO PROCESSO:**
+
+1. **Data da sessão:** 21/10/2025
+2. **Eleição a que se refere:** Não se aplica (Matéria Administrativa/Partidária).
+3. **Nome expresso dos indicados:** Não se aplica.
+4. **Número dos processos:** Registro de Partido Político (RPP) nº 843-68.
+5. **Cidade de origem:** Brasília.
+6. **UF:** Distrito Federal.
+7. **Nome das partes:** Partido Novo (Requerente).
+8. **Ministros presentes:** Cármen Lúcia (Presidente), Nunes Marques, André Mendonça, Isabel Gallotti, Antonio Carlos Ferreira, Floriano de Azevedo Marques (por vídeo), Estela Aranha.
+9. **Advogados:** Não mencionados nominalmente durante o julgamento específico.
+10. **Ministro relator:** Min. Isabel Gallotti.
+11. **Jurisprudência do STF mencionada:** ADI 5.875 (Duração de órgãos partidários provisórios).
+12. **Jurisprudência do TSE mencionada:** Precedentes sobre vedação de contribuição financeira obrigatória e sanções pecuniárias a filiados.
+13. **Resolução do TSE mencionada:** Res.-TSE nº 23.571/2018 (art. 48, V); Res.-TSE nº 23.604/2019 (art. 63, parágrafo único, I e II).
+14. **Legislação mencionada:** Lei nº 9.096/1995 (Lei dos Partidos Políticos), art. 10.
+
+**RELATÓRIO DO JULGAMENTO:**
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+[[44:35](http://www.youtube.com/watch?v=7zfuLKNCIyY&t=2675)] O julgamento trata de requerimento do Partido Novo para anotação de alterações em seu estatuto, aprovadas em convenção nacional de 05/03/2024. A controvérsia central reside na adequação de normas internas do partido à legislação eleitoral e à jurisprudência, especificamente quanto a: imposição de contribuições financeiras obrigatórias, sanções pecuniárias a filiados e detentores de mandato, poderes de veto a candidaturas, combate à violência política de gênero e duração de comissões provisórias.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Lei nº 9.096/1995 (Lei dos Partidos Políticos):** Citada para fundamentar a devolução de recursos em caso de extinção do partido e a necessidade de normas repressivas (não apenas preventivas) contra violência política.
+* **Res.-TSE nº 23.571/2018 (art. 48, V):** Exige previsão de normas sobre fidelidade, disciplina e rito de apuração de infrações com ampla defesa.
+* **Res.-TSE nº 23.604/2019 (art. 63, parágrafo único, I e II):** Regula a destinação de recursos e bens em caso de extinção da agremiação.
+
+**3. PRECEDENTES CITADOS**
+
+* **STF, ADI 5.875:** Citado pela Relatora para fundamentar a ilegalidade do art. 71 do estatuto, que permitia prazo de vigência de comissões provisórias baseado apenas na liberalidade do partido. O STF fixou tese de que órgãos provisórios devem ter duração máxima de 4 anos.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+[[46:54](http://www.youtube.com/watch?v=7zfuLKNCIyY&t=2814)] A Relatora, Min. Isabel Gallotti, adotou o método de controle de legalidade estrita das normas estatutárias.
+
+* **Contribuições e Sanções:** Considerou ilegais os dispositivos (arts. 8º, 15, 16, 62, 85, 90) que impunham dever de contribuição financeira e sanções pecuniárias aos filiados, bem como multas por desfiliação de detentores de mandato (art. 25), por contrariarem a jurisprudência da Corte.
+* **Processo Disciplinar:** Determinou alteração do art. 26 para que o rito de apuração de infrações conste no estatuto, e não em resolução da executiva, garantindo segurança jurídica.
+* **Veto a Candidaturas:** Considerou inválido o poder de veto das convenções superiores por "conveniência e oportunidade" (art. 93), pois a autonomia partidária não pode ferir a igualdade e a boa-fé.
+* **Violência Política de Gênero:** Apontou insuficiência nos arts. 104 e 105, exigindo inclusão de normas repressivas, não apenas preventivas, conforme a Lei 9.096.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+Houve sustentação implícita da Procuradoria-Geral Eleitoral (PGE), que opinou pelo deferimento com determinações. O julgamento foi unânime.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+Deferimento parcial. O TSE determinou que o Partido Novo, no prazo de **90 dias**:
+
+* **Exclua** os artigos 25 e 92, parágrafo único.
+* **Modifique** os artigos 8º (caput), 15 (II), 16 (VI), 26, 62, 71, 85 (caput e §2º), 89, 90 (II), 104 e 105.
+
+---
+
+### **2. PROCESSO ADMINISTRATIVO: LISTA TRÍPLICE (TRE-AL)**
+
+**DADOS DO PROCESSO:**
+
+1. **Data da sessão:** 21/10/2025
+2. **Eleição a que se refere:** Não se aplica (Composição de Tribunal).
+3. **Nome expresso dos indicados:**
+* *Lista 1:* Rodrigo Malta Prata Lima, Jamilson Santos de Faria, Elder Rodrigues Alcântara de Oliveira.
+* *Lista 2:* Milton Gonçalves Ferreira Neto, Luiz de Albuquerque Medeiros Neto, Igor Francisco Pereira dos Santos.
+
+
+4. **Número dos processos:** Lista Tríplice nº 0600613-88.
+5. **Cidade de origem:** Maceió.
+6. **UF:** Alagoas.
+7. **Nome das partes:** Tribunal Regional Eleitoral de Alagoas (Interessado).
+8. **Ministros presentes:** Composição completa (vide item 1).
+9. **Advogados:** Não houve sustentação oral registrada no trecho.
+10. **Ministro relator:** Min. Isabel Gallotti (Vistor: Min. Nunes Marques).
+11. **Jurisprudência do STF mencionada:** Não citada especificamente.
+12. **Jurisprudência do TSE mencionada:** Não citada especificamente.
+13. **Resolução do TSE mencionada:** Res.-TSE nº 23.746/2025.
+14. **Legislação mencionada:** Não citada especificamente.
+
+**RELATÓRIO DO JULGAMENTO:**
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+[[52:54](http://www.youtube.com/watch?v=7zfuLKNCIyY&t=3174)] O caso envolve duas listas tríplices para a classe de jurista (advogado) no TRE-AL, compostas exclusivamente por homens. A questão central é a aplicação da política afirmativa de paridade de gênero nos tribunais eleitorais, conforme novas resoluções do TSE.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Res.-TSE nº 23.746/2025:** Norma citada que impõe a paridade de gênero na formação de listas para os TREs.
+
+**3. PRECEDENTES CITADOS**
+Não houve citação formal de precedentes específicos, mas sim referência à nova política administrativa da Corte.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+[[54:55](http://www.youtube.com/watch?v=7zfuLKNCIyY&t=3295)] A Relatora havia votado anteriormente pela devolução das listas para que uma fosse exclusivamente de homens e outra exclusivamente de mulheres.
+
+* **Voto-Vista (Min. Nunes Marques):** Divergiu pontualmente para ampliar a política afirmativa. Propôs que, em vez de uma lista "privativa de homens", a segunda lista fosse "aberta" (mista ou livre concorrência), permitindo que mulheres também concorram nela, desde que garantida a primeira lista exclusiva para mulheres.
+* **Reajuste:** A Relatora, Min. Isabel Gallotti, e os demais ministros (Antonio Carlos, Floriano de Marques, Estela Aranha, André Mendonça) aderiram à proposta do Min. Nunes Marques, entendendo que ela "contempla melhor o espírito da política afirmativa".
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+Aprovação de recomendação proposta pelo Min. Nunes Marques [[01:01:50](http://www.youtube.com/watch?v=7zfuLKNCIyY&t=3710)] para que a Presidência do TSE oriente os TREs a darem ampla publicidade aos editais de vacância, permitindo que mais advogados(as) saibam da abertura das vagas.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+Devolução das listas ao TRE-AL. Determinação para formação de:
+
+1. Uma lista **exclusiva de mulheres**.
+2. Uma lista **livre** (homens e mulheres podem concorrer).
+
+---
+
+### **3. PROCESSO ADMINISTRATIVO: LISTA TRÍPLICE (TRE-TO)**
+
+**DADOS DO PROCESSO:**
+
+1. **Data da sessão:** 21/10/2025
+2. **Eleição a que se refere:** Não se aplica.
+3. **Nome expresso dos indicados:** Alexander Ogawa da Silva Ribeiro, Bruna Bonilha de Toledo Costa Azevedo, Marcelo Bruno Farinha das Neves.
+4. **Número dos processos:** Lista Tríplice nº 0600640-71.
+5. **Cidade de origem:** Palmas.
+6. **UF:** Tocantins.
+7. **Nome das partes:** TRE-TO (Interessado).
+8. **Ministros presentes:** Composição completa.
+9. **Advogados:** Não houve sustentação.
+10. **Ministro relator:** Min. Antonio Carlos Ferreira.
+11. **Jurisprudência do STF mencionada:** Não citada especificamente.
+12. **Jurisprudência do TSE mencionada:** LT nº 0600572 (2022); LT nº 0600337 (Rel. Min. Barroso, 2019).
+13. **Resolução do TSE mencionada:** Res.-TSE nº 23.517 (arts. 4º, §2º).
+14. **Legislação mencionada:** Constituição Federal (art. 20, III; art. 120, III); Código Eleitoral (art. 25, III); Lei nº 6.830 (Lei de Execução Fiscal, art. 40).
+
+**RELATÓRIO DO JULGAMENTO:**
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+[[01:03:00](http://www.youtube.com/watch?v=7zfuLKNCIyY&t=3780)] Análise dos requisitos subjetivos (idoneidade moral) do advogado indicado Marcelo Bruno Farinha das Neves. O candidato figura como sócio-administrador da empresa "M22 Educação do Futuro Ltda", alvo de Execução Fiscal (nº 34.158) com dívida ativa de R$ 124.913,00, sem quitação ou parcelamento.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Constituição Federal (art. 120, III):** Requisito de idoneidade moral.
+* **Código Eleitoral (art. 25, III):** Idoneidade moral para investidura.
+
+**3. PRECEDENTES CITADOS**
+
+* **TSE, LT nº 0600572 (01/09/2022):** O mesmo advogado já havia sido questionado por outra execução fiscal (MEP Cursos Ltda), mas naquela ocasião quitou a dívida após alerta da assessoria do TSE, o que permitiu sua manutenção.
+* **TSE, LT nº 0600337 (Rel. Min. Barroso, 10/10/2019):** Estabeleceu que o exame de idoneidade deve ser rigoroso ("grande rigor") para tutelar a integridade da Justiça Eleitoral.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+[[01:10:01](http://www.youtube.com/watch?v=7zfuLKNCIyY&t=4201)] O Relator distinguiu o caso atual do precedente anterior do mesmo candidato. Desta vez, não houve quitação ou parcelamento do débito de R$ 124 mil.
+
+* A "negligência do cumprimento de obrigações legais perante o Estado" e a existência de execução fiscal ativa contra empresa da qual é sócio-administrador configuram mácula à idoneidade moral, incompatível com o cargo de juiz eleitoral.
+* O fato de a Fazenda Pública não ter logrado citar o candidato desde 2021 agrava a percepção de padrão comportamental inadequado.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+Unanimidade no voto do Relator.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+Devolução da lista ao TRE-TO para a **substituição** do candidato Marcelo Bruno Farinha das Neves, mantendo-se os demais indicados.
+
+---
+
+### **4. AGRAVO REGIMENTAL (PROPAGANDA ELEITORAL - ES)**
+
+**DADOS DO PROCESSO:**
+
+1. **Data da sessão:** 21/10/2025
+2. **Eleição a que se refere:** Eleições Municipais de 2024.
+3. **Nome expresso dos indicados:** Não se aplica.
+4. **Número dos processos:** AgR no AREspE nº 0600485-18.
+5. **Cidade de origem:** Serra.
+6. **UF:** Espírito Santo.
+7. **Nome das partes:** Weverson Walker Meirelles e outra (Agravantes) vs. Coligação Muda Serra (Agravada).
+8. **Ministros presentes:** Composição completa (Cármen Lúcia ausente na sessão originária citada na ata, mas presente neste julgamento).
+9. **Advogados:** Não citados nominalmente.
+10. **Ministro relator:** Min. André Mendonça.
+11. **Jurisprudência do STF mencionada:** Não citada.
+12. **Jurisprudência do TSE mencionada:** Súmulas 24 e 30; AgR no AREspE 0600067-42 (Rel. Min. Antonio Carlos Ferreira); AgR no AI nº 241/97 (Rel. Min. Tarcísio Vieira).
+13. **Resolução do TSE mencionada:** Res.-TSE nº 23.610/2019 (art. 26, §2º).
+14. **Legislação mencionada:** Lei nº 9.504/1997 (art. 39, §8º).
+
+**RELATÓRIO DO JULGAMENTO:**
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+[[01:17:05](http://www.youtube.com/watch?v=7zfuLKNCIyY&t=4625)] Propaganda eleitoral irregular via plotagem (adesivagem) de veículo que gerou "efeito visual de outdoor", vedado pela legislação. O veículo estava posicionado em frente a local de votação no 2º turno.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Lei nº 9.504/1997 (art. 39, §8º):** Veda propaganda mediante outdoors, inclusive eletrônicos.
+
+**3. PRECEDENTES CITADOS**
+
+* **Súmula 24 do TSE:** Veda reexame de fatos e provas em Recurso Especial.
+* **Súmula 30 do TSE:** Nega seguimento a recurso quando o acórdão recorrido está em consonância com a jurisprudência do TSE.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+[[01:20:25](http://www.youtube.com/watch?v=7zfuLKNCIyY&t=4825)] O Relator manteve a decisão agravada.
+
+* Aplicou a Súmula 24, pois verificar se a plotagem causou ou não efeito de outdoor exigiria reexame fático.
+* Aplicou a Súmula 30 quanto à multa: O valor de R$ 10 mil (acima do mínimo) foi justificado pela gravidade (frente a local de votação) e reiteração da conduta.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+Julgamento unânime. Negado provimento.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+Manutenção da multa de R$ 10.000,00 aplicada individualmente aos agravantes.
+
+---
+
+### **5. RECURSO ESPECIAL (ANONIMATO NA INTERNET - SP)**
+
+**DADOS DO PROCESSO:**
+
+1. **Data da sessão:** 21/10/2025
+2. **Eleição a que se refere:** Eleições Municipais de 2024.
+3. **Nome expresso dos indicados:** Não se aplica.
+4. **Número dos processos:** REspE nº 0600075.
+5. **Cidade de origem:** São José dos Campos.
+6. **UF:** São Paulo.
+7. **Nome das partes:** Lara Guimarães (Recorrente) vs. Coligação São José no Rumo Certo (Recorrida).
+8. **Ministros presentes:** Composição completa.
+9. **Advogados:** Não citados.
+10. **Ministro relator:** Min. Floriano de Azevedo Marques.
+11. **Jurisprudência do STF mencionada:** Não citada especificamente (citação genérica ao art. 5º, IV da CF).
+12. **Jurisprudência do TSE mencionada:** Referência à jurisprudência prevalecente sobre rigor no anonimato.
+13. **Resolução do TSE mencionada:** Res.-TSE nº 23.610 (art. 38, §3º - sugestão de revisão).
+14. **Legislação mencionada:** Constituição Federal (art. 5º, IV); Lei nº 9.504/1997 (art. 57-D, §2º).
+
+**RELATÓRIO DO JULGAMENTO:**
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+[[01:23:36](http://www.youtube.com/watch?v=7zfuLKNCIyY&t=5016)] Propaganda eleitoral negativa na internet (Instagram) através de perfil denominado "Meu Prefeito Anderson", sem identificação clara do responsável. Discussão sobre o conceito de anonimato e pseudônimo nas redes sociais.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Constituição Federal (art. 5º, IV):** Livre manifestação do pensamento, vedado o anonimato.
+* **Lei nº 9.504/1997 (art. 57-D):** Veda propaganda eleitoral anônima na internet.
+
+**3. PRECEDENTES CITADOS**
+Não houve citação nominal de caso específico, mas construção doutrinária sobre o tema.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+[[01:26:06](http://www.youtube.com/watch?v=7zfuLKNCIyY&t=5166)] O Relator defendeu uma interpretação rigorosa da vedação ao anonimato.
+
+* **Tese:** A identificação do autor deve ser **imediata e direta** na postagem ou no perfil. O uso de pseudônimo ("Meu Prefeito Anderson") que não permite saber quem é o responsável configura anonimato vedado.
+* **Argumento:** Permitir que a autoria só seja revelada após quebra de sigilo judicial esvazia a norma e prejudica o direito de informação do eleitor.
+* **Sugestão de *Legislação*:** O Ministro sugeriu alteração futura na Resolução 23.610 para explicitar que a identificação deve estar clara na "bio" ou na postagem.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Pedido de Vista:** O Vice-Presidente, Min. Nunes Marques, pediu vista dos autos [[01:31:20](http://www.youtube.com/watch?v=7zfuLKNCIyY&t=5480)], suspendendo o julgamento.
+* **Placar Provisório:** Relator (Floriano) votou pelo desprovimento do recurso (manutenção da multa). Demais aguardam.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+Julgamento suspenso. Sem resultado proclamado. A multa de R$ 5.000,00 imposta pelo TRE-SP permanece *sub judice*.

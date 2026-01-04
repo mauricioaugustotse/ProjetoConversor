@@ -1,0 +1,127 @@
+Relatório técnico da Sessão Plenária Jurisdicional do Tribunal Superior Eleitoral (TSE), realizada em 04 de fevereiro de 2025, conforme análise do vídeo fornecido.
+
+**DADOS GERAIS DA SESSÃO**
+
+* **Data da Sessão:** 04/02/2025 [[10:30](http://www.youtube.com/watch?v=qwcrmHAGZC0&t=630)].
+* **Ministros Presentes:** Cármen Lúcia (Presidente), Kassio Nunes Marques (Vice-Presidente, por videoconferência), Dias Toffoli, Isabel Gallotti (Corregedora-Geral), Antônio Carlos Ferreira, Floriano de Azevedo Marques e André Ramos Tavares.
+* **Vice-Procurador-Geral Eleitoral:** Alexandre Espinosa Bravo Barbosa.
+
+---
+
+### **1. RECURSO ESPECIAL ELEITORAL Nº 0600137-96**
+
+**[[12:13](http://www.youtube.com/watch?v=qwcrmHAGZC0&t=733)]**
+
+**DADOS DO PROCESSO**
+
+* **Relator:** Min. Antônio Carlos Ferreira.
+* **Eleição:** 2024 [[12:43](http://www.youtube.com/watch?v=qwcrmHAGZC0&t=763)].
+* **Cidade de Origem:** Abelardo Luz.
+* **UF:** Santa Catarina (SC).
+* **Partes:**
+* **Recorrente:** Coligação Aliança por Abelardo Luz.
+* **Recorrido:** Dilmar Antônio Fontenelle (Candidato a vice-prefeito).
+
+
+* **Ministro com Voto Divergente/Vista:** Min. André Ramos Tavares.
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+O núcleo da controvérsia reside no **registro de candidatura** (LC 64/1990) e na causa de inelegibilidade decorrente de rejeição de contas públicas. Discute-se se a recomendação de rejeição de contas pelo Tribunal de Contas do Estado (referente ao exercício de 2016, quando o recorrido era prefeito) prevalece quando a Câmara Municipal não ratifica essa desaprovação ou quando não se atinge o quórum constitucional para derrubar o parecer prévio. O TRE-SC havia deferido o registro.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Constituição Federal:** Art. 31, § 2º (competência para julgamento de contas de chefe do Executivo e quórum qualificado).
+* **Normas Infralegais/Súmulas:**
+* **Súmula 41 do TSE:** Citada pelo Min. Ramos Tavares ("Não cabe à Justiça Eleitoral decidir sobre o acerto ou desacerto das decisões proferidas por outros órgãos do Judiciário ou dos tribunais de contas que configurem causa de inelegibilidade") [[15:28](http://www.youtube.com/watch?v=qwcrmHAGZC0&t=928)].
+
+
+
+**3. PRECEDENTES CITADOS**
+
+* **STF (Supremo Tribunal Federal):**
+* **Tema 157 (Recurso Ordinário nº 729.744, Rel. Min. Gilmar Mendes):** Define que o parecer técnico do Tribunal de Contas tem natureza meramente opinativa, competindo exclusivamente à Câmara de Vereadores o julgamento das contas do chefe do Executivo, sendo incabível o julgamento ficto por decurso de prazo [[18:52](http://www.youtube.com/watch?v=qwcrmHAGZC0&t=1132)].
+* **Tema 835 (Rel. p/ acórdão Min. Ricardo Lewandowski):** Reforça que o órgão competente para lavrar a decisão irrecorrível é a Câmara Municipal, não o Tribunal de Contas [[20:30](http://www.youtube.com/watch?v=qwcrmHAGZC0&t=1230)].
+* **Tema 1034 (RE 1.145.922, Rel. Min. Gilmar Mendes, julgado em set/2024):** Reitera que o parecer do TC é meramente opinativo e não produz inelegibilidade isoladamente [[21:50](http://www.youtube.com/watch?v=qwcrmHAGZC0&t=1310)].
+
+
+* **TSE:**
+* Voto do Min. Mauro Campbell (citado genericamente quanto aos requisitos cumulativos da inelegibilidade) [[17:02](http://www.youtube.com/watch?v=qwcrmHAGZC0&t=1022)].
+
+
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Divergência (Min. Ramos Tavares):**
+* **Premissa 1 (Súmula 41 TSE):** O Ministro argumenta que a Justiça Eleitoral não pode analisar o "acerto ou desacerto" da decisão da Câmara Municipal (que aprovou as contas ou não atingiu quórum para rejeitar), pois isso violaria a Súmula 41. A competência para anular eventual decisão da Câmara seria da Justiça Comum.
+* **Premissa 2 (Jurisprudência do STF):** Aplica os Temas 157 e 1034 do STF para sustentar que o parecer do Tribunal de Contas, isoladamente, não gera inelegibilidade. O silêncio da Câmara ou a falta de quórum para rejeitar o parecer não autorizam um "julgamento ficto" que faça prevalecer a rejeição técnica do TC.
+* **Conclusão:** Vota para negar provimento ao recurso especial, mantendo o deferimento do registro do candidato, pois a Câmara não rejeitou as contas com o quórum necessário.
+
+
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* O Relator (Min. Antônio Carlos Ferreira) havia votado anteriormente (em 21/11/2024) pelo parcial provimento.
+* Após o voto divergente do Min. Ramos Tavares, o Relator solicitou **adiamento** do julgamento para verificar dados do caso [[23:38](http://www.youtube.com/watch?v=qwcrmHAGZC0&t=1418)].
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* Julgamento suspenso (pedido de vista/adiamento pelo Relator). Não houve proclamação de resultado final.
+
+---
+
+### **2. MANDADO DE SEGURANÇA CÍVEL Nº 0613143-61**
+
+**[[24:27](http://www.youtube.com/watch?v=qwcrmHAGZC0&t=1467)]**
+
+**DADOS DO PROCESSO**
+
+* **Relator:** Min. Floriano de Azevedo Marques.
+* **Cidade de Origem:** Curitiba.
+* **UF:** Paraná (PR).
+* **Partes:**
+* **Impetrante:** Luiz Tadeu Seidel Bernardina.
+* **Impetrados:** Órgão Nacional do Partido da Mulher Brasileira (PMB) e Suêd Haidar Nogueira (Presidente).
+
+
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Trata-se de **destituição de órgão partidário** (Comissão Provisória Municipal). O impetrante alega ato ilegal da direção nacional que dissolveu a comissão de Curitiba de forma sumária, sem justificativa, contraditório ou comunicação prévia, violando o devido processo legal.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Constituição Federal:** Princípios do contraditório e da ampla defesa (Art. 5º, LV).
+* **Estatuto Partidário:** Menção ao Art. 43 do estatuto do PMB (invocado pelo partido para alegar poder de destituição a qualquer tempo) [[27:01](http://www.youtube.com/watch?v=qwcrmHAGZC0&t=1621)].
+
+**3. PRECEDENTES CITADOS**
+
+* **TSE:** Menção a acórdãos da relatoria do **Min. Luiz Fux** e do **Min. Sérgio Banhos**, firmando que a autonomia partidária não isenta a agremiação de observar garantias fundamentais [[27:31](http://www.youtube.com/watch?v=qwcrmHAGZC0&t=1651)].
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Relator (Min. Floriano de Azevedo Marques):**
+* Reconhece que, embora o estatuto do partido preveja destituição a qualquer tempo, a jurisprudência do TSE exige observância das garantias constitucionais (contraditório e ampla defesa), que possuem eficácia horizontal/transversal nas relações privadas (partido-filiado).
+* A Justiça Eleitoral não julga a conveniência política (mérito) da destituição, mas fiscaliza o cumprimento do devido processo legal.
+* Como não foi comprovada a existência de procedimento prévio, o ato de destituição é nulo.
+* Converteu o julgamento do referendo da liminar diretamente em julgamento de mérito [[30:05](http://www.youtube.com/watch?v=qwcrmHAGZC0&t=1805)].
+
+
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* Conversão de liminar em julgamento definitivo de mérito em nome da celeridade processual.
+* Decisão unânime.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Concessão definitiva da segurança.**
+* **Sanção/Efeito:** Anulação do ato coator, revertendo a destituição sumária da comissão provisória do PMB em Curitiba [[32:00](http://www.youtube.com/watch?v=qwcrmHAGZC0&t=1920)].
+
+---
+
+**OUTROS REGISTROS**
+
+* **[[24:12](http://www.youtube.com/watch?v=qwcrmHAGZC0&t=1452)]** O Agravo Regimental no REspe nº **0600321-37** (Caraúbas/PI) foi retirado de pauta a pedido do Relator, Min. Floriano de Azevedo Marques.
+
+Com base na revisão da análise anterior e no rigor técnico exigido, apresento a verificação de completude e a complementação dos dados relativos à Sessão Plenária Jurisdicional do TSE de 04/02/2025.
+
+---

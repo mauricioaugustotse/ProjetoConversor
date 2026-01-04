@@ -1,0 +1,219 @@
+**RELATÓRIO TÉCNICO DE SESSÃO PLENÁRIA DO TSE**
+
+**DADOS GERAIS DA SESSÃO**
+
+* **Data da Sessão:** 04 de junho de 2024.
+* **Presidente:** Ministra Cármen Lúcia.
+* **Composição da Corte:** Ministros Kassio Nunes Marques (Vice-Presidente), Dias Toffoli, Raul Araújo (Corregedor-Geral), Isabel Gallotti, Floriano de Azevedo Marques e André Ramos Tavares.
+* **Procurador-Geral Eleitoral:** Paulo Gustavo Gonet Branco.
+* **Secretário da Sessão:** João Paulo Oliveira Barros.
+
+---
+
+### **1. PROCESSO: Consulta nº 0600167-56**
+
+**Timestamp:** [[18:18](http://www.youtube.com/watch?v=f3C4ZvbRb8k&t=1098)]
+
+1. **Data da sessão:** 04/06/2024.
+2. **Eleição a que se refere:** Não se aplica (Consulta em tese).
+3. **Nome expresso dos indicados em lista tríplice:** Não se aplica.
+4. **Número dos processos:** Cta 0600167-56.
+5. **Cidade de origem:** Brasília/DF (Nacional).
+6. **UF:** DF.
+7. **Nome das partes:** Partido Democrático Trabalhista (PDT) - Consulente.
+8. **Ministros presentes:** Cármen Lúcia, Nunes Marques, Dias Toffoli, Raul Araújo, Isabel Gallotti, Floriano de Azevedo Marques, André Ramos Tavares.
+9. **Advogados:** Não mencionados nominalmente na discussão.
+10. **Ministro relator:** Min. Nunes Marques.
+11. **Jurisprudência do STF mencionada:** ADI nº 7021 (Constitucionalidade das Federações).
+12. **Jurisprudência do TSE mencionada:** Não houve citação específica de número de julgado anterior, apenas menção à jurisprudência sobre fusão/incorporação.
+13. **Resolução do TSE mencionada:** Não citada especificamente por número no trecho.
+14. **Legislação mencionada:** Lei nº 14.208/2021 (Institui Federações); Lei nº 9.096/1995 (Lei dos Partidos Políticos), art. 11-A e art. 22, parágrafo único (Justa Causa).
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Trata-se de Consulta formulada pelo PDT questionando se a reunião de partido político em Federação Partidária pode constituir hipótese de **justa causa para desfiliação** (sem perda de mandato) por mudança substancial ou desvio reiterado do programa partidário e qual seria o marco inicial para tal desfiliação (constituição em cartório, pedido de registro ou deferimento pelo TSE).
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Lei nº 14.208/2021:** Introduziu o instituto da federação, permitindo a união de partidos que atuam como uma só agremiação, mas preservam identidade e autonomia (citado no voto vista da Min. Isabel Gallotti).
+* **Lei nº 9.096/1995 (Lei dos Partidos Políticos):** Art. 11-A (prevê perda de mandato por desfiliação de partido federado sem justa causa) e Art. 22 (rol taxativo de justa causa).
+* **Constituição Federal:** Art. 17, §1º (Autonomia partidária e fidelidade).
+
+**3. PRECEDENTES CITADOS**
+
+* **ADI 7021 (STF):** Citada pela Min. Isabel Gallotti para reforçar que o STF validou a constitucionalidade das federações preservando a autonomia dos partidos federados.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Relator (Nunes Marques):** Votou (em sessão anterior) no sentido de que a mera celebração de federação **não implica**, por si só, mudança substancial do programa partidário, não gerando justa causa automática para desfiliação. Julgou a segunda indagação prejudicada.
+* **Divergência (Raul Araújo):** Argumentou que, na prática, a federação equipara-se à fusão/incorporação, pois o partido "desaparece" em sua autonomia política por 4 anos. Defendeu que há justa causa e fixou o deferimento do registro pelo TSE como marco inicial.
+* **Voto-Vista (Isabel Gallotti):** Acompanhou o relator. Destacou que a federação difere da fusão pois mantém a autonomia e identidade dos partidos. A justa causa (Art. 22, Lei 9.096) não é automática, devendo ser provada no caso concreto (ex: mudança drástica de ideologia ou discriminação pessoal).
+* **Outros Votos:** Min. Floriano e Min. André Ramos Tavares acompanharam o Relator (tese da não automaticidade). Min. Dias Toffoli acompanhou a divergência (tese da equiparação à fusão).
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+Julgamento concluído por maioria. A tese vencedora foi a do Relator: a criação da federação não gera justa causa automática.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+O TSE respondeu à consulta definindo que a entrada de partido em federação não autoriza automaticamente a desfiliação de parlamentares sem perda de mandato.
+
+---
+
+### **2. QUESTÃO ADMINISTRATIVA: Prazos no Rio Grande do Sul**
+
+**Timestamp:** [[44:31](http://www.youtube.com/watch?v=f3C4ZvbRb8k&t=2671)]
+
+**Resumo:** O Ministro Corregedor Raul Araújo trouxe questão de ordem urgente devido ao estado de calamidade pública no Rio Grande do Sul.
+**Decisão:** Aprovada por unanimidade a prorrogação do prazo para tratamento de dados do alistamento eleitoral (RAIS/Título Net) nas zonas eleitorais do RS até o dia **10 de junho de 2024**.
+
+---
+
+### **3. PROCESSO: Agravo em Recurso Especial Eleitoral nº 0600234-58**
+
+**Timestamp:** [[52:40](http://www.youtube.com/watch?v=f3C4ZvbRb8k&t=3160)]
+
+1. **Data da sessão:** 04/06/2024.
+2. **Eleição a que se refere:** Eleições Municipais de 2020.
+3. **Nome expresso dos indicados em lista tríplice:** Não se aplica.
+4. **Número dos processos:** AgR-REspe nº 0600234-58.
+5. **Cidade de origem:** Maringá.
+6. **UF:** Paraná (PR).
+7. **Nome das partes:**
+* **Agravante:** Janderson Flávio Mantovani (Vereador) e Partido Solidariedade.
+* **Agravados:** Adriano da Silva de Oliveira e Rede Sustentabilidade.
+
+
+8. **Ministros presentes:** Composição completa (vide cabeçalho).
+9. **Advogados:** Dr. Adriel Borges Simone (pelo agravado Adriano) e Dr. Roosevelt Arraes (pelo agravado Rede).
+10. **Ministro relator:** Min. Benedito Gonçalves (Substituído pela Min. Isabel Gallotti, mas o voto em análise era o dele). Redator para o acórdão: Min. Nunes Marques.
+11. **Jurisprudência do STF mencionada:** Não citada especificamente.
+12. **Jurisprudência do TSE mencionada:** Precedentes sobre justa causa em fusão/incorporação (para distinguir ou aplicar por analogia).
+13. **Resolução do TSE mencionada:** Lei 9.096/95 (Lei dos Partidos).
+14. **Legislação mencionada:** Lei nº 14.208 (Federações).
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Ação de Perda de Cargo Eletivo por Desfiliação Partidária sem Justa Causa. O vereador desfiliou-se da Rede Sustentabilidade alegando que a entrada do partido em Federação constitui justa causa. O TRE/PR decretou a perda do mandato. O Relator original (Benedito Gonçalves) havia concedido liminar para suspender a cassação. O julgamento atual refere-se ao referendo ou não dessa liminar.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Constituição Federal:** Art. 17 (Fidelidade partidária).
+* **Lei 9.096/1995:** Art. 11-A, §9º (Perda de mandato por desfiliação de partido federado sem justa causa).
+
+**3. PRECEDENTES CITADOS**
+Não houve citação numérica específica, apenas referência à jurisprudência consolidada sobre fusão e incorporação.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Divergência (Vencedora - Nunes Marques):** Votou para **não referendar a liminar**. Aplicou o entendimento firmado na Consulta anterior: a federação preserva a autonomia partidária, logo, não há justa causa automática para desfiliação. Como a lei (Art. 11-A, Lei 9.096) diz expressamente que aplicam-se as regras de fidelidade à federação, não há plausibilidade jurídica para suspender a decisão do TRE que cassou o mandato.
+* **Relator (Vencido - Benedito Gonçalves/Raul Araújo):** Min. Raul Araújo seguiu o relator original para manter a liminar (suspender a cassação), argumentando, por coerência com seu voto na Consulta, que a federação equipara-se à fusão, justificando a saída do parlamentar.
+* **Acompanhamentos:** Min. Floriano e Min. André Ramos Tavares acompanharam a divergência (Nunes Marques). Min. Dias Toffoli acompanhou o Relator (vencido).
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+Min. Isabel Gallotti não votou pois sucedeu o Relator original (Benedito) que já havia votado.
+Placar: Maioria formada pela divergência (Nunes Marques, Floriano, André) contra Relator/Raul/Toffoli.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+O Tribunal, por maioria, **não referendou a liminar**.
+**Consequência:** Restabelecimento imediato do acórdão do TRE/PR que decretou a perda do cargo de vereador de Janderson Flávio Mantovani, com determinação de cumprimento imediato independente de publicação.
+
+---
+
+### **4. PROCESSO: Prestação de Contas nº 0601674-07**
+
+**Timestamp:** [[01:04:16](http://www.youtube.com/watch?v=f3C4ZvbRb8k&t=3856)]
+
+1. **Data da sessão:** 04/06/2024.
+2. **Eleição a que se refere:** Eleições 2020.
+3. **Nome expresso dos indicados em lista tríplice:** Não se aplica.
+4. **Número dos processos:** PC nº 0601674-07.
+5. **Cidade de origem:** Brasília/DF (Nacional).
+6. **UF:** DF.
+7. **Nome das partes:** Partido da Mulher Brasileira (PMB) - Nacional; Suêd Haidar Nogueira (Responsável).
+8. **Ministros presentes:** Composição completa.
+9. **Advogados:** Não mencionados.
+10. **Ministro relator:** Min. Raul Araújo.
+11. **Jurisprudência do STF mencionada:** Não citada.
+12. **Jurisprudência do TSE mencionada:** Não citada.
+13. **Resolução do TSE mencionada:** Res.-TSE nº 23.607/2019 (Financiamento de campanha e contas bancárias); Res.-TSE nº 23.553/2017 (Art. 55 - encerramento de contas).
+14. **Legislação mencionada:** Emenda Constitucional nº 117/2022 (Anistia de cotas).
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Prestação de contas de campanha (2020) do Diretório Nacional do PMB.
+Irregularidades apontadas:
+a) Ausência de abertura de conta específica para o FEFC (Fundo Especial de Financiamento de Campanha).
+b) Descumprimento da cota de recursos para candidaturas de pessoas negras (aprox. R$ 227 mil).
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Res.-TSE nº 23.607/2019:** Exige conta específica.
+* **EC nº 117/2022:** Concede anistia a partidos que não cumpriram cotas de gênero/raça em eleições anteriores, vedando sanções de devolução de valores, mas permitindo determinação de aplicação em pleitos futuros.
+
+**3. RACIOCÍNIO DESENVOLVIDO**
+
+* **Relator (Raul Araújo):** Havia votado pela desaprovação.
+* **Voto-Vista (Nunes Marques):**
+* *Quanto à conta bancária:* A ASEPA (assessoria técnica) reconheceu erro material. A conta existia desde 2018 e não foi encerrada pelo banco (responsabilidade do banco, conforme Res. 23.553). O partido usou essa conta antiga. Logo, a falha deve ser afastada.
+* *Quanto à cota racial:* Reconhece a anistia da EC 117 (sem devolução ao Tesouro), mas concorda com a determinação de aplicar o valor faltante nas eleições seguintes.
+* *Conclusão:* Aprovação com ressalvas.
+
+
+* **Isabel Gallotti:** Divergiu parcialmente de Nunes Marques. Entende que a não abertura de conta *específica para o pleito* (ou uso da antiga) pode gerar desaprovação, mas acompanhou na questão da cota racial.
+* **Discussão:** Min. Floriano levantou dúvida se a conta foi aberta *para 2020* ou se usaram a de 2018. Nunes esclareceu que usaram a de 2018 que ficou aberta indevidamente pelo banco. Floriano considera que a jurisprudência exige conta específica nova ou regularizada.
+
+**4. PONTOS PROCESSUAIS RELEVANTES**
+Pedido de vista do Ministro Floriano de Azevedo Marques. Julgamento suspenso.
+
+**5. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+Julgamento não concluído.
+
+---
+
+### **5. PROCESSOS: Agravo em Tutela Cautelar Antecedente nº 0600705-37 e AgR nº 0600485-92**
+
+**Timestamp:** [[01:19:54](http://www.youtube.com/watch?v=f3C4ZvbRb8k&t=4794)]
+
+1. **Data da sessão:** 04/06/2024.
+2. **Eleição a que se refere:** Eleições Municipais 2020 (Proporcionais).
+3. **Nome expresso dos indicados em lista tríplice:** Não se aplica.
+4. **Número dos processos:** AgR na TutCautAnt 0600705-37 e AgR no AI 0600485-92 (Julgamento conjunto).
+5. **Cidade de origem:** Goiânia.
+6. **UF:** Goiás (GO).
+7. **Nome das partes:**
+* **Agravante:** Leonardo José Arantes (Vereador eleito pelo PTB).
+* **Agravado:** Partido dos Trabalhadores (PT) - Diretório Municipal.
+* **Terceira Interessada:** Lucimar Alves Elias.
+* **Envolvidas (Candidatas "laranjas"):** Ana Paula Almeida de Oliveira, Marina Gonçalves Correia, Lucimar Alves Elias.
+
+
+8. **Ministros presentes:** Composição completa.
+9. **Advogados:** Não houve sustentação oral neste bloco.
+10. **Ministro relator:** Min. Nunes Marques (Sucedeu Ricardo Lewandowski).
+11. **Jurisprudência do STF mencionada:** Questões gerais de devido processo legal.
+12. **Jurisprudência do TSE mencionada:** Súmula 24/TSE (Reexame de fatos e provas); Precedentes sobre litisconsórcio passivo necessário em fraude à cota de gênero (não necessidade do partido).
+13. **Resolução do TSE mencionada:** Não citada numericamente.
+14. **Legislação mencionada:** Lei nº 9.504/1997 (Art. 10, §3º - Cota de Gênero). CPC (Art. 1.021 - Agravo Interno; Prazos recursais para terceiros).
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Ação de Investigação Judicial Eleitoral (AIJE) por fraude à cota de gênero praticada pelo PTB de Goiânia em 2020.
+O Relator monocraticamente reconheceu a fraude (cassação da chapa) pois o partido lançou candidatas que tiveram registros indeferidos ou renunciaram e não as substituiu, chegando ao pleito com apenas 27,5% de mulheres.
+Leonardo Arantes (vereador cassado) recorre alegando coisa julgada em outro processo e nulidades.
+Lucimar (candidata usada na fraude) recorre como terceira prejudicada para afastar sua inelegibilidade, alegando que não foi citada.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Lei 9.504/97, Art. 10, §3º:** Exigência de mín. 30% de candidaturas de cada sexo.
+* **Regimento Interno TSE:** Prazo de agravo (3 dias).
+
+**3. RACIOCÍNIO DESENVOLVIDO**
+
+* **Relator (Nunes Marques):**
+* *Quanto a Lucimar (Terceira):* Não conheceu do recurso por ser intempestivo (prazo de 3 dias conta da publicação da decisão, mesmo para terceiro).
+* *Quanto a Leonardo:* Rejeitou as preliminares (não há coisa julgada pois não há tríplice identidade com outros processos citados; partido não é litisconsorte passivo necessário).
+* *Mérito:* A inércia do partido em substituir candidatas indeferidas/renunciantes, disputando a eleição com menos de 30% de mulheres, configura fraude à cota de gênero. Mantém a cassação da chapa (Drap) e perda dos mandatos.
+* *Questão de Ofício:* Embora não conheça do recurso de Lucimar, o Relator, de ofício, **afasta a sanção de inelegibilidade** de Ana Paula, Marina e Lucimar. Motivo: Elas foram consideradas fictícias ("laranjas"), mas não integraram o polo passivo da ação, não tendo chance de defesa. Citou precedente do Min. Floriano (REspe 0600965-83, Maranhão).
+
+
+
+**4. PONTOS PROCESSUAIS RELEVANTES**
+A Ministra Cármen Lúcia (Presidente) pediu **vista** dos autos especificamente quanto à parte dispositiva que afasta a inelegibilidade das candidatas de ofício, para melhor análise da situação dessas mulheres no processo.
+
+**5. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+Julgamento suspenso pelo pedido de vista da Presidente. O Relator votou para manter a cassação do vereador e da chapa do PTB, mas livrar as candidatas laranjas da inelegibilidade.
