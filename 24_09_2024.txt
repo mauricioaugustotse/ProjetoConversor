@@ -1,0 +1,191 @@
+Relatório Analítico da Sessão Plenária do Tribunal Superior Eleitoral – 24 de Setembro de 2024
+
+Notas Introdutórias da Presidência
+
+A sessão foi inaugurada com um pronunciamento da Exma. Sra. Ministra Presidente Cármen Lúcia, que estabeleceu diretrizes institucionais de alta relevância para o período eleitoral. Primeiramente, comunicou o encaminhamento de ofício à Polícia Federal, ao Ministério Público Federal e aos Tribunais Regionais Eleitorais, determinando celeridade e prioridade na investigação e julgamento de atos de violência política, os quais qualificou como um "ensurdecedor retrocesso civilizatório". Em seguida, foi anunciada a nova campanha institucional do TSE, intitulada "Pela democracia, com todas as diferenças", destacando-se que sua produção foi realizada pro bono pela agência N.ideias como um ato cívico. Adicionalmente, informou-se a celebração de um acordo de cooperação com o Tribunal Superior do Trabalho (TST) para dar prioridade ao processamento de casos de assédio eleitoral. Por fim, a Ministra Presidente anunciou a eleição da Exma. Sra. Ministra Isabel Gallotti para o cargo de Corregedora-Geral Eleitoral.
+
+1.0 Informações Gerais da Sessão
+
+Esta seção inaugural detalha os elementos constitutivos da sessão plenária, identificando a data de sua realização e a composição do colegiado julgador. Tais informações são fundamentais para conferir validade jurídica aos atos praticados e para a correta contextualização das deliberações que se seguiram, tanto na esfera administrativa quanto na jurisdicional.
+
+Item	Descrição
+Data da Sessão	24 de setembro de 2024
+Composição do Tribunal	Presidente: Ministra Cármen Lúcia<br>Ministros: Kassio Nunes Marques (por videoconferência), André Mendonça, Isabel Gallotti, Antonio Carlos Ferreira, Floriano de Azevedo Marques e André Ramos Tavares.
+Representante do Ministério Público	Dr. Alexandre Espinosa (Vice-Procurador-Geral Eleitoral)
+
+A seguir, procede-se à análise detalhada dos julgamentos realizados na sessão administrativa.
+
+
+--------------------------------------------------------------------------------
+
+
+2.0 Análise da Sessão Administrativa
+
+A sessão administrativa é o foro no qual o Tribunal Superior Eleitoral delibera sobre questões organizacionais e de gestão do processo eleitoral. Os temas abordados nesta sessão são de alta relevância, abrangendo desde a garantia da segurança do pleito, com a requisição de Força Federal, até a formação dos Tribunais Regionais Eleitorais, por meio da análise de listas tríplices para a nomeação de seus membros.
+
+2.1 Deliberações em Bloco
+
+O Tribunal apreciou em bloco, com deliberação unânime, os seguintes processos de natureza administrativa:
+
+1. Requisição de Força Federal (Eleições 2024): Foi aprovada a homologação de 53 processos que requisitam a atuação da Força Federal para garantir a segurança da votação e da apuração no primeiro turno das Eleições de 2024. A Ministra Presidente Cármen Lúcia esclareceu que este é um procedimento padrão, iniciado a partir da comunicação de governadores aos Tribunais Regionais Eleitorais sobre a necessidade de reforço, sendo os custos da operação arcados pela Justiça Eleitoral. A decisão do colegiado foi unânime.
+2. Afastamento de Magistrados: O plenário referendou, por unanimidade, duas decisões monocráticas da Presidência que autorizaram o afastamento de magistrados de suas funções regulares para dedicação exclusiva ao período eleitoral:
+  * Processo Administrativo 0613145-31: Originário de Salvador, referente ao afastamento de magistrado no período de 20 de julho a 11 de outubro de 2024, com prorrogação até 1º de novembro em caso de segundo turno.
+  * Processo Administrativo 0600102-32: Originário de Roraima, com o mesmo objeto de afastamento de magistrado de suas funções regulares durante o período eleitoral.
+
+2.2 Análise da Lista Tríplice nº 0600133-47/MT
+
+O Tribunal analisou a lista tríplice enviada para o preenchimento de uma vaga de Juiz Substituto, na classe dos juristas, no Tribunal Regional Eleitoral de Mato Grosso (TRE-MT). A deliberação visou verificar a conformidade dos indicados com os requisitos legais antes do encaminhamento da lista ao Poder Executivo.
+
+2.2.1 Identificação e Dados Gerais
+
+Critério	Informação
+Número do Processo	0600133-47
+Origem	Mato Grosso (MT)
+Objeto	Cargo de Juiz Substituto do TRE
+Eleição de Referência	N/A (Processo Administrativo)
+Ministro Relator	Ministro Kassio Nunes Marques
+Indicados na Lista	Dr. José Ricardo Costa Marques Corbelino<br>Dr. Bruno Oliveira Castro<br>Dr. Welder Queiroz dos Santos
+
+2.2.2 Análise Jurídica e Fundamentação
+
+O Ministro Relator, Nunes Marques, apresentou o parecer da assessoria consultiva do TSE, que confirmou o cumprimento de todos os requisitos legais pelos três advogados indicados. Após essa análise preliminar, foi publicado o edital para eventuais impugnações, tendo o prazo transcorrido in albis, ou seja, sem qualquer contestação aos nomes propostos. A fundamentação para o prosseguimento do ato baseou-se na competência do Tribunal para encaminhar a lista ao Chefe do Poder Executivo, conforme o art. 23, XI, do Código Eleitoral.
+
+2.2.3 Raciocínio e Deliberação
+
+O raciocínio do relator concentrou-se na verificação formal dos requisitos exigidos, confirmando a aptidão dos candidatos. Diante da ausência de impugnações e da comprovação da regularidade documental, o voto foi pelo acolhimento da lista. A Ministra Presidente proclamou o resultado unânime do Tribunal, que aprovou o encaminhamento da lista tríplice ao Presidente da República para a respectiva escolha e nomeação.
+
+2.3 Análise da Lista Tríplice nº 0612736-55/RS
+
+Na sequência, o plenário deliberou sobre a lista tríplice destinada ao provimento do cargo de juiz substituto do Tribunal Regional Eleitoral do Rio Grande do Sul (TRE-RS), vaga decorrente do término do primeiro biênio da Dra. Patrícia da Silveira Oliveira.
+
+2.3.1 Identificação e Dados Gerais
+
+Critério	Informação
+Número do Processo	0612736-55
+Origem	Rio Grande do Sul (RS)
+Objeto	Cargo de Juiz Substituto do TRE (vacância por término de biênio)
+Eleição de Referência	N/A (Processo Administrativo)
+Ministro Relator	Ministro Kassio Nunes Marques
+Indicados na Lista	Dra. Caroline Agostini Veiga<br>Dra. Fernanda Bortolas<br>Dr. Fabrício William da Silva
+
+2.3.2 Análise Jurídica e Fundamentação
+
+O Ministro Relator confirmou que a assessoria consultiva atestou o cumprimento dos requisitos legais por todos os indicados. Foi destacado que os três juristas comprovaram o exercício da atividade profissional por 10 anos, em conformidade com o art. 5º da Resolução nº 23.517/TSE.
+
+Uma questão processual específica foi analisada em relação à Dra. Carolina Agostini Veiga, que possuía uma certidão positiva referente a uma Ação de Impugnação de Crédito. O relator esclareceu que o referido feito não possui relevância para macular a idoneidade moral da candidata, pois se tratava de um crédito judicial constituído em seu favor que foi impugnado pela parte devedora, tendo a impugnação sido julgada improcedente. O Ministro invocou a jurisprudência da Corte, segundo a qual a mera existência de processos judiciais, por si só, não é suficiente para afastar o requisito da idoneidade moral.
+
+2.3.3 Raciocínio e Deliberação
+
+O raciocínio do relator concluiu que, uma vez observados todos os requisitos legais e sanada a questão processual levantada, não havia óbices ao acolhimento da lista. O voto foi pelo encaminhamento da proposta ao Poder Executivo, com fundamento no art. 23, XI, do Código Eleitoral. Ao final, a Ministra Presidente proclamou a decisão unânime do Tribunal, que deferiu o encaminhamento da lista para escolha e nomeação.
+
+Concluída a pauta administrativa, o Tribunal deu início à análise dos casos contenciosos da sessão jurisdicional.
+
+
+--------------------------------------------------------------------------------
+
+
+3.0 Análise da Sessão Jurisdicional
+
+A sessão jurisdicional é o momento em que o Tribunal exerce sua função precípua de julgar os litígios eleitorais, uniformizando a interpretação da legislação e formando precedentes que orientarão a atuação de toda a Justiça Eleitoral. Os casos analisados nesta sessão envolveram temas de alta complexidade, como a autonomia partidária e a preclusão de matérias em processos eleitorais.
+
+3.1 Voto-Vista no Mandado de Segurança Cível nº 0600201-94/AM
+
+O primeiro caso da pauta jurisdicional foi a conclusão do julgamento do referendo de uma medida liminar, com a apresentação do voto-vista da Ministra Presidente Cármen Lúcia. O cerne da controvérsia residia na definição dos limites da competência da Justiça Eleitoral para intervir em atos interna corporis, ou seja, atos internos dos partidos políticos, especialmente quando possuem reflexos diretos no processo eleitoral.
+
+3.1.1 Identificação e Partes
+
+Item	Descrição
+Número do Processo	0600201-94
+Classe Processual	Mandado de Segurança Cível
+Origem	Manaus (AM)
+Ministro Relator	Ministro Floriano de Azevedo Marques
+Ministra do Voto-Vista	Ministra Cármen Lúcia
+Impetrantes	Partido Solidariedade estadual e outro
+Impetrados	Eurípedes Gomes de Macedo Júnior e outros (Comissão Executiva Nacional)
+
+3.1.2 Análise do Conteúdo Jurídico
+
+O núcleo do litígio consistiu na inativação, pela executiva nacional do partido Solidariedade, das chaves de acesso do diretório estadual do Amazonas ao sistema de gestão partidária. Essa medida impediu o órgão estadual de realizar atos essenciais para sua participação no pleito eleitoral, motivando a impetração do mandado de segurança.
+
+3.1.3 Raciocínio Desenvolvido
+
+O julgamento evoluiu da seguinte forma:
+
+1. Decisão Original do Relator: Inicialmente, o Ministro Floriano de Azevedo Marques havia indeferido o pedido. Contudo, após um pedido de reconsideração que demonstrou a imprescindibilidade do acesso para o processo eleitoral, o relator concedeu a medida liminar.
+2. Justificativa do Relator: A justificativa central foi que, após a intimação do partido para prestar informações, o prazo transcorreu in albis (sem manifestação). Essa omissão gerou a presunção de que a inativação das chaves de acesso constituiu uma intervenção indireta, realizada sem o devido processo legal e em violação ao direito de defesa do diretório estadual.
+3. Análise do Voto-Vista: A Ministra Cármen Lúcia pediu vista por preocupação com a competência da Justiça Eleitoral para intervir em atos interna corporis, um tema sensível que toca na autonomia partidária.
+4. Conclusão do Voto-Vista: Apesar das reservas iniciais, a Ministra acompanhou o relator. Seu argumento central foi que, embora a liminar já tivesse produzido seus efeitos práticos (caráter exauriente), o mérito do mandado de segurança deveria ser julgado. O objetivo é permitir que o TSE firme uma orientação clara sobre os limites de sua própria intervenção em disputas intrapartidárias, estabelecendo critérios para casos futuros.
+5. Manifestações dos Demais Ministros: Os Ministros André Mendonça e Nunes Marques manifestaram concordância, ressaltando que a intervenção judicial se justifica em casos excepcionais, especialmente quando o ato partidário impacta o processo eleitoral e ocorre sem o respeito ao contraditório e à ampla defesa. O Ministro André Mendonça reforçou seu posicionamento citando um caso análogo que relatou (Mandado de Segurança nº 0613062-15/2024), no qual o mesmo partido Solidariedade inativou uma comissão municipal sem o devido processo legal, indicando um padrão de conduta da agremiação.
+
+3.1.4 Conclusão e Efeitos
+
+O colegiado, por unanimidade, decidiu referendar a medida liminar nos termos do voto do relator, com as achegas do voto-vista da Ministra Presidente. Foi determinado o prosseguimento do mandado de segurança para uma análise aprofundada do mérito, visando a fixação de tese sobre o tema.
+
+O julgamento prosseguiu com a análise de um recurso remanescente das Eleições 2020.
+
+3.2 Continuidade de Julgamento do Recurso Especial Eleitoral nº 0600762/BA
+
+O Tribunal concluiu o julgamento de um Recurso Contra Expedição de Diploma (RCED) referente às Eleições de 2020, com a apresentação do voto-vista da Ministra Cármen Lúcia. O caso tratava da possibilidade de reexame de uma causa de inelegibilidade já decidida.
+
+3.2.1 Identificação e Partes
+
+Item	Descrição
+Número do Processo	0600762
+Classe Processual	Recurso Especial Eleitoral
+Origem	Nova Ibiá (BA)
+Eleição de Referência	Eleições 2020
+Ministro Relator	Ministro Floriano de Azevedo Marques
+Ministra do Voto-Vista	Ministra Cármen Lúcia
+Recorrentes	Coligação Nova Ibiá Somos Todos Nós e outro
+Recorridos	José Murilo Nunes de Souza e Izenóbia Conceição Castro (Prefeito e Vice-Prefeita eleitos)
+
+3.2.2 Análise do Conteúdo Jurídico
+
+A controvérsia central era a tentativa de rediscutir, em sede de RCED, uma causa de inelegibilidade de natureza infraconstitucional (rejeição de contas públicas) que já havia sido amplamente debatida e decidida no processo de registro de candidatura dos eleitos. A questão jurídica fundamental era a ocorrência ou não de preclusão.
+
+3.2.3 Raciocínio Desenvolvido
+
+A decisão foi construída sobre os seguintes argumentos:
+
+1. Voto do Relator: O Ministro Floriano de Azevedo Marques fundamentou que, embora o art. 262, § 1º, do Código Eleitoral fosse inaplicável ao caso, a jurisprudência do TSE consolidada para as Eleições 2020 era firme no sentido de que uma inelegibilidade infraconstitucional, uma vez decidida no registro de candidatura, não poderia ser reexaminada em RCED, operando-se a preclusão consumativa.
+2. Voto-Vista: A Ministra Cármen Lúcia acompanhou integralmente o relator, confirmando que o acórdão do tribunal regional estava em perfeita harmonia com a jurisprudência consolidada do TSE aplicável àquele pleito específico.
+3. Votos dos Demais Ministros: Os demais membros do Tribunal aderiram de forma unânime à tese da preclusão, acompanhando o voto do relator.
+
+3.2.4 Conclusão e Efeitos
+
+Por unanimidade, o Tribunal negou provimento ao recurso especial, mantendo a validade dos diplomas do prefeito e da vice-prefeita eleitos em Nova Ibiá/BA nas Eleições 2020.
+
+A sessão avançou para o último item da pauta de julgamentos.
+
+3.3 Análise do Agravo em Recurso Especial Eleitoral nº 0600625-71/PB
+
+O último caso analisado foi uma Ação de Investigação Judicial Eleitoral (AIJE) por abuso de poder político e conduta vedada nas Eleições de 2020. A deliberação foi suspensa após a apresentação de um voto-vista, seguida por um novo pedido de vista.
+
+3.3.1 Identificação e Partes
+
+Item	Descrição
+Número do Processo	0600625-71
+Classe Processual	Agravo em Recurso Especial Eleitoral
+Origem	Monteiro (PB)
+Eleição de Referência	Eleições 2020
+Ministro Relator	Ministro André Ramos Tavares
+Ministro do Voto-Vista	Ministro André Mendonça
+Ministro que Pediu Vista	Ministro Kassio Nunes Marques
+Partes	Ana Lorena de Farias Leite Nóbrega e outro (Investigados/Recorrentes) vs. Coligação Monteiro Unida por Dias Melhores (Autora da Ação/Recorrente)
+
+3.3.2 Análise do Conteúdo Jurídico e Fático
+
+A acusação central envolvia a distribuição de 500 cestas básicas pela prefeitura a famílias em situação de vulnerabilidade social durante o período eleitoral. A discussão jurídica se concentrou em determinar se tal ato, confessado pelos investigados, configuraria abuso de poder político com viés econômico, dada a sua gravidade e potencial impacto no eleitorado. O contexto social do município, onde 47,5% da população possui renda de até meio salário mínimo, foi um fator crucial na análise da gravidade da conduta.
+
+3.3.3 Raciocínio Desenvolvido (Placar Provisório)
+
+A votação, até o momento da suspensão, apresentou as seguintes posições:
+
+1. Voto do Relator (Min. Ramos Tavares): Votou por dar provimento ao recurso da coligação autora para reconhecer o abuso de poder, propondo a cassação dos mandatos, a declaração de inelegibilidade dos investigados e a determinação de novas eleições indiretas.
+2. Voto Divergente (Min. Raul Araújo - em sessão anterior): Inaugurou a divergência, votando por negar provimento aos recursos e manter o acórdão regional, que havia aplicado apenas uma multa de R$ 10.000,00.
+3. Voto-Vista (Min. André Mendonça): Acompanhou o relator, fundamentando seu voto na confissão da distribuição das cestas, na ausência de previsão legal específica para tal programa e no alto impacto da conduta, considerando o contexto de vulnerabilidade social do município.
+4. Pedido de Vista (Min. Nunes Marques): Após o voto do Ministro André Mendonça, o Ministro Nunes Marques pediu vista dos autos, o que levou à suspensão do julgamento.
+
+3.3.4 Conclusão e Efeitos (Provisórios)
+
+O julgamento encontra-se suspenso, aguardando o voto-vista do Ministro Kassio Nunes Marques. O placar provisório está em 2 a 1 pelo provimento do recurso para cassar os mandatos. Não há, portanto, uma decisão final sobre o caso.

@@ -1,0 +1,232 @@
+Relatório Técnico da Sessão Plenária do Tribunal Superior Eleitoral – 03 de Setembro de 2024
+
+1.0 Dados Gerais da Sessão
+
+Este documento constitui um relatório técnico detalhado dos julgamentos realizados na sessão plenária do Tribunal Superior Eleitoral (TSE) em 3 de setembro de 2024. O objetivo é fornecer uma análise jurídica e processual precisa dos casos apreciados pela Corte, com base exclusiva no conteúdo da transcrição oficial da sessão, visando a clareza e a fidelidade aos fatos e deliberações.
+
+Item	Descrição
+Data da Sessão	03 de setembro de 2024
+Ministra Presidente	Ministra Cármen Lúcia
+Ministros Presentes	Ministro Nunes Marques (Vice-Presidente, por videoconferência), Ministro André Mendonça (Corregedor-Geral Eleitoral), Ministro Raul Araújo (Corregedor-Geral Eleitoral), Ministra Isabel Galote, Ministro Floriano de Azevedo Marques, Ministro André Ramos Tavares.
+Representante do Ministério Público Eleitoral	Dr. Alexandre Espinoza, Vice-Procurador-Geral Eleitoral.
+Outras Autoridades Mencionadas	Dra. Roberta Gresta (Diretora-Geral do TSE), Dr. João Paulo (Secretário da Sessão).
+
+A análise subsequente detalha, individualmente, os processos julgados, abordando seus fundamentos jurídicos, o raciocínio decisório e os efeitos práticos de cada deliberação.
+
+
+--------------------------------------------------------------------------------
+
+
+2.0 Análise do Processo Administrativo nº 0613263-07
+
+Os processos de natureza administrativa no âmbito do Tribunal Superior Eleitoral frequentemente tratam da organização e da gestão da Justiça Eleitoral, sendo essenciais para a correta condução dos pleitos. O caso em análise exemplifica essa função, ao deliberar sobre o afastamento de um magistrado para dedicação exclusiva ao período eleitoral, medida que visa garantir a isonomia, a celeridade e a eficiência do processo democrático.
+
+2.1 Identificação do Processo
+
+* INÍCIO DO JULGAMENTO
+* Número do Processo: Processo Administrativo nº 0613263-07
+* Origem: Maceió, Alagoas
+* Interessado: Tribunal Regional Eleitoral de Alagoas
+* Ministra Relatora: Ministra Cármen Lúcia
+* Partes Adicionais Mencionadas: Nenhuma parte adicional foi mencionada.
+
+2.2 Análise do Conteúdo Jurídico
+
+O núcleo da questão jurídica consistiu em um pedido de homologação, por parte do TSE, de um acórdão proferido pelo Tribunal Regional Eleitoral de Alagoas. A decisão regional aprovou o afastamento do Desembargador Eleitoral Sóstenes Alex Costa de Andrade de suas funções regulares na magistratura para dedicação exclusiva à Justiça Eleitoral, no período de 16 de agosto a 1º de novembro de 2024, estendendo-se a dedicação em caso de ocorrência de segundo turno.
+
+2.3 Fundamentação Normativa
+
+A decisão foi fundamentada na seguinte norma infralegal, que estabelece os critérios e procedimentos para o afastamento de magistrados em período eleitoral:
+
+* Resolução do TSE: Resolução nº 23.486
+
+2.4 Raciocínio Desenvolvido
+
+A Ministra Relatora, Cármen Lúcia, fundamentou seu voto favorável à homologação no cumprimento integral dos requisitos normativos. Foi destacado que a Diretoria-Geral do TSE emitiu parecer confirmando que todos os dispositivos aplicáveis da Resolução nº 23.486 foram devidamente observados pelo TRE de Alagoas, conferindo legalidade e regularidade ao pedido.
+
+2.5 Efeitos e Providências Práticas
+
+Por deliberação unânime, o Plenário do Tribunal Superior Eleitoral homologou o pedido de afastamento do Desembargador Eleitoral Sóstenes Alex Costa de Andrade. Como efeito prático, o magistrado foi autorizado a se dedicar exclusivamente às suas funções na Justiça Eleitoral no período estipulado, garantindo o reforço institucional necessário para a condução das eleições em seu estado.
+
+Este julgamento administrativo cedeu lugar à análise de um complexo caso de prestação de contas partidárias.
+
+
+--------------------------------------------------------------------------------
+
+
+3.0 Análise da Prestação de Contas nº 181-36
+
+A análise de prestações de contas partidárias pelo TSE representa um pilar fundamental para a transparência e a lisura do sistema político brasileiro. Esse escrutínio rigoroso assegura a correta aplicação dos recursos públicos provenientes do Fundo Partidário, coibindo irregularidades financeiras e garantindo que os partidos políticos operem em conformidade com a lei. O caso a seguir demonstra a complexidade dessa análise, envolvendo a aplicação de novas normas constitucionais e o reajuste de sanções.
+
+3.1 Identificação do Processo
+
+* INÍCIO DO JULGAMENTO
+* Número do Processo: Prestação de Contas nº 181-36
+* Origem: Brasília, Distrito Federal
+* Requerente: Partido Socialismo e Liberdade (PSOL) - Diretório Nacional
+* Ministro Relator: Ministro Floriano de Azevedo Marques
+* Eleição a que se refere: Exercício financeiro de 2015
+
+3.2 Análise do Conteúdo Jurídico
+
+O objeto central do julgamento foi a reanálise da prestação de contas do Diretório Nacional do PSOL, referente ao exercício de 2015. O processo retornou do Supremo Tribunal Federal (STF) com a determinação de que o TSE aplicasse a anistia prevista na Emenda Constitucional nº 117/2022. Especificamente, a Corte deveria afastar a sanção relativa aos valores que não foram destinados à promoção da participação feminina na política, convertendo-a em obrigação de gasto futuro, e, consequentemente, readequar as sanções remanescentes de forma proporcional.
+
+3.3 Fundamentação Normativa
+
+O voto do relator invocou um conjunto de normas constitucionais e legais para fundamentar a nova decisão:
+
+* Constituição Federal: Emenda Constitucional nº 117 de 2022 (Artigos 2º e 3º), que concedeu anistia às sanções aplicadas a partidos por descumprimento da cota de gênero em eleições passadas.
+* Legislação Federal: Lei nº 9.096/1995 (Artigo 44, inciso V), que trata da aplicação de recursos para a criação e manutenção de programas de promoção e difusão da participação política das mulheres.
+* Legislação Federal: Código Eleitoral (Artigo 275, parágrafo 6º), base para a multa aplicada em decisão anterior que reconheceu o caráter protelatório dos segundos embargos de declaração opostos pelo partido.
+
+3.4 Precedentes Citados
+
+A rejulgação do caso foi diretamente influenciada por uma decisão do Supremo Tribunal Federal, cujos detalhes são:
+
+* Tribunal: Supremo Tribunal Federal (STF)
+* Processo: Recurso Extraordinário (Número não especificado na transcrição)
+* Relator: Ministro Nunes Marques
+* Razões de Decidir: A decisão do STF deu provimento parcial ao recurso para determinar a aplicação da anistia da EC nº 117/2022, mantendo, contudo, "incólumes os demais capítulos do acórdão" do TSE, ou seja, as outras irregularidades apontadas.
+
+3.5 Raciocínio Desenvolvido
+
+O Ministro Relator reconstruiu a decisão a partir da determinação do STF, seguindo uma lógica argumentativa clara e dividida em três etapas:
+
+1. Aplicação da Anistia: Foi reconhecido que a Emenda Constitucional nº 117/2022 afastava a irregularidade e a sanção correspondente ao valor de R$ 628.128,33, que não havia sido aplicado na promoção da participação feminina. Essa penalidade foi convertida na obrigação de aplicar o montante corrigido nas eleições futuras.
+2. Manutenção da Desaprovação: O relator elucidou que, mesmo com a anistia, as contas deveriam permanecer desaprovadas. As irregularidades remanescentes somavam um montante significativo, correspondendo a 36,52% das receitas do Fundo Partidário recebidas pelo partido no ano. Esse percentual elevado justificava a manutenção do juízo de reprovação.
+3. Reajuste das Sanções: O ponto central da deliberação foi o recálculo proporcional da sanção. O Ministro Relator explicou que a suspensão de apenas um mês das cotas do Fundo Partidário seria uma sanção muito branda frente à gravidade das irregularidades, enquanto a suspensão por dois meses seria excessiva, alcançando um valor de R$ 7 milhões. Para atingir a exata proporcionalidade, o relator concebeu uma sanção híbrida: a suspensão por 1 mês, complementada por um desconto pecuniário correspondente à diferença entre o valor total das irregularidades e o valor da cota mensal suspensa.
+
+3.6 Pontos Processuais Relevantes
+
+O ponto processual chave do caso foi o retorno dos autos do STF. Este fato obrigou o TSE a rejulgar a causa, não por uma reinterpretação da lei vigente à época, mas pela necessidade de aplicar uma nova norma constitucional (EC nº 117/2022) com efeitos retroativos, o que alterou substancialmente o cálculo das penalidades.
+
+3.7 Efeitos e Providências Práticas
+
+A decisão unânime do Tribunal resultou nas seguintes determinações:
+
+1. Resultado: Manutenção da desaprovação das contas do exercício de 2015.
+2. Sanções Aplicadas:
+  * a) Em razão da reprovação das contas:
+    * 1. Suspensão do recebimento de novas cotas do Fundo Partidário pelo prazo de 1 mês, a ser cumprida em duas parcelas; e
+    * 2. Desconto de R$ 1.551.949,00, a ser cumprido em duas parcelas.
+  * b) Devolução ao erário dos valores de R 5.259,24** e **R 37.422,24, referentes a recursos de origem não identificada.
+  * c) Obrigação de aplicar R$ 628.128,33 na finalidade de promoção da participação feminina (Art. 44, V, da Lei 9.096/95), nas eleições subsequentes, em cumprimento à EC 117/2022.
+
+Superada a complexa análise contábil, o Plenário voltou-se para um julgamento de direito penal eleitoral.
+
+
+--------------------------------------------------------------------------------
+
+
+4.0 Análise do Agravo em Recurso Especial Eleitoral nº 28-... (Serra/ES)
+
+O respeito às garantias constitucionais no processo penal, inclusive no âmbito eleitoral, é um pilar do Estado de Direito. O caso a seguir ilustra de forma contundente como uma falha processual fundamental — a ausência de defesa técnica qualificada em um ato processual crucial — pode anular todo o processo e, pelo decurso do tempo, levar à extinção da punibilidade do agente. Esta decisão reforça a necessidade de um rigor formal na condução de processos criminais para garantir a validade dos atos e a efetivação da justiça.
+
+4.1 Identificação do Processo
+
+* INÍCIO DO JULGAMENTO
+* Número do Processo: Agravo em Recurso Especial Eleitoral nº 28-...
+* Origem: Serra, Espírito Santo (ES)
+* Agravante: Magno Gois Moreira
+* Agravado: Ministério Público Eleitoral
+* Ministro Relator: Ministro Floriano de Azevedo Marques
+
+4.2 Análise do Conteúdo Jurídico
+
+O cerne da controvérsia jurídica foi a alegação de nulidade absoluta de uma condenação criminal pela prática do crime de "boca de urna" (Art. 39, § 5º, II, da Lei nº 9.504/97). A nulidade decorreria do fato de o réu não ter sido assistido por um advogado durante a audiência preliminar na qual lhe foi oferecida a transação penal — instituto despenalizador pré-processual que visa evitar a instauração da ação penal mediante o cumprimento de certas condições.
+
+4.3 Fundamentação Normativa
+
+O voto do relator se baseou em um robusto arcabouço normativo para reconhecer a nulidade e a consequente prescrição:
+
+* Constituição Federal: Artigo 5º, incisos LIV (devido processo legal), LV (contraditório e ampla defesa) e CXXXIII (indispensabilidade do advogado).
+* Código de Processo Penal: Artigo 261, que trata da necessidade de defensor no processo penal.
+* Legislação Federal: Lei nº 9.099/1995 (Artigos 68, 72 e 76, § 3º), que regem o procedimento dos juizados especiais e exigem a presença de advogado em audiência.
+* Legislação Federal: Lei nº 9.504/1997 (Artigo 39, § 5º, II), que tipifica o crime de "boca de urna".
+* Código Penal: Artigo 109, inciso V, que define o prazo prescricional para crimes com pena máxima de 1 ano.
+
+4.4 Precedentes Citados
+
+A decisão foi fortemente amparada pela jurisprudência consolidada do Supremo Tribunal Federal:
+
+* Precedente 1:
+  * Tribunal: Supremo Tribunal Federal (STF)
+  * Súmula: Súmula 523 ("no processo penal, a falta de defesa constitui nulidade absoluta...").
+* Precedente 2:
+  * Tribunal: Supremo Tribunal Federal (STF)
+  * Processo: HC 89.797
+  * Relator: Ministro Eros Grau
+  * Razões de Decidir: Estabelece a exigência de acompanhamento por advogado em audiência preliminar de transação penal, cuja inobservância gera nulidade absoluta.
+
+4.5 Raciocínio Desenvolvido
+
+A argumentação do Ministro Relator seguiu duas etapas lógicas e sucessivas para chegar à extinção da punibilidade:
+
+1. Reconhecimento da Nulidade Absoluta: Primeiramente, o relator afastou a tese do TRE-ES de que não houve prejuízo. Afirmou que a ausência de defesa técnica em uma audiência de transação penal causa um prejuízo evidente (in re ipsa), pois impede que o réu compreenda plenamente os termos e as consequências do acordo. Essa falha viola garantias constitucionais e legais, configurando nulidade absoluta de todos os atos subsequentes, incluindo o recebimento da denúncia e a sentença condenatória.
+2. Análise da Prescrição: Uma vez declarada a nulidade dos atos processuais que poderiam interromper a prescrição, o relator analisou o lapso temporal. Calculou o período entre a data do fato (07/10/2018) e a data do julgamento, concluindo que, sem marcos interruptivos válidos, o prazo prescricional de 4 anos (previsto no Art. 109, V, do Código Penal) já havia transcorrido, levando à prescrição da pretensão punitiva do Estado.
+
+4.6 Pontos Processuais Relevantes
+
+A decisão se desdobrou em dois movimentos processuais importantes: inicialmente, foi dado provimento ao agravo, superando a barreira de admissibilidade imposta na origem, para permitir a análise do mérito do recurso especial. Em seguida, foi dado provimento ao próprio recurso especial para reformar o acórdão regional e aplicar diretamente a consequência jurídica cabível: a extinção da punibilidade.
+
+4.7 Efeitos e Providências Práticas
+
+Por unanimidade, o Tribunal deu provimento ao recurso para reconhecer a prescrição da pretensão punitiva e, consequentemente, declarar extinta a punibilidade de Magno Gois Moreira pelo crime eleitoral imputado.
+
+O debate deslocou-se do direito penal para o direito administrativo sancionador, com a análise de um caso sobre propaganda partidária.
+
+
+--------------------------------------------------------------------------------
+
+
+5.0 Análise do Agravo Regimental no AREspE nº 0600647-12.2022.6.08.0000
+
+A legislação que rege a propaganda partidária gratuita em rádio e televisão busca não apenas regular o acesso dos partidos à mídia, mas também promover políticas afirmativas essenciais para a democracia, como o incentivo à participação feminina na política. O descumprimento dessas regras acarreta sanções que visam garantir a efetividade da norma, como demonstra o caso a seguir, no qual o TSE reafirmou sua jurisprudência sobre o tema.
+
+5.1 Identificação do Processo
+
+* INÍCIO DO JULGAMENTO
+* Número do Processo: Agravo Regimental no Agravo em Recurso Especial Eleitoral nº 0600647-12.2022.6.08.0000
+* Origem: Vitória, Espírito Santo (ES)
+* Agravante: Movimento Democrático Brasileiro (MDB) - Diretório Estadual
+* Agravado: Ministério Público Eleitoral
+* Ministro Relator: Ministro André Ramos Tavares
+
+5.2 Análise do Conteúdo Jurídico
+
+O núcleo da questão jurídica residia na insurgência do diretório estadual do MDB contra uma decisão que manteve a sanção de cassação de tempo de propaganda partidária. A penalidade foi aplicada pelo TRE-ES em razão do descumprimento do percentual mínimo de 30% do tempo de propaganda que deveria, por lei, ser destinado à promoção e difusão da participação política feminina.
+
+5.3 Fundamentação Normativa
+
+A decisão foi solidamente baseada na legislação específica e em resoluções do TSE que regulamentam a matéria:
+
+* Legislação Federal: Lei nº 9.096/1995 (Artigos 45, § 4º e 50-B, § 5º), que estabelecem a cota feminina na propaganda e a sanção pelo seu descumprimento.
+* Resolução do TSE: Resolução TSE nº 23.679 (Artigos 3º, § 3º e 27, § 1º), que detalha as regras para a veiculação da propaganda partidária e o cálculo da sanção.
+
+5.4 Precedentes Citados
+
+O Ministro Relator fundamentou a manutenção da decisão monocrática na aplicação direta da jurisprudência sumulada do Tribunal Superior Eleitoral:
+
+* Súmula nº 30 do TSE: Aplicada para confirmar que o acórdão do TRE-ES estava em perfeita conformidade com a jurisprudência consolidada do TSE sobre a matéria, o que impede o conhecimento do recurso especial.
+* Súmula nº 24 do TSE: Invocada para vedar a reanálise de fatos e provas em sede de recurso especial, o que seria necessário para rever a dosimetria da pena aplicada na origem.
+* Súmula nº 26 do TSE: Utilizada como fundamento para negar seguimento ao agravo regimental, uma vez que o recurso se limitou a reiterar argumentos já analisados e rechaçados na decisão monocrática, sem apresentar novos elementos capazes de modificá-la.
+
+5.5 Raciocínio Desenvolvido
+
+A linha de raciocínio do Ministro Relator para negar provimento ao agravo foi direta e focada em três pontos processuais e de mérito:
+
+1. Conformidade com a Jurisprudência: A decisão do tribunal de origem estava perfeitamente alinhada com o entendimento pacífico do TSE, atraindo a incidência da Súmula 30.
+2. Proporcionalidade da Pena: A sanção de cassação de tempo foi aplicada dentro dos limites legais, e reavaliar sua dosimetria implicaria um reexame do conjunto fático-probatório, o que é vedado pela Súmula 24.
+3. Deficiência Recursal: O agravo regimental não apresentou argumentos novos ou capazes de infirmar os fundamentos da decisão anterior, caracterizando-se como mera reiteração, o que levou à aplicação da Súmula 26.
+
+5.6 Efeitos e Providências Práticas
+
+O Tribunal, por unanimidade, negou provimento ao agravo regimental. Com isso, foi mantida integralmente a decisão do Tribunal Regional Eleitoral do Espírito Santo, que sancionou o partido com a cassação de tempo de propaganda partidária a ser cumprida no semestre seguinte ao trânsito em julgado da decisão.
+
+
+--------------------------------------------------------------------------------
+
+
+6.0 Encerramento da Sessão
+
+Não havendo mais processos a serem julgados na pauta do dia, a Ministra Presidente, Cármen Lúcia, agradeceu a participação de todos os presentes e declarou encerrada a sessão plenária de 3 de setembro de 2024.

@@ -1,0 +1,288 @@
+Análise Técnica da Sessão Plenária do Tribunal Superior Eleitoral de 13 de Agosto de 2024
+
+I. Visão Geral da Sessão
+
+A sessão plenária do Tribunal Superior Eleitoral (TSE) de 13 de agosto de 2024 foi conduzida sob a presidência da Ministra Cármen Lúcia, com a participação do Vice-Presidente, Ministro Kassio Nunes Marques, e dos ministros titulares André Mendonça, Raul Araújo (Corregedor-Geral da Justiça Eleitoral), Isabel Gallotti, Floriano de Azevedo Marques e André Ramos Tavares. A Ministra substituta Edilene Lobo também esteve presente, e o Ministério Público Eleitoral foi representado pelo Vice-Procurador-Geral Eleitoral, Dr. Alexandre Espinosa. A análise das deliberações desta sessão reveste-se de importância estratégica, uma vez que o Plenário se debruçou sobre uma pauta dividida em duas fases distintas: a administrativa, focada na gestão e composição da Justiça Eleitoral, e a jurisdicional, voltada para a resolução de litígios que impactam diretamente a estabilidade de mandatos eletivos e a integridade do processo eleitoral. As decisões proferidas, tanto na formação de tribunais regionais quanto na apreciação de recursos sobre cassação de mandatos, demonstram a atuação do TSE como órgão de cúpula na governança e na pacificação das disputas eleitorais.
+
+Componente	Descrição
+Data e Hora de Início	13 de agosto de 2024. A sessão administrativa teve início no período noturno, sem registro de hora exata na transcrição.
+Tipo de Sessão	Híbrida: Sessão Administrativa seguida de Sessão Jurisdicional.
+Composição do Plenário	Presidente: Min. Cármen Lúcia; Vice-Presidente: Min. Nunes Marques; Ministros Titulares: André Mendonça, Raul Araújo, Isabel Gallotti, Floriano de Azevedo Marques, André Ramos Tavares; Ministra Substituta: Edilene Lobo; Vice-Procurador-Geral Eleitoral: Dr. Alexandre Espinosa.
+
+A seguir, procede-se à análise detalhada dos processos julgados na sessão administrativa, que estabeleceram diretrizes para a composição de cortes regionais.
+
+
+--------------------------------------------------------------------------------
+
+
+II. Pauta da Sessão Administrativa
+
+A sessão administrativa do Tribunal Superior Eleitoral concentra-se em questões de gestão e organização interna da Justiça Eleitoral. Nesta fase, as deliberações abordam temas como a aprovação de listas tríplices para a composição dos Tribunais Regionais Eleitorais (TREs) – um processo crucial para a manutenção da representatividade da classe dos advogados na magistratura eleitoral –, além da análise de atos normativos e administrativos dos próprios tribunais, garantindo a uniformidade e a legalidade dos procedimentos em todo o país. A pauta desta sessão refletiu essa natureza, com o julgamento de cinco listas tríplices e um processo administrativo de homologação. O encerramento dos julgamentos administrativos marcou a transição para a pauta jurisdicional, alterando o foco do Tribunal para a resolução de controvérsias eleitorais contenciosas.
+
+1. Julgamento da Lista Tríplice nº 0600662-03/CE (Fortaleza)
+
+1.1. Dados de Identificação do Processo
+
+* Processo: 0600662-03
+* Tipo: Lista Tríplice
+* Origem: Fortaleza, Ceará (CE)
+* Objeto: Preenchimento de vaga para o cargo de juiz titular, classe dos advogados, no TRE-CE.
+* Interessado: Tribunal Regional Eleitoral do Ceará
+* Indicados: André Garcia Xerez Silva, Edgar Belchior Ximenes Neto, Arsênia Parente Belmino
+* Ministro Relator: Ministro Nunes Marques
+* Impedimento: Ministro Raul Araújo declarou-se impedido por motivo de foro íntimo.
+
+1.2. Análise do Conteúdo Jurídico
+
+A controvérsia central do processo girou em torno do preenchimento dos requisitos legais pelos três indicados. Embora impugnações tenham sido apresentadas contra todos, a análise mais detida recaiu sobre a terceira indicada, a advogada Arsênia Parente Belmino. O argumento principal contra sua inclusão na lista foi a incompatibilidade entre o exercício remoto do cargo de Procuradora do Estado de Pernambuco e a exigência de residência na sede do juízo para o cargo de juíza no TRE do Ceará. A questão jurídica fundamental foi, portanto, ponderar se a permissão para teletrabalho em um cargo público em outra unidade da federação supre a obrigação constitucional e legal de residência imposta aos magistrados.
+
+1.3. Fundamentação Normativa
+
+A decisão do relator foi fundamentada nos seguintes dispositivos:
+
+1. Constituição Federal: (Art. 93, inciso 7), que estabelece o dever de residência do magistrado na respectiva comarca.
+2. Lei Orgânica da Magistratura Nacional: (Art. 35, inciso 5), que reitera o dever de o magistrado residir na sede do juízo.
+3. Normas Infralegais: (Resolução da Procuradoria-Geral do Estado de Pernambuco nº 2, de 2/08/2022), que permite o regime de trabalho remoto para procuradores do estado.
+
+1.4. Precedentes Citados
+
+O voto do relator mencionou um precedente do TSE sobre nepotismo para afastar a impugnação contra o segundo indicado, invocando o entendimento de que a vedação se aplica ao parentesco com membro do tribunal regional, e não de tribunal superior: TSE, Lista Tríplice, Rel. Min. Admar Gonzaga, DJE 19/03/2019.
+
+1.5. Raciocínio Desenvolvido
+
+O Ministro Relator Nunes Marques desenvolveu a linha argumentativa de que o regime de teletrabalho da candidata, embora autorizado por norma infralegal, possui natureza precária. A resolução que permite o trabalho remoto poderia ser revogada a qualquer momento pela administração pública de Pernambuco, o que geraria uma incompatibilidade superveniente com o mandato de juíza eleitoral no Ceará. O Tribunal concluiu que essa "precariedade" do regime de teletrabalho não oferece a segurança jurídica necessária para garantir o cumprimento do dever de residência, requisito indispensável para o exercício da magistratura eleitoral.
+
+1.6. Efeitos e Providências Práticas
+
+Por unanimidade, o Tribunal decidiu pelo retorno dos autos ao Tribunal Regional Eleitoral do Ceará, determinando a substituição da terceira indicada, Arsênia Parente Belmino. Os nomes dos outros dois indicados, André Garcia Xerez Silva e Edgar Belchior Ximenes Neto, foram mantidos na lista.
+
+2. Julgamento dos Embargos de Declaração na Lista Tríplice nº 0600384-02/RN (Natal)
+
+2.1. Dados de Identificação do Processo
+
+* Processo: 0600384-02
+* Tipo: Embargos de Declaração em Lista Tríplice
+* Origem: Natal, Rio Grande do Norte (RN)
+* Objeto: Pedido de reconsideração da recusa do nome da embargante para compor lista tríplice para vaga de juiz titular do TRE-RN.
+* Embargante: Valéria Carvalho de Lucena
+* Ministro Relator: Ministro Nunes Marques
+
+2.2. Análise do Conteúdo Jurídico
+
+A questão central residia na recusa original do nome da candidata, Valéria Carvalho de Lucena, por não preenchimento do requisito de idoneidade moral. O óbice decorreu do fato de ela ser ré em um processo judicial de reintegração de posse, no qual a sentença, já proferida, assentou a existência de "fatos graves", como a ocupação indevida e prolongada de um imóvel. A embargante buscou reverter essa decisão.
+
+2.3. Raciocínio Desenvolvido
+
+O Tribunal aplicou sua jurisprudência consolidada de receber embargos de declaração em matéria administrativa como pedido de reconsideração. A lógica central do voto do relator foi que a celebração de um acordo judicial, ocorrido após o julgamento da lista pelo TSE, não possui efeito retroativo para sanar a ausência do requisito de idoneidade moral. Esse requisito deve ser aferido no momento da formação da lista, e a existência de uma sentença desfavorável à época do julgamento original foi o fator determinante para a recusa, não podendo ser alterado por eventos posteriores.
+
+2.4. Pontos Processuais Relevantes
+
+O julgamento destacou a prática processual do TSE de admitir embargos de declaração em processos administrativos como um pedido de reconsideração, conferindo fungibilidade recursal para garantir a análise do mérito da insurgência.
+
+2.5. Efeitos e Providências Práticas
+
+O Plenário, de forma unânime, recebeu os embargos de declaração como pedido de reconsideração e, no mérito, indeferiu o pleito, mantendo a recusa do nome da candidata na lista tríplice.
+
+3. Julgamento da Lista Tríplice nº 0612530-41/PE (Recife)
+
+3.1. Dados de Identificação do Processo
+
+* Processo: 0612530-41
+* Tipo: Lista Tríplice
+* Origem: Recife, Pernambuco (PE)
+* Objeto: Preenchimento de vaga para o cargo de juiz titular, classe de advogado, no TRE-PE.
+* Indicados: Washington Luiz Macedo de Amorim, Ailton Coelho de Ataíde Filho, Ciro de Oliveira Veloso Mafra
+* Ministro Relator: Ministro André Mendonça
+
+3.2. Análise do Conteúdo Jurídico
+
+A análise do caso se concentrou na verificação da idoneidade moral do primeiro indicado, Washington Luiz Macedo de Amorim, em razão da existência de uma ação popular e uma ação de improbidade administrativa em seu desfavor, conforme apontado em certidão judicial.
+
+3.3. Raciocínio Desenvolvido
+
+O Ministro Relator André Mendonça detalhou o desfecho de ambas as ações. A ação popular foi extinta sem resolução de mérito após a desistência do autor, com trânsito em julgado. A ação de improbidade administrativa foi julgada improcedente, resultando na absolvição do indicado, decisão também transitada em julgado. Com base nesses resultados definitivos, o relator concluiu que as ações judiciais não comprometiam a idoneidade moral do candidato, uma vez que não resultaram em qualquer condenação.
+
+3.4. Efeitos e Providências Práticas
+
+Por unanimidade, o Tribunal aprovou a lista tríplice e determinou seu encaminhamento ao Presidente da República para a nomeação de um dos indicados.
+
+4. Julgamento da Lista Tríplice nº 0600718-36/BA (Salvador)
+
+4.1. Dados de Identificação do Processo
+
+* Processo: 0600718-36
+* Tipo: Lista Tríplice com Impugnação
+* Origem: Salvador, Bahia (BA)
+* Objeto: Preenchimento de vaga para o cargo de juiz titular, classe de advogado, no TRE-BA.
+* Indicados: Rafael de Sá Santana, José Leandro Pinho Gesteira, Karina Cristiane Canguçu Virgens
+* Ministro Relator: Ministro André Mendonça
+
+4.2. Análise do Conteúdo Jurídico
+
+A análise jurídica se aprofundou na situação do indicado José Leandro Pinho Gesteira, contra quem pesavam diversas ações judiciais que poderiam comprometer seu requisito de idoneidade moral.
+
+Tipo de Ação	Status/Observação
+Ação Monitória/Execução (Justiça Federal)	Dívida quitada e ação extinta antes da formação da lista. Considerada superada.
+Ação de Cobrança (Dívidas de Aluguel)	Adimplemento da dívida ocorrido apenas após a lista já estar sob análise no TSE.
+Execução de Título Extrajudicial	Acordo celebrado também após a formação da lista pelo tribunal de origem.
+Execução Fiscal (4 ações)	Todas pendentes de apreciação de exceção de pré-executividade, com débitos não solucionados.
+Ação Penal (Não devolução de autos)	Apuração em curso sobre a não devolução de autos judiciais, sem comprovação de atendimento à intimação judicial.
+
+4.3. Raciocínio Desenvolvido
+
+O voto condutor do Ministro André Mendonça, acompanhado pelos demais ministros, ressaltou que a análise da idoneidade moral não se baseou em um único fato isolado, mas no conjunto de circunstâncias. A manifestação do Ministro Floriano de Azevedo Marques reforçou essa visão, destacando que o conjunto de execuções fiscais pendentes, somado à ação penal por não devolução de autos — uma falta grave para um advogado —, formava um quadro fático suficiente para afastar o requisito da idoneidade moral. A ênfase foi de que a pluralidade de pendências judiciais e a natureza das condutas imputadas demonstravam um padrão de comportamento incompatível com a magistratura.
+
+4.4. Efeitos e Providências Práticas
+
+O Plenário, por unanimidade, julgou procedente a impugnação e determinou o retorno dos autos ao Tribunal de Justiça da Bahia para a substituição do indicado José Leandro Pinho Gesteira, mantendo os demais nomes na lista.
+
+5. Julgamento da Lista Tríplice nº 0600210-56/RN (Natal)
+
+5.1. Dados de Identificação do Processo
+
+* Processo: 0600210-56
+* Tipo: Lista Tríplice
+* Origem: Natal, Rio Grande do Norte (RN)
+* Objeto: Preenchimento de vaga para o cargo de juiz substituto, classe de advogado, no TRE-RN.
+* Indicados: Fabiano de Souza Pereira, Felipe Maciel Pinheiro Barros, Lorinaldo Silvestre de Lima Filho
+* Ministro Relator: Ministro André Mendonça
+
+5.2. Análise e Decisão
+
+Após análise detalhada pela assessoria consultiva do Tribunal, constatou-se que todos os três indicados para a vaga de juiz substituto no TRE-RN preenchiam integralmente os requisitos legais e regulamentares exigidos para o cargo. Diante da ausência de impugnações ou quaisquer óbices, o Ministro Relator votou pela aprovação da lista. A decisão foi unânime, e o Tribunal determinou o encaminhamento da lista tríplice ao Presidente da República para a devida nomeação.
+
+6. Julgamento do Processo Administrativo nº 0600109-81/MT (Cuiabá)
+
+6.1. Dados de Identificação do Processo
+
+* Processo: 0600109-81
+* Tipo: Processo Administrativo
+* Origem: Cuiabá, Mato Grosso (MT)
+* Objeto: Homologação de resolução do TRE-MT que designa localidades de difícil acesso para fins de concessão de diárias e passagens.
+* Interessado: Tribunal Regional Eleitoral do Mato Grosso
+* Ministro Relator: Ministro Raul Araújo
+
+6.2. Fundamentação Normativa
+
+A análise do processo foi fundamentada nas seguintes normas:
+
+* Resolução-TSE nº 23.422/2014
+* Resolução-TSE nº 23.323/2010
+* Resolução-TRE/MT nº 2.784/2023
+* Resolução-TRE/MT nº 2.695/2022
+
+6.3. Raciocínio Desenvolvido
+
+O Ministro Relator Raul Araújo aplicou uma metodologia objetiva para avaliar as 172 localidades indicadas pelo TRE-MT. Utilizou os parâmetros estabelecidos na Resolução-TSE nº 23.422/2014, como a distância mínima em vias pavimentadas (200 km) e não pavimentadas (100 km) e o tempo de percurso fluvial (mínimo de 4 horas). Para as localidades que não se enquadravam diretamente nesses critérios, foram considerados fatores como o tempo total de deslocamento, as condições do trajeto e a disponibilidade de sinal de telefonia. Com base nessa análise, duas localidades foram desclassificadas — Forquilha do Manso e Vila São Sebastião — pois o tempo de percurso até elas foi informado como sendo inferior a 45 minutos, tempo considerado insuficiente para caracterizar a localidade como de difícil acesso.
+
+6.4. Efeitos e Providências Práticas
+
+A decisão unânime do Tribunal foi homologar parcialmente o pedido do TRE-MT, aprovando a lista de localidades de difícil acesso, com a exclusão das duas localidades que não preencheram os critérios objetivos.
+
+
+--------------------------------------------------------------------------------
+
+
+III. Pauta da Sessão Jurisdicional
+
+Com o encerramento da pauta administrativa, a sessão adentrou em sua fase jurisdicional, momento em que o Tribunal se debruça sobre a análise de recursos e ações que afetam diretamente a legalidade de pleitos eleitorais, a manutenção de direitos políticos e a validade de mandatos eletivos. A relevância dos casos em pauta foi notória, abrangendo desde a investigação de abuso de poder em eleições majoritárias para o governo de estado até a análise de condutas vedadas em âmbito municipal, cujos desfechos possuem o potencial de redefinir o cenário político local e consolidar importantes teses jurídicas para o direito eleitoral. Após os debates, o Plenário também realizou julgamentos em lista.
+
+1. Julgamento do Recurso Ordinário nº 0600940-96/RR (Boa Vista)
+
+1.1. Dados de Identificação do Processo
+
+* Processo: 0600940-96
+* Tipo: Recurso Ordinário em Ação de Investigação Judicial Eleitoral (AIJE)
+* Eleição: 2022
+* Origem: Boa Vista, Roraima (RR)
+* Recorrentes: António Oliveira Garcia de Almeida (Antônio Denário), Edilson Damião Lima, Republicanos, Progressistas
+* Recorrida: Coligação Roraima Muito Melhor
+* Advogados com Sustentação Oral: Dr. Fernando Neves da Silva, Dr. Rodrigo Mudrovich, Dr. Walter de Moura Agra, Dr. Eugênio Aragão, Dr. Engels
+* Ministra Relatora: Ministra Isabel Gallotti
+
+1.2. Análise do Conteúdo Jurídico
+
+A Ação de Investigação Judicial Eleitoral resultou, no TRE de Roraima, na cassação do mandato do governador Antônio Denário e de seu vice, Edilson Damião Lima, por abuso dos poderes político e econômico nas eleições de 2022. Os recursos ordinários contestaram essa decisão, e os argumentos de ambas as partes foram expostos nas sustentações orais.
+
+Conduta Apontada	Argumento da Acusação (Recorrida)	Argumento da Defesa (Recorrentes)
+Programas Sociais ("Cesta da Família" e "Renda Cidadã")	Criação de um novo programa em ano eleitoral com aumento expressivo de gastos (de R 18 milhões para R 134 milhões), caracterizando desvio de finalidade para compra de votos.	Mera reunião e racionalização de programas pré-existentes, sem criação de novo programa, com diminuição de beneficiários e recursos aplicados.
+Programa "Morar Melhor"	Execução de programa de R 72 milhões sem lei estadual específica e com finalidade eleitoreira, prometendo R 6 mil por família em visitas pessoais do governador.	Programa amparado em lei federal (Lei nº 11.888/2008), iniciado em 2021, portanto antes do período eleitoral, sem qualquer irregularidade.
+Transferências voluntárias aos municípios	Repasse de R$ 70 milhões de forma discricionária, beneficiando apenas municípios aliados e excluindo os de oposição, sob o pretexto de calamidade climática não comprovada em anos anteriores.	Cumprimento de lei estadual aprovada pela Assembleia Legislativa após pedido dos próprios municípios, em razão de fortes chuvas que geraram estado de emergência.
+Publicidade institucional	Uso da identidade visual e material da Secretaria de Comunicação do governo em redes sociais privadas do candidato, com gastos exorbitantes em publicidade no ano eleitoral.	Mera reprodução de feitos do governo em redes sociais privadas, conduta que, segundo a jurisprudência, não é vedada. O caso específico já havia sido julgado improcedente em representação própria.
+
+1.3. Pontos Processuais Relevantes
+
+As defesas dos recorrentes levantaram importantes questões preliminares de nulidade processual, entre elas:
+
+1. Cerceamento de Defesa: Alegação de nulidade do julgamento regional pelo indeferimento do ingresso dos partidos Republicanos e Progressistas como assistentes e por falhas na intimação para a realização de sustentação oral.
+2. Ausência de Litisconsórcio Passivo Necessário: Argumento de que deputados estaduais (que aprovaram as leis de transferência) e prefeitos (que solicitaram os recursos) deveriam obrigatoriamente integrar a lide, por serem responsáveis pelos atos investigados.
+3. Nulidade do Acórdão Regional: Alegação de falha formal no acórdão do TRE-RR por não ter juntado adequadamente os votos vencidos, que apenas fizeram remissão a votos proferidos em outros processos, sem transcrevê-los.
+
+1.4. Efeitos e Providências Práticas
+
+Após a detalhada leitura do relatório pela Ministra Isabel Gallotti e a realização das sustentações orais pelas partes, o julgamento foi suspenso. A Presidente, Ministra Cármen Lúcia, informou que o processo será pautado para uma data futura para a colheita dos votos. Portanto, não houve proclamação de resultado de mérito nesta sessão.
+
+2. Julgamento do Recurso Ordinário nº 0600720-33/AP (Macapá)
+
+2.1. Dados de Identificação do Processo
+
+* Processo: 0600720-33
+* Tipo: Recurso Ordinário em AIJE
+* Eleição: 2018
+* Origem: Macapá, Amapá (AP)
+* Recorrente: Aldilene Matos de Souza
+* Recorrido: Ministério Público Eleitoral
+* Ministro Relator: Ministro Raul Araújo
+
+2.2. Análise do Conteúdo Jurídico e Raciocínio Desenvolvido
+
+A imputação central contra a recorrente foi a prática de abuso de poder econômico nas eleições de 2018, por meio de um robusto esquema de distribuição de benesses em troca de votos, operado por seus cabos eleitorais e coordenador de campanha. As provas demonstraram a distribuição generalizada de itens como botijões de gás, alimentos e o oferecimento de consultas médicas. O voto do relator, Ministro Raul Araújo, fundamentou-se na aplicação dos conceitos de gravidade qualitativa (alta reprovabilidade da conduta de captação ilícita de sufrágio) e gravidade quantitativa (magnitude do esquema ilícito). Concluiu que, dada a escala da operação, era desnecessária a comprovação da anuência ou participação direta da candidata, pois o benefício eleitoral era concreto e de larga repercussão, tornando inverossímil seu desconhecimento.
+
+2.3. Fundamentação Normativa e Precedentes
+
+O julgamento teve como base o dispositivo que tipifica a captação ilícita de sufrágio (Art. 41-A da Lei das Eleições) e se alinhou a um precedente do TSE (julgado em 30/06/2023, de relatoria do Min. Benedito Gonçalves) que sistematiza os requisitos para a configuração do abuso de poder.
+
+2.4. Pontos Processuais Relevantes e Resultado
+
+Após o voto do Ministro Relator Raul Araújo, que negava provimento ao recurso para manter a condenação, o Ministro Floriano de Azevedo Marques pediu vista antecipada dos autos. Com isso, o resultado parcial foi a suspensão do julgamento, que aguardará a apresentação do voto-vista.
+
+3. Julgamento do Agravo em Recurso Especial Eleitoral nº 0600625-71/PB (Monteiro)
+
+3.1. Dados de Identificação do Processo
+
+* Processo: 0600625-71
+* Tipo: Agravo em Recurso Especial Eleitoral em AIJE
+* Eleição: 2020
+* Origem: Monteiro, Paraíba (PB)
+* Agravantes/Recorrentes: Coligação Monteiro Unida por Dias Melhores e outras; Ana Lorena de Farias Leite Nóbrega e outro
+* Agravados/Recorridos: Watson Rodrigues Sinésio e outros; Rosa Maria Aleixo Nunes da Silva e outra
+* Ministro Relator: Ministro André Ramos Tavares
+
+3.2. Análise da Controvérsia e Votos Proferidos
+
+A controvérsia central do caso foi a distribuição de 500 cestas básicas pela prefeitura de Monteiro (PB) em ano eleitoral (2020), e se tal conduta, além de configurar conduta vedada, possuía gravidade suficiente para caracterizar abuso de poder. O julgamento revelou uma divergência de entendimentos entre os ministros.
+
+Ponto de Análise	Voto do Relator (Min. André Ramos Tavares)	Voto Divergente (Min. Raul Araújo)
+Conduta Vedada (Art. 73, § 10)	Concordância plena de que a distribuição de cestas básicas sem amparo em programa social específico e com execução orçamentária no ano anterior configurou a conduta vedada.	Concordância plena com o reconhecimento da conduta vedada, tal como decidido pelo TRE-PB. A ilicitude do ato é incontroversa.
+Abuso de Poder	A distribuição de 500 cestas em um município onde 47,5% da população tem renda de até meio salário-mínimo e com resultado eleitoral próximo (diferença de 3.156 votos) possui gravidade suficiente para configurar abuso de poder político e econômico.	A ausência de prova material sobre a quantidade exata de cestas efetivamente distribuídas e, principalmente, sobre o viés eleitoreiro da distribuição, afasta a gravidade necessária para a configuração do abuso. A condenação não pode se basear em presunções.
+Sanções Aplicadas	Propôs a cassação dos mandatos da prefeita e do vice, a declaração de inelegibilidade por 8 anos e a determinação de novas eleições indiretas no município, além da manutenção da multa.	Propôs a manutenção apenas da multa de R$ 10 mil aplicada pelo TRE-PB, afastando as sanções de cassação e inelegibilidade por entender que o abuso de poder não foi comprovado de forma robusta.
+
+3.3. Pontos Processuais Relevantes e Resultado
+
+O Tribunal, inicialmente, deu provimento ao agravo para convertê-lo em recurso especial, permitindo a análise aprofundada do mérito da causa. O julgamento foi iniciado com o voto do relator, seguido pelo voto divergente do Ministro Raul Araújo. Na sequência, o Ministro André Mendonça pediu vista dos autos para analisar com mais profundidade as questões fáticas e processuais. Com isso, o julgamento foi suspenso para aguardar o voto-vista.
+
+
+--------------------------------------------------------------------------------
+
+
+IV. Julgamentos em Lista
+
+Ao término da pauta de julgamentos presenciais, foi apregoado para julgamento em lista o processo Embargos de Declaração no Recurso Especial Eleitoral nº 0600939-68/SE, oriundo de Propriá, Sergipe. Em conformidade com as diretrizes deste relatório, os julgamentos realizados nesta modalidade, que pressupõem a ausência de divergência entre os ministros, não são objeto de análise detalhada, sendo apenas registrados para fins de completude da pauta. O resultado proclamado foi a rejeição unânime dos embargos de declaração, nos termos do voto do relator, Ministro Raul Araújo.
+
+
+--------------------------------------------------------------------------------
+
+
+V. Conclusão da Sessão
+
+A sessão plenária de 13 de agosto de 2024 foi encerrada após intensos debates que refletiram a complexidade e a relevância dos temas submetidos ao Tribunal Superior Eleitoral. Os principais desfechos do dia incluíram a aprovação de listas tríplices para a composição de TREs, bem como a devolução de outras para substituição de candidatos que não preencheram os requisitos de idoneidade, reforçando o rigor do TSE no controle da formação da magistratura eleitoral. No âmbito jurisdicional, a suspensão de julgamentos de grande impacto, como a cassação do governador de Roraima e da prefeita de Monteiro (PB), indica a cautela e a profundidade da análise do colegiado. A sessão, portanto, reafirmou o papel central do TSE na garantia da lisura do sistema eleitoral, ao mesmo tempo em que a suspensão de julgamentos de alto perfil sinaliza a deliberação cuidadosa do colegiado diante de casos com potencial para redefinir precedentes sobre abuso de poder e condutas vedadas.

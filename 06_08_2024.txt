@@ -1,0 +1,93 @@
+**RELATÓRIO TÉCNICO DE SESSÃO DO TRIBUNAL SUPERIOR ELEITORAL**
+
+**DATA DA SESSÃO:** 06 de Agosto de 2024
+**MINISTROS PRESENTES:**
+
+* Min. Cármen Lúcia (Presidente)
+* Min. Kassio Nunes Marques (Vice-Presidente)
+* Min. André Mendonça
+* Min. Raul Araújo (Corregedor-Geral)
+* Min. Isabel Gallotti
+* Min. Floriano Azevedo Marques
+* Min. André Ramos Tavares
+* Min. Edilene Lôbo (Substituta)
+
+---
+
+### **1. REGISTRO DE PARTIDO POLÍTICO (RPP) Nº 0601417-96**
+
+**[00:12:13]**
+
+**1.1. DADOS CADASTRAIS**
+
+* **Relatora:** Ministra Isabel Gallotti.
+* **Requerente:** Partido Social Democrático (PSD) – Diretório Nacional.
+* **Origem:** Brasília/DF.
+* **Objeto:** Anotação de alterações estatutárias.
+
+**1.2. ANÁLISE DO CONTEÚDO JURÍDICO**
+Trata-se de requerimento para registro de alterações no estatuto do partido, aprovadas em reunião da comissão executiva em 06/12/2023. O ponto central da alteração refere-se à adequação das normas internas partidárias quanto à destituição de diretórios.
+
+**1.3. FUNDAMENTAÇÃO NORMATIVA E JURISPRUDÊNCIA**
+
+* **Precedente do TSE:** Foi mencionado um processo de relatoria do **Min. Benedito Gonçalves**, no qual a Corte decidiu pela ilegalidade de dispositivos estatutários que permitiam a destituição imotivada ("por mero interesse partidário") de diretórios estaduais e locais legitimamente eleitos para substituição por órgãos provisórios.
+* **Alteração Estatutária:** A mudança visa suprimir ou adequar o **artigo 26, § 2º** do estatuto do partido para cumprir a determinação da Corte.
+
+**1.4. RACIOCÍNIO E VOTO**
+
+* **Voto da Relatora (Min. Isabel Gallotti):** A Ministra destacou que não houve impugnações e que o parecer da Procuradoria-Geral Eleitoral (PGE) foi favorável. A alteração foi considerada estritamente para cumprimento da jurisprudência do TSE que veda a instabilidade causada pela dissolução arbitrária de diretórios eleitos.
+* **Conclusão:** Voto pelo deferimento do pedido.
+
+**1.5. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Resultado:** Pedido deferido por unanimidade (proclamação implícita pela aprovação sem divergência). A alteração estatutária passa a ter vigência e eficácia legal.
+
+---
+
+### **2. JULGAMENTO EM CONJUNTO: AGRAVOS EM RECURSO ESPECIAL (AREspe)**
+
+**Processos:** Nº 0600071-96, 0600070-14, 0600935-71, 0600953-92 e Tutela Cautelar Antecedente Nº 0600181-40.
+**[00:16:52]**
+
+**2.1. DADOS CADASTRAIS**
+
+* **Relatora:** Ministra Isabel Gallotti (conforme inferência da pauta e referência feita pelo Min. Raul Araújo).
+* **Origem:** Porto Real do Colégio – AL (Alagoas).
+* **Cargos em disputa:** Prefeito e Vice-Prefeito (Eleições Municipais de 2020).
+* **Recorrentes/Envolvidos:** Aldo Enio Borges (Prefeito eleito) e respectiva chapa (menção implícita pelo contexto de cassação de mandato).
+
+**2.2. ANÁLISE DO CONTEÚDO JURÍDICO**
+O julgamento versa sobre **abuso de poder econômico** e **captação ilícita de sufrágio** (compra de votos) consubstanciados na distribuição massiva e irregular de combustível a eleitores durante o período eleitoral.
+
+**2.3. RACIOCÍNIO DESENVOLVIDO (VOTO-VISTA MIN. RAUL ARAÚJO)**
+O julgamento foi retomado com a apresentação do voto-vista do Ministro Raul Araújo **[00:30:11]**, que acompanhou a Relatora.
+
+* **Fatos e Provas:** O Ministro destacou a robustez do conjunto probatório ("acórdão embasado em inúmeras provas"), citando testemunhos de eleitores que receberam requisições de combustível diretamente ("era 50 reais por cabeça").
+* **Participação Direta:** Foi ressaltada a presença física do candidato a prefeito no posto de combustível durante os abastecimentos, evidenciando sua ciência e anuência.
+* **Impacto no Pleito (Gravidade):** A diferença de votos no pleito foi de apenas **164 votos**, o que, segundo o Ministro, demonstra que a conduta ilícita teve aptidão clara para desequilibrar o pleito e afetar o resultado (nexo de causalidade).
+
+**2.4. FUNDAMENTAÇÃO NORMATIVA E JURISPRUDÊNCIA**
+
+* **Súmula 24 do TSE:** Citada pelo Min. Raul Araújo para reforçar que não cabe reexame de fatos e provas em sede extraordinária ("Coincidência do enunciado da Súmula 24").
+* **Jurisprudência:** Referência genérica a precedentes do TSE que configuram a distribuição de combustível em escala comprometedora como abuso de poder econômico.
+
+**2.5. PONTOS PROCESSUAIS E VOTAÇÃO**
+
+* **Voto do Min. Raul Araújo:**
+1. **Acompanha a Relatora** no mérito principal para manter a condenação.
+2. **Divergência pontual (Parcial Provimento):** Apenas para afastar a multa aplicada na origem por embargos de declaração considerados protelatórios, entendendo que não houve intenção de atrasar a marcha processual.
+3. **Conclusão:** Manutenção da cassação dos mandatos e da inelegibilidade; improcedência da Tutela Cautelar.
+
+
+* **Pedido de Vista Antecipada:** O Vice-Presidente, **Min. Kassio Nunes Marques**, solicitou vista antecipada dos autos, suspendendo o julgamento.
+* **Demais Ministros:** André Mendonça e Ramos Tavares aguardam o voto-vista.
+
+**2.6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Situação Atual:** O julgamento está **suspenso**.
+* **Efeitos mantidos (provisoriamente pelo voto do Relator e Vistor):** Cassação dos diplomas de Prefeito e Vice-Prefeito e inelegibilidade do titular da chapa. A multa processual foi afastada no voto apresentado, mas o resultado final depende da conclusão do julgamento.
+
+---
+
+**ENCERRAMENTO DA SESSÃO**
+A Presidente Cármen Lúcia encerrou a sessão após a suspensão do julgamento conjunto, não havendo outros processos a serem apregoados.

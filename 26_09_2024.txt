@@ -1,0 +1,230 @@
+Relatório de Análise da Sessão Plenária do TSE – 26 de Setembro de 2024
+
+Sumário Executivo
+
+O presente relatório analisa a sessão plenária do Tribunal Superior Eleitoral de 26 de setembro de 2024. A sessão administrativa foi marcada por deliberações sobre a logística da totalização de votos para as Eleições 2024 e pela aprovação de uma resolução para a convocação de juízes auxiliares. Na pauta jurisdicional, o julgamento do Recurso Especial Eleitoral nº 0600941-38 foi suspenso por pedido de vista após a apresentação de voto divergente que defende a licitude de provas obtidas por meio do aplicativo WhatsApp.
+
+1.0 Identificação da Sessão
+
+O presente documento consiste em uma análise técnica da sessão plenária do Tribunal Superior Eleitoral (TSE) realizada na data de 26 de setembro de 2024. A sessão foi dividida em duas partes distintas: a administrativa, focada em questões de organização e normatização do processo eleitoral, e a jurisdicional, dedicada ao julgamento de litígios.
+
+O colégio julgador presente na referida sessão foi composto pelos seguintes membros:
+
+* Presidência: Ministra Cármen Lúcia (participação presencial).
+* Vice-Presidência: Ministro Kassio Nunes Marques (participação por videoconferência).
+* Corregedoria-Geral da Justiça Eleitoral: Ministra Isabel Gallotti (participação presencial).
+* Ministros Efetivos:
+  * Ministro André Mendonça (participação presencial).
+  * Ministro Antonio Carlos Ferreira (participação presencial).
+  * Ministro Floriano de Azevedo Marques (participação por videoconferência).
+  * Ministro André Ramos Tavares (participação presencial).
+* Representante do Ministério Público Eleitoral: Dr. Alexandre Espinosa (Vice-Procurador-Geral Eleitoral, participação presencial).
+
+A seguir, procede-se à análise pormenorizada das pautas administrativa e jurisdicional, com base estrita nas deliberações registradas na transcrição da sessão.
+
+2.0 Análise da Sessão Administrativa
+
+A pauta administrativa da sessão de 26 de setembro de 2024 foi marcada por deliberações de caráter preparatório para o pleito municipal, notadamente a aprovação de uma resolução para a convocação de juízes auxiliares e o indeferimento de pedidos de revisão de eleitorado por razões jurisprudenciais e orçamentárias.
+
+2.1 Deliberação: Esclarecimentos sobre a Totalização dos Votos para as Eleições de 2024
+
+No início dos trabalhos, a Ministra Presidente Cármen Lúcia apresentou esclarecimentos à cidadania sobre o procedimento de totalização e divulgação dos votos para o pleito de 6 de outubro. A explanação foi estruturada nos seguintes pontos:
+
+1. Contexto: A necessidade do esclarecimento decorre do fato de esta ser a primeira eleição municipal a adotar um horário único de votação em todo o território nacional, seguindo o fuso de Brasília.
+2. Desafio Logístico: A Ministra contrastou a complexidade do pleito municipal de 2024, com aproximadamente 465 mil candidatos, com a eleição geral de 2022, que contou com cerca de 26 mil candidatos. Essa disparidade, aliada à votação simultânea, impõe um desafio técnico significativo aos sistemas de totalização.
+3. Estratégia de Divulgação: Para garantir a estabilidade do sistema, a divulgação dos resultados, que se iniciará simultaneamente para todos os municípios, seguirá uma estratégia diferenciada quanto à granularidade dos dados. Nos municípios com possibilidade de segundo turno (mais de 200 mil eleitores), os dados consolidados do município e os dados por zona eleitoral serão atualizados de forma paralela e concorrente. Nos demais municípios, os dados consolidados do município serão atualizados primeiramente e, somente após sua conclusão, serão liberados os detalhamentos por zona eleitoral.
+4. Objetivo Final: A medida visa assegurar a segurança, eficiência e celeridade na apresentação dos resultados ao eleitorado, mantendo a integridade e a performance dos sistemas de divulgação do TSE.
+
+2.2 Processo Administrativo nº 0600153-21
+
+Análise Fática e Processual
+
+A tabela abaixo resume os dados essenciais deste processo administrativo:
+
+Item	Descrição
+Data da Sessão	26 de setembro de 2024
+Eleição a que se refere	Eleições de 2024
+Número do Processo	Processo Administrativo 0600153-21
+Cidade de Origem	Itabaiana
+UF	Paraíba
+Partes	Tribunal Regional Eleitoral da Paraíba (requerente)
+Ministro(a) Proponente	Ministra Cármen Lúcia
+
+Análise do Conteúdo Jurídico
+
+O objeto do processo consistiu em um pedido de acréscimo de forças federais, formulado pelo Tribunal Regional Eleitoral da Paraíba (TRE-PB), com o objetivo de garantir a segurança dos processos de votação e apuração no município de Itabaiana.
+
+Decisão do Tribunal
+
+O Tribunal, em deliberação unânime, deferiu o pedido formulado pelo TRE-PB para o envio de reforço das forças federais ao município.
+
+2.3 Proposta de Resolução: Diárias para Juízes Auxiliares Extraordinários
+
+Análise Fática e Normativa
+
+Os dados essenciais da proposta de resolução são apresentados a seguir:
+
+Item	Descrição
+Data da Resolução	26 de setembro de 2024
+Eleição a que se refere	Eleições de 2024 (1º e 2º turnos)
+Objeto da Proposta	Regulamentar a convocação e o pagamento de diárias para juízes auxiliares eleitorais extraordinários.
+Proponente	Ministra Cármen Lúcia
+
+Análise do Conteúdo Jurídico
+
+A proposta foi justificada como uma medida de capilaridade jurisdicional, destinada a garantir a presença física da autoridade judiciária em cada município brasileiro nos dias da eleição. A medida busca superar a assimetria entre a divisão administrativa (municípios) e a judiciária (comarcas). A resolução estabelece os seguintes pontos centrais:
+
+1. Autorização: Permite que os Tribunais Regionais Eleitorais (TREs) convoquem juízes de direito para atuar como auxiliares em municípios que não sejam sede de comarca ou onde a comarca se encontre vaga.
+2. Pagamento: Institui o pagamento de diária, a ser custeada pela Justiça Eleitoral, pelo dia de trabalho do magistrado convocado.
+3. Compensação: Prevê a possibilidade de celebração de convênios entre os TREs e os Tribunais de Justiça estaduais para que o dia trabalhado na eleição seja compensado em dobro na jurisdição de origem.
+
+Decisão do Tribunal
+
+O Tribunal, por unanimidade, aprovou a resolução proposta pela Presidência.
+
+2.4 Revisão de Eleitorado nº 0600295-59
+
+1. Análise Fática e Processual
+
+A tabela a seguir apresenta os dados de identificação do processo:
+
+Item	Descrição
+Data da Sessão	26 de setembro de 2024
+Número do Processo	Revisão de Eleitorado nº 0600295-59
+Cidade de Origem	Tacima
+UF	Paraíba
+Partes Interessadas	Diretório Municipal do Partido da Social Democracia Brasileira (PSDB) e Diretório Municipal do Movimento Democrático Brasileiro (MDB)
+Ministro Relator	Ministro Floriano de Azevedo Marques
+
+2. Análise do Conteúdo Jurídico
+
+O objeto da ação foi um requerimento de revisão do eleitorado no município de Tacima/PB, formulado conjuntamente pelos diretórios municipais do PSDB e do MDB.
+
+3. Fundamentação Normativa
+
+O voto do Ministro Relator fundamentou-se nas seguintes normas:
+
+* Resolução TSE nº 23.659 (art. 105)
+* Lei nº 9.504/1997 (art. 92)
+
+4. Precedentes Citados
+
+O relator baseou sua decisão na "própria jurisprudência desta Corte Superior", que desaconselha a revisão do eleitorado em determinadas circunstâncias, mesmo quando preenchidos os requisitos formais.
+
+5. Raciocínio Desenvolvido
+
+A argumentação do Ministro Relator Floriano de Azevedo Marques seguiu a seguinte linha de raciocínio:
+
+1. Análise dos Requisitos: O voto reconheceu que os requisitos formais estipulados pelo art. 105 da Resolução TSE foram atendidos pelos requerentes.
+2. Fatores Preponderantes (Jurisprudência): Contudo, apontou fatores que, segundo a jurisprudência consolidada do TSE, justificam o indeferimento do pedido:
+  * O município já foi submetido a um procedimento de revisão com coleta biométrica em 2017.
+  * O conceito amplo de domicílio eleitoral (que não se confunde com a moradia civil) fragiliza a validade de uma revisão baseada exclusivamente em dados populacionais do IBGE.
+3. Impedimento Orçamentário: O relator acrescentou a ausência de previsão de despesas na Lei Orçamentária Anual para a realização do procedimento, o que o torna inviável do ponto de vista fiscal e administrativo.
+
+6. Decisão e Efeitos
+
+A conclusão do voto foi pelo indeferimento do pedido. O Tribunal, por unanimidade, indeferiu o pedido de revisão de eleitorado, nos termos do voto do relator.
+
+2.5 Revisão de Eleitorado nº 0600019
+
+1. Análise Fática e Processual
+
+A tabela abaixo apresenta os dados de identificação do processo:
+
+Item	Descrição
+Data da Sessão	26 de setembro de 2024
+Número do Processo	Revisão de Eleitorado nº 0600019 (número completo não verbalizado)
+Cidade de Origem	Catingueira
+UF	Paraíba
+Parte Interessada	Republicanos Nacional
+Ministro Relator	Ministro Floriano de Azevedo Marques
+
+2. Análise do Conteúdo Jurídico
+
+O objeto da ação consistiu em um requerimento de revisão do eleitorado no município de Catingueira/PB.
+
+3. Fundamentação Normativa
+
+A decisão foi fundamentada no não preenchimento de requisito previsto na seguinte norma:
+
+* Resolução TSE (art. 105, inciso I)
+
+4. Raciocínio Desenvolvido
+
+A argumentação do Ministro Relator foi sucinta, baseando o indeferimento em dois pontos objetivos:
+
+1. Não foi atendido o requisito estabelecido no inciso I do artigo 105 da resolução aplicável.
+2. Inexiste previsão orçamentária para a realização da revisão pleiteada.
+
+5. Decisão e Efeitos
+
+O voto do relator foi pelo indeferimento do pedido. O Tribunal, por unanimidade, indeferiu o requerimento nos termos do voto do relator.
+
+Com o julgamento deste último item, foi declarada encerrada a sessão administrativa, dando-se início aos trabalhos da sessão jurisdicional.
+
+3.0 Análise da Sessão Jurisdicional
+
+Iniciada com a aprovação da ata da sessão anterior, a pauta jurisdicional foi dedicada à continuidade do julgamento de um Recurso Especial Eleitoral (REspe nº 0600941-38), cuja complexidade e relevância jurídica sobre a licitude de provas digitais levaram a um pedido de vista, suspendendo a deliberação.
+
+3.1 Recurso Especial Eleitoral nº 0600941-38
+
+1. Análise Fática e Processual
+
+Os dados de identificação e os principais pontos processuais são resumidos na tabela a seguir:
+
+Item	Descrição
+Data da Sessão	26 de setembro de 2024 (continuidade do julgamento iniciado em 06/06/2024)
+Eleição a que se refere	Eleições de 2020
+Número do Processo	Recurso Especial Eleitoral nº 0600941-38
+Cidade de Origem	São Francisco
+UF	Sergipe
+Partes Recorrentes	Coligação ‘Unidos por São Francisco’
+Partes Recorridas	Alba dos Santos Nascimento (prefeita eleita), Desirée Hora (vice-prefeita eleita) e Pablo Santos Nascimento
+Advogados Mencionados	Não nominalmente. A transcrição cita "Advogado dos autores" durante a leitura de um depoimento.
+Ministro Relator	Ministro Raul Araújo (voto preservado)
+Voto-Vista	Ministra Isabel Gallotti
+Ponto Processual Relevante	Ministro Antonio Carlos Ferreira não vota para preservar o quórum do julgamento original.
+
+2. Análise do Conteúdo Jurídico
+
+O processo trata de uma Ação de Investigação Judicial Eleitoral (AIJE) fundamentada em suposto abuso de poder econômico e captação ilícita de sufrágio. A controvérsia central do recurso especial gira em torno da licitude de provas consistentes em áudios obtidos pelo aplicativo WhatsApp, as quais foram consideradas ilícitas pelo Tribunal Regional Eleitoral de Sergipe (TRE-SE).
+
+3. Fundamentação Normativa (Voto-Vista)
+
+A Ministra Isabel Gallotti, em seu voto-vista, invocou as seguintes normas e princípios para sustentar a licitude da prova:
+
+* Código Eleitoral (art. 275): Afastou a alegação de violação, por considerar o acórdão recorrido suficientemente fundamentado.
+* Constituição Federal (art. 5º): Discutiu a ausência de violação à privacidade e intimidade, argumentando que o compartilhamento de uma mensagem por um dos interlocutores afasta a expectativa de sigilo.
+* Lei nº 9.296/1996: Defendeu sua não aplicabilidade ao caso, pois não se trata de interceptação telefônica ou telemática (captação da comunicação por um terceiro), mas sim de compartilhamento por um dos partícipes da conversa.
+
+4. Precedentes Citados (Voto-Vista)
+
+Para reforçar sua tese, a Ministra Isabel Gallotti recorreu a uma robusta jurisprudência de Cortes Superiores:
+
+* STJ (Superior Tribunal de Justiça): Precedentes que afirmam a licitude de provas obtidas via WhatsApp quando há consentimento ou compartilhamento por um dos detentores das mensagens.
+* STF (Supremo Tribunal Federal):
+  * Acórdão de relatoria da Ministra Rosa Weber, que afasta a expectativa de privacidade em mensagens divulgadas em grupos de WhatsApp.
+  * Voto do Ministro César Peluso, que estabelece a distinção conceitual entre "revelar" uma conversa (ato lícito de um partícipe) e "interceptar" (ato ilícito de um terceiro).
+  * Acórdão de relatoria do Ministro Edson Fachin, sobre a impossibilidade de usar garantias individuais como escudo para a prática de ilícitos.
+* TSE (Decisão Monocrática): Decisão do Ministro André Mendonça diferenciando o compartilhamento voluntário de áudios de uma gravação ambiental clandestina.
+
+5. Raciocínio Desenvolvido (Reconstrução dos Votos)
+
+* Voto do Relator (Ministro Raul Araújo): O voto original do relator foi no sentido de negar provimento ao recurso especial, mantendo a decisão do TRE-SE que declarou a ilicitude das provas.
+* Voto-Vista Divergente (Ministra Isabel Gallotti): A Ministra inaugurou a divergência com uma argumentação estruturada nos seguintes passos:
+  1. Estabelecimento da Premissa Fática: Afirmou que as provas dos autos demonstram que os áudios foram encaminhados por uma das interlocutoras, Aparecida Aquino, para Jarcimara Feitosa, que os encaminhou a Ana Maria Feitosa, que por sua vez os repassou a Robério Rocha de Araújo, candidato adversário. Ressaltou que a desistência da perícia pelos recorridos configura comportamento contraditório (venire contra factum proprium).
+  2. Diferenciação Conceitual: O núcleo da divergência assenta-se na distinção fundamental entre "revelar" uma comunicação, ato de um partícipe, e "interceptar" uma comunicação, ato de um terceiro. Apoiando-se em precedente do Ministro César Peluso (STF), argumentou que quem revela uma conversa da qual participou não a intercepta, mas apenas dispõe de algo que também é seu, não violando o sigilo protegido por lei.
+  3. Afastamento da Expectativa de Privacidade: Adotou a tese de que o emissor de uma mensagem está ciente do risco de seu reencaminhamento, renunciando, assim, a uma presunção absoluta de sigilo.
+  4. Conclusão pela Licitude: Concluiu que os áudios e as provas deles decorrentes são lícitos e, portanto, devem ser considerados no julgamento de mérito da AIJE.
+
+6. Decisão e Efeitos Práticos (Resultado Provisório)
+
+O julgamento obteve o seguinte resultado parcial:
+
+* O voto-vista da Ministra Isabel Gallotti inaugurou a divergência, votando por dar provimento ao recurso especial para afastar a ilicitude das provas e determinar o retorno dos autos ao TRE-SE para um novo julgamento de mérito com base em todo o conjunto probatório.
+* Na sequência, o Ministro Floriano de Azevedo Marques pediu vista dos autos para análise aprofundada da matéria.
+* Os demais ministros aguardam a retomada do julgamento para proferirem seus votos.
+
+4.0 Encerramento da Sessão
+
+Após a deliberação sobre o último processo da pauta jurisdicional e o anúncio do resultado provisório, a Presidente da Corte, Ministra Cármen Lúcia, declarou encerrada a sessão de julgamento. A suspensão dos trabalhos teve como finalidade dar início à cerimônia solene de posse da Ministra Isabel Gallotti no cargo de Corregedora-Geral da Justiça Eleitoral.

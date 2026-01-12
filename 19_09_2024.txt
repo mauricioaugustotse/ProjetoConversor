@@ -1,0 +1,105 @@
+Análise Técnica da Sessão Plenária do Tribunal Superior Eleitoral – 19 de Setembro de 2024
+
+Este documento apresenta uma análise detalhada dos procedimentos e deliberações da sessão plenária do Tribunal Superior Eleitoral (TSE) realizada em 19 de setembro de 2024. A análise se concentra nos principais julgamentos e debates jurídicos ocorridos, oferecendo uma visão aprofundada das teses, fundamentos e desdobramentos processuais que marcaram a sessão.
+
+1.0 Dados Gerais da Sessão de Julgamento
+
+A presente seção detalha as informações administrativas e a composição do colegiado na referida data, estabelecendo o contexto formal para a análise dos julgamentos.
+
+1.1 Identificação da Sessão
+
+Os dados essenciais da sessão plenária estão consolidados na tabela abaixo:
+
+Item	Descrição
+Data e Hora de Abertura	Quinta-feira, 19 de setembro de 2024.
+Presidência	Ministra Cármen Lúcia.
+Composição do Plenário	Ministros Kassio Nunes Marques (Vice-Presidente), André Mendonça, Isabel Gallotti, Antonio Carlos Ferreira, Floriano de Azevedo Marques e André Ramos Tavares.
+Representante do Ministério Público	Procurador-Geral Eleitoral, Dr. Paulo Gustavo Gonet.
+Aprovação da Ata Anterior	Foi lida e aprovada, sem objeções, a ata da sessão ordinária jurisdicional de 17 de setembro de 2024.
+Observações Iniciais	A Presidência comunicou que, após a sessão jurisdicional, ocorreria uma cerimônia com o Ministro da Justiça para a assinatura de uma portaria conjunta sobre segurança nas eleições, seguida pela posse do Ministro Antonio Carlos Ferreira como membro efetivo do Tribunal.
+
+Finalizadas as comunicações administrativas, o Plenário voltou-se para o único julgamento da pauta, um caso de alta complexidade que testaria os limites da competência da Justiça Eleitoral na fase pré-processual.
+
+2.0 Análise do Processo: Agravo Regimental no Recurso Especial Eleitoral nº 0600174-20
+
+O julgamento do Agravo Regimental no Recurso Especial Eleitoral nº 0600174-20 revelou-se um debate doutrinário de alta relevância, forçando o Tribunal a se debruçar sobre a tênue fronteira entre a sua competência atrativa para crimes conexos e o princípio do juiz natural, especialmente quando a investigação do delito eleitoral se frustra antes mesmo do oferecimento da denúncia.
+
+2.1 Identificação e Partes do Processo
+
+* Timestamp de Início: Início do Julgamento
+* Número do Processo: Agravo Regimental no Recurso Especial Eleitoral nº 0600174-20
+* Origem: Rio de Janeiro (RJ)
+* Ministra Relatora: Isabel Gallotti
+* Agravante: Júlio Luiz Batista Lopes (Deputado Federal eleito em 2014)
+* Agravado: Ministério Público Eleitoral
+* Advogado Presente: Dr. Francisco Felipe Lebrão Agusti (representando o agravante)
+* Destaque: O processo foi retirado do plenário virtual para julgamento presencial a pedido do Ministro Floriano de Azevedo Marques.
+
+2.2 Análise do Conteúdo Jurídico (Objeto da Controvérsia)
+
+A controvérsia jurídica reside em definir se a vis attractiva da Justiça Eleitoral se perpetua para processar crimes comuns conexos quando o inquérito é arquivado em relação aos delitos eleitorais, por ausência de justa causa, antes do oferecimento de denúncia. O inquérito apurava a suposta prática de falsidade ideológica eleitoral, apropriação de valores de financiamento eleitoral, corrupção passiva e ativa, e lavagem de capitais. O contexto fático envolve a alegação de que o agravante, enquanto Secretário de Transportes do Rio de Janeiro, teria recebido propina da Odebrecht, no valor de R$ 4 milhões, para suposto uso não declarado nas campanhas eleitorais de 2010 e 2014. A resolução do caso, portanto, não reside apenas na aplicação de precedentes, mas na definição do ratio decidendi que motivou o arquivamento original, o que, por sua vez, determina se a competência da Justiça Eleitoral cessou ou se a investigação como um todo foi viciada.
+
+2.3 Fundamentação Normativa e Jurisprudencial
+
+Os votos proferidos invocaram um robusto arcabouço normativo e jurisprudencial para sustentar as teses contrapostas.
+
+2.3.1 Dispositivos Legais e Súmulas
+
+* Código de Processo Penal (CPP): O artigo 81, que trata do princípio da perpetuatio jurisdictionis (perpetuação da jurisdição), foi central no debate. A Ministra Relatora argumentou que sua aplicação pressupõe a instauração da ação penal, o que não ocorreu no caso.
+* Regimento Interno do STF: O artigo 231 foi citado pelo Ministro Floriano de Azevedo Marques para justificar que o relator deve determinar o arquivamento de inquérito quando descumpridos os prazos para sua instrução.
+* Súmulas: A Ministra Relatora mencionou a Súmula nº 283 do STF e a Súmula 23 do TSE ao afastar preliminares processuais levantadas pela defesa.
+
+2.3.2 Precedentes Citados (Jurisprudência)
+
+A divergência jurisprudencial materializou-se na interpretação antagônica dos mesmos precedentes do Supremo Tribunal Federal (STF) e do próprio TSE.
+
+Tribunal	Processo	Relator(a)	Tese Principal Invocada
+STF	Inquérito 44315	Min. Marco Aurélio	Reitera a competência da Justiça Eleitoral para julgar crimes eleitorais e os comuns conexos. (Citado pela Relatora).
+TSE	Número não citado na sessão	Min. Mauro Campbell	Inexistência de prorrogação de competência para delitos comuns quando o inquérito eleitoral é arquivado por falta de justa causa. (Citado pela Relatora).
+TSE	Agravo Interno (Número não citado na sessão)	Rel. p/ Acórdão Min. Raul Araújo	Caso em que o trancamento integral do inquérito foi correto, pois os crimes (corrupção eleitoral e lavagem) estavam intrinsecamente ligados. (Usado pela Relatora para distinguishing).
+STF	Inquérito 4401	Min. Dias Toffoli	O STF pode arquivar inquérito por excesso de prazo, mesmo após cessada a sua competência, para evitar constrangimento ilegal. (Citado pelo Min. Floriano).
+STF	Inquérito 4393	Min. Gilmar Mendes	O STF, antes de declinar a competência, deve analisar a legitimidade da continuidade das investigações, especialmente em casos de excesso de prazo. (Citado pelo Min. Floriano).
+STF	AP 937	(Questão de Ordem)	O julgador deve atuar como agente de direitos fundamentais na fase de investigação, o que inclui a análise sobre a continuidade da persecução penal. (Citado pelo Min. Floriano).
+STF	Petição 11772	Min. Dias Toffoli	Reconheceu a nulidade de provas, mas ressalvou a possibilidade de existirem outras fontes independentes para subsidiar uma denúncia por crime comum. (Citado pela Relatora).
+
+2.4 Raciocínio Jurídico Desenvolvido (Análise dos Votos)
+
+Os votos proferidos representam duas abordagens distintas sobre o controle judicial na fase de inquérito, cuja divergência se origina de interpretações conflitantes sobre a real causa jurídica do arquivamento parcial da investigação nas instâncias ordinárias.
+
+2.4.1 Voto da Ministra Relatora (Isabel Gallotti)
+
+* Premissa Central: A competência atrativa da Justiça Eleitoral cessa se, na fase de inquérito e antes do oferecimento de denúncia, a investigação quanto ao crime eleitoral for arquivada por ausência de justa causa.
+* Desenvolvimento: A Ministra ancorou sua argumentação na decisão do juízo da 16ª Zona Eleitoral, que arquivou a parte eleitoral do inquérito por não haver elementos mínimos que comprovassem o uso de recursos ilícitos na campanha de 2014. Com base nisso, defendeu a inaplicabilidade da regra da perpetuatio jurisdictionis (art. 81 do CPP) antes de instaurada a ação penal. Portanto, com a cessação da competência eleitoral, a apuração dos crimes comuns remanescentes (corrupção, lavagem, etc.) deve retornar ao seu juízo natural, a Justiça Federal comum.
+* Distinção de Precedentes (Distinguishing): A relatora diferenciou os precedentes invocados pelo voto divergente, argumentando que os casos julgados pelo STF envolviam a competência ampla da Suprema Corte sobre todas as justiças, permitindo o arquivamento integral. Ademais, destacou que outros precedentes se referiam a ações penais já em curso, o que não era o caso dos autos.
+* Conclusão do Voto: A Ministra votou por negar provimento ao agravo interno, mantendo a decisão monocrática que determinou a remessa da investigação dos crimes comuns para a Justiça Federal.
+
+2.4.2 Voto Divergente (Ministro Floriano de Azevedo Marques)
+
+* Premissa Central: A premissa central do voto divergente foi de que o fundamento determinante para o arquivamento não foi a ausência de justa causa, mas sim o excesso de prazo para a conclusão das investigações, um prazo de 1 ano que o Ministro inicialmente atribuiu a uma decisão do Supremo Tribunal Federal.
+* Desenvolvimento: O Ministro defendeu que o excesso de prazo constitui um vício de natureza indivisível, que contamina a integralidade do procedimento investigatório (tanto os crimes eleitorais quanto os comuns). Sua tese, focada exclusivamente na decisão posterior do TRE-RJ que impôs o referido prazo, sustenta que seria ilógico cindir os efeitos dessa ilegalidade. Para corroborar seu raciocínio, invocou os Inquéritos 4401 e 4393 do STF, nos quais a Suprema Corte, diante de excesso de prazo, optou por arquivar integralmente as apurações em vez de declinar a competência.
+* Método de Raciocínio: O Ministro aplicou o distinguishing em relação à jurisprudência sobre arquivamento por falta de justa causa, asseverando que o excesso de prazo é uma ilegalidade com consequências distintas, que impõe o trancamento de toda a persecução penal na fase em que se encontra.
+* Conclusão do Voto: O Ministro votou por dar provimento ao agravo regimental, para manter a decisão do TRE-RJ que arquivou o inquérito em sua totalidade.
+
+2.5 Pontos Processuais Relevantes da Sessão
+
+Durante o julgamento, ocorreram as seguintes intervenções e eventos processuais:
+
+1. Esclarecimento Fático: A Ministra Relatora corrigiu a premissa fática do voto divergente, esclarecendo que o prazo de 1 ano para a conclusão da investigação foi fixado pelo TRE-RJ, e não pelo Supremo Tribunal Federal.
+2. Intervenção da Defesa: O advogado, Dr. Francisco Agosti, levantou uma questão de fato, informando que a decisão do TRE-RJ que fixou o prazo de 1 ano para a investigação de todos os crimes (comuns e conexos) transitou em julgado, sem recurso do Ministério Público.
+3. Pedido de Vista: O Ministro Kassio Nunes Marques, que precisou se ausentar momentaneamente para recepcionar o Ministro da Justiça, antecipou seu pedido de vista do processo.
+4. Suspensão do Julgamento: Os Ministros André Mendonça, Antonio Carlos Ferreira e André Ramos Tavares manifestaram que aguardariam o voto-vista antes de proferirem seus votos.
+
+2.6 Efeitos e Providências Práticas
+
+O resultado provisório do julgamento gera implicações diretas sobre o futuro da investigação.
+
+* Proclamação do Resultado: A Presidente proclamou o resultado provisório: após o voto da relatora negando provimento e o voto divergente do Ministro Floriano de Azevedo Marques dando provimento, o julgamento foi suspenso pelo pedido de vista do Ministro Nunes Marques.
+* Cenários Futuros: A conclusão do julgamento definirá o destino do inquérito, com dois cenários possíveis:
+  1. Prevalência da tese da Relatora: O inquérito será cindido, com a investigação dos crimes comuns prosseguindo na Justiça Federal.
+  2. Prevalência da tese divergente: O inquérito será arquivado em sua totalidade, encerrando a persecução penal contra o investigado em todas as esferas.
+
+Com o julgamento suspenso e o destino do inquérito pendente do voto-vista, a pauta deliberativa da sessão foi exaurida, passando-se às comunicações de encerramento.
+
+3.0 Conclusão da Sessão
+
+Ao final dos debates, a Presidente da Corte informou a retirada de pauta dos Embargos de Declaração na Prestação de Contas nº 0600953-8 e de um processo da lista do Ministro Kassio Nunes Marques. Não havendo mais processos a serem julgados, a sessão foi formalmente encerrada. A Presidente convidou os presentes a acompanharem a cerimônia de assinatura da portaria com o Ministério da Justiça e, na sequência, a posse do Ministro Antonio Carlos Ferreira como membro efetivo do Tribunal.

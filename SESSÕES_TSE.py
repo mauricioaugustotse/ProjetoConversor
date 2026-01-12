@@ -8,7 +8,7 @@ utilizando a API da OpenAI para extrair dados de forma estruturada.
   o progresso com mensagens simples. Use --quiet para reduzir os logs e --debug
   para ver detalhes técnicos.
 - PROMPTS REFINADOS: As instruções para a IA foram melhoradas para aumentar a
-  precisão e o preenchimento correto dos campos do JSON.
+  precisão e o preenchimento corr   eto dos campos do JSON.
 - MODELO ATUALIZADO: Utiliza o 'gpt-5-mini', um modelo mais moderno e eficiente
   para este tipo de tarefa.
 - ROBUSTEZ: Melhor tratamento de erros e retentativas de conexão com a API.
@@ -21,6 +21,7 @@ utilizando a API da OpenAI para extrair dados de forma estruturada.
    - Execução padrão (detalhada e amigável): python SESSÕES_TSE.py
    - Execução silenciosa: python SESSÕES_TSE.py --quiet
    - Execução técnica (com detalhes completos): python SESSÕES_TSE.py --debug
+   - Para reforçar "pedido_vista" via API quando o regex falhar: python SESSÕES_TSE.py --vista-api
    - Para informar arquivos direto no comando: python SESSÕES_TSE.py caminho\\arquivo1.txt caminho\\arquivo2.txt
 4. Se nenhum arquivo for informado, o Windows Explorer será aberto para seleção.
 5. Os arquivos CSV convertidos aparecerão na mesma pasta do .txt original, com o mesmo nome.
@@ -111,6 +112,7 @@ REGRAS IMPORTANTES:
     - `composicao`, `relator` e `pedido_vista`: sempre use o prefixo `Min.` antes do nome.
 8.  **RACIOCÍNIO JURÍDICO DETALHADO**: Explique claramente a tese vencedora, a tese divergente (se houver), e indique ministros vencedores e vencidos quando o texto citar. Se a decisão for unânime, deixe isso explícito.
 9.  **ADVOGADOS**: Sempre prefixe os nomes com `Dr.` (masculino) ou `Dra.` (feminino).
+10. **MINISTÉRIO PÚBLICO ELEITORAL (MPE)**: Quando houver menção ao Ministério Público Eleitoral, use a sigla `MPE`. Não liste representante/procurador do MPE em `advogados` nem em `composicao`, e não inclua MPE em `partes`.
 """
 
 # Esquema que define a estrutura dos dados a serem extraídos.
@@ -131,7 +133,7 @@ JSON_SCHEMA = {
             "relator": "string (o nome do relator ou relatora da decisão. Sempre usar 'Min.' antes do nome)",
             "tipo_registro": "string (ex: 'Julgamento 1' | 'Julgamento 2' | 'Julgamento 3'",
             "analise_do_conteudo_juridico": "string (resumo robusto do contexto fático julgado e do tema eleitoral)",
-            "tema": "string (o título principal que resume o assunto tratado em até 20 palavras)",
+            "tema": "string (resume o assunto tratado em até 20 palavras)",
             "punchline": "string (Crie uma frase de efeito, curta e de alto impacto, resumindo o julgado.)",
             "resoluções_citadas": "string (resoluções do TSE citadas, separadas por ', ' com número, ano e artigo.",
             "fundamentacao_normativa": "string (principais artigos, leis e súmulas citados, separados por ', '",
@@ -214,6 +216,15 @@ JSON_OUTPUT_SCHEMA = {
     "additionalProperties": False,
 }
 
+VISTA_OUTPUT_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "pedido_vista": {"type": "string"},
+    },
+    "required": ["pedido_vista"],
+    "additionalProperties": False,
+}
+
 CSV_COLUMN_ORDER = [
     "data_sessao",
     "TRE",
@@ -242,6 +253,10 @@ CSV_COLUMN_ORDER = [
 SHOW_TECHNICAL_LOGS = False
 
 CLASSE_PROCESSO_MAP = [
+    (r"embargos de declar[aã]c[aã]o", "EDcl"),
+    (r"recurso ordin[aá]rio", "RO"),
+    (r"processo administrativo", "PA"),
+    (r"lista tr[ií]plice", "LT"),
     (r"agravo regimental no agravo em recurso especial eleitoral", "AgRg-AREspe"),
     (r"agravo regimental no recurso especial eleitoral", "AgRg-REspe"),
     (r"agravo em recurso especial eleitoral", "AREspe"),
@@ -250,7 +265,70 @@ CLASSE_PROCESSO_MAP = [
 ]
 
 CNJ_REGEX = r"\b\d{6,7}-\d{2}\.\d{4}\.\d\.\d{2}\.\d{4}\b"
-SHORT_PROCESSO_REGEX = r"\b\d{6,7}-\d{2}\b"
+SHORT_PROCESSO_REGEX = r"\b\d{3,7}-\d{2}\b"
+LABELED_PROCESSO_REGEX = r"(?i)\bn(?:[º°]|\.)\s*(\d{3,7})\b"
+MINISTRO_NAME_PART = (
+    r"(?:[A-ZÁÉÍÓÚÂÊÔÃÕÀÜÇ][A-Za-zÁÉÍÓÚÂÊÔÃÕÀÜÇáéíóúâêôãõàüç'\-]+"
+    r"|de|da|do|dos|das|e|d'|di|del|la|le|van|von)"
+)
+MINISTRO_NAME_REGEX = re.compile(
+    rf"\b(?:(?i:Min\.)|(?i:Ministra)|(?i:Ministro))\s+{MINISTRO_NAME_PART}(?:\s+{MINISTRO_NAME_PART}){{0,6}}"
+)
+EMPTY_ADVOGADOS_REGEX = re.compile(
+    r"(?i)\b("
+    r"n[ãa]o\s+(?:citad\w*|mencionad\w*|informad\w*|consta\w*|houve|h[áa]|aplic[aá]vel)"
+    r"|sem\s+sustenta[cç][aã]o"
+    r"|sem\s+advogad\w*"
+    r"|n/?a"
+    r")\b"
+)
+MPE_REFERENCE_REGEX = re.compile(
+    r"(?i)\bminist[ée]rio\s+p[úu]blico\s+eleitoral\b"
+)
+MINISTERIO_PUBLICO_REGEX = re.compile(
+    r"(?i)\bminist[ée]rio\s+p[úu]blico\b"
+)
+MPE_ABBREV_REGEX = re.compile(
+    r"(?i)\bmp\s*eleitoral\b|\bm\.?\s*p\.?\s*e\.?\b|\bmpe\b"
+)
+MPE_REPRESENTATIVE_REGEX = re.compile(
+    r"(?i)\b(vice-?procurador(?:-geral)?\s+eleitoral|"
+    r"procurador(?:-geral)?(?:\s+regional)?\s+eleitoral|"
+    r"procuradoria\s+geral\s+eleitoral|pge)\b"
+)
+PROCURADOR_GENERIC_REGEX = re.compile(
+    r"(?i)\b(vice-?procurador(?:-geral)?|procurador(?:-geral)?|procuradoria)\b"
+)
+
+def is_mpe_noise_entry(text: str) -> bool:
+    if not text:
+        return False
+    return bool(
+        MPE_REFERENCE_REGEX.search(text)
+        or MPE_ABBREV_REGEX.search(text)
+        or MPE_REPRESENTATIVE_REGEX.search(text)
+        or MINISTERIO_PUBLICO_REGEX.search(text)
+        or PROCURADOR_GENERIC_REGEX.search(text)
+    )
+
+def normalize_mpe_reference(value: str) -> str:
+    if not value:
+        return ""
+    value = re.sub(MPE_REFERENCE_REGEX, "MPE", value)
+    value = re.sub(MPE_ABBREV_REGEX, "MPE", value)
+    return value
+
+def remove_mpe_from_partes(value: str) -> str:
+    if not value:
+        return ""
+    normalized = normalize_mpe_reference(value)
+    parts = [part.strip() for part in re.split(r"\s*,\s*|\s*;\s*", normalized) if part.strip()]
+    cleaned = []
+    for part in parts:
+        if part == "MPE" or is_mpe_noise_entry(part):
+            continue
+        cleaned.append(part)
+    return ", ".join(dedupe_preserve_order(cleaned))
 
 STATE_UF = {
     "acre": "AC",
@@ -355,6 +433,10 @@ def extract_short_processo(text: str) -> str:
     match = re.search(SHORT_PROCESSO_REGEX, text)
     return match.group(0) if match else ""
 
+def extract_labeled_short_processo(text: str) -> str:
+    match = re.search(LABELED_PROCESSO_REGEX, text)
+    return match.group(1) if match else ""
+
 def clean_label_value(value: str) -> str:
     value = value.replace("**", "").strip()
     value = re.sub(r"^\*+\s*", "", value).strip()
@@ -386,9 +468,18 @@ def infer_advogado_prefix(name: str, label_hint: str = "") -> str:
         return "Dra."
     return "Dr."
 
+def is_empty_advogados_value(value: str) -> bool:
+    if not value:
+        return True
+    return bool(EMPTY_ADVOGADOS_REGEX.search(value))
+
 def normalize_advogado_name(name: str, label_hint: str = "") -> str:
     name = name.strip()
     if not name:
+        return ""
+    if is_mpe_noise_entry(name):
+        return ""
+    if is_empty_advogados_value(name):
         return ""
     suffix = ""
     if "(" in name:
@@ -397,6 +488,8 @@ def normalize_advogado_name(name: str, label_hint: str = "") -> str:
         suffix = " (" + extra.strip()
     name = name.rstrip(".;:,").strip()
     if not name:
+        return ""
+    if is_empty_advogados_value(name):
         return ""
     prefix = ""
     if re.match(r"(?i)^dra\.?\s+", name):
@@ -426,7 +519,7 @@ def normalize_advogado_name(name: str, label_hint: str = "") -> str:
 def normalize_advogados_list(value: str, label_hint: str = "") -> str:
     if not value:
         return ""
-    if re.search(r"não\s+mencionad|não\s+há|não\s+informad", value, flags=re.IGNORECASE):
+    if is_empty_advogados_value(value) and not re.search(r"(?i)[,;]|\bdr\.|\bdra\.|\be\b", value):
         return ""
     text = normalize_text(value)
     parts = split_advogados_entries(text)
@@ -434,6 +527,10 @@ def normalize_advogados_list(value: str, label_hint: str = "") -> str:
     for part in parts:
         part = re.sub(r"(?i)^(advogad[oa]s?|defensor[oa]s?)\s*:?\s*", "", part).strip()
         if not part:
+            continue
+        if is_mpe_noise_entry(part):
+            continue
+        if is_empty_advogados_value(part):
             continue
         normalized_name = normalize_advogado_name(part, label_hint)
         if normalized_name:
@@ -485,7 +582,10 @@ def extract_process_numbers_from_line(line: str) -> List[str]:
     if fulls:
         return dedupe_preserve_order(fulls)
     shorts = re.findall(SHORT_PROCESSO_REGEX, line)
-    return dedupe_preserve_order(shorts)
+    if shorts:
+        return dedupe_preserve_order(shorts)
+    labeled = re.findall(LABELED_PROCESSO_REGEX, line)
+    return dedupe_preserve_order(labeled)
 
 def extract_ministro_names_from_line(line: str) -> List[str]:
     line = normalize_text(line).strip()
@@ -516,8 +616,8 @@ def extract_ministro_names_from_line(line: str) -> List[str]:
         r"presid[êe]ncia(?:\s*\(.*?\))?|"
         r"presidente(?:\s+da\s+sess[aã]o|\s+do\s+julgamento)?|"
         r"vice-?presidente|"
-        r"ministro\s+substituto|"
-        r"ministra\s+substituta|"
+        r"ministros?\s+substitutos?(?:\s+mencionados?)?|"
+        r"ministras?\s+substitutas?(?:\s+mencionadas?)?|"
         r"aus[eê]nci\w*|"
         r"ausent\w*)"
     )
@@ -526,12 +626,14 @@ def extract_ministro_names_from_line(line: str) -> List[str]:
         if not part:
             continue
         part = re.sub(rf"(?i)^{label_prefix}\s*:?\s*", "", part).strip()
-        part = part.lstrip(":- ").strip()
+        part = part.lstrip(":-*• ").strip()
         part = re.sub(r"\s*\(.*?\)\s*", "", part).strip()
-        part = part.lstrip(":- ").strip()
+        part = part.lstrip(":-*• ").strip()
         if not part:
             continue
         lower = part.lower()
+        if is_mpe_noise_entry(part):
+            continue
         if "composi" in lower and ("completa" in lower or "mesma" in lower or "vide item" in lower):
             continue
         if "presidente da república" in lower or "presidente da republica" in lower:
@@ -653,7 +755,10 @@ def extract_process_numbers_from_value(value: str) -> List[str]:
     if fulls:
         return dedupe_preserve_order(fulls)
     shorts = re.findall(SHORT_PROCESSO_REGEX, value)
-    return dedupe_preserve_order(shorts)
+    if shorts:
+        return dedupe_preserve_order(shorts)
+    labeled = re.findall(LABELED_PROCESSO_REGEX, value)
+    return dedupe_preserve_order(labeled)
 
 def extract_process_numbers_from_items(items: List[Dict[str, Any]]) -> Tuple[List[str], bool]:
     numbers = []
@@ -790,11 +895,11 @@ def normalize_youtube_link(value: str) -> str:
 
 def find_label_value(text: str, labels: List[str]) -> str:
     for label in labels:
-        pattern = rf"(?im)^\s*[*-]?\s*\*{{0,2}}{re.escape(label)}\*{{0,2}}\s*:\s*([^\n]+)"
+        pattern = rf"(?im)^\s*[*-]?\s*\*{{0,2}}{re.escape(label)}\*{{0,2}}\s*(?:[:\t]| {{2,}})\s*([^\n]+)"
         match = re.search(pattern, text, flags=re.IGNORECASE)
         if match:
             return clean_label_value(match.group(1))
-        pattern = rf"{re.escape(label)}\s*:\s*([^\n]+)"
+        pattern = rf"{re.escape(label)}\s*(?:[:\t]| {{2,}})\s*([^\n]+)"
         match = re.search(pattern, text, flags=re.IGNORECASE)
         if match:
             return clean_label_value(match.group(1))
@@ -836,7 +941,12 @@ def normalize_tre(value: str, uf: str) -> str:
     return value
 
 def normalize_ministro_name(name: str) -> str:
+    name = re.sub(r"\[\[.*?\]\]", "", name).strip()
+    name = re.sub(r"\[[^\]]+\]\([^)]+\)", "", name).strip()
+    name = name.replace("*", "")
     name = re.sub(r"\s*\(.*?\)\s*", "", name).strip()
+    name = re.sub(r"[\[\]]", "", name).strip()
+    name = name.replace("(", "").replace(")", "").strip()
     name = name.rstrip(".;:,").strip()
     if not name:
         return ""
@@ -848,6 +958,33 @@ def normalize_ministro_name(name: str) -> str:
         name = f"Min. {name}"
     return name
 
+def normalize_pedido_vista_name(value: str) -> str:
+    name = normalize_ministro_name(value)
+    name = re.sub(r"^Min\.\s+(?:Presidente|Vice-Presidente)\s+", "Min. ", name)
+    if name in {"Min. Presidente", "Min. Relator", "Min. Relatora", "Min. Ministra", "Min. Ministro"}:
+        return ""
+    return name
+
+def extract_first_ministro_name(text: str) -> str:
+    if not text:
+        return ""
+    cleaned = normalize_text(text)
+    cleaned = re.sub(r"\[\[.*?\]\]", "", cleaned)
+    cleaned = re.sub(r"\[[^\]]+\]\([^)]+\)", "", cleaned)
+    cleaned = cleaned.replace("*", "")
+    match = MINISTRO_NAME_REGEX.search(cleaned)
+    if match:
+        return normalize_pedido_vista_name(match.group(0))
+    return ""
+
+def normalize_pedido_vista_value(value: str) -> str:
+    if not value:
+        return ""
+    name = extract_first_ministro_name(value)
+    if name:
+        return name
+    return normalize_pedido_vista_name(value)
+
 def normalize_composicao(value: str) -> str:
     if not value:
         return ""
@@ -856,11 +993,65 @@ def normalize_composicao(value: str) -> str:
     normalized = []
     seen = set()
     for part in parts:
+        if is_mpe_noise_entry(part):
+            continue
         name = normalize_ministro_name(part)
         if name and name not in seen:
             seen.add(name)
             normalized.append(name)
     return ", ".join(normalized)
+
+def parse_composicao_labeled_value(value: str) -> str:
+    if not value:
+        return ""
+    value = normalize_text(value)
+    label_pattern = (
+        r"(?:presidente|vice-?presidente|ministros?\s+titulares|ministros?\s+presentes?|"
+        r"ministros?\s+que\s+comp[oó]em\s+a\s+sess[aã]o|ministra\s+substituta|ministros?\s+substitutos?)"
+    )
+    skip_pattern = r"(?i)procurador|minist[ée]rio p[úu]blico|pge|mpe|mp\s*eleitoral"
+    segments = [seg.strip() for seg in re.split(r"\s*;\s*", value) if seg.strip()]
+    names = []
+    for segment in segments:
+        segment = re.sub(rf"(?i)^{label_pattern}\s*:\s*", "", segment).strip()
+        if not segment:
+            continue
+        if re.search(skip_pattern, segment):
+            continue
+        segment = re.sub(r"\s+e\s+", ", ", segment)
+        for part in [p.strip() for p in segment.split(",") if p.strip()]:
+            if re.search(skip_pattern, part):
+                continue
+            if re.search(r"(?i)\bdr[a]?\.\b", part):
+                continue
+            name = normalize_ministro_name(part)
+            if name:
+                names.append(name)
+    return ", ".join(dedupe_preserve_order(names))
+
+def is_valid_composicao(value: str) -> bool:
+    if not value:
+        return False
+    if re.search(r"(?i)composi[cç][aã]o completa|vide item|mesma compos", value):
+        return False
+    matches = [m.group(0) for m in MINISTRO_NAME_REGEX.finditer(value)]
+    if not matches:
+        return False
+    noise = re.compile(
+        r"(?i)\b(advogad|relator|jurisprud|resolu|legisla|fundamenta|an[aá]lise|"
+        r"pontos?|processo|partes?|origem|elei[cç][aã]o|classe|proced[eê]ncia|"
+        r"resultado|efeitos?|conclus[aã]o|procurador|pge|mpe|mp\s*eleitoral|minist[ée]rio)\b"
+    )
+    valid = []
+    for raw in matches:
+        name = normalize_ministro_name(raw)
+        base = re.sub(r"^Min\.\s+", "", name, flags=re.IGNORECASE).strip()
+        if not base:
+            continue
+        if noise.search(base):
+            continue
+        valid.append(name)
+    return len(valid) >= 2
 
 def parse_composicao(text: str, base_composicao: str) -> str:
     value = find_label_value(
@@ -876,6 +1067,7 @@ def parse_composicao(text: str, base_composicao: str) -> str:
             "Composição da Corte na sessão",
             "Composição da Corte na sessao",
             "Composição da Corte",
+            "Composicao do Plenario",
         ]
     )
     if not value:
@@ -883,6 +1075,10 @@ def parse_composicao(text: str, base_composicao: str) -> str:
         return extracted or base_composicao
     if re.search(r"composi[cç][aã]o completa|vide item anterior|mesma compos", value, flags=re.IGNORECASE):
         return base_composicao
+    if re.search(r"(?i)(presidente|vice-?presidente|ministros?\s+titulares|ministra\s+substituta)\s*:", value):
+        labeled = parse_composicao_labeled_value(value)
+        if labeled:
+            return labeled
     normalized = normalize_composicao(value)
     if base_composicao and normalized and len(normalized.split(", ")) < 2:
         return base_composicao
@@ -896,8 +1092,8 @@ def extract_advogados_block(text: str) -> Tuple[str, str]:
     lines = text.splitlines()
     for index, line in enumerate(lines):
         match = re.search(
-            r"(?im)^\s*[*-]?\s*\*{0,2}\d*\.?\)?\s*(Advogados?|Advogada)\*{0,2}"
-            r"(?:\s*\([^)]*\))?\s*:\s*(.*)$",
+            r"(?im)^\s*[*-]?\s*\*{0,2}\d*\.?\)?\s*(Advogados?|Advogada)"
+            r"(?:\s+[^:]+)?\*{0,2}(?:\s*\([^)]*\))?\s*:\s*(.*)$",
             line
         )
         if not match:
@@ -936,6 +1132,29 @@ def extract_partes(text: str) -> str:
     base = find_label_value(text, ["Nome das partes/interessados", "Nome das partes", "Partes"])
     if base:
         parties.append(base)
+    extra_labels = [
+        "Recorrentes",
+        "Recorrente",
+        "Recorridos",
+        "Recorrido",
+        "Recorrida",
+        "Agravantes/Recorrentes",
+        "Agravados/Recorridos",
+        "Agravantes",
+        "Agravados",
+        "Embargante",
+        "Embargantes",
+        "Embargado",
+        "Embargados",
+        "Interessado",
+        "Interessados",
+        "Indicados",
+        "Indicado",
+    ]
+    for label in extra_labels:
+        value = find_label_value(text, [label])
+        if value:
+            parties.append(value)
     for match in re.finditer(
         r"(?im)^\s*\*?\s*\*\*(?:Parties|Partes)[^:]*\*\*\s*:\s*(.+)$",
         text
@@ -946,10 +1165,11 @@ def extract_partes(text: str) -> str:
     unique = []
     seen = set()
     for party in parties:
-        if party not in seen:
-            seen.add(party)
-            unique.append(party)
-    return ", ".join(unique)
+        normalized = normalize_mpe_reference(party)
+        if normalized and normalized not in seen:
+            seen.add(normalized)
+            unique.append(normalized)
+    return remove_mpe_from_partes(", ".join(unique))
 
 def parse_eleicao(text: str) -> str:
     value = find_label_value(text, ["Eleição a que se refere", "Eleição"])
@@ -963,7 +1183,7 @@ def parse_eleicao(text: str) -> str:
 def extract_section_block(text: str, titles: List[str]) -> str:
     for title in titles:
         pattern = re.compile(
-            rf"(?im)^\s*(?:#{{1,4}}\s*)?\*{{0,2}}(?:\d+(?:\.\d+)*\.)?\s*{re.escape(title)}\*{{0,2}}:?\s*$",
+            rf"(?im)^\s*(?:#{{1,4}}\s*)?\*{{0,2}}(?:\d+(?:\.\d+)*\.)?\s*{re.escape(title)}\*{{0,2}}(?:\s*:\s*.*|\s+.*)?\s*$",
             flags=re.IGNORECASE | re.MULTILINE
         )
         match = pattern.search(text)
@@ -1019,8 +1239,30 @@ def parse_origem(text: str) -> str:
         return f"{city}/{uf}"
     return city
 
+def normalize_origem_value(value: str) -> str:
+    if not value:
+        return ""
+    value = normalize_text(value).strip().rstrip(".")
+    if re.match(r"^.+\([^)]+\)\s*$", value):
+        uf = extract_uf_from_text(value)
+        city = re.sub(r"\s*\([^)]+\)\s*$", "", value).strip()
+        if city and uf:
+            return f"{city}/{uf}"
+    match = re.match(r"^(.*?)\s*/\s*([A-Za-z]{2})$", value)
+    if match:
+        return f"{match.group(1).strip()}/{match.group(2).upper()}"
+    match = re.match(r"^(.*?)\s*[-–—]\s*([A-Za-z]{2})$", value)
+    if match:
+        return f"{match.group(1).strip()}/{match.group(2).upper()}"
+    return value
+
 def extract_processo_e_classe(text: str) -> Dict[str, str]:
     result = {"numero_processo": "", "classe_processo": ""}
+    header_line = ""
+    for raw_line in text.splitlines():
+        if raw_line.strip():
+            header_line = raw_line
+            break
     line = find_label_value(text, ["Processo", "Processos"])
     if line:
         line = normalize_text(line)
@@ -1032,11 +1274,24 @@ def extract_processo_e_classe(text: str) -> Dict[str, str]:
             short_num = extract_short_processo(line)
             if short_num:
                 result["numero_processo"] = short_num
+            if not result["numero_processo"]:
+                labeled_num = extract_labeled_short_processo(line)
+                if labeled_num:
+                    result["numero_processo"] = labeled_num
         splitter = re.compile(r"\bn[ºo°]\.?\b", flags=re.IGNORECASE)
         parts = splitter.split(line, maxsplit=1)
         result["classe_processo"] = parts[0].strip()
     else:
         result["numero_processo"] = extract_full_cnj(text) or extract_short_processo(text)
+        if not result["numero_processo"] and header_line:
+            result["numero_processo"] = extract_labeled_short_processo(header_line)
+    if not result["classe_processo"]:
+        tipo_value = find_label_value(
+            text,
+            ["Tipo", "Classe", "Classe do Processo", "Classe/Número", "Classe/Numero"]
+        )
+        if tipo_value:
+            result["classe_processo"] = tipo_value
     return result
 
 def normalize_classe_processo(value: str) -> str:
@@ -1109,13 +1364,116 @@ def extract_resultado_votacao(text: str) -> Dict[str, str]:
 
     return {"resultado_final": resultado, "votacao": votacao}
 
+VISTA_REQUEST_REGEX = re.compile(
+    r"(?i)\b(pedido\s+de\s+vista|pediu\s+vista|pede\s+vista|"
+    r"solicitou\s+vista|vista\s+regimental)\b"
+)
+NEGATED_VISTA_REGEX = re.compile(
+    r"(?i)\b("
+    r"n[aã]o\s+houve|n[aã]o\s+h[aá]|n[aã]o\s+ha|n[aã]o\s+se\s+pediu|"
+    r"n[aã]o\s+foi\s+solicitad[ao]|sem|aus[eê]ncia\s+de|"
+    r"inexist[eê]ncia\s+de|inexistiu|dispensad[ao]|desnecess[aá]ri[ao]"
+    r")\s+(?:pedido\s+de\s+)?vista\b"
+)
+
+def line_has_negated_vista(line: str) -> bool:
+    if not line:
+        return False
+    if re.search(r"(?i)\bvista\s+dos?\s+memoriais\b", line):
+        return True
+    return bool(NEGATED_VISTA_REGEX.search(line))
+
+def has_pedido_vista_marker(text: str) -> bool:
+    if not text:
+        return False
+    for line in text.splitlines():
+        if not VISTA_REQUEST_REGEX.search(line):
+            continue
+        if line_has_negated_vista(line):
+            continue
+        return True
+    return False
+
 def extract_pedido_vista(text: str, relator: str) -> str:
-    if not re.search(r"pedido de vista|vista|retirou o processo|retirou de pauta", text, flags=re.IGNORECASE):
+    def find_ministro_name(value: str) -> str:
+        cleaned = normalize_text(value)
+        cleaned = re.sub(r"\[\[.*?\]\]", "", cleaned)
+        cleaned = re.sub(r"\[[^\]]+\]\([^)]+\)", "", cleaned)
+        cleaned = cleaned.replace("*", "")
+        match = MINISTRO_NAME_REGEX.search(cleaned)
+        if match:
+            return normalize_pedido_vista_name(match.group(0))
+        alt_match = re.search(
+            rf"(?i:\b(?:pedido\s+de\s+vista|pediu\s+vista|pede\s+vista|solicitou\s+vista|vista\s+regimental)\s+)"
+            rf"(?:do|da|de)?\s*({MINISTRO_NAME_PART}(?:\s+{MINISTRO_NAME_PART}){{0,6}})",
+            cleaned,
+        )
+        if alt_match:
+            return normalize_pedido_vista_name(alt_match.group(1))
         return ""
-    match = re.search(r"(Min\.\s+[A-ZÁÉÍÓÚÂÊÔÃÕÇ][^,.;\n]+)", text)
-    if match:
-        return match.group(1).strip()
-    return relator
+
+    lines = text.splitlines()
+    for idx, line in enumerate(lines):
+        if not VISTA_REQUEST_REGEX.search(line):
+            continue
+        if line_has_negated_vista(line):
+            continue
+        name = find_ministro_name(line)
+        if not name and idx + 1 < len(lines):
+            name = find_ministro_name(lines[idx + 1])
+        if name:
+            return name
+    return ""
+
+def extract_pedido_vista_via_api(section_text: str, model: str, max_retries: int = 2) -> str:
+    prompt = (
+        "Extraia APENAS o nome do ministro que pediu vista do processo (ou cujo pedido de vista anterior "
+        "tenha sido mencionado). Se não houver menção clara de pedido de vista, retorne string vazia.\n"
+        "Regras:\n"
+        "- Retorne SOMENTE o nome do ministro no formato 'Min. Nome Sobrenome'.\n"
+        "- Se houver mais de um nome, retorne apenas o ministro que efetivamente pediu vista.\n"
+        "- Ignore expressões não relacionadas (ex.: 'vista dos memoriais', 'revista', etc.).\n"
+        "Responda com JSON estrito no esquema fornecido.\n\n"
+        "TEXTO:\n---\n"
+        f"{section_text}\n"
+        "---"
+    )
+
+    for attempt in range(max_retries):
+        try:
+            logging.info("Solicitando pedido_vista via API (tentativa %d/%d)...", attempt + 1, max_retries)
+            response = client.chat.completions.create(
+                model=model,
+                messages=[
+                    {"role": "system", "content": "Você extrai apenas o pedido de vista do texto."},
+                    {"role": "user", "content": prompt},
+                ],
+                response_format={
+                    "type": "json_schema",
+                    "json_schema": {
+                        "name": "pedido_vista_extractor",
+                        "schema": VISTA_OUTPUT_SCHEMA,
+                        "strict": True,
+                    },
+                },
+            )
+            content = response.choices[0].message.content
+            if SHOW_TECHNICAL_LOGS:
+                logging.debug("Resposta pedido_vista (JSON): %s", content)
+            parsed = json.loads(content)
+            value = parsed.get("pedido_vista", "")
+            return normalize_pedido_vista_value(value)
+        except Exception as e:
+            logging.warning(
+                "Falha ao extrair pedido_vista via API (tentativa %d/%d).",
+                attempt + 1,
+                max_retries,
+            )
+            if SHOW_TECHNICAL_LOGS:
+                logging.debug("Detalhes do erro: %s", e)
+            if attempt < max_retries - 1:
+                time.sleep(2 ** attempt)
+    return ""
 
 def merge_composicao_values(values: List[str]) -> str:
     names = []
@@ -1205,10 +1563,14 @@ def extract_composicao_candidates(
         if not label_type:
             continue
         inline_names = extract_ministro_names_from_line(line)
+        block_names = extract_composicao_block(lines, idx)
+        if inline_names and block_names:
+            combined = dedupe_preserve_order(inline_names + block_names)
+            candidates.append((combined, idx, label_type))
+            continue
         if inline_names:
             candidates.append((dedupe_preserve_order(inline_names), idx, label_type))
             continue
-        block_names = extract_composicao_block(lines, idx)
         if block_names:
             candidates.append((block_names, idx, label_type))
     return candidates
@@ -1326,9 +1688,19 @@ def extract_composicao_from_header(text: str) -> str:
 
 def extract_global_context(text: str) -> Dict[str, Any]:
     base = {}
-    base_date = find_label_value(text, ["Data da Sessão", "Data da sessão"])
+    base_date = find_label_value(
+        text,
+        ["Data da Sessão", "Data da sessão", "Data e Hora de Início", "Data e Hora de Inicio"]
+    )
     base["data_sessao"] = parse_date_from_text(base_date) or parse_date_from_text(text)
-    base["composicao"] = extract_composicao_from_header(text) or parse_composicao(text, "")
+    composicao_candidates = []
+    label_composicao = parse_composicao(text, "")
+    if label_composicao:
+        composicao_candidates.append(label_composicao)
+    header_composicao = extract_composicao_from_header(text)
+    if header_composicao:
+        composicao_candidates.append(header_composicao)
+    base["composicao"] = merge_composicao_values(composicao_candidates)
     first_youtube_link = extract_first_youtube_link(text)
     if first_youtube_link:
         base["youtube_link"] = first_youtube_link
@@ -1380,6 +1752,13 @@ def extract_raw_fields(section_text: str, base_context: Dict[str, Any]) -> Dict[
     processo_info = extract_processo_e_classe(section_text)
     raw.update(processo_info)
     raw["numero_processo"] = normalize_processo_num(raw.get("numero_processo", ""))
+    if not raw.get("classe_processo"):
+        tipo_value = find_label_value(
+            section_text,
+            ["Tipo", "Classe", "Classe do Processo", "Classe/Número", "Classe/Numero"]
+        )
+        if tipo_value:
+            raw["classe_processo"] = tipo_value
     raw["classe_processo"] = normalize_classe_processo(raw.get("classe_processo", ""))
 
     raw["eleicao"] = parse_eleicao(section_text)
@@ -1407,7 +1786,20 @@ def split_report_into_sections(text: str) -> List[str]:
     def section_has_process_marker(section: str) -> bool:
         if re.search(r"DADOS DO(?:S)? PROCESSO(?:S)?|DADOS DO CASO", section, flags=re.IGNORECASE):
             return True
+        if re.search(r"(?i)\bProposta de\s+(Resolu[cç][aã]o|altera[cç][aã]o)\b", section):
+            return True
         if re.search(r"(?im)^\s*\*{0,2}PROCESSOS?\b", section):
+            return True
+        if re.search(r"(?i)n[úu]mero do processo", section):
+            return True
+        header_line = ""
+        for raw_line in section.splitlines():
+            if raw_line.strip():
+                header_line = raw_line
+                break
+        if header_line and re.search(r"(?i)\bprocesso\b", header_line):
+            return True
+        if header_line and re.search(LABELED_PROCESSO_REGEX, header_line):
             return True
         if re.search(CNJ_REGEX, section) or re.search(SHORT_PROCESSO_REGEX, section):
             return True
@@ -1431,9 +1823,53 @@ def split_report_into_sections(text: str) -> List[str]:
                 section = section[:obs_match.start()].rstrip()
             if section_has_process_marker(section):
                 sections.append(section)
+        return sections
+
+    lines = text.splitlines()
+    start_indices = [
+        idx for idx, line in enumerate(lines)
+        if re.match(r"(?i)^\s*\d+\.\s+Julgamento\b", line)
+    ]
+    if not start_indices:
+        return []
+
+    roman_indices = [
+        idx for idx, line in enumerate(lines)
+        if re.match(r"(?i)^\s*[IVXLCDM]+\.\s+", line)
+    ]
+    separator_indices = [
+        idx for idx, line in enumerate(lines)
+        if re.match(r"^\s*[-–—]{4,}\s*$", line)
+    ]
+    boundary_indices = sorted(set(roman_indices + separator_indices + [len(lines)]))
+
+    def next_boundary(after_index: int) -> int:
+        for idx in boundary_indices:
+            if idx > after_index:
+                return idx
+        return len(lines)
+
+    for idx, start in enumerate(start_indices):
+        next_start = start_indices[idx + 1] if idx + 1 < len(start_indices) else None
+        end_candidates = [next_boundary(start)]
+        if next_start is not None:
+            end_candidates.append(next_start)
+        end_idx = min(end_candidates)
+        section = "\n".join(lines[start:end_idx]).strip()
+        obs_match = re.search(r"(?im)^\s*(?:\*\*)?OBSERVA", section)
+        if obs_match:
+            section = section[:obs_match.start()].rstrip()
+        if section_has_process_marker(section):
+            sections.append(section)
     return sections
 
 def extract_section_title(section_text: str) -> str:
+    match = re.search(r"(?m)^\s*\d+\.\s+(Julgamento\b.+)$", section_text, flags=re.IGNORECASE)
+    if match:
+        title = clean_label_value(match.group(1))
+        title = re.sub(r"^\s*\d+(?:\.\d+)*\s*[\)\.\-–—]*\s*", "", title)
+        title = title.strip()
+        return title or "Seção"
     match = re.search(r"(?m)^#{2,4}\s+\*{0,2}(.+?)\*{0,2}\s*$", section_text)
     if match:
         title = clean_label_value(match.group(1))
@@ -1472,7 +1908,10 @@ def normalize_processo_num(value: str) -> str:
     if full_cnj:
         return full_cnj
     short_num = extract_short_processo(value)
-    return short_num if short_num else value.strip()
+    if short_num:
+        return short_num
+    labeled_num = extract_labeled_short_processo(value)
+    return labeled_num if labeled_num else value.strip()
 
 def apply_item_fallbacks(
     item: Dict[str, Any],
@@ -1487,7 +1926,14 @@ def apply_item_fallbacks(
     if not item.get("youtube_link") and base_context.get("youtube_link"):
         item["youtube_link"] = base_context["youtube_link"]
 
+    if "partes" in item:
+        item["partes"] = remove_mpe_from_partes(item.get("partes", ""))
+
     item["tipo_registro"] = f"Julgamento {registro_index}"
+
+    if raw_fields.get("composicao") or base_context.get("composicao"):
+        if not is_valid_composicao(item.get("composicao", "")):
+            item["composicao"] = raw_fields.get("composicao") or base_context.get("composicao", "")
 
     raw_full_cnj = extract_full_cnj(raw_fields.get("numero_processo", ""))
     item_full_cnj = extract_full_cnj(item.get("numero_processo", ""))
@@ -1514,7 +1960,7 @@ def apply_sequential_tipo_registro(rows: List[Dict[str, Any]]) -> None:
     for index, row in enumerate(rows, start=1):
         row["tipo_registro"] = f"Julgamento {index}"
 
-def process_report_text(report_text: str, model: str) -> List[Dict[str, Any]]:
+def process_report_text(report_text: str, model: str, use_api_for_vista: bool = False) -> List[Dict[str, Any]]:
     normalized_text = normalize_text(report_text)
     base_context = extract_global_context(normalized_text)
     sections = split_report_into_sections(normalized_text)
@@ -1535,6 +1981,24 @@ def process_report_text(report_text: str, model: str) -> List[Dict[str, Any]]:
         if is_joint:
             items = align_items_to_process_numbers(items, process_numbers, is_joint)
             structured_data = {**structured_data, "itens": items}
+        if items:
+            vista_marker = has_pedido_vista_marker(normalized_text)
+            regex_vista = extract_pedido_vista(normalized_text, "")
+            if regex_vista:
+                for item in items:
+                    if not item.get("pedido_vista"):
+                        item["pedido_vista"] = regex_vista
+            elif use_api_for_vista and vista_marker and (len(items) == 1 or len(process_numbers) <= 1):
+                needs_vista = any(not item.get("pedido_vista") for item in items)
+                if needs_vista:
+                    vista_api = extract_pedido_vista_via_api(normalized_text, model)
+                    if vista_api:
+                        for item in items:
+                            if not item.get("pedido_vista"):
+                                item["pedido_vista"] = vista_api
+            if not vista_marker:
+                for item in items:
+                    item["pedido_vista"] = ""
         rows = flatten_data_for_csv(structured_data)
         apply_sequential_tipo_registro(rows)
         return rows
@@ -1570,6 +2034,10 @@ def process_report_text(report_text: str, model: str) -> List[Dict[str, Any]]:
         else:
             item_prefill = {k: v for k, v in raw_fields.items() if k not in ("data_sessao", "composicao")}
             fallback_fields = raw_fields
+        vista_marker = has_pedido_vista_marker(section)
+        if not vista_marker:
+            raw_fields["pedido_vista"] = ""
+            fallback_fields["pedido_vista"] = ""
         structured_data = extract_structured_data(
             section,
             model,
@@ -1589,10 +2057,19 @@ def process_report_text(report_text: str, model: str) -> List[Dict[str, Any]]:
         if not items:
             logging.warning("Esta parte não gerou dados. Vou seguir para a próxima.")
             continue
+        if use_api_for_vista and vista_marker and not raw_fields.get("pedido_vista"):
+            needs_vista = any(not item.get("pedido_vista") for item in items)
+            if needs_vista:
+                vista_api = extract_pedido_vista_via_api(section, model)
+                if vista_api:
+                    raw_fields["pedido_vista"] = vista_api
+                    fallback_fields["pedido_vista"] = vista_api
 
         sessao_info = merge_session_info(structured_data.get("sessao", {}), base_context, raw_fields)
         for item in items:
             item = apply_item_fallbacks(item, fallback_fields, base_context, registro_index)
+            if not vista_marker:
+                item["pedido_vista"] = ""
             rows.extend(flatten_data_for_csv({"sessao": sessao_info, "itens": [item]}))
             registro_index += 1
 
@@ -1770,18 +2247,22 @@ def flatten_data_for_csv(json_data: Dict[str, Any]) -> List[Dict[str, Any]]:
                 row[key] = ", ".join(map(str, value))
             else:
                 row[key] = str(value).strip()
+            if row[key]:
+                row[key] = normalize_mpe_reference(row[key])
 
         row["data_sessao"] = parse_date_from_text(row.get("data_sessao", "")) or row.get("data_sessao", "")
         row["numero_processo"] = normalize_processo_num(row.get("numero_processo", ""))
+        row["origem"] = normalize_origem_value(row.get("origem", ""))
         row["TRE"] = normalize_tre(row.get("TRE", ""), extract_uf_from_text(row.get("origem", "")))
         row["advogados"] = normalize_advogados_list(row.get("advogados", ""))
         row["classe_processo"] = normalize_classe_processo(row.get("classe_processo", ""))
         row["composicao"] = normalize_composicao(row.get("composicao", ""))
+        row["partes"] = remove_mpe_from_partes(row.get("partes", ""))
         row["youtube_link"] = normalize_youtube_link(row.get("youtube_link", ""))
         if row.get("relator"):
             row["relator"] = normalize_ministro_name(row["relator"])
         if row.get("pedido_vista"):
-            row["pedido_vista"] = normalize_ministro_name(row["pedido_vista"])
+            row["pedido_vista"] = normalize_pedido_vista_value(row["pedido_vista"])
         
         csv_rows.append(row)
     
@@ -1810,6 +2291,11 @@ def main():
         help="Reduz logs para o nível INFO."
     )
     parser.add_argument(
+        "--vista-api",
+        action="store_true",
+        help="Se pedido_vista não for encontrado, tenta uma chamada extra à API para extrair apenas esse campo."
+    )
+    parser.add_argument(
         "files",
         nargs="*",
         help="Caminhos para arquivos .txt. Se omitido, abre o Windows Explorer para seleção."
@@ -1825,6 +2311,9 @@ def main():
 
     # Modelo recomendado: gpt-5-mini é rápido, barato e muito bom em seguir instruções de formato.
     MODELO_OPENAI = "gpt-5-mini"
+
+    if args.vista_api:
+        logging.info("Fallback via API para pedido_vista ativado.")
 
     if args.files:
         selected_files = args.files
@@ -1852,7 +2341,7 @@ def main():
             
             logging.debug("Texto do relatório carregado com sucesso.")
 
-            flattened_rows = process_report_text(report_text, MODELO_OPENAI)
+            flattened_rows = process_report_text(report_text, MODELO_OPENAI, use_api_for_vista=args.vista_api)
             
             if not flattened_rows:
                 logging.warning(

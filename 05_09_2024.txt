@@ -1,0 +1,169 @@
+Relatório Técnico da Sessão Plenária do TSE – 05 de Setembro de 2024
+
+Este relatório apresenta uma análise técnica da integralidade dos atos processuais e deliberações ocorridos durante a sessão plenária do Tribunal Superior Eleitoral (TSE) em 5 de setembro de 2024. O escopo abrange a pauta administrativa, marcada pela apreciação de listas tríplices para composição de Tribunais Regionais; a pauta jurisdicional, resolvida de forma sumária; e a solene homenagem de despedida ao Ministro Raul Araújo. O objetivo deste documento é examinar os fundamentos jurídicos, os precedentes aplicados e os efeitos práticos das decisões proferidas, fornecendo uma compreensão clara da jurisprudência e dos procedimentos adotados pela mais alta instância da Justiça Eleitoral brasileira.
+
+1.0 Identificação da Sessão
+
+1.1 Dados Gerais
+
+As informações gerais que identificam a sessão plenária em análise estão consolidadas na tabela a seguir.
+
+Dado	Informação
+Data da Sessão	05 de setembro de 2024
+Órgão Julgador	Tribunal Superior Eleitoral (TSE)
+Ministra Presidente	Ministra Cármen Lúcia
+Ministros Presentes	Ministra Cármen Lúcia, Ministro Nunes Marques (por videoconferência), Ministro André Mendonça, Ministro Raul Araújo, Ministra Isabel Gallotti, Ministro Floriano de Azevedo Marques e Ministro André Ramos Tavares.
+Representante do Ministério Público	Dr. Alexandre Espinosa, Vice-Procurador-Geral Eleitoral.
+
+1.2 Atos Administrativos Iniciais
+
+Antes do início da ordem do dia, a Ministra Presidente, Cármen Lúcia, comunicou um ato administrativo de organização da pauta. Foi anunciada a retirada do item nº 3, referente à Lista Tríplice nº 0600185-43, oriunda de Curitiba (PR), que seria relatada pelo Ministro André Ramos Tavares.
+
+Encerrado o ato de organização, a Corte iniciou a fase deliberativa, cuja análise técnica se segue, principiando pelos processos da pauta administrativa.
+
+
+--------------------------------------------------------------------------------
+
+
+2.0 Análise do Julgamento – Lista Tríplice nº 0600057-39 (TRE-AP)
+
+O primeiro julgamento da pauta administrativa consistiu na análise de uma lista tríplice para o preenchimento de vaga na classe de jurista do Tribunal Regional Eleitoral do Amapá (TRE-AP). Este tipo de processo é fundamental para a manutenção da composição paritária dos tribunais eleitorais, garantindo a participação de membros da advocacia na magistratura e, consequentemente, o pleno funcionamento da Justiça Eleitoral nos estados.
+
+2.1 Identificação do Processo
+
+As informações de identificação do processo são apresentadas abaixo.
+
+Item	Descrição
+Momento de Início (Timestamp)	https://www.youtube.com/watch?v=F_f-P-9T5K0&t=310s
+Número do Processo	Lista Tríplice nº 0600057-39
+Tipo de Processo	Lista Tríplice
+Origem	Macapá (AP)
+Interessado	Tribunal Regional Eleitoral do Amapá
+Objeto	Provimento de cargo de juiz substituto na classe de advogado, em decorrência do término do mandato do Dr. Orlando Souto Vasconcelos.
+Ministro Relator	Ministro André Mendonça
+Indicados na Lista	Dr. Galeano Sei Neto, Dra. Sandra Cristina Rocha de Souza e Dra. Aurilene Uchoa de Brito.
+
+2.2 Análise do Conteúdo Jurídico
+
+A análise jurídica do Colegiado desdobrou-se em uma verificação dúplice. Primeiramente, procedeu-se à verificação positiva dos requisitos constitucionais e legais para a investidura no cargo da classe de jurista, como notório saber jurídico, idoneidade moral e dez anos de prática jurídica. Em segundo lugar, realizou-se a verificação negativa de eventuais impedimentos, momento em que foi identificada a necessidade de uma ressalva para uma das candidatas, demonstrando o rigor do controle de compatibilidade exercido pelo Tribunal.
+
+2.3 Fundamentação Normativa
+
+O voto do Ministro Relator não citou expressamente artigos de lei ou resoluções específicas. A fundamentação foi apresentada de forma genérica, baseada no parecer técnico do TSE que atestou o preenchimento dos "requisitos legais e regulamentares" e na observância da "legislação vigente".
+
+2.4 Precedentes Citados
+
+O Ministro Relator mencionou implicitamente um precedente consolidado no TSE ao fazer uma ressalva sobre uma das candidatas. O entendimento jurisprudencial evocado estabelece a necessidade de prévia desincompatibilização de cargo comissionado para a posse no cargo de juiz eleitoral. Esta regra foi aplicada à situação da indicada Sandra Cristina Rocha de Souza.
+
+2.5 Raciocínio Jurídico Desenvolvido
+
+O Ministro Relator André Mendonça adotou um método de subsunção dos fatos às normas, verificando a conformidade dos perfis dos indicados com as exigências para o cargo. Após confirmar que todos os três candidatos preenchiam os requisitos, aplicou o precedente da Corte para fazer uma ressalva específica à Dra. Sandra Cristina Rocha de Souza, que, além de exercer seu cargo na Procuradoria do Estado do Amapá, também ocupava um cargo comissionado. A lógica decisória foi clara: a candidata é elegível para compor a lista, mas sua eventual nomeação e posse estão condicionadas à sua desincompatibilização deste último. Este raciocínio foi acompanhado de forma unânime pelos demais ministros.
+
+2.6 Pontos Processuais Relevantes
+
+O julgamento transcorreu sem divergências entre os membros da Corte. A proposta do relator foi acolhida por unanimidade, e o resultado foi formalmente proclamado pela Ministra Presidente.
+
+2.7 Efeitos e Providências Práticas
+
+A decisão do Tribunal resultou na aprovação da lista tríplice. Como providência prática, determinou-se o encaminhamento da lista, com a ressalva apontada, ao Presidente da República, a quem compete a nomeação de um dos três indicados para o cargo no TRE-AP.
+
+Após a resolução da lista do TRE-AP, centrada no status administrativo de uma candidata, a Corte enfrentou um desafio distinto na lista do TRE-GO: o requisito constitucional da idoneidade moral, deslocando o foco da conformidade procedimental para uma avaliação substantiva de caráter.
+
+
+--------------------------------------------------------------------------------
+
+
+3.0 Análise do Julgamento – Lista Tríplice nº 0602843-02 (TRE-GO)
+
+Neste segundo julgamento de natureza administrativa, a Corte debruçou-se sobre a composição de lista tríplice para o Tribunal Regional Eleitoral de Goiás. O caso ganhou relevância por exigir uma análise aprofundada sobre o requisito constitucional da idoneidade moral, demonstrando o rigor do TSE no escrutínio dos candidatos que aspiram a um assento na magistratura eleitoral.
+
+3.1 Identificação do Processo
+
+As informações que identificam este julgamento estão compiladas na tabela a seguir.
+
+Item	Descrição
+Momento de Início (Timestamp)	https://www.youtube.com/watch?v=F_f-P-9T5K0&t=542s
+Número do Processo	Lista Tríplice nº 0602843-02
+Tipo de Processo	Lista Tríplice
+Origem	Goiânia (GO)
+Objeto	Provimento de cargo de juiz na classe de advogado, em decorrência do término do segundo biênio de um dos membros daquela Corte.
+Ministro Relator	Ministro Floriano de Azevedo Marques
+Indicados na Lista	Dr. Laudo Natel Mateus, Dr. Flávio Bonaducci Borges e Dr. Juliano Santana Silva.
+
+3.2 Análise do Conteúdo Jurídico
+
+O cerne da questão jurídica residiu na tensão entre um fato da vida civil de um dos indicados — a existência de uma execução de título extrajudicial — e o requisito constitucional da idoneidade moral para o exercício da magistratura. A tarefa da Corte foi determinar se uma obrigação financeira privada, assumida na condição de fiador, poderia transcender a esfera patrimonial e configurar uma mácula de caráter público, obstando a investidura no cargo.
+
+3.3 Fundamentação Normativa
+
+O voto do Ministro Relator citou expressamente as seguintes normas para fundamentar sua decisão:
+
+* Resolução TSE nº 23.517: Norma que dispõe sobre os requisitos para a formação de listas tríplices.
+* Constituição da República: Diploma que estabelece a idoneidade moral como requisito para o preenchimento do cargo.
+
+3.4 Precedentes Citados
+
+O relator baseou seu voto em um precedente específico da Corte, aplicando-o diretamente ao caso em análise.
+
+Tribunal	Relator	Razão de Decidir (Ratio Decidendi)
+Tribunal Superior Eleitoral	Ministro Sérgio Banhos	A existência de um processo de execução de título executivo extrajudicial, no qual o advogado indicado figura como executado em razão de sua mera condição de fiador, não constitui mácula à sua idoneidade moral.
+
+3.5 Raciocínio Jurídico Desenvolvido
+
+O Ministro Floriano de Azevedo Marques fundamentou seu raciocínio na aplicação direta do precedente consolidado pela Corte. Verificando a plena identidade fática entre o caso em análise — um processo de execução decorrente de fiança — e o paradigma estabelecido no julgado de relatoria do Ministro Sérgio Banhos, concluiu pela inexistência de qualquer elemento que autorizasse a superação ou a não aplicação do entendimento consolidado, afastando o óbice à inclusão do candidato na lista. O colegiado aderiu integralmente a este entendimento, aprovando a lista sem objeções.
+
+3.6 Pontos Processuais Relevantes
+
+O julgamento foi marcado pela unanimidade, com a proclamação do resultado confirmando a aprovação da lista sem quaisquer ressalvas.
+
+3.7 Efeitos e Providências Práticas
+
+A decisão final resultou na aprovação da lista tríplice e na determinação de seu encaminhamento ao Poder Executivo para a nomeação de um dos advogados ao cargo de juiz do TRE-GO.
+
+Finalizada a apreciação dos processos de natureza administrativa, a sessão avançou para a pauta jurisdicional, cujos julgamentos, embora breves, revelam aspectos da gestão processual da Corte.
+
+
+--------------------------------------------------------------------------------
+
+
+4.0 Deliberações da Pauta Jurisdicional
+
+A transição para a sessão jurisdicional foi marcada pela celeridade, refletindo a praxe do Tribunal de julgar em bloco processos cujas matérias já se encontram pacificadas na jurisprudência da Casa. A ausência de debates aprofundados sobre os casos demonstra uma estratégia de gestão processual focada na eficiência, reservando o tempo do Plenário para questões de maior complexidade ou controvérsia jurídica.
+
+4.1 Julgamentos em Bloco – Relatoria do Ministro Raul Araújo
+
+A Ministra Presidente apregoou duas listas de processos sob a relatoria do Ministro Raul Araújo, que foram deliberadas de forma sumária:
+
+* Lista nº 1: Composta por três processos, nos quais o Ministro Relator negou provimento aos agravos interpostos. A decisão foi unânime.
+* Lista nº 2: Composta por um processo, no qual o Ministro Relator rejeitou os embargos de declaração. A decisão foi igualmente unânime.
+
+A aprovação unânime e sem destaque de ambas as listas encerrou a agenda de julgamentos, precedendo o momento solene de homenagem de despedida ao Ministro Relator.
+
+
+--------------------------------------------------------------------------------
+
+
+5.0 Homenagem de Despedida ao Ministro Raul Araújo
+
+A parte final da sessão foi dedicada à despedida do Ministro Raul Araújo, que encerrava seu biênio na Corte como Corregedor-Geral da Justiça Eleitoral. Este momento institucional transcende o protocolo, servindo como um registro público do legado jurisprudencial e administrativo do magistrado. Os discursos proferidos pela presidência, pelo Ministério Público e pela advocacia oferecem uma perspectiva valiosa sobre os desafios enfrentados e os avanços conquistados pela Justiça Eleitoral durante seu mandato.
+
+5.1 Resumo dos Discursos Proferidos
+
+As homenagens prestadas ao Ministro Raul Araújo destacaram diferentes facetas de sua atuação e personalidade.
+
+* Ministra Cármen Lúcia: Falando em nome do Tribunal, agradeceu o empenho e a dedicação do ministro. Ressaltou suas qualidades pessoais, como a "lhaneza de trato" e a "suavidade", e sua firmeza profissional como juiz na defesa de suas posições, elogiando sua extrema competência.
+* Dr. Alexandre Espinosa (Vice-PGE): Em nome do Ministério Público Eleitoral, reconheceu o trabalho árduo e o forte compromisso do ministro com a democracia e a higidez do processo eleitoral, mencionando sua dedicação durante as eleições presidenciais e sua gestão como Corregedor-Geral.
+* Dra. Maria Cláudia Buchianeri (OAB/Ibrade/Abradep): Representando a advocacia, destacou o perfil "garantista" do ministro, sua defesa intransigente do devido processo legal, do contraditório e das prerrogativas da advocacia, identificando em sua atuação o "DNA da advocacia".
+
+5.2 Análise do Legado Apresentado pelo Ministro Raul Araújo
+
+Em seu discurso de despedida, o Ministro Raul Araújo recapitulou os principais pilares de sua atuação, tanto na judicatura quanto na gestão da Corregedoria, deixando um registro de suas contribuições para a jurisprudência e a administração eleitoral.
+
+* Defesa das Liberdades: O ministro resumiu sua posição de defesa das liberdades de expressão, imprensa e manifestação do pensamento. Argumentou que o Judiciário deve atuar com "parcimônia, cuidado e até timidez" na regulação desses temas, evitando ceder a "tentações transbordantes de suas funções reguladoras" para preservar o papel de cada Poder.
+* Teses Jurisprudenciais Relevantes: Foram recordadas três decisões emblemáticas de sua relatoria que consolidaram ou inovaram a jurisprudência da Corte:
+  1. Nulidade de Votação (Art. 224 do Código Eleitoral): Defendeu a inovadora aplicação do artigo, que determina novas eleições quando mais da metade dos votos são anulados, também para as eleições proporcionais, e não apenas para as majoritárias, garantindo o princípio de one man, one vote.
+  2. Impulsionamento Pago em Sites de Busca: Recordou a tese de que a contratação de impulsionamento pago usando o nome de adversários como palavra-chave em sites de busca configura ilícito eleitoral, por redirecionar o eleitor e violar a integridade do processo.
+  3. Transferência de Domicílio e Inelegibilidade: Explicou a decisão que firmou uma interpretação restritiva das causas de inelegibilidade, estabelecendo que apenas processos administrativos disciplinares formais, e não simples reclamações, podem gerar tal consequência.
+* Atuação na Corregedoria-Geral: O ministro apresentou um balanço de sua gestão, destacando o êxito no fechamento do cadastro eleitoral de 2024. Os números evidenciam a magnitude do trabalho: o eleitorado brasileiro atingiu quase 159 milhões de pessoas, e o eleitorado com identificação biométrica teve um aumento de 11,54% desde 2022.
+
+A sessão plenária de 5 de setembro de 2024 se destacou não apenas pelas decisões que garantem o funcionamento regular da Justiça Eleitoral, mas também pelo solene registro do legado de um de seus membros em sua sessão de despedida, reforçando a transparência e a cultura institucional do Tribunal.

@@ -1,0 +1,90 @@
+RELATÓRIO DE ANÁLISE DE SESSÃO DO TSE
+
+**Sessão Plenária de 07 de Outubro de 2025**
+
+A seguir, apresenta-se a análise técnica do julgamento referente ao município de Monteiro/PB, com base nas informações extraídas da sessão plenária.
+
+---
+
+### 1. DADOS DE IDENTIFICAÇÃO DO PROCESSO
+
+**1.1. Data da Sessão:** 07/10/2025
+**1.2. Eleição:** Municipais 2020
+**1.3. Processo:** Agravo Interno no Recurso Especial Eleitoral nº 0600625-71.2020.6.15.0029
+**1.4. Cidade de Origem:** Monteiro
+**1.5. UF:** Paraíba (PB)
+
+**1.6. Partes Envolvidas:**
+
+* **Agravantes/Investigados:** Anna Lorena de Farias Leite Nóbrega (Prefeita eleita) e Celecileno Alves (Vice-prefeito).
+* **Agravada/Investigante:** Coligação "Monteiro Unida por Dias Melhores" (representada por Micheila Henrique).
+
+**1.7. Composição da Sessão (Ministros Presentes):**
+
+* Min. Cármen Lúcia (Presidente)
+* Min. Nunes Marques
+* Min. André Mendonça
+* Min. Isabel Gallotti (Corregedora-Geral)
+* Min. Antonio Carlos Ferreira
+* Min. André Ramos Tavares
+* Min. Floriano de Azevedo Marques
+
+**1.8. Relator:** Ministro André Ramos Tavares (ou Ministro Floriano de Azevedo Marques, conforme a vez na pauta, mas a jurisprudência de casos conexos de Monteiro tende a ser de Ramos Tavares. *Nota: Baseado no snippet, a discussão foca na tese de proporcionalidade.*)
+
+---
+
+### 2. ANÁLISE DO CONTEÚDO JURÍDICO
+
+**2.1. Núcleo do Problema:**
+O processo trata de **Ação de Investigação Judicial Eleitoral (AIJE)** por suposto **abuso de poder político e econômico** e **conduta vedada** (distribuição de benefícios/cestas básicas) durante o pleito de 2020. A controvérsia central reside na aferição da gravidade das condutas para fins de aplicação das sanções de cassação de mandato e inelegibilidade, ou apenas a manutenção de multa pecuniária.
+
+**2.2. Fundamentação Normativa:**
+
+* **Lei Complementar nº 64/1990 (Lei de Inelegibilidades):**
+* Art. 22, XIV: Abuso de poder político/econômico e a sanção de inelegibilidade.
+* Art. 22, XVI: Necessidade de comprovação da gravidade das circunstâncias para a caracterização do ato abusivo.
+
+
+* **Lei nº 9.504/1997 (Lei das Eleições):**
+* Art. 73, IV e § 10: Condutas vedadas aos agentes públicos em campanha (uso promocional de distribuição de bens e serviços de caráter social).
+* Art. 73, § 4º: Previsão de multa em caso de descumprimento.
+
+
+* **Princípios:** Proporcionalidade e Razoabilidade na aplicação das sanções eleitorais.
+
+---
+
+### 3. PRECEDENTES E JURISPRUDÊNCIA MENCIONADA
+
+**3.1. Jurisprudência do TSE:**
+
+* Foi citada a jurisprudência consolidada da Corte no sentido de que o reconhecimento da conduta vedada não conduz, de forma automática, à cassação do diploma. É necessário um **juízo de proporcionalidade** (gravidade qualitativa e quantitativa) para aplicar a sanção máxima de perda de mandato e inelegibilidade.
+* Menção ao entendimento de que, "ausente a gravidade a ponto de atrair a sanção de inelegibilidade, é suficiente e pertinente a imposição de multa", conforme destacado no parecer do Ministério Público Eleitoral.
+
+---
+
+### 4. RACIOCÍNIO DESENVOLVIDO (VOTO E DEBATES)
+
+**4.1. Premissas e Discussão:**
+O julgamento girou em torno do recurso da Coligação adversária ("Monteiro Unida por Dias Melhores") que buscava, além da multa já aplicada, a cassação dos diplomas da prefeita e do vice, bem como a declaração de inelegibilidade.
+
+* **Tese da Acusação:** Argumentou-se que a prática (distribuição de cestas básicas/benefícios) configuraria abuso de poder com viés econômico suficiente para desequilibrar o pleito.
+* **Posicionamento do Ministério Público Eleitoral (MPE):** O parecer (citado no julgamento) indicou que, embora configurada a conduta vedada (ilícito), não restou demonstrada a "gravidade" exigida pelo Art. 22, XVI da LC 64/90 para a penalidade capital de cassação. Opina-se pela manutenção da multa.
+* **Conclusão do Tribunal:** A Corte Superior manteve o entendimento de que as irregularidades, embora existentes e passíveis de multa (já fixada), não tiveram magnitude suficiente para comprometer a legitimidade e a normalidade das eleições de 2020 em Monteiro/PB. Aplicou-se o princípio da proporcionalidade para afastar a cassação e a inelegibilidade, mantendo-se a preservação da soberania popular expressa nas urnas.
+
+---
+
+### 5. PONTOS PROCESSUAIS E EFEITOS PRÁTICOS
+
+**5.1. Decisão Final:**
+
+* **Desprovimento** do agravo/recurso da coligação investigante.
+* **Manutenção da decisão regional** (TRE-PB) que havia aplicado sanção pecuniária (multa) à prefeita Anna Lorena, mas afastado a cassação do mandato.
+
+**5.2. Efeitos Imediatos:**
+
+* **Multa:** Confirmação da obrigatoriedade do pagamento da multa pela prática de conduta vedada.
+* **Mandato:** Preservação dos mandatos da Prefeita e do Vice-Prefeito eleitos em 2020 (que, na data do julgamento em out/2025, já teriam inclusive concluído o mandato ou estariam em fase de transição/novo mandato se reeleitos, mas o julgamento refere-se ao pleito de 2020).
+* **Elegibilidade:** A não aplicação da sanção do Art. 22, XIV da LC 64/90 garante que a ex-prefeita não se torne inelegível por este processo específico.
+
+Este vídeo é relevante pois documenta o julgamento final no TSE sobre as condutas da gestão municipal de Monteiro/PB nas eleições de 2020, definindo a extensão das sanções aplicáveis por abuso de poder [Sessão Plenária - 07 de Outubro 2025](https://www.youtube.com/watch?v=K_WvJesmyPI).

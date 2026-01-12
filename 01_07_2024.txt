@@ -1,0 +1,149 @@
+Relatório Técnico da Sessão de Encerramento do Semestre Forense do TSE
+
+**Data da Sessão:** 01/07/2024
+**Ministros Presentes:** Cármen Lúcia (Presidente), Kassio Nunes Marques (Vice-Presidente), Raul Araújo (Corregedor-Geral - por videoconferência), Isabel Gallotti, Floriano de Azevedo Marques (por videoconferência), André Ramos Tavares e André Mendonça.
+**PGE:** Alexandre Espinosa (Vice-Procurador-Geral Eleitoral).
+
+---
+
+### **1. PROCESSO: Consulta n. 0600188-95**
+
+[[30:16](http://www.youtube.com/watch?v=U3aMCuJFGEE&t=1816)]
+
+**Relator:** Min. Raul Araújo.
+**Assunto:** Propaganda Eleitoral – Uso de marcas comerciais e nomes de urna.
+**Legislação:** Lei 9.504/1997 (Lei das Eleições); Res.-TSE n. 23.609/2019.
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+O julgamento tratou de Consulta formulada ao TSE com dois questionamentos centrais:
+
+1. Se a proibição de exploração de marca ou produto comercial em publicidade eleitoral abrange todas as modalidades de propaganda.
+2. Se a proibição de uso de marcas/siglas na urna eletrônica (nome do candidato) abrange também marcas ou siglas pertencentes a empresas privadas.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Lei 9.504/1997, art. 44, § 2º:** Citado pelo Min. Kassio Nunes Marques para fundamentar que a vedação visa impedir o desequilíbrio do pleito ("não se permitirá a utilização comercial ou propaganda realizada com a intenção, ainda que disfarçada, ou subliminar, de promover marca ou produto").
+* **Res.-TSE n. 23.609/2019, art. 25, § 1º:** Dispositivo que regula o nome do candidato na urna eletrônica, debatido quanto à sua extensão interpretativa para marcas privadas.
+
+**3. PRECEDENTES CITADOS**
+
+* **STF, ADI 4.650:** Citada pelo Min. André Ramos Tavares [[37:37](http://www.youtube.com/watch?v=U3aMCuJFGEE&t=2257)] para reforçar a vedação da interferência de pessoas jurídicas e poder econômico no processo eleitoral.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Primeira Questão (Unânime):** O Tribunal entendeu que a vedação à exploração de marcas comerciais aplica-se a **toda e qualquer modalidade** de propaganda eleitoral, visando proteger a isonomia e evitar o abuso de poder econômico.
+* **Segunda Questão (Divergência):**
+* **Corrente Vencedora (Relator Min. Raul Araújo, acompanhado por Min. Isabel Gallotti, Min. Kassio Nunes Marques e Min. André Mendonça):** Entendeu que, não havendo vedação expressa na norma (Res. 23.609), a resposta deve ser **negativa**. Ou seja, a proibição do art. 25, §1º, em regra, **não se estende** a marcas/siglas de empresas privadas no nome de urna, salvo se violar direitos de terceiros, gerar dúvida sobre identidade, atentar contra o pudor ou for ridícula.
+* **Corrente Vencida (Min. Cármen Lúcia, Min. Floriano de Azevedo Marques e Min. André Ramos Tavares):** Sustentou que a vedação deveria ser interpretada de forma extensiva (resposta afirmativa) para evitar que o "capital de marca" de empresas privadas desequilibre a disputa, funcionando como apoio indireto de pessoa jurídica, o que é vedado pelo STF.
+
+
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* Julgamento retomado com voto-vista da Min. Cármen Lúcia.
+* Apresentação de divergência parcial inaugurada pela Presidente.
+* Quórum completo. Decisão por maioria (4x3) na segunda questão.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* Fixação de tese para as Eleições 2024:
+1. Proibição de marcas comerciais abrange **toda** propaganda eleitoral.
+2. O uso de nome de urna contendo marca/sigla de empresa privada **não é automaticamente proibido**, desde que não viole as restrições gerais (pudor, irreverência, identidade, direito de terceiros).
+
+
+
+---
+
+### **2. PROCESSO: Lista Tríplice n. 0600288-50**
+
+[[41:53](http://www.youtube.com/watch?v=U3aMCuJFGEE&t=2513)]
+
+**Origem:** São Paulo (TRE/SP).
+**Relator:** Min. André Ramos Tavares.
+**Indicados:** Cláudio José Langroiva Pereira, Danyelle da Silva Galvão e Marcio Kayatt.
+**Cargo:** Juiz Efetivo (Classe dos Advogados).
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Análise dos requisitos objetivos e subjetivos (idoneidade moral) dos advogados indicados para compor o TRE/SP. O foco recaiu sobre o indicado Dr. Marcio Kayatt, que apresentou certidões positivas.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Res.-TSE n. 23.517/2017:** Norma que disciplina o procedimento de listas tríplices.
+* **Constituição Federal:** Requisitos para investidura.
+
+**3. PRECEDENTES CITADOS**
+
+* O Relator mencionou que as execuções fiscais e ações em nome do candidato já haviam sido analisadas pelo TSE em listas anteriores sob relatoria dos **Ministros Benedito Gonçalves e Mauro Campbell** [[43:34](http://www.youtube.com/watch?v=U3aMCuJFGEE&t=2614)], não sendo impeditivas.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+O Relator destacou que o indicado Marcio Kayatt figura no polo passivo de três ações (uma rescisória e duas execuções fiscais). Contudo, após análise da Assessoria Consultiva (ASEC) e reexame pelo gabinete, concluiu-se que tais apontamentos não maculam a idoneidade moral do candidato, estando apto ao cargo.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* Votação unânime.
+* Ratificação de entendimento anterior sobre a aptidão do candidato.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* Encaminhamento imediato da lista ao **Presidente da República** para escolha e nomeação do juiz efetivo do TRE/SP.
+
+---
+
+### **3. PROCESSO: Mandado de Segurança n. 0602922-78 (Referendo na Liminar)**
+
+[[45:29](http://www.youtube.com/watch?v=U3aMCuJFGEE&t=2729)]
+
+**Origem:** Brasília/DF.
+**Relatora:** Min. Cármen Lúcia.
+**Partes:**
+
+* **Impetrante:** Partido Renovador Trabalhista Brasileiro (PRTB Nacional).
+* **Impetrados:** Marciel Aroldo Ferreira da Rocha, Júlio Cezar Fidelix da Cruz e Paulo Roberto Roseno Júnior.
+* **Advogados:** Não nominados explicitamente no trecho, apenas a representação do partido.
+
+**1. ANÁLISE DO CONTEÚDO JURÍDICO**
+Disputa interna pelo comando partidário do PRTB. O caso envolve a convocação de uma assembleia extraordinária por membros de uma chapa derrotada em eleições anteriores (conduzidas por interventor nomeado pelo TSE), com o objetivo de destituir o atual diretório nacional.
+
+**2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Lei 12.016/2009 (Lei do Mandado de Segurança):** Requisitos para concessão de liminar (relevância do fundamento e risco de ineficácia da medida).
+
+**3. PRECEDENTES CITADOS**
+
+* Menção à **Intervenção anterior do TSE** no PRTB, que legitimou o diretório atual eleito sob a condução do interventor.
+
+**4. RACIOCÍNIO DESENVOLVIDO**
+A Relatora deferiu a liminar (agora submetida a referendo) para suspender a assembleia convocada para 29/06/2024. O fundamento central é que, embora disputas partidárias possam parecer *interna corporis*, o ato teria repercussão direta no processo eleitoral (risco de instabilidade no ano do pleito). A convocação feita por chapa derrotada desafia a estabilidade jurídica estabelecida após o fim da intervenção do TSE.
+
+**5. PONTOS PROCESSUAIS RELEVANTES**
+
+* Julgamento de **Referendo de Liminar**.
+* Decisão unânime.
+* Reconhecimento da competência da Justiça Eleitoral devido aos reflexos no pleito.
+
+**6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* Manutenção da suspensão da assembleia extraordinária do PRTB.
+* Impedimento de destituição do diretório nacional vigente até o julgamento do mérito.
+
+---
+
+### **4. JULGAMENTOS EM BLOCO (AGRAVOS)**
+
+[[48:21](http://www.youtube.com/watch?v=U3aMCuJFGEE&t=2901)]
+
+**Relatora:** Min. Cármen Lúcia.
+**Resumo:** A Presidente submeteu uma lista de sua relatoria contendo dois agravos.
+**Decisão:** Negado provimento a ambos os recursos, por unanimidade. (Detalhes específicos dos casos não foram lidos, conforme procedimento regimental de listas publicadas).
+
+---
+
+### **5. DADOS ESTATÍSTICOS DO SEMESTRE FORENSE**
+
+[[49:11](http://www.youtube.com/watch?v=U3aMCuJFGEE&t=2951)]
+
+A Presidente apresentou o balanço de produtividade do TSE (01/01/2024 a 28/06/2024):
+
+* **Total de Processos Julgados:** 892 (mais 3 nesta sessão = 895).
+* **Sessões Realizadas:** 91 (sendo 38 jurisdicionais, 29 administrativas e 19 plenários virtuais).
+* Ênfase na preparação para as Eleições Municipais de 2024, restando cerca de 90 dias para o pleito.

@@ -1,0 +1,190 @@
+Relatório Técnico da Sessão Plenária do TSE – 27 de Agosto de 2024
+
+1.0 Identificação da Sessão de Julgamento
+
+A presente análise documenta os procedimentos e deliberações da sessão plenária do Tribunal Superior Eleitoral (TSE) realizada em 27 de agosto de 2024. A formalização deste relatório atende à necessidade de transparência institucional e serve como registro fidedigno para a consolidação da jurisprudência eleitoral. A sessão foi presidida pela Ministra Cármen Lúcia e contou com a presença dos ministros titulares, ministras substitutas, do representante do Ministério Público Eleitoral e demais autoridades, além de estudantes do curso de direito da Universidade Presbiteriana Mackenzie de Campinas (SP), conforme detalhado na tabela a seguir.
+
+Itens de Identificação	Dados Extraídos do Pronunciamento Inicial
+Data da Sessão	27 de agosto de 2024
+Horário de Abertura	Não mencionado no pronunciamento inicial
+Presidente da Sessão	Ministra Cármen Lúcia
+Ministros Titulares Presentes	Cásio Nunes Marques (Vice-Presidente), André Mendonça, Raul Araújo (Corregedor-Geral), Isabel Galote, Floriano de Azevedo Marques, André Ramos Tavares
+Ministras Substitutas Presentes	Dra. Edilene Lobo e Dra. Vera Lúcia Santana Araújo
+Representante do Ministério Público Eleitoral	Dr. Alexandre Espinosa (Vice-Procurador-Geral Eleitoral)
+Secretário da Sessão	Dr. João Paulo Oliveira
+
+Após a aprovação da ata da sessão anterior, a Presidente deu início à fase jurisdicional, procedendo à análise detalhada dos processos incluídos na pauta de julgamentos.
+
+
+--------------------------------------------------------------------------------
+
+
+2.0 Análise do Julgamento Conjunto: Recursos Ordinários 0600177-70 e 0600297-79
+
+O primeiro julgamento da pauta envolveu a análise conjunta de dois Recursos Ordinários oriundos do Paraná, centrados em alegações de abuso de poder e conduta vedada nas eleições de 2022. A ficha técnica a seguir consolida os dados essenciais extraídos dos autos, proporcionando um panorama claro para a compreensão do caso.
+
+2.1 Ficha Técnica do Julgamento
+
+Campo	Informação
+Momento de Início no Vídeo	Primeiro processo da pauta jurisdicional.
+Classe e Número dos Processos	Recurso Ordinário (RO) 0600177-70 e 0600297-79.
+Relator	Ministro Floriano de Azevedo Marques.
+Origem (Cidade/UF)	Curitiba, Paraná.
+Eleição Referente	Eleições de 2022.
+Partes Processuais	Recorrente: Marle de Fátima Ribeiro.<br>Recorridos: Antônio van Toninho vaner, Partido Solidariedade (Estadual), Partido Republicano da Ordem Social - PROS (Estadual), Daniela dos Santos e outras.
+Advogado(s) com Sustentação Oral	Dr. Carlos Henrique Caputo Bastos (pela recorrente).
+
+A presente ficha técnica estabelece o substrato fático-processual indispensável à subsequente análise de mérito.
+
+2.2 Análise do Conteúdo Jurídico
+
+A Ação de Investigação Judicial Eleitoral (AIJE) e a Ação de Impugnação de Mandato Eletivo (AIME) são instrumentos processuais de máxima relevância para o controle da lisura e da legitimidade das eleições. No presente caso, foram utilizadas para questionar a eleição de um Deputado Federal com base em duas imputações centrais.
+
+O núcleo da controvérsia jurídica girou em torno das seguintes alegações da parte recorrente:
+
+1. Conduta Vedada a Agentes Públicos: A acusação sustentou o uso indevido de servidores públicos em atos de campanha eleitoral, especificamente duas vereadoras e uma servidora municipal, o que configuraria violação direta da legislação eleitoral.
+2. Abuso de Poder Econômico e Político: A tese principal foi a de que houve uma fraude contábil sofisticada para ocultar a aplicação irregular de recursos públicos. A recorrente detalhou que, de uma arrecadação total de R 3 milhões, foram gastos **R 2,2 milhões** (mais de 70% dos recursos) com "militância paga", com valores considerados exorbitantes — na ordem de R 10.000 a R 12.000 por 15 dias de trabalho. A estratégia fraudulenta teria sido viabilizada por uma prestação de contas retificadora, apresentada em momento crítico para impedir o controle da Justiça Eleitoral. O elemento central da fraude alegada residiu na deliberada desincronização entre pagamentos e contratos: os gastos ocorreram nos primeiros 15 dias de campanha, mas os contratos foram datados e assinados apenas nos últimos 15 dias, uma manobra que, segundo a acusação, visou contornar a obrigatoriedade de reporte na prestação de contas parcial.
+
+Essas alegações foram analisadas à luz do arcabouço normativo e da jurisprudência consolidada do Tribunal.
+
+2.3 Fundamentação Normativa e Precedentes Citados
+
+A decisão do colegiado foi ancorada em um sólido arcabouço legal e jurisprudencial, garantindo a segurança jurídica e a previsibilidade do julgamento. As principais normas e precedentes invocados durante os votos foram:
+
+1. Legislação Federal:
+  * Lei das Eleições (Lei nº 9.504/1997):
+    * Artigo 73, incisos III e V: Citado pelo Ministro Relator para delimitar as condutas vedadas, que proíbem a cessão de servidor público ou o uso de seus serviços para comitês de campanha durante o horário de expediente, bem como o uso da máquina administrativa para coagir ou beneficiar servidores em troca de apoio político.
+  * Lei de Inelegibilidades (LC nº 64/1990):
+    * Artigo 22: Referenciado para a configuração do abuso de poder econômico, que exige a demonstração do uso excessivo de recursos de forma a comprometer a igualdade da disputa.
+    * Artigo 25: Invocado no voto-vista do Ministro André Ramos Tavares para fundamentar a gravidade da ação temerária, destacando que a norma tipifica como crime a arguição de inelegibilidade deduzida de forma temerária ou de manifesta má-fé.
+2. Normas Infralegais:
+  * Resolução do TSE para a campanha de 2022: Mencionada pelo relator para confirmar que os gastos do candidato, embora elevados, observaram os limites de contratação de pessoal estabelecidos pela norma.
+3. Jurisprudência Citada:
+  * TSE (Agravo no Agravo Regimental em Agravo de Instrumento 162-22): Precedente de relatoria do Ministro Luís Roberto Barroso, utilizado para reforçar a tese de que a participação de servidores públicos em campanha, desde que fora do horário de expediente e sem desvio de função, não constitui, por si só, um ilícito eleitoral.
+  * TSE (Relatoria do Ministro Lewandowski): Jurisprudência que estabelece que a aprovação formal das contas de campanha não impede a posterior apuração de abuso de poder em ação própria, caso surjam indícios de ilicitudes materiais.
+  * Superior Tribunal de Justiça (STJ): Citada pelo Ministro André Ramos Tavares para argumentar que a caracterização da litigância de má-fé não exige a comprovação de dolo, com menção a acórdãos específicos, incluindo um de relatoria do Ministro Reinaldo (2024) e outro da Ministra Nancy Andrighi (2019).
+
+A aplicação combinada dessas fontes normativas orientou o raciocínio lógico desenvolvido pelos ministros na formação de seus votos.
+
+2.4 Raciocínio Desenvolvido e Reconstrução dos Votos
+
+Um julgamento colegiado reflete a construção de uma decisão a partir do debate entre os magistrados, onde o voto do relator serve como ponto de partida para a formação de um consenso ou de uma maioria. A dinâmica deste julgamento foi marcada por uma convergência no mérito principal e uma divergência pontual, mas decisiva.
+
+* Voto do Relator (Ministro Floriano de Azevedo Marques):
+  * O Ministro Relator adotou uma metodologia clara, analisando separadamente as duas imputações.
+  * Quanto à Conduta Vedada: Concluiu que a acusação não produziu provas de que os servidores trabalharam para a campanha durante o seu horário de expediente, requisito essencial para a configuração do ilícito previsto no Art. 73, III, da Lei das Eleições.
+  * Quanto ao Abuso de Poder: Embora reconhecendo os valores elevados, entendeu que os gastos estavam dentro dos limites legais e que a recorrente não demonstrou o "fim recôndito" ou o "objetivo ilícito" da aplicação dos recursos. Sem a prova do desvio de finalidade, não seria possível caracterizar o abuso.
+  * Conclusão: Votou pelo provimento parcial do recurso, exclusivamente para afastar a multa por litigância de má-fé aplicada na origem, por entender que não estavam presentes os requisitos para tal sanção.
+* Voto Divergente (Inaugurado pelo Ministro André Ramos Tavares):
+  * O ponto central da divergência foi a manutenção da condenação por litigância de má-fé.
+  * O Ministro argumentou que a conduta da recorrente foi temerária, citando a gravidade das ações ajuizadas sem o devido esforço probatório (ausência em audiências, falta de apresentação de testemunhas) e a inclusão indevida de pessoas no polo passivo sem qualquer fundamento. Fundamentou seu voto no Art. 14, § 11 da Constituição Federal e no Art. 25 da LC 64/90.
+* Formação da Maioria:
+  * A tese divergente prevaleceu, formando-se uma maioria para manter a multa por litigância de má-fé. Acompanharam a divergência os Ministros Cásio Nunes Marques, André Mendonça e a Presidente Cármen Lúcia.
+  * Acompanharam integralmente o voto do relator os Ministros Raul Araújo e Isabel Galote.
+
+Ainda que o colegiado tenha afastado a configuração de abuso de poder por ausência de subsunção aos tipos legais vigentes, ressoou no debate uma preocupação com as implicações éticas e de integridade do uso de vultosos recursos públicos em "militância paga". Conforme externado pelo Ministro André Mendonça, a situação concreta suscita uma reflexão de lege ferenda sobre a necessidade de uma futura reavaliação legislativa ou regulamentar para aprimorar os controles sobre essa modalidade de dispêndio.
+
+A tese vencedora, portanto, foi a de que, embora as acusações de mérito fossem improcedentes, a forma como a ação foi conduzida pela recorrente caracterizou litigância de má-fé, justificando a manutenção da sanção.
+
+2.5 Pontos Processuais Relevantes e Proclamação do Resultado
+
+A observância dos ritos processuais e a clareza na proclamação do resultado são pilares da segurança jurídica. Durante o julgamento, observaram-se os seguintes eventos processuais significativos:
+
+* Sustentação Oral: Foi realizada pelo advogado da parte recorrente, Dr. Carlos Henrique Caputo Bastos.
+* Quórum e Votação: A votação revelou unanimidade na rejeição das teses centrais de abuso de poder e conduta vedada. A divergência, que definiu o resultado por maioria, concentrou-se exclusivamente na manutenção da multa por litigância de má-fé. Formou-se um placar de 4x3 pela manutenção da sanção, o que levou à proclamação final de "negar provimento aos recursos".
+* Proclamação do Resultado: A Presidente Ministra Cármen Lúcia proclamou o resultado final: "O Tribunal, por maioria, negou provimento aos recursos ordinários."
+* Designação do Redator para o Acórdão: Por ter sido o autor do voto vencedor na parte divergente, o Ministro André Ramos Tavares foi designado para redigir o acórdão.
+
+2.6 Efeitos e Providências Práticas da Decisão
+
+A decisão de "negar provimento" a um recurso que busca a cassação de mandato tem implicações práticas diretas e imediatas. A deliberação do TSE neste caso resultou nas seguintes consequências:
+
+* Manutenção do Mandato: Com a improcedência da AIJE e da AIME, foi integralmente mantido o mandato do Deputado Federal eleito, Antônio van Toninho vaner.
+* Manutenção da Multa: A tese da maioria resultou na manutenção da sanção por litigância de má-fé aplicada à recorrente, Marle de Fátima Ribeiro, pela instância de origem.
+* Trânsito em Julgado: A decisão se tornará definitiva (transitará em julgado) após o esgotamento dos prazos para eventuais recursos cabíveis, como embargos de declaração.
+
+Após a conclusão deste complexo julgamento, a sessão prosseguiu com a apreciação de outros processos constantes da pauta.
+
+
+--------------------------------------------------------------------------------
+
+
+3.0 Análise dos Demais Julgamentos da Sessão
+
+Concluído o julgamento principal, a sessão avançou para a análise de uma série de agravos regimentais e um referendo em tutela cautelar, cujos detalhes técnicos e decisões são apresentados de forma individualizada a seguir.
+
+3.1 Agravo Regimental no AREspE 0600028-55 (Rio de Janeiro)
+
+3.1.1 Ficha Técnica
+
+Campo	Informação
+Relator	Ministro André Mendonça
+Classe e Número	Agravo Regimental no Agravo em Recurso Especial Eleitoral 0600028-55
+Origem	Rio de Janeiro, RJ
+Partes	Agravante: Movimento Democrático Brasileiro - MDB (Estadual)
+Exercício Financeiro	2017
+
+3.1.2 Análise Jurídica e Decisão
+
+O objeto do recurso era a desaprovação das contas partidárias do diretório estadual do MDB. A decisão do relator, seguida à unanimidade pelo plenário, baseou-se em um fundamento estritamente processual: a não impugnação específica dos fundamentos da decisão agravada. Tal falha processual atrai a incidência da Súmula nº 26 do TSE, que impede o conhecimento de recurso que não ataca diretamente os motivos da decisão recorrida.
+
+Decisão Final: O Tribunal, por unanimidade, negou provimento ao agravo regimental.
+
+3.2 Agravo Regimental no AREspE 0600672-84 (Belo Horizonte)
+
+3.2.1 Ficha Técnica
+
+Campo	Informação
+Relator	Ministro André Mendonça
+Classe e Número	Agravo Regimental no Agravo em Recurso Especial Eleitoral 0600672-84
+Origem	Belo Horizonte, MG
+Partes	Agravante: Movimento Democrático Brasileiro - MDB (Estadual); Agravada: União
+Exercício Financeiro	2012
+
+3.2.2 Análise Jurídica e Decisão
+
+Similarmente ao caso anterior, o recurso questionava a desaprovação de contas partidárias. O fundamento central da decisão foi, novamente, a não impugnação específica dos fundamentos da decisão agravada, levando à aplicação da Súmula nº 26 do TSE.
+
+Decisão Final: O Tribunal, por unanimidade, negou provimento ao agravo regimental.
+
+3.3 Agravo Regimental no AREspE 0600569-60 (Santa Catarina)
+
+3.3.1 Ficha Técnica
+
+Campo	Informação
+Relator	Ministro André Mendonça
+Classe e Número	Agravo Regimental no Agravo em Recurso Especial Eleitoral 0600569-60
+Origem	Santa Catarina, SC
+Partes	Agravante: Fernando José Signore; Agravados: Rud Miguel Sander, Ken Rodrigo Jongo e Ministério Público Eleitoral
+Eleição Referente	Eleições 2020
+
+3.3.2 Análise Jurídica e Decisão
+
+O agravo foi interposto contra decisão que manteve uma condenação por conduta vedada com aplicação de multa. O relator identificou que o agravante não se insurgiu de forma especificada contra a integralidade dos fundamentos da decisão monocrática combatida, o que, mais uma vez, resultou na aplicação da Súmula nº 26 do TSE.
+
+Decisão Final: O Tribunal, por unanimidade, negou provimento ao agravo regimental.
+
+3.4 Referendo em Tutela Cautelar no RO 0600340-46 (São Paulo)
+
+3.4.1 Ficha Técnica
+
+Campo	Informação
+Relator	Ministro Floriano de Azevedo Marques
+Classe e Número	Referendo em Tutela Cautelar no Recurso Ordinário 0600340-46
+Origem	Garapa, São Paulo
+Partes	Requerente: Ana Luísa Rio Catar; Requeridos: Frederico Reque Mendonça e outros
+Eleição Referente	Eleições 2020
+
+3.4.2 Análise Jurídica e Decisão
+
+O objeto principal era o referendo de uma liminar que determinou a execução imediata de um acórdão anterior do TSE. O referido acórdão havia cassado diplomas e anulado votos de uma chapa de vereadores por fraude à cota de gênero. O raciocínio do relator baseou-se na jurisprudência consolidada do TSE, que determina o efeito imediato das decisões que implicam perda de diploma, independentemente do trânsito em julgado. Adicionalmente, o Recurso Ordinário interposto foi não conhecido por ser manifestamente incabível na espécie, configurando erro grosseiro.
+
+Decisão Final: O Tribunal, por unanimidade, referendou a liminar e não conheceu do recurso ordinário.
+
+
+--------------------------------------------------------------------------------
+
+
+4.0 Conclusão da Sessão
+
+A sessão plenária de 27 de agosto de 2024 consolidou importantes teses jurisprudenciais, revelando a coerência e o rigor técnico do Tribunal. As deliberações reforçaram uma tríade de doutrinas fundamentais: (1) a exigência de um robusto e inequívoco ônus probatório para a configuração de abuso de poder com aptidão para cassar mandatos eletivos; (2) a intolerância com a negligência processual, manifestada tanto pela aplicação reiterada da Súmula nº 26 do TSE quanto pela manutenção de sanção por litigância de má-fé em face de conduta temerária; e (3) o firme compromisso com a eficácia de suas decisões, reafirmando a execução imediata de julgados que reconhecem a fraude à cota de gênero. Encerrados os julgamentos nominais e não havendo urgências, a sessão foi concluída, reafirmando o papel do Tribunal como guardião da legitimidade do processo eleitoral.

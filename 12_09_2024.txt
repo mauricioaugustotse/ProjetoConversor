@@ -1,0 +1,153 @@
+Relatório Técnico da Sessão Plenária do Tribunal Superior Eleitoral
+
+
+--------------------------------------------------------------------------------
+
+
+1. Contexto e Abertura da Sessão de 12 de Setembro de 2024
+
+1.1. Introdução Institucional da Presidência
+
+A sessão jurisdicional do Tribunal Superior Eleitoral (TSE) de 12 de setembro de 2024 foi inaugurada com observações institucionais da Ministra Presidente, Cármen Lúcia, que estabeleceram o tom e reafirmaram os compromissos da Corte para além da pauta de julgamentos do dia. O discurso de abertura abordou temas cruciais para o fortalecimento do processo democrático brasileiro, com ênfase na liberdade do voto, na cidadania ativa e no combate a ilícitos eleitorais.
+
+Os temas centrais abordados pela Ministra Presidente foram:
+
+* Dia da Democracia: A Ministra propôs uma reflexão sobre a comemoração do Dia Internacional da Democracia (15 de setembro), destacando-a não apenas como uma data comemorativa, mas como um convite diário para vivenciar a democracia como uma "forma de viver", baseada na convivência livre, no respeito à integridade e na autonomia dos cidadãos.
+* Combate ao Assédio Eleitoral no Trabalho: A Ministra Presidente anunciou a assinatura de um termo aditivo ao acordo de cooperação técnica com o Ministério Público do Trabalho (MPT), visando aperfeiçoar os mecanismos de enfrentamento ao assédio eleitoral em ambiente laboral. A Ministra classificou como crime eleitoral a prática de empregadores que forçam, induzem ou estimulam o voto de seus funcionários, informando que, segundo o representante do MPT, Dr. José Lima, mais de 300 denúncias sobre essa conduta já haviam sido recebidas no corrente ano.
+* Engajamento Cívico: Realizou-se um apelo direto aos jovens de 16 a 18 anos e aos idosos com mais de 70 anos para que exerçam seu direito de voto. A Ministra ressaltou que, embora o voto seja facultativo para esses grupos, a sua participação é um ato de compromisso cívico. A Ministra ressaltou que, para as gerações mais velhas que vivenciaram regimes não democráticos ("espaços ditatoriais que nos impediam até mesmo de votar"), o voto representa uma conquista cívica e uma responsabilidade histórica de preservar a liberdade para as futuras gerações.
+* Violência Política de Gênero: A inadmissibilidade da violência que visa impedir a participação política das mulheres foi veementemente rechaçada. A Ministra lamentou a baixa representatividade feminina nos espaços de poder e classificou como crime e prática inaceitável qualquer ato que cerceie a presença feminina na política.
+* Observatório dos Direitos Políticos da Mulher: Foi comunicada a criação, por meio de portaria, do Observatório dos Direitos Políticos da Mulher no âmbito do TSE. A finalidade do órgão é unificar e centralizar ações, funcionando como um canal para recebimento de denúncias, encaminhamento aos órgãos competentes e garantia do processamento de casos de violência política de gênero.
+
+As declarações da Presidência estabeleceram um marco de atuação institucional focado na proteção da liberdade do eleitor e na integridade do pleito, contextualizando os subsequentes julgamentos como aplicações práticas desses princípios.
+
+1.2. Composição do Plenário e Atos Formais
+
+A sessão contou com a presença dos seguintes membros do Tribunal, nominados pela Ministra Presidente:
+
+* Ministra Cármen Lúcia (Presidente)
+* Ministro Kassio Nunes Marques (Vice-Presidente)
+* Ministro André Mendonça (participação por videoconferência)
+* Ministra Isabel Gallotti
+* Ministro Antonio Carlos Ferreira
+* Ministro Floriano de Azevedo Marques
+* Ministro André Ramos Tavares
+* Doutor Alexandre Espinosa (Vice-Procurador-Geral Eleitoral)
+
+Após a abertura, foi submetida à apreciação e aprovada por unanimidade a ata da sessão ordinária jurisdicional anterior, realizada em 10 de setembro de 2024.
+
+
+--------------------------------------------------------------------------------
+
+
+2. Análise dos Processos Julgados
+
+Encerrados os atos formais de abertura, a sessão adentrou sua fase jurisdicional. Este relatório passa a analisar detalhadamente cada processo julgado individualmente, seguindo uma estrutura metodológica rigorosa para extrair os fatos, os fundamentos jurídicos e as decisões proferidas, conforme apregoado em plenário.
+
+2.1. Processo: Agravo em Recurso Especial Eleitoral nº 0600437-74
+
+* Identificação:
+  * Processo: Agravo em Recurso Especial Eleitoral nº 0600437-74
+  * Origem: Pacujá - Ceará (CE)
+  * Relator: Ministro André Mendonça
+  * Partes:
+    * Agravantes: Francisco Antonio de Oliveira Júnior e outro; Lincélia Maria Ribeiro Magalhães; Washington Luís Alcântara Lima e outros; Raimundo Rodrigues de Souza Filho; José da Silva José Silva de Abreu; Talita Miranda de Abreu e outros; Brás Rodrigues Alves de Brito.
+    * Agravado: Ministério Público Eleitoral.
+
+2.1.1. Análise do Conteúdo Jurídico
+
+O núcleo da controvérsia jurídica consistiu na análise de múltiplos agravos interpostos contra a decisão de inadmissão de recursos especiais, os quais buscavam reverter um acórdão do Tribunal Regional Eleitoral do Ceará (TRE/CE). A condenação original, mantida pelo tribunal de origem, resultou na cassação dos diplomas do Prefeito, Vice-Prefeito e Vereadores eleitos no município de Pacujá/CE, com fundamento na prática de abuso de poder econômico e captação ilícita de sufrágio. O esquema ilícito, conforme descrito no acórdão regional, envolvia a criação de uma "administração paralela" para fraudar as eleições, mediante a oferta de bens e serviços diversos, como passagens aéreas, cirurgias, consultas, exames, óculos, cimento e pagamento de aluguel, em troca de votos.
+
+2.1.2. Fundamentação Normativa e Jurisprudencial
+
+O voto do Ministro Relator, acompanhado pelos demais membros da Corte, baseou-se em um conjunto de fontes normativas e jurisprudenciais para sustentar a decisão.
+
+Fonte Normativa/Jurisprudencial	Conteúdo e Aplicação no Voto
+Súmula nº 24 do TSE	Aplicada para afastar a pretensão recursal de reexame do conjunto fático-probatório. O Tribunal entendeu que a análise das provas realizada pelo TRE/CE foi soberana e que revertê-la exigiria uma nova incursão nos fatos, o que é vedado em sede de recurso especial.
+Portaria do TSE nº 881/2023	Mencionada para justificar a inviabilidade de novas eleições diretas, dado o exíguo prazo restante para o fim do mandato. A portaria estabelece calendários para pleitos suplementares, e a proximidade das eleições ordinárias desaconselha a convocação de um novo pleito direto.
+Código de Processo Penal (Arts. 158-c e 158-d, §3º)	Citados pelo relator para fundamentar a validade da prova. Argumentou-se que o Art. 158-d, §3º autoriza pessoa autorizada (o promotor, no caso) a realizar a análise, e que o Art. 158-c não impõe a obrigatoriedade de perícia para todos os objetos apreendidos, especialmente para a simples leitura de mensagens.
+
+2.1.3. Precedentes Citados
+
+O raciocínio jurídico foi reforçado pela citação de precedentes consolidados tanto no TSE quanto no Superior Tribunal de Justiça (STJ):
+
+1. TSE, AgRg no REspe 0600132-82 (PE), Rel. Min. Luiz Edson Fachin: Utilizado para afastar a alegação de dissídio jurisprudencial, estabelecendo que um paradigma oriundo da Justiça comum não é apto a fundamentar um recurso especial eleitoral por divergência de teses.
+2. STJ, AgRg no RHC 147885, Rel. Min. Olindo Menezes: Citado para argumentar que uma eventual interferência na cadeia de custódia da prova pode, mas não necessariamente, implicar sua imprestabilidade, devendo a nulidade ser analisada no contexto do processo.
+3. STJ, AgRg no AREsp 2318334, Rel. Min. Reinaldo Soares da Fonseca, j. Abril/2024: Precedente chave para validar a prova obtida por meio do espelhamento do WhatsApp Web. A tese aplicada foi a de que a invalidade de tal prova exige a demonstração concreta de adulteração, não podendo ser presumida genericamente.
+4. TSE, Precedentes dos Ministros Barroso e Gilmar Mendes: Invocados para fundamentar a inviabilidade de realizar novas eleições diretas para um mandato de curta duração (cerca de 3 meses), em razão dos custos e da movimentação da máquina pública.
+5. TSE, ED no REspe 060068208 (PE), Rel. Min. Raul Araújo, j. 08/08/2024: Reforçou o argumento anterior, destacando que a realização de dois pleitos municipais em um curto intervalo de tempo poderia gerar confusão no eleitorado local.
+
+2.1.4. Reconstrução do Raciocínio Jurídico
+
+A lógica decisória do Tribunal seguiu um fluxo claro e coeso, reconstruído nas seguintes etapas:
+
+1. Análise das Preliminares: O Tribunal rejeitou unanimemente as preliminares de (i) inépcia da inicial e (ii) nulidade da prova. Quanto à primeira, considerou que os fatos e as condutas estavam devidamente individualizados pelo Ministério Público. Quanto à segunda, afastou a alegação de quebra da cadeia de custódia e ilicitude do uso do WhatsApp Web, com base nos seguintes argumentos: a busca e apreensão dos aparelhos celulares foi amparada por autorização judicial regular; a extração de dados foi feita pelo próprio promotor eleitoral, titular da ação; e os recorrentes não alegaram ou demonstraram qualquer adulteração específica do conteúdo das mensagens.
+2. Análise de Mérito: No mérito, o Tribunal aplicou a Súmula nº 24/TSE para se abster de reexaminar as provas, considerando robusto e cabal o acervo probatório reunido pelo TRE/CE, que demonstrava um vasto esquema de corrupção eleitoral.
+3. Construção do Quórum: O julgamento iniciou com o voto do Ministro Relator, André Mendonça. As manifestações subsequentes convergiram integralmente, com destaque para as observações da Ministra Isabel Gallotti, que enfatizou a necessidade de análise casuística da licitude de provas obtidas por espelhamento do WhatsApp Web, e do Ministro Floriano de Azevedo Marques, que, alinhado ao parecer da Procuradoria-Geral Eleitoral, rechaçou a tese de quebra da cadeia de custódia pelo fato de o próprio promotor ter realizado a extração dos dados, afirmando a competência do titular da ação penal para tal ato.
+4. Tese Conclusiva: A tese final aplicada ao caso foi a manutenção integral do acórdão regional, que cassou os mandatos e declarou a inelegibilidade dos envolvidos, com a determinação de que as novas eleições para os cargos majoritários fossem realizadas de forma indireta, pela Câmara Municipal, em razão da proximidade do fim do mandato.
+
+2.1.5. Pontos Processuais Relevantes
+
+Os principais incidentes processuais discutidos e decididos foram:
+
+* Admissibilidade Recursal: Análise dos pressupostos dos agravos interpostos, que foram conhecidos para análise de mérito.
+* Questões Preliminares: Rejeição unânime das arguições de inépcia da inicial e de ilicitude da prova por quebra da cadeia de custódia.
+* Quórum e Proclamação: A decisão foi unânime, com todos os ministros acompanhando integralmente o voto do relator.
+
+2.1.6. Efeitos e Providências Práticas da Decisão
+
+As consequências práticas da decisão do Tribunal foram as seguintes:
+
+* Sanções: Manutenção da cassação dos diplomas do Prefeito, Vice-Prefeito e Vereadores envolvidos; declaração de inelegibilidade por 8 anos; e imposição de multa de 50.000 UFIRs.
+* Novas Eleições: Determinação de realização de eleições suplementares indiretas para os cargos de Prefeito e Vice-Prefeito de Pacujá/CE, com a justificativa baseada na jurisprudência da Corte sobre a inviabilidade de pleito direto em fim de mandato.
+* Providências Adicionais: Ordem para que o TRE/CE proceda ao recálculo dos quocientes eleitoral e partidário para a redistribuição das vagas de vereador e determinação de cumprimento imediato da decisão.
+
+Finalizada a análise deste caso, o Plenário procedeu ao julgamento de processo conexo, oriundo do mesmo contexto fático-jurídico.
+
+2.2. Processo: Agravo em Recurso Especial Eleitoral nº 0600438-59
+
+* Identificação:
+  * Processo: Agravo em Recurso Especial Eleitoral nº 0600438-59
+  * Origem: Pacujá - Ceará (CE)
+  * Eleição: 2020
+  * Relator: Ministro André Mendonça
+  * Partes:
+    * Agravantes: Geraldo Rodrigues Aguiar e outra (Elisângela Milani Freire Aguiar); Elza Rodrigues de Sales.
+    * Agravado: Ministério Público Eleitoral.
+
+2.2.1. Análise do Conteúdo Jurídico
+
+Este processo guarda estrita conexão fática e jurídica com o julgamento anterior (AREspE nº 0600437-74). A controvérsia centrava-se nos recursos de vereadores eleitos que foram condenados no mesmo contexto por captação ilícita de sufrágio e abuso de poder econômico, sendo parte do mesmo esquema de fraude eleitoral desarticulado em Pacujá/CE.
+
+2.2.2. Fundamentação Normativa e Jurisprudencial
+
+O Ministro Relator reportou-se expressamente às razões de decidir adotadas no caso anterior para fundamentar sua decisão. Foi reafirmada a validade da prova obtida via WhatsApp Web, com a rejeição da preliminar de nulidade, e, no mérito, foi novamente aplicada a Súmula nº 24 do TSE para impedir o reexame do acervo probatório.
+
+2.2.3. Precedentes Citados
+
+O julgamento fundamentou-se no mesmo arcabouço jurisprudencial do processo anterior. O Ministro Relator fez referência explícita ao precedente do STJ sobre a validade de provas obtidas via WhatsApp Web (AgRg no AREsp 2318334, Rel. Min. Reinaldo Soares da Fonseca), aplicando a mesma tese para validar os elementos probatórios.
+
+2.2.4. Reconstrução do Raciocínio Jurídico
+
+O Tribunal adotou um raciocínio análogo ao do julgamento precedente. Em razão da identidade fática e jurídica, o relator aplicou a mesma fundamentação para rejeitar as preliminares e negar provimento ao mérito do recurso, sendo acompanhado unanimemente pelos demais ministros sem a necessidade de debates adicionais.
+
+2.2.5. Pontos Processuais Relevantes
+
+As mesmas questões preliminares de inépcia da inicial e ilicitude da prova, arguidas no caso anterior, foram rejeitadas com base nos mesmos fundamentos. A decisão do colegiado foi, novamente, unânime.
+
+2.2.6. Efeitos e Providências Práticas da Decisão
+
+As consequências diretas da decisão para os agravantes foram:
+
+* Sanções: Manutenção da cassação dos diplomas e registros dos vereadores Geraldo Rodrigues Aguiar e Elza Rodrigues de Sales.
+* Invalidação de Votos: Confirmação da anulação de todos os votos a eles atribuídos no pleito de 2020.
+* Multa e Inelegibilidade: Manutenção da condenação ao pagamento de multa no valor de 50.000 UFIRs e da declaração de inelegibilidade.
+
+
+--------------------------------------------------------------------------------
+
+
+3. Conclusão da Análise Jurisdicional
+
+A análise dos julgamentos da sessão plenária de 12 de setembro de 2024 demonstra a coerência do Tribunal Superior Eleitoral na aplicação de sua jurisprudência, especialmente no que tange à validade de provas digitais e à aplicação da Súmula nº 24. A Corte manteve uma postura firme e unânime contra a fraude eleitoral e o abuso de poder econômico, reforçando a segurança jurídica e a integridade dos pleitos municipais ao confirmar as decisões do tribunal regional que cassaram mandatos obtidos por meios ilícitos.
+
+Nota: Em conformidade com as diretrizes deste relatório, os processos julgados em lista ao final da sessão, por não envolverem debate oral ou fundamentação detalhada em plenário, não foram objeto de análise aprofundada.

@@ -1,0 +1,260 @@
+RELATÓRIO TÉCNICO DE SESSÃO DO TSE
+
+**JUÍZO DE ADMISSIBILIDADE E CONTEXTO GERAL:**
+
+Trata-se da **Sessão de Abertura do 2º Semestre Forense de 2024**, marcada pela retomada dos julgamentos com foco na preparação para as Eleições Municipais de 2024. A Presidente, Ministra Cármen Lúcia, destacou a contagem regressiva de 65 dias para o pleito e a realização de testes de campo nas urnas eletrônicas.
+
+---
+
+### **[[20:26](http://www.youtube.com/watch?v=-bRjhtB4Gz4&t=1226)] PROCESSO Nº 1: Agravo Regimental no Agravo em Recurso Especial Eleitoral nº 0600029-7X**
+
+**1) Data da sessão:** 01/08/2024
+**2) Eleição a que se refere:** Eleições Municipais de 2020
+**3) Nome expresso dos indicados em lista tríplice:** N/A
+**4) Número dos processos:** 0600029-7 (Dígitos finais não verbalizados integralmente, mas identificado pela origem)
+**5) Cidade de origem:** Crisólita
+**6) UF:** Minas Gerais (MG)
+**7) Nome das partes:**
+
+* **Agravante:** Aderland Moreira Vilela
+* **Agravados:** Coligação "Honestidade e Transparência" e Ministério Público Eleitoral
+**8) Ministros presentes:** Cármen Lúcia (Pres.), Nunes Marques, André Mendonça, Raul Araújo, Isabel Gallotti, Floriano de Azevedo Marques, André Ramos Tavares.
+**9) Advogados:** Não citados nominalmente neste bloco.
+**10) Ministro relator:** Min. Cármen Lúcia
+**11) Jurisprudência do STF mencionada:** Não houve menção expressa de precedente específico do STF neste voto.
+**12) Jurisprudência do TSE mencionada:** Súmula 24, Súmula 26 e Súmula 30.
+**13) Resolução do TSE mencionada:** Não houve menção expressa.
+**14) Legislação mencionada:** Não houve citação de artigo de lei específico no resumo oral, apenas a tipificação da AIJE.
+
+#### **1. ANÁLISE DO CONTEÚDO JURÍDICO**
+
+O caso trata de uma Ação de Investigação Judicial Eleitoral (AIJE) contra Prefeito e Vice-Prefeito por **abuso de poder político e econômico**. O núcleo da controvérsia reside na suspensão do pagamento de salários de servidores públicos municipais que se recusaram a manifestar apoio político aos candidatos da situação, conduta julgada procedente na origem.
+
+#### **2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Súmulas do TSE:**
+* Súmula 24 (Vedação ao reexame de fatos e provas em sede especial).
+* Súmula 26 (Necessidade de impugnação específica dos fundamentos da decisão agravada).
+* Súmula 30 (Dissídio jurisprudencial prejudicado quando a decisão recorrida está em consonância com a jurisprudência do TSE).
+
+
+
+#### **3. PRECEDENTES CITADOS**
+
+Não foram declinados precedentes nominais (número/relator) no voto oral, apenas a referência genérica à jurisprudência consolidada do Tribunal (atraindo a Súmula 30).
+
+#### **4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Premissas e Método:** A Relatora utilizou o método da **subsunção** às súmulas impeditivas de recursos.
+* **Reconstrução do Voto:** A Ministra Cármen Lúcia destacou que o Tribunal Regional de Minas Gerais (TRE-MG) fundamentou adequadamente a decisão, reconhecendo a gravidade da conduta (suspensão de salários por perseguição política).
+* **Conclusão:** Para alterar a conclusão regional de que houve abuso de poder político, seria necessário o reexame fático-probatório, o que é vedado pela Súmula 24. Além disso, a parte agravante não impugnou todos os fundamentos da decisão (Súmula 26).
+
+#### **5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Admissibilidade:** O recurso teve seguimento negado monocraticamente. O Agravo Regimental foi desprovido por óbices processuais (súmulas).
+* **Quórum:** Unanimidade.
+
+#### **6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* **Manutenção do Acórdão Regional:** Nega-se provimento ao agravo, mantendo-se a decisão de procedência da AIJE (que, em tese, acarreta cassação e inelegibilidade, embora os efeitos específicos não tenham sido detalhados na proclamação oral).
+
+---
+
+### **[[22:58](http://www.youtube.com/watch?v=-bRjhtB4Gz4&t=1378)] PROCESSO Nº 2: Agravo Regimental no Agravo em Recurso Especial Eleitoral nº 0600764-61**
+
+**1) Data da sessão:** 01/08/2024
+**2) Eleição a que se refere:** Eleições Gerais de 2022
+**3) Nome expresso dos indicados em lista tríplice:** N/A
+**4) Número dos processos:** 0600764-61 (AgR no AREspE)
+**5) Cidade de origem:** Campo Grande
+**6) UF:** Mato Grosso do Sul (MS)
+**7) Nome das partes:**
+
+* **Agravantes:** Loester Carlos Gomes de Souza e Raquele Lisboa Alves Souza
+* **Agravado:** Ministério Público Eleitoral
+**8) Ministros presentes:** Composição completa (vide item 1).
+**9) Advogados:** Não citados nominalmente.
+**10) Ministro relator:** Min. Cármen Lúcia
+**11) Jurisprudência do STF mencionada:** Não aplicável.
+**12) Jurisprudência do TSE mencionada:** Súmula 24, Súmula 26 e Súmula 30.
+**13) Resolução do TSE mencionada:** Não aplicável.
+**14) Legislação mencionada:** Representação por propaganda eleitoral irregular.
+
+#### **1. ANÁLISE DO CONTEÚDO JURÍDICO**
+
+Trata-se de Representação por **propaganda eleitoral irregular em bem público**. O fato gerador foi a participação dos candidatos (deputado federal e estadual) em evento de entrega de ambulância em frente ao Paço Municipal.
+
+#### **2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Súmulas do TSE:** Súmulas 24, 26 e 30 (mesmos fundamentos do caso anterior).
+
+#### **3. PRECEDENTES CITADOS**
+
+N/A (Referência genérica à jurisprudência consolidada).
+
+#### **4. RACIOCÍNIO DESENVOLVIDO**
+
+* A Corte Regional reconheceu a ilicitude da conduta (uso de entrega de bens públicos para promoção).
+* A Relatora aplicou os óbices sumulares, pois a revisão da decisão demandaria nova análise das provas (vedado pela Súmula 24) e o acórdão regional está alinhado à jurisprudência do TSE (Súmula 30).
+
+#### **5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Decisão:** Negativa de provimento ao Agravo Regimental à unanimidade.
+
+#### **6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* Manutenção da condenação por propaganda irregular (geralmente multa, conforme legislação de regência, embora o valor não tenha sido citado).
+
+---
+
+### **[[25:02](http://www.youtube.com/watch?v=-bRjhtB4Gz4&t=1502)] PROCESSO Nº 3: Agravo Regimental no Recurso Especial Eleitoral nº 0601103-13**
+
+**1) Data da sessão:** 01/08/2024
+**2) Eleição a que se refere:** Eleições Municipais de 2020
+**3) Nome expresso dos indicados em lista tríplice:** N/A
+**4) Número dos processos:** 0601103-13
+**5) Cidade de origem:** Jaíba
+**6) UF:** Minas Gerais (MG)
+**7) Nome das partes:**
+
+* **Agravante:** Gim Diogo Silva Murta
+* **Agravados:** Reginaldo Antônio da Silva (Prefeito reeleito) e Arnaldo Hélio Dias (Vice-prefeito reeleito)
+**8) Ministros presentes:** Composição completa.
+**9) Advogados:** Não citados nominalmente.
+**10) Ministro relator:** Min. Nunes Marques
+**11) Jurisprudência do STF mencionada:** **Tema 979 da Repercussão Geral**.
+**12) Jurisprudência do TSE mencionada:** Súmula 24 e Súmula 30.
+**13) Resolução do TSE mencionada:** Não aplicável.
+**14) Legislação mencionada:** Captação ilícita de sufrágio, abuso de poder econômico e político, condutas vedadas.
+
+#### **1. ANÁLISE DO CONTEÚDO JURÍDICO**
+
+AIJE visando a cassação da chapa eleita por suposta compra de votos (captação ilícita de sufrágio) e abuso de poder (distribuição de cestas básicas, obras em período eleitoral, contratação de servidores, gastos com publicidade e desvio de verbas de cultura). A prova central baseava-se em **gravação ambiental clandestina**.
+
+#### **2. FUNDAMENTAÇÃO NORMATIVA**
+
+* **Constituição/STF:** Tema 979 da Repercussão Geral (Ilicitude da gravação ambiental realizada sem autorização judicial ou conhecimento de um dos interlocutores no processo eleitoral).
+* **Súmulas do TSE:** Súmula 24 (Reexame de provas).
+
+#### **3. PRECEDENTES CITADOS**
+
+* Decisão anterior do **Min. Ricardo Lewandowski** (relator originário que negou seguimento).
+* **STF, Tema 979** (Precedente vinculante sobre gravações ambientais).
+
+#### **4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Questão Probatória (Gravação Clandestina):** O Relator aplicou a tese do STF (Tema 979) de que gravações ambientais realizadas em ambiente privado, sem consentimento e sem autorização judicial, são ilícitas no processo eleitoral.
+* **Provas Remanescentes:** Afastada a gravação, restaram provas testemunhais que foram consideradas frágeis e conflitantes pelo TRE-MG.
+* **Contexto da Pandemia:** As contratações de servidores foram justificadas pelo estado de calamidade pública da COVID-19.
+* **Conclusão:** Sem a prova ilícita e sem robustez nas demais provas, mantém-se a improcedência da ação.
+
+#### **5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Proclamação:** Unanimidade, negando provimento ao agravo.
+
+#### **6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* Manutenção da absolvição/improcedência da ação contra o Prefeito e Vice de Jaíba/MG.
+
+---
+
+### **[[28:50](http://www.youtube.com/watch?v=-bRjhtB4Gz4&t=1730)] PROCESSO Nº 4: Agravo Regimental no Recurso Ordinário nº 0602007-26**
+
+**1) Data da sessão:** 01/08/2024
+**2) Eleição a que se refere:** Eleições Gerais de 2022
+**3) Nome expresso dos indicados em lista tríplice:** N/A
+**4) Número dos processos:** 0602007-26
+**5) Cidade de origem:** Porto Velho
+**6) UF:** Rondônia (RO)
+**7) Nome das partes:**
+
+* **Agravante:** Partido Liberal (PL)
+* **Agravados:** Marcos José Rocha dos Santos (Governador reeleito) e Sérgio Gonçalves da Silva (Vice)
+**8) Ministros presentes:** Composição completa.
+**9) Advogados:** Não citados nominalmente.
+**10) Ministro relator:** Min. Raul Araújo (Corregedor-Geral)
+**11) Jurisprudência do STF mencionada:** Não citada explicitamente.
+**12) Jurisprudência do TSE mencionada:** Precedentes de relatoria do Min. Alexandre de Moraes e Min. Sérgio Banhos sobre a necessidade de prova inequívoca para abuso de poder.
+**13) Resolução do TSE mencionada:** Não aplicável.
+**14) Legislação mencionada:** Abuso de poder político e econômico, conduta vedada.
+
+#### **1. ANÁLISE DO CONTEÚDO JURÍDICO**
+
+AIJE investigando o Governador de Rondônia por abuso de poder. As acusações envolviam:
+a) Atos normativos com caráter eleitoreiro;
+b) Assédio a servidores (coação para campanha como "voluntários");
+c) Abuso do poder político mediante nota explicativa do Executivo em resposta a direito de resposta;
+d) Gastos desproporcionais com propaganda.
+
+#### **2. FUNDAMENTAÇÃO NORMATIVA**
+
+* Princípio de que o abuso de poder exige prova robusta e inequívoca da gravidade (desequilíbrio do pleito).
+
+#### **3. PRECEDENTES CITADOS**
+
+* Precedentes citados genericamente pelo Relator (Min. Alexandre de Moraes e Min. Sérgio Banhos) sobre a vedação à condenação baseada em presunções.
+
+#### **4. RACIOCÍNIO DESENVOLVIDO**
+
+* **Voto do Relator (Min. Raul Araújo):**
+* Entendeu que os atos de governo tinham previsão legal e regular execução.
+* Sobre o assédio a servidores: A prova emprestada indicou caráter voluntário e fora do horário de expediente.
+* Sobre a nota oficial: Trâmite regular, sem viés eleitoreiro.
+* Concluiu pela ausência de lastro probatório mínimo (improcedência).
+
+
+
+#### **5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Pedido de Vista:** O **Min. André Ramos Tavares** pediu vista antecipada dos autos, interrompendo o julgamento.
+* **PGE:** Manifestação prévia (nos autos) pela negativa de seguimento.
+
+#### **6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* Julgamento suspenso. Sem efeitos imediatos até a devolução da vista.
+
+---
+
+### **[[32:46](http://www.youtube.com/watch?v=-bRjhtB4Gz4&t=1966)] PROCESSO Nº 5: Agravo Regimental no Recurso Ordinário nº 0602008-11**
+
+**1) Data da sessão:** 01/08/2024
+**2) Eleição a que se refere:** Eleições Gerais de 2022
+**3) Nome expresso dos indicados em lista tríplice:** N/A
+**4) Número dos processos:** 0602008-11 (Dígito final deduzido pelo contexto sequencial, falado como "traço um")
+**5) Cidade de origem:** Porto Velho
+**6) UF:** Rondônia (RO)
+**7) Nome das partes:**
+
+* **Agravante:** Daniel Pereira
+* **Agravados:** Marcos José Rocha dos Santos e Sérgio Gonçalves da Silva
+**8) Ministros presentes:** Composição completa.
+**9) Advogados:** Não citados nominalmente.
+**10) Ministro relator:** Min. Raul Araújo
+**11) Jurisprudência do STF mencionada:** Não citada.
+**12) Jurisprudência do TSE mencionada:** Mesmo padrão do caso anterior (prova inequívoca).
+**13) Resolução do TSE mencionada:** Não aplicável.
+**14) Legislação mencionada:** Idem ao processo anterior.
+
+#### **1. ANÁLISE DO CONTEÚDO JURÍDICO**
+
+Processo conexo ou similar ao anterior (mesmos réus, fatos semelhantes), movido por autor diverso (Daniel Pereira). Versa sobre abuso de poder político/econômico, uso de equipamentos públicos e coação de servidores.
+
+#### **2. FUNDAMENTAÇÃO NORMATIVA**
+
+* Necessidade de prova robusta para cassação de mandato (jurisprudência pacífica do TSE).
+
+#### **3. PRECEDENTES CITADOS**
+
+* Referência aos standards probatórios exigidos pela Corte.
+
+#### **4. RACIOCÍNIO DESENVOLVIDO**
+
+* O Relator reiterou os fundamentos do processo anterior: inexistência de comprovação de uso exorbitante de recursos ou coação de servidores. As testemunhas confirmaram o voluntariado fora do expediente.
+
+#### **5. PONTOS PROCESSUAIS RELEVANTES**
+
+* **Pedido de Vista:** O **Min. André Ramos Tavares** estendeu o pedido de vista a este processo também, dada a conexão/identidade de partes.
+
+#### **6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* Julgamento suspenso. Aguarda voto-vista.
