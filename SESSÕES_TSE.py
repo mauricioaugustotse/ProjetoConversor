@@ -1394,6 +1394,59 @@ def has_pedido_vista_marker(text: str) -> bool:
         return True
     return False
 
+def extract_pedido_vista_map(
+    text: str,
+    search_back: int = 8,
+    search_forward: int = 2
+) -> Dict[str, str]:
+    if not text:
+        return {}
+    lines = text.splitlines()
+    vista_map: Dict[str, str] = {}
+    for idx, line in enumerate(lines):
+        if not VISTA_REQUEST_REGEX.search(line):
+            continue
+        if line_has_negated_vista(line):
+            continue
+        name = extract_first_ministro_name(line)
+        if not name and idx + 1 < len(lines):
+            name = extract_first_ministro_name(lines[idx + 1])
+        if not name:
+            continue
+        candidates = extract_process_numbers_from_line(line)
+        if not candidates:
+            for back in range(1, search_back + 1):
+                if idx - back < 0:
+                    break
+                candidates = extract_process_numbers_from_line(lines[idx - back])
+                if candidates:
+                    break
+        if not candidates:
+            for forward in range(1, search_forward + 1):
+                if idx + forward >= len(lines):
+                    break
+                candidates = extract_process_numbers_from_line(lines[idx + forward])
+                if candidates:
+                    break
+        if len(candidates) != 1:
+            continue
+        normalized = normalize_processo_num(candidates[0])
+        if normalized and normalized not in vista_map:
+            vista_map[normalized] = name
+    return vista_map
+
+def apply_pedido_vista_map(items: List[Dict[str, Any]], vista_map: Dict[str, str]) -> None:
+    if not items or not vista_map:
+        return
+    for item in items:
+        mapped = ""
+        for number in extract_process_numbers_from_value(item.get("numero_processo", "")):
+            normalized = normalize_processo_num(number)
+            if normalized in vista_map:
+                mapped = vista_map[normalized]
+                break
+        item["pedido_vista"] = mapped or ""
+
 def extract_pedido_vista(text: str, relator: str) -> str:
     def find_ministro_name(value: str) -> str:
         cleaned = normalize_text(value)
@@ -1983,22 +2036,26 @@ def process_report_text(report_text: str, model: str, use_api_for_vista: bool = 
             structured_data = {**structured_data, "itens": items}
         if items:
             vista_marker = has_pedido_vista_marker(normalized_text)
-            regex_vista = extract_pedido_vista(normalized_text, "")
-            if regex_vista:
-                for item in items:
-                    if not item.get("pedido_vista"):
-                        item["pedido_vista"] = regex_vista
-            elif use_api_for_vista and vista_marker and (len(items) == 1 or len(process_numbers) <= 1):
-                needs_vista = any(not item.get("pedido_vista") for item in items)
-                if needs_vista:
-                    vista_api = extract_pedido_vista_via_api(normalized_text, model)
-                    if vista_api:
-                        for item in items:
-                            if not item.get("pedido_vista"):
-                                item["pedido_vista"] = vista_api
-            if not vista_marker:
-                for item in items:
-                    item["pedido_vista"] = ""
+            if len(items) == 1:
+                regex_vista = extract_pedido_vista(normalized_text, "")
+                if regex_vista:
+                    if not items[0].get("pedido_vista"):
+                        items[0]["pedido_vista"] = regex_vista
+                elif use_api_for_vista and vista_marker and (len(process_numbers) <= 1):
+                    needs_vista = any(not item.get("pedido_vista") for item in items)
+                    if needs_vista:
+                        vista_api = extract_pedido_vista_via_api(normalized_text, model)
+                        if vista_api:
+                            items[0]["pedido_vista"] = vista_api
+                if not vista_marker:
+                    items[0]["pedido_vista"] = ""
+            else:
+                vista_map = extract_pedido_vista_map(normalized_text) if vista_marker else {}
+                if vista_map:
+                    apply_pedido_vista_map(items, vista_map)
+                else:
+                    for item in items:
+                        item["pedido_vista"] = ""
         rows = flatten_data_for_csv(structured_data)
         apply_sequential_tipo_registro(rows)
         return rows
@@ -2017,7 +2074,10 @@ def process_report_text(report_text: str, model: str, use_api_for_vista: bool = 
                 len(process_numbers)
             )
         raw_fields = extract_raw_fields(section, base_context)
+        vista_marker = has_pedido_vista_marker(section)
+        vista_map = extract_pedido_vista_map(section) if vista_marker else {}
         if is_joint and len(process_numbers) > 1:
+            raw_fields["pedido_vista"] = ""
             item_prefill = {}
             fallback_fields = {
                 k: v for k, v in raw_fields.items()
@@ -2034,7 +2094,6 @@ def process_report_text(report_text: str, model: str, use_api_for_vista: bool = 
         else:
             item_prefill = {k: v for k, v in raw_fields.items() if k not in ("data_sessao", "composicao")}
             fallback_fields = raw_fields
-        vista_marker = has_pedido_vista_marker(section)
         if not vista_marker:
             raw_fields["pedido_vista"] = ""
             fallback_fields["pedido_vista"] = ""
@@ -2057,13 +2116,22 @@ def process_report_text(report_text: str, model: str, use_api_for_vista: bool = 
         if not items:
             logging.warning("Esta parte não gerou dados. Vou seguir para a próxima.")
             continue
-        if use_api_for_vista and vista_marker and not raw_fields.get("pedido_vista"):
-            needs_vista = any(not item.get("pedido_vista") for item in items)
-            if needs_vista:
-                vista_api = extract_pedido_vista_via_api(section, model)
-                if vista_api:
-                    raw_fields["pedido_vista"] = vista_api
-                    fallback_fields["pedido_vista"] = vista_api
+        if len(items) == 1:
+            if use_api_for_vista and vista_marker and not raw_fields.get("pedido_vista"):
+                needs_vista = any(not item.get("pedido_vista") for item in items)
+                if needs_vista:
+                    vista_api = extract_pedido_vista_via_api(section, model)
+                    if vista_api:
+                        raw_fields["pedido_vista"] = vista_api
+                        fallback_fields["pedido_vista"] = vista_api
+        else:
+            raw_fields["pedido_vista"] = ""
+            fallback_fields["pedido_vista"] = ""
+            if vista_map:
+                apply_pedido_vista_map(items, vista_map)
+            else:
+                for item in items:
+                    item["pedido_vista"] = ""
 
         sessao_info = merge_session_info(structured_data.get("sessao", {}), base_context, raw_fields)
         for item in items:
