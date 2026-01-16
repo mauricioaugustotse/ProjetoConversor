@@ -1,0 +1,147 @@
+Relatório Analítico da Sessão Plenária do TSE – 10 de Dezembro de 2024
+
+1.0 Introdução à Sessão de Julgamento
+
+Este relatório técnico oferece uma análise pormenorizada da sessão jurisdicional do Tribunal Superior Eleitoral (TSE) realizada em 10 de dezembro de 2024. O objetivo deste documento é dissecar as deliberações, os fundamentos jurídicos e os resultados dos principais casos julgados, proporcionando uma visão clara sobre as teses e os precedentes que nortearam as decisões do Plenário. A sessão foi marcada por julgamentos de alta relevância, abordando temas como captação ilícita de sufrágio, abuso de poder econômico e os limites da atividade investigatória em matéria eleitoral.
+
+* Composição do Plenário
+  * Ministra Presidente: Cármen Lúcia
+  * Ministros Titulares: Kassio Nunes Marques (Vice-Presidente), André Mendonça, Isabel Gallotti (Corregedora-Geral), Antônio Carlos Ferreira, Floriano de Azevedo Marques e Ramos Tavares.
+  * Ministras Substitutas: Edilene Lôbo e Vera Lúcia.
+  * Vice-Procurador-Geral Eleitoral: Dr. Alexandre Espinosa.
+
+A sessão foi iniciada com a leitura da ata da sessão anterior (05/12/2024) pelo Secretário, Dr. João Paulo, sendo esta aprovada por unanimidade, sem observações ou retificações por parte dos ministros.
+
+O presente relatório avança, na sequência, para a análise pormenorizada do julgamento de maior densidade jurídica da pauta.
+
+2.0 Análise do Julgamento – Recursos Ordinários nº 0601657-66 e 0601658-51
+
+Este julgamento assume importância estratégica por abordar temas centrais do direito eleitoral, como a captação ilícita de sufrágio e o abuso de poder econômico. O caso serve como um estudo exemplar sobre a valoração do conjunto probatório e a aplicação de sanções severas, como a cassação de diploma e a decretação de inelegibilidade. As deliberações do Tribunal reforçam a jurisprudência sobre a configuração de ilícitos que atentam contra a normalidade e a legitimidade das eleições.
+
+2.1 Ficha Técnica do Processo
+
+Item	Descrição
+Timestamp de Início:	Dado não disponível na transcrição fornecida.
+Data da Sessão:	10/12/2024
+Eleição Referente:	2022
+Número dos Processos:	0601657-66 e 0601658-51
+Cidade/UF de Origem:	Macapá/AP
+Partes Envolvidas:	Recorrentes: Melque da Costa Lima, Eduardo Renari Silva Ferreira e Julison Pinho Pereira. <br> Recorrido: Ministério Público Eleitoral.
+Ministros da Sessão:	Cármen Lúcia, Kassio Nunes Marques, André Mendonça, Isabel Gallotti, Antônio Carlos Ferreira, Floriano de Azevedo Marques, Ramos Tavares.
+Advogado(s) com Sustentação Oral:	Dr. Marcos Diego Santos Pires (pelos recorrentes).
+Ministro Relator:	Ministro André Mendonça.
+Jurisprudência do STF Mencionada:	Nenhuma mencionada.
+Jurisprudência do TSE Mencionada:	RO nº 133425 (Rel. Min. Luciana Lóssio); Precedente sobre transporte de eleitores (Rel. Min. Cármen Lúcia).
+Resoluções do TSE Mencionadas:	Menção a uma resolução sobre transporte de eleitores, sem especificação numérica.
+Legislação Mencionada:	Lei nº 9.504/1997 (Art. 41-A); Lei Complementar nº 64/1990 (Art. 22); Lei nº 13.105/2015 (Art. 278).
+
+2.2 Análise do Conteúdo Jurídico
+
+A controvérsia jurídica fundamental versou sobre a imputação de captação ilícita de sufrágio e abuso de poder econômico, materializada por um suposto esquema organizado de transporte irregular de eleitores no dia da eleição de 2022. A acusação sustentou que a estrutura foi montada em benefício do então candidato a Deputado Estadual pelo Amapá, Melque da Costa Lima, no município de Santana, com o objetivo de obter votos em troca do transporte, conduta que viola a isonomia entre os candidatos e a liberdade do voto.
+
+2.3 Fundamentação Normativa
+
+A base legal invocada durante os debates e no voto condutor do relator foi a seguinte:
+
+* Lei das Eleições (Lei nº 9.504/1997): O Artigo 41-A foi o dispositivo central para a caracterização da captação ilícita de sufrágio, que proíbe a doação, o oferecimento, a promessa ou a entrega de bem ou vantagem pessoal em troca de voto.
+* Lei Complementar nº 64/1990 (Lei das Inelegibilidades): O Artigo 22 fundamentou a acusação de abuso de poder econômico, considerando a gravidade da conduta e sua potencialidade para afetar a normalidade e a legitimidade das eleições.
+* Código de Processo Civil (Lei nº 13.105/2015): O Artigo 278 foi citado para rechaçar a tese de nulidade processual, estabelecendo que a alegação de nulidade deve ocorrer na primeira oportunidade que a parte tiver para se manifestar nos autos, sob pena de preclusão.
+
+2.4 Precedentes Citados
+
+Para fundamentar as decisões, foram mencionados os seguintes precedentes judiciais:
+
+* Precedente sobre Legitimidade Passiva: TSE, RO nº 133425, Rel. Min. Luciana Lóssio. Este julgado foi utilizado para fundamentar a ilegitimidade passiva dos corréus na representação por captação ilícita de sufrágio, consolidando o entendimento de que apenas o candidato beneficiado pode figurar no polo passivo da ação fundada no Art. 41-A da Lei das Eleições.
+* Precedente sobre Transporte de Eleitores: Precedente de abril de 2023, relatado pela Ministra Cármen Lúcia. Sua aplicação no caso serviu para reforçar a tese de que o oferecimento de transporte gratuito a eleitores, com a contrapartida do voto, configura o ilícito eleitoral de captação ilícita de sufrágio.
+
+2.5 Raciocínio Desenvolvido
+
+O julgamento desenvolveu-se a partir do confronto direto entre as teses da defesa e os fundamentos da acusação, os quais foram sopesados e resolvidos pelo voto condutor do relator.
+
+A defesa, por meio do Dr. Marcos Diego Santos Pires, articulou a tese de nulidade processual com base na intempestividade da perícia realizada pela Polícia Federal e na ausência de contraditório em primeiro grau. Este argumento foi diretamente rechaçado pelo voto condutor do Ministro André Mendonça sob o fundamento da preclusão e da vedação à "nulidade de algibeira", doutrina que impede a parte de arguir vício processual em momento posterior ao oportuno, por estratégia.
+
+No mérito, a defesa alegou insuficiência probatória, sustentando a falta de provas da anuência do candidato com o suposto esquema. Argumentou que não havia material de campanha no veículo apreendido e que o transporte constituía um ato de auxílio a moradores de uma área perigosa, onde "ocorre assalto, estupro", citando o testemunho de uma eleitora que, por ter "um corte na perna", aceitou a carona. Esta narrativa foi contrastada pela acusação e pelo relator com a apresentação de provas materiais contundentes, notadamente o contrato de aluguel do veículo em nome do próprio candidato, que estabeleceu um nexo causal inequívoco. O voto condutor conectou este e outros elementos – como planilhas e conversas extraídas de aparelhos apreendidos – para demonstrar a participação indireta do candidato e a gravidade da conduta, configurando tanto a captação ilícita de sufrágio (Art. 41-A) quanto o abuso de poder econômico (Art. 22), dado o alcance do esquema, que envolvia mais de 30 motoristas.
+
+O voto foi acompanhado unanimemente, sendo reforçado pelo Ministro Ramos Tavares, que destacou a cabal comprovação dos ilícitos e invocou um precedente específico de abril de 2023, de relatoria da Ministra Cármen Lúcia, sobre o transporte de eleitores, além de mencionar a resolução do TSE sobre o tema, consolidando o entendimento do colegiado.
+
+2.6 Pontos Processuais Relevantes
+
+Do ponto de vista processual, o julgamento foi marcado pela discussão sobre a preclusão e a chamada "nulidade de algibeira", que se tornou um ponto central para a admissibilidade das provas contestadas pela defesa. A realização das sustentações orais pela defesa e a intervenção do Vice-Procurador-Geral Eleitoral garantiram a observância do devido processo legal. O quórum unânime na proclamação do resultado demonstrou a consolidação do entendimento do Tribunal sobre a matéria.
+
+2.7 Efeitos e Providências Práticas
+
+A decisão do Tribunal resultou nas seguintes sanções e providências práticas:
+
+* Não conhecimento do recurso de Eduardo Renari Silva Ferreira e Julison Pinho Pereira no processo nº 0601657-66, por ilegitimidade passiva.
+* Desprovimento do recurso de Melque da Costa Lima no processo nº 0601657-66.
+* Desprovimento dos recursos de Melque da Costa Lima, Eduardo Renari Silva Ferreira e Julison Pinho Pereira no processo nº 0601658-51.
+* Manutenção do acórdão do TRE-AP, que resultou na cassação do diploma de Melque da Costa Lima e na sua declaração de inelegibilidade por oito anos.
+* Acréscimo de determinação pelo TSE: Anulação dos votos destinados ao candidato para todos os efeitos, com o consequente recálculo dos quocientes eleitoral e partidário.
+* Determinação de Execução Imediata: Comunicação ao Presidente do TRE-AP para o cumprimento imediato da decisão.
+
+Segue-se a análise do segundo caso de destaque da sessão.
+
+3.0 Análise do Julgamento – Agravo Regimental no Recurso Ordinário em Habeas Corpus nº 0600174-74
+
+Este caso se insere no debate sobre os limites da atividade investigativa em matéria eleitoral, originado a partir de um vídeo que "viralizou nas redes sociais" no qual eleitores cobravam o pagamento por suposta venda de votos. O julgamento é relevante por analisar a legalidade da busca pessoal e da apreensão de bens de terceiros não investigados diretamente, mas encontrados no local de cumprimento de um mandado judicial. A decisão do Tribunal pondera os poderes da autoridade policial frente aos direitos individuais, como o direito à privacidade.
+
+3.1 Ficha Técnica do Processo
+
+Item	Descrição
+Timestamp de Início:	Dado não disponível na transcrição fornecida.
+Data da Sessão:	10/12/2024
+Eleição Referente:	2022
+Número do Processo:	0600174-74
+Cidade/UF de Origem:	Recife/PE
+Partes Envolvidas:	Agravante: João Rafael Câmara de Oliveira Pontes. <br> Interessados: Ademar Rigueira Neto e outros.
+Ministro Relator:	Ministro André Mendonça.
+Jurisprudência do STF Mencionada:	PET nº 5173 (Rel. Min. Dias Toffoli).
+Jurisprudência do TSE Mencionada:	Súmula nº 26 do TSE.
+Legislação Mencionada:	Código Eleitoral (Lei nº 4.737/1965), Art. 299; Código de Processo Penal (Decreto-Lei nº 3.689/1941), Art. 244.
+
+3.2 Análise do Conteúdo Jurídico
+
+A controvérsia jurídica central reside em definir se a apreensão do aparelho celular do filho de um investigado, durante o cumprimento de um mandado de busca e apreensão domiciliar na residência do pai (deputado Francismar), foi uma diligência legal ou se configurou uma "pesca probatória" (fishing expedition) ilícita. O debate questiona se a ação policial extrapolou os limites do mandado judicial ao atingir pessoa não nominada na ordem.
+
+3.3 Fundamentação Normativa
+
+A decisão do relator foi fundamentada nos seguintes dispositivos:
+
+* Código Eleitoral (Lei nº 4.737/1965): O Artigo 299, que tipifica o crime de corrupção eleitoral, foi o dispositivo que originou a investigação.
+* Código de Processo Penal (Decreto-Lei nº 3.689/1941): O Artigo 244 foi invocado para justificar a busca pessoal sem mandado específico, pois autoriza a diligência em terceiros presentes no local do cumprimento de um mandado de busca domiciliar, quando houver fundada suspeita.
+* Súmulas do TSE: A Súmula nº 26 do TSE foi aplicada para rechaçar a repetição de argumentos já analisados.
+
+3.4 Precedentes Citados
+
+O principal precedente judicial utilizado para fundamentar a decisão foi do Supremo Tribunal Federal:
+
+* Precedente sobre Apreensão de Bens de Terceiros: STF, PET nº 5173, Rel. Min. Dias Toffoli. Este precedente foi crucial para justificar a legalidade da apreensão de bens de um terceiro que reside no mesmo imóvel do investigado, especialmente quando há indícios de ligação entre o terceiro e o objeto da investigação.
+
+3.5 Raciocínio Desenvolvido
+
+A lógica decisória do Tribunal, conduzida pelo Ministro André Mendonça, partiu da contextualização da investigação original de corrupção eleitoral. Para validar a ação policial, o relator articulou os seguintes pontos:
+
+1. A busca pessoal em terceiros presentes no local da diligência é permitida pelo Art. 244 do CPP e independe de mandado específico para aquela pessoa.
+2. A apreensão do celular foi justificada pela existência de outros elementos no quarto (um caderno com anotações) que tinham potencial conexão com o crime investigado.
+3. A validade da apreensão é reforçada pelo precedente do STF na PET nº 5173, que admite a apreensão de bens de moradores do mesmo imóvel quando há interesse para a investigação.
+4. O acesso aos dados do celular foi considerado legítimo, seja pelo fornecimento voluntário da senha, seja porque o mandado original de busca e apreensão já autorizava o afastamento do sigilo de dados dos aparelhos eletrônicos encontrados no local.
+
+A decisão do colegiado em acompanhar o relator foi unânime.
+
+3.6 Pontos Processuais Relevantes
+
+O instrumento processual utilizado pela defesa foi o habeas corpus, cuja via estreita, conforme ressaltado no voto, não permite o reexame aprofundado de fatos e provas, limitando a análise à legalidade do ato. Um ponto que ilustra a complexidade e a controvérsia jurídica do tema foi o placar apertado de 4 a 3 no julgamento do caso pelo TRE de Pernambuco, indicando a existência de dissenso qualificado sobre a matéria nas instâncias ordinárias.
+
+3.7 Efeitos e Providências Práticas
+
+O Tribunal, por unanimidade, negou provimento ao agravo regimental, mantendo a decisão que considerou legal a busca pessoal e a apreensão do aparelho celular.
+
+O relatório prossegue para as observações finais.
+
+4.0 Julgamentos em Lista
+
+A sessão incluiu, ainda, o julgamento de processos em duas listas, ambas relatadas pelo Ministro André Mendonça. Em conformidade com as diretrizes de concisão deste relatório, o conteúdo específico desses julgamentos, que seguiram o rito simplificado, não será detalhado.
+
+5.0 Conclusão da Análise da Sessão
+
+As decisões proferidas na sessão de 10 de dezembro de 2024 reforçam a postura rigorosa do Tribunal Superior Eleitoral, conforme demonstrado pela manutenção unânime da cassação de diploma no caso do Amapá (RO nº 0601657-66 e 0601658-51), consolidando a jurisprudência sobre a necessidade de um conjunto probatório robusto para a aplicação de sanções por abuso de poder e captação ilícita de sufrágio. Ao mesmo tempo, o Plenário estabeleceu parâmetros importantes sobre a legalidade de atos investigatórios, o que se evidencia na validação da apreensão de bens de terceiros no julgamento do HC nº 0600174-74, equilibrando a eficácia da persecução penal com a proteção das garantias fundamentais. Tais deliberações são essenciais para a orientação de juízes, advogados e candidatos, contribuindo diretamente para a integridade e a legitimidade das eleições no Brasil.

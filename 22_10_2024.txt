@@ -1,0 +1,196 @@
+Relatório Técnico-Analítico da Sessão Plenária do TSE de 22 de Outubro de 2024
+
+Introdução Geral
+
+Este documento apresenta uma análise jurídica detalhada da sessão plenária do Tribunal Superior Eleitoral (TSE) realizada em 22 de outubro de 2024, com base na transcrição oficial. O objetivo é decompor cada processo julgado em seus elementos essenciais, seguindo uma estrutura metodológica rigorosa para extrair e analisar os fatos, as fundamentações normativas, os precedentes aplicáveis, o raciocínio jurídico desenvolvido pelos ministros e os efeitos práticos de cada deliberação. A pauta, apregoada pela Presidente, Ministra Cármen Lúcia, abrangeu desde questões administrativas, como a composição de tribunais regionais, até complexas matérias jurisdicionais, como o reexame de cassações de mandato e a fiscalização de contas partidárias.
+
+
+--------------------------------------------------------------------------------
+
+
+I. Julgamentos da Sessão Administrativa
+
+1. Lista Tríplice nº 0600240-91/GO
+
+O procedimento de formação de listas tríplices para a composição dos Tribunais Regionais Eleitorais (TREs) na classe dos juristas é um mecanismo constitucional fundamental para garantir a representatividade da advocacia na Justiça Eleitoral. O papel do TSE neste processo é de fiscalização, assegurando que os nomes indicados pelos tribunais de justiça estaduais atendam a todos os requisitos legais e normativos antes de serem submetidos à nomeação pelo Presidente da República. O presente caso exemplifica a análise formal e objetiva realizada pela Corte.
+
+1.1. Identificação do Processo
+
+Item de Análise	Informação Extraída
+Data da Sessão	22 de outubro de 2024
+Tipo de Processo	Lista Tríplice
+Número do Processo	0600240-91
+Origem	Goiânia - GO
+Interessado	Tribunal Regional Eleitoral de Goiás
+Objeto	Provimento do cargo de juiz titular da classe de advogado.
+Indicados	Ademir Teixeira Perez Júnior, Davi Carneiro Metre, José Carlos Bittencourt Garcia.
+Ministro Relator	Ministro Antônio Carlos Ferreira
+Composição do Plenário	Ministra Cármen Lúcia (Presidente), Ministro Kassio Nunes Marques, Ministro André Mendonça, Ministra Isabel Gallotti, Ministro Antônio Carlos Ferreira, Ministro Floriano de Azevedo Marques, Ministro Ramos Tavares.
+Ministério Público	Dr. Alexandre Espinosa (Vice-Procurador-Geral Eleitoral)
+
+1.2. Análise Técnica do Julgamento
+
+* Análise do Conteúdo Jurídico: O julgamento centrou-se na verificação formal dos requisitos para os indicados comporem a lista tríplice, destinada ao preenchimento de vaga decorrente do término do primeiro biênio de um dos indicados, a ocorrer em 15 de dezembro de 2024. A atuação do TSE, neste rito administrativo, é garantir que os candidatos preencham as condições objetivas de elegibilidade para o cargo de juiz eleitoral, como a militância profissional e a idoneidade, sem adentrar no mérito da escolha feita pelo tribunal de origem.
+* Fundamentação Normativa: O voto do relator baseou-se explicitamente nas seguintes normas para validar a lista:
+  * Resolução-TSE nº 23.517: Estabelece os requisitos objetivos para os indicados, como o exercício da advocacia.
+  * Artigo 25, parágrafo terceiro, do Código Eleitoral: Mandata a publicação de edital para viabilizar eventuais impugnações, e a ausência fática de qualquer contestação serviu como confirmação da regularidade do procedimento.
+* Raciocínio Desenvolvido: O Ministro Relator, Antônio Carlos Ferreira, fundamentou seu voto em dois pilares: (1) o parecer positivo da Assessoria Consultiva do Tribunal, que confirmou o preenchimento de todos os requisitos pelos três advogados indicados; e (2) a ausência de qualquer impugnação após a devida publicação do edital, o que consolidou a regularidade formal do procedimento.
+* Efeitos e Providências Práticas: Por unanimidade, a Corte aprovou a lista tríplice, determinando seu encaminhamento ao Poder Executivo para a nomeação de um dos indicados pelo Presidente da República, concluindo assim o rito de competência da Justiça Eleitoral.
+
+Dando seguimento à pauta administrativa, o Tribunal passou à análise de um processo similar, oriundo do estado do Amapá.
+
+2. Lista Tríplice nº 0600113-63/AP
+
+Este segundo julgamento de lista tríplice reitera a consistência do procedimento adotado pelo TSE na análise dos requisitos formais para a composição dos tribunais regionais. O caso, embora referente a um cargo de juiz substituto, seguiu o mesmo rito rigoroso de verificação documental e cumprimento das normas eleitorais, demonstrando a padronização e a diligência da Corte na fiscalização desses processos.
+
+2.1. Identificação do Processo
+
+Item de Análise	Informação Extraída
+Data da Sessão	22 de outubro de 2024
+Tipo de Processo	Lista Tríplice
+Número do Processo	0600113-63
+Origem	Macapá - AP
+Interessado	Tribunal Regional Eleitoral do Amapá
+Objeto	Provimento do cargo de juiz substituto na classe de advogado.
+Indicados	Nasson de Sagaleno, Edivan Silva dos Santos, Orlando Souto Vasconcelos.
+Ministro Relator	Ministro Antônio Carlos Ferreira
+Composição do Plenário	Ministra Cármen Lúcia (Presidente), Ministro Kassio Nunes Marques, Ministro André Mendonça, Ministra Isabel Gallotti, Ministro Antônio Carlos Ferreira, Ministro Floriano de Azevedo Marques, Ministro Ramos Tavares.
+Ministério Público	Dr. Alexandre Espinosa (Vice-Procurador-Geral Eleitoral)
+
+2.2. Análise Técnica do Julgamento
+
+* Análise do Conteúdo Jurídico: A finalidade do julgamento foi a validação de uma lista tríplice para o cargo de juiz substituto, decorrente do término do primeiro biênio de advogada que não compõe a presente lista, ocorrido em 17 de julho deste ano. O rito processual é idêntico ao de juiz titular, consistindo na conferência dos requisitos objetivos dos indicados, sem análise de mérito da escolha.
+* Fundamentação Normativa: A decisão foi fundamentada nas mesmas normas do caso anterior: a Resolução-TSE nº 23.517 e o artigo 25, parágrafo terceiro, do Código Eleitoral.
+* Raciocínio Desenvolvido: O voto do relator seguiu uma lógica idêntica à do processo goiano. A decisão baseou-se no parecer favorável da assessoria técnica do Tribunal, que atestou o cumprimento dos requisitos legais, e na ausência de impugnações formais após a publicação do edital.
+* Efeitos e Providências Práticas: A Corte, de forma unânime, aprovou a lista e determinou seu encaminhamento ao Poder Executivo para a subsequente nomeação.
+
+Concluída a análise das listas tríplices, o Plenário voltou-se a um tema de grande relevância para a execução do pleito: a segurança do processo eleitoral.
+
+3. Processos Administrativos nº 0601133-79/AM e nº 0613591-34/CE (Requisição de Força Federal)
+
+A requisição de Força Federal é uma medida de caráter excepcional, prevista na legislação eleitoral para garantir a normalidade e a legitimidade das eleições. A competência do TSE para autorizar seu emprego é estratégica, pois visa assegurar a livre manifestação da vontade do eleitor e a segurança de todos os envolvidos no processo, especialmente em localidades com histórico de conflitos ou onde as forças de segurança locais se mostrem insuficientes para conter riscos à ordem pública.
+
+3.1. Identificação dos Processos
+
+Item de Análise	Informação Extraída
+Data da Sessão	22 de outubro de 2024
+Tipo de Processo	Processo Administrativo
+Números dos Processos	0601133-79 e 0613591-34
+Origem	Manaus (AM) e Ceará (CE)
+Eleição Referente	2º turno das Eleições de 2024
+Objeto	Pedidos de requisição de Força Federal.
+Localidades de Atuação	Manaus (AM); Fortaleza e Caucaia (CE).
+Ministra Relatora	Ministra Cármen Lúcia
+Resultado	Deferimento por unanimidade.
+
+3.2. Análise Técnica do Julgamento
+
+* Análise do Conteúdo Jurídico: O mérito do julgamento consistiu em avaliar a pertinência e a necessidade dos pedidos de envio de Força Federal, formulados pelos respectivos Tribunais Regionais Eleitorais, para garantir a segurança no dia da votação do segundo turno.
+* Raciocínio Desenvolvido: A Ministra Relatora, Cármen Lúcia, votou pelo deferimento dos pedidos e foi acompanhada unanimemente pelos demais ministros. A deliberação unânime, embora sem fundamentação oral detalhada, pressupõe o reconhecimento pela Corte da existência de um risco fático concreto à segurança e à ordem pública nas localidades, conforme exigido pela legislação eleitoral para o deferimento de medida tão excepcional.
+* Efeitos e Providências Práticas: O efeito direto da decisão foi a autorização para a atuação das Forças Federais nas cidades de Manaus (AM), Fortaleza (CE) e Caucaia (CE) durante o 2º turno das Eleições de 2024.
+
+Com este julgamento, encerrou-se a sessão administrativa, dando imediato início à sessão jurisdicional.
+
+
+--------------------------------------------------------------------------------
+
+
+II. Julgamentos da Sessão Jurisdicional
+
+4. Embargos de Declaração no Recurso Ordinário nº 0602962-04/CE
+
+Este processo reveste-se de alta relevância jurisprudencial, pois trata de embargos de declaração opostos contra uma decisão anterior do TSE que havia cassado mandatos por abuso de poder político e econômico. O cerne do julgamento foi a reavaliação dos critérios de "gravidade" da conduta, especificamente a distinção entre seus aspectos qualitativo e quantitativo. A decisão da Corte em acolher os embargos com efeitos infringentes (modificativos) para reverter a cassação sinaliza um aprofundamento na análise do impacto real das condutas ilícitas no resultado das eleições.
+
+4.1. Identificação do Processo
+
+Item de Análise	Informação Extraída
+Data da Sessão	22 de outubro de 2024
+Tipo de Processo	Embargos de Declaração no Recurso Ordinário
+Número do Processo	0602962-04
+Origem	Fortaleza - CE
+Eleição Referente	Eleições de 2022
+Embargantes	Herbert Freitas Reis Cavalcante Mota e outro, Eduardo Henrique Maia Bismarck, Audir Cavalcante Mota Dias.
+Embargado	Ministério Público Federal
+Ministro Relator	Ministro André Mendonça
+Partes Mencionadas	Aldic Mota (candidato a deputado estadual); Eduardo Bismarck (candidato a deputado federal).
+
+4.2. Análise Técnica do Julgamento
+
+* 4.2.1. Análise do Conteúdo Jurídico: A controvérsia central girou em torno de uma acusação de abuso de poder político e econômico, materializada pelo uso das redes sociais da Prefeitura de Baturité (CE) para promover a imagem de candidatos a deputado estadual e federal. A decisão anterior do TSE havia reconhecido o abuso e cassado os mandatos. O ponto nevrálgico dos embargos foi a alegação de que o acórdão original se omitiu na análise da gravidade da conduta sob o prisma quantitativo, ou seja, não avaliou a repercussão efetiva das oito postagens questionadas no universo de eleitores da circunscrição correta, que era a estadual, e não a municipal.
+* 4.2.2. Precedentes Citados: O debate foi densamente informado por precedentes, que nortearam a mudança de entendimento da Corte:
+  * Precedente relatado pelo Min. André Ramos Tavares: Citado para reforçar a tese de que embargos de declaração podem ser excepcionalmente acolhidos com efeitos infringentes para aprofundar a análise da gravidade, sanando uma omissão do julgado anterior.
+  * Recurso Ordinário em Embargos nº 060029-66 (Rel. Min. Raul Araújo): Utilizado como o principal paradigma. Neste caso análogo, também do Ceará, o Tribunal afastou o abuso por ausência de gravidade quantitativa, mesmo com um número de postagens (30) e um percentual de votos nos municípios envolvidos significativamente maiores.
+  * Precedentes sobre o princípio in dubio pro sufragio (Min. Tarcísio Vieira e Min. Ricardo Lewandowski): Invocados para sustentar que, diante de uma dúvida razoável sobre a gravidade e o impacto da conduta, a decisão deve preservar o mandato popular.
+* 4.2.3. Raciocínio Desenvolvido:
+  * Voto do Relator (Min. André Mendonça): O relator construiu uma argumentação robusta para a reversão do julgado. Seus pontos centrais foram: a necessidade de analisar a gravidade tanto qualitativa quanto quantitativamente; o alcance irrisório das oito postagens (entre 500 e 2 mil curtidas) em um colégio eleitoral estadual de mais de 6,8 milhões de eleitores; a distância temporal dos fatos em relação ao dia da eleição, o que dissipa o impacto; e, crucialmente, a comparação com o precedente do RE nº 060029-66 para evitar uma decisão não isonômica.
+  * Votos de Acompanhamento (Min. Isabel Gallotti, Min. Antônio Carlos Ferreira, Min. Floriano Marques, e outros): Os ministros que acompanharam o relator, e que haviam votado pela cassação anteriormente, retificaram seus votos. Reconheceram expressamente a omissão do acórdão original, que comparou os votos dos candidatos apenas com o eleitorado do município de Baturité, quando a análise correta deveria considerar a circunscrição estadual. A Ministra Isabel Gallotti foi enfática ao destacar que essa falha metodológica na análise da repercussão justificava a mudança de posicionamento. Essa retificação coletiva, fundamentada no reconhecimento de uma omissão metodológica crucial, representa um ato de notável aprofundamento analítico e de alinhamento jurisprudencial, reforçando a tese de que a análise da gravidade deve ser rigorosamente vinculada à circunscrição do pleito para evitar distorções.
+  * Voto da Presidente (Min. Cármen Lúcia): A presidente ressaltou o caráter excepcionalíssimo dos efeitos infringentes em embargos, justificando-os pela clara existência da omissão sobre a análise da gravidade. Adicionou que a forma como as postagens foram feitas (com os embargantes em meio a outras pessoas) e o período distante da eleição descaracterizavam a gravidade necessária para uma sanção tão severa como a cassação.
+* 4.2.4. Pontos Processuais Relevantes: O principal ponto processual foi o cabimento de Embargos de Declaração com efeitos infringentes. A Corte consolidou o entendimento de que tal medida é possível quando visa sanar uma omissão fundamental que, uma vez suprida, leva a uma conclusão de mérito diversa. No caso, a omissão na análise da gravidade quantitativa na circunscrição correta (estadual) foi o vício que permitiu a reanálise e a modificação do julgado.
+* 4.2.5. Efeitos e Providências Práticas:
+  * Decisão: O Tribunal, por unanimidade, acolheu os embargos de declaração com efeitos infringentes.
+  * Resultado de Mérito: Negou provimento ao recurso ordinário do Ministério Público, reformando a decisão anterior para julgar a Ação de Investigação Judicial Eleitoral (AIJE) improcedente e, assim, restabelecer os mandatos.
+  * Providências: Foi determinada a comunicação imediata da decisão ao Tribunal Regional Eleitoral do Ceará e ao Presidente da Câmara dos Deputados para cumprimento.
+
+O julgamento seguinte também envolveu embargos de declaração, mas em um contexto diferente: a fiscalização das finanças de um partido político.
+
+5. Embargos de Declaração na Prestação de Contas nº 0600953-08/DF
+
+A prestação de contas dos partidos políticos é um pilar da transparência democrática, assegurando que os recursos públicos do Fundo Partidário sejam utilizados para as finalidades previstas em lei. Este caso debateu a flexibilização de regras processuais, como a juntada tardia de documentos, e a interpretação sobre o que constitui prova suficiente da finalidade partidária de uma despesa, temas que geraram divergência e a suspensão do julgamento.
+
+5.1. Identificação do Processo
+
+Item de Análise	Informação Extraída
+Data da Sessão	22 de outubro de 2024
+Tipo de Processo	Embargos de Declaração na Prestação de Contas
+Número do Processo	0600953-08
+Origem	Brasília - DF
+Exercício Financeiro	2019
+Embargante	Cidadania Nacional
+Ministra Relatora	Ministra Isabel Gallotti
+Situação do Julgamento	Suspenso por Pedido de Vista
+
+5.2. Análise Técnica do Julgamento (Provisória)
+
+* 5.2.1. Análise do Conteúdo Jurídico: A controvérsia original envolvia irregularidades nas contas de 2019 do partido Cidadania, especificamente gastos com informática justificados de forma genérica ("serviço em TI") e despesas com passagens aéreas sem comprovação detalhada da finalidade partidária. Os embargos alegaram omissão do acórdão na análise de documentos comprobatórios juntados tardiamente, apenas na fase de alegações finais.
+* 5.2.2. Fundamentação Normativa e Precedentes:
+  * Normas: A análise das contas é regida pela Lei nº 9.096/1995 (Lei dos Partidos Políticos) e pela Resolução-TSE nº 23.546, que regulamenta a matéria.
+  * Jurisprudência: O debate foi pautado por um recente entendimento do TSE, mencionado pela relatora, que admite excepcionalmente a juntada de documentos extemporâneos não para aprovar a conta, mas para reduzir o valor a ser recolhido ao erário, evitando o enriquecimento sem causa da União.
+* 5.2.3. Raciocínio Desenvolvido (Votos Proferidos):
+  * Voto da Relatora (Min. Isabel Gallotti): A relatora, em reanálise, acolheu parcialmente os embargos para sanar a omissão e analisar os documentos tardios. Contudo, manteve a glosa das despesas com passagens aéreas, argumentando que a justificativa genérica "atividade partidária" é insuficiente para comprovar o vínculo da viagem com a finalidade partidária, sendo necessária a especificação da atividade exercida.
+  * Voto Divergente (Min. Floriano de Azevedo Marques): O ministro inaugurou a divergência ao defender que a justificativa "atividade partidária" é suficiente quando se trata de viagens de dirigentes partidários de seus estados para Brasília, sede do diretório nacional. Para ele, a regularidade da atividade nessas circunstâncias pode ser presumida. Propôs, assim, decotar o valor das passagens da quantia a ser devolvida.
+  * Voto-Ajuste (Min. André Ramos Tavares): Acompanhou a divergência, mas realizou um ajuste técnico. Após análise detalhada da documentação, identificou uma parcela de despesas (R$36.022,41) sem qualquer informação mínima (como itinerário) e propôs que apenas este valor fosse mantido na glosa. Este ajuste foi acatado pelo Ministro Floriano.
+* 5.2.4. Pontos Processuais Relevantes: O julgamento foi marcado pelo debate sobre a presunção de finalidade partidária em despesas de deslocamento de dirigentes e pela suspensão do julgamento após o Pedido de Vista do Ministro Nunes Marques. A suspensão evidencia a complexidade da matéria e a relevância do precedente a ser firmado pela Corte.
+* 5.2.5. Efeitos e Providências Práticas (Provisório): Após o voto da relatora e a inauguração de uma divergência ajustada, o julgamento foi suspenso por pedido de vista do Ministro Nunes Marques, aguardando os demais ministros. O resultado final permanece pendente.
+
+O último processo da sessão reforçou a importância da observância das regras processuais recursais.
+
+6. Embargos de Declaração no Agravo Regimental nº 0600220-85/GO
+
+Este caso ilustra a aplicação rigorosa de súmulas e entendimentos consolidados do TSE para rechaçar recursos considerados tecnicamente inadequados ou que buscam, de forma imprópria, a rediscussão do mérito já decidido pelas instâncias competentes, reforçando a segurança jurídica e a celeridade processual.
+
+6.1. Identificação do Processo
+
+Item de Análise	Informação Extraída
+Data da Sessão	22 de outubro de 2024
+Tipo de Processo	Embargos de Declaração no Agravo Regimental no Agravo em Recurso Especial Eleitoral
+Número do Processo	0600220-85
+Origem	Goiânia - GO
+Embargantes	Solidariedade estadual e outro
+Embargados	Eli Fritz e União Brasil estadual
+Objeto Original	Ação de perda de cargo eletivo por desfiliação partidária sem justa causa.
+Ministro Relator	Ministro Antônio Carlos Ferreira
+
+6.2. Análise Técnica do Julgamento
+
+* Análise do Conteúdo Jurídico e Raciocínio Desenvolvido: O Ministro Relator, Antônio Carlos Ferreira, propôs a rejeição dos embargos com base em dois fundamentos processuais claros e consolidados na jurisprudência:
+  1. Erro Inescusável: A parte havia interposto um recurso especial eleitoral quando o recurso cabível para a matéria (decisão sobre diploma em eleições estaduais) era o recurso ordinário. Tal equívoco é considerado um erro grosseiro que afasta a aplicação do princípio da fungibilidade recursal, conforme a Súmula nº 36 do TSE.
+  2. Mero Inconformismo: Os argumentos apresentados nos embargos não apontavam omissão, contradição ou obscuridade no acórdão, mas apenas manifestavam inconformismo com a decisão, finalidade para a qual os embargos de declaração não se prestam.
+* Efeitos e Providências Práticas: A Corte, por unanimidade, acompanhou o relator e rejeitou os embargos de declaração, mantendo inalterado o acórdão anterior e encerrando a discussão sobre o caso.
+
+
+--------------------------------------------------------------------------------
+
+
+Conclusão Geral
+
+A sessão plenária de 22 de outubro de 2024 demonstrou a atuação multifacetada do Tribunal Superior Eleitoral, abordando desde a administração da composição da Justiça Eleitoral até a resolução de controvérsias jurídicas de alto impacto. Os julgamentos destacaram-se pela evolução jurisprudencial em temas cruciais, como a necessidade de uma análise contextualizada e quantitativa da gravidade em casos de abuso de poder, e a busca por um equilíbrio entre o rigor formal e a razoabilidade na fiscalização das prestações de contas partidárias. Ao mesmo tempo, a Corte reafirmou a importância da observância das regras processuais como pilar da segurança jurídica. A sessão, portanto, reflete a contínua consolidação da jurisprudência eleitoral, adaptando-a às complexidades do cenário político-jurídico contemporâneo.

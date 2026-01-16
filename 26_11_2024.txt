@@ -1,0 +1,211 @@
+Relatório Analítico da Sessão Plenária do Tribunal Superior Eleitoral – 26 de Novembro de 2024
+
+1. Composição e Abertura da Sessão
+
+A presente análise documenta os trabalhos da sessão jurisdicional do Tribunal Superior Eleitoral (TSE) realizada na noite de 26 de novembro de 2024. O registro formal da composição do colegiado e dos atos de abertura é fundamental não apenas para a validade dos julgamentos proferidos, mas também como um registro histórico da atividade judicante desta Corte. A sessão foi aberta e conduzida pela Excelentíssima Senhora Ministra Presidente Cármen Lúcia.
+
+A composição do Tribunal e os atos iniciais da sessão foram registrados da seguinte forma:
+
+* Data da Sessão: Terça-feira, 26 de novembro de 2024.
+* Presidência: Ministra Cármen Lúcia.
+* Ministros Presentes:
+  * Ministro Kassio Nunes Marques (Vice-Presidente).
+  * Ministro André Mendonça (participação por vídeo).
+  * Ministra Isabel Gallotti (Corregedora-Geral da Justiça Eleitoral).
+  * Ministro Antônio Carlos Ferreira.
+  * Ministro Floriano de Azevedo Marques.
+  * Ministro André Ramos Tavares.
+* Representante do Ministério Público Eleitoral: Dr. Alexandre Espinosa, Vice-Procurador-Geral Eleitoral.
+* Aprovação da Ata: Foi lida e aprovada, sem objeções, a ata da sessão ordinária anterior, realizada em 21 de novembro de 2024.
+* Comunicações Iniciais: A Presidência comunicou o adiamento do julgamento do item 1 da pauta, o Recurso Ordinário nº 0600005-59, oriundo de Fortaleza (CE), a pedido do Ministro Relator Floriano de Azevedo Marques.
+
+Cumpridos os ritos iniciais, a Presidência deu início à fase de julgamentos, começando pela análise de um complexo mandado de segurança que suscitaria debates profundos sobre garantias processuais.
+
+
+--------------------------------------------------------------------------------
+
+
+2. Análise de Julgamento: Agravo Regimental no Mandado de Segurança Cível nº 0600020-93
+
+O julgamento inaugural da sessão expôs a tensão fundamental entre a prerrogativa da parte de postular sigilo e o dever do Judiciário de garantir a publicidade como pilar do devido processo legal. A análise demonstrou como uma aparente formalidade processual—a marcação de sigilo no PJe—pode ser instrumentalizada para gerar um dano concreto e irreparável a terceiros, exigindo da Corte uma intervenção enérgica para restaurar as garantias constitucionais.
+
+2.1. Identificação do Processo
+
+A seguir, são apresentados os dados de identificação do processo, conforme pregão realizado em plenário.
+
+Informação	Detalhe
+Número do Processo	0600020-93
+Classe Processual	Agravo Regimental no Mandado de Segurança Cível
+Origem	Maceió (AL)
+Eleição de Referência	Eleições de 2022
+Ministro Relator	Ministro Floriano de Azevedo Marques
+Partes Processuais	Agravante: Republicanos (Diretório Estadual de Alagoas).<br>Agravado: Paulo Fernando dos Santos.
+Advogados (Sustentação Oral)	Dra. Daniele Feitosa de Albuquerque Lima Ramos (pelo Agravante, Republicanos).<br>Dr. Luciano Guimarães Mata (pelo Agravado, Paulo Fernando dos Santos).
+
+2.2. Análise do Conteúdo Jurídico
+
+A controvérsia jurídica central residia na legalidade da tramitação de uma Representação Eleitoral por captação ilícita de recursos (Art. 30-A da Lei das Eleições) sob segredo de justiça. O debate se aprofundou nos efeitos dessa tramitação sigilosa sobre o mandato do Deputado Federal Paulo Fernando dos Santos, que obteve quase 66.000 votos e, embora não fosse parte original no processo, seria o principal prejudicado. A eventual anulação dos 27.754 votos do representado, em uma ação que apurava um gasto ilícito de R$ 6.000, levaria a um recálculo do quociente eleitoral, resultando na perda de seu mandato sem que lhe fosse oportunizado o devido processo legal e a ampla defesa.
+
+2.3. Fundamentação Normativa e Precedentes
+
+A argumentação das partes e o voto do relator foram embasados em um robusto arcabouço normativo e jurisprudencial:
+
+* Constituição Federal:
+  * Art. 93, § 9º: Invocado para sustentar o princípio da publicidade dos atos processuais como regra geral, sendo o sigilo uma exceção estrita.
+* Legislação Federal:
+  * Lei das Eleições (Lei nº 9.504/1997): O Art. 30-A, que trata da captação e gastos ilícitos de recursos, foi o fundamento da ação originária.
+  * Código de Processo Civil (CPC):
+    * Art. 121 e Art. 123, I: Dispositivos que regem a figura do assistente simples, seus poderes и os limites da sua atuação no processo.
+  * Código Civil:
+    * Art. 187: Fundamentou a tese de "abuso de direito" por parte do autor da representação ao postular o sigilo do processo de forma injustificada.
+* Normas Infralegais (Resoluções e Súmulas do TSE):
+  * Súmula 34 do TSE: Citada para argumentar o não cabimento de mandado de segurança contra ato de membro de Tribunal Regional Eleitoral.
+  * Súmula 22 do TSE: Utilizada pelo relator para afastar o óbice geral ao mandado de segurança, argumentando a existência de "manifesta ilegalidade" no ato impugnado.
+  * Resolução-TSE nº 23.393: Mencionada para explicar a sistemática do Processo Judicial Eletrônico (PJe), que permite ao advogado requerer o sigilo na distribuição da ação, mas impõe ao magistrado o dever de controlar a validade desse pedido.
+  * Resolução nº 26.326/2010: Citada pela defesa do agravado como norma pioneira do TSE sobre os procedimentos de sigilo.
+* Precedentes Citados:
+  * Supremo Tribunal Federal (STF): Foram mencionados acórdãos da relatoria dos Ministros Celso de Mello, Luiz Fux e Ricardo Lewandowski para reforçar a nulidade absoluta decorrente de vícios que impedem o conhecimento do processo pela parte interessada. A transcrição не forneceu os números ou datas de julgamento destes precedentes.
+  * Superior Tribunal de Justiça (STJ): Foi citada decisão da Ministra Nancy Andrigui, também sem a identificação completa, sobre a necessidade de ciência de todos os potenciais interessados em ações judiciais.
+
+2.4. Raciocínio Jurídico Desenvolvido
+
+2.4.1. Tese da Agravante (Republicanos)
+
+A advogada Dra. Daniele Feitosa sustentou a inadequação do mandado de segurança, argumentando a inexistência de um ato coator específico e teratológico. Defendeu que o sigilo foi postulado de forma prudente no sistema PJe para proteger a imagem de uma entidade sindical envolvida e que o próprio TRE de Alagoas já havia levantado o sigilo e concedido prazo ao interessado, o que esvaziaria o objeto do writ. Alegou, ainda, que o interessado deveria ingressar no feito como assistente simples, recebendo o processo no estado em que se encontra, sem direito à anulação dos atos anteriores.
+
+2.4.2. Tese do Agravado (Paulo Fernando dos Santos)
+
+O advogado Dr. Luciano Guimarães Mata caracterizou a situação como uma "teratologia" jurídica. Enfatizou a ilegalidade do segredo de justiça em ações eleitorais (com exceção da AIME), que por natureza envolvem interesse público indisponível. Argumentou que a tramitação oculta do processo violou frontalmente o devido processo legal e o direito à ampla defesa de seu cliente, que seria "enterrado vivo" ao perder o mandato sem qualquer chance de se defender. A omissão do tribunal em controlar a legalidade do sigilo configurou o ato coator.
+
+2.4.3. Voto do Ministro Relator (Floriano de Azevedo Marques)
+
+Em seu voto, o Ministro Relator desconstruiu sistematicamente a tese da Agravante. Em resposta à alegação de que não haveria ato coator, caracterizou a omissão do TRE em controlar a legalidade do sigilo como o ato lesivo central. Contrapôs a justificativa de proteção da imagem do sindicato, classificando-a como um claro abuso de direito (Art. 187 do Código Civil), cujo propósito real era impedir a ciência de terceiros. Por fim, refutou o argumento de que o posterior levantamento do sigilo sanaria o problema, ao concluir que o prejuízo ao impetrante já era concreto e irreparável, pois o privou de participar de toda a fase de instrução, tornando a anulação de todos os atos processuais a única medida eficaz.
+
+2.5. Pontos Processuais Relevantes
+
+O julgamento foi marcado pela discussão de pontos processuais cruciais:
+
+* O reconhecimento do cabimento de mandado de segurança contra a omissão de um órgão colegiado, e não apenas contra atos comissivos.
+* A afirmação do poder-dever do órgão judicial de exercer o controle sobre o pedido de sigilo postulado pela parte no sistema PJe, não se tratando de um ato automático e incontroverso.
+* A declaração de nulidade absoluta dos atos processuais como consequência direta da violação do princípio da publicidade, quando demonstrado prejuízo concreto ao direito de defesa.
+* A suspensão do julgamento em virtude de um pedido de vista, indicando a complexidade da matéria e a necessidade de maior reflexão pelos membros da Corte.
+
+2.6. Efeitos e Providências Práticas
+
+O desfecho do julgamento foi provisório. Após o voto do Ministro Relator, que negava provimento ao agravo regimental para manter a decisão que anulou os atos processuais na origem, o Ministro André Ramos Tavares pediu vista dos autos. Com isso, o julgamento foi suspenso. O resultado provisório proclamado foi: após o voto do relator negando provimento ao agravo, pediu vista o Ministro André Ramos Tavares, aguardando os demais ministros.
+
+A decisão final sobre este caso definirá importantes balizas sobre transparência e direito de defesa em processos eleitorais, aguardando-se a retomada do julgamento para a análise do próximo processo da pauta.
+
+
+--------------------------------------------------------------------------------
+
+
+3. Análise de Julgamento: Agravo em Recurso Especial Eleitoral nº 0600783-56
+
+O segundo caso da sessão revelou o rigor da Corte na aplicação da legislação de abuso de poder econômico. O julgamento foi paradigmático ao clarificar a distinção sutil, mas juridicamente decisiva, entre os requisitos para a cassação de diploma (que exige apenas o benefício) e para a declaração de inelegibilidade (que demanda prova de participação ou anuência), testando os limites da responsabilização de candidatos por atos ilícitos praticados por terceiros em seu favor.
+
+3.1. Identificação do Processo
+
+A seguir, são apresentados os dados de identificação do processo.
+
+Informação	Detalhe
+Número do Processo	0600783-56
+Classe Processual	Agravo em Recurso Especial Eleitoral
+Origem	Santana (AP)
+Eleição de Referência	Eleições de 2020
+Ministro Relator	Ministro Floriano de Azevedo Marques
+Partes Processuais	Agravante: Ministério Público Eleitoral.<br>Agravada: Elma Garcia Gomes Nascimento.
+
+3.2. Análise do Conteúdo Jurídico
+
+O objeto da AIJE era a apuração de abuso de poder econômico, materializado pelo transporte irregular e massivo de eleitores no dia da eleição de 2020 para beneficiar a candidatura da vereadora Elma Garcia Gomes Nascimento. O ponto central do recurso especial era definir se, para a imposição das sanções de cassação e inelegibilidade, seria indispensável a prova da participação direta ou da ciência prévia inequívoca da candidata beneficiada, ou se o mero benefício e a gravidade dos fatos seriam suficientes.
+
+3.3. Fundamentação Normativa e Precedentes
+
+A decisão do relator se apoiou nos seguintes fundamentos:
+
+* Legislação Federal:
+  * Lei Complementar nº 64/1990: O Artigo 22 e seu inciso XIV foram a base central da decisão, pois distinguem os requisitos para a cassação (que pode decorrer do mero benefício) e para a inelegibilidade (que exige responsabilidade ou anuência).
+* Súmulas do TSE:
+  * Súmula 24 do TSE: O relator afastou a incidência desta súmula, que veda o reexame de fatos e provas em recurso especial, argumentando que o caso se tratava de uma mera requalificação jurídica dos fatos já estabelecidos no acórdão do tribunal de origem.
+* Precedentes Citados:
+  * Foram mencionados precedentes dos Ministros do TSE Henrique Neves, Edson Fachin e Sérgio Banhos para reforçar a distinção entre as sanções aplicáveis ao autor da conduta e ao candidato meramente beneficiado, e para estabelecer que a "mera anuência" pode ser inferida das circunstâncias para configurar a responsabilidade que atrai a sanção de inelegibilidade.
+
+3.4. Raciocínio Jurídico Desenvolvido
+
+O Ministro Relator, em seu voto, desenvolveu uma linha argumentativa coesa, explicando que:
+
+1. É possível ao TSE realizar a reclassificação jurídica dos fatos descritos no acórdão regional sem incorrer em reexame de provas, superando o óbice da Súmula 24.
+2. O Art. 22, XIV, da LC 64/90 estabelece uma clara distinção entre as sanções: para a cassação do diploma, basta a comprovação do mero benefício eleitoral auferido pelo candidato; já para a declaração de inelegibilidade, exige-se a participação, responsabilidade ou, no mínimo, a anuência do candidato.
+3. No caso concreto, o benefício eleitoral era inconteste. Além disso, a ciência da candidata podia ser inferida a partir dos vínculos de amizade e parentesco entre ela, seu esposo (Coronel da PM) e os executores do transporte irregular, bem como da gravidade e extensão da conduta. Essa conjuntura configurava uma "mera anuência" suficiente para justificar não apenas a cassação, mas também a declaração de inelegibilidade.
+
+3.5. Pontos Processuais Relevantes
+
+Os pontos processuais de maior destaque no julgamento foram:
+
+* A superação da Súmula 24 do TSE por meio da aplicação da tese da requalificação jurídica dos fatos.
+* A aplicação da distinção, com base em precedentes da Corte, dos requisitos para as sanções de cassação e de inelegibilidade no contexto do abuso de poder econômico, consolidando o entendimento de que o mero benefício é suficiente para a primeira, mas não para a segunda.
+
+3.6. Efeitos e Providências Práticas
+
+A decisão do Tribunal foi unânime, nos termos do voto do relator, resultando nas seguintes providências:
+
+* Cassação do Diploma: Foi cassado o diploma de Elma Garcia Gomes Nascimento, vereadora eleita em 2020 no município de Santana (AP).
+* Declaração de Inelegibilidade: A candidata foi declarada inelegível pelo prazo de 8 anos, a contar do pleito de 2020.
+* Execução Imediata: Foi determinada a execução imediata da decisão, independentemente da publicação do acórdão.
+
+A decisão foi proclamada após um breve esclarecimento do Ministro Relator, que, ao ser questionado sobre a contagem do prazo de inelegibilidade, confirmou a jurisprudência da Corte de que o termo inicial é a data da eleição em que ocorreu o ilícito (pleito de 2020), e não a data da condenação.
+
+Com a conclusão deste julgamento, a sessão prosseguiu para a análise de um processo de natureza criminal eleitoral.
+
+
+--------------------------------------------------------------------------------
+
+
+4. Análise de Julgamento: Agravo Regimental no Habeas Corpus nº 0613327-17
+
+Este caso, de natureza criminal eleitoral, serviu para que a Corte reafirmasse suas rígidas balizas jurisprudenciais sobre a admissibilidade recursal. O julgamento demonstrou a importância da disciplina processual, ao rechaçar a tentativa de utilização do Habeas Corpus como um sucedâneo recursal contra decisão transitada em julgado, consolidando o entendimento de que o remédio heroico não pode ser banalizado.
+
+4.1. Identificação do Processo
+
+A seguir, são apresentados os dados de identificação do processo.
+
+Informação	Detalhe
+Número do Processo	0613327-17
+Classe Processual	Agravo Regimental no Habeas Corpus
+Origem	São Bento do Sul (SC)
+Eleição de Referência	Eleições de 2016
+Crime Apurado	Corrupção Eleitoral
+Ministro Relator	Ministro Floriano de Azevedo Marques
+Partes Processuais	Agravante (Paciente): Marco Aurélio Vlinski.<br>Agravado: Vice-Presidente do Tribunal Regional Eleitoral de Santa Catarina.
+
+4.2. Análise do Conteúdo Jurídico
+
+A questão central consistia em um agravo regimental interposto contra uma decisão monocrática que havia negado seguimento a um Habeas Corpus. O Habeas Corpus original buscava reverter uma condenação criminal por corrupção eleitoral que já havia transitado em julgado, sendo utilizado como um sucedâneo de recurso ou ação rescisória, o que é vedado pela jurisprudência consolidada.
+
+4.3. Fundamentação Normativa
+
+A decisão do relator para não conhecer do agravo foi fundamentada em duas súmulas do TSE:
+
+* Súmula 26 do TSE: Aplicada porque o agravante não impugnou especificamente os fundamentos da decisão monocrática agravada, limitando-se a repetir os argumentos do Habeas Corpus.
+* Súmula 28 do TSE: Aplicada devido à falha do agravante em realizar o devido cotejo analítico entre os julgados que apresentou como paradigma e o caso concreto, o que impede a análise de eventual divergência jurisprudencial.
+
+4.4. Raciocínio Jurídico Desenvolvido
+
+O voto do Ministro Relator foi conciso e objetivo, baseando a decisão de não conhecer do agravo em três pilares processuais claros:
+
+1. O não cabimento de Habeas Corpus como sucedâneo recursal, especialmente contra decisão já transitada em julgado.
+2. A ausência de desconstituição dos fundamentos da decisão anterior, atraindo a incidência da Súmula 26 do TSE.
+3. A apresentação de jurisprudência sem a devida comparação analítica com o caso dos autos, o que levou à aplicação da Súmula 28 do TSE.
+
+4.5. Efeitos e Providências Práticas
+
+A decisão do Tribunal foi unânime em não conhecer do agravo regimental, mantendo integralmente a decisão monocrática anterior, nos termos do voto do relator.
+
+
+--------------------------------------------------------------------------------
+
+
+5. Encerramento da Sessão
+
+Após os julgamentos individuais detalhados neste relatório, a Presidência anunciou a retirada de pauta dos itens 8, 9 e 24, a pedido dos respectivos ministros relatores. Em seguida, procedeu-se ao julgamento em bloco das listas de processos, cujos resultados foram proclamados de forma sumária, conforme o rito regimental. Não havendo mais processos a serem julgados ou matérias urgentes a serem tratadas, a Senhora Ministra Presidente Cármen Lúcia agradeceu a participação de todos os presentes e declarou encerrada a sessão plenária de 26 de novembro de 2024.

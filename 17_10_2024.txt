@@ -1,0 +1,163 @@
+Relatório Técnico da Sessão Plenária do TSE de 17 de Outubro de 2024
+
+1. Composição do Plenário e Atos Iniciais da Sessão
+
+A presente seção detalha os procedimentos de abertura da sessão de julgamento do Tribunal Superior Eleitoral (TSE) realizada na manhã de 17 de outubro de 2024, sob a presidência da Ministra Cármen Lúcia. O registro da composição do tribunal e dos atos iniciais é um rito fundamental para assegurar a transparência dos trabalhos, a publicidade dos atos processuais e a validade formal de todas as decisões proferidas pelo colegiado.
+
+1.1. Identificação da Sessão
+
+* Data: Quinta-feira, 17 de outubro de 2024.
+* Horário de Início (Aproximado): A sessão foi declarada aberta no início dos trabalhos matutinos.
+* Presidência: Ministra Cármen Lúcia.
+
+1.2. Membros Presentes
+
+Composição do Tribunal
+
+* Ministra Cármen Lúcia (Presidente)
+* Ministro Kassio Nunes Marques (Vice-Presidente)
+* Ministro André Mendonça
+* Ministra Isabel Gallotti (Corregedora-Geral da Justiça Eleitoral)
+* Ministro Antonio Carlos Ferreira
+* Ministro Floriano de Azevedo Marques
+* Ministro André Ramos Tavares
+
+Representante do Ministério Público Eleitoral
+
+* Dr. Alexandre Espinosa (Vice-Procurador-Geral Eleitoral)
+
+1.3. Atos de Abertura
+
+Após saudar as autoridades, advogados, servidores e estudantes de Direito presentes no plenário, a Presidente iniciou a sessão jurisdicional. Foi submetida à aprovação a ata da sessão anterior, realizada em 15 de outubro de 2024, a qual foi aprovada por unanimidade e sem ressalvas. Ato contínuo, a Presidência comunicou a retirada de pauta do item 3, o Agravo Regimental no Agravo em Recurso Especial Eleitoral nº 6-65, a pedido do relator, Ministro André Ramos Tavares.
+
+Superados os atos iniciais, a sessão prosseguiu com a análise do primeiro processo de mérito pautado para julgamento, cuja complexidade demandou aprofundado debate entre os membros da Corte.
+
+
+--------------------------------------------------------------------------------
+
+
+2. Análise do Julgamento: Agravo em Recurso Especial Eleitoral nº 0600562-40
+
+O primeiro julgamento de mérito da sessão centrou-se em um caso emblemático sobre abuso de poder econômico e captação ilícita de sufrágio, oriundo do município de Icó, no Ceará. A relevância jurídica do processo reside na complexa análise probatória necessária para delimitar a responsabilidade individual de candidatos inseridos em um "grupo familiar" que atua para se perpetuar no poder local. A decisão do TSE neste caso estabelece importantes parâmetros sobre a valoração do conjunto de provas e a ciência inequívoca do candidato beneficiado, especialmente em contextos de forte assimetria de poder e violência política.
+
+2.1. Ficha Técnica do Processo
+
+Campo	Informação
+Número do Processo	0600562-40
+Classe Processual	Agravo em Recurso Especial Eleitoral
+Origem	Icó - Ceará (CE)
+Eleição de Referência	Eleições de 2020
+Ministro Relator	Ministro Floriano de Azevedo Marques
+Ministro Voto-Vista	Ministro André Mendonça
+Agravantes	Francisco Evandro de Araújo Filho e Francisco Evandro de Araújo
+Agravado	Ministério Público Eleitoral
+
+2.2. Análise do Conteúdo Jurídico
+
+O núcleo da controvérsia jurídica envolve acusações de abuso de poder econômico e captação ilícita de sufrágio (compra de votos) durante a campanha para o cargo de vereador no pleito de 2020. A investigação revelou um esquema sistemático de oferta de benesses a eleitores em troca de apoio político, incluindo:
+
+* Consultas médicas;
+* Passagens de ônibus intermunicipais (no valor de R$ 252,00);
+* Reparo automotivo (no valor de R$ 1.450,00);
+* Exames de ultrassonografia (no valor de R$ 200,00).
+
+O caso teve origem em um inquérito policial instaurado para apurar um crime de coação eleitoral, marcado por disparos de arma de fogo contra a residência de um candidato adversário dias antes da eleição, o que evidencia o clima de violência que permeava a disputa política local.
+
+2.3. Fundamentação Normativa e Precedentes Citados
+
+2.3.1. Dispositivos Legais e Sumulares
+
+* Código Eleitoral (Art. 301): Este artigo, que tipifica o crime de coação eleitoral mediante violência ou grave ameaça, foi o fundamento para a instauração do inquérito policial que, por sua vez, levou ao encontro fortuito das provas de compra de votos.
+* Súmula nº 24 do TSE: Invocada pelos Ministros André Ramos Tavares e Nunes Marques, esta súmula estabelece que o recurso especial eleitoral não é via adequada para o reexame de fatos e provas. Com base nela, os ministros argumentaram que a valoração probatória realizada pelo Tribunal Regional Eleitoral do Ceará, que condenou ambos os réus, deveria ser mantida.
+
+2.3.2. Precedentes Judiciais
+
+* TSE, Respe Eleitoral 57611 (Ceará), Rel. Ministro Tarcísio Vieira: Citado pelo Ministro André Mendonça, este precedente reforça a tese de que a prova para a condenação por ilícitos eleitorais não precisa ser "matemática" ou irrefutável. Para evitar a proteção deficiente do processo eleitoral, basta um conjunto probatório harmônico e convergente para formar a convicção do julgador.
+
+2.4. Reconstrução do Raciocínio Jurídico Desenvolvido
+
+O julgamento foi marcado por um intenso debate sobre a suficiência do acervo probatório para condenar o candidato beneficiado (Evandro Filho), além de seu pai.
+
+* Voto do Relator (Ministro Floriano de Azevedo Marques): O relator votou pela manutenção da condenação apenas do pai (Evandro Pai), absolvendo o filho. Seu argumento central foi a ausência de provas robustas que demonstrassem a participação direta ou a conivência de Evandro Filho nos atos ilícitos. O ministro interpretou diálogos e depoimentos, como a afirmação de que o filho "só faz o que ele quer", como indicativos de que ele agia de forma autônoma e não necessariamente endossava ou tinha controle sobre as ações ilícitas do pai.
+* Voto Divergente (Ministro André Mendonça): Inaugurando a tese que prevaleceu, o Ministro André Mendonça votou pela condenação de ambos. Sua argumentação se estruturou nos seguintes pontos:
+  1. Análise Global das Provas: Sustentou que os atos de compra de votos não podiam ser vistos como meros ilícitos isolados, mas como parte de uma estratégia de poder mais ampla e violenta, evidenciada pelos disparos de arma de fogo que originaram a investigação. Essa contextualização, segundo o Ministro, empresta maior gravidade e credibilidade aos indícios contra o filho.
+  2. Indício de Destruição de Provas: Valorizou o fato de que o celular do candidato foi encontrado "molhado" e imprestável para a perícia, o que, embora não seja prova cabal, constitui um forte indício de tentativa de ocultar sua participação.
+  3. Depoimentos Testemunhais: Citou o depoimento de uma testemunha chave, que afirmou que "tudo na campanha era resolvido por Evandro Filho", indicando seu protagonismo.
+  4. Interpretação dos Diálogos: Argumentou que as conversas extraídas do celular do pai demonstravam a "ciência inequívoca" do filho sobre o esquema de compra de votos.
+* Votos de Acompanhamento à Divergência: A tese divergente foi acompanhada por todos os demais membros da Corte. Os Ministros Kassio Nunes Marques, Isabel Gallotti, Antonio Carlos Ferreira, André Ramos Tavares e a Presidente, Ministra Cármen Lúcia, adicionaram fundamentos relevantes, destacando a importância de não fragmentar a análise do ilícito quando praticado por um "grupo familiar" com o objetivo de se manter no poder e reafirmaram os limites do recurso especial, que não permite revolver o conjunto fático-probatório já consolidado pelo tribunal de origem, conforme a Súmula nº 24 do TSE.
+
+2.5. Pontos Processuais Relevantes
+
+O julgamento, iniciado em sessão anterior, foi retomado com a apresentação do voto-vista do Ministro André Mendonça. Antes da análise de mérito, o tribunal já havia rejeitado, por unanimidade, as questões preliminares suscitadas pela defesa. Após os debates, a Presidente proclamou o resultado final da votação.
+
+2.6. Proclamação do Resultado, Efeitos e Providências Práticas
+
+O Tribunal Superior Eleitoral, por maioria de votos (6 a 1), negou provimento ao agravo para manter integralmente o acórdão do Tribunal Regional Eleitoral do Ceará. A decisão resultou na condenação de Francisco Evandro de Araújo (pai) e Francisco Evandro de Araújo Filho (filho) por abuso de poder econômico e captação ilícita de sufrágio. Vencido o relator, o Ministro André Mendonça foi designado redator do acórdão.
+
+Essa decisão consolida o entendimento da Corte sobre a responsabilidade do candidato beneficiário, demonstrando que, mesmo na ausência de provas diretas de sua autoria nos ilícitos, a sua ciência inequívoca—inferida a partir do contexto de violência, do protagonismo na campanha e de indícios de ocultação de provas—é suficiente para a sua condenação, especialmente em casos envolvendo a perpetuação de um "grupo familiar" no poder.
+
+
+--------------------------------------------------------------------------------
+
+
+3. Análise do Julgamento: Agravo em Recurso Especial Eleitoral nº 0600001-71
+
+Na sequência, o plenário analisou um caso sobre fraude à cota de gênero, um dos temas mais recorrentes na Justiça Eleitoral contemporânea. A cota de gênero é um mecanismo de ação afirmativa essencial para garantir a participação mínima de mulheres na política. A decisão do TSE neste processo, proferida por unanimidade, reforça a jurisprudência consolidada sobre os critérios objetivos para identificar candidaturas fictícias e reitera as severas consequências impostas ao partido político e a todos os seus candidatos em caso de comprovação da fraude.
+
+3.1. Ficha Técnica do Processo
+
+Campo	Informação
+Número do Processo	0600001-71
+Classe Processual	Agravo em Recurso Especial Eleitoral
+Origem	Cururupu - Maranhão (MA)
+Eleição de Referência	Eleições de 2020
+Ministro Relator	Ministro André Mendonça
+Agravante	Genes Luiz Rabello Pestana
+Agravados	Partido dos Trabalhadores (PT) - Diretório Municipal, Alex Sandro Silva Rabello e outros, Valdemira Ribeiro Vale e outros
+
+3.2. Análise do Conteúdo Jurídico
+
+O objeto do julgamento foi uma Ação de Impugnação de Mandato Eletivo (AIME) que acusava o Partido dos Trabalhadores (PT) de fraudar a cota de gênero no município de Cururupu/MA. O Tribunal Regional Eleitoral do Maranhão havia reconhecido o caráter fictício de apenas uma candidatura feminina (Valdenira Ribeiro Vale), mas entendeu que, mesmo com essa exclusão, o partido ainda cumpria o percentual legal. O recurso ao TSE visava demonstrar que uma segunda candidatura (Valquíria Ramos Nery) também era fraudulenta e que, portanto, o partido havia violado a legislação.
+
+3.3. Fundamentação Normativa e Precedentes Citados
+
+A decisão do relator foi integralmente amparada na legislação e na jurisprudência consolidada do TSE:
+
+* Lei das Eleições (Lei 9.504/1997): Fundamento principal que exige o preenchimento do percentual mínimo de 30% e máximo de 70% para candidaturas de cada gênero.
+* Súmula nº 73 do TSE: Citada como reforço argumentativo para a caracterização da fraude.
+* Súmulas nº 24 e 30 do TSE: Mencionadas como os fundamentos utilizados pelo TRE para, inicialmente, não admitir o recurso especial.
+* Critérios da Jurisprudência do TSE: O voto do relator baseou-se nos elementos objetivos que, em conjunto, caracterizam a fraude à cota de gênero:
+  1. Votação zerada ou ínfima;
+  2. Ausência de gastos de campanha;
+  3. Prestação de contas irrelevante ou inexistente;
+  4. Inexistência de atos de campanha (inclusive em redes sociais);
+  5. Ausência de comprovação de desistência tácita.
+
+3.4. Raciocínio Jurídico Desenvolvido
+
+O Ministro André Mendonça, relator do caso, não reexaminou as provas, mas realizou o reenquadramento jurídico dos fatos já descritos no acórdão regional. Ele concluiu que os elementos objetivos que caracterizam a fraude, presentes na primeira candidata, também se aplicavam integralmente à segunda. O voto detalhou o cálculo que demonstrou a violação da cota: com 14 candidaturas registradas, a exclusão de uma candidata fictícia já reduzia o percentual de mulheres para 28,57% (abaixo dos 30%). Com a exclusão das duas, o percentual caía para 21,42%, evidenciando a fraude.
+
+3.5. Pontos Processuais Relevantes
+
+A decisão do colegiado foi unânime, o que sinaliza a força e a consolidação da jurisprudência do TSE no combate a essa prática ilícita, aplicando de forma rigorosa os critérios objetivos já estabelecidos para a identificação da fraude.
+
+3.6. Proclamação do Resultado, Efeitos e Providências Práticas
+
+A decisão do TSE resultou em consequências drásticas e de efeito imediato para o partido e todos os seus candidatos, conforme detalhado na proclamação do resultado:
+
+1. Provimento do agravo e do recurso especial para julgar a AIME procedente.
+2. Nulidade de todos os votos recebidos pelo Partido dos Trabalhadores (PT) nas eleições proporcionais de 2020 em Cururupu/MA.
+3. Cassação do Demonstrativo de Regularidade dos Atos Partidários (DRAP) do partido.
+4. Cassação do diploma de todos os candidatos a ele vinculados, eleitos e suplentes.
+5. Determinação do recálculo imediato dos quocientes eleitoral e partidário para redistribuição das vagas.
+6. Determinação da execução imediata do acórdão, independentemente de sua publicação, conforme a jurisprudência da Corte.
+
+Esta decisão reafirma o compromisso do Tribunal com a efetividade da política de cotas, aplicando sanções severas que impactam toda a chapa como forma de coibir o uso de candidaturas femininas apenas para fins formais.
+
+
+--------------------------------------------------------------------------------
+
+
+4. Encerramento da Sessão
+
+Após o término dos julgamentos de mérito, a Presidente do Tribunal Superior Eleitoral, Ministra Cármen Lúcia, agradeceu a presença de todos e declarou encerrada a sessão plenária.

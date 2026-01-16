@@ -1,0 +1,125 @@
+Relatório Técnico-Jurídico: Análise da Sessão Plenária do Tribunal Superior Eleitoral – 08 de Outubro de 2024
+
+1.0 Identificação da Sessão de Julgamento
+
+Este relatório técnico-jurídico apresenta uma análise detalhada da sessão plenária do Tribunal Superior Eleitoral (TSE) realizada em 08 de outubro de 2024. O objetivo deste documento é examinar as deliberações jurisdicionais da Corte, com foco especial no principal processo levado a julgamento, a fim de extrair e sistematizar os argumentos jurídicos, as teses aplicadas e os resultados parciais proclamados. A seguir, são apresentados os dados formais que identificam a referida sessão.
+
+Componente	Descrição
+Data da Sessão	08 de outubro de 2024
+Horário de Abertura	Não especificado na transcrição
+Presidência	Ministra Cármen Lúcia
+Composição do Plenário	- Ministro Kassio Nunes Marques (Vice-Presidente)<br>- Ministro André Mendonça<br>- Ministra Isabel Gallotti (Corregedora-Geral da Justiça Eleitoral)<br>- Ministro Antônio Carlos Ferreira<br>- Ministro Floriano de Azevedo Marques<br>- Ministro Ramos Tavares<br>- Ministra Edilene Lôbo (Substituta)<br>- Ministra Vera Lúcia Santana Araújo (Substituta)
+Representante do Ministério Público	Dr. Alexandre Espinosa (Vice-Procurador-Geral Eleitoral)
+
+Superada a identificação formal da sessão, passa-se à análise pormenorizada do processo que concentrou os debates do Plenário.
+
+
+--------------------------------------------------------------------------------
+
+
+2.0 Análise Detalhada do Julgamento: Recurso Especial Eleitoral nº 6-12/DF
+
+Esta seção dedica-se à análise aprofundada do único julgamento substancial da sessão, o Recurso Especial Eleitoral nº 6-12/DF. A complexidade das questões processuais e de mérito suscitadas pelas partes e enfrentadas pelo Ministro Relator justifica um exame detalhado de seus componentes, desde a identificação formal do processo até a reconstrução do raciocínio jurídico empregado pelo Tribunal.
+
+2.1 Ficha Técnica do Processo
+
+A seguir, são catalogados os dados essenciais do processo, conforme extraídos das manifestações ocorridas durante a sessão de julgamento.
+
+Item	Informação
+Momento de Início do Julgamento	URL do vídeo não fornecida no contexto-fonte
+Número do Processo	Recurso Especial Eleitoral nº 6-12
+Classe Processual	Recurso Especial Eleitoral
+Origem	Brasília - Distrito Federal (DF)
+Eleição de Referência	2018
+Ministro Relator	Min. Floriano de Azevedo Marques
+Recorrentes	José Gomes Ferreira Filho e Douglas Ferreira de Laerte
+Recorrido	Ministério Público Eleitoral
+Advogados dos Recorrentes	Dr. Engels Augusto Muniz e Dr. Tiago Machado de Carvalho (este último proferiu a sustentação oral em nome de ambos os recorrentes, por deliberação estratégica da defesa).
+
+A identificação formal do processo serve como base para a análise de seu mérito jurídico e das controvérsias que o definem.
+
+2.2 Análise do Conteúdo Jurídico
+
+Para uma decisão judicial qualificada, é imperativo compreender o núcleo da controvérsia. Esta seção delineia a questão jurídica central submetida à apreciação do Tribunal Superior Eleitoral, que envolve tanto aspectos de direito processual penal quanto de direito material eleitoral.
+
+A tese central da acusação imputa aos réus a prática do crime de coação eleitoral, em continuidade delitiva, no contexto das eleições de 2018. Conforme a denúncia, os acusados, na condição de proprietário de uma empresa de serviços e seu primo e assessor, respectivamente, teriam constrangido e ameaçado funcionários com a demissão caso não apoiassem e votassem na candidatura do primeiro ao cargo de deputado distrital. As condutas teriam ocorrido em reuniões convocadas no ambiente laboral, caracterizando um quadro de assédio eleitoral.
+
+A partir dessa moldura fática, o debate se deslocou para a análise das normas jurídicas que fundamentam tanto a acusação quanto as teses defensivas.
+
+2.3 Fundamentação Normativa Invocada
+
+A legitimidade de qualquer decisão judicial repousa sobre sua fundamentação normativa. Esta seção identifica as bases legais e infralegais discutidas durante o julgamento, que serviram de alicerce para os argumentos da defesa, da acusação e do voto do Ministro Relator.
+
+* Código de Processo Penal - Art. 609, parágrafo único: (Citado extensivamente pela defesa e acolhido pelo Ministro Relator para fundamentar o cabimento de embargos infringentes em matéria criminal-eleitoral, sob o argumento de que a norma não restringe o recurso a tribunais com órgãos fracionados).
+* Resolução TSE nº 23.660/2021: (Mencionada pela defesa para argumentar que o próprio TSE, em seus atos normativos, reconhece a existência e o processamento dos embargos infringentes, reforçando a tese de seu cabimento).
+* Constituição Federal - Art. 5º, inciso X: (Invocado pelo Ministro Relator ao discutir a ilicitude de gravações ambientais que afrontam o direito à intimidade e à privacidade, servindo como parâmetro para a análise da legalidade da prova).
+* Código Penal - Art. 71: (Mencionado no voto do relator para caracterizar a continuidade delitiva da coação eleitoral, fundamentando a aplicação da pena com base na ocorrência de, no mínimo, três eventos criminosos).
+
+O exame da base normativa se complementa com a análise dos precedentes jurisprudenciais que a interpretam e a aplicam a casos concretos.
+
+2.4 Precedentes Citados
+
+A jurisprudência desempenha um papel crucial na uniformização da interpretação do direito e na garantia da segurança jurídica. Esta seção cataloga os principais precedentes judiciais mencionados durante o julgamento, que orientaram as argumentações das partes e a fundamentação do voto condutor.
+
+1. Jurisprudência do TSE sobre Embargos Infringentes (desde 2004): A defesa argumentou a existência de uma jurisprudência consolidada há mais de 20 anos no TSE, que admite o cabimento de embargos infringentes em matéria criminal-eleitoral. Foram citados precedentes dos anos de 2004, 2008, 2012, 2013, 2015, 2017 e 2019, com menção nominal a decisões dos Ministros Marco Aurélio, Cezar Peluso, Luciana Lóssio e Admar Gonzaga.
+2. TSE, Recurso Ordinário nº 060123-607.2018.6.07.0000: Citado pelo Ministério Público Eleitoral, este precedente tratou dos mesmos fatos em uma Ação de Investigação Judicial Eleitoral (AIJE), resultando na cassação do mandato do então deputado. O Procurador destacou trechos da ementa que confirmavam a existência de "provas robustas" sobre as ameaças, o controle de dados eleitorais dos funcionários e as demissões por motivação política.
+3. STF, Recurso Extraordinário 1040 (Tema 979): Mencionado pelo Ministro Relator para fundamentar a licitude da prova. A tese fixada pelo Supremo Tribunal Federal, conforme transcrito no voto, estabelece que "a exceção à regra da ilicitude da gravação ambiental... ocorre na hipótese de registro de fato ocorrido em local público, desprovido de qualquer controle de acesso, pois nesse caso não há violação da intimidade nem quebra da expectativa de privacidade".
+4. Jurisprudência do TSE sobre Gravação Ambiental: O Ministro Relator invocou precedentes da Corte, incluindo acórdãos relatados pelos Ministros Alexandre de Moraes e Raul Araújo, para diferenciar gravações ilícitas (feitas em ambiente privado com expectativa de confidencialidade) daquelas consideradas lícitas (realizadas em ambiente aberto, sem controle de acesso e sem caráter sigiloso, como reuniões com dezenas de funcionários).
+
+A análise desses precedentes é fundamental para compreender o raciocínio lógico desenvolvido pelos atores processuais durante o plenário.
+
+2.5 Raciocínio Desenvolvido no Julgamento
+
+Esta seção reconstrói o debate dialético ocorrido na sessão, dissecando os argumentos centrais apresentados pela defesa em sua sustentação oral, os contra-argumentos do Ministério Público Eleitoral e a estrutura lógica do voto condutor proferido pelo Ministro Relator.
+
+2.5.1 Síntese da Sustentação Oral da Defesa
+
+A estratégia argumentativa do advogado Dr. Tiago Machado de Carvalho, em nome dos recorrentes, concentrou-se em dois eixos principais:
+
+* Argumento Processual Central (Cabimento dos Embargos Infringentes): O principal pilar da defesa foi a tese de que o Tribunal Regional Eleitoral do Distrito Federal (TRE/DF), ao não admitir os embargos infringentes, violou uma jurisprudência consolidada do TSE com mais de 20 anos. O advogado enfatizou a distinção crucial entre a matéria "puramente eleitoral", na qual o recurso não é cabível, e a "eleitoral criminal", onde sua aplicação decorre diretamente do Código de Processo Penal. Ressaltou que a interposição do recurso era estratégica, dado que o julgamento no TRE/DF não fora unânime e continha "um voto absolvendo o sujeito".
+* Argumentos de Mérito e Probatórios: Subsidiariamente, a defesa alegou a ausência de vínculo subjetivo entre o candidato e o coator (seu primo e assessor), sustentando que não houve prova de autorização ou incentivo para a prática da coação. Ademais, apontou uma violação ao princípio da congruência, pois a denúncia descrevia os fatos como ocorridos "nas dependências da empresa", mas o acórdão não definiu o local, o que seria crucial para avaliar a licitude da prova, consistente em uma gravação ambiental que a defesa considerou clandestina e, portanto, ilícita.
+
+2.5.2 Síntese da Manifestação do Ministério Público Eleitoral
+
+O Vice-Procurador-Geral Eleitoral, Dr. Alexandre Espinosa, contrapôs os argumentos da defesa com as seguintes teses:
+
+* Rejeição dos Embargos Infringentes: O MPE sustentou o não cabimento do recurso por falta de previsão legal específica para tribunais que julgam em Plenário, como os TREs. A natureza do recurso estaria atrelada a tribunais com órgãos fracionados (turmas ou câmaras). Para reforçar seu ponto, mencionou que havia precedentes nesse sentido, citando uma decisão da Ministra Maria Teresa e uma decisão monocrática do Ministro Edson Fachin.
+* Validade da Prova: O Procurador defendeu a licitude da gravação, argumentando que foi realizada em local público (um quiosque próximo à via pública) e que, de todo modo, as demais provas – como depoimentos de testemunhas e reclamações trabalhistas que reconheceram o assédio eleitoral – eram robustas e suficientes para sustentar a condenação.
+* Referência a Julgamento Prévio: Foi reforçado que os mesmos fatos já haviam sido analisados pelo TSE em um Recurso Ordinário, no âmbito de uma AIJE, que resultou na cassação do mandato do candidato, o que corroboraria a gravidade e a comprovação das condutas.
+
+2.5.3 Reconstrução do Voto do Ministro Relator (Min. Floriano de Azevedo Marques)
+
+O voto do Ministro Relator abordou sequencialmente as controvérsias do caso, construindo um raciocínio analítico que culminou em uma solução distinta para cada um dos recorrentes.
+
+* Análise da Ilicitude da Prova (Gravação Ambiental): O Ministro afastou a alegação de ilicitude. Ele estabeleceu uma distinção fundamental entre um "ambiente privado", com expectativa de privacidade e confidencialidade, e um "ambiente sem caráter privado ou sigiloso". No caso concreto, as reuniões eram abertas a dezenas de funcionários, sem controle de acesso, o que afastava a expectativa de sigilo. Fundamentou sua conclusão na jurisprudência do TSE e na tese fixada pelo STF no RE 1040 (Tema 979), que excepciona a ilicitude de gravações em locais públicos.
+* Análise do Cabimento dos Embargos Infringentes: Neste ponto, o Ministro acolheu integralmente a tese da defesa. Rejeitou o argumento do Ministério Público de que o recurso se aplicaria apenas a tribunais com órgãos fracionados, alinhando-se à jurisprudência histórica do TSE invocada pela defesa. Seu raciocínio foi de que o Art. 609, parágrafo único, do Código de Processo Penal, por ser uma garantia da ampla defesa em matéria penal e não conter restrição expressa na lei, deveria ser aplicado aos julgamentos não unânimes dos TREs que resultem em condenação criminal.
+* Dispositivo do Voto: Com base nessas premissas, a conclusão do voto do Ministro Relator foi a seguinte: (1) dar provimento ao recurso de José Gomes Ferreira Filho, para o fim específico de determinar o retorno dos autos ao TRE/DF para análise dos embargos infringentes; e (2) negar provimento ao recurso de Douglas Ferreira de Laerte. A decisão foi cindida porque o provimento recursal se deu unicamente com base na questão processual (cabimento dos embargos), beneficiando apenas o recorrente que os opôs, enquanto a questão de mérito (licitude da prova), que era comum a ambos, foi decidida contra eles, esvaziando as razões recursais do segundo recorrente.
+
+O desdobramento do julgamento foi, então, marcado por um importante evento processual.
+
+2.6 Pontos Processuais Relevantes
+
+Questões de natureza processual frequentemente precedem e determinam o resultado do mérito. Esta seção destaca os principais debates e incidentes de natureza adjetiva que marcaram o julgamento.
+
+* Questão Preliminar de Admissibilidade Recursal: O debate central do julgamento girou em torno do cabimento ou não dos Embargos Infringentes em matéria criminal perante os Tribunais Regionais Eleitorais. A resolução desta questão pelo Ministro Relator foi determinante para o destino de um dos recursos.
+* Questão Prejudicial de Mérito: A discussão sobre a licitude da prova (gravação ambiental) funcionou como uma questão prejudicial, pois sua eventual ilicitude poderia invalidar todo o conjunto probatório e, consequentemente, a própria condenação.
+* Sustentações Orais: O julgamento contou com a participação ativa das partes, registrada pela sustentação oral da defesa (Dr. Tiago Machado de Carvalho) e pela manifestação do Ministério Público Eleitoral (Dr. Alexandre Espinosa), que foram essenciais para o aprofundamento do debate.
+* Pedido de Vista: Após o voto do Ministro Relator, o Ministro Ramos Tavares pediu vista dos autos. Este ato processual tem o efeito de suspender o julgamento, impedindo a proclamação de um resultado definitivo até que o Ministro apresente seu voto.
+
+Esses eventos processuais impactaram diretamente os efeitos práticos do julgamento, que permanece inconcluso.
+
+2.7 Efeitos e Providências Práticas (Deliberação Provisória)
+
+Devido à suspensão do julgamento pelo pedido de vista, os efeitos aqui descritos são provisórios e refletem o placar e as deliberações até aquele momento.
+
+* Voto do Ministro Relator: O único voto proferido foi o do Ministro Floriano de Azevedo Marques, que deu provimento ao recurso de José Gomes Ferreira Filho, para o fim específico de determinar a análise dos embargos infringentes pelo TRE/DF, e negou provimento ao recurso de Douglas Ferreira de Laerte.
+* Pedido de Vista: O Ministro Ramos Tavares solicitou vista dos autos para análise mais aprofundada da matéria, especialmente sobre a aplicabilidade do Tema 979 do STF e o cabimento dos embargos infringentes na estrutura da Justiça Eleitoral.
+* Proclamação do Resultado Provisório: A Presidente da sessão, Ministra Cármen Lúcia, proclamou o resultado provisório, informando que os demais Ministros aguardarão a apresentação do voto-vista. A consequência prática imediata é a suspensão do julgamento e a manutenção do status quo até sua retomada em sessão futura.
+
+
+--------------------------------------------------------------------------------
+
+
+3.0 Conclusão da Análise da Sessão
+
+Em síntese, a sessão plenária de 08 de outubro de 2024 foi marcada pelo aprofundado e complexo debate jurídico travado no âmbito do Recurso Especial Eleitoral nº 6-12/DF. A controvérsia central abrangeu desde a admissibilidade de um recurso processual penal (embargos infringentes) na Justiça Eleitoral até a análise da licitude de provas em casos de assédio eleitoral. O julgamento, contudo, permanece com seu desfecho em aberto devido ao pedido de vista formulado pelo Ministro Ramos Tavares. O destino do caso dependerá, portanto, dos votos a serem proferidos pelos demais membros da Corte após a devolução dos autos para a continuidade do julgamento.

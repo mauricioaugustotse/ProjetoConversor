@@ -1,0 +1,312 @@
+Análise Técnica da Sessão de Julgamento do Tribunal Superior Eleitoral de 5 de Dezembro de 2024
+
+1.0 Informações Gerais da Sessão
+
+Esta análise se debruça sobre a sessão de julgamento do Tribunal Superior Eleitoral (TSE) realizada em 5 de dezembro de 2024. A sessão apresentou natureza mista, iniciando-se com a pauta administrativa e, em seguida, prosseguindo para a pauta jurisdicional. O registro detalhado da composição do tribunal é de fundamental importância para a aferição do quórum deliberativo, conferindo validade e transparência às decisões proferidas e permitindo uma análise precisa do posicionamento do colegiado.
+
+1.1 Composição do Tribunal e Partes Presentes
+
+Com base nas declarações de abertura, a sessão contou com a seguinte composição e presença:
+
+* Data da Sessão: 5 de dezembro de 2024.
+* Ministros Presentes:
+  * Ministra Cármen Lúcia (Presidente)
+  * Ministro Nunes Marques (Vice-Presidente)
+  * Ministro André Mendonça
+  * Ministra Isabel Galotti (Corregedora-Geral Eleitoral)
+  * Ministro Antônio Carlos Ferreira
+  * Ministro Floriano de Azevedo Marques (participação por videoconferência)
+  * Ministro Ramos Tavares
+* Representante do Ministério Público Eleitoral: Dr. Alexandre Espinosa, Vice-Procurador-Geral Eleitoral.
+* Outros Participantes Mencionados: Advogados, advogadas, servidores e demais pessoas que acompanhavam a sessão.
+
+A seguir, procede-se à análise do primeiro item julgado na pauta administrativa.
+
+
+--------------------------------------------------------------------------------
+
+
+2.0 Processo Administrativo: Lista Tríplice nº 0601348-88.2024.6.22.0000
+
+Uma lista tríplice, no âmbito da Justiça Eleitoral, consiste na indicação, por um Tribunal Regional Eleitoral (TRE), de três advogados para que o Tribunal Superior Eleitoral avalie o cumprimento dos requisitos constitucionais e normativos. Após a aprovação pelo TSE, a lista é encaminhada ao Chefe do Poder Executivo, a quem compete a nomeação de um dos indicados para compor o TRE na classe dos juristas. Este procedimento assegura a participação da advocacia na composição dos tribunais eleitorais, conforme previsto na Constituição.
+
+2.1 Súmula do Processo
+
+Item de Análise	Informação Extraída
+Data da Sessão	5 de dezembro de 2024
+Número do Processo	Lista Tríplice nº 0613-488
+Tipo de Processo	Processo Administrativo - Lista Tríplice
+Relatora	Ministra Isabel Galotti
+Origem (Cidade/UF)	Porto Velho / RO
+Interessado	Tribunal Regional Eleitoral de Rondônia
+Nomes Indicados	Letícia Botelho, Thaís Macedo de Bito Cunha, Rodrigo de Otávio Veiga de Vargas
+Cargo a ser Provido	Juiz Titular, classe de advogado
+Legislação Invocada	Constituição; Resolução TSE 213.517
+Precedentes Citados	Menção a precedente não especificado sobre a ausência de vedação legal para procurador de estado integrar a lista.
+
+2.2 Análise do Conteúdo Jurídico
+
+A controvérsia central do processo administrativo residiu na análise da elegibilidade de uma das candidatas indicadas, a Dra. Thaís Macedo de Brito Cunha, em razão do exercício do cargo de Procuradora do Estado de Rondônia. A Ministra Relatora se debruçou sobre a questão de saber se a ocupação de tal cargo público configuraria um impedimento para figurar na lista destinada à nomeação para a magistratura eleitoral na classe dos juristas.
+
+2.3 Fundamentação Normativa
+
+As normas citadas como alicerce para a análise da conformidade da lista tríplice foram:
+
+* Constituição Federal: Citada de forma genérica como referência para os requisitos do cargo.
+* Resolução TSE: Resolução TSE 213.517, que disciplina o procedimento de formação das listas.
+
+2.4 Raciocínio Desenvolvido
+
+O argumento central da Ministra Relatora, Isabel Galotti, fundamentou-se na "ausência de vedação legal" que impedisse a inclusão da candidata na lista. Para reforçar essa interpretação, a ministra invocou a existência de um precedente do próprio Tribunal Superior Eleitoral que já havia enfrentado e decidido a questão no mesmo sentido. Adicionalmente, o voto mencionou, de forma breve, a experiência prévia dos outros dois candidatos, Dra. Letícia Botelho e Dr. Rodrigo Otávio Veiga de Vargas, que já haviam figurado em listas anteriores e composto a corte regional, atestando a qualificação geral dos indicados.
+
+2.5 Pontos Processuais Relevantes
+
+A dinâmica do julgamento foi célere e objetiva. Após a apresentação do voto pela relatora, a Presidente do Tribunal, Ministra Cármen Lúcia, indagou aos demais membros do colegiado sobre a existência de alguma divergência. Diante do silêncio e da concordância dos demais ministros, o resultado foi proclamado de imediato.
+
+2.6 Efeitos e Providências Práticas
+
+O Tribunal, por unanimidade, aprovou a lista tríplice encaminhada pelo Tribunal Regional Eleitoral de Rondônia. Como efeito prático, foi determinada a remessa da lista ao Poder Executivo para a subsequente nomeação de um dos três advogados para o cargo de juiz titular.
+
+A seguir, o Tribunal passou à análise do segundo item da pauta administrativa.
+
+
+--------------------------------------------------------------------------------
+
+
+3.0 Processo Administrativo: Lista Tríplice nº 0603582-72.2024.6.20.0000
+
+Este segundo processo, embora também verse sobre uma lista tríplice, ilustra o rigor do TSE na verificação de requisitos e compatibilidades para o exercício da magistratura eleitoral. A análise do tribunal incidiu sobre uma condição particular de uma das candidatas, que ocupava um cargo em comissão, demonstrando a atenção do colegiado a situações que possam, futuramente, gerar incompatibilidade com a função judicante.
+
+3.1 Súmula do Processo
+
+Item de Análise	Informação Extraída
+Data da Sessão	5 de dezembro de 2024
+Número do Processo	Lista Tríplice nº 0603-582-72
+Tipo de Processo	Processo Administrativo - Lista Tríplice
+Relator	Ministro Ramos Tavares
+Origem (Cidade/UF)	Natal / RN
+Interessado	Tribunal Regional Eleitoral do Rio Grande do Norte
+Nomes Indicados	João Vitor de Holanda de Ognes, Fernanda Tavares Barreto, Paulo Augusto Pinheiro da Silva
+Cargo a ser Provido	Juiz Substituto, classe de advogado
+Vaga Decorrente de	Término do segundo biênio do Dr. Marcelo Rocha Lopes em 23 de novembro de 2016.
+Legislação Invocada	Código Eleitoral; Resolução TSE 23.517
+Precedentes Citados	Menção a precedentes não especificados sobre a necessidade de exoneração de cargo ad nutum.
+
+3.2 Análise do Conteúdo Jurídico
+
+O ponto central da deliberação jurídica girou em torno da situação da candidata Fernanda Tavares Barreto, que ocupava o cargo comissionado de "procuradora jurídica administrativa em Campo Redondo". A questão era definir se essa ocupação impedia sua participação na lista e, em caso negativo, quais seriam as providências necessárias para compatibilizar essa situação com as exigências para o eventual exercício do cargo de juíza eleitoral.
+
+3.3 Fundamentação Normativa
+
+As normas mencionadas como base para a análise foram:
+
+* Código Eleitoral: Citado genericamente em relação ao prazo para impugnações, que transcorreu sem manifestações.
+* Resolução TSE: Resolução 23.517, referente à documentação exigida dos candidatos.
+
+3.4 Raciocínio Desenvolvido
+
+O Ministro Relator, Ramos Tavares, reconstruiu seu voto acolhendo uma sugestão do Ministro Antônio Carlos Ferreira. A proposta foi aprovar a lista com uma ressalva específica: a participação da candidata na lista não é impedida pelo exercício do cargo em comissão, mas, caso ela venha a ser a escolhida para a nomeação, deverá se exonerar do referido cargo para poder tomar posse como juíza do TRE. O relator fez questão de enfatizar que esta condição seria expressamente incluída na parte dispositiva de seu voto, criando uma obrigação futura para a candidata, caso nomeada.
+
+3.5 Pontos Processuais Relevantes
+
+O processo se destacou pela ausência de impugnações após a publicação da lista tríplice. A deliberação do colegiado foi uníssona, seguindo integralmente o voto do relator, já acrescido da sugestão do Ministro Antônio Carlos Ferreira, sem qualquer divergência.
+
+3.6 Efeitos e Providências Práticas
+
+O Tribunal aprovou a lista por unanimidade, mas estabeleceu uma condição resolutiva. A lista foi encaminhada para a Presidência da República com a expressa ressalva, a ser comunicada ao Poder Executivo, de que a posse da candidata, se nomeada, está condicionada à comprovação de sua prévia exoneração do cargo em comissão.
+
+Com o julgamento deste processo, encerrou-se a sessão administrativa, dando-se início imediato à sessão jurisdicional.
+
+
+--------------------------------------------------------------------------------
+
+
+4.0 Julgamento Conjunto: REspe nº 0600144-45, REspe nº 0600146-15 e TCA nº 0600627-43
+
+Iniciando a pauta jurisdicional, o tribunal analisou um conjunto de recursos que discutiam uma questão processual prévia: a suspeição de um magistrado do TRE/CE. A resolução deste ponto era determinante para o prosseguimento das ações principais, que versam sobre fraude à cota de gênero. O caso demonstra como questões de ordem processual, como a observância de prazos, podem impactar o mérito de importantes debates eleitorais.
+
+4.1 Súmula dos Processos
+
+Item de Análise	Informação Extraída
+Data da Sessão	5 de dezembro de 2024
+Número dos Processos	REspe nº 0600144-45, REspe nº 0600146-15, TCA nº 0600627-43
+Tipo de Processo	Recurso Especial Eleitoral e Tutela Cautelar Antecedente
+Relator	Ministro Antônio Carlos Ferreira
+Origem (Cidade/UF)	Fortaleza / CE
+Eleição a que se Refere	2022 (para o cargo de Deputado Estadual)
+Partes	Recorrente: Asilom Gonçalves Pinto Júnior; Recorrido: Francisco Érico Carvalho Silveira; Requerentes: Federação Brasil da Esperança estadual; Requeridos: Partido Liberal e outros
+Advogado (Sustentação Oral)	Dr. Damião Soares Tenório (pelo recorrente)
+Legislação Invocada	Código de Processo Civil, Art. 146
+Súmulas Citadas	Súmula nº 24 do TSE
+
+4.2 Análise do Conteúdo Jurídico
+
+A alegação central do recorrente era a suspeição de um juiz do TRE/CE, baseada em supostos vínculos societários com adversários políticos. No entanto, o ponto nevrálgico da decisão do TSE não foi a análise da suspeição em si, mas a intempestividade (perda do prazo processual) para apresentar tal alegação. O tribunal de origem concluiu que o recorrente protocolou o incidente de suspeição fora do prazo legal, e o TSE foi chamado a decidir se essa conclusão poderia ser revista. O caso de fundo, que motivou a controvérsia, é a apuração de fraude à cota de gênero pelo Partido Liberal nas eleições de 2022.
+
+4.3 Fundamentação Normativa e Jurisprudencial
+
+A decisão do Tribunal se baseou nos seguintes fundamentos:
+
+* Código de Processo Civil: Artigo 146, que estabelece o prazo de 15 dias para a apresentação do incidente de suspeição, contado a partir do conhecimento do fato que a motivou.
+* Súmula do TSE nº 24: Foi o fundamento principal para a manutenção da decisão do TRE/CE. A súmula veda o reexame de fatos e provas em sede de recurso especial. O TSE entendeu que determinar se o fato era ou não de conhecimento prévio do recorrente exigiria uma reavaliação probatória, o que é vedado em instância especial.
+
+4.4 Raciocínio Desenvolvido
+
+* Voto do Relator (Min. Antônio Carlos Ferreira): O ministro argumentou que o quadro fático delineado pelo TRE/CE foi "peremptório" ao afirmar que a relação que supostamente gerou a suspeita era "pública e notória" muito antes da posse do juiz como membro titular. Portanto, a alegação de suspeição foi apresentada fora do prazo legal. A conclusão do relator foi que reavaliar quando o recorrente teve ciência do fato implicaria um reexame de prova, vedado pela Súmula 24.
+* Votos de Acompanhamento: Os demais ministros seguiram o relator. O Ministro Floriano de Azevedo Marques destacou uma aparente contradição na argumentação do advogado do recorrente: se a rivalidade política era tão notória em um ambiente "pequeno", como afirmado na tribuna, o conhecimento dos vínculos que embasaram a suspeição também deveria ser notório e anterior.
+* Conclusão (Tese Aplicada): A tese central aplicada foi que, sendo a intempestividade da exceção de suspeição uma conclusão baseada na análise de fatos e provas pela instância de origem, sua revisão é inviável em recurso especial, por força da Súmula 24 do TSE.
+
+4.5 Pontos Processuais Relevantes
+
+Houve sustentação oral pelo advogado do recorrente, Dr. Damião Soares Tenório. A decisão do TSE concentrou-se estritamente na questão preliminar de intempestividade, sem adentrar o mérito sobre a existência ou não da suspeição do magistrado do TRE/CE.
+
+4.6 Efeitos e Providências Práticas
+
+O Tribunal, por unanimidade, negou provimento aos recursos especiais. Como consequência, julgou extinta a tutela cautelar antecedente que suspendia o trâmite dos processos na origem. Com isso, os atos processuais praticados no TRE/CE foram mantidos como válidos, e as ações sobre fraude à cota de gênero podem prosseguir.
+
+Superada a questão processual de suspeição, o Tribunal avançou para a análise de uma das mais consolidadas matérias de mérito do direito eleitoral: a inelegibilidade decorrente do exercício de um terceiro mandato no Poder Executivo.
+
+
+--------------------------------------------------------------------------------
+
+
+5.0 Julgamento: Recurso Especial Eleitoral nº 0600233-50.2024.6.17.0000
+
+Este caso representa um debate clássico do direito eleitoral: a inelegibilidade por exercício de um terceiro mandato consecutivo no Poder Executivo. A vedação, contida no Art. 14, § 5º, da Constituição Federal, é uma cláusula fundamental para a salvaguarda do princípio republicano da alternância de poder, impedindo a perpetuação de um mesmo grupo político no comando administrativo.
+
+5.1 Súmula do Processo
+
+Item de Análise	Informação Extraída
+Data da Sessão	5 de dezembro de 2024
+Número do Processo	REspe nº 0600-233-50
+Tipo de Processo	Recurso Especial Eleitoral
+Relator	Ministro Antônio Carlos Ferreira
+Origem (Cidade/UF)	Goiânia / PE
+Eleição a que se Refere	2024 (para o cargo de Prefeito)
+Partes	Recorrente: Eduardo Honório Carneiro; Recorridos: Coligação "unidos por uma Goiânia muito melhor" e outro, Ministério Público Eleitoral
+Advogados (Sustentação Oral)	Dr. Edco Wagner de Lima Pessoa (pelo recorrente); Dr. Robert de Moura Agra (pelos recorridos)
+Legislação Invocada	Constituição Federal, Art. 14, § 5º; Resolução TSE 23.609, Art. 12; CPC (Arts. 489, 1022, 1025, 1035)
+Precedentes Citados	Tema 1229 de Repercussão Geral do STF; Precedente do TSE da relatoria do Min. Alexandre de Moraes
+
+5.2 Análise do Conteúdo Jurídico
+
+A tese central do recorrente, Eduardo Honório Carneiro, era que seu exercício interino do cargo de prefeito de Goiânia (PE), na qualidade de vice-prefeito, em substituição ao titular afastado por motivo de saúde nos seis meses anteriores ao pleito de 2020, não poderia ser considerado um mandato pleno para fins de contagem do limite de reeleições. Ele argumentava que, por ter sido uma "substituição precária" e não uma "sucessão" definitiva, não estaria inelegível para um terceiro mandato consecutivo em 2024. Esta tese foi confrontada com a interpretação consolidada do TSE sobre o tema.
+
+5.3 Fundamentação Normativa e Jurisprudencial
+
+A decisão do tribunal foi alicerçada nos seguintes pontos:
+
+* Constituição Federal: Artigo 14, § 5º, norma matriz que veda a reeleição para um terceiro mandato consecutivo para chefes do Poder Executivo.
+* Resolução TSE 23.609: Artigo 12, que reitera a regra constitucional para as eleições.
+* Jurisprudência do TSE: A interpretação "pacífica" e consolidada do Tribunal é de que qualquer substituição ou sucessão na chefia do Executivo, ocorrida nos seis meses anteriores ao pleito, configura exercício de mandato para fins da inelegibilidade do terceiro período, independentemente da duração ou do caráter precário do afastamento do titular.
+* Distinção de Precedentes: O relator e os demais ministros esclareceram que o Tema 1229 do STF (que trata de substituições por poucos dias em decorrência de decisão judicial) e um precedente específico relatado pelo Ministro Alexandre de Moraes não se aplicavam ao caso concreto, que envolvia um afastamento contínuo por meses por motivo de saúde.
+
+5.4 Raciocínio Desenvolvido
+
+* Voto do Relator (Min. Antônio Carlos Ferreira): O voto aplicou diretamente a jurisprudência consolidada do TSE, cujo objetivo é impedir a perpetuação no poder e garantir a alternância, tratando de forma absoluta qualquer exercício do mandato nos seis meses anteriores à eleição.
+* Votos de Acompanhamento: As contribuições dos demais ministros reforçaram a decisão. O Ministro Floriano de Azevedo Marques ressaltou um fato crucial: o próprio candidato, ao se registrar para a eleição de 2020, declarou-se como "candidato à reeleição", o que enfraquece sua tese atual de que não teria exercido um mandato pleno. Além disso, o Ministro Nunes Marques sugeriu, e foi acatado por todos, que as conclusões do julgamento fossem incorporadas ao dispositivo do acórdão para o caso concreto, em vez de se fixar uma "tese" vinculante. A sugestão visou evitar que o julgado fosse erroneamente aplicado a cenários fáticos distintos, como as substituições brevíssimas por ordem judicial tratadas no Tema 1229 do STF, salvaguardando assim a integridade de ambos os precedentes.
+* Conclusão (Tese Aplicada): A conclusão do tribunal foi que o exercício do cargo de prefeito pelo vice, mesmo que em substituição precária e temporária, dentro dos seis meses que antecedem o pleito, caracteriza o exercício de mandato para todos os fins, atraindo a inelegibilidade para um terceiro período consecutivo, em estrito respeito ao princípio republicano da alternância de poder.
+
+5.5 Pontos Processuais Relevantes
+
+O julgamento contou com sustentações orais de ambas as partes. Um ponto processual notável foi o debate entre os ministros sobre a melhor forma de formular a conclusão do julgado, resultando na decisão de não fixar uma tese geral e abstrata, mas integrar o raciocínio ao dispositivo da decisão para o caso específico.
+
+5.6 Efeitos e Providências Práticas
+
+O Tribunal, por unanimidade, negou provimento ao recurso especial, mantendo o indeferimento do registro de candidatura de Eduardo Honório Carneiro ao cargo de prefeito do município de Goiânia (PE) nas eleições de 2024.
+
+O caso seguinte abordou a intersecção entre os direitos políticos e os direitos da pessoa com deficiência.
+
+
+--------------------------------------------------------------------------------
+
+
+6.0 Julgamento: Recurso Especial Eleitoral (Número não especificado) de Mariana Pimentel/RS
+
+Este julgamento se configura como um importante precedente sobre a aplicação do Estatuto da Pessoa com Deficiência no Direito Eleitoral. O caso confrontou uma alegação de incapacidade política, derivada de um processo no âmbito do direito penal, com a presunção de capacidade e o pleno exercício de direitos políticos garantidos pela legislação inclusiva e pela Constituição Federal. A decisão reafirma a autonomia dos direitos políticos frente a outras searas do direito.
+
+6.1 Súmula do Processo
+
+Item de Análise	Informação Extraída
+Data da Sessão	5 de dezembro de 2024
+Número do Processo	41 (Final mencionado, número completo omitido)
+Tipo de Processo	Recurso Especial Eleitoral
+Relator	Ministro Ramos Tavares
+Origem (Cidade/UF)	Mariana Pimentel / RS
+Eleição a que se Refere	2024 (para o cargo de Prefeito)
+Partes	Recorrente: Coligação União por Mariana Pimentel; Recorrido: Joel Guizio
+Legislação Invocada	Constituição Federal, Art. 14, § 3º, inc. II; Lei 13.146/2015 (Estatuto da Pessoa com Deficiência), Art. 76; Código Civil, Art. 3º; Código Penal, Art. 26; Resolução TSE 23.659/2021, Art. 14; LC 64/90, Art. 1º, inc. I, 'e'.
+Precedentes Citados	Precedentes do STJ sobre incapacidade civil; Precedente do TSE de 1998 (Rel. Min. Roberto Rosas).
+
+6.2 Análise do Conteúdo Jurídico
+
+A tese central do recurso argumentava existir uma "contradição lógica" e um "abuso da proteção" legal. O recorrente sustentava que o fato de o candidato Joel Guizio ter sido considerado inimputável em um processo penal por fatos ocorridos entre 2011 e 2012 seria incompatível com seu atual pedido de registro de candidatura. O cerne da questão jurídica era, portanto, definir se o reconhecimento da inimputabilidade penal se traduz, automaticamente, na perda da condição de elegibilidade (pleno exercício dos direitos políticos).
+
+6.3 Fundamentação Normativa e Jurisprudencial
+
+O voto do relator se apoiou em um robusto arcabouço normativo para rechaçar a tese do recorrente:
+
+* Lei 13.146/2015 (Estatuto da Pessoa com Deficiência): Foi a norma central. O relator explicou que esta lei alterou o Código Civil, restringindo a incapacidade civil absoluta aos menores de 16 anos. Seu Artigo 76 garante expressamente à pessoa com deficiência o direito de votar e ser votada, em igualdade de condições.
+* Resolução TSE 23.659/2021: O Artigo 14, § 4º, desta resolução foi decisivo, pois veda expressamente que a Justiça Eleitoral processe a suspensão de direitos políticos com base em deficiência ou em declaração judicial de incapacidade civil.
+* Código Penal: O Artigo 26 define a inimputabilidade como uma condição referente "ao tempo da ação ou da omissão", não tendo, portanto, caráter permanente e definitivo.
+* Constituição Federal: O Artigo 14, § 3º, II, exige o pleno exercício dos direitos políticos como condição de elegibilidade, condição que o tribunal entendeu estar plenamente preenchida pelo candidato.
+
+6.4 Raciocínio Desenvolvido
+
+* Premissas Normativas: O voto do Ministro Ramos Tavares partiu da premissa da prevalência dos direitos fundamentais da pessoa com deficiência, da nova sistemática da capacidade civil inaugurada em 2015 e da natureza estritamente temporal da inimputabilidade penal.
+* Método: O relator realizou uma interpretação sistemática das normas, aplicando o Estatuto da Pessoa com Deficiência como norma especial e posterior que rege a matéria. Essa abordagem afastou interpretações restritivas que pudessem limitar o exercício dos direitos políticos.
+* Conclusão (Tese Aplicada): A tese firmada estabelece que a natureza temporal e específica da inimputabilidade penal, aferida em relação a fatos passados, não cria uma incapacidade civil geral ou permanente que possa invalidar os direitos políticos, os quais são expressamente garantidos pela legislação superveniente e especial do Estatuto da Pessoa com Deficiência.
+
+6.5 Pontos Processuais Relevantes
+
+O julgamento ocorreu sem sustentação oral e se destacou pelo caráter didático do voto do relator ao percorrer toda a evolução legislativa sobre o tema. A Presidente, Ministra Cármen Lúcia, fez uma manifestação ao final, reforçando o compromisso da Justiça Eleitoral com a inclusão e a acessibilidade, e mencionou a realização do "terceiro encontro de acessibilidade e inclusão da Justiça Eleitoral" como prova concreta desse engajamento.
+
+6.6 Efeitos e Providências Práticas
+
+Por unanimidade, o Tribunal negou provimento ao recurso especial, mantendo o deferimento do registro de candidatura de Joel Guizio. A decisão reafirma a plena capacidade política da pessoa com deficiência, consolidando um importante precedente para a Justiça Eleitoral.
+
+A seguir, a análise do último processo julgado na sessão.
+
+
+--------------------------------------------------------------------------------
+
+
+7.0 Julgamento: Embargos de Declaração na Prestação de Contas nº 0601643-37
+
+O último caso da sessão envolveu o julgamento de embargos de declaração em uma prestação de contas partidária. A discussão girou em torno da aplicação de novas regras constitucionais, introduzidas pela Emenda Constitucional 117/2022, sobre o financiamento de campanhas para mulheres e pessoas negras, destacando a importância da uniformização da jurisprudência do TSE para garantir segurança jurídica aos partidos políticos.
+
+7.1 Súmula do Processo
+
+Item de Análise	Informação Extraída
+Data da Sessão	5 de dezembro de 2024
+Número do Processo	Prestação de Contas nº 0601643-37
+Tipo de Processo	Embargos de Declaração em Prestação de Contas
+Relator Original	Ministro Raul Araújo
+Voto-Vista	Ministro Ramos Tavares
+Origem	Brasília - DF
+Eleição a que se Refere	2020
+Partes	Embargante: Partido Verde Nacional
+Legislação Invocada	Emenda Constitucional 117 de 2022
+
+7.2 Análise do Conteúdo Jurídico
+
+O ponto central dos embargos de declaração foi a discussão sobre as "consequências da não observância da destinação mínima de valores em função de gênero e raça" nas contas de 2020. A controvérsia residia em como a Emenda Constitucional 117/2022, promulgada posteriormente, impactaria a análise das contas de exercícios anteriores, especialmente no que tange às sanções aplicáveis.
+
+7.3 Fundamentação Normativa e Jurisprudencial
+
+A decisão do caso se baseou fundamentalmente nos seguintes pontos:
+
+* Emenda Constitucional 117 de 2022: O alcance e a incidência desta emenda sobre prestações de contas anteriores à sua vigência foram o objeto da discussão e do pedido de vista.
+* Precedente Vinculante do TSE: O julgamento foi diretamente influenciado por uma decisão anterior do plenário, finalizada em 20 de agosto, que pacificou o entendimento do tribunal sobre a aplicação da EC 117/2022, estabelecendo o regime jurídico a ser seguido em casos análogos.
+
+7.4 Raciocínio Desenvolvido
+
+O Ministro Ramos Tavares explicou que pediu vista dos autos em junho para aguardar a definição da tese do tribunal em outro processo que tratava do mesmo tema. Uma vez que o plenário firmou sua posição naquele caso precedente, o ministro, mesmo ressalvando seu entendimento pessoal contrário à tese majoritária, aplicou o princípio da colegialidade e o respeito ao precedente firmado. Assim, alinhou seu voto ao do relator original para rejeitar os embargos, seguindo a jurisprudência recém-consolidada pela maioria.
+
+7.5 Pontos Processuais Relevantes
+
+A dinâmica processual foi marcada pelo pedido de vista do Ministro Ramos Tavares, que suspendeu o julgamento que se iniciara em plenário virtual. É relevante notar que o Ministro Antônio Carlos Ferreira não votou por ter sucedido o relator original, Ministro Raul Araújo, na cadeira do STJ. Conforme a praxe regimental, ainda que tenha acompanhado o voto do relator original, o acórdão será redigido pelo Ministro Ramos Tavares, por ter sido ele quem apresentou o voto-vista que concluiu o julgamento.
+
+7.6 Efeitos e Providências Práticas
+
+O Tribunal, por unanimidade, rejeitou os embargos de declaração. Com isso, foi mantido o acórdão original que havia julgado as contas do Diretório Nacional do Partido Verde, relativas ao exercício de 2020, como aprovadas com ressalvas, nos exatos termos do voto do relator original, Ministro Raul Araújo.

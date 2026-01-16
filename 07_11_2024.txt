@@ -1,0 +1,126 @@
+Relatório Analítico da Sessão Plenária do Tribunal Superior Eleitoral – 07 de Novembro de 2024
+
+1.0 Identificação e Composição da Sessão
+
+1.1. Contextualização da Sessão
+
+Este relatório tem como propósito documentar e analisar tecnicamente os atos e julgamentos da sessão plenária do Tribunal Superior Eleitoral (TSE) realizada em 07 de novembro de 2024. O registro pormenorizado da composição do colegiado e dos eventos processuais é fundamental para assegurar a transparência, a publicidade e a validade jurídica das deliberações emanadas da mais alta corte eleitoral do país.
+
+1.2. Detalhes da Sessão e Composição do Plenário
+
+* Data e Hora de Início: 07 de novembro de 2024. A ata da sessão anterior, aprovada na presente data, registra que a sessão do dia 05 de novembro de 2024 teve início às 19h08.
+* Presidência: Sua Excelência a Ministra Cármen Lúcia.
+* Membros do Tribunal Presentes: O quórum da sessão de julgamento foi composto pelos seguintes Ministros:
+  * Ministro Kassio Nunes Marques (Vice-Presidente)
+  * Ministro André Mendonça (participação por videoconferência)
+  * Ministra Isabel Gallotti (Corregedora-Geral da Justiça Eleitoral)
+  * Ministro Antonio Carlos Ferreira
+  * Ministro Floriano de Azevedo Marques
+  * Ministro André Ramos Tavares
+* Representante do Ministério Público Eleitoral: Exmo. Sr. Dr. Alexandre Espinoza, Vice-Procurador-Geral Eleitoral.
+
+Com a composição devidamente estabelecida, a Presidência deu início aos atos processuais que compuseram a pauta do dia.
+
+
+--------------------------------------------------------------------------------
+
+
+2.0 Atos Iniciais e Gerenciamento da Pauta de Julgamentos
+
+2.1. A Importância dos Atos de Abertura
+
+Os atos de abertura de uma sessão de julgamento possuem uma função ritualística e organizacional essencial. Procedimentos como a aprovação da ata da sessão anterior e os anúncios sobre a pauta de julgamentos garantem a regularidade formal dos trabalhos, organizam o fluxo das deliberações e comunicam de forma transparente as decisões administrativas do tribunal que afetam o andamento dos processos.
+
+2.2. Aprovação da Ata e Anúncios Relevantes
+
+A sessão jurisdicional iniciou-se com os seguintes atos e comunicações da Presidência:
+
+1. Aprovação da Ata: Foi lida e aprovada por unanimidade a ata da sessão ordinária jurisdicional anterior, realizada em 05 de novembro de 2024.
+2. Retirada de Pauta: A Presidência comunicou a retirada do item 5 da pauta jurisdicional (identificado como item 2 da Lista 2), a pedido do Ministro Relator:
+  * Número do Processo: 0600419-81
+  * Classe Processual: Agravo Regimental no Recurso Especial Eleitoral
+  * Município de Origem: Iragaçu do Tietê
+  * Unidade da Federação (UF): São Paulo
+  * Ministro Relator: Ministro André Mendonça
+3. Publicação de Acórdãos: Foi reiterado o comunicado de que os acórdãos referentes aos processos das Eleições de 2024 são publicados em sessão.
+
+Superada essa fase de gerenciamento da pauta, deu-se início ao primeiro e único julgamento individualizado da sessão.
+
+
+--------------------------------------------------------------------------------
+
+
+3.0 Análise do Julgamento Individualizado
+
+3.1. Análise Estratégica do Caso
+
+A sessão plenária contou com o julgamento de um único processo de forma destacada, cujo tema central envolve a divulgação de pesquisa eleitoral em desacordo com as normas vigentes. A análise deste caso específico é relevante por demonstrar a aplicação da jurisprudência do Tribunal sobre as regras de publicidade e propaganda em período eleitoral, bem como os critérios de admissibilidade recursal na instância superior.
+
+3.2. Ficha Técnica do Processo
+
+Os dados de identificação do processo julgado são apresentados na tabela abaixo, conforme extraídos da proclamação em plenário.
+
+Informação	Detalhes
+Link do YouTube com Timestamp	[Link para o início do julgamento]
+Número do Processo	0601051-13
+Classe Processual	Agravo Regimental no Agravo em Recurso Especial Eleitoral
+Eleição a que se Refere	2020
+Município de Origem	Goianésia
+Unidade da Federação (UF)	Não mencionado no vídeo
+Ministro Relator	Ministro Kassio Nunes Marques
+Parte Agravante	Leonardo Silva Menezes
+Parte Agravada	Coligação Unidos por Goianésia
+
+3.3. Análise Jurídica Detalhada do Julgamento
+
+3.3.1. Núcleo da Controvérsia Jurídica
+
+O objeto da representação original, que deu origem ao recurso, refere-se à alegada divulgação de pesquisa eleitoral sem o cumprimento dos requisitos legais durante o pleito de 2020. O agravo interno foi interposto contra decisão que havia mantido o acórdão do Tribunal Regional Eleitoral (TRE) de origem, o qual julgou a representação parcialmente procedente.
+
+3.3.2. Fundamentação Normativa e Precedentes
+
+A transcrição da sessão não fornece detalhes sobre este ponto. Não foram mencionados dispositivos específicos da Constituição Federal, legislação federal, resoluções do TSE, ou precedentes jurisprudenciais do STF ou TSE durante a proclamação do resultado do julgamento.
+
+3.3.3. Raciocínio Desenvolvido e Votação
+
+A deliberação foi sumária, aderindo o colegiado integralmente à proposta do relator sem a necessidade de debates ou apresentação de fundamentação oral complementar. O Ministro Relator, Kassio Nunes Marques, proferiu voto pelo não conhecimento do agravo interno, sendo acompanhado à unanimidade pelos demais membros da Corte.
+
+3.3.4. Pontos Processuais Relevantes
+
+O desfecho processual do caso é de extrema relevância: a decisão do TSE se concentrou em um juízo de admissibilidade recursal. Ao decidir por "não conhecer do agravo interno", o Tribunal não adentrou o mérito da controvérsia sobre a pesquisa eleitoral, limitando-se a constatar a ausência de algum requisito processual indispensável para a análise do recurso.
+
+3.3.5. Efeitos da Decisão
+
+A consequência prática da decisão do TSE é a manutenção integral da validade e dos efeitos do acórdão proferido pelo Tribunal Regional Eleitoral de origem. Como o recurso que buscava reformar a decisão inferior não foi admitido para análise de mérito, a deliberação do Tribunal Regional Eleitoral de origem permanece inalterada e plenamente eficaz.
+
+Após a conclusão deste julgamento, a sessão prosseguiu com a apreciação dos demais processos apregoados em bloco.
+
+
+--------------------------------------------------------------------------------
+
+
+4.0 Deliberação sobre os Processos Julgados em Lista
+
+4.1. O Procedimento de Julgamento em Bloco
+
+O julgamento em lista, ou em bloco, é um procedimento adotado por tribunais superiores para conferir maior celeridade às sessões. Ele agrupa processos cujas matérias já possuem jurisprudência consolidada na Corte ou que se baseiam em decisões monocráticas não contestadas de forma substancial. Embora eficiente, para os fins deste relatório analítico, esses casos são registrados de forma distinta dos julgamentos individualizados, que permitem uma análise mais aprofundada da tese jurídica.
+
+4.2. Registro dos Processos em Lista
+
+Após o julgamento individual, a Presidência apregoou processos organizados em três listas distintas. Em estrita observância à diretiva de focar a análise em julgamentos pormenorizados, o conteúdo e o mérito desses processos não serão detalhados neste relatório. Para fins de registro, contudo, os resultados proclamados foram os seguintes:
+
+* Lista nº 1 (Rel. Min. Kassio Nunes Marques): O processo nº 0600035-75 teve seu agravo interno não conhecido, por unanimidade.
+* Lista nº 1 (Rel. Min. André Mendonça): O processo nº 0600315-88 teve seu agravo interno não conhecido, por unanimidade.
+* Lista nº 2 (Rel. Min. André Mendonça): Os processos nº 0600181-82, 0600164-68 e 0600047-40 tiveram seus agravos desprovidos, por unanimidade.
+
+Com a deliberação sobre as listas, a pauta de julgamentos foi exaurida, encaminhando a sessão para seu encerramento.
+
+
+--------------------------------------------------------------------------------
+
+
+5.0 Encerramento da Sessão
+
+5.1. Conclusão dos Trabalhos
+
+Ao final da apreciação dos processos em lista, a Ministra Presidente indagou aos demais membros do Tribunal se havia alguma urgência ou outro processo a ser levado a julgamento. Diante da resposta negativa, agradeceu a presença de todos os Ministros, do representante do Ministério Público Eleitoral, dos advogados, servidores e estudantes presentes, e declarou formalmente encerrada a sessão plenária do dia.

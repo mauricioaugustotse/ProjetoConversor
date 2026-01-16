@@ -1,0 +1,212 @@
+Relatório Analítico da Sessão Plenária do Tribunal Superior Eleitoral - 15 de Outubro de 2024
+
+I. Introdução e Composição do Tribunal
+
+A sessão jurisdicional do Tribunal Superior Eleitoral (TSE) de 15 de outubro de 2024 constituiu um ato regular do processo democrático, no qual o colegiado se debruçou sobre questões de alta relevância para a integridade e a lisura das eleições no Brasil. Este relatório se destina a dissecar as decisões proferidas, fornecendo uma análise técnica e aprofundada das teses jurídicas e dos entendimentos firmados, para fins de estudo e documentação jurisprudencial. A pauta da sessão abrangeu desde a tipificação de crimes eleitorais até complexas questões de fidelidade partidária e abuso de poder.
+
+O colegiado presente na referida sessão foi composto pelos seguintes membros:
+
+* Ministra Cármen Lúcia (Presidente)
+* Ministro Kassio Nunes Marques (Vice-Presidente, em participação por videoconferência)
+* Ministro André Mendonça
+* Ministra Isabel Gallotti (Corregedora-Geral da Justiça Eleitoral)
+* Ministro Antônio Carlos Ferreira
+* Ministro Floriano de Azevedo Marques
+* Ministro André Ramos Tavares
+
+O representante do Ministério Público Eleitoral presente na sessão foi o Vice-Procurador-Geral Eleitoral, Dr. Alexandre Espinosa Bravo Barbosa.
+
+A sessão contou ainda com a presença da Ministra Substituta, Dra. Edilene Lôbo, além de advogados, servidores da Justiça Eleitoral e estudantes do curso de Direito da Universidade Estadual de Mato Grosso do Sul (campus de Paranaíba), cuja presença enriqueceu o ambiente do Plenário.
+
+A seguir, procede-se à análise pormenorizada dos principais processos julgados, detalhando a controvérsia, a fundamentação jurídica e a conclusão alcançada pelo Tribunal.
+
+
+--------------------------------------------------------------------------------
+
+
+II. Análise do Julgamento: Agravo em Recurso Especial Eleitoral nº 42-17
+
+O julgamento do Agravo em Recurso Especial Eleitoral nº 42-17 demonstrou-se de especial relevância para a reafirmação da jurisprudência sobre crimes eleitorais e a proteção da fé pública eleitoral. A análise a seguir detalhará a controvérsia central do caso, que envolveu o uso de documento falso em processo de registro de candidatura, e a tese firmada pelo Tribunal sobre a natureza formal do delito e sua consumação.
+
+Dados de Identificação do Processo
+
+Item	Informação
+Momento de Início:	00:03:45
+Número do Processo:	42-17
+Classe Processual:	Agravo em Recurso Especial Eleitoral
+Eleição de Referência:	2016
+Origem (Cidade/UF):	Conceição do Araguaia/PA
+Relator:	Ministro Antônio Carlos Ferreira
+Agravante:	Ministério Público Eleitoral
+Agravado:	Jair Lopes Martins
+Advogado(s) Mencionado(s):	Dr. Yuri Pompeu Braga Gonçalves (presente, mas sem sustentação oral, conforme informado pela Presidência)
+
+1. Análise do Conteúdo Jurídico
+
+O núcleo da controvérsia jurídica consistiu em definir se a apresentação de diplomas de escolaridade falsos em um processo de registro de candidatura configuraria o crime previsto no Art. 353 do Código Eleitoral, mesmo quando outro documento válido — no caso, uma Carteira Nacional de Habilitação (CNH) — também foi apresentado para o mesmo fim: comprovar a alfabetização do candidato e, assim, afastar a causa de inelegibilidade do analfabetismo, prevista no Art. 14, § 4º, da Constituição Federal. A defesa e o Tribunal Regional sustentavam a atipicidade da conduta por ausência de potencialidade lesiva, argumento que foi rechaçado pelo TSE.
+
+2. Fundamentação Normativa
+
+O voto do relator e as manifestações dos demais ministros foram embasados nas seguintes normas e enunciados jurídicos:
+
+* Constituição Federal, Art. 14, § 4º: Serviu de pano de fundo para a conduta, pois a apresentação do documento visava afastar a inelegibilidade do analfabetismo. O Tribunal Regional utilizou a superação dessa condição por outro meio (a CNH) para justificar a suposta ausência de dano.
+* Código Eleitoral, Art. 353: Tipifica o crime de uso de documento falso para fins eleitorais. Foi o dispositivo central da acusação, cujo alcance foi reafirmado pelo TSE ao considerá-lo um crime formal que tutela a fé pública.
+* Enunciado de Súmula do TSE nº 55: Estabelece que a CNH gera presunção da escolaridade necessária para o registro de candidatura. O TRE-PA invocou este enunciado para argumentar que, se a CNH era suficiente, o uso de diplomas falsos se tornava um indiferente penal.
+* Enunciado de Súmula do TSE nº 24: Veda o reexame de fatos e provas em sede de recurso especial. O relator utilizou este enunciado para fixar como premissa a falsidade dos documentos, conforme já havia sido concluído pelo tribunal de origem com base no laudo grafotécnico e outras provas.
+
+3. Precedentes Citados
+
+O relator, Ministro Antônio Carlos Ferreira, mencionou de forma genérica a existência de precedentes do Tribunal Superior Eleitoral (TSE) e do Superior Tribunal de Justiça (STJ) para fundamentar a tese de que o crime de uso de documento falso (Art. 353 do Código Eleitoral) é de natureza formal, consumando-se com o simples uso do documento, independentemente da obtenção de proveito ou da ocorrência de prejuízo. Não foram citados, contudo, números de processos ou relatores específicos durante a sessão.
+
+4. Raciocínio Jurídico Desenvolvido
+
+4.1 Voto do Relator (Ministro Antônio Carlos Ferreira)
+
+O Ministro Antônio Carlos Ferreira construiu seu voto refutando a tese do Tribunal Regional Eleitoral do Pará (TRE-PA) sobre a ausência de potencialidade lesiva. O raciocínio do relator reforçou o princípio da autonomia das esferas jurídicas, explicando que a irrelevância da conduta para um fim específico (comprovar escolaridade, já suprida pela CNH) não nega sua tipicidade penal em outra esfera (a ofensa à fé pública). Argumentou que a conduta de apresentar documentos falsos à Justiça Eleitoral vulnera, por si só, o bem jurídico tutelado pela norma, "abalando a crença e a presunção de veracidade que a sociedade em geral deposita sobre as documentações" no processo eleitoral. O relator enfatizou que o crime é formal, ou seja, sua consumação ocorre com o mero uso doloso do documento, não exigindo um resultado naturalístico.
+
+4.2 Votos de Acompanhamento
+
+Os demais ministros acompanharam integralmente o relator, reforçando seus argumentos:
+
+* O Ministro Floriano de Azevedo Marques destacou que "o crime de falsidade eleitoral se revela no próprio ato de falsear".
+* O Ministro André Ramos Tavares concordou plenamente, citando uma decisão monocrática de sua lavra em caso com circunstâncias idênticas.
+* O Ministro André Mendonça proferiu uma lição didática, especialmente dirigida aos estudantes presentes, sobre a gravidade do ato, afirmando que a falsificação de documentos para fins eleitorais "fere princípios próprios ao estado democrático de direito" e merece apuração séria e responsabilização adequada.
+
+4.3 Conclusão do Colegiado
+
+O colegiado consolidou a tese de que o uso de documento falso em processo eleitoral, por si só, possui gravidade suficiente para violar a fé pública eleitoral, configurando o tipo penal do Art. 353 do Código Eleitoral. A existência de outros documentos válidos que cumpram a mesma finalidade (como a CNH para comprovar alfabetização) não afasta a tipicidade da conduta, pois a ofensa ao bem jurídico já se consumou com o ato de apresentar o documento inidôneo.
+
+5. Pontos Processuais Relevantes
+
+O julgamento ocorreu em sede de agravo que buscava dar seguimento a um recurso especial interposto pelo Ministério Público Eleitoral contra a decisão do TRE-PA que absolvera o réu. A decisão do TSE, portanto, não condenou o agravado, mas reformou o acórdão regional para afastar a tese de atipicidade da conduta, determinando que a análise de mérito da ação penal fosse retomada na instância de origem.
+
+6. Efeitos e Providências Práticas
+
+Conforme proclamado pela Presidente, o Tribunal, por unanimidade, deu provimento ao agravo e parcial provimento ao recurso especial para determinar o retorno dos autos ao Tribunal Regional Eleitoral do Pará, a fim de que este prossiga na análise do mérito da ação penal, superada a questão da tipicidade da conduta.
+
+Este julgamento prepara o terreno para a análise do próximo caso da pauta, focado na complexa dinâmica da fidelidade partidária.
+
+
+--------------------------------------------------------------------------------
+
+
+III. Análise do Julgamento: Tutela Cautelar Antecedente nº 0613339-31
+
+Este caso, referente à Tutela Cautelar Antecedente nº 0613339-31, trouxe à tona uma importante discussão sobre as regras de fidelidade partidária e a titularidade do mandato proporcional, especialmente em cenários atípicos de retotalização de votos que alteram o resultado de uma eleição meses ou anos após o pleito.
+
+Dados de Identificação do Processo
+
+Item	Informação
+Momento de Início:	00:27:10
+Número do Processo:	0613339-31
+Classe Processual:	Tutela Cautelar Antecedente
+Eleição de Referência:	2020
+Origem (Cidade/UF):	Castanhal/PA
+Relator:	Ministro Antônio Carlos Ferreira
+Requerente:	José Roberto Lopes do Nascimento
+Partido(s) Mencionado(s):	Podemos (Pode)
+
+1. Análise do Conteúdo Jurídico
+
+O cerne da questão jurídica era a situação de um candidato que se desfilia de seu partido durante a "janela partidária" e, posteriormente, é diplomado vereador em virtude de uma retotalização de votos que garantiu uma vaga para sua antiga legenda. O ponto central do debate foi definir se as hipóteses de justa causa para desfiliação, previstas no Art. 22-A da Lei nº 9.096/95, se aplicariam a um candidato que, no momento da migração partidária, não era sequer suplente, pois, conforme o acórdão regional, "o partido não tinha à época alcançado o quociente eleitoral".
+
+2. Fundamentação Normativa
+
+O voto do relator se baseou nos seguintes dispositivos legais e regulamentares:
+
+* Lei nº 9.096/1995 (Lei dos Partidos Políticos):
+  * Art. 22: Dispõe que a migração partidária acarreta o cancelamento imediato da filiação anterior. Este artigo foi usado para demonstrar que, no momento da retotalização, o requerente já não possuía vínculo com o partido detentor da vaga.
+  * Art. 22-A: Estabelece a regra da perda do mandato por infidelidade partidária e suas exceções (hipóteses de justa causa). O relator interpretou que este dispositivo se aplica exclusivamente a quem já é detentor de cargo eletivo, não alcançando suplentes ou candidatos não eleitos que se desfiliam antes da posse.
+* Resolução-TSE nº 22.610: Foi mencionada como o marco normativo do TSE que, desde 2007, estabeleceu a regra da fidelidade partidária para mandatos proporcionais.
+
+3. Precedentes Citados
+
+Para reforçar a premissa fundamental de que o mandato proporcional pertence ao partido, e não ao candidato, o relator citou precedentes basilares do Supremo Tribunal Federal (STF):
+
+* STF: Mandado de Segurança nº 26.604
+* STF: Ação Direta de Inconstitucionalidade nº 4086
+
+4. Raciocínio Jurídico Desenvolvido
+
+4.1 Voto do Relator (Ministro Antônio Carlos Ferreira)
+
+O relator indeferiu a tutela de urgência por ausência de fumus boni iuris. A sua argumentação sintetiza um princípio fundamental: a distinção entre a condição de candidato/suplente e a de detentor de mandato. O voto estabelece uma linha temporal e jurídica clara: os direitos e as exceções previstas no Art. 22-A da Lei dos Partidos Políticos somente "nascem" com a posse no cargo. Antes disso, o indivíduo não é titular desses direitos, e sua filiação é a única âncora para a vaga, que pertence ao partido. Este raciocínio se sustentou em três pilares: a)  O mandato pertence ao partido: A vaga obtida na retotalização pertencia ao Podemos, e não ao candidato. b)  Ausência de filiação no momento crucial: Na data da retotalização, momento que define a legitimidade para a posse, o requerente já não era filiado ao partido detentor da vaga. c)  Inaplicabilidade das exceções de justa causa: As hipóteses do Art. 22-A são taxativas e vocacionadas apenas aos detentores de mandato eletivo, condição que o requerente não possuía ao se desfiliar, mesmo durante a janela partidária.
+
+5. Pontos Processuais Relevantes
+
+O principal evento processual ocorrido na sessão foi o pedido de vista antecipado pelo Ministro Kassio Nunes Marques, logo após o voto do relator. Em decorrência desse pedido, o julgamento foi suspenso, e os demais ministros aguardarão a retomada para proferir seus votos.
+
+6. Efeitos e Providências Práticas
+
+O resultado proclamado foi provisório: após o voto do Ministro Relator Antônio Carlos Ferreira, que indeferia a tutela de urgência, o julgamento foi suspenso em razão do pedido de vista do Ministro Kassio Nunes Marques.
+
+Superada essa análise, o relatório passa a examinar o último julgamento detalhado da sessão, referente a uma Ação de Investigação Judicial Eleitoral.
+
+
+--------------------------------------------------------------------------------
+
+
+IV. Análise do Julgamento: Agravo Regimental no Recurso Ordinário nº 0602007-26
+
+Este julgamento marcou a conclusão da análise de uma complexa Ação de Investigação Judicial Eleitoral (AIJE) por abuso de poder político e econômico, ajuizada contra o governador e o vice-governador eleitos em Rondônia. O foco da sessão foi a apresentação do voto-vista do Ministro André Ramos Tavares, que analisou um dos pontos centrais da acusação e selou o destino da ação.
+
+Dados de Identificação do Processo
+
+Item	Informação
+Momento de Início:	00:40:15
+Número do Processo:	0602007-26
+Classe Processual:	Agravo Regimental nos Embargas de Declaração no Recurso Ordinário
+Eleição de Referência:	2022
+Origem (Cidade/UF):	Porto Velho/RO
+Relator Original:	Ministro Raul Araújo
+Voto-Vista:	Ministro André Ramos Tavares
+Agravante:	Partido Liberal (estadual)
+Agravados:	Marcos José dos Santos (Governador eleito) e Sérgio Gonçalves da Silva (Vice-governador eleito)
+
+1. Análise do Conteúdo Jurídico
+
+O objeto específico da análise aprofundada no voto-vista foi a acusação de abuso de poder político materializada na revogação, por meio de decreto estadual, de um ato que havia criado a "Estação Ecológica Soldado da Borracha". A revogação ocorreu na véspera das eleições, e a acusação sustentava que a medida teve o propósito de obter vantagens eleitorais por meio de possível especulação imobiliária na área, beneficiando os candidatos investigados.
+
+2. Fundamentação Normativa
+
+Na transcrição da apresentação do voto-vista, não houve menção explícita a dispositivos legais específicos. Contudo, o caso se enquadra na hipótese geral de apuração de abuso de poder político e econômico, prevista no Art. 22 da Lei Complementar nº 64/1990, que exige a demonstração da gravidade da conduta para afetar a normalidade e a legitimidade das eleições.
+
+3. Precedentes Citados
+
+Não foram mencionados precedentes judiciais específicos durante a apresentação do voto-vista pelo Ministro André Ramos Tavares. A análise se concentrou nos fatos e provas constantes dos autos.
+
+4. Raciocínio Jurídico Desenvolvido
+
+4.1 Voto-Vista (Ministro André Ramos Tavares)
+
+O voto-vista do Ministro André Ramos Tavares acompanhou o relator original pela improcedência da ação, fundamentando sua conclusão na ausência de um requisito central para a procedência de AIJEs: a demonstração de gravidade com nexo causal eleitoral. O ministro sistematicamente desconstituiu essa exigência por meio de três eixos argumentativos:
+
+1. Falta de impacto contextual: A própria Corte de origem já havia concluído que a possível afetação eleitoral do ato de revogação foi muito restrita.
+2. Ausência de benefício eleitoral direto: O resultado nas urnas próximas à área da estação ecológica demonstrou que o candidato investigado obteve menos votos que seu opositor, o que invalida a tese de ganho eleitoral.
+3. Carência de materialidade do ato: A estação ecológica nunca foi efetivamente implementada por ausência de dotação orçamentária, o que esvaziou a alegação de que sua revogação teria gerado um benefício concreto e perceptível pelo eleitorado.
+
+4.2 Conclusão do Colegiado
+
+O Ministro André Ramos Tavares concluiu seu voto-vista acompanhando o voto do relator original, Ministro Raul Araújo, para negar provimento ao agravo. Sua posição foi seguida por unanimidade pelos demais ministros aptos a votar.
+
+5. Pontos Processuais Relevantes
+
+O julgamento foi retomado com a apresentação do voto-vista, que havia sido pedido em sessão anterior (1º de agosto). Um detalhe processual importante é que o Ministro Antônio Carlos Ferreira não votou, a fim de preservar o quórum da sessão original em que o Ministro Raul Araújo (a quem substituiu na composição do Tribunal) havia votado. Por ter sido o primeiro a votar na sessão de conclusão do julgamento, o Ministro Ramos Tavares foi designado para redigir o acórdão.
+
+6. Efeitos e Providências Práticas
+
+O resultado final proclamado foi que o Tribunal, por unanimidade, negou provimento ao agravo interno, mantendo, assim, a decisão do Tribunal Regional Eleitoral de Rondônia que havia julgado improcedente a Ação de Investigação Judicial Eleitoral.
+
+Com este julgamento, encerram-se as análises detalhadas dos casos da pauta, conduzindo à conclusão geral do relatório.
+
+
+--------------------------------------------------------------------------------
+
+
+V. Conclusão da Sessão
+
+Os trabalhos da sessão jurisdicional de 15 de outubro de 2024 foram marcados por decisões que reforçaram importantes teses da jurisprudência eleitoral, notadamente quanto à tutela da fé pública no processo de registro de candidaturas e à rigidez das regras de fidelidade partidária. As análises demonstram o compromisso do Tribunal com a segurança jurídica e a integridade do processo eleitoral.
+
+Além dos casos analisados em detalhe, o Tribunal julgou um processo em lista, conforme proclamado pela Presidência: o Agravo Regimental no Recurso Especial Eleitoral nº 0600141-25, ao qual, por unanimidade, foi negado provimento.
+
+Ao final dos trabalhos, a Presidente, Ministra Cármen Lúcia, convidou os presentes a visitarem a exposição sobre a história do voto no Brasil. Ressaltou que o valioso projeto é fruto de uma pesquisa profunda encabeçada pela "grande historiadora brasileira que é Heloísa Starling e sua equipe da Universidade Federal de Minas Gerais". Este convite marcou o encerramento da sessão, reafirmando a dimensão cultural e cívica da Justiça Eleitoral.

@@ -1,0 +1,224 @@
+Relatório de Análise Técnica de Sessão Judiciária do Tribunal Superior Eleitoral (TSE), referente ao julgamento ocorrido em **03 de outubro de 2024**.
+
+---
+
+### **DADOS DE IDENTIFICAÇÃO E EXTRAÇÃO**
+
+1. 
+**Data da sessão:** 03/10/2024.
+
+
+2. 
+**Eleição a que se refere:** Pleito municipal de 2020.
+
+
+3. 
+**Nome expresso dos indicados em lista tríplice:** Não houve julgamento de lista tríplice neste processo.
+
+
+4. 
+**Número do processo:** Agravo Regimental no Agravo em Recurso Especial Eleitoral nº 0600601-90.
+
+
+5. 
+**Cidade de origem:** Arenápolis.
+
+
+6. 
+**UF (Unidade da Federação):** Mato Grosso (MT).
+
+
+7. **Nome das partes:**
+* 
+**Agravante:** Rafael Luiz Ferreira Falcão.
+
+
+* 
+**Agravado:** Ministério Público Eleitoral (MPE).
+
+
+
+
+8. **Ministros que compõem a sessão de julgamento:**
+* Ministra Cármen Lúcia (Presidente).
+
+
+* Ministro Nunes Marques (Vice-Presidente).
+
+
+* Ministro André Mendonça.
+
+
+* Ministra Isabel Gallotti.
+
+
+* Ministro Antônio Carlos Ferreira.
+
+
+* Ministro André Ramos Tavares.
+
+
+
+
+9. 
+**Advogados:** Menção genérica às senhoras e senhores advogados presentes na sessão.
+
+
+10. 
+**Ministro relator:** Identificado apenas como "eminente relator" na transcrição.
+
+
+11. 
+**Jurisprudência do STF mencionada:** Não houve menção direta a precedentes do STF.
+
+
+12. **Jurisprudência do TSE mencionada:**
+* 
+**Súmula 24 do TSE**.
+
+
+* 
+**Súmula 26 do TSE**.
+
+
+* Precedente do Ministro Raul Araújo sobre a necessidade de impugnação específica.
+
+
+
+
+13. 
+**Resolução do TSE e respectivos dispositivos:** Não foram citadas resoluções específicas, focando-se na legislação federal e súmulas.
+
+
+14. **Legislação e respectivo dispositivo legal:**
+* 
+**Código Eleitoral (Lei nº 4.737/1965):** Artigo 299 (Corrupção eleitoral).
+
+
+* 
+**Lei nº 6.091/1974:** Artigo 11, inciso III (Transporte irregular de eleitores).
+
+
+
+
+
+---
+
+### **1. ANÁLISE DO CONTEÚDO JURÍDICO**
+
+O caso versa sobre a condenação criminal de Rafael Luiz Ferreira Falcão por crimes cometidos durante as eleições de 2020. O núcleo do problema jurídico divide-se em duas condutas típicas:
+
+* 
+**Corrupção Eleitoral (Art. 299 do Código Eleitoral):** Caracterizada pelo oferecimento de vantagem econômica (bomba de poço e quantia de R$ 200,00) em troca de votos.
+
+
+* 
+**Transporte Irregular de Eleitores (Art. 11, III da Lei 6.091/74):** Configurado pelo fornecimento de transporte a eleitores no dia do pleito, deslocando-os do município de Nortelândia para locais de votação em Santo Afonso, MT.
+
+
+
+A controvérsia central no TSE residia na admissibilidade do recurso, uma vez que a defesa buscava reverter a condenação questionando a suficiência probatória e o dolo específico.
+
+---
+
+### **2. FUNDAMENTAÇÃO NORMATIVA**
+
+O julgamento fundamentou-se nos seguintes dispositivos legais e enunciados:
+
+* **Código Eleitoral (Lei nº 4.737/1965):**
+* Art. 299: ("Dar, oferecer, prometer, solicitar ou receber, para si ou para outrem, dinheiro, dádiva, ou qualquer outra vantagem, para obter ou dar voto e para conseguir ou prometer abstenção, ainda que a oferta não seja aceita").
+
+
+
+
+* **Lei nº 6.091/1974:**
+* Art. 11, inciso III: (Refere-se ao crime de transporte irregular de eleitores no dia da eleição, sob responsabilidade de candidatos ou partidos).
+
+
+
+
+* **Súmulas do TSE:**
+* 
+**Súmula 24 do TSE:** ("No recurso especial eleitoral, não cabe o reexame de provas"). Foi aplicada pois a análise do dolo específico e da suficiência de provas exigiria o revolvimento do acervo fático-probatório.
+
+
+* 
+**Súmula 26 do TSE:** ("É inadmissível o recurso que deixa de impugnar especificamente o fundamento da decisão recorrida que seja, por si só, suficiente para mantê-la"). O agravante limitou-se a reiterar argumentos genéricos sem atacar os fundamentos da decisão que negou seguimento ao recurso especial.
+
+
+
+
+
+---
+
+### **3. PRECEDENTES CITADOS**
+
+* **Tribunal:** TSE.
+* 
+**Relator(a):** Ministro Raul Araújo (citado pelo relator do caso atual).
+
+
+* 
+**Razões de decidir:** A jurisprudência do Ministro Raul Araújo reforça que a ausência de impugnação específica dos fundamentos da decisão agravada, especialmente quando há mera reprodução das razões do recurso anterior, impede o conhecimento do agravo (incidência da Súmula 26).
+
+
+
+---
+
+### **4. RACIOCÍNIO DESENVOLVIDO**
+
+* 
+**Premissas Normativas:** O Tribunal baseou-se no rigor formal dos recursos de natureza excepcional, onde a soberania das instâncias ordinárias (TREs) quanto aos fatos deve ser preservada (Súmula 24) e o dever dialético do recorrente deve ser cumprido (Súmula 26).
+
+
+* 
+**Método:** Foi aplicada a técnica de **subsunção** das falhas recursais às vedações sumulares.
+
+
+* 
+**Reconstrução dos Votos:** O relator consignou que o TRE-MT confirmou a condenação baseando-se em testemunhos uníssonos que comprovaram o transporte de eleitores entre municípios e a promessa de vantagens. O relator apontou que o agravante não refutou os motivos específicos da decisão agravada, apenas repetindo as razões do recurso especial (*ipsis litteris*).
+
+
+* 
+**Conclusão:** Diante da deficiência técnica do recurso e da impossibilidade de reexame de provas em sede de agravo regimental, o voto foi pelo não conhecimento do recurso.
+
+
+
+---
+
+### **5. PONTOS PROCESSUAIS RELEVANTES**
+
+* 
+**Admissibilidade:** O agravo regimental não foi conhecido por falta de dialeticidade (não impugnou especificamente a decisão anterior) e pelo óbice do reexame de provas.
+
+
+* 
+**Decisão das Instâncias Inferiores:** O juiz da 17ª Zona Eleitoral condenou o réu; o TRE-MT, por maioria, manteve a sentença no mérito e, por unanimidade, rejeitou nulidades na denúncia.
+
+
+* 
+**Quórum e Proclamação:** A decisão no TSE foi tomada por **unanimidade**.
+
+
+* 
+**Manifestação do MPE:** O Sr. Vice-Procurador-Geral Eleitoral, Alexandre Espinoza Bravo Barbosa, estava presente na sessão.
+
+
+
+---
+
+### **6. EFEITOS E PROVIDÊNCIAS PRÁTICAS**
+
+* 
+**Manutenção da Condenação Criminal:** Com o não conhecimento do agravo pelo TSE, permanece válida a decisão do TRE-MT que condenou Rafael Luiz Ferreira Falcão pelos crimes de corrupção eleitoral e transporte irregular de eleitores.
+
+
+* **Sanções Criminais:** A condenação implica nas penas previstas no art. 299 do Código Eleitoral e art. 11 da Lei 6.091/74, conforme estabelecido na sentença de primeiro grau confirmada pelo tribunal regional.
+
+
+
+---
+
+*MOMENTO DE INÍCIO NA SESSÃO:*.
+
+Gostaria que eu analisasse outro processo desta mesma sessão ou detalhasse algum ponto específico da fundamentação das Súmulas 24 e 26?

@@ -1,0 +1,173 @@
+Relatório de Análise da Sessão Plenária do TSE de 24 de Outubro de 2024
+
+Introdução à Sessão
+
+Contextualização da Sessão de Julgamento
+
+O presente relatório dedica-se à análise técnica e aprofundada dos principais julgamentos ocorridos na sessão plenária do Tribunal Superior Eleitoral (TSE) em 24 de outubro de 2024. Conduzida pela Ministra Presidente Cármen Lúcia, a sessão deliberou sobre matérias de alta relevância para a jurisprudência eleitoral, abrangendo desde a admissibilidade de recursos em fases avançadas do processo até a complexa configuração de ilícitos sancionadores. O objetivo deste documento é extrair e sistematizar as informações jurídicas, processuais e fáticas mais relevantes, proporcionando uma visão clara das teses firmadas e dos debates travados no âmbito da Corte.
+
+A sessão contou com a presença dos seguintes membros, conforme anunciado pela Presidência:
+
+* Ministra Presidente: Cármen Lúcia
+* Ministro Vice-Presidente: Kassio Nunes Marques
+* Ministro: André Mendonça
+* Ministra Corregedora-Geral Eleitoral: Isabel Gallotti
+* Ministro: Antonio Carlos Ferreira
+* Ministro: Floriano de Azevedo Marques
+* Ministro: André Ramos Tavares
+* Ministra Substituta Presente: Vera Lúcia
+* Representante do Ministério Público Eleitoral: Dr. Alexandre Espinosa (Vice-Procurador-Geral Eleitoral)
+
+Nota Informativa: Em conformidade com a diretriz recebida, os processos julgados em lista ao final da sessão foram desconsiderados nesta análise, que se concentra nos julgamentos com debate individualizado no Plenário.
+
+A seguir, procede-se à análise detalhada do primeiro processo julgado, que versou sobre a inadmissibilidade de inovação de teses em sede de embargos de declaração.
+
+
+--------------------------------------------------------------------------------
+
+
+1. Análise do Julgamento: Embargos de Declaração no Agravo Regimental no Agravo no Recurso Especial Eleitoral nº 0600335-19/PB
+
+Neste julgamento, a Corte reafirmou com veemência sua jurisprudência restritiva sobre o uso protelatório de embargos de declaração, consolidando o instituto da preclusão como barreira intransponível à inovação recursal tardia. A deliberação unânime selou a posição do Tribunal de que a finalidade dos embargos não se presta a inaugurar teses constitucionais com o fito de prequestionar matéria para futuro recurso extraordinário.
+
+1.1. Identificação do Processo
+
+Item	Descrição
+Timestamp de Início do Julgamento:	Início do Julgamento em 06:51
+Número do Processo:	0600335-19
+Classe Processual:	Embargos de Declaração no Agravo Regimental no Agravo no Recurso Especial Eleitoral
+Origem:	Alagoinha, Paraíba (PB)
+Eleição de Referência:	Eleições de 2020
+Partes Envolvidas:	Embargantes: Maria Rodrigues de Almeida Farias, Alírio Claudino de Pontes Filho e outra<br>Embargada: Coligação Alagoinha Pode Mais
+Ministro Relator:	Ministro Antonio Carlos Ferreira
+
+1.2. Análise do Conteúdo Jurídico
+
+O processo originário consistiu em uma Ação de Investigação Judicial Eleitoral (AIJE) por conduta vedada e abuso de poder, na qual o Tribunal Regional Eleitoral julgou o pedido parcialmente procedente. Contudo, o julgamento em tela não reexaminou o mérito da AIJE. A controvérsia se restringiu à análise da admissibilidade dos embargos de declaração opostos contra o acórdão do TSE que, anteriormente, manteve a decisão regional. O núcleo do debate foi, portanto, estritamente processual.
+
+1.3. Fundamentação e Precedentes
+
+A fundamentação jurídica adotada pelo Ministro Relator foi precisa e alinhada à jurisprudência da Corte. Em seu voto, destacou que a função dos embargos de declaração se limita a integrar o pronunciamento judicial para sanar obscuridade, eliminar contradição, suprir omissão ou corrigir erro material.
+
+O principal argumento para a rejeição do recurso foi a constatação de inovação recursal. O relator explicou que a parte embargante suscitou uma tese constitucional nova, não aventada em nenhum dos recursos anteriores, com o claro intuito de prequestionar a matéria para viabilizar a interposição de um futuro recurso extraordinário ao Supremo Tribunal Federal.
+
+Para sustentar sua decisão, o Ministro invocou o "entendimento consolidado desse Tribunal Superior", que considera inadmissível a inovação de tese recursal em embargos de declaração, uma vez que a oportunidade para apresentar tais argumentos já se esgotou pela ocorrência da preclusão.
+
+1.4. Reconstrução dos Votos e Raciocínio Desenvolvido
+
+A unanimidade na votação selou a posição da Corte sobre o tema, refletindo a consolidação da tese jurídica aplicada:
+
+1. Relator, Ministro Antonio Carlos Ferreira: Apresentou voto conciso e direto pela rejeição dos embargos, fundamentando-se exclusivamente na inadmissibilidade da inovação recursal e na ocorrência da preclusão.
+2. Demais Ministros: Os Ministros Floriano de Azevedo Marques, Ramos Tavares, Nunes Marques, André Mendonça, Isabel Gallotti e a Presidente Cármen Lúcia manifestaram-se de forma sucessiva, acompanhando integralmente o voto do relator, sem acrescentar novos fundamentos.
+
+A tese jurídica aplicada ao caso concreto pode ser sintetizada da seguinte forma: é inadmissível a oposição de embargos de declaração que buscam introduzir teses jurídicas não debatidas nas instâncias e nos recursos anteriores, por configurar inovação recursal vedada pela jurisprudência e pelo instituto da preclusão.
+
+1.5. Proclamação do Resultado e Efeitos
+
+A Ministra Presidente proclamou o resultado final do julgamento: o Tribunal, por unanimidade, rejeitou os embargos de declaração, nos termos do voto do relator. Com essa decisão, o acórdão embargado permaneceu inalterado, consolidando o resultado do processo.
+
+Transpondo-se de uma questão puramente processual para uma controvérsia de alta complexidade fática, o julgamento seguinte revelou uma profunda divergência no plenário sobre os standards probatórios em ações por abuso de poder.
+
+
+--------------------------------------------------------------------------------
+
+
+2. Análise do Julgamento: Recurso Ordinário nº 0601720-33/AP
+
+Este julgamento expôs uma fissura fundamental no Plenário sobre o padrão probatório exigido para a aplicação da sanção de inelegibilidade. O debate cristalizou o conflito entre a necessidade de provas diretas da participação do candidato e a suficiência de um robusto conjunto de indícios para a configuração do vínculo subjetivo, testando os limites da vedação à responsabilidade objetiva no direito eleitoral sancionador.
+
+2.1. Identificação do Processo
+
+Item	Descrição
+Timestamp de Início do Julgamento:	Início do Julgamento em 11:33
+Número do Processo:	0601720-33
+Classe Processual:	Recurso Ordinário
+Origem:	Macapá, Amapá (AP)
+Eleição de Referência:	Eleições de 2018
+Partes Envolvidas:	Recorrente: Audilene Matos de Souza<br>Recorrido: Ministério Público Eleitoral
+Ministro Relator Original:	Ministro Raul Araújo (voto proferido em sessão anterior)
+Ministro Vistor:	Ministro Floriano de Azevedo Marques (apresentando voto-vista)
+
+2.2. Análise do Conteúdo Jurídico
+
+O objeto da Ação de Investigação Judicial Eleitoral (AIJE) era a apuração de um robusto esquema de abuso de poder econômico, caracterizado pela distribuição sistemática de vantagens a eleitores (botijões de gás, alimentos, medicamentos e consultas médicas) em troca de votos, em benefício da candidata a deputada estadual.
+
+O ponto central da divergência no Tribunal não foi a ocorrência dos fatos ilícitos, mas sim a suficiência do conjunto probatório para demonstrar a ciência, anuência ou participação da candidata beneficiada, Audilene Matos de Souza, nas práticas. Este elemento subjetivo é requisito indispensável para a aplicação da severa sanção de inelegibilidade, conforme a jurisprudência da Corte.
+
+2.3. Fundamentação e Precedentes
+
+O debate jurídico travado contrapôs duas visões sobre a valoração do acervo probatório. De um lado, a exigência de uma prova "robusta" e direta da participação da candidata (tese da divergência). De outro, a suficiência de um conjunto de indícios fortes e convergentes para comprovar o vínculo subjetivo (tese da maioria). Ambos os lados, contudo, reafirmaram a vedação à responsabilidade objetiva no direito eleitoral sancionador, conforme expressamente mencionado nos votos dos Ministros Floriano de Azevedo Marques e Cármen Lúcia.
+
+Durante os debates, foram invocados os seguintes precedentes:
+
+* Voto do Ministro Floriano: Fez referência a um julgamento anterior de sua relatoria no Agravo em Recurso Especial 060056240, para reforçar que o parentesco entre o autor do ilícito e a candidata é um indício, mas não dispensa a produção de prova da ciência ou anuência.
+* Voto da Ministra Isabel Gallotti: Mencionou a jurisprudência da Corte e um voto anterior do Ministro Benedito Gonçalves sobre como a demonstração do vínculo subjetivo entre o candidato e o autor do ilícito pode se dar por meio de elementos que denotem estreito vínculo político ou afetivo.
+
+2.4. Reconstrução dos Votos e Raciocínio Desenvolvido
+
+A divergência entre os Ministros ficou claramente delineada na sequência de votos:
+
+1. Voto do Relator (Ministro Raul Araújo - proferido anteriormente): Concluiu pela negação de provimento ao recurso, mantendo a condenação e a inelegibilidade da candidata, por entender que o conjunto probatório era suficiente.
+2. Voto-Vista Divergente (Ministro Floriano de Azevedo Marques): Inaugurou a divergência, votando por dar provimento parcial ao recurso, apenas para afastar a sanção de inelegibilidade. Argumentou a ausência de prova "robusta" da participação ou ciência da candidata, a insuficiência dos indícios apresentados e o risco de se admitir, na prática, uma responsabilidade objetiva.
+3. Votos da Corrente Majoritária (acompanhando o relator): Em contraposição à exigência de prova direta formulada pelo Ministro Floriano, a corrente majoritária construiu sua convicção a partir de um "mosaico probatório". A tese vencedora foi a de que, embora cada elemento isolado pudesse ser insuficiente, a convergência de indícios fortes formava um nexo causal e subjetivo "acima de dúvida razoável". Essa construção foi detalhada nos votos:
+  * Ministra Isabel Gallotti: Sustentou que o uso de um carro de campanha, a participação direta do coordenador-geral da campanha e um depósito financeiro de R$ 10.000,00 realizado pelo cônjuge da candidata na conta de uma cabo eleitoral evidenciavam o "vínculo subjetivo".
+  * Ministro André Ramos Tavares: Afirmou que o "contexto probatório" como um todo, e não os elementos isolados, comprovava o "pleno conhecimento" e a "anuência" da candidata.
+  * Ministro André Mendonça: Baseou seu voto no "conjunto de provas" que permitia uma conclusão segura sobre o conhecimento da recorrente.
+  * Presidente, Ministra Cármen Lúcia: Concluiu o debate, reforçando que o caso tratava de responsabilidade subjetiva, devidamente comprovada pelo acervo probatório, afastando a tese de responsabilidade objetiva.
+  * O Ministro Nunes Marques também acompanhou integralmente o voto do relator.
+
+2.5. Pontos Processuais Relevantes e Resultado
+
+O julgamento apresentou peculiaridades processuais importantes: tratava-se de uma "continuidade" após um "pedido de vista"; o voto do relator original, Ministro Raul Araújo, já desligado da Corte, foi preservado; e o Ministro Antonio Carlos Ferreira não votou, conforme anunciado pela Presidência, para preservar o quórum e a validade do voto proferido pelo relator na sessão em que o julgamento foi iniciado.
+
+Ao final, o Tribunal, por maioria, negou provimento ao recurso ordinário, vencido o Ministro Floriano de Azevedo Marques. Como efeito prático, foi mantida a decisão do TRE/AP que declarou a inelegibilidade da recorrente pelo prazo de 8 anos. A Ministra Presidente designou a Ministra Isabel Gallotti como "redatora para o acórdão", justificando ser "a primeira a votar, ausente ministro relator, que já não mais compõe este Tribunal".
+
+O próximo caso analisado, referente a matéria penal eleitoral, teve seu julgamento suspenso por um novo pedido de vista.
+
+
+--------------------------------------------------------------------------------
+
+
+3. Análise do Julgamento: Recurso Especial Eleitoral nº 06-12/DF
+
+A análise deste recurso especial converteu-se em um debate de profundo impacto estrutural: a compatibilidade dos embargos infringentes com a arquitetura processual da Justiça Eleitoral. A divergência instaurada não se limitou ao caso concreto, mas questionou a própria aplicabilidade subsidiária de institutos do processo penal comum a um ramo judiciário de composição e celeridade singulares. Embora com advogado presente, não houve sustentação oral nesta sessão de continuidade.
+
+3.1. Identificação do Processo
+
+Item	Descrição
+Timestamp de Início do Julgamento:	Início do Julgamento em 25:06
+Número do Processo:	06-12
+Classe Processual:	Recurso Especial Eleitoral
+Origem:	Brasília, Distrito Federal (DF)
+Eleição de Referência:	Eleições de 201? (impreciso na fonte)
+Partes Envolvidas:	Recorrentes: José Gomes Ferreira Filho e Douglas Ferreira de Laer<br>Recorrido: Ministério Público Eleitoral
+Ministro Relator:	Ministro Floriano de Azevedo Marques
+Ministro Vistor:	Ministro André Ramos Tavares
+Advogado Presente:	Dr. Tiago Machado de Carvalho (pelos recorrentes)
+
+3.2. Análise do Conteúdo Jurídico
+
+O Plenário debruçou-se sobre recursos especiais interpostos contra um acórdão do TRE/DF que condenou os réus em uma ação penal por corrupção e coação eleitorais. O ponto nevrálgico da divergência que se instalou foi a admissibilidade dos embargos infringentes no âmbito da Justiça Eleitoral – recurso tradicionalmente cabível na justiça comum contra decisões não unânimes desfavoráveis ao réu.
+
+3.3. Fundamentação e Precedentes
+
+O julgamento foi palco de um confronto direto entre duas teses antagônicas sobre a matéria:
+
+* Tese do Relator (Ministro Floriano de Azevedo Marques): O voto do relator, proferido em sessão anterior, baseou-se em um precedente da própria Corte que, em outra ocasião, admitiu a interposição de embargos infringentes.
+* Tese Divergente (Ministro André Ramos Tavares): Ao apresentar seu voto-vista, o Ministro Ramos Tavares desenvolveu uma robusta tese de incompatibilidade sistêmica do recurso com a Justiça Eleitoral, sustentada nos seguintes pilares:
+  * Incompatibilidade Estrutural: A arquitetura da Justiça Eleitoral, sem órgãos fracionários e com plenário de composição reduzida, impede a aplicação da lógica do recurso, que pressupõe um julgamento por quórum ampliado. Nesse ponto, invocou o raciocínio de um voto monocrático do Ministro Edson Fachin.
+  * Distorção do Instituto: Admitir o recurso na Justiça Eleitoral o "desnaturaria", transformando-o em um mero "pedido de reconsideração", pois seria inevitavelmente julgado pela mesma composição que proferiu a decisão embargada.
+  * Distinção (Distinguishing) do Precedente da AP 470 (STF): O Ministro argumentou que o precedente do "Mensalão" não se aplicaria ao caso por duas razões principais: 1) o STF possuía previsão expressa para o recurso em seu regimento interno (Art. 333); e 2) na AP 470, por se tratar de competência originária, não havia outra instância recursal, sendo o recurso uma exigência para garantir o duplo grau de jurisdição conforme o Pacto de São José da Costa Rica, situação distinta da presente.
+
+3.4. Reconstrução dos Votos (Até a Suspensão)
+
+A sequência de votos proferidos até a interrupção do julgamento foi a seguinte:
+
+1. Voto do Relator (Ministro Floriano de Azevedo Marques - proferido anteriormente): Votou por dar provimento parcial ao recurso de José Gomes Ferreira Filho para determinar o retorno dos autos ao TRE/DF para análise dos embargos infringentes, e por negar provimento ao recurso de Douglas Ferreira de Laer.
+2. Voto-Vista Divergente (Ministro André Ramos Tavares): Inaugurou a divergência para negar provimento ao recurso de José Gomes Ferreira Filho (pelo não cabimento dos embargos infringentes) e acompanhou o relator para negar provimento ao recurso de Douglas Ferreira de Laer, porém com fundamentação diversa.
+
+3.5. Ponto Processual Relevante e Resultado Provisório
+
+O evento processual que interrompeu o julgamento foi o pedido de vista formulado pelo Ministro Nunes Marques, que seria o próximo a votar na sequência.
+
+Diante disso, a Ministra Presidente proclamou o resultado provisório: após o voto do relator e o voto-vista divergente, pediu vista o Ministro Nunes Marques, ficando os demais Ministros no aguardo. Portanto, o julgamento deste processo não foi finalizado nesta sessão, aguardando a retomada futura com a apresentação do voto-vista.
