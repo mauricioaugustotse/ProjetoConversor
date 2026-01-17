@@ -28,6 +28,7 @@ utilizando a API da OpenAI para extrair dados de forma estruturada.
 """
 
 import os
+import csv
 import json
 import time
 import logging
@@ -107,7 +108,9 @@ REGRAS IMPORTANTES:
 5.  **ITEM ÚNICO**: Quando o texto fornecido for uma seção individual de um processo, retorne APENAS 1 item no array "itens".
 6.  **JULGAMENTO CONJUNTO**: Se houver mais de um número de processo no texto, retorne um item por processo no array "itens". Se algum dado for comum, repita-o nos itens.
 7.  **PADRÕES ESPECÍFICOS**:
-    - `numero_processo`: extraia SEMPRE o número completo do CNJ (ex: `0000000-00.0000.0.00.0000`). Só use o formato curto se o CNJ completo não existir no texto.
+    - `numero_processo`: use o formato curto `0000000-00` (preserve zeros à esquerda). Se houver CNJ completo, extraia apenas a parte curta.
+    - `classe_processo`: use rótulos canônicos (ex.: REspe, AgRg-REspe, AREspe, RO, CTA, QO, PC, PA, Lista Tríplice, RPP, RvE, TutCautAnt, Ref-TutCautAnt, Ref.-MS, MS, RMS, RHC).
+    - `resultado_final`: use rótulos canônicos (ex.: Aprovada, Aprovadas, Aprovada com ressalvas, Aprovadas com ressalvas, Desprovido, Desprovida, Desprovadas, Provido, Provido em parte, Não conhecido, Não conhecida, Suspenso por vista, Referendada, Referendado, Indeferido, Indeferida, Deferido, Parcialmente deferido, Rejeitada, Rejeitados, Acolhidos, Acolhido em parte, Acolhida em parte, Acolhidos em parte, Prejudicado, Devolvida, "Provido, Não conhecido", "Prejudicado, Desprovido").
     - `TRE`: use o formato `TRE-UF` quando a UF estiver indicada.
     - `composicao`, `relator` e `pedido_vista`: sempre use o prefixo `Min.` antes do nome.
 8.  **RACIOCÍNIO JURÍDICO DETALHADO**: Explique claramente a tese vencedora, a tese divergente (se houver), e indique ministros vencedores e vencidos quando o texto citar. Se a decisão for unânime, deixe isso explícito.
@@ -123,9 +126,9 @@ JSON_SCHEMA = {
     },
     "itens": [
         {
-            "numero_processo": "string (ex: 0600264-60.2024.6.00.0000, 0600758-23.2022.6.00.0000, etc.)",
+            "numero_processo": "string (ex: 0600264-60, 0600758-23, etc.)",
             "eleicao": "string (ex: 2024, 2022, 2020, etc.)",
-            "classe_processo": "string (ex: REspe, AgRg-REspe, RO, AREspe, etc.). Adote SEMPRE a sigla",
+            "classe_processo": "string (ex: REspe, AgRg-REspe, AREspe, RO, CTA, QO, PC, PA, Lista Tríplice, RPP, RvE, TutCautAnt, Ref-TutCautAnt, Ref.-MS, MS, RMS, RHC).",
             "origem": "string (Município/UF).",
             "TRE": "string (ex: TRE-SP)",
             "partes": "string (NOMES dos candidatos, dos partidos políticos, das coligações envolvidas e dos indicados em lista tríplice, separados por ', ')",
@@ -140,7 +143,7 @@ JSON_SCHEMA = {
             "precedentes_citados": "string (resumo dos precedentes citados, separados por ', ')",
             "raciocinio_juridico": "string (descrição robusta da tese vencedora, a tese divergente se houver, os argumentos, a conclusão final do colegiado e os ministros vencedores/vencidos quando citados.)",
             "pedido_vista": "string (nome do ministro que pediu vista, se houver. Sempre usar 'Min.' antes do nome. Se não houver, deixar vazio)",
-            "resultado_final": "string (somente essas: Provido, Desprovido, Não conhecido, Suspenso por vista, Aprovada, Rejeitada, Prejudicado, Anulado, Parcialmente acolhido - com/sem efeitos modificativos. Se houver mais de um resultado, separar por ', ')",
+            "resultado_final": "string (somente essas: Aprovada, Aprovadas, Aprovada com ressalvas, Aprovadas com ressalvas, Desprovido, Desprovida, Desprovadas, Provido, Provido em parte, Não conhecido, Não conhecida, Suspenso por vista, Referendada, Referendado, Indeferido, Indeferida, Deferido, Parcialmente deferido, Rejeitada, Rejeitados, Acolhidos, Acolhido em parte, Acolhida em parte, Acolhidos em parte, Prejudicado, Devolvida, \"Provido, Não conhecido\", \"Prejudicado, Desprovido\". Se houver mais de um resultado, separar por ', ')",
             "votacao": "string (somente essas: Unânime, Por maioria, Suspenso)",
             "youtube_link": "string (links do vídeo da sessão no YouTube, separados por ', ' se houver mais de um. UTILIZAR SEMPRE links similares a esse: 'http://www.youtube.com/watch?v=K1QFVHrtzqg)",
         }
@@ -253,15 +256,53 @@ CSV_COLUMN_ORDER = [
 SHOW_TECHNICAL_LOGS = False
 
 CLASSE_PROCESSO_MAP = [
-    (r"embargos de declar[aã]c[aã]o", "EDcl"),
-    (r"recurso ordin[aá]rio", "RO"),
-    (r"processo administrativo", "PA"),
-    (r"lista tr[ií]plice", "LT"),
-    (r"agravo regimental no agravo em recurso especial eleitoral", "AgRg-AREspe"),
-    (r"agravo regimental no recurso especial eleitoral", "AgRg-REspe"),
-    (r"agravo em recurso especial eleitoral", "AREspe"),
-    (r"recurso especial eleitoral", "REspe"),
-    (r"agravo regimental", "AgRg"),
+    (r"\bembargos de declaracao\s+nos?\s+embargos de declaracao\b.*\b(lista triplice|lt)\b", "ED-ED-LT"),
+    (r"\bed\s+ed\s+lt\b", "ED-ED-LT"),
+    (r"\bembargos de declaracao\b.*\b(agravo regimental|agravo interno|agrg)\b.*\b(agravo em recurso especial eleitoral|arespe)\b", "ED-AgRg-AREspe"),
+    (r"\bed\s+agrg\s+arespe\b", "ED-AgRg-AREspe"),
+    (r"\bembargos de declaracao\b.*\b(agravo em recurso especial eleitoral|arespe)\b", "ED-AREspe"),
+    (r"\bembargos de declaracao\b.*\b(recurso especial eleitoral|respe)\b", "ED-REspe"),
+    (r"\bembargos de declaracao\b.*\b(recurso ordinario|ro)\b", "ED-RO"),
+    (r"\bembargos de declaracao\b.*\b(prestacao de contas|pc)\b", "ED-PC"),
+    (r"\bembargos de declaracao\b.*\b(peticao civel|petciv)\b", "ED-PetCiv"),
+    (r"\bembargos de declaracao\b.*\b(lista triplice|lt)\b", "ED-Lista Tríplice"),
+    (r"\bed\s+lt\b", "ED-Lista Tríplice"),
+    (r"\bagr\s+hc\b", "AgR-HC"),
+    (r"\bagrhc\b", "AgR-HC"),
+    (r"\b(agravo regimental|agravo interno|agrg)\b.*\b(habeas corpus|hc)\b", "AgRg-HC"),
+    (r"\b(agravo regimental|agravo interno|agrg)\b.*\b(recurso em habeas corpus|rhc)\b", "AgRg-RHC"),
+    (r"\b(agravo regimental|agravo interno|agrg)\b.*\b(recurso especial eleitoral|respe)\b", "AgRg-REspe"),
+    (r"\b(agravo regimental|agravo interno|agrg)\b.*\b(agravo em recurso especial eleitoral|arespe)\b", "AgRg-AREspe"),
+    (r"\b(agravo regimental|agravo interno|agrg)\b.*\b(recurso ordinario|ro)\b", "AgRg-RO"),
+    (r"\b(agravo regimental|agravo interno|agrg)\b.*\b(mandado de seguranca|ms)\b", "AgRg-MS"),
+    (r"\b(agravo regimental|agravo interno|agrg)\b.*\b(prestacao de contas|pc)\b", "AgRg-PC"),
+    (r"\b(agravo regimental|agravo interno|agrg)\b.*\b(agravo de instrumento|ai)\b", "AgRg-AI"),
+    (r"\b(agravo regimental|agravo interno|agrg)\b.*\b(acao rescisoria|ar)\b", "AgRg-AR"),
+    (r"\breferend\w*\b.*\b(tutela cautelar antecedente|tutcautant)\b", "Ref-TutCautAnt"),
+    (r"\bref\s*tutcautant\b", "Ref-TutCautAnt"),
+    (r"\breferend\w*\b.*\b(mandado de seguranca|ms)\b", "Ref.-MS"),
+    (r"\bref\s*ms\b", "Ref.-MS"),
+    (r"\btutela cautelar antecedente\b|\btutcautant\b", "TutCautAnt"),
+    (r"\blista triplice\b|\blt\b", "Lista Tríplice"),
+    (r"\bprocesso administrativo\b|\bpa\b", "PA"),
+    (r"\bprestacao de contas\b|\bpc\b", "PC"),
+    (r"\bconsulta\b|\bcta\b", "CTA"),
+    (r"\bquestao de ordem\b|\bqo\b", "QO"),
+    (r"\bpeticao civel\b|\bpetciv\b", "PetCiv"),
+    (r"\brecurso especial eleitoral\b|\brespe\b", "REspe"),
+    (r"\bagravo em recurso especial eleitoral\b|\barespe\b", "AREspe"),
+    (r"\brecurso ordinario\b|\bro\b", "RO"),
+    (r"\brecurso em habeas corpus\b|\brhc\b", "RHC"),
+    (r"\brecurso em mandado de seguranca\b|\brms\b", "RMS"),
+    (r"\bmandado de seguranca\b|\bms\b", "MS"),
+    (r"\bregistro\s+de\s+partido\s+pol[ií]tico\b", "RPP"),
+    (r"\balter[aã]c[aã]o\s+(?:do|de|no)\s+registro\s+de\s+partido(?:\s+pol[ií]tico)?\b", "RPP"),
+    (r"\balter[aã]c[aã]o\s+de\s+esta?tuto(?:\s+partid[aá]rio)?\b", "RPP"),
+    (r"\brevis[aã]o\s+do\s+eleitorado\b", "RvE"),
+    (r"\bcri[aã]c[aã]o\s+de\s+zona\s+eleitoral\b", "Czer"),
+    (r"\brpp\b", "RPP"),
+    (r"\brve\b", "RvE"),
+    (r"\bczer\b", "Czer"),
 ]
 
 CNJ_REGEX = r"\b\d{6,7}-\d{2}\.\d{4}\.\d\.\d{2}\.\d{4}\b"
@@ -271,8 +312,25 @@ MINISTRO_NAME_PART = (
     r"(?:[A-ZÁÉÍÓÚÂÊÔÃÕÀÜÇ][A-Za-zÁÉÍÓÚÂÊÔÃÕÀÜÇáéíóúâêôãõàüç'\-]+"
     r"|de|da|do|dos|das|e|d'|di|del|la|le|van|von)"
 )
+MINISTRO_NAME_PART_STRICT = r"[A-ZÁÉÍÓÚÂÊÔÃÕÀÜÇ][A-Za-zÁÉÍÓÚÂÊÔÃÕÀÜÇáéíóúâêôãõàüç'\-]+"
+MINISTRO_NAME_BODY = rf"{MINISTRO_NAME_PART}(?:\s+{MINISTRO_NAME_PART}){{0,6}}"
+MINISTRO_NAME_BODY_STRICT = rf"{MINISTRO_NAME_PART_STRICT}(?:\s+{MINISTRO_NAME_PART}){{0,6}}"
+MINISTRO_NAME_WITH_PREFIX_PATTERN = rf"(?:(?i:Min\.)|(?i:Ministra)|(?i:Ministro))\s+{MINISTRO_NAME_BODY}"
+LEADERSHIP_NAME_WITHOUT_PREFIX_PATTERN = rf"(?i:(?:Presidente|Vice-?Presidente))\s+{MINISTRO_NAME_BODY}"
+MINISTRO_NAME_WITH_PREFIX_STRICT_PATTERN = (
+    rf"(?:(?i:Min\.)|(?i:Ministra)|(?i:Ministro))\s+{MINISTRO_NAME_BODY_STRICT}"
+)
+LEADERSHIP_NAME_WITHOUT_PREFIX_STRICT_PATTERN = (
+    rf"(?i:(?:Presidente|Vice-?Presidente))\s+{MINISTRO_NAME_BODY_STRICT}"
+)
 MINISTRO_NAME_REGEX = re.compile(
-    rf"\b(?:(?i:Min\.)|(?i:Ministra)|(?i:Ministro))\s+{MINISTRO_NAME_PART}(?:\s+{MINISTRO_NAME_PART}){{0,6}}"
+    rf"\b{MINISTRO_NAME_WITH_PREFIX_PATTERN}"
+)
+MINISTRO_NAME_STRICT_REGEX = re.compile(
+    rf"\b{MINISTRO_NAME_WITH_PREFIX_STRICT_PATTERN}"
+)
+LEADERSHIP_NAME_REGEX = re.compile(
+    rf"\b{LEADERSHIP_NAME_WITHOUT_PREFIX_STRICT_PATTERN}"
 )
 EMPTY_ADVOGADOS_REGEX = re.compile(
     r"(?i)\b("
@@ -446,6 +504,54 @@ def clean_label_value(value: str) -> str:
 def normalize_token(value: str) -> str:
     value = unicodedata.normalize("NFD", value.lower())
     return "".join(ch for ch in value if unicodedata.category(ch) != "Mn")
+
+CANON_CSV_FILENAME = "padrões para canonizar.csv"
+CANON_DATA: Optional[Dict[str, Any]] = None
+
+def normalize_class_text(value: str) -> str:
+    if not value:
+        return ""
+    value = normalize_text(value)
+    value = normalize_token(value)
+    value = re.sub(r"[^\w\s]", " ", value)
+    value = re.sub(r"\s+", " ", value).strip()
+    return value
+
+def get_canonization_data() -> Dict[str, Any]:
+    global CANON_DATA
+    if CANON_DATA is not None:
+        return CANON_DATA
+    data: Dict[str, Any] = {
+        "classes": set(),
+        "results": set(),
+        "class_results": {},
+        "class_norm_map": {},
+        "result_norm_map": {},
+    }
+    path = os.path.join(os.path.dirname(__file__), CANON_CSV_FILENAME)
+    if os.path.isfile(path):
+        with open(path, newline="", encoding="utf-8") as handle:
+            reader = csv.DictReader(handle)
+            class_results: Dict[str, set] = {}
+            for row in reader:
+                cls = (row.get("classe_processo") or "").strip()
+                res = (row.get("resultado") or "").strip()
+                if cls:
+                    data["classes"].add(cls)
+                    class_results.setdefault(cls, set())
+                    if res:
+                        class_results[cls].add(res)
+                if res:
+                    data["results"].add(res)
+            data["class_results"] = class_results
+    data["class_norm_map"] = {
+        normalize_class_text(cls): cls for cls in data["classes"]
+    }
+    data["result_norm_map"] = {
+        normalize_class_text(res): res for res in data["results"]
+    }
+    CANON_DATA = data
+    return data
 
 FEMALE_NAME_HINTS = {
     "ana", "maria", "mariana", "marina", "carla", "claudia", "clara", "camila",
@@ -956,11 +1062,14 @@ def normalize_ministro_name(name: str) -> str:
     name = re.sub(r"^Ministro\s+", "Min. ", name, flags=re.IGNORECASE)
     if not name.startswith("Min."):
         name = f"Min. {name}"
+    normalized_key = normalize_class_text(re.sub(r"^Min\.\s*", "", name))
+    if re.search(r"\b(kassio|cassio)\b", normalized_key):
+        return "Min. Nunes Marques"
     return name
 
 def normalize_pedido_vista_name(value: str) -> str:
     name = normalize_ministro_name(value)
-    name = re.sub(r"^Min\.\s+(?:Presidente|Vice-Presidente)\s+", "Min. ", name)
+    name = re.sub(r"^Min\.\s+(?:Presidente|Vice-Presidente|Relator(?:a)?)\s+", "Min. ", name)
     if name in {"Min. Presidente", "Min. Relator", "Min. Relatora", "Min. Ministra", "Min. Ministro"}:
         return ""
     return name
@@ -972,7 +1081,7 @@ def extract_first_ministro_name(text: str) -> str:
     cleaned = re.sub(r"\[\[.*?\]\]", "", cleaned)
     cleaned = re.sub(r"\[[^\]]+\]\([^)]+\)", "", cleaned)
     cleaned = cleaned.replace("*", "")
-    match = MINISTRO_NAME_REGEX.search(cleaned)
+    match = MINISTRO_NAME_STRICT_REGEX.search(cleaned)
     if match:
         return normalize_pedido_vista_name(match.group(0))
     return ""
@@ -1297,11 +1406,110 @@ def extract_processo_e_classe(text: str) -> Dict[str, str]:
 def normalize_classe_processo(value: str) -> str:
     if not value:
         return ""
-    lowered = value.lower()
-    for pattern, normalized in CLASSE_PROCESSO_MAP:
-        if re.search(pattern, lowered):
-            return normalized
+    normalized = normalize_class_text(value)
+    if not normalized:
+        return ""
+    data = get_canonization_data()
+    canon = data["class_norm_map"].get(normalized)
+    if canon:
+        return canon
+    for pattern, canon_value in CLASSE_PROCESSO_MAP:
+        if re.search(pattern, normalized):
+            return canon_value
     return value.strip()
+
+def select_canonical_result(preferred: List[str], allowed: Optional[set]) -> str:
+    if allowed:
+        for candidate in preferred:
+            if candidate in allowed:
+                return candidate
+    return preferred[0]
+
+def normalize_resultado_piece(value: str, classe_processo: str, allowed: Optional[set]) -> str:
+    if not value:
+        return ""
+    normalized = normalize_class_text(value)
+
+    if "suspens" in normalized and "vista" in normalized:
+        return "Suspenso por vista"
+    if "prejudic" in normalized:
+        return select_canonical_result(["Prejudicado"], allowed)
+    if "nao conhec" in normalized:
+        return select_canonical_result(["Não conhecido", "Não conhecida"], allowed)
+    if (
+        "desprov" in normalized
+        or "improv" in normalized
+        or re.search(r"nega\w*\s+provimento", normalized)
+    ):
+        return select_canonical_result(["Desprovido", "Desprovida", "Desprovadas"], allowed)
+    if "provido" in normalized or "provimento" in normalized:
+        if "parcial" in normalized or "em parte" in normalized:
+            return select_canonical_result(["Provido em parte"], allowed)
+        return select_canonical_result(["Provido"], allowed)
+    if "deferid" in normalized and "parcial" in normalized:
+        return select_canonical_result(["Parcialmente deferido"], allowed)
+    if "indefer" in normalized:
+        return select_canonical_result(["Indeferido", "Indeferida"], allowed)
+    if re.search(r"\bdeferid", normalized):
+        return select_canonical_result(["Deferido"], allowed)
+    if "referend" in normalized:
+        return select_canonical_result(["Referendado", "Referendada"], allowed)
+    if "aprovad" in normalized:
+        if "ressalv" in normalized:
+            return select_canonical_result(
+                ["Aprovada com ressalvas", "Aprovadas com ressalvas"],
+                allowed,
+            )
+        return select_canonical_result(["Aprovada", "Aprovadas"], allowed)
+    if "acolhid" in normalized:
+        if "em parte" in normalized or "parcial" in normalized:
+            return select_canonical_result(
+                ["Acolhido em parte", "Acolhida em parte", "Acolhidos em parte"],
+                allowed,
+            )
+        return select_canonical_result(["Acolhidos"], allowed)
+    if "rejeitad" in normalized:
+        return select_canonical_result(["Rejeitados", "Rejeitada"], allowed)
+    if "devolvid" in normalized:
+        return select_canonical_result(["Devolvida"], allowed)
+    if "anulad" in normalized:
+        return "Anulado"
+    return ""
+
+def normalize_resultado_final(value: str, classe_processo: str = "") -> str:
+    if not value:
+        return ""
+    text = normalize_text(value).strip()
+    if not text:
+        return ""
+    data = get_canonization_data()
+    classe_canon = normalize_classe_processo(classe_processo) if classe_processo else ""
+    allowed = data["class_results"].get(classe_canon, set()) if data else set()
+    normalized = normalize_class_text(text)
+    canonical_direct = data["result_norm_map"].get(normalized)
+    if canonical_direct:
+        if not allowed or canonical_direct in allowed:
+            return canonical_direct
+    lowered = normalize_class_text(text)
+    if "suspens" in lowered and "vista" in lowered:
+        return "Suspenso por vista"
+    if re.search(r"\bprovido\b", lowered) and "nao conhec" in lowered and "desprov" not in lowered:
+        return "Provido, Não conhecido"
+    if "prejudic" in lowered and "desprov" in lowered:
+        return "Prejudicado, Desprovido"
+
+    parts = [part.strip() for part in re.split(r"[;,/]", text) if part.strip()]
+    if len(parts) > 1:
+        normalized_parts = []
+        for part in parts:
+            part_norm = normalize_resultado_piece(part, classe_canon, allowed)
+            if part_norm and part_norm not in normalized_parts:
+                normalized_parts.append(part_norm)
+        if normalized_parts:
+            return ", ".join(normalized_parts)
+
+    single = normalize_resultado_piece(text, classe_canon, allowed)
+    return single or text.strip()
 
 def extract_resolucoes(text: str) -> str:
     matches = re.findall(
@@ -1330,8 +1538,12 @@ def extract_resultado_votacao(text: str) -> Dict[str, str]:
         if "vista" in lower:
             resultado = "Suspenso por vista"
 
-    if "parcial provimento" in lower or "parcialmente" in lower:
-        resultado = "Parcialmente acolhido"
+    if re.search(r"parcialmente\s+deferid", lower):
+        resultado = "Parcialmente deferido"
+    elif "parcial provimento" in lower or "provido em parte" in lower:
+        resultado = "Provido em parte"
+    elif "parcialmente" in lower and ("provimento" in lower or "provido" in lower):
+        resultado = "Provido em parte"
     elif (
         "negado provimento" in lower
         or "negou provimento" in lower
@@ -1353,10 +1565,24 @@ def extract_resultado_votacao(text: str) -> Dict[str, str]:
         or "nao conhecer" in lower
     ):
         resultado = "Não conhecido"
+    elif re.search(r"aprovad[oa]s?\s+com\s+ressalv", lower):
+        resultado = "Aprovada com ressalvas"
     elif "aprov" in lower and not resultado:
         resultado = "Aprovada"
+    elif "indeferid" in lower:
+        resultado = "Indeferida" if "indeferida" in lower else "Indeferido"
+    elif "deferid" in lower:
+        resultado = "Deferido"
+    elif "referendad" in lower:
+        resultado = "Referendada" if "referendada" in lower else "Referendado"
+    elif "acolh" in lower and ("em parte" in lower or "parcial" in lower):
+        resultado = "Acolhido em parte"
+    elif "acolhido" in lower or "acolhidos" in lower or "acolhida" in lower:
+        resultado = "Acolhidos"
     elif "rejeitad" in lower:
-        resultado = "Rejeitada"
+        resultado = "Rejeitada" if "rejeitada" in lower else "Rejeitados"
+    elif "devolvid" in lower:
+        resultado = "Devolvida"
     elif "prejudicado" in lower:
         resultado = "Prejudicado"
     elif "anulado" in lower:
@@ -1364,16 +1590,52 @@ def extract_resultado_votacao(text: str) -> Dict[str, str]:
 
     return {"resultado_final": resultado, "votacao": votacao}
 
+VISTA_NOUN_REGEX = r"pedido\s+de\s+vistas?|vista\s+regimental"
+VISTA_VERB_REGEX = r"(?:pediu|pede|solicitou|requereu|requisitou|formulou|apresentou|antecipou|renovou|reiterou)"
 VISTA_REQUEST_REGEX = re.compile(
-    r"(?i)\b(pedido\s+de\s+vista|pediu\s+vista|pede\s+vista|"
-    r"solicitou\s+vista|vista\s+regimental)\b"
+    rf"(?i)\b(?:{VISTA_NOUN_REGEX}|{VISTA_VERB_REGEX}\s+(?:um\s+)?(?:pedido\s+de\s+)?vistas?)\b"
+)
+VISTA_NAME_CAPTURE_PATTERN = (
+    rf"(?:{MINISTRO_NAME_WITH_PREFIX_STRICT_PATTERN}|{LEADERSHIP_NAME_WITHOUT_PREFIX_STRICT_PATTERN})"
+)
+VISTA_NAME_AFTER_NOUN_REGEX = re.compile(
+    rf"(?i:\b(?:{VISTA_NOUN_REGEX})\b)"
+    rf"(?P<between>[^\n]{{0,80}}?)"
+    rf"(?:\b(?:do|da|de|pelo|pela|ao|a|o|à)\b\s*)?"
+    rf"(?P<name>{VISTA_NAME_CAPTURE_PATTERN})"
+)
+VISTA_NAME_AFTER_VERB_REGEX = re.compile(
+    rf"(?i:\b(?:{VISTA_VERB_REGEX})\b)"
+    rf"[^\n]{{0,40}}?"
+    rf"(?i:\b(?:pedido\s+de\s+)?vistas?\b)"
+    rf"(?P<between>[^\n]{{0,20}}?)"
+    rf"(?:\b(?:ao|a|o|à|do|da|de|pelo|pela)\b\s+)"
+    rf"(?P<name>{VISTA_NAME_CAPTURE_PATTERN})"
+)
+VISTA_NAME_BEFORE_VERB_REGEX = re.compile(
+    rf"(?P<name>{VISTA_NAME_CAPTURE_PATTERN})"
+    rf"(?P<between>[^\n]{{0,80}}?)"
+    rf"(?i:\b(?:{VISTA_VERB_REGEX})\b)"
+    rf"[^\n]{{0,20}}?"
+    rf"(?i:\b(?:pedido\s+de\s+)?vistas?\b)"
+)
+VISTA_NAME_BEFORE_NOUN_REGEX = re.compile(
+    rf"(?P<name>{VISTA_NAME_CAPTURE_PATTERN})"
+    rf"(?P<between>[^\n]{{0,40}}?)"
+    rf"(?i:\b(?:{VISTA_NOUN_REGEX})\b)"
+)
+RELATOR_VISTA_REGEX = re.compile(
+    rf"(?i)\brelator(a)?\b[^\n]{{0,40}}\b(?:{VISTA_VERB_REGEX})\b[^\n]{{0,20}}\b(?:pedido\s+de\s+)?vistas?\b"
+)
+RELATOR_VISTA_NOUN_REGEX = re.compile(
+    rf"(?i)\b(?:{VISTA_NOUN_REGEX})\b[^\n]{{0,40}}\b(?:pelo|pela)\s+relator(a)?\b"
 )
 NEGATED_VISTA_REGEX = re.compile(
     r"(?i)\b("
     r"n[aã]o\s+houve|n[aã]o\s+h[aá]|n[aã]o\s+ha|n[aã]o\s+se\s+pediu|"
     r"n[aã]o\s+foi\s+solicitad[ao]|sem|aus[eê]ncia\s+de|"
     r"inexist[eê]ncia\s+de|inexistiu|dispensad[ao]|desnecess[aá]ri[ao]"
-    r")\s+(?:pedido\s+de\s+)?vista\b"
+    r")\s+(?:pedido\s+de\s+)?vistas?\b"
 )
 
 def line_has_negated_vista(line: str) -> bool:
@@ -1394,6 +1656,77 @@ def has_pedido_vista_marker(text: str) -> bool:
         return True
     return False
 
+def clean_vista_span(text: str) -> str:
+    cleaned = normalize_text(text)
+    cleaned = re.sub(r"\[\[.*?\]\]", "", cleaned)
+    cleaned = re.sub(r"\[[^\]]+\]\([^)]+\)", "", cleaned)
+    cleaned = cleaned.replace("*", "")
+    return cleaned
+
+def extract_pedido_vista_name_from_span(span: str) -> str:
+    if not span:
+        return ""
+    cleaned = clean_vista_span(span)
+    best_name = ""
+    best_distance = None
+    for regex in (
+        VISTA_NAME_AFTER_NOUN_REGEX,
+        VISTA_NAME_AFTER_VERB_REGEX,
+        VISTA_NAME_BEFORE_VERB_REGEX,
+        VISTA_NAME_BEFORE_NOUN_REGEX,
+    ):
+        for match in regex.finditer(cleaned):
+            name = normalize_pedido_vista_name(match.group("name"))
+            if not name:
+                continue
+            between = match.groupdict().get("between") or ""
+            distance = len(between.strip())
+            if best_distance is None or distance < best_distance:
+                best_distance = distance
+                best_name = name
+    if best_name:
+        return best_name
+    if not VISTA_REQUEST_REGEX.search(cleaned):
+        return ""
+    names = []
+    for match in MINISTRO_NAME_STRICT_REGEX.finditer(cleaned):
+        raw = match.group(0)
+        if re.search(r"(?i)\brelator(a)?\b", raw):
+            continue
+        name = normalize_pedido_vista_name(raw)
+        if name:
+            names.append(name)
+    if len(names) == 1:
+        return names[0]
+    leader_names = []
+    for match in LEADERSHIP_NAME_REGEX.finditer(cleaned):
+        name = normalize_pedido_vista_name(match.group(0))
+        if name:
+            leader_names.append(name)
+    if len(leader_names) == 1 and not names:
+        return leader_names[0]
+    return ""
+
+def build_vista_span(lines: List[str], idx: int, lookahead: int = 2) -> str:
+    if idx >= len(lines):
+        return ""
+    base = lines[idx].strip()
+    if not base:
+        return ""
+    if MINISTRO_NAME_STRICT_REGEX.search(base) or LEADERSHIP_NAME_REGEX.search(base):
+        return base
+    parts = [base]
+    for offset in range(1, lookahead + 1):
+        if idx + offset >= len(lines):
+            break
+        part = lines[idx + offset].strip()
+        if not part:
+            continue
+        if MINISTRO_NAME_STRICT_REGEX.search(part) or LEADERSHIP_NAME_REGEX.search(part):
+            parts.append(part)
+            break
+    return " ".join(parts)
+
 def extract_pedido_vista_map(
     text: str,
     search_back: int = 8,
@@ -1408,9 +1741,8 @@ def extract_pedido_vista_map(
             continue
         if line_has_negated_vista(line):
             continue
-        name = extract_first_ministro_name(line)
-        if not name and idx + 1 < len(lines):
-            name = extract_first_ministro_name(lines[idx + 1])
+        span = build_vista_span(lines, idx, lookahead=2)
+        name = extract_pedido_vista_name_from_span(span)
         if not name:
             continue
         candidates = extract_process_numbers_from_line(line)
@@ -1448,34 +1780,18 @@ def apply_pedido_vista_map(items: List[Dict[str, Any]], vista_map: Dict[str, str
         item["pedido_vista"] = mapped or ""
 
 def extract_pedido_vista(text: str, relator: str) -> str:
-    def find_ministro_name(value: str) -> str:
-        cleaned = normalize_text(value)
-        cleaned = re.sub(r"\[\[.*?\]\]", "", cleaned)
-        cleaned = re.sub(r"\[[^\]]+\]\([^)]+\)", "", cleaned)
-        cleaned = cleaned.replace("*", "")
-        match = MINISTRO_NAME_REGEX.search(cleaned)
-        if match:
-            return normalize_pedido_vista_name(match.group(0))
-        alt_match = re.search(
-            rf"(?i:\b(?:pedido\s+de\s+vista|pediu\s+vista|pede\s+vista|solicitou\s+vista|vista\s+regimental)\s+)"
-            rf"(?:do|da|de)?\s*({MINISTRO_NAME_PART}(?:\s+{MINISTRO_NAME_PART}){{0,6}})",
-            cleaned,
-        )
-        if alt_match:
-            return normalize_pedido_vista_name(alt_match.group(1))
-        return ""
-
     lines = text.splitlines()
     for idx, line in enumerate(lines):
         if not VISTA_REQUEST_REGEX.search(line):
             continue
         if line_has_negated_vista(line):
             continue
-        name = find_ministro_name(line)
-        if not name and idx + 1 < len(lines):
-            name = find_ministro_name(lines[idx + 1])
+        span = build_vista_span(lines, idx, lookahead=2)
+        name = extract_pedido_vista_name_from_span(span)
         if name:
             return name
+        if relator and (RELATOR_VISTA_REGEX.search(span) or RELATOR_VISTA_NOUN_REGEX.search(span)):
+            return relator
     return ""
 
 def extract_pedido_vista_via_api(section_text: str, model: str, max_retries: int = 2) -> str:
@@ -1966,6 +2282,16 @@ def normalize_processo_num(value: str) -> str:
     labeled_num = extract_labeled_short_processo(value)
     return labeled_num if labeled_num else value.strip()
 
+def canonicalize_numero_processo(value: str) -> str:
+    if not value:
+        return ""
+    value = normalize_text(value)
+    short = extract_short_processo(value)
+    if short:
+        return short
+    labeled = extract_labeled_short_processo(value)
+    return labeled if labeled else value.strip()
+
 def apply_item_fallbacks(
     item: Dict[str, Any],
     raw_fields: Dict[str, Any],
@@ -2001,6 +2327,11 @@ def apply_item_fallbacks(
         item["classe_processo"] = normalize_classe_processo(item["classe_processo"])
     elif raw_fields.get("classe_processo"):
         item["classe_processo"] = normalize_classe_processo(raw_fields["classe_processo"])
+
+    item["resultado_final"] = normalize_resultado_final(
+        item.get("resultado_final", ""),
+        item.get("classe_processo", "")
+    )
 
     if item.get("relator"):
         item["relator"] = normalize_ministro_name(item["relator"])
@@ -2319,11 +2650,15 @@ def flatten_data_for_csv(json_data: Dict[str, Any]) -> List[Dict[str, Any]]:
                 row[key] = normalize_mpe_reference(row[key])
 
         row["data_sessao"] = parse_date_from_text(row.get("data_sessao", "")) or row.get("data_sessao", "")
-        row["numero_processo"] = normalize_processo_num(row.get("numero_processo", ""))
+        row["numero_processo"] = canonicalize_numero_processo(row.get("numero_processo", ""))
         row["origem"] = normalize_origem_value(row.get("origem", ""))
         row["TRE"] = normalize_tre(row.get("TRE", ""), extract_uf_from_text(row.get("origem", "")))
         row["advogados"] = normalize_advogados_list(row.get("advogados", ""))
         row["classe_processo"] = normalize_classe_processo(row.get("classe_processo", ""))
+        row["resultado_final"] = normalize_resultado_final(
+            row.get("resultado_final", ""),
+            row.get("classe_processo", "")
+        )
         row["composicao"] = normalize_composicao(row.get("composicao", ""))
         row["partes"] = remove_mpe_from_partes(row.get("partes", ""))
         row["youtube_link"] = normalize_youtube_link(row.get("youtube_link", ""))
