@@ -43,11 +43,16 @@ except ImportError:
 
 DEFAULT_MODEL = "gpt-4o-mini"
 
-NEWS_COLUMNS = ["noticia_TSE", "noticia_TRE", "noticia_geral"]
+NEWS_KEYS = ["noticia_TSE", "noticia_TRE", "noticia_geral"]
+GENERAL_COLUMN_PREFIX = "noticia_geral"
+GENERAL_COLUMN_RE = re.compile(r"^noticia_geral_(\d+)$")
+DEFAULT_GENERAL_MAX = 9
 
 CONTEXT_FIELDS = [
     "tema",
     "punchline",
+    "resultado",
+    "votacao",
     "numero_processo",
     "classe_processo",
     "tribunal",
@@ -55,24 +60,27 @@ CONTEXT_FIELDS = [
     "data_sessao",
     "relator",
     "partes",
+    "eleicao",
 ]
 
 SYSTEM_PROMPT = (
-    "You are a research assistant. Use web search. "
-    "Return JSON only, without any extra text."
+    "Voce e um assistente de pesquisa especializado em noticias sobre casos julgados pela "
+    "Justica Eleitoral. Use pesquisa aprofundada na web (pro) e verifique o permalink da noticia. "
+    "Responda somente com JSON valido, sem markdown ou texto extra."
 )
 
 USER_PROMPT_TEMPLATE = (
-    "Find news articles related to the following Brazilian electoral court session item. "
-    "Only include links if the article is clearly about the same case/decision/session. "
-    "If no relevant news exists, return empty arrays.\n\n"
-    "Return ONLY a JSON object with keys:\n"
-    "- noticia_TSE: list of URLs from domains that end with tse.jus.br\n"
-    "- noticia_TRE: list of URLs from domains that match tre-XX.jus.br (any subdomain)\n"
-    "- noticia_geral: list of URLs from Folha (folha.uol.com.br), ConJur (conjur.com.br), "
-    "Migalhas (migalhas.com.br), Gazeta do Povo (gazetadopovo.com.br), "
-    "CNN (cnnbrasil.com.br or cnn.com)\n\n"
-    "Context:\n{context}\n"
+    "Encontre noticias reais e atuais relacionadas ao item de sessao/decisao abaixo. "
+    "Use numero do processo, classe, partes, relator, tema e data como base da busca. "
+    "Inclua links somente se o artigo tratar claramente do mesmo caso/decisao/sessao. "
+    "Se nao houver noticias relevantes, retorne arrays vazios.\n\n"
+    "Responda APENAS com um objeto JSON valido com estas chaves e arrays de URLs:\n"
+    "- noticia_TSE: URLs de dominios terminados em tse.jus.br (apenas oficiais relevantes)\n"
+    "- noticia_TRE: URLs de dominios tre-XX.jus.br (ex: tre-sp.jus.br)\n"
+    "- noticia_geral: URLs de grandes veiculos brasileiros (Folha, Estadao, G1, CNN Brasil, "
+    "ConJur, Migalhas, UOL, etc.)\n\n"
+    "Nao inclua titulos ou texto. Se houver duvida sobre o permalink, prefira omitir o link.\n\n"
+    "Contexto:\n{context}\n"
 )
 
 URL_RE = re.compile(r"https?://[^\s\]\)>,;\"']+", re.IGNORECASE)
@@ -80,9 +88,15 @@ TRE_DOMAIN_RE = re.compile(r"(?:^|\.)tre-[a-z]{2}\.jus\.br$", re.IGNORECASE)
 
 GENERAL_DOMAINS = [
     "folha.uol.com.br",
+    "uol.com.br",
     "conjur.com.br",
     "migalhas.com.br",
     "gazetadopovo.com.br",
+    "estadao.com.br",
+    "g1.globo.com",
+    "oglobo.globo.com",
+    "metropoles.com",
+    "terra.com.br",
     "cnnbrasil.com.br",
     "cnn.com",
 ]
@@ -151,12 +165,25 @@ def _call_openai_with_web_search(
     raise RuntimeError(f"Falha na chamada da API apos {max_retries} tentativas: {last_err}")
 
 
-def _extract_json(text: str) -> Dict[str, object]:
+def _clean_response_text(text: str) -> str:
+    cleaned = (text or "").strip()
+    if not cleaned:
+        return ""
+    cleaned = re.sub(r"```(?:json)?", "", cleaned, flags=re.IGNORECASE)
+    cleaned = cleaned.replace("```", "")
+    cleaned = re.sub(r"\s*\[web:\d+\]", "", cleaned)
+    return cleaned.strip()
+
+
+def _extract_json(text: str) -> object:
+    cleaned = _clean_response_text(text)
+    if not cleaned:
+        return {}
     try:
-        return json.loads(text)
+        return json.loads(cleaned)
     except json.JSONDecodeError:
         pass
-    match = re.search(r"\{.*\}", text, re.DOTALL)
+    match = re.search(r"\{.*\}", cleaned, re.DOTALL)
     if not match:
         return {}
     try:
@@ -206,6 +233,17 @@ def _urls_from_value(value: object) -> List[str]:
         for item in value:
             if isinstance(item, str):
                 urls.append(item)
+            elif isinstance(item, dict):
+                for key in ("url", "link", "href"):
+                    candidate = item.get(key)
+                    if isinstance(candidate, str):
+                        urls.append(candidate)
+                        break
+    elif isinstance(value, dict):
+        for key in ("url", "link", "href"):
+            candidate = value.get(key)
+            if isinstance(candidate, str):
+                urls.append(candidate)
     elif isinstance(value, str):
         urls.extend(URL_RE.findall(value))
     return urls
@@ -238,15 +276,46 @@ def _classify_urls(urls: Iterable[str]) -> Tuple[List[str], List[str], List[str]
 def _combine_urls_from_response(text: str) -> Tuple[List[str], List[str], List[str]]:
     data = _extract_json(text)
     urls: List[str] = []
-    for key in NEWS_COLUMNS:
-        urls.extend(_urls_from_value(data.get(key)))
+    if isinstance(data, dict):
+        for key in NEWS_KEYS:
+            urls.extend(_urls_from_value(data.get(key)))
+        for key, value in data.items():
+            if key.startswith(f"{GENERAL_COLUMN_PREFIX}_"):
+                urls.extend(_urls_from_value(value))
+    elif isinstance(data, list):
+        urls.extend(_urls_from_value(data))
     if not urls:
-        urls = URL_RE.findall(text)
+        cleaned = _clean_response_text(text)
+        urls = URL_RE.findall(cleaned)
     return _classify_urls(urls)
 
 
 def _join_urls(urls: List[str]) -> str:
     return ", ".join(urls) if urls else ""
+
+
+def _general_columns_from_fields(fieldnames: Iterable[str], max_geral: int) -> List[str]:
+    existing: List[Tuple[int, str]] = []
+    for name in fieldnames:
+        match = GENERAL_COLUMN_RE.match(name or "")
+        if match:
+            existing.append((int(match.group(1)), name))
+    if existing:
+        return [name for _, name in sorted(existing)]
+    if max_geral <= 0:
+        return []
+    return [f"{GENERAL_COLUMN_PREFIX}_{i}" for i in range(1, max_geral + 1)]
+
+
+def _build_output_fields(fieldnames: List[str], general_columns: List[str]) -> List[str]:
+    output_fields = fieldnames[:]
+    for col in NEWS_KEYS:
+        if col not in output_fields:
+            output_fields.append(col)
+    for col in general_columns:
+        if col not in output_fields:
+            output_fields.append(col)
+    return output_fields
 
 
 def _derive_output_path(input_path: str) -> str:
@@ -277,20 +346,15 @@ def _select_input_csv() -> str:
     return selected
 
 
-def _read_existing_output(path: str, expected_header: List[str]) -> Tuple[bool, int]:
+def _read_existing_output(path: str) -> Tuple[List[str], int]:
     if not os.path.exists(path):
-        return False, 0
+        return [], 0
     with open(path, newline="", encoding="utf-8") as f:
         reader = csv.reader(f)
         try:
             header = next(reader)
         except StopIteration:
-            return False, 0
-        if expected_header and header != expected_header:
-            raise SystemExit(
-                "ERRO: o cabecalho do CSV de saida nao corresponde ao esperado. "
-                "Use --output para um novo arquivo ou remova o arquivo existente."
-            )
+            return [], 0
         count = 0
         for row in reader:
             if not row:
@@ -299,7 +363,7 @@ def _read_existing_output(path: str, expected_header: List[str]) -> Tuple[bool, 
                 logging.warning("Linha incompleta detectada no checkpoint. Ignorando o restante.")
                 break
             count += 1
-    return True, count
+    return header, count
 
 
 def main() -> None:
@@ -324,6 +388,12 @@ def main() -> None:
     parser.add_argument("--limit", type=int, default=0, help="Processa apenas as primeiras N linhas.")
     parser.add_argument("--sleep", type=float, default=0.0, help="Pausa entre chamadas da API (segundos).")
     parser.add_argument("--max-retries", type=int, default=3, help="Maximo de tentativas da API.")
+    parser.add_argument(
+        "--max-geral",
+        type=int,
+        default=DEFAULT_GENERAL_MAX,
+        help="Numero maximo de colunas noticia_geral_N (default: 9).",
+    )
     parser.add_argument(
         "--checkpoint-every",
         type=int,
@@ -383,10 +453,8 @@ def main() -> None:
         logging.warning("Nenhuma linha encontrada no CSV de entrada.")
         return
 
-    output_fields = fieldnames[:]
-    for col in NEWS_COLUMNS:
-        if col not in output_fields:
-            output_fields.append(col)
+    general_columns = _general_columns_from_fields(fieldnames, args.max_geral)
+    output_fields = _build_output_fields(fieldnames, general_columns)
 
     cache: Dict[str, Tuple[List[str], List[str], List[str]]] = {}
 
@@ -397,17 +465,26 @@ def main() -> None:
     should_resume = args.resume or (not args.no_resume and os.path.exists(output_path))
     processed_rows = 0
     if should_resume and os.path.exists(output_path):
-        has_header, processed_rows = _read_existing_output(output_path, output_fields)
-        if has_header:
+        existing_header, processed_rows = _read_existing_output(output_path)
+        if existing_header:
+            missing_cols = [col for col in fieldnames if col not in existing_header]
+            if missing_cols:
+                raise SystemExit(
+                    "ERRO: o CSV de saida nao contem todas as colunas do input. "
+                    "Use --no-resume para gerar um novo arquivo ou remova o existente."
+                )
+            output_fields = existing_header
+            general_columns = _general_columns_from_fields(existing_header, 0)
             write_mode = "a"
-            if processed_rows:
-                logging.info("Retomando a partir da linha %d do CSV de saida.", processed_rows + 1)
+        if processed_rows:
+            logging.info("Retomando a partir da linha %d do CSV de saida.", processed_rows + 1)
 
     with open(output_path, write_mode, newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=output_fields)
         if write_mode == "w":
             writer.writeheader()
 
+        output_field_set = set(output_fields)
         total = len(rows) if args.limit <= 0 else min(len(rows), args.limit)
         if processed_rows >= total:
             logging.info("Nada a fazer: %d linhas ja processadas.", processed_rows)
@@ -438,9 +515,23 @@ def main() -> None:
                         logging.error("Falha ao consultar API na linha %d: %s", idx, exc)
                         tse_urls, tre_urls, geral_urls = [], [], []
 
-            row["noticia_TSE"] = _join_urls(tse_urls)
-            row["noticia_TRE"] = _join_urls(tre_urls)
-            row["noticia_geral"] = _join_urls(geral_urls)
+            if "noticia_TSE" in output_field_set:
+                row["noticia_TSE"] = _join_urls(tse_urls)
+            if "noticia_TRE" in output_field_set:
+                row["noticia_TRE"] = _join_urls(tre_urls)
+            if "noticia_geral" in output_field_set:
+                row["noticia_geral"] = _join_urls(geral_urls)
+            for pos, col in enumerate(general_columns):
+                if col not in output_field_set:
+                    continue
+                row[col] = geral_urls[pos] if pos < len(geral_urls) else ""
+            if general_columns and len(geral_urls) > len(general_columns):
+                logging.info(
+                    "Mais links gerais (%d) do que colunas (%d) na linha %d; truncando.",
+                    len(geral_urls),
+                    len(general_columns),
+                    idx,
+                )
             writer.writerow(row)
 
             if checkpoint_every and (idx % checkpoint_every == 0 or idx == total):
