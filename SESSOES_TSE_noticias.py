@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Enrich sessoes_all_2024_2025.csv with news links using an API call.
-
-Usage:
-  python3 SESSOES_TSE_noticias_viaAPI.py
-  python3 SESSOES_TSE_noticias_viaAPI.py --input /caminho/para/arquivo.csv
+Enrich sessoes with news links using an API call.
 
 Defaults:
   Model: gpt-4o-mini
