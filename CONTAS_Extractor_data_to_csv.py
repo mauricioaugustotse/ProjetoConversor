@@ -6,6 +6,7 @@ import csv
 import os
 import asyncio
 import traceback
+import unicodedata
 from pathlib import Path
 from datetime import datetime
 from typing import List, Dict, Any, Optional, Tuple
@@ -156,52 +157,77 @@ async def processar_categorias_em_lote(transacoes_por_cartao: Dict[str, List[Dic
 # UTILITÁRIOS
 # ==============================================================================
 
-def selecionar_arquivo_pdf() -> Optional[Path]:
-    """Abre uma janela para selecionar o PDF; faz fallback para busca local se não houver GUI."""
+def selecionar_arquivo_entrada() -> Optional[Path]:
+    """Abre uma janela para selecionar PDF ou CSV; faz fallback para busca local se não houver GUI."""
     try:
         import tkinter as tk
         from tkinter import filedialog
     except Exception as e:
         print(f"{C.YELLOW}AVISO: Não foi possível abrir a janela de seleção ({e}).{C.END}")
-        return encontrar_arquivo_pdf()
+        return encontrar_arquivo_entrada()
 
     try:
         root = tk.Tk()
         root.withdraw()
         root.update()
         file_path = filedialog.askopenfilename(
-            title="Selecione o arquivo PDF",
-            filetypes=[("Arquivos PDF", "*.pdf"), ("Todos os arquivos", "*.*")]
+            title="Selecione o arquivo PDF ou CSV",
+            filetypes=[
+                ("Arquivos PDF e CSV", "*.pdf *.csv"),
+                ("Arquivos PDF", "*.pdf"),
+                ("Arquivos CSV", "*.csv"),
+                ("Todos os arquivos", "*.*"),
+            ],
         )
         root.destroy()
     except Exception as e:
         print(f"{C.YELLOW}AVISO: Erro ao abrir a janela de seleção ({e}).{C.END}")
-        return encontrar_arquivo_pdf()
+        return encontrar_arquivo_entrada()
 
     if not file_path:
         print(f"{C.YELLOW}Nenhum arquivo selecionado.{C.END}")
         return None
 
-    pdf_path = Path(file_path)
-    if pdf_path.suffix.lower() != ".pdf":
-        print(f"{C.RED}ERRO: O arquivo selecionado não é um PDF.{C.END}")
+    entrada_path = Path(file_path)
+    if entrada_path.suffix.lower() not in (".pdf", ".csv"):
+        print(f"{C.RED}ERRO: O arquivo selecionado não é PDF nem CSV.{C.END}")
         return None
 
-    print(f"{C.GREEN}✓ Arquivo PDF selecionado: {pdf_path}{C.END}")
-    return pdf_path
+    print(f"{C.GREEN}✓ Arquivo selecionado: {entrada_path}{C.END}")
+    return entrada_path
 
-def encontrar_arquivo_pdf() -> Optional[Path]:
-    print(f"{C.CYAN}🔎 Procurando por arquivo .pdf na pasta atual...{C.END}")
-    pdfs = list(Path.cwd().glob("*.pdf"))
-    if not pdfs:
-        print(f"{C.RED}ERRO: Nenhum arquivo PDF encontrado no diretório: {Path.cwd()}{C.END}")
+def _priorizar_csv(csvs: List[Path]) -> Path:
+    csvs = sorted(csvs, key=lambda p: p.name.lower())
+    for csv_path in csvs:
+        stem = csv_path.stem.lower()
+        if stem.startswith(("fatura-", "fatura_")):
+            return csv_path
+    return csvs[0]
+
+def encontrar_arquivo_entrada() -> Optional[Path]:
+    print(f"{C.CYAN}🔎 Procurando por arquivos .pdf ou .csv na pasta atual...{C.END}")
+    pdfs = sorted(Path.cwd().glob("*.pdf"))
+    csvs = sorted(Path.cwd().glob("*.csv"))
+    if not pdfs and not csvs:
+        print(f"{C.RED}ERRO: Nenhum arquivo PDF ou CSV encontrado no diretório: {Path.cwd()}{C.END}")
         return None
-    pdf_path = pdfs[0]
-    if len(pdfs) > 1:
-        print(f"{C.YELLOW}AVISO: Múltiplos arquivos PDF encontrados. Usando o primeiro: {pdf_path.name}{C.END}")
-    else:
-        print(f"{C.GREEN}✓ Arquivo PDF encontrado: {pdf_path.name}{C.END}")
-    return pdf_path
+
+    if csvs and not pdfs:
+        csv_path = _priorizar_csv(csvs)
+        print(f"{C.GREEN}✓ Arquivo CSV encontrado: {csv_path.name}{C.END}")
+        return csv_path
+
+    if pdfs and not csvs:
+        pdf_path = pdfs[0]
+        if len(pdfs) > 1:
+            print(f"{C.YELLOW}AVISO: Múltiplos arquivos PDF encontrados. Usando o primeiro: {pdf_path.name}{C.END}")
+        else:
+            print(f"{C.GREEN}✓ Arquivo PDF encontrado: {pdf_path.name}{C.END}")
+        return pdf_path
+
+    csv_path = _priorizar_csv(csvs)
+    print(f"{C.YELLOW}AVISO: PDFs e CSVs encontrados. Usando o CSV: {csv_path.name}{C.END}")
+    return csv_path
 
 def extrair_texto_do_pdf(pdf_path: Path) -> str:
     print(f"{C.CYAN}📄 Extraindo texto do arquivo PDF...{C.END}")
@@ -248,6 +274,144 @@ def _append_frac(base: str, frac: Optional[str]) -> str:
     if re.search(r'\(\s*\d{1,2}\s*/\s*\d{1,2}\s*\)\s*$', base):
         return base
     return f"{base} ({frac})"
+
+def _normalizar_chave_csv(chave: str) -> str:
+    chave = chave.strip().lower().replace("\ufeff", "")
+    chave = unicodedata.normalize("NFKD", chave)
+    return "".join(c for c in chave if not unicodedata.combining(c))
+
+def _normalizar_data_csv(data_raw: str) -> str:
+    if not data_raw:
+        return ""
+    data_raw = data_raw.strip()
+    for fmt in ("%Y-%m-%d", "%d/%m/%Y", "%d-%m-%Y"):
+        try:
+            return datetime.strptime(data_raw, fmt).strftime("%d/%m/%Y")
+        except ValueError:
+            pass
+    return data_raw
+
+def _parse_valor_csv(valor_raw: Optional[str]) -> Optional[float]:
+    if valor_raw is None:
+        return None
+    valor_txt = str(valor_raw).strip()
+    if not valor_txt:
+        return None
+    valor_txt = valor_txt.replace("R$", "").strip()
+    negativo = False
+    if valor_txt.startswith("(") and valor_txt.endswith(")"):
+        negativo = True
+        valor_txt = valor_txt[1:-1].strip()
+    if "," in valor_txt and "." in valor_txt:
+        valor_txt = valor_txt.replace(".", "").replace(",", ".")
+    elif "," in valor_txt:
+        valor_txt = valor_txt.replace(",", ".")
+    try:
+        valor_num = float(valor_txt)
+    except Exception:
+        return None
+    return -valor_num if negativo else valor_num
+
+def _inferir_cartao_csv(csv_path: Path) -> str:
+    match = re.search(r"(\d{4})(?!.*\d)", csv_path.stem)
+    if match:
+        return f"CSV.{match.group(1)}"
+    return "CSV"
+
+def _decidir_inversao_sinal_csv(registros: List[Dict[str, Any]]) -> bool:
+    positivos = 0
+    negativos = 0
+    for item in registros:
+        valor = item.get("valor_num")
+        if valor is None:
+            continue
+        if valor > 0:
+            positivos += 1
+        elif valor < 0:
+            negativos += 1
+
+    for item in registros:
+        descricao = (item.get("descricao_raw") or "").upper()
+        valor = item.get("valor_num")
+        if valor is None:
+            continue
+        if "PAGAMENTO" in descricao:
+            return valor < 0
+
+    if positivos and not negativos:
+        return True
+    if negativos and not positivos:
+        return False
+    return positivos >= negativos
+
+def parsear_transacoes_csv(csv_path: Path) -> Dict[str, List[Dict[str, Any]]]:
+    print(f"{C.CYAN}🧾 Lendo transações do CSV...{C.END}")
+    registros: List[Dict[str, Any]] = []
+
+    try:
+        with open(csv_path, 'r', encoding='utf-8-sig', newline='') as f:
+            reader = csv.DictReader(f)
+            if not reader.fieldnames:
+                print(f"{C.RED}ERRO: CSV sem cabeçalho reconhecível.{C.END}")
+                return {}
+
+            for row in reader:
+                norm_row = {}
+                for chave, valor in row.items():
+                    if chave is None:
+                        continue
+                    norm_row[_normalizar_chave_csv(chave)] = valor
+
+                data_raw = norm_row.get("data") or norm_row.get("date")
+                desc_raw = norm_row.get("lancamento") or norm_row.get("descricao") or norm_row.get("descricao_da_transacao")
+                valor_raw = norm_row.get("valor") or norm_row.get("amount")
+
+                if not data_raw and not desc_raw and not valor_raw:
+                    continue
+
+                registros.append({
+                    "data_raw": data_raw or "",
+                    "descricao_raw": desc_raw or "",
+                    "valor_num": _parse_valor_csv(valor_raw),
+                })
+    except Exception as e:
+        print(f"{C.RED}ERRO ao ler o CSV: {e}{C.END}")
+        return {}
+
+    if not registros:
+        print(f"{C.YELLOW}AVISO: Nenhuma linha válida encontrada no CSV.{C.END}")
+        return {}
+
+    inverter_sinal = _decidir_inversao_sinal_csv(registros)
+    cartao_key = _inferir_cartao_csv(csv_path)
+    transacoes_por_cartao: Dict[str, List[Dict[str, Any]]] = {cartao_key: []}
+
+    for item in registros:
+        valor_num = item.get("valor_num")
+        if valor_num is None:
+            continue
+        if inverter_sinal:
+            valor_num = -valor_num
+
+        data_norm = _normalizar_data_csv(item.get("data_raw", ""))
+        desc_raw = item.get("descricao_raw", "")
+        m_local_frac = re.search(r'\bPARC\.?\s*(\d{1,2}\s*/\s*\d{1,2})\b', desc_raw, flags=re.IGNORECASE)
+        local_frac = re.sub(r'\s+', '', m_local_frac.group(1)) if m_local_frac else None
+        descricao_base = _limpar_descricao(desc_raw)
+        descricao_final = _append_frac(descricao_base, local_frac)
+
+        valor_final = str(int(valor_num)) if valor_num == int(valor_num) else f"{valor_num:.2f}"
+        transacoes_por_cartao[cartao_key].append({
+            "data": data_norm,
+            "descricao": descricao_final,
+            "valor": valor_final,
+            "conta": "BRB",
+            "categoria": "A classificar",
+        })
+
+    total = len(transacoes_por_cartao[cartao_key])
+    print(f"{C.GREEN}✓ Análise concluída. {total} transações extraídas.{C.END}")
+    return transacoes_por_cartao
 
 # ==============================================================================
 # PARSER COM ALINHAMENTO DE METADADOS ("PARCELA LOJISTA..." / "COMPRA A VISTA")
@@ -449,19 +613,24 @@ async def main():
     print(f"{C.BOLD}{C.BLUE}{'='*80}{C.END}\n")
 
     try:
-        pdf_path = selecionar_arquivo_pdf()
-        if not pdf_path:
+        entrada_path = selecionar_arquivo_entrada()
+        if not entrada_path:
             return
+        if entrada_path.suffix.lower() == ".pdf":
+            texto_pdf = extrair_texto_do_pdf(entrada_path)
+            if not texto_pdf:
+                return
 
-        texto_pdf = extrair_texto_do_pdf(pdf_path)
-        if not texto_pdf:
+            mes_venc, ano_venc = extrair_data_vencimento(texto_pdf)
+            transacoes_por_cartao = parsear_transacoes(entrada_path, mes_venc, ano_venc)
+        elif entrada_path.suffix.lower() == ".csv":
+            transacoes_por_cartao = parsear_transacoes_csv(entrada_path)
+        else:
+            print(f"{C.RED}ERRO: Formato de arquivo não suportado.{C.END}")
             return
-
-        mes_venc, ano_venc = extrair_data_vencimento(texto_pdf)
-        transacoes_por_cartao = parsear_transacoes(pdf_path, mes_venc, ano_venc)
 
         await processar_categorias_em_lote(transacoes_por_cartao)
-        salvar_csvs(transacoes_por_cartao, output_dir=pdf_path.parent)
+        salvar_csvs(transacoes_por_cartao, output_dir=entrada_path.parent)
 
     except Exception:
         print(f"\n{C.RED}{C.BOLD}{'!'*80}{C.END}")

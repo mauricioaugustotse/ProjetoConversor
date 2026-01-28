@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+
 """
 Este script lê dados de uma planilha (Excel ou CSV), processa os valores
 com base em regras específicas, ordena os dados e gera um documento 
