@@ -5,28 +5,42 @@ Visao geral do fluxo:
 1. Le o CSV de entrada (encoding/delimitador detectados automaticamente).
 2. Normaliza cabecalhos e celulas.
 3. Aplica regras juridicas/estruturais por coluna.
-4. (Opcional) Enriquecimento web via API da Perplexity para preencher URLs.
-5. Gera um CSV *_notion.csv por arquivo e um compilado final.
+4. (Opcional) Enriquecimento via ChatGPT para gerar tema e punchline.
+5. (Opcional) Enriquecimento web via API da Perplexity para preencher URLs.
+6. Gera um CSV *_notion.csv por arquivo e um compilado final.
 
-Principais transformacoes:
 - Remove colunas: numeroDecisao, numeroProtocolo.
+Principais transformacoes:
 - Limpa naturezaDocumento: "Sem anotacao" -> vazio.
 - Formata numeroUnico no padrao CNJ: NNNNNNN-DD.AAAA.J.TR.OOOO.
 - Trunca apenas textoDecisao/textoEmenta (limite configuravel; 0 = sem truncamento).
 - Partes e campos derivados em formato adequado para Notion:
   composicao (multi-select canonico), advogados (multi-select), resultado (multi-select).
+- Gera colunas adicionais: tema e punchline (quando ativado no ChatGPT).
 - Normaliza referenciasLegislativas para formato simplificado.
+
+Enriquecimento ChatGPT (opcional):
+- Preenche tema e punchline.
+- Mantem valores ja existentes (nao sobrescreve).
+- Consulta apenas campos vazios.
+- Processa em lotes configuraveis (workers/batch/delay) para reduzir tempo total.
+- Precedencia da chave:
+  --openai-api-key > OPENAI_API_KEY > CHAVE_SECRETA_API_Mauricio_local.txt
 
 Enriquecimento Perplexity (opcional):
 - Preenche noticia_TSE, noticia_TRE e noticia_geral_1..9.
 - Mantem URLs ja existentes (nao sobrescreve).
 - Consulta apenas campos vazios.
+- Envia numeroUnico/numeroProcesso, dataDecisao, assuntos, partes, relatores,
+  textoDecisao e textoEmenta sem truncagem adicional no prompt.
 - Precedencia da chave:
   --perplexity-api-key > PERPLEXITY_API_KEY > Chave_secreta_Perplexity.txt
 
 Uso rapido (CLI):
 - Basico:
   python3 notion_friendly_csv_batch.py arquivo1.csv arquivo2.csv --no-gui
+- Com ChatGPT (tema/punchline):
+  python3 notion_friendly_csv_batch.py arquivo.csv --no-gui --gerar-tema-punchline-chatgpt
 - Com Perplexity:
   python3 notion_friendly_csv_batch.py arquivo.csv --no-gui --buscar-urls-perplexity
 """
@@ -36,6 +50,7 @@ from __future__ import annotations
 import argparse
 import asyncio
 import csv
+import json
 import os
 import re
 import sys
@@ -57,7 +72,10 @@ PARTES_SPLIT_RE = re.compile(r"[;,]")
 RELATOR_PREFIX_RE = re.compile(r"^\s*relator(?:\(a\)|a|o)?\s*[:.\-]?\s*", re.IGNORECASE)
 EXCLUDED_COLUMNS = {"numeroDecisao", "numeroProtocolo", "resuultado"}
 URL_COLUMNS = ["noticia_TSE", "noticia_TRE"] + [f"noticia_geral_{i}" for i in range(1, 10)]
+THEME_COLUMNS = ["tema", "punchline"]
+ROW_PROGRESS_EVERY = 100
 DEFAULT_PERPLEXITY_KEY_FILE = "Chave_secreta_Perplexity.txt"
+DEFAULT_OPENAI_KEY_FILE = "CHAVE_SECRETA_API_Mauricio_local.txt"
 
 CANONICAL_MINISTERS: list[tuple[str, tuple[str, ...]]] = [
     ("Min. Cármen Lúcia", ("carmen lucia",)),
@@ -159,6 +177,17 @@ class WebLookupConfig:
     delay_between_batches: float = 0.3
 
 
+@dataclass
+class TemaPunchlineConfig:
+    enabled: bool = False
+    api_key: str = ""
+    model: str = "gpt-5-mini"
+    timeout_seconds: int = 20
+    max_workers: int = 4
+    batch_size: int = 20
+    delay_between_batches: float = 0.3
+
+
 def detect_csv_format(path: Path) -> tuple[str, str]:
     last_error: Exception | None = None
     for encoding in ENCODINGS_TO_TRY:
@@ -253,6 +282,18 @@ def resolve_perplexity_api_key(cli_value: str, key_file_path: str) -> str:
     return ""
 
 
+def resolve_openai_api_key(cli_value: str, key_file_path: str) -> str:
+    if cli_value and cli_value.strip():
+        return cli_value.strip()
+    env_value = os.getenv("OPENAI_API_KEY", "").strip()
+    if env_value:
+        return env_value
+    file_value = read_secret_from_file(key_file_path)
+    if file_value:
+        return file_value
+    return ""
+
+
 class GerenciadorRequisicoes:
     def __init__(self, api_key: str, model: str, max_workers: int = 4) -> None:
         self.model = model
@@ -288,6 +329,90 @@ class GerenciadorRequisicoes:
             if not isinstance(citations, list):
                 citations = []
             return {"content": content, "citations": citations}
+        except requests.exceptions.Timeout:
+            return None
+        except Exception:
+            return None
+
+    def close(self) -> None:
+        self.sessao.close()
+        self.executor.shutdown(wait=True)
+
+
+class GerenciadorOpenAI:
+    def __init__(self, api_key: str, model: str, max_workers: int = 4) -> None:
+        self.model = model
+        self.executor = ThreadPoolExecutor(max_workers=max_workers)
+        self.sessao = requests.Session()
+        self.sessao.headers.update(
+            {
+                "Authorization": f"Bearer {api_key}",
+                "Content-Type": "application/json",
+            }
+        )
+
+    async def call_tema_punchline(self, prompt: str, timeout: int = 20) -> Optional[dict[str, str]]:
+        payload = {
+            "model": self.model,
+            "messages": [
+                {
+                    "role": "system",
+                    "content": (
+                        "Voce e um assistente juridico especializado em jurisprudencia eleitoral. "
+                        "Responda exclusivamente em JSON valido, sem markdown."
+                    ),
+                },
+                {"role": "user", "content": prompt},
+            ],
+            "response_format": {
+                "type": "json_schema",
+                "json_schema": {
+                    "name": "tema_punchline",
+                    "strict": True,
+                    "schema": {
+                        "type": "object",
+                        "additionalProperties": False,
+                        "properties": {
+                            "tema": {"type": "string"},
+                            "punchline": {"type": "string"},
+                        },
+                        "required": ["tema", "punchline"],
+                    },
+                },
+            },
+        }
+        try:
+            loop = asyncio.get_event_loop()
+            response = await loop.run_in_executor(
+                self.executor,
+                lambda: self.sessao.post(
+                    "https://api.openai.com/v1/chat/completions",
+                    json=payload,
+                    timeout=timeout,
+                ),
+            )
+            response.raise_for_status()
+            result = response.json()
+            content_obj = ((result.get("choices") or [{}])[0].get("message", {}) or {}).get("content", "")
+            if isinstance(content_obj, list):
+                chunks: list[str] = []
+                for item in content_obj:
+                    if isinstance(item, dict):
+                        text = item.get("text")
+                        if isinstance(text, str):
+                            chunks.append(text)
+                raw_content = "".join(chunks).strip()
+            else:
+                raw_content = str(content_obj or "").strip()
+            if not raw_content:
+                return None
+
+            parsed = json.loads(raw_content)
+            if not isinstance(parsed, dict):
+                return None
+            tema = SPACE_RE.sub(" ", str(parsed.get("tema", "") or "")).strip()
+            punchline = SPACE_RE.sub(" ", str(parsed.get("punchline", "") or "")).strip()
+            return {"tema": tema, "punchline": punchline}
         except requests.exceptions.Timeout:
             return None
         except Exception:
@@ -387,87 +512,146 @@ def _pick_first(urls: Iterable[str], predicate: Callable[[str], bool]) -> Option
     return None
 
 
-def compact_text(value: Optional[str], max_len: int) -> str:
-    if not value:
-        return ""
-    texto = " ".join(value.split())
-    if len(texto) > max_len:
-        return texto[: max_len - 3] + "..."
-    return texto
-
-
 def build_lookup_payload(row: dict[str, str]) -> dict[str, str]:
     tribunal = " ".join(
         part for part in (row.get("siglaTribunalJE", ""), row.get("origemDecisao", "")) if part
     ).strip()
-    origem = " ".join(part for part in (row.get("siglaUF", ""), row.get("nomeMunicipio", "")) if part).strip()
-    ementa = row.get("textoEmenta") or ""
-    decisao = row.get("textoDecisao") or ""
-    punchline = ementa or decisao or (row.get("assuntos") or "")
-    tema = row.get("assuntos") or ementa or ""
+    sigla_uf = row.get("siglaUF") or ""
+    nome_municipio = row.get("nomeMunicipio") or ""
+    origem = " ".join(part for part in (sigla_uf, nome_municipio) if part).strip()
     return {
-        "numero_processo": row.get("numeroProcesso") or row.get("numeroUnico") or "",
-        "classe_processo": row.get("descricaoClasse") or row.get("siglaClasse") or "",
-        "tema": tema,
+        "numero_unico": row.get("numeroUnico") or row.get("numeroProcesso") or "",
+        "data_decisao": row.get("dataDecisao") or "",
+        "assuntos": row.get("assuntos") or "",
         "partes": row.get("partes") or "",
+        "relatores": row.get("relatores") or "",
+        "texto_decisao": row.get("textoDecisao") or "",
+        "texto_ementa": row.get("textoEmenta") or "",
+        "sigla_uf": sigla_uf,
+        "nome_municipio": nome_municipio,
         "tribunal": tribunal,
-        "data_sessao": row.get("dataDecisao") or "",
         "origem": origem,
-        "punchline": punchline,
     }
 
 
+def gerar_prompt_tema_punchline(page_data: dict[str, str]) -> str:
+    numero_unico = page_data.get("numero_unico", "")
+    data_decisao = page_data.get("data_decisao", "")
+    assuntos = page_data.get("assuntos", "")
+    partes = page_data.get("partes", "")
+    relatores = page_data.get("relatores", "")
+    texto_ementa = page_data.get("texto_ementa", "")
+    texto_decisao = page_data.get("texto_decisao", "")
+    sigla_uf = page_data.get("sigla_uf", "")
+    nome_municipio = page_data.get("nome_municipio", "")
+    tribunal = page_data.get("tribunal", "")
+    origem = page_data.get("origem", "")
+
+    return f"""Com base nos dados abaixo, gere os campos "tema" e "punchline" do julgamento.
+
+Contexto do caso:
+numeroUnico: {numero_unico}
+dataDecisao: {data_decisao}
+assuntos: {assuntos}
+partes: {partes}
+relatores: {relatores}
+siglaUF: {sigla_uf}
+nomeMunicipio: {nome_municipio}
+tribunal: {tribunal}
+origem: {origem}
+textoEmenta: {texto_ementa}
+textoDecisao: {texto_decisao}
+
+Instrucoes de saida:
+- "tema": sintetize o tema de direito tratado no julgamento, com base principal na ementa.
+- "punchline": descreva a tese principal adotada no julgamento, destacando ratio decidendi e consequencia pratica.
+- Use portugues claro e objetivo.
+- Nao invente fatos fora do texto fornecido.
+- Retorne somente JSON valido no formato:
+{{"tema":"...","punchline":"..."}}"""
+
+
 def gerar_prompt_tse(page_data: dict[str, str]) -> str:
-    numero = compact_text(page_data.get("numero_processo"), 120)
-    classe = compact_text(page_data.get("classe_processo"), 80)
-    tema = compact_text(page_data.get("tema"), 200)
-    tribunal = compact_text(page_data.get("tribunal"), 120)
-    data = compact_text(page_data.get("data_sessao"), 80)
-    punchline = compact_text(page_data.get("punchline"), 200)
+    numero_unico = page_data.get("numero_unico", "")
+    data_decisao = page_data.get("data_decisao", "")
+    assuntos = page_data.get("assuntos", "")
+    partes = page_data.get("partes", "")
+    relatores = page_data.get("relatores", "")
+    texto_decisao = page_data.get("texto_decisao", "")
+    texto_ementa = page_data.get("texto_ementa", "")
+    sigla_uf = page_data.get("sigla_uf", "")
+    nome_municipio = page_data.get("nome_municipio", "")
+    tribunal = page_data.get("tribunal", "")
 
-    return f"""Encontre uma notícia OFICIAL da Justiça Eleitoral APENAS no domínio tse.jus.br sobre:
+    return f"""Encontre uma notícia OFICIAL da Justiça Eleitoral APENAS no domínio tse.jus.br sobre o caso abaixo:
 
-Processo: {numero}
-Classe: {classe}
-Tema: {tema}
-Tribunal: {tribunal}
-Data da Sessão: {data}
-Punchline: {punchline}
+numeroUnico: {numero_unico}
+dataDecisao: {data_decisao}
+assuntos: {assuntos}
+partes: {partes}
+relatores: {relatores}
+textoDecisao: {texto_decisao}
+textoEmenta: {texto_ementa}
+siglaUF: {sigla_uf}
+nomeMunicipio: {nome_municipio}
+tribunal: {tribunal}
 
 RETORNE APENAS o URL direto da notícia encontrada (começando com http), sem explicações.
 Se NÃO encontrar, retorne: VAZIO"""
 
 
 def gerar_prompt_tre(page_data: dict[str, str]) -> str:
-    numero = compact_text(page_data.get("numero_processo"), 120)
-    tema = compact_text(page_data.get("tema"), 200)
-    origem = compact_text(page_data.get("origem"), 100)
-    punchline = compact_text(page_data.get("punchline"), 200)
+    numero_unico = page_data.get("numero_unico", "")
+    data_decisao = page_data.get("data_decisao", "")
+    assuntos = page_data.get("assuntos", "")
+    partes = page_data.get("partes", "")
+    relatores = page_data.get("relatores", "")
+    texto_decisao = page_data.get("texto_decisao", "")
+    texto_ementa = page_data.get("texto_ementa", "")
+    sigla_uf = page_data.get("sigla_uf", "")
+    nome_municipio = page_data.get("nome_municipio", "")
+    origem = page_data.get("origem", "")
 
-    return f"""Encontre uma notícia OFICIAL de um Tribunal Regional Eleitoral (TRE estadual) em domínios tre-XX.jus.br sobre:
+    return f"""Encontre uma notícia OFICIAL de um Tribunal Regional Eleitoral (TRE estadual) em domínios tre-XX.jus.br sobre o caso abaixo:
 
-Processo: {numero}
-Tema: {tema}
-Estado de Origem: {origem}
-Punchline: {punchline}
+numeroUnico: {numero_unico}
+dataDecisao: {data_decisao}
+assuntos: {assuntos}
+partes: {partes}
+relatores: {relatores}
+textoDecisao: {texto_decisao}
+textoEmenta: {texto_ementa}
+siglaUF: {sigla_uf}
+nomeMunicipio: {nome_municipio}
+origem: {origem}
 
 RETORNE APENAS o URL direto da notícia (começando com http e contendo tre-), sem explicações.
 Se NÃO encontrar, retorne: VAZIO"""
 
 
 def gerar_prompt_gerais(page_data: dict[str, str]) -> str:
-    numero = compact_text(page_data.get("numero_processo"), 120)
-    tema = compact_text(page_data.get("tema"), 200)
-    partes = compact_text(page_data.get("partes"), 200)
-    punchline = compact_text(page_data.get("punchline"), 200)
+    numero_unico = page_data.get("numero_unico", "")
+    data_decisao = page_data.get("data_decisao", "")
+    assuntos = page_data.get("assuntos", "")
+    partes = page_data.get("partes", "")
+    relatores = page_data.get("relatores", "")
+    texto_decisao = page_data.get("texto_decisao", "")
+    texto_ementa = page_data.get("texto_ementa", "")
+    sigla_uf = page_data.get("sigla_uf", "")
+    nome_municipio = page_data.get("nome_municipio", "")
     veiculos_str = ", ".join(VEICULOS_GERAIS)
 
     return f"""Encontre noticias sobre este caso eleitoral em grandes veículos de mídia brasileira.
 
-Processo: {numero}
-Tema: {tema}
-Partes principais: {partes}
-Resumo da decisão: {punchline}
+numeroUnico: {numero_unico}
+dataDecisao: {data_decisao}
+assuntos: {assuntos}
+partes: {partes}
+relatores: {relatores}
+textoDecisao: {texto_decisao}
+textoEmenta: {texto_ementa}
+siglaUF: {sigla_uf}
+nomeMunicipio: {nome_municipio}
 
 Procure apenas nos seguintes veículos: {veiculos_str}.
 
@@ -480,18 +664,28 @@ REGRAS DE RESPOSTA (OBRIGATÓRIAS):
 
 
 def gerar_prompt_gerais_com_sites(page_data: dict[str, str]) -> str:
-    numero = compact_text(page_data.get("numero_processo"), 120)
-    tema = compact_text(page_data.get("tema"), 200)
-    partes = compact_text(page_data.get("partes"), 200)
-    punchline = compact_text(page_data.get("punchline"), 200)
+    numero_unico = page_data.get("numero_unico", "")
+    data_decisao = page_data.get("data_decisao", "")
+    assuntos = page_data.get("assuntos", "")
+    partes = page_data.get("partes", "")
+    relatores = page_data.get("relatores", "")
+    texto_decisao = page_data.get("texto_decisao", "")
+    texto_ementa = page_data.get("texto_ementa", "")
+    sigla_uf = page_data.get("sigla_uf", "")
+    nome_municipio = page_data.get("nome_municipio", "")
     sites_str = " ".join([f"site:{domain}" for domain in VEICULOS_DOMINIOS])
 
     return f"""Encontre noticias sobre este caso eleitoral nos domínios listados.
 
-Processo: {numero}
-Tema: {tema}
-Partes principais: {partes}
-Resumo da decisão: {punchline}
+numeroUnico: {numero_unico}
+dataDecisao: {data_decisao}
+assuntos: {assuntos}
+partes: {partes}
+relatores: {relatores}
+textoDecisao: {texto_decisao}
+textoEmenta: {texto_ementa}
+siglaUF: {sigla_uf}
+nomeMunicipio: {nome_municipio}
 
 Restrição de domínios (obrigatória): {sites_str}
 
@@ -614,9 +808,12 @@ async def enriquecer_rows_com_urls_async(
     rows: list[dict[str, str]],
     logger: Callable[[str], None],
     config: WebLookupConfig,
+    lookup_payloads: Optional[Sequence[dict[str, str]]] = None,
 ) -> None:
     if not rows:
         return
+    if lookup_payloads is not None and len(lookup_payloads) != len(rows):
+        raise ValueError("lookup_payloads precisa ter o mesmo tamanho de rows.")
     gerenciador = GerenciadorRequisicoes(
         api_key=config.api_key,
         model=config.model,
@@ -627,16 +824,21 @@ async def enriquecer_rows_com_urls_async(
         for start in range(0, total, config.batch_size):
             end = min(start + config.batch_size, total)
             lote = rows[start:end]
+            lote_payloads = (
+                list(lookup_payloads[start:end])
+                if lookup_payloads is not None
+                else [build_lookup_payload(row) for row in lote]
+            )
             logger(f"[Perplexity] Processando lote {start + 1}-{end} de {total}")
             tarefas = []
-            for row in lote:
+            for row, lookup_data in zip(lote, lote_payloads):
                 precisa_tse = not bool((row.get("noticia_TSE") or "").strip())
                 precisa_tre = not bool((row.get("noticia_TRE") or "").strip())
                 precisa_gerais = any(not bool((row.get(f"noticia_geral_{i}") or "").strip()) for i in range(1, 10))
                 tarefas.append(
                     buscar_todas_noticias_async(
                         gerenciador,
-                        build_lookup_payload(row),
+                        lookup_data,
                         precisa_tse=precisa_tse,
                         precisa_tre=precisa_tre,
                         precisa_gerais=precisa_gerais,
@@ -644,8 +846,110 @@ async def enriquecer_rows_com_urls_async(
                     )
                 )
             resultados = await asyncio.gather(*tarefas)
+            batch_tse = 0
+            batch_tre = 0
+            batch_gerais = 0
             for row, (url_tse, url_tre, urls_gerais) in zip(lote, resultados):
+                before_tse = bool((row.get("noticia_TSE") or "").strip())
+                before_tre = bool((row.get("noticia_TRE") or "").strip())
+                before_gerais = sum(bool((row.get(f"noticia_geral_{i}") or "").strip()) for i in range(1, 10))
                 _aplicar_urls_no_row(row, url_tse, url_tre, urls_gerais)
+                after_tse = bool((row.get("noticia_TSE") or "").strip())
+                after_tre = bool((row.get("noticia_TRE") or "").strip())
+                after_gerais = sum(bool((row.get(f"noticia_geral_{i}") or "").strip()) for i in range(1, 10))
+                if not before_tse and after_tse:
+                    batch_tse += 1
+                if not before_tre and after_tre:
+                    batch_tre += 1
+                if after_gerais > before_gerais:
+                    batch_gerais += after_gerais - before_gerais
+            logger(
+                "[Perplexity] Lote "
+                f"{start + 1}-{end} concluido | novos_tse={batch_tse} | "
+                f"novos_tre={batch_tre} | novas_gerais={batch_gerais}"
+            )
+            if end < total and config.delay_between_batches > 0:
+                await asyncio.sleep(config.delay_between_batches)
+    finally:
+        gerenciador.close()
+
+
+def _aplicar_tema_punchline_no_row(row: dict[str, str], tema: str, punchline: str) -> None:
+    tema_limpo, _ = sanitize_cell(tema, max_chars=0, replace_newlines=True)
+    punchline_limpo, _ = sanitize_cell(punchline, max_chars=0, replace_newlines=True)
+    if tema_limpo and not (row.get("tema") or "").strip():
+        row["tema"] = tema_limpo
+    if punchline_limpo and not (row.get("punchline") or "").strip():
+        row["punchline"] = punchline_limpo
+
+
+async def enriquecer_rows_com_tema_punchline_async(
+    rows: list[dict[str, str]],
+    logger: Callable[[str], None],
+    config: TemaPunchlineConfig,
+    lookup_payloads: Optional[Sequence[dict[str, str]]] = None,
+) -> None:
+    if not rows:
+        return
+    if lookup_payloads is not None and len(lookup_payloads) != len(rows):
+        raise ValueError("lookup_payloads precisa ter o mesmo tamanho de rows.")
+    gerenciador = GerenciadorOpenAI(
+        api_key=config.api_key,
+        model=config.model,
+        max_workers=config.max_workers,
+    )
+    try:
+        total = len(rows)
+        for start in range(0, total, config.batch_size):
+            end = min(start + config.batch_size, total)
+            lote = rows[start:end]
+            lote_payloads = (
+                list(lookup_payloads[start:end])
+                if lookup_payloads is not None
+                else [build_lookup_payload(row) for row in lote]
+            )
+            logger(f"[ChatGPT] Processando lote {start + 1}-{end} de {total}")
+            tarefas = []
+            requested_rows = 0
+            for row, lookup_data in zip(lote, lote_payloads):
+                precisa_tema = not bool((row.get("tema") or "").strip())
+                precisa_punchline = not bool((row.get("punchline") or "").strip())
+                if not (precisa_tema or precisa_punchline):
+                    tarefas.append(asyncio.sleep(0, result=None))
+                    continue
+                requested_rows += 1
+                prompt = gerar_prompt_tema_punchline(lookup_data)
+                tarefas.append(gerenciador.call_tema_punchline(prompt, timeout=config.timeout_seconds))
+
+            resultados = await asyncio.gather(*tarefas)
+            tema_preenchidos = 0
+            punchline_preenchidos = 0
+            sem_retorno = 0
+            for row, resultado in zip(lote, resultados):
+                tema_antes = bool((row.get("tema") or "").strip())
+                punchline_antes = bool((row.get("punchline") or "").strip())
+                if not isinstance(resultado, dict):
+                    if not tema_antes or not punchline_antes:
+                        sem_retorno += 1
+                    continue
+                _aplicar_tema_punchline_no_row(
+                    row,
+                    tema=str(resultado.get("tema", "") or ""),
+                    punchline=str(resultado.get("punchline", "") or ""),
+                )
+                tema_depois = bool((row.get("tema") or "").strip())
+                punchline_depois = bool((row.get("punchline") or "").strip())
+                if not tema_antes and tema_depois:
+                    tema_preenchidos += 1
+                if not punchline_antes and punchline_depois:
+                    punchline_preenchidos += 1
+            logger(
+                "[ChatGPT] Lote "
+                f"{start + 1}-{end} concluido | linhas_consultadas={requested_rows} | "
+                f"tema_preenchidos={tema_preenchidos} | "
+                f"punchline_preenchidos={punchline_preenchidos} | "
+                f"sem_retorno={sem_retorno}"
+            )
             if end < total and config.delay_between_batches > 0:
                 await asyncio.sleep(config.delay_between_batches)
     finally:
@@ -856,6 +1160,7 @@ def process_one_csv(
     max_texto_chars: int,
     replace_newlines: bool,
     web_lookup_config: WebLookupConfig,
+    tema_punchline_config: TemaPunchlineConfig,
     logger: Callable[[str], None],
 ) -> ProcessSummary:
     encoding, delimiter = detect_csv_format(input_path)
@@ -873,7 +1178,7 @@ def process_one_csv(
 
         output_path = out_dir / f"{input_path.stem}_notion.csv"
         output_fields = [header for header in clean_headers if header not in EXCLUDED_COLUMNS]
-        for derived in ("composicao", "advogados", "resultado"):
+        for derived in ("composicao", "advogados", "resultado", *THEME_COLUMNS):
             if derived not in output_fields:
                 output_fields.append(derived)
         for url_column in URL_COLUMNS:
@@ -881,9 +1186,10 @@ def process_one_csv(
                 output_fields.append(url_column)
 
         processed_rows: list[dict[str, str]] = []
+        lookup_payloads: list[dict[str, str]] = []
         truncated_cells = 0
 
-        for source_row in reader:
+        for row_index, source_row in enumerate(reader, start=1):
             clean_row: dict[str, str] = {}
             for original_key, clean_key in mapping:
                 if clean_key in EXCLUDED_COLUMNS:
@@ -912,11 +1218,31 @@ def process_one_csv(
             texto_decisao_key = source_key_by_clean.get("textoDecisao")
             texto_ementa_key = source_key_by_clean.get("textoEmenta")
             descricao_tipo_decisao_key = source_key_by_clean.get("descricaoTipoDecisao")
+            numero_unico_key = source_key_by_clean.get("numeroUnico")
+            numero_processo_key = source_key_by_clean.get("numeroProcesso")
+            data_decisao_key = source_key_by_clean.get("dataDecisao")
+            assuntos_key = source_key_by_clean.get("assuntos")
+            partes_key = source_key_by_clean.get("partes")
+            relatores_key = source_key_by_clean.get("relatores")
+            sigla_tribunal_je_key = source_key_by_clean.get("siglaTribunalJE")
+            origem_decisao_key = source_key_by_clean.get("origemDecisao")
+            sigla_uf_key = source_key_by_clean.get("siglaUF")
+            nome_municipio_key = source_key_by_clean.get("nomeMunicipio")
             texto_decisao_raw = source_row.get(texto_decisao_key, "") if texto_decisao_key else ""
             texto_ementa_raw = source_row.get(texto_ementa_key, "") if texto_ementa_key else ""
             descricao_tipo_decisao_raw = (
                 source_row.get(descricao_tipo_decisao_key, "") if descricao_tipo_decisao_key else ""
             )
+            numero_unico_raw = source_row.get(numero_unico_key, "") if numero_unico_key else ""
+            numero_processo_raw = source_row.get(numero_processo_key, "") if numero_processo_key else ""
+            data_decisao_raw = source_row.get(data_decisao_key, "") if data_decisao_key else ""
+            assuntos_raw = source_row.get(assuntos_key, "") if assuntos_key else ""
+            partes_raw = source_row.get(partes_key, "") if partes_key else ""
+            relatores_raw = source_row.get(relatores_key, "") if relatores_key else ""
+            sigla_tribunal_je_raw = source_row.get(sigla_tribunal_je_key, "") if sigla_tribunal_je_key else ""
+            origem_decisao_raw = source_row.get(origem_decisao_key, "") if origem_decisao_key else ""
+            sigla_uf_raw = source_row.get(sigla_uf_key, "") if sigla_uf_key else ""
+            nome_municipio_raw = source_row.get(nome_municipio_key, "") if nome_municipio_key else ""
             texto_decisao_full, _ = sanitize_cell(texto_decisao_raw, max_chars=0, replace_newlines=replace_newlines)
             texto_ementa_full, _ = sanitize_cell(texto_ementa_raw, max_chars=0, replace_newlines=replace_newlines)
             descricao_tipo_decisao_full, _ = sanitize_cell(
@@ -924,6 +1250,29 @@ def process_one_csv(
                 max_chars=0,
                 replace_newlines=replace_newlines,
             )
+            numero_unico_full, _ = sanitize_cell(numero_unico_raw, max_chars=0, replace_newlines=replace_newlines)
+            numero_processo_full, _ = sanitize_cell(numero_processo_raw, max_chars=0, replace_newlines=replace_newlines)
+            data_decisao_full, _ = sanitize_cell(data_decisao_raw, max_chars=0, replace_newlines=replace_newlines)
+            assuntos_full, _ = sanitize_cell(assuntos_raw, max_chars=0, replace_newlines=replace_newlines)
+            partes_full, _ = sanitize_cell(partes_raw, max_chars=0, replace_newlines=replace_newlines)
+            relatores_full, _ = sanitize_cell(relatores_raw, max_chars=0, replace_newlines=replace_newlines)
+            sigla_tribunal_je_full, _ = sanitize_cell(
+                sigla_tribunal_je_raw,
+                max_chars=0,
+                replace_newlines=replace_newlines,
+            )
+            origem_decisao_full, _ = sanitize_cell(
+                origem_decisao_raw,
+                max_chars=0,
+                replace_newlines=replace_newlines,
+            )
+            sigla_uf_full, _ = sanitize_cell(sigla_uf_raw, max_chars=0, replace_newlines=replace_newlines)
+            nome_municipio_full, _ = sanitize_cell(nome_municipio_raw, max_chars=0, replace_newlines=replace_newlines)
+            numero_unico_full = format_numero_unico_cnj(numero_unico_full)
+            numero_processo_full = SPACE_RE.sub(" ", numero_processo_full).strip()
+            numero_referencia = numero_unico_full or numero_processo_full
+            partes_full = format_partes_as_multiselect(partes_full)
+            relatores_full = clean_relator_prefix(relatores_full)
 
             clean_row["composicao"] = extract_composicao_multiselect(texto_decisao_full, texto_ementa_full)
             clean_row["advogados"] = extract_advogados_multiselect(texto_decisao_full, texto_ementa_full)
@@ -936,10 +1285,67 @@ def process_one_csv(
                 clean_row[url_column] = clean_row.get(url_column, "")
 
             processed_rows.append(clean_row)
+            lookup_payloads.append(
+                {
+                    "numero_unico": numero_referencia,
+                    "data_decisao": data_decisao_full,
+                    "assuntos": assuntos_full,
+                    "partes": partes_full,
+                    "relatores": relatores_full,
+                    "texto_decisao": texto_decisao_full,
+                    "texto_ementa": texto_ementa_full,
+                    "sigla_uf": sigla_uf_full,
+                    "nome_municipio": nome_municipio_full,
+                    "tribunal": " ".join(
+                        part for part in (sigla_tribunal_je_full, origem_decisao_full) if part
+                    ).strip(),
+                    "origem": " ".join(part for part in (sigla_uf_full, nome_municipio_full) if part).strip(),
+                }
+            )
+            if row_index % ROW_PROGRESS_EVERY == 0:
+                logger(
+                    f"[Processamento] {input_path.name}: {row_index} linhas preparadas "
+                    f"(truncadas={truncated_cells})"
+                )
+
+        logger(
+            f"[Processamento] {input_path.name}: total de {len(processed_rows)} linhas preparadas "
+            f"(truncadas={truncated_cells})"
+        )
+
+        if tema_punchline_config.enabled:
+            logger(f"[ChatGPT] Iniciando geracao de tema/punchline para {len(processed_rows)} linhas...")
+            logger(
+                "[ChatGPT] Config: "
+                f"model={tema_punchline_config.model}, workers={tema_punchline_config.max_workers}, "
+                f"batch={tema_punchline_config.batch_size}, timeout={tema_punchline_config.timeout_seconds}s, "
+                f"delay={tema_punchline_config.delay_between_batches}s"
+            )
+            asyncio.run(
+                enriquecer_rows_com_tema_punchline_async(
+                    processed_rows,
+                    logger,
+                    tema_punchline_config,
+                    lookup_payloads=lookup_payloads,
+                )
+            )
 
         if web_lookup_config.enabled:
             logger(f"[Perplexity] Iniciando busca de URLs para {len(processed_rows)} linhas...")
-            asyncio.run(enriquecer_rows_com_urls_async(processed_rows, logger, web_lookup_config))
+            logger(
+                "[Perplexity] Config: "
+                f"model={web_lookup_config.model}, workers={web_lookup_config.max_workers}, "
+                f"batch={web_lookup_config.batch_size}, timeout={web_lookup_config.timeout_seconds}s, "
+                f"delay={web_lookup_config.delay_between_batches}s"
+            )
+            asyncio.run(
+                enriquecer_rows_com_urls_async(
+                    processed_rows,
+                    logger,
+                    web_lookup_config,
+                    lookup_payloads=lookup_payloads,
+                )
+            )
 
         with output_path.open("w", encoding="utf-8-sig", newline="") as dst:
             writer = csv.DictWriter(dst, fieldnames=output_fields)
@@ -1011,6 +1417,7 @@ def run_batch(
     combined_name: str,
     replace_newlines: bool,
     web_lookup_config: WebLookupConfig,
+    tema_punchline_config: TemaPunchlineConfig,
     logger: Callable[[str], None],
 ) -> tuple[list[ProcessSummary], Path, int]:
     if not files:
@@ -1023,6 +1430,12 @@ def run_batch(
             "Busca de URLs ativada, mas sem API key da Perplexity. "
             "Use --perplexity-api-key, a variavel de ambiente PERPLEXITY_API_KEY "
             f"ou o arquivo {DEFAULT_PERPLEXITY_KEY_FILE}."
+        )
+    if tema_punchline_config.enabled and not tema_punchline_config.api_key:
+        raise ValueError(
+            "Geracao de tema/punchline ativada, mas sem API key da OpenAI. "
+            "Use --openai-api-key, a variavel de ambiente OPENAI_API_KEY "
+            f"ou o arquivo {DEFAULT_OPENAI_KEY_FILE}."
         )
 
     input_paths = normalize_input_paths(files)
@@ -1041,6 +1454,7 @@ def run_batch(
             max_texto_chars=max_texto_chars,
             replace_newlines=replace_newlines,
             web_lookup_config=web_lookup_config,
+            tema_punchline_config=tema_punchline_config,
             logger=logger,
         )
         summaries.append(summary)
@@ -1070,6 +1484,14 @@ def launch_gui() -> None:
             self.combined_name_var = tk.StringVar(value="jurisprudencia_compilado_notion.csv")
             self.replace_newlines_var = tk.BooleanVar(value=True)
             self.buscar_urls_var = tk.BooleanVar(value=False)
+            self.gerar_tema_punchline_var = tk.BooleanVar(value=False)
+            self.openai_key_file_var = tk.StringVar(value=str(Path.cwd() / DEFAULT_OPENAI_KEY_FILE))
+            self.openai_api_key_var = tk.StringVar(value=resolve_openai_api_key("", self.openai_key_file_var.get()))
+            self.openai_model_var = tk.StringVar(value="gpt-5-mini")
+            self.openai_workers_var = tk.StringVar(value="4")
+            self.openai_timeout_var = tk.StringVar(value="20")
+            self.openai_batch_size_var = tk.StringVar(value="20")
+            self.openai_delay_var = tk.StringVar(value="0.3")
             self.perplexity_key_file_var = tk.StringVar(value=str(Path.cwd() / DEFAULT_PERPLEXITY_KEY_FILE))
             self.perplexity_api_key_var = tk.StringVar(
                 value=resolve_perplexity_api_key("", self.perplexity_key_file_var.get())
@@ -1079,6 +1501,7 @@ def launch_gui() -> None:
             self.perplexity_timeout_var = tk.StringVar(value="15")
             self.perplexity_batch_size_var = tk.StringVar(value="20")
             self.perplexity_delay_var = tk.StringVar(value="0.3")
+            self.verbose_terminal_var = tk.BooleanVar(value=True)
 
             self._build_ui()
 
@@ -1144,17 +1567,14 @@ def launch_gui() -> None:
                 variable=self.buscar_urls_var,
             ).grid(row=4, column=0, columnspan=3, sticky="w", pady=(10, 0))
 
-            ttk.Label(options, text="Perplexity API key:").grid(row=5, column=0, sticky="w", pady=(8, 0))
-            ttk.Entry(options, textvariable=self.perplexity_api_key_var, width=70, show="*").grid(
-                row=5,
-                column=1,
-                sticky="ew",
-                padx=8,
-                pady=(8, 0),
-            )
+            ttk.Checkbutton(
+                options,
+                text="Gerar tema/punchline com ChatGPT",
+                variable=self.gerar_tema_punchline_var,
+            ).grid(row=5, column=0, columnspan=3, sticky="w", pady=(10, 0))
 
-            ttk.Label(options, text="Arquivo da chave:").grid(row=6, column=0, sticky="w", pady=(8, 0))
-            ttk.Entry(options, textvariable=self.perplexity_key_file_var, width=70).grid(
+            ttk.Label(options, text="OpenAI API key:").grid(row=6, column=0, sticky="w", pady=(8, 0))
+            ttk.Entry(options, textvariable=self.openai_api_key_var, width=70, show="*").grid(
                 row=6,
                 column=1,
                 sticky="ew",
@@ -1162,9 +1582,49 @@ def launch_gui() -> None:
                 pady=(8, 0),
             )
 
+            ttk.Label(options, text="Arquivo da chave OpenAI:").grid(row=7, column=0, sticky="w", pady=(8, 0))
+            ttk.Entry(options, textvariable=self.openai_key_file_var, width=70).grid(
+                row=7,
+                column=1,
+                sticky="ew",
+                padx=8,
+                pady=(8, 0),
+            )
+
+            openai_frame = ttk.Frame(options)
+            openai_frame.grid(row=8, column=0, columnspan=3, sticky="w", pady=(8, 0))
+            ttk.Label(openai_frame, text="Modelo OpenAI").grid(row=0, column=0, sticky="w")
+            ttk.Entry(openai_frame, textvariable=self.openai_model_var, width=12).grid(row=0, column=1, padx=(4, 14))
+            ttk.Label(openai_frame, text="Workers").grid(row=0, column=2, sticky="w")
+            ttk.Entry(openai_frame, textvariable=self.openai_workers_var, width=5).grid(row=0, column=3, padx=(4, 14))
+            ttk.Label(openai_frame, text="Timeout(s)").grid(row=0, column=4, sticky="w")
+            ttk.Entry(openai_frame, textvariable=self.openai_timeout_var, width=6).grid(row=0, column=5, padx=(4, 14))
+            ttk.Label(openai_frame, text="Batch").grid(row=0, column=6, sticky="w")
+            ttk.Entry(openai_frame, textvariable=self.openai_batch_size_var, width=6).grid(row=0, column=7, padx=(4, 14))
+            ttk.Label(openai_frame, text="Delay(s)").grid(row=0, column=8, sticky="w")
+            ttk.Entry(openai_frame, textvariable=self.openai_delay_var, width=6).grid(row=0, column=9, padx=(4, 0))
+
+            ttk.Label(options, text="Perplexity API key:").grid(row=9, column=0, sticky="w", pady=(8, 0))
+            ttk.Entry(options, textvariable=self.perplexity_api_key_var, width=70, show="*").grid(
+                row=9,
+                column=1,
+                sticky="ew",
+                padx=8,
+                pady=(8, 0),
+            )
+
+            ttk.Label(options, text="Arquivo da chave Perplexity:").grid(row=10, column=0, sticky="w", pady=(8, 0))
+            ttk.Entry(options, textvariable=self.perplexity_key_file_var, width=70).grid(
+                row=10,
+                column=1,
+                sticky="ew",
+                padx=8,
+                pady=(8, 0),
+            )
+
             perf_frame = ttk.Frame(options)
-            perf_frame.grid(row=7, column=0, columnspan=3, sticky="w", pady=(8, 0))
-            ttk.Label(perf_frame, text="Modelo").grid(row=0, column=0, sticky="w")
+            perf_frame.grid(row=11, column=0, columnspan=3, sticky="w", pady=(8, 0))
+            ttk.Label(perf_frame, text="Modelo Perplexity").grid(row=0, column=0, sticky="w")
             ttk.Entry(perf_frame, textvariable=self.perplexity_model_var, width=10).grid(row=0, column=1, padx=(4, 14))
             ttk.Label(perf_frame, text="Workers").grid(row=0, column=2, sticky="w")
             ttk.Entry(perf_frame, textvariable=self.perplexity_workers_var, width=5).grid(row=0, column=3, padx=(4, 14))
@@ -1174,6 +1634,12 @@ def launch_gui() -> None:
             ttk.Entry(perf_frame, textvariable=self.perplexity_batch_size_var, width=6).grid(row=0, column=7, padx=(4, 14))
             ttk.Label(perf_frame, text="Delay(s)").grid(row=0, column=8, sticky="w")
             ttk.Entry(perf_frame, textvariable=self.perplexity_delay_var, width=6).grid(row=0, column=9, padx=(4, 0))
+
+            ttk.Checkbutton(
+                options,
+                text="Verbose no terminal (CLI/GUI)",
+                variable=self.verbose_terminal_var,
+            ).grid(row=12, column=0, columnspan=3, sticky="w", pady=(8, 0))
 
             options.columnconfigure(1, weight=1)
 
@@ -1190,6 +1656,8 @@ def launch_gui() -> None:
             self.log_widget.insert("end", f"{message}\n")
             self.log_widget.see("end")
             self.log_widget.configure(state="disabled")
+            if self.verbose_terminal_var.get():
+                print(message, flush=True)
             self.root.update_idletasks()
 
         def add_files(self) -> None:
@@ -1249,14 +1717,27 @@ def launch_gui() -> None:
                 return
 
             try:
+                openai_workers = int(self.openai_workers_var.get().strip())
+                openai_timeout = int(self.openai_timeout_var.get().strip())
+                openai_batch_size = int(self.openai_batch_size_var.get().strip())
+                openai_delay = float(self.openai_delay_var.get().strip())
                 perplexity_workers = int(self.perplexity_workers_var.get().strip())
                 perplexity_timeout = int(self.perplexity_timeout_var.get().strip())
                 perplexity_batch_size = int(self.perplexity_batch_size_var.get().strip())
                 perplexity_delay = float(self.perplexity_delay_var.get().strip())
             except ValueError:
-                messagebox.showerror("Erro", "Parametros da Perplexity invalidos (workers/timeout/batch/delay).")
+                messagebox.showerror(
+                    "Erro",
+                    "Parametros invalidos (OpenAI/Perplexity em workers/timeout/batch/delay).",
+                )
                 return
 
+            if min(openai_workers, openai_timeout, openai_batch_size) <= 0:
+                messagebox.showerror("Erro", "OpenAI: workers, timeout e batch precisam ser maiores que zero.")
+                return
+            if openai_delay < 0:
+                messagebox.showerror("Erro", "OpenAI: delay nao pode ser negativo.")
+                return
             if min(perplexity_workers, perplexity_timeout, perplexity_batch_size) <= 0:
                 messagebox.showerror("Erro", "Workers, timeout e batch precisam ser maiores que zero.")
                 return
@@ -1264,6 +1745,18 @@ def launch_gui() -> None:
                 messagebox.showerror("Erro", "Delay nao pode ser negativo.")
                 return
 
+            tema_punchline_config = TemaPunchlineConfig(
+                enabled=self.gerar_tema_punchline_var.get(),
+                api_key=resolve_openai_api_key(
+                    self.openai_api_key_var.get().strip(),
+                    self.openai_key_file_var.get().strip(),
+                ),
+                model=self.openai_model_var.get().strip() or "gpt-5-mini",
+                timeout_seconds=openai_timeout,
+                max_workers=openai_workers,
+                batch_size=openai_batch_size,
+                delay_between_batches=openai_delay,
+            )
             web_lookup_config = WebLookupConfig(
                 enabled=self.buscar_urls_var.get(),
                 api_key=resolve_perplexity_api_key(
@@ -1285,6 +1778,7 @@ def launch_gui() -> None:
                     combined_name=self.combined_name_var.get().strip() or "jurisprudencia_compilado_notion.csv",
                     replace_newlines=self.replace_newlines_var.get(),
                     web_lookup_config=web_lookup_config,
+                    tema_punchline_config=tema_punchline_config,
                     logger=self.log,
                 )
             except Exception as exc:  # pylint: disable=broad-except
@@ -1357,6 +1851,11 @@ def build_parser() -> argparse.ArgumentParser:
         help="Ativa busca de URLs (TSE/TRE/Gerais) por linha via API da Perplexity.",
     )
     parser.add_argument(
+        "--gerar-tema-punchline-chatgpt",
+        action="store_true",
+        help="Ativa geracao de tema e punchline por linha via OpenAI (padrao: gpt-5-mini).",
+    )
+    parser.add_argument(
         "--perplexity-api-key",
         default="",
         help="API key da Perplexity (precedencia maior; evita depender de arquivo/env).",
@@ -1399,6 +1898,48 @@ def build_parser() -> argparse.ArgumentParser:
         help="Pausa (segundos) entre lotes de consultas Perplexity.",
     )
     parser.add_argument(
+        "--openai-api-key",
+        default="",
+        help="API key da OpenAI (precedencia maior; evita depender de arquivo/env).",
+    )
+    parser.add_argument(
+        "--openai-key-file",
+        default=DEFAULT_OPENAI_KEY_FILE,
+        help=(
+            "Arquivo local com a chave da OpenAI (padrao: "
+            f"{DEFAULT_OPENAI_KEY_FILE}; usado quando --openai-api-key/env nao forem informados)."
+        ),
+    )
+    parser.add_argument(
+        "--openai-model",
+        default="gpt-5-mini",
+        help="Modelo OpenAI para gerar tema/punchline (padrao: gpt-5-mini).",
+    )
+    parser.add_argument(
+        "--openai-max-workers",
+        type=int,
+        default=4,
+        help="Numero maximo de workers para chamadas HTTP da OpenAI.",
+    )
+    parser.add_argument(
+        "--openai-timeout",
+        type=int,
+        default=20,
+        help="Timeout (segundos) de cada chamada OpenAI.",
+    )
+    parser.add_argument(
+        "--openai-batch-size",
+        type=int,
+        default=20,
+        help="Quantidade de linhas por lote de consultas OpenAI.",
+    )
+    parser.add_argument(
+        "--openai-delay",
+        type=float,
+        default=0.3,
+        help="Pausa (segundos) entre lotes de consultas OpenAI.",
+    )
+    parser.add_argument(
         "--no-gui",
         action="store_true",
         help="Forca modo CLI mesmo sem arquivos posicionais.",
@@ -1422,10 +1963,27 @@ def main() -> int:
             parser.error("--perplexity-batch-size deve ser maior que zero.")
         if args.perplexity_delay < 0:
             parser.error("--perplexity-delay nao pode ser negativo.")
+        if args.openai_max_workers <= 0:
+            parser.error("--openai-max-workers deve ser maior que zero.")
+        if args.openai_timeout <= 0:
+            parser.error("--openai-timeout deve ser maior que zero.")
+        if args.openai_batch_size <= 0:
+            parser.error("--openai-batch-size deve ser maior que zero.")
+        if args.openai_delay < 0:
+            parser.error("--openai-delay nao pode ser negativo.")
 
         def cli_logger(message: str) -> None:
             print(message)
 
+        tema_punchline_config = TemaPunchlineConfig(
+            enabled=args.gerar_tema_punchline_chatgpt,
+            api_key=resolve_openai_api_key(args.openai_api_key.strip(), args.openai_key_file),
+            model=args.openai_model.strip() or "gpt-5-mini",
+            timeout_seconds=args.openai_timeout,
+            max_workers=args.openai_max_workers,
+            batch_size=args.openai_batch_size,
+            delay_between_batches=args.openai_delay,
+        )
         web_lookup_config = WebLookupConfig(
             enabled=args.buscar_urls_perplexity,
             api_key=resolve_perplexity_api_key(args.perplexity_api_key.strip(), args.perplexity_key_file),
@@ -1444,6 +2002,7 @@ def main() -> int:
                 combined_name=args.combined_name,
                 replace_newlines=not args.keep_newlines,
                 web_lookup_config=web_lookup_config,
+                tema_punchline_config=tema_punchline_config,
                 logger=cli_logger,
             )
         except Exception as exc:  # pylint: disable=broad-except
