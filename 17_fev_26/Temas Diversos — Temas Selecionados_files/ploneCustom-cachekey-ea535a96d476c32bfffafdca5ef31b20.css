@@ -1,0 +1,145 @@
+
+/* - ploneCustom.css - */
+@media all {
+/* https://temasselecionados.tse.jus.br/portal_css/ploneCustom.css?original=1 */
+#portal-header {
+background: linear-gradient(180deg, rgba(214,214,214,1) 0%, rgba(129,129,129,1) 75%, rgba(129,129,129,1) 100%);
+}
+#portal-logo {
+width: 307px;
+padding-left: 22px;
+margin-top: 20px;
+}
+#textoLogo{
+color: #FFFFFF;
+font-weight: bold;
+text-align: center;
+font-size: 135%;
+}
+#portal-searchbox {
+padding-left: 33px;
+width: 55%;
+color: #FFFFFF;
+}
+#portal-searchbox .searchField{
+border: 1px solid #999999;
+height: 1.8em;
+width:70% !important;
+padding-left: 5px;
+}
+#portal-searchbox  #searchbox_currentfolder_only{
+border: 1px solid #999999;
+}
+.searchSection label{
+margin-top: -20px !important;
+}
+.searchSection {
+color: #FFF;
+margin-top: 0em;
+width: 70%;
+font-size: 80%;
+text-align: right;
+}
+#portal-searchbox .searchButton {
+background: url("busca.png") repeat scroll 0 0 transparent !important;
+border: medium none !important;
+font-size: 0 !important;
+height: 40px !important;
+width: 40px !important;
+margin-left: 5px !important;
+}
+#descricao_busca {
+margin-top: 10px;
+font-weight: bold;
+}
+@media handheld, screen and (max-device-width: 480px) {
+#descricao_busca {
+font-weight: bold;
+font-size: 80%;
+text-align: left;
+}
+#portal-searchbox {
+font-size: 70%;
+width: 90%;
+}
+}
+#descricao_busca a {
+color: #bccedd;
+}
+#portal-breadcrumbs {
+border-bottom: 1px solid #CC9900 !important;
+color: #CC9900 !important;
+line-height: 1.6em;
+padding-left: 0 !important;
+padding-right: 0.5em !important;
+text-transform: none;
+margin-bottom: inherit !important;
+}
+#portal-breadcrumbs a {
+color: #CC9900 !important;
+}
+blockquote {
+border-left: 0 none !important;
+padding-left: 20px;
+}
+.portlet-static-temas-especiais .portletHeader{
+background: #ffe300 !important;
+}
+.portlet-static-temas-especiais .portletItem{
+padding: 1em 1em 0 1em !important;
+}
+.portlet-static-temas-especiais a{
+color: red !important;
+border-bottom: 0 !important;
+}
+.portletNavigationTree img {
+display: initial !important;
+padding-right: 5px !important;
+}
+#portletwrapper-706c6f6e652e6c656674636f6c756d6e0a636f6e746578740a2f74656d61735f73656c6563696f6e61646f732f74656d61732d73656c6563696f6e61646f732f74657374652d76697375616c697a6163616f2d62616e6e65722d636f6d70726f766163616f0a74656d612d657370656369616c2d636f6d70726f766163616f2d64652d72656365697461732d652d676173746f73{
+margin-bottom: 5px;
+}
+#portletwrapper-706c6f6e652e6c656674636f6c756d6e0a636f6e746578740a2f74656d61735f73656c6563696f6e61646f732f74656d61732d73656c6563696f6e61646f732f74657374652d76697375616c697a6163616f2d62616e6e65722d636f6d70726f766163616f0a74656d612d657370656369616c2d636f6d70726f766163616f2d64652d72656365697461732d652d676173746f73 .portletHeader  .tile{
+font-size: 85% !important;
+}
+table {
+width: 100%;
+}
+/* */
+.container-menu{
+background-color: #eee;
+padding: 5px;
+margin-bottom: 10px;
+}
+#menu-summary{
+width:100%;
+text-align:center;
+margin: 10px 0 ;
+}
+.summaryitem{
+display: inline-block !important;
+list-style: none;
+text-decoration: none;
+background: #c1c1c1;
+padding: 3px 5px;
+border-radius: 10px;
+margin: 3px;
+}
+.summaryitem a {
+color: #205c90 !important;
+}
+.summaryitem a:hover {
+border-bottom:2px solid #4c4c4c !important;
+color: #205c90 !important;
+}
+#portal-personaltools-wrapper{
+clear: right;
+}
+@media (max-width: 600px) {
+#bannervolume {
+width: 100%;
+}
+}
+
+}
+

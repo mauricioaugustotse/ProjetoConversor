@@ -1,0 +1,14 @@
+CSV entrada: temas_selec_TSE_all_4.csv
+CSV saída: temas_selec_TSE_all_5.csv
+Linhas input: 26317
+Linhas output: 26317
+Linhas alvo detectadas: 932
+Linhas alvo esperadas (referência): 932
+Texto_original recuperado por HTML: 932
+Texto_original não recuperado: 0
+API sucesso: 932
+API falhas: 0
+contexto automático remanescente nas linhas alvo: 0
+Auditoria reprocessados: auditoria_temas_all_5_20260217_reprocessados.csv
+Auditoria texto não recuperado: auditoria_temas_all_5_20260217_texto_original_nao_recuperado.csv
+Auditoria API falhas: auditoria_temas_all_5_20260217_api_falhas.csv

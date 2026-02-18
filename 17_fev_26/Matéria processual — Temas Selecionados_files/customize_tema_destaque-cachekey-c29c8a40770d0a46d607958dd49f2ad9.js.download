@@ -1,0 +1,7 @@
+
+/* - customize_tema_destaque.js - */
+// https://temasselecionados.tse.jus.br/portal_javascripts/customize_tema_destaque.js?original=1
+$(document).ready(function(){$(".section-comprovacao-de-receitas-e-gastos-partidarios a img").first().attr('width','32')
+$(".section-comprovacao-de-receitas-e-gastos-partidarios a img").first().attr('src',"https://temasselecionados.tse.jus.br/volumedestaque.png")
+$(".section-repositorio-decisoes-sobre-enfrentamento a img").first().attr('width','32')
+$(".section-repositorio-decisoes-sobre-enfrentamento a img").first().attr('src',"https://temasselecionados.tse.jus.br/volumedestaque.png")});

@@ -1,0 +1,22 @@
+CSV entrada: temas_selec_TSE_all.csv
+HTML entrada: Apuração de votos e eleições extraordinárias — Temas Selecionados.html
+CSV saída: temas_selec_TSE_all_apuracao_enriquecido_20260217.csv
+Prefixo auditoria: auditoria_apuracao_20260217
+
+Linhas totais no CSV: 25385
+Linhas no ramo alvo: 1025
+Linhas fora do ramo alvo: 24360
+
+Datas normalizadas (valor alterado): 0
+Datas vazias no ramo alvo: 7
+Datas não interpretáveis (mantidas): 0
+
+Links preenchidos (match único): 767
+Linhas alvo sem link: 258
+Linhas sem match: 10
+Linhas ambíguas: 248
+
+Omissões HTML não no CSV: 21
+Citações CSV não no HTML: 38
+
+Alterações de data fora do ramo alvo (esperado 0): 0

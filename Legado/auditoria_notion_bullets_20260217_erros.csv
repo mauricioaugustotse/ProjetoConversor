@@ -1,0 +1,3 @@
+﻿stage,database_id,database_title,page_id,page_url,error_type,http_status,detail
+database_schema,30172195-5c64-80af-aa2e-edbdc7cd2aba,DJe,,,database_without_bullet_points,,Database sem propriedade 'bullet_points'; ignorado.
+database_schema,2eb72195-5c64-8097-96be-c75a81f9555f,sessões,,,database_without_bullet_points,,Database sem propriedade 'bullet_points'; ignorado.

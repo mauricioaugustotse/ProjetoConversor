@@ -1,0 +1,34 @@
+CSV entrada: temas_selec_TSE_all.csv
+CSV saída: temas_selec_TSE_all_2.csv
+HTML glob: * — Temas Selecionados.html
+HTMLs encontrados: 22
+Ramos mapeados: 22
+Top-k links: 3
+Consulta live habilitada: sim
+
+Linhas totais (originais): 25385
+Linhas inseridas por omissão: 932
+Linhas totais (final): 26317
+Linhas com >=1 link: 26204
+Linhas sem match: 113
+Linhas com múltiplos candidatos: 2060
+Linhas truncadas top-k: 22
+Total de candidatos (antes do corte): 28364
+
+Datas alteradas por normalização: 0
+Datas vazias: 62
+Datas não interpretáveis: 4
+
+Citações somente live (todas as páginas): 599
+Omissões HTML não no CSV: 0
+Citações CSV não no HTML: 1918
+
+Arquivos de auditoria:
+- auditoria_temas_all_2_20260217_linhas_sem_match.csv
+- auditoria_temas_all_2_20260217_linhas_com_multiplos_candidatos.csv
+- auditoria_temas_all_2_20260217_linhas_truncadas_top3.csv
+- auditoria_temas_all_2_20260217_omissoes_html_nao_no_csv.csv
+- auditoria_temas_all_2_20260217_csv_nao_no_html.csv
+- auditoria_temas_all_2_20260217_datas_nao_interpretaveis.csv
+- auditoria_temas_all_2_20260217_casos_novos_inseridos.csv
+- auditoria_temas_all_2_20260217_comparativo_live_local.csv

@@ -1,0 +1,933 @@
+﻿row_idx,ID,numero_processo,ramo,link_1,status_api,texto_original_recuperado_html,tema_len,contexto_len,tese_len,bullet_points_len,punchline_len
+25385,25386,10183,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=10183/processoClasse=CTA/decisaoData=19891103,ok,sim,80,593,385,449,114
+25386,25387,1103,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1103/processoClasse=MS/decisaoData=19890418,ok,sim,94,492,275,447,90
+25387,25388,11097,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=11097/processoClasse=RESPE/decisaoData=19930608,ok,sim,72,542,276,475,105
+25388,25389,11248,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=11248/processoClasse=RESPE/decisaoData=19930422,ok,sim,68,625,344,506,88
+25389,25390,1162,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1162/processoClasse=CTA/decisaoData=20050906,ok,sim,78,348,311,370,67
+25390,25391,1258,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1258/processoClasse=PET/decisaoData=20051219,ok,sim,86,711,333,479,101
+25391,25392,13049,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=13049/processoClasse=CTA/decisaoData=19920924,ok,sim,76,363,237,352,74
+25392,25393,13295,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=13295/processoClasse=CTA/decisaoData=19921110,ok,sim,79,565,338,340,79
+25393,25394,1364,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1364/processoClasse=MS/decisaoData=19920310,ok,sim,72,562,372,471,117
+25394,25395,1399,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1399/processoClasse=MS/decisaoData=19920204,ok,sim,94,351,271,388,99
+25395,25396,1498,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1498/processoClasse=ms/decisaoData=19920206,ok,sim,106,646,428,580,142
+25396,25397,15283,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=15283/processoClasse=RESPE/decisaoData=19980818,ok,sim,106,688,345,466,85
+25397,25398,16957,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=16957/processoClasse=PA/decisaoData=20000801,ok,sim,93,431,438,361,75
+25398,25399,18778,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=18778/processoClasse=pa/decisaoData=20020423,ok,sim,83,531,361,356,94
+25399,25400,1918,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1918/processoClasse=respe/decisaoData=19521229,ok,sim,78,415,322,428,78
+25400,25401,2,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/7363,ok,sim,70,540,359,442,101
+25401,25402,2013,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=2013/processoClasse=PET/decisaoData=20060831,ok,sim,72,386,301,333,86
+25402,25403,2040,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=2040/processoClasse=respe/decisaoData=19521222,ok,sim,69,603,474,413,100
+25403,25404,2309,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=2309/processoClasse=MS/decisaoData=19961119,ok,sim,83,513,339,352,96
+25404,25405,291,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=291/processoClasse=CTA/decisaoData=19961001,ok,sim,98,459,286,400,105
+25405,25406,2916,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=2916/processoClasse=RESPE/decisaoData=19670516,ok,sim,55,432,259,322,62
+25406,25407,2941,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=2941/processoClasse=PET/decisaoData=20081021,ok,sim,43,370,258,353,76
+25407,25408,2972,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=2972/processoClasse=PET/decisaoData=20090205,ok,sim,72,285,302,371,95
+25408,25409,317,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=317/processoClasse=cta/decisaoData=19550116,ok,sim,72,609,324,487,93
+25409,25410,3541,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=3541/processoClasse=RESPE/decisaoData=19710330,ok,sim,64,404,227,332,62
+25410,25411,3546,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=3546/processoClasse=RESPE/decisaoData=19710527,ok,sim,71,307,183,281,32
+25411,25412,3992,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=3992/processoClasse=RESPE/decisaoData=19730524,ok,sim,68,320,285,314,67
+25412,25413,4856,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=4856/processoClasse=RESPE/decisaoData=19770524,ok,sim,61,376,296,522,87
+25413,25414,4856,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/17143,ok,sim,65,325,213,464,95
+25414,25415,4880,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=4880/processoClasse=RESPE/decisaoData=19770510,ok,sim,58,469,339,413,58
+25415,25416,4891,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=4891/processoClasse=RESPE/decisaoData=19770927,ok,sim,69,276,195,256,28
+25416,25417,49,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/4142,ok,sim,79,550,356,363,97
+25417,25418,5007,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=5007/processoClasse=respe/decisaoData=19771215,ok,sim,86,649,385,583,118
+25418,25419,5561,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=5561/processoClasse=RESPE/decisaoData=19821217,ok,sim,99,508,295,380,100
+25419,25420,5577,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=5577/processoClasse=RESPE/decisaoData=19830809,ok,sim,72,399,284,452,105
+25420,25421,5610,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=5610/processoClasse=RESPE/decisaoData=19830512,ok,sim,105,374,353,352,90
+25421,25422,5659,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=5659/processoClasse=RESPE/decisaoData=19830208,ok,sim,75,677,467,433,70
+25422,25423,5707,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=5707/processoClasse=RESPE/decisaoData=19830412,ok,sim,69,359,187,366,37
+25423,25424,5714,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=5714/processoClasse=RESPE/decisaoData=19841009,ok,sim,75,342,256,385,84
+25424,25425,5730,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=5730/processoClasse=AG/decisaoData=19830308,ok,sim,70,549,313,357,74
+25425,25426,5777,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=5777/processoClasse=AG/decisaoData=19830317,ok,sim,70,447,427,467,88
+25426,25427,5803,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=5803/processoClasse=RP/decisaoData=19781201,ok,sim,72,736,422,541,108
+25427,25428,5927,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=5927/processoClasse=AG/decisaoData=19831122,ok,sim,96,385,338,324,71
+25428,25429,5954,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=5954/processoClasse=AG/decisaoData=19830503,ok,sim,73,651,411,513,127
+25429,25430,5969,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=5969/processoClasse=respe/decisaoData=19831027,ok,sim,72,505,313,370,112
+25430,25431,5977,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=5977/processoClasse=RESPE/decisaoData=19830510,ok,sim,70,548,389,431,69
+25431,25432,5982,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/12293,ok,sim,75,566,349,480,69
+25432,25433,60029160,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3471014,ok,sim,137,727,502,694,103
+25433,25434,60031958,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3487198,ok,sim,80,553,318,338,57
+25434,25435,60055326,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3459837,ok,sim,75,559,397,388,110
+25435,25436,602,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=602/processoClasse=CTA/decisaoData=20000530,ok,sim,83,581,295,492,63
+25436,25437,6268,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=6268/processoClasse=AG/decisaoData=19860812,ok,sim,76,680,456,656,124
+25437,25438,6276,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=6276/processoClasse=AG/decisaoData=19860506,ok,sim,95,452,369,326,71
+25438,25439,6674,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=6674/processoClasse=AG/decisaoData=19870421,ok,sim,82,843,378,595,105
+25439,25440,6695,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=6695/processoClasse=AG/decisaoData=19870604,ok,sim,86,661,575,575,109
+25440,25441,6823,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/9263,ok,sim,96,604,275,418,99
+25441,25442,6913,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/15324,ok,sim,115,450,310,546,89
+25442,25443,6965,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=6965/processoClasse=cta/decisaoData=19831215,ok,sim,54,405,217,304,88
+25443,25444,7057,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=7057/processoClasse=pa/decisaoData=19840612,ok,sim,69,355,294,427,101
+25444,25445,712,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/11592,ok,sim,68,400,401,478,123
+25445,25446,7859,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/12148,ok,sim,87,465,464,511,110
+25446,25447,8108,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=8108/processoClasse=MS/decisaoData=19860513,ok,sim,64,362,280,577,94
+25447,25448,8123,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=8123/processoClasse=RESPE/decisaoData=19890530,ok,sim,100,542,410,511,69
+25448,25449,8124,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=8124/processoClasse=RESPE/decisaoData=19890413,ok,sim,68,408,338,362,100
+25449,25450,8147,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=8147/processoClasse=RESPE/decisaoData=19890516,ok,sim,102,750,431,510,104
+25450,25451,8152,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=8152/processoClasse=respe/decisaoData=19890228,ok,sim,78,538,367,604,88
+25451,25452,8203,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=8203/processoClasse=RESPE/decisaoData=19890810,ok,sim,90,647,410,595,104
+25452,25453,8203,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=8203/processoClasse=RESPE/decisaoData=19890810,ok,sim,76,585,415,426,103
+25453,25454,8386,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=8386/processoClasse=RESPE/decisaoData=19890928,ok,sim,67,408,349,476,85
+25454,25455,8387,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=8387/processoClasse=RESPE/decisaoData=19890627,ok,sim,61,392,264,400,66
+25455,25456,8393,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=8393/processoClasse=RESPE/decisaoData=19890622,ok,sim,66,582,390,498,97
+25456,25457,8403,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=8403/processoClasse=RESPE/decisaoData=19890914,ok,sim,54,440,289,479,76
+25457,25458,8404,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=8404/processoClasse=respe/decisaoData=19890817,ok,sim,67,1014,469,603,91
+25458,25459,8438,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=8438/processoClasse=RESPE/decisaoData=19890630,ok,sim,52,542,334,371,71
+25459,25460,8448,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=8448/processoClasse=RESPE/decisaoData=19890615,ok,sim,76,384,226,377,100
+25460,25461,8473,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=8473/processoClasse=RESPE/decisaoData=19890810,ok,sim,57,478,261,368,67
+25461,25462,8522,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/13028,ok,sim,84,603,403,548,138
+25462,25463,8549,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=8549/processoClasse=AG/decisaoData=19900220,ok,sim,99,763,398,689,93
+25463,25464,8650,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=8650/processoClasse=ag/decisaoData=19900424,ok,sim,92,601,279,344,82
+25464,25465,8822,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=8822/processoClasse=ag/decisaoData=19910523,ok,sim,72,505,296,330,103
+25465,25466,8917,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=8917/processoClasse=cta/decisaoData=19871117,ok,sim,89,494,297,497,114
+25466,25467,8988,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/11396,ok,sim,102,592,409,520,113
+25467,25468,9266,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=9266/processoClasse=RESPE/decisaoData=19910604,ok,sim,89,492,274,506,114
+25468,25469,9274,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=9274/processoClasse=RESPE/decisaoData=19901122,ok,sim,98,431,404,465,104
+25469,25470,9316,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=9316/processoClasse=respe/decisaoData=19901211,ok,sim,56,503,444,518,127
+25470,25471,946,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=946/processoClasse=PET/decisaoData=20000921,ok,sim,60,617,385,427,81
+25471,25472,9463,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=9463/processoClasse=respe/decisaoData=19920206,ok,sim,53,486,252,354,80
+25472,25473,9868,Apuração de votos e eleições extraordinárias,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=9868/processoClasse=pa/decisaoData=19890201,ok,sim,79,505,330,363,110
+25473,25474,18831,Captação de sufrágio,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=18831/processoClasse=PA/decisaoData=20020801,ok,sim,81,696,523,485,105
+25474,25475,55,Captação de sufrágio,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/1670,ok,sim,100,568,314,370,101
+25475,25476,552,Captação de sufrágio,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=552/processoClasse=CTA/decisaoData=19991214,ok,sim,76,469,435,508,77
+25476,25477,60035591,Captação de sufrágio,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3483690,ok,sim,80,559,402,423,90
+25477,25478,60042285,Captação de sufrágio,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3466775,ok,sim,95,511,353,493,100
+25478,25479,10018,Coligação e convenção,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/17698,ok,sim,80,477,367,522,104
+25479,25480,10121,Coligação e convenção,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/13004,ok,sim,98,615,377,462,81
+25480,25481,1022,Coligação e convenção,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1022/processoClasse=CTA/decisaoData=20040330,ok,sim,101,405,241,473,121
+25481,25482,10971,Coligação e convenção,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3859,ok,sim,71,609,411,462,105
+25482,25483,1106,Coligação e convenção,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1106/processoClasse=CTA/decisaoData=20040819,ok,sim,95,692,479,617,131
+25483,25484,11177,Coligação e convenção,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/8368,ok,sim,101,584,490,458,112
+25484,25485,119650,Coligação e convenção,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=119650/processoClasse=CTA/decisaoData=20100629,ok,sim,91,445,310,377,87
+25485,25486,1225,Coligação e convenção,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1225/processoClasse=CTA/decisaoData=20060606,ok,sim,92,446,352,414,63
+25486,25487,1225,Coligação e convenção,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1225/processoClasse=CTA/decisaoData=20060608,ok,sim,96,559,326,376,94
+25487,25488,1246,Coligação e convenção,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/1996,ok,sim,90,649,445,524,102
+25488,25489,1304,Coligação e convenção,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/25588,ok,sim,76,490,289,444,107
+25489,25490,13090,Coligação e convenção,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/11190,ok,sim,106,580,366,390,74
+25490,25491,179,Coligação e convenção,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/9631,ok,sim,81,543,428,373,119
+25491,25492,186,Coligação e convenção,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=186/processoClasse=CTA/decisaoData=19960530,ok,sim,75,442,373,607,97
+25492,25493,20301,Coligação e convenção,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/5995,ok,sim,99,559,401,493,119
+25493,25494,382,Coligação e convenção,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=382/processoClasse=CTA/decisaoData=19980312,ok,sim,89,757,511,670,152
+25494,25495,6502,Coligação e convenção,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/9338,ok,sim,70,459,285,408,103
+25495,25496,698,Coligação e convenção,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=698/processoClasse=CTA/decisaoData=20010619,ok,sim,73,709,589,578,69
+25496,25497,73311,Coligação e convenção,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=73311/processoClasse=CTA/decisaoData=20100511,ok,sim,89,499,463,465,116
+25497,25498,738,Coligação e convenção,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=738/processoClasse=CTA/decisaoData=20011127,ok,sim,96,772,479,712,126
+25498,25499,758,Coligação e convenção,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=758/processoClasse=CTA/decisaoData=20020326,ok,sim,60,728,659,524,103
+25499,25500,759,Coligação e convenção,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=759/processoClasse=CTA/decisaoData=20020326,ok,sim,91,707,918,697,91
+25500,25501,760,Coligação e convenção,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=760/processoClasse=CTA/decisaoData=20020326,ok,sim,79,766,450,752,146
+25501,25502,762,Coligação e convenção,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=762/processoClasse=CTA/decisaoData=20020326,ok,sim,80,742,624,653,128
+25502,25503,930,Coligação e convenção,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=930/processoClasse=CTA/decisaoData=20030916,ok,sim,101,567,424,666,93
+25503,25504,60044132,Comprovação de receitas e gastos partidários,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3481797,ok,sim,91,592,332,523,86
+25504,25505,1062,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1062/processoClasse=CTA/decisaoData=20040812,ok,sim,95,619,495,531,98
+25505,25506,1065,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1065/processoClasse=CTA/decisaoData=20040608,ok,sim,99,943,608,840,78
+25506,25507,1083,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1083/processoClasse=CTA/decisaoData=20040608,ok,sim,103,520,413,648,84
+25507,25508,1086,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1086/processoClasse=CTA/decisaoData=20040608,ok,sim,65,485,388,543,76
+25508,25509,1320,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/25691,ok,sim,109,664,526,610,90
+25509,25510,1357,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1357/processoClasse=cta/decisaoData=20060803,ok,sim,70,432,356,431,120
+25510,25511,19590,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19590/processoClasse=PA/decisaoData=20060801,ok,sim,76,426,248,439,82
+25511,25512,22285,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/26079,ok,sim,82,540,294,453,92
+25512,25513,25,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=25/processoClasse=RP/decisaoData=19980813,ok,sim,76,498,251,496,92
+25513,25514,444,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=444/processoClasse=CTA/decisaoData=19980602,ok,sim,97,440,308,384,73
+25514,25515,60000791,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3425419,ok,sim,77,525,299,503,84
+25515,25516,60006948,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3474160,ok,sim,92,775,571,568,122
+25516,25517,60009117,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3469533,ok,sim,84,623,452,397,70
+25517,25518,60009794,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3467233,ok,sim,79,758,324,517,116
+25518,25519,60026657,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3472910,ok,sim,97,778,324,498,101
+25519,25520,60026952,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3473721,ok,sim,89,754,519,554,101
+25520,25521,60027349,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3469623,ok,sim,94,477,544,626,119
+25521,25522,60030725,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3482700,ok,sim,94,725,654,625,136
+25522,25523,60031959,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3465933,ok,sim,78,708,321,494,118
+25523,25524,60036857,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3472640,ok,sim,86,792,500,454,117
+25524,25525,60037761,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3469534Infojur%20Outubro%20-%202%C2%AA%20Quinzena.doc,ok,sim,83,626,451,480,109
+25525,25526,60045912,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3464178,ok,sim,83,506,298,556,85
+25526,25527,60050373,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3462974,ok,sim,91,582,448,438,66
+25527,25528,60056903,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3475417,ok,sim,79,634,381,691,134
+25528,25529,60070841,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3481796,ok,sim,60,494,297,450,72
+25529,25530,60076867,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3460881,ok,sim,102,503,361,509,102
+25530,25531,60383350,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3486907,ok,sim,75,649,379,617,135
+25531,25532,60637615,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3487713,ok,sim,65,520,359,680,93
+25532,25533,772,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=772/processoClasse=CTA/decisaoData=20020402,ok,sim,101,739,496,613,71
+25533,25534,782,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=782/processoClasse=CTA/decisaoData=20021112,ok,sim,88,588,630,588,102
+25534,25535,783,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=783/processoClasse=CTA/decisaoData=20020502,ok,sim,74,481,374,422,133
+25535,25536,786,Condutas vedadas a agentes públicos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=786/processoClasse=CTA/decisaoData=20020502,ok,sim,70,626,527,498,86
+25536,25537,1,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3459875,ok,sim,83,491,294,428,108
+25537,25538,106,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=106/processoClasse=RCPR/decisaoData=20021015,ok,sim,85,465,348,379,115
+25538,25539,1258,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1258/processoClasse=CTA/decisaoData=20060608,ok,sim,66,384,448,422,87
+25539,25540,1299,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1299/processoClasse=PET/decisaoData=20030311,ok,sim,94,503,358,405,87
+25540,25541,1341,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/22218,ok,sim,73,476,339,664,103
+25541,25542,1341,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1341/processoClasse=PET/decisaoData=20041118,ok,sim,93,440,341,413,64
+25542,25543,1347819,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1347819/processoClasse=RESPE/decisaoData=20110526,ok,sim,106,506,527,492,112
+25543,25544,1391,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/22476,ok,sim,73,601,366,592,92
+25544,25545,1391,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/20123,ok,sim,91,605,377,525,99
+25545,25546,14941,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/11869,ok,sim,99,829,616,544,96
+25546,25547,1586497,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/51259,ok,sim,75,514,444,560,116
+25547,25548,1586497,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/52228,ok,sim,104,718,510,594,159
+25548,25549,16639,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=16639/processoClasse=PA/decisaoData=19980604,ok,sim,99,542,353,355,133
+25549,25550,18473,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=18473/processoClasse=PA/decisaoData=20000801,ok,sim,90,410,377,438,121
+25550,25551,19218,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/19390,ok,sim,99,687,331,406,76
+25551,25552,238,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=238/processoClasse=CTA/decisaoData=19960923,ok,sim,75,612,365,526,104
+25552,25553,26,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/13755,ok,sim,100,463,328,432,96
+25553,25554,2664,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=2664/processoClasse=PET/decisaoData=20090813,ok,sim,135,738,320,435,86
+25554,25555,3177498,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3484295,ok,sim,131,710,418,484,116
+25555,25556,3843,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3481168,ok,sim,64,630,398,560,106
+25556,25557,56,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/1353,ok,sim,120,665,428,671,119
+25557,25558,56,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/1059,ok,sim,75,527,319,394,88
+25558,25559,56,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/1027,ok,sim,95,580,281,503,62
+25559,25560,56,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/1055,ok,sim,96,731,585,498,129
+25560,25561,59,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3343606,ok,sim,98,532,312,386,90
+25561,25562,60000513,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3481826,ok,sim,81,585,409,587,106
+25562,25563,60006519,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3481178,ok,sim,84,519,399,505,67
+25563,25564,60013346,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3459856,ok,sim,77,614,342,749,110
+25564,25565,60016419,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3473910,ok,sim,73,604,496,439,102
+25565,25566,60027488,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3462380,ok,sim,102,706,380,666,108
+25566,25567,60029375,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3477374,ok,sim,69,739,509,466,115
+25567,25568,60031781,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3486912,ok,sim,98,632,425,539,90
+25568,25569,60038462,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3461882,ok,sim,82,763,374,530,104
+25569,25570,60039587,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3468596,ok,sim,116,671,502,431,93
+25570,25571,60039979,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3485807,ok,sim,93,504,383,399,85
+25571,25572,60041134,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3472911,ok,sim,83,655,437,623,105
+25572,25573,60043671,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3472597,ok,sim,103,628,521,639,110
+25573,25574,60043671,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3472597,ok,sim,94,657,492,561,101
+25574,25575,60045824,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3459875,ok,sim,92,438,254,350,88
+25575,25576,60047635,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3469555,ok,sim,91,558,480,432,116
+25576,25577,60047720,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3459282,ok,sim,89,552,417,452,116
+25577,25578,60052958,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3473712,ok,sim,80,688,456,531,110
+25578,25579,60053020,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3481854,ok,sim,71,617,259,405,89
+25579,25580,60067259,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3482289,ok,sim,95,458,385,478,89
+25580,25581,60069792,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3474137,ok,sim,95,679,452,555,97
+25581,25582,60153309,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/304282,ok,sim,85,696,364,508,105
+25582,25583,60191272,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3485641,ok,sim,116,802,542,472,107
+25583,25584,60231248,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3476675,ok,sim,88,573,278,429,89
+25584,25585,60256041,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3481852,ok,sim,67,595,391,468,90
+25585,25586,60299697,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3473705,ok,sim,102,564,496,479,84
+25586,25587,60326539,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3483684,ok,sim,112,365,250,351,94
+25587,25588,60446672,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3483694,ok,sim,75,476,285,434,102
+25588,25589,60452123,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3481175,ok,sim,67,584,417,413,73
+25589,25590,60548324,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3459863,ok,sim,74,600,535,446,107
+25590,25591,60656190,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3459854,ok,sim,89,734,432,503,138
+25591,25592,60688495,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3481893,ok,sim,77,473,269,345,73
+25592,25593,71582,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=71582/processoClasse=CC/decisaoData=20140625,ok,sim,85,665,356,595,97
+25593,25594,756,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=756/processoClasse=PET/decisaoData=19991104,ok,sim,73,547,329,417,95
+25594,25595,760,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=760/processoClasse=PET/decisaoData=19981217,ok,sim,94,542,297,411,69
+25595,25596,761,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/95010,ok,sim,95,898,651,674,103
+25596,25597,764,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=764/processoClasse=PET/decisaoData=20060801,ok,sim,74,413,357,449,69
+25597,25598,771,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=771/processoClasse=PET/decisaoData=19981201,ok,sim,96,515,273,372,79
+25598,25599,773,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/12597,ok,sim,80,262,283,452,102
+25599,25600,797,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=797/processoClasse=PET/decisaoData=20000815,ok,sim,75,427,333,384,98
+25600,25601,800,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=800/processoClasse=PET/decisaoData=20010320,ok,sim,77,447,341,363,81
+25601,25602,838,Contas de campanha eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=838/processoClasse=PET/decisaoData=19991216,ok,sim,114,768,459,528,163
+25602,25603,60017420,Crimes eleitorais e Processo Penal Eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3483667,ok,sim,108,578,551,611,119
+25603,25604,100,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/14181,ok,sim,70,658,484,438,92
+25604,25605,1016,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/19225,ok,sim,80,679,398,352,96
+25605,25606,1019,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/19323,ok,sim,83,475,217,476,93
+25606,25607,1024,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/24878,ok,sim,75,468,323,404,87
+25607,25608,11136,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/17666,ok,sim,73,465,342,324,100
+25608,25609,1143,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/22951,ok,sim,101,635,607,488,131
+25609,25610,1154,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/24335,ok,sim,103,937,595,603,146
+25610,25611,1163,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/24432,ok,sim,80,438,364,390,87
+25611,25612,117,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/14638,ok,sim,86,595,329,467,114
+25612,25613,1190,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/25117,ok,sim,98,587,423,545,124
+25613,25614,1199,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/25025,ok,sim,66,626,317,535,83
+25614,25615,1237,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/25567,ok,sim,112,546,513,406,110
+25615,25616,12483,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/18040,ok,sim,101,760,436,692,161
+25616,25617,12507,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/11212,ok,sim,102,435,287,379,74
+25617,25618,12517,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/18033,ok,sim,99,419,384,518,122
+25618,25619,12678,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/13152,ok,sim,82,512,248,395,125
+25619,25620,12716,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/8351,ok,sim,83,530,277,496,96
+25620,25621,12742,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/18441,ok,sim,89,344,265,336,108
+25621,25622,12764,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/12971,ok,sim,109,520,350,510,113
+25622,25623,12769,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/13150,ok,sim,57,769,384,421,111
+25623,25624,12772,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/18439,ok,sim,72,602,601,603,122
+25624,25625,12790,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/8019,ok,sim,76,557,239,363,81
+25625,25626,135,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/14650,ok,sim,101,633,397,452,79
+25626,25627,140,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/14662,ok,sim,88,475,598,562,87
+25627,25628,142,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/14497,ok,sim,89,689,407,384,91
+25628,25629,14315,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/17847,ok,sim,88,590,342,365,103
+25629,25630,1546,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/30009,ok,sim,71,371,329,484,111
+25630,25631,1581,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/35439,ok,sim,81,703,446,601,99
+25631,25632,1586,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/30306,ok,sim,73,496,296,371,82
+25632,25633,163,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/14165,ok,sim,72,508,305,442,80
+25633,25634,167,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/9634,ok,sim,78,349,315,416,95
+25634,25635,1731,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/36962,ok,sim,89,464,296,498,111
+25635,25636,174,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/14475,ok,sim,74,778,452,550,112
+25636,25637,176,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/9635,ok,sim,86,735,342,379,95
+25637,25638,19,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/1729,ok,sim,115,666,385,536,99
+25638,25639,22349,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/26407,ok,sim,95,410,357,413,74
+25639,25640,25770,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/37640,ok,sim,77,553,368,540,124
+25640,25641,28,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/13908,ok,sim,57,638,317,409,98
+25641,25642,327,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/17478,ok,sim,77,537,378,509,113
+25642,25643,353,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/9187,ok,sim,67,649,340,404,102
+25643,25644,364,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/17811,ok,sim,79,559,389,567,114
+25644,25645,385,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/7050,ok,sim,102,496,378,421,96
+25645,25646,386,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/18228,ok,sim,97,549,417,334,92
+25646,25647,389,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/7051,ok,sim,94,431,290,425,106
+25647,25648,397,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/11619,ok,sim,56,401,328,337,102
+25648,25649,401,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/17833,ok,sim,90,708,489,489,85
+25649,25650,402,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/13764,ok,sim,78,555,520,443,95
+25650,25651,409,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/12217,ok,sim,87,374,208,447,68
+25651,25652,415,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/13759,ok,sim,80,548,237,357,116
+25652,25653,417,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/6348,ok,sim,117,546,325,660,102
+25653,25654,430,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/9580,ok,sim,113,424,310,370,102
+25654,25655,434,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/11613,ok,sim,94,539,397,474,81
+25655,25656,447,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/13598,ok,sim,88,404,498,398,95
+25656,25657,469,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/13601,ok,sim,98,471,284,380,99
+25657,25658,521,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/13040,ok,sim,73,415,441,412,58
+25658,25659,587,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/13316,ok,sim,92,331,283,470,96
+25659,25660,597,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/11482,ok,sim,104,525,427,351,122
+25660,25661,600,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/14994,ok,sim,103,692,414,450,116
+25661,25662,60019842,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3479901,ok,sim,98,967,407,572,89
+25662,25663,60034708,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3477170,ok,sim,76,632,505,433,70
+25663,25664,60038792,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3474129,ok,sim,93,593,361,359,113
+25664,25665,611,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/14996,ok,sim,97,471,342,445,96
+25665,25666,613,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/14083,ok,sim,94,596,294,534,120
+25666,25667,626,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/9453,ok,sim,110,542,333,418,81
+25667,25668,629,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/7088,ok,sim,80,595,360,440,74
+25668,25669,634,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/7095,ok,sim,109,535,382,424,84
+25669,25670,650,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/7093,ok,sim,90,523,364,506,116
+25670,25671,689,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/2445,ok,sim,80,545,477,527,107
+25671,25672,710,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3140,ok,sim,96,406,424,446,81
+25672,25673,73,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/14651,ok,sim,68,707,370,478,88
+25673,25674,73,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/14651,ok,sim,78,634,447,505,110
+25674,25675,74,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/9642,ok,sim,57,463,336,364,105
+25675,25676,771,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3367,ok,sim,105,461,229,430,76
+25676,25677,7744,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/17195,ok,sim,70,552,435,442,79
+25677,25678,776,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/1826,ok,sim,85,343,376,458,103
+25678,25679,841,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/638,ok,sim,103,448,421,413,107
+25679,25680,85,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/13935,ok,sim,82,438,228,401,87
+25680,25681,875,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/1898,ok,sim,84,358,413,464,107
+25681,25682,889,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/266,ok,sim,82,692,644,580,113
+25682,25683,895,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/306,ok,sim,70,807,671,577,104
+25683,25684,896,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/349,ok,sim,87,605,541,548,87
+25684,25685,899,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/19366,ok,sim,80,625,320,441,129
+25685,25686,924,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/19165,ok,sim,87,573,509,685,136
+25686,25687,926,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/245,ok,sim,92,553,398,509,112
+25687,25688,936,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/1080,ok,sim,87,518,436,448,119
+25688,25689,946,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/18828,ok,sim,85,514,444,575,106
+25689,25690,947,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/248,ok,sim,89,637,417,542,100
+25690,25691,953,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/24940,ok,sim,76,489,269,409,109
+25691,25692,973,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/18871,ok,sim,73,606,378,612,98
+25692,25693,992,Desincompatibilização e afastamentos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/19184,ok,sim,106,682,440,572,73
+25693,25694,13445,Diplomação,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/16882,ok,sim,91,606,357,414,70
+25694,25695,13785,Diplomação,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=13785/processoClasse=MC/decisaoData=19930629,ok,sim,104,550,333,453,70
+25695,25696,19175,Diplomação,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/36259,ok,sim,101,531,334,544,101
+25696,25697,20977,Diplomação,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/101,ok,sim,78,476,302,473,111
+25697,25698,21355,Diplomação,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/1450,ok,sim,92,489,396,396,90
+25698,25699,307,Diplomação,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/9237,ok,sim,73,402,227,389,96
+25699,25700,357,Diplomação,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/18604,ok,sim,76,530,326,623,117
+25700,25701,391,Diplomação,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/8611,ok,sim,57,683,408,547,97
+25701,25702,396,Diplomação,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/9402,ok,sim,86,479,380,431,108
+25702,25703,405,Diplomação,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/9400,ok,sim,59,431,258,446,92
+25703,25704,408,Diplomação,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/12829,ok,sim,98,504,259,336,100
+25704,25705,4964,Diplomação,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=4964/processoClasse=AG/decisaoData=19771122,ok,sim,67,600,396,400,67
+25705,25706,60029160,Diplomação,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3471014,ok,sim,116,773,653,736,108
+25706,25707,6687,Diplomação,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=6687/processoClasse=RESPE/decisaoData=19870630,ok,sim,65,796,452,482,93
+25707,25708,7754,Diplomação,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/17470,ok,sim,107,669,446,557,68
+25708,25709,786,Diplomação,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=786/processoClasse=CTA/decisaoData=20020502,ok,sim,89,699,412,629,83
+25709,25710,8716,Diplomação,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3260,ok,sim,77,522,304,404,91
+25710,25711,60048546,Direito de resposta na propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3487502,ok,sim,83,523,428,631,111
+25711,25712,66,Direito de resposta na propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=66/processoClasse=INST/decisaoData=20020923,ok,sim,105,710,448,677,128
+25712,25713,91,Direito de resposta na propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=91/processoClasse=RP/decisaoData=19980901,ok,sim,109,517,278,448,84
+25713,25714,10471,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/11364,ok,sim,71,503,310,572,110
+25714,25715,1126,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1126/processoClasse=CTA/decisaoData=20041130,ok,sim,100,496,381,613,112
+25715,25716,11970,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/17494,ok,sim,104,509,287,358,94
+25716,25717,1240,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1240/processoClasse=CTA/decisaoData=20060629,ok,sim,77,805,404,660,150
+25717,25718,1327,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1327/processoClasse=PET/decisaoData=20030520,ok,sim,65,568,377,449,98
+25718,25719,13432,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/18684,ok,sim,81,353,291,445,102
+25719,25720,1395,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1395/processoClasse=PET/decisaoData=20031111,ok,sim,62,524,372,525,101
+25720,25721,1402,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1402/processoClasse=PET/decisaoData=20031209,ok,sim,64,463,310,517,73
+25721,25722,1431,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1431/processoClasse=PET/decisaoData=20050818,ok,sim,102,547,447,540,99
+25722,25723,1480,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1480/processoClasse=PET/decisaoData=20040805,ok,sim,91,640,537,454,138
+25723,25724,1576,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1576/processoClasse=CTA/decisaoData=20080505,ok,sim,64,806,382,560,122
+25724,25725,16,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/6712,ok,sim,87,460,304,539,106
+25725,25726,1679,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1679/processoClasse=PET/decisaoData=20051011,ok,sim,66,496,355,414,116
+25726,25727,16957,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=16957/processoClasse=PA/decisaoData=20000801,ok,sim,105,594,293,413,82
+25727,25728,17,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/14746,ok,sim,94,353,232,600,91
+25728,25729,17553,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=17553/processoClasse=PA/decisaoData=19980909,ok,sim,101,931,467,519,124
+25729,25730,18393,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=18393/processoClasse=PA/decisaoData=20000912,ok,sim,113,801,501,534,121
+25730,25731,18610,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=18610/processoClasse=PA/decisaoData=20010424,ok,sim,67,773,428,516,51
+25731,25732,18768,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=18768/processoClasse=PA/decisaoData=20020423,ok,sim,60,390,302,376,97
+25732,25733,18805,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=18805/processoClasse=PA/decisaoData=20020604,ok,sim,103,903,531,456,101
+25733,25734,18812,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=18812/processoClasse=PA/decisaoData=20020528,ok,sim,95,517,305,456,89
+25734,25735,18830,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/2596,ok,sim,93,391,350,388,96
+25735,25736,18932,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=18932/processoClasse=PA/decisaoData=20020926,ok,sim,74,684,414,604,92
+25736,25737,19052,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19052/processoClasse=PA/decisaoData=20030812,ok,sim,70,599,406,445,107
+25737,25738,19057,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19057/processoClasse=PA/decisaoData=20030819,ok,sim,109,549,255,458,114
+25738,25739,19069,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19069/processoClasse=PA/decisaoData=20030930,ok,sim,86,440,223,310,112
+25739,25740,19084,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19084/processoClasse=PA/decisaoData=20031111,ok,sim,104,749,456,407,88
+25740,25741,19117,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19117/processoClasse=PA/decisaoData=20040217,ok,sim,74,576,359,498,95
+25741,25742,19125,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19125/processoClasse=PA/decisaoData=20040226,ok,sim,100,675,509,502,77
+25742,25743,19342,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19342/processoClasse=PA/decisaoData=20050329,ok,sim,73,547,251,445,94
+25743,25744,19404,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19404/processoClasse=PA/decisaoData=20050802,ok,sim,92,765,500,510,102
+25744,25745,19498,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19498/processoClasse=PA/decisaoData=20060926,ok,sim,119,481,513,539,129
+25745,25746,19687,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/27444,ok,sim,77,426,312,352,110
+25746,25747,198294,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/38860,ok,sim,56,422,350,349,122
+25747,25748,19840,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19840/processoClasse=PA_/decisaoData=20100601,ok,sim,83,950,642,654,119
+25748,25749,20177,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/35171,ok,sim,69,484,392,462,101
+25749,25750,20198,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/44327,ok,sim,71,398,371,358,79
+25750,25751,20261,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=20261/processoClasse=PA/decisaoData=20091027,ok,sim,97,863,445,655,109
+25751,25752,20634,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/5471,ok,sim,81,477,301,471,109
+25752,25753,21754,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/19285,ok,sim,61,576,267,385,75
+25753,25754,21999,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/23440,ok,sim,92,608,443,454,106
+25754,25755,22148,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/24988,ok,sim,80,361,339,460,97
+25755,25756,23188,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/106278,ok,sim,93,954,576,516,107
+25756,25757,2751,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=2751/processoClasse=PET_/decisaoData=20091015,ok,sim,69,518,378,498,92
+25757,25758,364,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/11169,ok,sim,100,441,346,485,67
+25758,25759,403,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=403/processoClasse=CTA/decisaoData=19980819,ok,sim,70,645,408,545,70
+25759,25760,455,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=455/processoClasse=RVE/decisaoData=20051215,ok,sim,81,640,308,557,105
+25760,25761,459,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=459/processoClasse=CTA/decisaoData=19980626,ok,sim,69,388,353,307,48
+25761,25762,479,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=479/processoClasse=RVE/decisaoData=20040406,ok,sim,98,771,416,740,91
+25762,25763,516,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/6302,ok,sim,59,489,275,321,82
+25763,25764,60000330,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3483718,ok,sim,91,497,372,362,86
+25764,25765,61,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=61/processoClasse=INST_/decisaoData=20021017,ok,sim,129,573,417,473,57
+25765,25766,61291756,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3478394,ok,sim,61,535,317,420,98
+25766,25767,64,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=64/processoClasse=INST_/decisaoData=20020620,ok,sim,86,675,422,487,93
+25767,25768,706,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=706/processoClasse=CTA/decisaoData=20010911,ok,sim,69,600,357,455,90
+25768,25769,79,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/19659,ok,sim,65,380,245,442,83
+25769,25770,834,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=834/processoClasse=CTA/decisaoData=20040608,ok,sim,90,465,311,401,108
+25770,25771,861,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=861/processoClasse=CTA/decisaoData=20030415,ok,sim,81,760,526,595,97
+25771,25772,899,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=899/processoClasse=CTA/decisaoData=20040601,ok,sim,76,688,386,451,147
+25772,25773,946,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=946/processoClasse=CTA/decisaoData=20031007,ok,sim,79,517,385,557,90
+25773,25774,946,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=946/processoClasse=PET/decisaoData=20000921,ok,sim,87,605,444,510,74
+25774,25775,950,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=950/processoClasse=CTA/decisaoData=20031014,ok,sim,89,538,215,519,92
+25775,25776,9529,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/9562,ok,sim,95,652,442,441,119
+25776,25777,973,Eleitor: do alistamento ao voto,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=973/processoClasse=CTA/decisaoData=20031118,ok,sim,72,492,334,424,84
+25777,25778,1014,Filiação Partidária,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1014/processoClasse=CTA/decisaoData=20040601,ok,sim,79,643,710,521,105
+25778,25779,1025,Filiação Partidária,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1025/processoClasse=PET/decisaoData=20011023,ok,sim,87,520,286,447,99
+25779,25780,1164,Filiação Partidária,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1164/processoClasse=CTA/decisaoData=20050920,ok,sim,77,715,366,452,110
+25780,25781,1217,Filiação Partidária,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1217/processoClasse=CTA/decisaoData=20060330,ok,sim,72,550,332,509,100
+25781,25782,1731,Filiação Partidária,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1731/processoClasse=CTA/decisaoData=20091117,ok,sim,87,616,732,547,105
+25782,25783,18713,Filiação Partidária,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=18713/processoClasse=PA/decisaoData=20010925,ok,sim,90,437,338,441,122
+25783,25784,190,Filiação Partidária,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=190/processoClasse=CTA/decisaoData=19960530,ok,sim,73,423,285,403,112
+25784,25785,19157,Filiação Partidária,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19157/processoClasse=PA/decisaoData=20040401,ok,sim,103,919,563,703,124
+25785,25786,19353,Filiação Partidária,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/21712,ok,sim,94,558,367,469,104
+25786,25787,361,Filiação Partidária,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=361/processoClasse=CTA/decisaoData=19971007,ok,sim,70,569,311,401,81
+25787,25788,377,Filiação Partidária,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=377/processoClasse=CTA/decisaoData=19980312,ok,sim,96,536,283,392,82
+25788,25789,534,Filiação Partidária,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/12550,ok,sim,68,812,497,556,92
+25789,25790,563,Filiação Partidária,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/14993,ok,sim,90,622,498,685,101
+25790,25791,575,Filiação Partidária,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=575/processoClasse=CTA/decisaoData=20000504,ok,sim,95,684,733,609,120
+25791,25792,60000210,Filiação Partidária,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3472299,ok,sim,90,546,438,651,104
+25792,25793,60001486,Filiação Partidária,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3479874,ok,sim,96,850,557,719,104
+25793,25794,60028504,Filiação Partidária,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3471032,ok,sim,95,774,388,562,83
+25794,25795,60087198,Filiação Partidária,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3471020,ok,sim,85,661,464,683,69
+25795,25796,680,Filiação Partidária,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=680/processoClasse=CTA/decisaoData=20010308,ok,sim,80,398,337,422,95
+25796,25797,687,Filiação Partidária,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/2711,ok,sim,93,636,483,521,75
+25797,25798,706,Filiação Partidária,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=706/processoClasse=CTA/decisaoData=20010911,ok,sim,78,572,351,409,73
+25798,25799,708,Filiação Partidária,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=708/processoClasse=CTA/decisaoData=20010911,ok,sim,86,685,395,447,96
+25799,25800,725,Filiação Partidária,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3522,ok,sim,109,479,310,285,74
+25800,25801,861,Filiação Partidária,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=861/processoClasse=CTA/decisaoData=20030415,ok,sim,132,768,503,555,94
+25801,25802,90,Filiação Partidária,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=90/processoClasse=CTA/decisaoData=19960229,ok,sim,97,568,346,543,79
+25802,25803,940,Filiação Partidária,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=940/processoClasse=CTA/decisaoData=20031118,ok,sim,69,621,311,458,119
+25803,25804,952,Filiação Partidária,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=952/processoClasse=CTA/decisaoData=20031007,ok,sim,94,561,357,431,109
+25804,25805,952,Filiação Partidária,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=952/processoClasse=CTA/decisaoData=20031007,ok,sim,100,609,357,489,94
+25805,25806,1,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/34795,ok,sim,102,420,252,337,61
+25806,25807,1005,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1005/processoClasse=CTA/decisaoData=20040311,ok,sim,80,351,342,345,59
+25807,25808,1006,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1006/processoClasse=CTA/decisaoData=20040302,ok,sim,74,602,354,468,77
+25808,25809,1015,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1015/processoClasse=CTA/decisaoData=20040330,ok,sim,87,498,466,417,128
+25809,25810,1034,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1034/processoClasse=CTA/decisaoData=20040504,ok,sim,68,989,470,366,118
+25810,25811,1035,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1035/processoClasse=CTA/decisaoData=20040504,ok,sim,107,488,390,445,123
+25811,25812,1040,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1040/processoClasse=CTA/decisaoData=20040601,ok,sim,104,707,327,423,91
+25812,25813,1042,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1042/processoClasse=CTA/decisaoData=20040518,ok,sim,149,443,547,469,71
+25813,25814,1047,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1047/processoClasse=CTA/decisaoData=20040511,ok,sim,92,473,386,528,127
+25814,25815,1050,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1050/processoClasse=CTA/decisaoData=20040601,ok,sim,79,397,517,423,120
+25815,25816,1054,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1054/processoClasse=CTA/decisaoData=20040527,ok,sim,70,671,527,596,85
+25816,25817,1070,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1070/processoClasse=CTA/decisaoData=20040608,ok,sim,69,515,492,516,94
+25817,25818,1082,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/28361,ok,sim,81,551,317,558,59
+25818,25819,1138,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1138/processoClasse=CTA/decisaoData=20050224,ok,sim,68,651,289,340,82
+25819,25820,116,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/1416626,ok,sim,103,562,367,384,97
+25820,25821,1162,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1162/processoClasse=CTA/decisaoData=20050906,ok,sim,78,675,369,595,111
+25821,25822,1250,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1250/processoClasse=CTA/decisaoData=20060606,ok,sim,90,559,430,377,109
+25822,25823,12809,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/1411545,ok,sim,66,457,276,385,93
+25823,25824,136,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=136/processoClasse=CTA/decisaoData=19960423,ok,sim,83,542,421,521,97
+25824,25825,1399,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/28247,ok,sim,74,460,332,354,85
+25825,25826,1404,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1404/processoClasse=CTA/decisaoData=20070410,ok,sim,84,459,254,396,84
+25826,25827,1412,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1412/processoClasse=CTA/decisaoData=20070531,ok,sim,98,364,296,366,106
+25827,25828,1413,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1413/processoClasse=CTA/decisaoData=20071106,ok,sim,73,612,418,347,124
+25828,25829,1433,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1433/processoClasse=CTA/decisaoData=20070904,ok,sim,82,745,435,483,88
+25829,25830,1436,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/29982,ok,sim,81,423,380,389,85
+25830,25831,1438,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1438/processoClasse=CTA/decisaoData=20071213,ok,sim,66,395,380,558,113
+25831,25832,1441,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1441/processoClasse=CTA/decisaoData=20070918,ok,sim,61,411,265,332,104
+25832,25833,1458,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/30311,ok,sim,81,418,300,308,72
+25833,25834,1464,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/30465,ok,sim,88,468,391,416,98
+25834,25835,1469,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1469/processoClasse=CTA/decisaoData=20071113,ok,sim,78,514,274,455,71
+25835,25836,1471,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1471/processoClasse=CTA/decisaoData=20071213,ok,sim,70,470,317,439,115
+25836,25837,1476,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/30126,ok,sim,74,532,518,571,120
+25837,25838,1512,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/30005,ok,sim,74,612,294,607,113
+25838,25839,1535,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/30171,ok,sim,109,772,349,596,64
+25839,25840,1557,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/29963,ok,sim,71,351,382,363,72
+25840,25841,1565,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/29964,ok,sim,64,534,379,601,93
+25841,25842,1568,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/30168,ok,sim,78,463,392,469,104
+25842,25843,1577,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/30307,ok,sim,79,427,292,430,94
+25843,25844,1588,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/23910,ok,sim,88,634,412,457,95
+25844,25845,1607,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/30501,ok,sim,107,696,382,458,104
+25845,25846,19291,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19291/processoClasse=PA/decisaoData=20040824,ok,sim,107,387,345,597,94
+25846,25847,19297,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19297/processoClasse=PA/decisaoData=20060411,ok,sim,90,425,497,409,131
+25847,25848,19862,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19862/processoClasse=RESPE/decisaoData=20020827,ok,sim,82,629,320,518,104
+25848,25849,21,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/301306,ok,sim,67,897,496,816,70
+25849,25850,224668,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/2967830,ok,sim,83,594,374,636,97
+25850,25851,25304,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=25304/processoClasse=RESPE/decisaoData=20061212,ok,sim,70,534,305,483,124
+25851,25852,260948,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/304176,ok,sim,98,755,535,514,141
+25852,25853,2621,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/127917,ok,sim,82,477,301,528,96
+25853,25854,27832,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=27832/processoClasse=RESPE/decisaoData=20070619,ok,sim,77,670,422,424,94
+25854,25855,28391,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/30626,ok,sim,78,406,270,462,74
+25855,25856,29755,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/53276,ok,sim,99,574,345,515,60
+25856,25857,35770,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/37702,ok,sim,99,563,361,392,98
+25857,25858,46338,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3329177,ok,sim,92,538,354,547,82
+25858,25859,46423,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3251638,ok,sim,66,612,431,573,137
+25859,25860,5689,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=5689/processoClasse=AG/decisaoData=20050621,ok,sim,71,564,253,561,116
+25860,25861,590,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=590/processoClasse=CTA/decisaoData=20000321,ok,sim,105,619,577,728,104
+25861,25862,60000109,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3299064,ok,sim,79,538,313,415,75
+25862,25863,60000271,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3410525,ok,sim,87,513,354,398,96
+25863,25864,60004526,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3317691,ok,sim,75,876,399,450,79
+25864,25865,60006504,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3362129,ok,sim,111,604,354,542,68
+25865,25866,60008246,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3396675,ok,sim,83,776,657,546,106
+25866,25867,60009115,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3468350,ok,sim,92,617,377,474,102
+25867,25868,60009217,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3391724,ok,sim,69,575,306,396,95
+25868,25869,60012687,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3452774,ok,sim,99,502,405,473,87
+25869,25870,60013796,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3469640,ok,sim,101,756,409,632,86
+25870,25871,60014657,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3427952,ok,sim,96,590,390,550,77
+25871,25872,60021480,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3397279,ok,sim,97,631,314,529,106
+25872,25873,60023030,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3457454,ok,sim,81,837,528,767,109
+25873,25874,60023635,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3040220,ok,sim,93,549,339,421,92
+25874,25875,60024978,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3487630,ok,sim,78,675,304,661,102
+25875,25876,60026574,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/1404636,ok,sim,70,542,450,480,98
+25876,25877,60028242,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3474121,ok,sim,86,480,459,536,91
+25877,25878,60029160,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3471014,ok,sim,111,741,554,767,116
+25878,25879,60031166,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3248291,ok,sim,77,764,761,549,132
+25879,25880,60031795,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3428352,ok,sim,85,559,390,672,91
+25880,25881,60034069,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3486040,ok,sim,58,460,423,464,86
+25881,25882,60034102,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/2972911,ok,sim,84,589,484,402,88
+25882,25883,60035112,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3315885,ok,sim,98,603,475,514,116
+25883,25884,60037663,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3257637,ok,sim,101,637,388,350,109
+25884,25885,60040024,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3468588,ok,sim,93,837,443,563,124
+25885,25886,60041230,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3483719,ok,sim,91,849,754,727,141
+25886,25887,60042285,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3466775,ok,sim,80,496,344,485,90
+25887,25888,60042567,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/1223424,ok,sim,92,436,255,463,82
+25888,25889,60043859,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3348365,ok,sim,101,829,686,523,123
+25889,25890,60045686,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3276683,ok,sim,104,726,438,523,118
+25890,25891,60046574,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3466454,ok,sim,82,827,435,460,96
+25891,25892,60046774,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3352671,ok,sim,77,884,563,566,78
+25892,25893,60053676,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3311345,ok,sim,85,759,313,541,94
+25893,25894,60055719,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3487421,ok,sim,89,849,707,651,100
+25894,25895,60059179,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3462099,ok,sim,73,522,367,486,104
+25895,25896,60060393,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3398204,ok,sim,98,584,355,489,79
+25896,25897,60060398,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3308007,ok,sim,86,695,576,501,126
+25897,25898,60065898,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3471021,ok,sim,113,807,596,732,133
+25898,25899,60068086,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3434281,ok,sim,79,703,378,607,102
+25899,25900,60069792,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3474137,ok,sim,85,716,372,551,134
+25900,25901,60080680,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3238501,ok,sim,76,683,436,716,88
+25901,25902,60082973,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3315006,ok,sim,99,841,437,509,103
+25902,25903,60085025,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3483687,ok,sim,102,681,340,556,96
+25903,25904,60088315,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3479872,ok,sim,75,643,313,564,104
+25904,25905,60088523,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3292545,ok,sim,62,622,310,336,90
+25905,25906,60092437,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3317933,ok,sim,109,783,477,478,85
+25906,25907,60096988,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3305657,ok,sim,130,745,368,555,92
+25907,25908,60113731,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3304411,ok,sim,100,611,306,541,130
+25908,25909,60121039,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3228841,ok,sim,93,620,372,482,102
+25909,25910,60136627,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3228846,ok,sim,76,581,381,674,120
+25910,25911,60147580,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3445038,ok,sim,101,683,537,466,85
+25911,25912,60162460,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3271816,ok,sim,84,681,471,435,93
+25912,25913,60172558,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3482692,ok,sim,89,616,466,504,112
+25913,25914,60186085,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3293485,ok,sim,85,684,415,493,93
+25914,25915,60203261,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3405998,ok,sim,87,603,268,362,103
+25915,25916,60204788,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/1414667,ok,sim,71,570,362,498,104
+25916,25917,60252997,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3316656,ok,sim,96,539,381,439,106
+25917,25918,60280787,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3487505,ok,sim,96,744,467,520,124
+25918,25919,606,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=606/processoClasse=CTA/decisaoData=20000330,ok,sim,95,529,355,393,85
+25919,25920,60619376,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3479857,ok,sim,93,602,551,742,72
+25920,25921,60619376,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3479857,ok,sim,84,840,553,679,102
+25921,25922,60880963,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/1403353,ok,sim,78,753,406,594,105
+25922,25923,714,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/25978,ok,sim,87,452,340,352,77
+25923,25924,751,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=751/processoClasse=CTA/decisaoData=20020214,ok,sim,88,512,402,391,95
+25924,25925,753,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3309,ok,sim,87,457,389,517,124
+25925,25926,788,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=788/processoClasse=CTA/decisaoData=20020516,ok,sim,88,495,580,693,98
+25926,25927,81719,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/304205,ok,sim,79,601,413,627,112
+25927,25928,845,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=845/processoClasse=CTA/decisaoData=20030401,ok,sim,90,706,453,502,109
+25928,25929,848,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=848/processoClasse=CTA/decisaoData=20021217,ok,sim,102,464,308,482,74
+25929,25930,865,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=865/processoClasse=CTA/decisaoData=20030508,ok,sim,94,616,395,434,145
+25930,25931,879,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=879/processoClasse=CTA/decisaoData=20030626,ok,sim,77,452,428,450,119
+25931,25932,882,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=882/processoClasse=CTA/decisaoData=20030626,ok,sim,87,475,272,429,50
+25932,25933,884,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=884/processoClasse=CTA/decisaoData=20030624,ok,sim,90,498,317,399,115
+25933,25934,894,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/312,ok,sim,99,413,287,526,80
+25934,25935,897,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/18788,ok,sim,69,445,469,468,99
+25935,25936,898,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=898/processoClasse=CTA/decisaoData=20030805,ok,sim,71,452,352,439,95
+25936,25937,900,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=900/processoClasse=CTA/decisaoData=20030807,ok,sim,87,531,377,439,82
+25937,25938,904,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=904/processoClasse=CTA/decisaoData=20030807,ok,sim,92,391,502,350,98
+25938,25939,909,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=909/processoClasse=CTA/decisaoData=20030902,ok,sim,67,633,380,455,118
+25939,25940,915,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=915/processoClasse=CTA/decisaoData=20030812,ok,sim,74,435,322,401,72
+25940,25941,918,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=918/processoClasse=CTA/decisaoData=20030821,ok,sim,81,427,435,364,119
+25941,25942,919,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=919/processoClasse=CTA/decisaoData=20030902,ok,sim,70,636,500,605,87
+25942,25943,920,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=920/processoClasse=CTA/decisaoData=20030819,ok,sim,79,474,314,347,113
+25943,25944,921,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=921/processoClasse=CTA/decisaoData=20031007,ok,sim,82,547,500,480,149
+25944,25945,924,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=924/processoClasse=CTA/decisaoData=20040401,ok,sim,113,555,438,636,104
+25945,25946,934,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=934/processoClasse=CTA/decisaoData=20031209,ok,sim,102,564,345,442,106
+25946,25947,943,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=943/processoClasse=CTA/decisaoData=20030916,ok,sim,66,461,344,531,143
+25947,25948,953,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=953/processoClasse=CTA/decisaoData=20030930,ok,sim,92,431,343,390,101
+25948,25949,959,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=959/processoClasse=CTA/decisaoData=20031014,ok,sim,82,443,342,385,123
+25949,25950,960,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=960/processoClasse=CTA/decisaoData=20031014,ok,sim,88,571,384,446,84
+25950,25951,971,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=971/processoClasse=CTA/decisaoData=20031106,ok,sim,80,535,428,582,108
+25951,25952,973,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/18871,ok,sim,89,395,424,461,136
+25952,25953,981,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=981/processoClasse=CTA/decisaoData=20031204,ok,sim,87,632,452,557,108
+25953,25954,984,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=984/processoClasse=CTA/decisaoData=20040330,ok,sim,83,432,368,559,88
+25954,25955,987,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=987/processoClasse=CTA/decisaoData=20031218,ok,sim,74,599,330,634,78
+25955,25956,991,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=991/processoClasse=CTA/decisaoData=20040316,ok,sim,85,643,484,564,101
+25956,25957,994,Inelegibilidades e condições de elegibilidade,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=994/processoClasse=CTA/decisaoData=20040219,ok,sim,111,344,318,395,96
+25957,25958,10890,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=10890/processoClasse=AIM/decisaoData=19900403,ok,sim,83,628,305,473,73
+25958,25959,1204,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1204/processoClasse=CTA/decisaoData=20060608,ok,sim,93,711,506,386,80
+25959,25960,12232,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/18052,ok,sim,93,659,526,513,118
+25960,25961,12782,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/12969,ok,sim,88,590,400,512,103
+25961,25962,13415,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/15337,ok,sim,117,675,246,560,81
+25962,25963,1417,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/30309,ok,sim,84,799,372,448,91
+25963,25964,1423,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1423/processoClasse=CTA/decisaoData=20070801,ok,sim,105,415,353,497,88
+25964,25965,1439,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1439/processoClasse=CTA/decisaoData=20070830,ok,sim,91,633,372,493,75
+25965,25966,1554,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/31095,ok,sim,98,682,623,493,122
+25966,25967,1678,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1678/processoClasse=CTA/decisaoData=20090407,ok,sim,92,634,325,411,87
+25967,25968,1695,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1695/processoClasse=CTA/decisaoData=20091027,ok,sim,76,725,403,601,110
+25968,25969,1720,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1720/processoClasse=CTA/decisaoData=20090924,ok,sim,57,392,339,392,116
+25969,25970,173,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/11858,ok,sim,94,340,302,393,42
+25970,25971,1838,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/7969,ok,sim,87,459,399,467,99
+25971,25972,2,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/7363,ok,sim,83,550,381,486,99
+25972,25973,24,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/14183,ok,sim,99,627,327,610,134
+25973,25974,2767,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=2767/processoClasse=PET/decisaoData=20071218,ok,sim,73,615,382,581,86
+25974,25975,2797,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=2797/processoClasse=PET/decisaoData=20080221,ok,sim,73,472,246,377,91
+25975,25976,3,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/6196,ok,sim,73,637,324,411,112
+25976,25977,410,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/8607,ok,sim,75,662,398,539,87
+25977,25978,424,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=424/processoClasse=CTA/decisaoData=19980407,ok,sim,92,396,273,393,110
+25978,25979,454,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/14667,ok,sim,87,562,402,518,100
+25979,25980,455,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/8601,ok,sim,93,505,441,581,110
+25980,25981,572,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=572/processoClasse=CTA/decisaoData=20000215,ok,sim,98,487,451,541,118
+25981,25982,60001486,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3479874,ok,sim,101,1085,503,625,132
+25982,25983,6933,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/13528,ok,sim,74,710,372,435,89
+25983,25984,706,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=706/processoClasse=CTA/decisaoData=20010911,ok,sim,70,687,468,396,82
+25984,25985,7583,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/11417,ok,sim,58,603,453,414,78
+25985,25986,81,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/19016,ok,sim,56,574,417,427,85
+25986,25987,82,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/13943,ok,sim,88,471,478,441,92
+25987,25988,8988,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/11396,ok,sim,72,582,441,428,116
+25988,25989,945,Mandato eletivo,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=945/processoClasse=CTA/decisaoData=20030916,ok,sim,98,405,323,374,63
+25989,25990,100,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/257085,ok,sim,88,625,367,406,95
+25990,25991,1747,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/28294,ok,sim,92,747,329,670,66
+25991,25992,1818,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1818/processoClasse=PET/decisaoData=20060411,ok,sim,83,582,404,465,80
+25992,25993,19082,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/28202,ok,sim,94,716,421,494,88
+25993,25994,19367,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19367/processoClasse=PA/decisaoData=20050804,ok,sim,100,517,242,510,78
+25994,25995,19421,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19421/processoClasse=PA/decisaoData=20051025,ok,sim,101,777,407,666,84
+25995,25996,19458,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19458/processoClasse=PA/decisaoData=20071213,ok,sim,65,649,473,465,110
+25996,25997,19469,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19469/processoClasse=PA/decisaoData=20051025,ok,sim,73,440,251,485,78
+25997,25998,19572,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19572/processoClasse=PA/decisaoData=20061017,ok,sim,73,395,279,415,94
+25998,25999,19635,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19635/processoClasse=PA/decisaoData=20061031,ok,sim,103,651,292,364,72
+25999,26000,19667,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19667/processoClasse=PA/decisaoData=20060817,ok,sim,73,541,382,596,93
+26000,26001,19667,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19667/processoClasse=PA/decisaoData=20061130,ok,sim,102,726,410,569,76
+26001,26002,19702,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19702/processoClasse=PA/decisaoData=20061024,ok,sim,89,686,323,430,127
+26002,26003,19727,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19727/processoClasse=PA/decisaoData=20061109,ok,sim,97,633,372,450,65
+26003,26004,19779,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19779/processoClasse=PA/decisaoData=20090422,ok,sim,71,730,441,668,101
+26004,26005,19780,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19780/processoClasse=PA/decisaoData=20070821,ok,sim,76,469,379,521,107
+26005,26006,19790,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19790/processoClasse=PA/decisaoData=20070206,ok,sim,79,653,493,395,88
+26006,26007,19799,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19799/processoClasse=PA/decisaoData=20080605,ok,sim,87,557,327,526,103
+26007,26008,19844,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/29507,ok,sim,95,380,261,448,77
+26008,26009,19848,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19848/processoClasse=PA/decisaoData=20080221,ok,sim,96,670,462,567,91
+26009,26010,19867,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19867/processoClasse=PA/decisaoData=20080403,ok,sim,89,588,358,551,85
+26010,26011,19873,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/33516,ok,sim,76,526,271,409,114
+26011,26012,19875,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19875/processoClasse=PA/decisaoData=20080214,ok,sim,89,558,258,420,77
+26012,26013,19901,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19901/processoClasse=PA/decisaoData=20090212,ok,sim,100,531,333,478,96
+26013,26014,19901,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19901/processoClasse=PA/decisaoData=20080617,ok,sim,69,541,352,498,85
+26014,26015,19921,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19921/processoClasse=PA/decisaoData=20080626,ok,sim,76,484,274,327,61
+26015,26016,20006,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=20006/processoClasse=PA/decisaoData=20080917,ok,sim,97,665,609,507,83
+26016,26017,20012,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=20012/processoClasse=PA/decisaoData=20090505,ok,sim,63,483,266,323,73
+26017,26018,20245,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=20245/processoClasse=PA/decisaoData=20090917,ok,sim,96,816,648,483,102
+26018,26019,20257,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=20257/processoClasse=PA/decisaoData=20091022,ok,sim,77,576,428,792,98
+26019,26020,60092212,Matéria Administrativa,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3485804,ok,sim,83,636,324,437,69
+26020,26021,1151,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1151/processoClasse=CTA/decisaoData=20050906,ok,sim,96,376,238,324,68
+26021,26022,1171,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1171/processoClasse=CTA/decisaoData=20060608,ok,sim,97,466,389,345,85
+26022,26023,1191,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1191/processoClasse=CTA/decisaoData=20060330,ok,sim,66,332,201,297,55
+26023,26024,1202,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1202/processoClasse=CTA/decisaoData=20060330,ok,sim,84,381,289,417,99
+26024,26025,1210,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1210/processoClasse=CTA/decisaoData=20060608,ok,sim,82,455,251,430,121
+26025,26026,1214,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1214/processoClasse=CTA/decisaoData=20060420,ok,sim,100,498,311,542,92
+26026,26027,1236,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/25378,ok,sim,77,421,287,414,108
+26027,26028,1237,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1237/processoClasse=CTA/decisaoData=20060608,ok,sim,94,471,321,529,98
+26028,26029,1310,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/25674,ok,sim,74,453,291,345,57
+26029,26030,1352,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1352/processoClasse=CTA/decisaoData=20060829,ok,sim,76,600,269,441,109
+26030,26031,13561,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/13710,ok,sim,79,432,379,507,68
+26031,26032,1385,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/28370,ok,sim,105,371,283,463,74
+26032,26033,1411,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/28701,ok,sim,86,457,339,383,100
+26033,26034,1474,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1474/processoClasse=CTA/decisaoData=20071213,ok,sim,89,402,313,362,107
+26034,26035,1499,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1499/processoClasse=PET/decisaoData=20080325,ok,sim,101,497,356,407,68
+26035,26036,15191,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/22610,ok,sim,82,431,216,378,85
+26036,26037,1542,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/30386,ok,sim,88,661,366,523,135
+26037,26038,15714,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/22609,ok,sim,98,374,222,286,89
+26038,26039,1593,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1593/processoClasse=CTA/decisaoData=20080603,ok,sim,52,411,281,307,77
+26039,26040,1600,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1600/processoClasse=CTA/decisaoData=20080617,ok,sim,56,440,214,381,70
+26040,26041,19318,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/25952,ok,sim,67,581,367,548,132
+26041,26042,19460,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19460/processoClasse=PA/decisaoData=20050915,ok,sim,93,594,394,436,93
+26042,26043,19509,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/27735,ok,sim,104,545,317,459,101
+26043,26044,19817,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/28613,ok,sim,116,619,335,513,99
+26044,26045,20242,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=20242/processoClasse=PA/decisaoData=20090910,ok,sim,133,395,326,402,95
+26045,26046,23171,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/36745,ok,sim,67,482,301,380,84
+26046,26047,2456,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/28351,ok,sim,76,346,270,341,100
+26047,26048,60005966,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3471764,ok,sim,93,461,345,451,84
+26048,26049,60024261,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3479873,ok,sim,93,682,245,550,91
+26049,26050,60037577,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3468727,ok,sim,84,538,336,433,114
+26050,26051,60063037,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3479900,ok,sim,111,572,304,442,86
+26051,26052,61371092,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3479288,ok,sim,78,710,280,525,62
+26052,26053,974,Matéria processual,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=974/processoClasse=CTA/decisaoData=20031202,ok,sim,87,432,300,395,86
+26053,26054,100,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=100/processoClasse=pet/decisaoData=20090604,ok,sim,111,1025,511,651,124
+26054,26055,1012,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1012/processoClasse=CTA/decisaoData=20040401,ok,sim,79,449,353,350,96
+26055,26056,1015,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1015/processoClasse=pet/decisaoData=20040831,ok,sim,113,625,321,533,105
+26056,26057,1049,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1049/processoClasse=pet/decisaoData=20041104,ok,sim,77,462,335,370,83
+26057,26058,1056,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/19467,ok,sim,71,813,715,554,120
+26058,26059,1079,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1079/processoClasse=pet/decisaoData=20060321,ok,sim,108,708,656,618,102
+26059,26060,1085,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1085/processoClasse=pet/decisaoData=20061130,ok,sim,101,532,258,483,113
+26060,26061,1091,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1091/processoClasse=pet/decisaoData=20040413,ok,sim,89,621,421,522,119
+26061,26062,1092,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1092/processoClasse=pet/decisaoData=20040826,ok,sim,76,647,399,452,78
+26062,26063,1101,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1101/processoClasse=pet/decisaoData=20040325,ok,sim,123,424,283,246,61
+26063,26064,1110,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1110/processoClasse=pet/decisaoData=20040817,ok,sim,84,656,391,491,95
+26064,26065,1128,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1128/processoClasse=cta/decisaoData=20050215,ok,sim,88,729,382,431,127
+26065,26066,1129,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1129/processoClasse=cta/decisaoData=20050215,ok,sim,87,766,555,585,101
+26066,26067,1155,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/24052,ok,sim,113,669,328,448,109
+26067,26068,1335,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1335/processoClasse=pet/decisaoData=20061019,ok,sim,66,504,348,468,103
+26068,26069,137,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/6337,ok,sim,78,453,333,331,92
+26069,26070,1393,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1393/processoClasse=cta/decisaoData=20070215,ok,sim,88,465,426,520,91
+26070,26071,1429,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1429/processoClasse=cta/decisaoData=20080520,ok,sim,79,756,451,545,64
+26071,26072,1449,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1449/processoClasse=pet/decisaoData=20070612,ok,sim,79,569,351,578,123
+26072,26073,1449,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1449/processoClasse=pet/decisaoData=20070913,ok,sim,135,694,383,447,93
+26073,26074,1450,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1450/processoClasse=cta/decisaoData=20071213,ok,sim,58,477,386,410,103
+26074,26075,1462,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1462/processoClasse=pet/decisaoData=20061109,ok,sim,95,614,370,335,81
+26075,26076,1484,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1484/processoClasse=cta/decisaoData=20080619,ok,sim,106,762,544,734,92
+26076,26077,1507,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1507/processoClasse=cta/decisaoData=20080221,ok,sim,84,540,527,453,88
+26077,26078,1536,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1536/processoClasse=cta/decisaoData=20080415,ok,sim,73,742,587,506,119
+26078,26079,1594,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1594/processoClasse=pet/decisaoData=20050519,ok,sim,96,554,341,481,106
+26079,26080,1613,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1613/processoClasse=pet/decisaoData=20061009,ok,sim,85,693,401,476,73
+26080,26081,1614,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1614/processoClasse=pet/decisaoData=20060321,ok,sim,61,429,251,342,51
+26081,26082,1614,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1614/processoClasse=pet/decisaoData=20060905,ok,sim,96,696,401,449,83
+26082,26083,1672,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1672/processoClasse=pet/decisaoData=20060425,ok,sim,77,615,526,488,106
+26083,26084,1674,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1674/processoClasse=cta/decisaoData=20090310,ok,sim,88,529,366,416,82
+26084,26085,1856,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1856/processoClasse=pet/decisaoData=20090521,ok,sim,91,552,314,371,91
+26085,26086,19417,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19417/processoClasse=pa/decisaoData=20050920,ok,sim,82,378,254,395,92
+26086,26087,19525,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19525/processoClasse=pa/decisaoData=20060801,ok,sim,78,445,450,526,104
+26087,26088,19731,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19731/processoClasse=pa/decisaoData=20070206,ok,sim,84,556,368,503,79
+26088,26089,19809,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19809/processoClasse=pa/decisaoData=20080311,ok,sim,90,456,300,332,82
+26089,26090,19815,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19815/processoClasse=pa/decisaoData=20071113,ok,sim,84,393,288,408,84
+26090,26091,2072,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=2072/processoClasse=pet/decisaoData=20061031,ok,sim,115,675,398,594,101
+26091,26092,22258,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/26037,ok,sim,75,510,316,423,78
+26092,26093,22665,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/29541,ok,sim,63,566,365,437,76
+26093,26094,23265,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/38103,ok,sim,89,478,301,360,97
+26094,26095,2456,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=2456/processoClasse=pet/decisaoData=20070315,ok,sim,95,582,500,506,141
+26095,26096,257,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=257/processoClasse=pet/decisaoData=19980407,ok,sim,90,357,302,441,90
+26096,26097,2577,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=2577/processoClasse=pet/decisaoData=20061128,ok,sim,100,491,298,338,75
+26097,26098,2623,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=2623/processoClasse=pet/decisaoData=20070925,ok,sim,70,754,473,530,105
+26098,26099,2656,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=2656/processoClasse=pet/decisaoData=20090602,ok,sim,110,392,351,467,119
+26099,26100,2657,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=2657/processoClasse=pet/decisaoData=20090414,ok,sim,82,643,389,465,65
+26100,26101,266,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=266/processoClasse=RP/decisaoData=20000425,ok,sim,85,373,360,437,101
+26101,26102,2675,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=2675/processoClasse=pet/decisaoData=20080626,ok,sim,73,680,382,407,97
+26102,26103,2699,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=2699/processoClasse=pet/decisaoData=20080415,ok,sim,89,475,374,570,116
+26103,26104,278,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=278/processoClasse=cp/decisaoData=19951207,ok,sim,83,450,329,412,94
+26104,26105,296,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=296/processoClasse=RGP/decisaoData=19990525,ok,sim,79,366,262,429,96
+26105,26106,297,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=297/processoClasse=RGP/decisaoData=20000413,ok,sim,77,436,369,409,71
+26106,26107,298,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=298/processoClasse=RGP/decisaoData=20020402,ok,sim,86,336,250,380,73
+26107,26108,304,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=304/processoClasse=rgp/decisaoData=20060202,ok,sim,85,384,338,303,85
+26108,26109,317,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=317/processoClasse=pet/decisaoData=20020606,ok,sim,78,646,279,530,90
+26109,26110,330,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=330/processoClasse=pet/decisaoData=20040817,ok,sim,93,530,414,609,89
+26110,26111,369,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=369/processoClasse=pet/decisaoData=19970930,ok,sim,81,475,317,430,86
+26111,26112,523,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=523/processoClasse=cta/decisaoData=20050407,ok,sim,123,564,476,461,84
+26112,26113,56,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=56/processoClasse=INST/decisaoData=20021031,ok,sim,95,622,419,504,128
+26113,26114,60010614,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3481801,ok,sim,62,507,348,406,112
+26114,26115,60024816,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3475408,ok,sim,98,575,498,467,99
+26115,26116,60030714,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3485636,ok,sim,54,496,380,406,91
+26116,26117,60036678,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3480087,ok,sim,91,662,625,669,110
+26117,26118,60038080,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3468592,ok,sim,91,548,532,574,81
+26118,26119,60039502,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3486880,ok,sim,81,618,512,646,108
+26119,26120,60045021,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3479898,ok,sim,82,354,333,478,82
+26120,26121,60054262,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3479818,ok,sim,92,652,448,647,88
+26121,26122,60068490,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3478871,ok,sim,92,785,744,557,112
+26122,26123,60099751,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3482676,ok,sim,81,568,713,712,117
+26123,26124,60165114,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3469007,ok,sim,100,700,371,490,108
+26124,26125,724,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=724/processoClasse=CTA/decisaoData=20030422,ok,sim,90,477,320,475,109
+26125,26126,8961,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/13884,ok,sim,97,472,361,443,71
+26126,26127,8962,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/15376,ok,sim,93,594,331,439,80
+26127,26128,899,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=899/processoClasse=pet/decisaoData=20040325,ok,sim,93,546,359,417,93
+26128,26129,906,Partido político,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=906/processoClasse=pet/decisaoData=20040817,ok,sim,70,583,412,376,87
+26129,26130,2114,Pesquisa eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=2114/processoClasse=PET/decisaoData=20060905,ok,sim,113,423,339,495,116
+26130,26131,34,Pesquisa eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=34/processoClasse=INST_/decisaoData=19980402,ok,sim,77,602,339,376,95
+26131,26132,435,Pesquisa eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=435/processoClasse=PET/decisaoData=19980430,ok,sim,71,535,251,390,83
+26132,26133,54,Pesquisa eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=54/processoClasse=INST_/decisaoData=20020801,ok,sim,73,500,393,526,73
+26133,26134,54,Pesquisa eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=54/processoClasse=INST_/decisaoData=20020509,ok,sim,70,813,404,497,61
+26134,26135,54,Pesquisa eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=54/processoClasse=INST_/decisaoData=20020910,ok,sim,89,562,431,546,81
+26135,26136,54,Pesquisa eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=54/processoClasse=INST_/decisaoData=20020917,ok,sim,60,474,467,484,98
+26136,26137,60004152,Pesquisa eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3471422,ok,sim,91,528,307,358,56
+26137,26138,60004674,Pesquisa eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3477384,ok,sim,94,496,376,482,73
+26138,26139,60044671,Pesquisa eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3472917,ok,sim,71,598,385,478,101
+26139,26140,60053523,Pesquisa eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3486232,ok,sim,66,624,407,762,104
+26140,26141,65,Pesquisa eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=65/processoClasse=INST_/decisaoData=20021001,ok,sim,98,613,412,442,113
+26141,26142,65,Pesquisa eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=65/processoClasse=INST_/decisaoData=20021004,ok,sim,65,577,399,478,65
+26142,26143,698,Pesquisa eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=698/processoClasse=CTA/decisaoData=20010619,ok,sim,72,478,550,578,75
+26143,26144,72,Pesquisa eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=72/processoClasse=INST_/decisaoData=20040413,ok,sim,77,557,457,455,103
+26144,26145,10505,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/13704,ok,sim,95,724,419,520,111
+26145,26146,10537,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=10537/processoClasse=RP/decisaoData=19921201,ok,sim,89,511,388,496,89
+26146,26147,1055,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1055/processoClasse=CTA/decisaoData=20040608,ok,sim,81,550,382,455,113
+26147,26148,1055,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1055/processoClasse=CTA/decisaoData=20040622,ok,sim,99,528,370,434,93
+26148,26149,1117,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1117/processoClasse=CTA/decisaoData=20040824,ok,sim,99,674,437,595,97
+26149,26150,1197,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1197/processoClasse=CTA/decisaoData=20060606,ok,sim,81,483,295,472,59
+26150,26151,12041,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/9110,ok,sim,77,492,408,437,59
+26151,26152,121034,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=121034/processoClasse=CTA/decisaoData=20100608,ok,sim,91,491,331,477,79
+26152,26153,12246,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=12246/processoClasse=RP/decisaoData=19911022,ok,sim,66,671,319,484,84
+26153,26154,1259,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1259/processoClasse=CTA/decisaoData=20060608,ok,sim,95,452,466,502,98
+26154,26155,126,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=126/processoClasse=HC/decisaoData=19880412,ok,sim,68,566,315,334,64
+26155,26156,1271,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/25690,ok,sim,92,478,320,571,90
+26156,26157,1286,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1286/processoClasse=CTA/decisaoData=20060608,ok,sim,70,416,271,505,108
+26157,26158,133,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=133/processoClasse=RHC/decisaoData=19880823,ok,sim,77,527,385,442,99
+26158,26159,1678,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1678/processoClasse=MS/decisaoData=19921001,ok,sim,56,374,277,436,74
+26159,26160,185,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=185/processoClasse=HC/decisaoData=19920813,ok,sim,85,673,321,440,95
+26160,26161,19562,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19562/processoClasse=PA/decisaoData=20060817,ok,sim,82,654,397,602,97
+26161,26162,233,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=233/processoClasse=PET/decisaoData=19961031,ok,sim,87,549,317,415,95
+26162,26163,28087,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=28087/processoClasse=RESPE/decisaoData=20071113,ok,sim,80,540,362,484,107
+26163,26164,284,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=284/processoClasse=RP/decisaoData=20000829,ok,sim,89,802,412,543,124
+26164,26165,2860,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=2860/processoClasse=PET/decisaoData=20080828,ok,sim,106,740,407,501,120
+26165,26166,35,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/1612,ok,sim,70,432,336,542,119
+26166,26167,35,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/893,ok,sim,92,355,274,353,90
+26167,26168,371,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=371/processoClasse=CTA/decisaoData=19971216,ok,sim,101,411,351,451,84
+26168,26169,46,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=46/processoClasse=INST/decisaoData=20000504,ok,sim,78,420,378,333,94
+26169,26170,499,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=499/processoClasse=CTA/decisaoData=19980827,ok,sim,94,522,444,479,133
+26170,26171,559,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=559/processoClasse=CTA/decisaoData=19991118,ok,sim,61,488,279,418,127
+26171,26172,57,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/1350https:/sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=57/processoClasse=INST/decisaoData=20021001,ok,sim,89,425,325,500,96
+26172,26173,57,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=57/processoClasse=INST/decisaoData=20021010,ok,sim,98,619,278,439,84
+26173,26174,57,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/1319,ok,sim,60,321,248,455,81
+26174,26175,57,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=57/processoClasse=INST_/decisaoData=20020321,ok,sim,86,687,500,346,119
+26175,26176,57,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3166https:/sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=57/processoClasse=INST/decisaoData=20020423,ok,sim,89,673,391,451,93
+26176,26177,57,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=57/processoClasse=INST/decisaoData=20020423,ok,sim,80,700,502,594,117
+26177,26178,60002957,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3482072,ok,sim,102,469,399,444,94
+26178,26179,60005361,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3479892,ok,sim,108,465,435,470,111
+26179,26180,60005966,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3471764,ok,sim,73,439,374,444,96
+26180,26181,60006173,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3481180,ok,sim,122,722,440,647,122
+26181,26182,60008095,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3473757,ok,sim,115,529,411,657,62
+26182,26183,60008440,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3469638,ok,sim,78,653,504,457,75
+26183,26184,60008637,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3473728,ok,sim,111,737,452,531,94
+26184,26185,60009553,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3469543,ok,sim,77,564,366,636,93
+26185,26186,60013195,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3469645,ok,sim,115,751,416,486,90
+26186,26187,60014340,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3478883,ok,sim,82,416,330,459,95
+26187,26188,60014889,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3311010,ok,sim,76,608,433,496,93
+26188,26189,60014969,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3483695,ok,sim,69,465,266,500,76
+26189,26190,60019813,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3482308,ok,sim,73,677,471,483,112
+26190,26191,60024317,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3475429,ok,sim,84,617,406,439,97
+26191,26192,60024584,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3480272,ok,sim,80,746,500,606,113
+26192,26193,60027210,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3474139,ok,sim,91,642,359,432,111
+26193,26194,60029665,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3469448,ok,sim,78,577,443,509,103
+26194,26195,60034317,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3469540,ok,sim,114,739,426,536,112
+26195,26196,60035765,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3471003,ok,sim,96,710,443,517,108
+26196,26197,60036146,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3469562,ok,sim,94,494,493,539,79
+26197,26198,60042545,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3487729,ok,sim,74,469,313,482,119
+26198,26199,60043104,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3276385,ok,sim,73,685,268,461,86
+26199,26200,60044285,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3471018,ok,sim,101,510,365,428,69
+26200,26201,60045538,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3475040,ok,sim,87,498,367,457,92
+26201,26202,60045623,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3485623,ok,sim,99,406,260,443,86
+26202,26203,60048518,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3471888,ok,sim,99,465,332,421,90
+26203,26204,60049130,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3479310,ok,sim,97,519,439,590,106
+26204,26205,60049435,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3479309,ok,sim,92,701,411,501,93
+26205,26206,60050576,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3481181,ok,sim,91,715,465,616,113
+26206,26207,60055590,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3481892,ok,sim,96,727,460,481,86
+26207,26208,60055867,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3471648,ok,sim,96,815,407,541,99
+26208,26209,60073392,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3486910,ok,sim,111,479,345,418,83
+26209,26210,60073709,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3486882,ok,sim,84,367,286,379,87
+26210,26211,60105478,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3481800,ok,sim,88,452,304,580,100
+26211,26212,60146190,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3475034,ok,sim,91,615,387,430,94
+26212,26213,60190542,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3349268,ok,sim,83,613,463,535,78
+26213,26214,630,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=630/processoClasse=CTA/decisaoData=20000516,ok,sim,98,356,416,512,115
+26214,26215,636,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=636/processoClasse=CTA/decisaoData=20000518,ok,sim,100,567,351,327,75
+26215,26216,66,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=66/processoClasse=INST/decisaoData=20020920,ok,sim,76,380,313,335,84
+26216,26217,66,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=66/processoClasse=INST/decisaoData=20020923,ok,sim,85,477,543,702,120
+26217,26218,66,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/1407,ok,sim,89,715,372,570,82
+26218,26219,660,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=660/processoClasse=PET/decisaoData=19980916,ok,sim,89,409,301,486,102
+26219,26220,698,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=698/processoClasse=CTA/decisaoData=20010619,ok,sim,90,741,427,515,111
+26220,26221,714,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=714/processoClasse=CTA/decisaoData=20011009,ok,sim,62,779,385,526,133
+26221,26222,796,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=796/processoClasse=CTA/decisaoData=20020604,ok,sim,95,556,492,476,65
+26222,26223,799,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=799/processoClasse=CTA/decisaoData=20020701,ok,sim,81,386,332,451,97
+26223,26224,803,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=803/processoClasse=CTA/decisaoData=20020627,ok,sim,77,497,344,358,90
+26224,26225,804,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/1275,ok,sim,88,500,363,510,119
+26225,26226,906,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=906/processoClasse=CTA/decisaoData=20031021,ok,sim,106,602,350,459,93
+26226,26227,9474,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/15764,ok,sim,92,532,270,431,76
+26227,26228,983,Propaganda eleitoral,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=983/processoClasse=CTA/decisaoData=20040217,ok,sim,93,608,348,404,68
+26228,26229,10046,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=10046/processoClasse=RESPE/decisaoData=19920924,ok,sim,68,295,216,371,73
+26229,26230,1022,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1022/processoClasse=CTA/decisaoData=20040330,ok,sim,70,333,280,436,113
+26230,26231,1027,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1027/processoClasse=CTA/decisaoData=20040601,ok,sim,109,616,388,458,112
+26231,26232,1037,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1037/processoClasse=CTA/decisaoData=20040427,ok,sim,103,679,416,573,97
+26232,26233,1041,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1041/processoClasse=CTA/decisaoData=20040701,ok,sim,75,796,326,587,100
+26233,26234,11151,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=11151/processoClasse=RP/decisaoData=19900529,ok,sim,61,594,369,454,56
+26234,26235,12140,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/12937,ok,sim,69,442,386,379,91
+26235,26236,12400,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/12878,ok,sim,86,801,658,699,112
+26236,26237,124154,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=124154/processoClasse=PA/decisaoData=20100601,ok,sim,70,435,459,476,73
+26237,26238,1421,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1421/processoClasse=CTA/decisaoData=20070619,ok,sim,75,618,342,530,95
+26238,26239,1425,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1425/processoClasse=CTA/decisaoData=20070619,ok,sim,77,601,268,397,77
+26239,26240,1551,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1551/processoClasse=PET/decisaoData=20041026,ok,sim,108,566,426,458,104
+26240,26241,1552,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/30330,ok,sim,96,550,368,505,131
+26241,26242,1577,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1577/processoClasse=PET/decisaoData=20050310,ok,sim,93,533,323,421,87
+26242,26243,1744,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1744/processoClasse=CTA/decisaoData=20100323,ok,sim,81,506,343,420,88
+26243,26244,17717,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=17717/processoClasse=PA/decisaoData=19980915,ok,sim,88,612,371,365,64
+26244,26245,19218,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19218/processoClasse=PA/decisaoData=20040624,ok,sim,78,519,264,470,80
+26245,26246,19552,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19552/processoClasse=PA/decisaoData=20060630,ok,sim,105,600,362,494,81
+26246,26247,20153,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=20153/processoClasse=PA/decisaoData=20091020,ok,sim,79,402,293,322,116
+26247,26248,20159,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=20159/processoClasse=PA/decisaoData=20081219,ok,sim,100,685,744,559,94
+26248,26249,22322,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/25841,ok,sim,100,636,408,465,127
+26249,26250,31743,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=31743/processoClasse=CTA/decisaoData=20100323,ok,sim,69,462,377,538,93
+26250,26251,365,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=365/processoClasse=CTA/decisaoData=19971209,ok,sim,84,715,480,529,115
+26251,26252,386,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=386/processoClasse=CTA/decisaoData=19971218,ok,sim,75,572,487,624,99
+26252,26253,418,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=418/processoClasse=CTA/decisaoData=19980326,ok,sim,71,359,281,394,105
+26253,26254,445925,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=445925/processoClasse=RO/decisaoData=20110607,ok,sim,111,265,359,455,100
+26254,26255,452,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=452/processoClasse=CTA/decisaoData=19980602,ok,sim,75,749,371,551,95
+26255,26256,464,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=464/processoClasse=CTA/decisaoData=19980609,ok,sim,79,558,289,437,76
+26256,26257,49,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/4142,ok,sim,100,580,357,351,97
+26257,26258,501,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=501/processoClasse=CTA/decisaoData=19980903,ok,sim,79,355,303,386,41
+26258,26259,5082,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/13915,ok,sim,96,586,241,482,55
+26259,26260,55,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=55/processoClasse=INST_/decisaoData=20020326,ok,sim,69,638,539,580,95
+26260,26261,55,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3280,ok,sim,71,527,317,491,69
+26261,26262,55,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=55/processoClasse=INST_/decisaoData=20020430,ok,sim,83,623,389,568,88
+26262,26263,55,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3183,ok,sim,85,526,426,512,59
+26263,26264,551,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=551/processoClasse=CTA/decisaoData=19991202,ok,sim,75,552,431,605,118
+26264,26265,56,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/1064,ok,sim,90,582,292,516,105
+26265,26266,56,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=56/processoClasse=INST_/decisaoData=20021107,ok,sim,53,570,420,442,66
+26266,26267,60008324,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3473764,ok,sim,87,782,360,501,69
+26267,26268,60024454,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3479301,ok,sim,120,653,447,697,96
+26268,26269,60033171,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3474136,ok,sim,103,577,399,459,109
+26269,26270,60034069,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3486040,ok,sim,53,473,349,476,111
+26270,26271,67,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=67/processoClasse=RCPR/decisaoData=19890831,ok,sim,96,730,417,416,71
+26271,26272,73,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/19242,ok,sim,68,902,636,534,96
+26272,26273,9096,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=9096/processoClasse=RESPE/decisaoData=19900830,ok,sim,67,596,326,667,85
+26273,26274,9392,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=9392/processoClasse=CTA/decisaoData=19880804,ok,sim,69,619,311,377,97
+26274,26275,941,Registro de candidato,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=941/processoClasse=CTA/decisaoData=20030925,ok,sim,88,583,440,441,106
+26275,26276,108,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=108/processoClasse=INST_/decisaoData=20060808,ok,sim,90,626,290,461,102
+26276,26277,1168,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1168/processoClasse=CTA/decisaoData=20050825,ok,sim,81,1017,596,650,100
+26277,26278,1170,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1170/processoClasse=cta/decisaoData=20050825,ok,sim,71,755,581,582,138
+26278,26279,12167,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=12167/processoClasse=AI/decisaoData=20100318,ok,sim,63,821,542,520,82
+26279,26280,1312,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/22725,ok,sim,95,702,414,446,99
+26280,26281,1508,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1508/processoClasse=PET/decisaoData=20040913,ok,sim,91,586,406,353,78
+26281,26282,151,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=151/processoClasse=CTA/decisaoData=19971021,ok,sim,84,411,299,419,94
+26282,26283,1573,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1573/processoClasse=CTA/decisaoData=20080505,ok,sim,81,870,424,673,103
+26283,26284,1678,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1678/processoClasse=pet/decisaoData=20050927,ok,sim,81,536,366,449,102
+26284,26285,1708,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1708/processoClasse=CTA/decisaoData=20100225,ok,sim,72,812,589,619,124
+26285,26286,1733,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1733/processoClasse=pet/decisaoData=20091210,ok,sim,93,561,362,414,81
+26286,26287,1733,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1733/processoClasse=pet/decisaoData=20091210,ok,sim,81,527,343,412,76
+26287,26288,1748,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1748/processoClasse=PET/decisaoData=20090818,ok,sim,90,482,376,367,60
+26288,26289,18652,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=18652/processoClasse=PA/decisaoData=20071213,ok,sim,102,586,408,580,102
+26289,26290,18883,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=18883/processoClasse=PA/decisaoData=20040622,ok,sim,84,549,297,464,117
+26290,26291,1897,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=1897/processoClasse=pet/decisaoData=20060801,ok,sim,114,796,566,466,113
+26291,26292,19109,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19109/processoClasse=pa/decisaoData=20031218,ok,sim,73,624,333,303,65
+26292,26293,19119,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/20959,ok,sim,72,456,440,572,110
+26293,26294,19130,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19130/processoClasse=PA/decisaoData=20050414,ok,sim,92,450,330,388,99
+26294,26295,19176,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19176/processoClasse=PA/decisaoData=20040810,ok,sim,104,856,550,654,101
+26295,26296,19392,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19392/processoClasse=PA/decisaoData=20050809,ok,sim,71,463,493,486,76
+26296,26297,19407,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19407/processoClasse=pa/decisaoData=20050609,ok,sim,72,504,289,332,76
+26297,26298,19415,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19415/processoClasse=PA/decisaoData=20050628,ok,sim,97,616,295,468,99
+26298,26299,19773,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19773/processoClasse=PA/decisaoData=20061207,ok,sim,91,653,551,555,78
+26299,26300,198294,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=198294/processoClasse=PA/decisaoData=20100803,ok,sim,81,528,394,607,91
+26300,26301,19903,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19903/processoClasse=PA_/decisaoData=20080527,ok,sim,87,397,321,317,58
+26301,26302,19970,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19970/processoClasse=PA/decisaoData=20080812,ok,sim,114,548,316,391,114
+26302,26303,19990,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19990/processoClasse=PA/decisaoData=20091210,ok,sim,91,832,434,427,137
+26303,26304,19992,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=19992/processoClasse=PA/decisaoData=20080814,ok,sim,111,495,501,492,107
+26304,26305,20018,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=20018/processoClasse=PA/decisaoData=20081202,ok,sim,85,570,479,400,102
+26305,26306,20200,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=20200/processoClasse=PA/decisaoData=20090507,ok,sim,84,653,450,424,104
+26306,26307,20200,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/35522,ok,sim,82,461,405,433,122
+26307,26308,29453,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=29453/processoClasse=PET/decisaoData=20100610,ok,sim,106,734,489,586,86
+26308,26309,315,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=315/processoClasse=CTA/decisaoData=20050215,ok,sim,74,658,343,360,97
+26309,26310,372,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=372/processoClasse=ELT/decisaoData=20040226,ok,sim,109,655,461,537,98
+26310,26311,60009161,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3473722,ok,sim,83,574,420,432,143
+26311,26312,60018543,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3485409,ok,sim,92,790,367,496,74
+26312,26313,60025963,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3481122,ok,sim,108,547,463,489,126
+26313,26314,60061388,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/3479292,ok,sim,82,711,386,641,108
+26314,26315,67253,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=67253/processoClasse=PA/decisaoData=20100622,ok,sim,85,609,339,424,108
+26315,26316,79,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=79/processoClasse=INST_/decisaoData=20031216,ok,sim,74,415,364,408,63
+26316,26317,79,Temas diversos,https://sjur-servicos.tse.jus.br/sjur-servicos/rest/download/pdf/tribunal=TSE/processoNumero=79/processoClasse=INST_/decisaoData=20040427,ok,sim,88,677,346,436,101

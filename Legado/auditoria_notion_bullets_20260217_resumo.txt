@@ -1,0 +1,19 @@
+Modo: DRY-RUN
+Notion Version: 2022-06-28
+Databases encontrados: 3
+Databases concluídos: 3
+Páginas lidas: 18598
+Páginas com bullet_points: 18598
+Páginas alteradas (detectadas): 15074
+Páginas sem alteração: 3524
+Páginas ignoradas sem bullet_points: 0
+Páginas ignoradas tipo inválido: 0
+Updates OK: 0
+Updates falhos: 0
+Erros totais: 2
+Limite max-pages atingido: não
+Checkpoint: auditoria_notion_bullets_20260217_checkpoint.json
+CSV bancos: auditoria_notion_bullets_20260217_databases_encontrados.csv
+CSV alteradas: auditoria_notion_bullets_20260217_paginas_alteradas.csv
+CSV sem alteração: (desligado)
+CSV erros: auditoria_notion_bullets_20260217_erros.csv
