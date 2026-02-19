@@ -26,6 +26,10 @@ DELAY_BETWEEN_BATCHES_SEC = 0.5
 CACHE: Dict[str, List[str]] = {}
 
 
+class APICreditsExhaustedError(RuntimeError):
+    """Erro fatal quando a API reporta falta de creditos/quota."""
+
+
 def utc_now_iso() -> str:
     return datetime.now(timezone.utc).isoformat()
 
@@ -233,6 +237,69 @@ def percent(part: int, whole: int) -> float:
     return (part / whole) * 100.0
 
 
+def extract_api_error_message(raw_body: str) -> str:
+    text = normalize_text(raw_body)
+    if not text:
+        return ""
+    try:
+        payload = json.loads(text)
+    except Exception:
+        return text
+    if not isinstance(payload, dict):
+        return text
+
+    parts: List[str] = []
+    for key in ("message", "detail", "code", "type"):
+        value = payload.get(key)
+        if isinstance(value, str) and normalize_text(value):
+            parts.append(normalize_text(value))
+
+    error_payload = payload.get("error")
+    if isinstance(error_payload, str) and normalize_text(error_payload):
+        parts.append(normalize_text(error_payload))
+    elif isinstance(error_payload, dict):
+        for key in ("message", "detail", "code", "type"):
+            value = error_payload.get(key)
+            if isinstance(value, str) and normalize_text(value):
+                parts.append(normalize_text(value))
+
+    if not parts:
+        return text
+    return " | ".join(dict.fromkeys(parts))
+
+
+def is_credit_exhaustion_error(status_code: int, error_message: str) -> bool:
+    if status_code == 402:
+        return True
+
+    haystack = normalize_text(error_message).lower()
+    if not haystack:
+        return False
+
+    credit_tokens = (
+        "insufficient credit",
+        "insufficient credits",
+        "out of credits",
+        "credit exhausted",
+        "credits exhausted",
+        "insufficient quota",
+        "quota exceeded",
+        "quota exhausted",
+        "billing",
+        "payment required",
+        "balance",
+        "usage limit",
+        "ran out",
+    )
+    if any(token in haystack for token in credit_tokens):
+        return True
+
+    if status_code == 429 and any(token in haystack for token in ("credit", "quota", "billing", "balance")):
+        return True
+
+    return False
+
+
 # === Filtro de links juridicos brasileiros ===
 def is_valid_juridical_link(url: str) -> bool:
     if not url:
@@ -384,7 +451,19 @@ async def perplexity_lookup(
     try:
         async with session.post(ENDPOINT, headers=headers, json=payload) as resp:
             if resp.status != 200:
-                print(f"Erro HTTP {resp.status} para query: {query[:120]}")
+                raw_body = await resp.text()
+                error_message = extract_api_error_message(raw_body)
+                if is_credit_exhaustion_error(resp.status, error_message):
+                    detail = error_message or "sem detalhe da API"
+                    raise APICreditsExhaustedError(
+                        f"HTTP {resp.status} | {detail} | query='{query[:120]}'"
+                    )
+
+                detail_preview = normalize_text(error_message or raw_body)[:220]
+                print(
+                    f"Erro HTTP {resp.status} para query: {query[:120]} "
+                    f"| detalhe: {detail_preview or 'sem detalhe'}"
+                )
                 return None
             data: Dict[str, Any] = await resp.json()
             links: List[str] = []
@@ -406,6 +485,8 @@ async def perplexity_lookup(
                 seen.add(key)
                 deduped.append(link)
             return deduped[:5]
+    except APICreditsExhaustedError:
+        raise
     except Exception as exc:  # noqa: BLE001
         print(f"Erro ao chamar Perplexity: {exc}")
         return None
@@ -588,9 +669,15 @@ async def fill_noticia_column() -> None:
                 batch_ok_with_url = 0
                 batch_ok_without_url = 0
                 batch_errors = 0
+                credits_exhausted_error: Optional[APICreditsExhaustedError] = None
 
                 for idx in batch_indices:
                     result = batch_results.get(idx)
+                    if isinstance(result, APICreditsExhaustedError):
+                        if credits_exhausted_error is None:
+                            credits_exhausted_error = result
+                            print(f"  - CREDITOS ESGOTADOS detectado na linha {idx + 1}: {result}")
+                        continue
                     if isinstance(result, Exception):
                         batch_errors += 1
                         print(f"  - Falha linha {idx + 1}: {result}")
@@ -645,9 +732,47 @@ async def fill_noticia_column() -> None:
                     f"Restante: {remaining} | ETA: {eta}"
                 )
 
+                if credits_exhausted_error is not None:
+                    print(
+                        "Interrompendo processamento: API reportou esgotamento de "
+                        "creditos/quota."
+                    )
+                    raise credits_exhausted_error
+
                 if start + MAX_BATCH_SIZE < len(pending_indices) and DELAY_BETWEEN_BATCHES_SEC > 0:
                     await asyncio.sleep(DELAY_BETWEEN_BATCHES_SEC)
 
+    except APICreditsExhaustedError as exc:
+        print("\nPROCESSAMENTO INTERROMPIDO: creditos da API Perplexity esgotados.")
+        print("Salvando snapshot/checkpoint antes de encerrar...")
+        persist_snapshot(
+            rows=rows,
+            fieldnames=fieldnames,
+            input_sig=input_sig,
+            total_candidates=total_candidates,
+            processed_rows=processed_rows,
+        )
+        elapsed_total = time.time() - start_run
+        processed_total = len(processed_rows)
+        remaining = max(0, total_candidates - processed_total)
+        remaining_batches = (remaining + MAX_BATCH_SIZE - 1) // MAX_BATCH_SIZE
+        output_with_news = sum(1 for row in rows if normalize_text(row.get("noticia")))
+        missing_output = total_rows - output_with_news
+        print(f"Motivo da API: {exc}")
+        print(
+            f"Resumo da interrupcao: processado={processed_total}/{total_candidates} "
+            f"({percent(processed_total, total_candidates):.2f}%) "
+            f"| faltam={remaining} elegiveis para API "
+            f"| lotes_restantes~{remaining_batches}"
+        )
+        print(
+            f"CSV parcial: com_noticia={output_with_news}/{total_rows} "
+            f"| sem_noticia={missing_output}/{total_rows}"
+        )
+        print(f"Tempo ate interrupcao: {format_duration(elapsed_total)}")
+        print(f"Checkpoint preservado em: {CHECKPOINT_FILE}")
+        print("Recarregue creditos e execute novamente para retomar do checkpoint.")
+        raise SystemExit(2)
     except KeyboardInterrupt:
         print("\nInterrupcao detectada. Salvando snapshot para retomada...")
         persist_snapshot(
