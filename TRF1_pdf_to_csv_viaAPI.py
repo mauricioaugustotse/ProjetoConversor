@@ -25,6 +25,7 @@ import re
 import sys
 import time
 import unicodedata
+from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -1961,13 +1962,49 @@ def read_checkpoint(path: Path) -> Dict[str, Any]:
         return {}
 
 
+def normalize_manifest_path(path_value: Any) -> str:
+    raw = normalize_ws(str(path_value or ""))
+    if not raw:
+        return ""
+    s = raw.replace("\\", "/")
+    s = re.sub(r"/+", "/", s).rstrip("/")
+    if not s:
+        return ""
+    # Compatibilidade Windows <-> WSL: converte ambos para /mnt/<drive>/...
+    m_drive = re.fullmatch(r"([A-Za-z]):/(.*)", s)
+    if m_drive:
+        drive = m_drive.group(1).lower()
+        rest = re.sub(r"/+", "/", m_drive.group(2).lstrip("/")).lower()
+        return f"/mnt/{drive}/{rest}" if rest else f"/mnt/{drive}"
+    m_wsl = re.fullmatch(r"/mnt/([A-Za-z])/(.*)", s, flags=re.IGNORECASE)
+    if m_wsl:
+        drive = m_wsl.group(1).lower()
+        rest = re.sub(r"/+", "/", m_wsl.group(2).lstrip("/")).lower()
+        return f"/mnt/{drive}/{rest}" if rest else f"/mnt/{drive}"
+    return s
+
+
+def manifest_counter(manifest: Sequence[Dict[str, str]]) -> Optional[Counter]:
+    out: Counter = Counter()
+    for item in manifest:
+        if not isinstance(item, dict):
+            return None
+        sha1 = normalize_ws(str(item.get("sha1", ""))).lower()
+        path_key = normalize_manifest_path(item.get("path", ""))
+        if not sha1 or not path_key:
+            return None
+        out[(path_key, sha1)] += 1
+    return out
+
+
 def same_manifest(a: Sequence[Dict[str, str]], b: Sequence[Dict[str, str]]) -> bool:
     if len(a) != len(b):
         return False
-    for x, y in zip(a, b):
-        if x.get("path") != y.get("path") or x.get("sha1") != y.get("sha1"):
-            return False
-    return True
+    ca = manifest_counter(a)
+    cb = manifest_counter(b)
+    if ca is None or cb is None:
+        return False
+    return ca == cb
 
 
 def row_from_checkpoint(raw: Dict[str, Any]) -> Dict[str, str]:
