@@ -209,12 +209,25 @@ PERPLEXITY_DEFAULT_SCALING_MODE = "fixed"
 PERPLEXITY_DEFAULT_TARGET_RPM = 25
 PERPLEXITY_DEFAULT_MAX_WORKERS = 2
 PERPLEXITY_DEFAULT_DELAY = 1.0
+PERPLEXITY_DEFAULT_RETRIES = 1
+PERPLEXITY_DEFAULT_MAX_TOKENS = 120
+PERPLEXITY_DEFAULT_TEXT_MAX_CHARS = 700
+PERPLEXITY_DEFAULT_FALLBACK_ENABLED = False
+PERPLEXITY_DEFAULT_FALLBACK_MAX_FRACTION = 0.10
+PERPLEXITY_DEFAULT_SKIP_TERMINAL_REASONS = True
 PERPLEXITY_ACCEPT_REASON_PREFIX = "accepted_stage"
 PERPLEXITY_REJECTABLE_STAGE1_REASONS = {
     "domain_rejected",
     "path_rejected",
     "score_below_threshold",
     "no_candidates_stage1",
+}
+PERPLEXITY_TERMINAL_REASONS = {
+    "domain_rejected",
+    "path_rejected",
+    "score_below_threshold",
+    "no_candidates_stage1",
+    "no_candidates_stage2",
 }
 NON_EDITORIAL_SECTION_TOKENS = (
     "/blog/",
@@ -1748,10 +1761,6 @@ Contexto:
 - relator(a): {row.get('relator(a)', row.get('relator', ''))}
 - data: {row.get('data_julgamento', '')}
 - tema: {row.get('tema', '')}
-- contexto: {row.get('contexto', '')}
-- tese: {row.get('tese', '')}
-- ramo: {row.get('ramo_do_direito', '')}
-- subramo: {row.get('subramo_do_direito', '')}
 - texto_do_boletim: {texto_base}
 """.strip()
 
@@ -2142,6 +2151,13 @@ def needs_perplexity(row: Dict[str, str]) -> bool:
     return is_missing(row.get("noticia"))
 
 
+def should_skip_perplexity_row(row: Dict[str, str], skip_terminal_reasons: bool) -> bool:
+    if not skip_terminal_reasons:
+        return False
+    reason = normalize_ws(row.get("_perplexity_reason", "")).lower()
+    return reason in PERPLEXITY_TERMINAL_REASONS
+
+
 def validate_rows(rows: Sequence[Dict[str, str]], logger: logging.Logger) -> None:
     date_re = re.compile(r"^\d{1,2}/\d{1,2}/\d{4}$")
     invalid_julg = 0
@@ -2329,8 +2345,9 @@ class PerplexityConfig:
     scaling_mode: str = PERPLEXITY_DEFAULT_SCALING_MODE
     target_rpm: int = PERPLEXITY_DEFAULT_TARGET_RPM
     resume_rate_state: bool = False
-    max_tokens: int = 280
-    text_max_chars: int = 0
+    max_tokens: int = PERPLEXITY_DEFAULT_MAX_TOKENS
+    text_max_chars: int = PERPLEXITY_DEFAULT_TEXT_MAX_CHARS
+    skip_terminal_reasons: bool = PERPLEXITY_DEFAULT_SKIP_TERMINAL_REASONS
 
 
 def run_openai_enrichment(
@@ -2526,9 +2543,24 @@ def run_perplexity_enrichment(
 ) -> Dict[str, Any]:
     if not config.enabled:
         return perplexity_state
-    pending = [r for r in rows if r.get("_perplexity_done", "0") != "1" and needs_perplexity(r)]
-    if not pending:
+    pending_total = [r for r in rows if r.get("_perplexity_done", "0") != "1" and needs_perplexity(r)]
+    if not pending_total:
         logger.info("Perplexity: nada pendente.")
+        return perplexity_state
+    skipped_terminal = 0
+    pending: List[Dict[str, str]] = []
+    for row in pending_total:
+        if should_skip_perplexity_row(row, config.skip_terminal_reasons):
+            skipped_terminal += 1
+            continue
+        pending.append(row)
+    if not pending:
+        logger.info(
+            "Perplexity: nada pendente após filtro | pending_total=%d skipped_terminal=%d stage1_candidates=%d",
+            len(pending_total),
+            skipped_terminal,
+            len(pending),
+        )
         return perplexity_state
 
     session = requests.Session()
@@ -2554,7 +2586,12 @@ def run_perplexity_enrichment(
     pacer = RequestPacer(config.target_rpm)
 
     total = len(pending)
-    logger.info("Perplexity: %d linhas pendentes.", total)
+    logger.info(
+        "Perplexity pendentes: total=%d | skipped_terminal=%d | stage1_candidates=%d",
+        len(pending_total),
+        skipped_terminal,
+        total,
+    )
 
     def apply_perplexity_result(row: Dict[str, str], url: str, reason: str, stage: int) -> None:
         row["noticia"] = url
@@ -2802,9 +2839,9 @@ def build_arg_parser() -> argparse.ArgumentParser:
     p.add_argument("--perplexity-max-workers", type=int, default=PERPLEXITY_DEFAULT_MAX_WORKERS)
     p.add_argument("--perplexity-max-workers-cap", type=int, default=12)
     p.add_argument("--perplexity-delay", type=float, default=PERPLEXITY_DEFAULT_DELAY)
-    p.add_argument("--perplexity-retries", type=int, default=2)
+    p.add_argument("--perplexity-retries", type=int, default=PERPLEXITY_DEFAULT_RETRIES)
     p.add_argument("--perplexity-timeout", type=int, default=45)
-    p.add_argument("--perplexity-max-tokens", type=int, default=280)
+    p.add_argument("--perplexity-max-tokens", type=int, default=PERPLEXITY_DEFAULT_MAX_TOKENS)
     p.add_argument(
         "--perplexity-scaling-mode",
         default=PERPLEXITY_DEFAULT_SCALING_MODE,
@@ -2826,15 +2863,15 @@ def build_arg_parser() -> argparse.ArgumentParser:
     p.add_argument(
         "--perplexity-text-max-chars",
         type=int,
-        default=0,
+        default=PERPLEXITY_DEFAULT_TEXT_MAX_CHARS,
         help="Máximo de caracteres do texto_do_boletim no prompt Perplexity (0 = sem corte).",
     )
     p.add_argument(
         "--perplexity-fallback-enabled",
         dest="perplexity_fallback_enabled",
         action="store_true",
-        default=True,
-        help="Habilita fallback da Perplexity em 2ª etapa para linhas sem match.",
+        default=PERPLEXITY_DEFAULT_FALLBACK_ENABLED,
+        help="Habilita fallback da Perplexity em 2ª etapa para linhas sem match (default: desabilitado).",
     )
     p.add_argument(
         "--no-perplexity-fallback",
@@ -2842,7 +2879,24 @@ def build_arg_parser() -> argparse.ArgumentParser:
         action="store_false",
         help="Desabilita fallback da Perplexity.",
     )
-    p.add_argument("--perplexity-fallback-max-fraction", type=float, default=0.60)
+    p.add_argument(
+        "--perplexity-skip-terminal-reasons",
+        dest="perplexity_skip_terminal_reasons",
+        action="store_true",
+        default=PERPLEXITY_DEFAULT_SKIP_TERMINAL_REASONS,
+        help="Pula por padrão linhas com rejeição terminal da Perplexity em runs anteriores.",
+    )
+    p.add_argument(
+        "--perplexity-retry-terminal-reasons",
+        dest="perplexity_skip_terminal_reasons",
+        action="store_false",
+        help="Reprocessa linhas com rejeição terminal (custo maior).",
+    )
+    p.add_argument(
+        "--perplexity-fallback-max-fraction",
+        type=float,
+        default=PERPLEXITY_DEFAULT_FALLBACK_MAX_FRACTION,
+    )
     p.add_argument("--perplexity-min-score-mainstream", type=int, default=2)
     p.add_argument("--perplexity-min-score-official", type=int, default=1)
     p.add_argument(
@@ -2998,6 +3052,7 @@ def main() -> None:
         resume_rate_state=bool(args.perplexity_resume_rate_state),
         max_tokens=max(0, int(args.perplexity_max_tokens)),
         text_max_chars=max(0, int(args.perplexity_text_max_chars)),
+        skip_terminal_reasons=bool(args.perplexity_skip_terminal_reasons),
     )
 
     if not openai_cfg.enabled and not args.disable_openai:

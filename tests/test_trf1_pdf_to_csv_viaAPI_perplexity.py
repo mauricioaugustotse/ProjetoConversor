@@ -54,15 +54,16 @@ def _base_cfg(**overrides) -> trf1.PerplexityConfig:
         timeout=10,
         max_workers_cap=8,
         fallback_enabled=False,
-        fallback_max_fraction=0.60,
+        fallback_max_fraction=0.10,
         min_score_mainstream=2,
         min_score_official=1,
         domain_policy="consagrados_oficiais",
         scaling_mode="fixed",
         target_rpm=0,
         resume_rate_state=False,
-        max_tokens=128,
-        text_max_chars=0,
+        max_tokens=120,
+        text_max_chars=700,
+        skip_terminal_reasons=True,
     )
     for k, v in overrides.items():
         setattr(cfg, k, v)
@@ -87,6 +88,15 @@ class _RateLimitSession:
 
 
 class TestPerplexityStabilization(unittest.TestCase):
+    def test_parser_defaults_prioritize_perplexity_cost(self) -> None:
+        args = trf1.build_arg_parser().parse_args([])
+        self.assertFalse(args.perplexity_fallback_enabled)
+        self.assertEqual(args.perplexity_fallback_max_fraction, 0.10)
+        self.assertEqual(args.perplexity_max_tokens, 120)
+        self.assertEqual(args.perplexity_text_max_chars, 700)
+        self.assertEqual(args.perplexity_retries, 1)
+        self.assertTrue(args.perplexity_skip_terminal_reasons)
+
     def test_perplexity_call_single_timeout_not_rate_limited(self) -> None:
         logger, _ = _new_logger()
         ok, url, rate_limited, err, reason = trf1.perplexity_call_single(
@@ -214,6 +224,95 @@ class TestPerplexityStabilization(unittest.TestCase):
         self.assertEqual(state["workers"], 3)
         self.assertEqual(state["delay"], 0.5)
         self.assertNotIn("autoajuste: reduzindo workers", log_buf.getvalue())
+
+    def test_terminal_reason_rows_are_skipped_by_default(self) -> None:
+        rows = _sample_rows(3)
+        rows[0]["_perplexity_reason"] = "score_below_threshold"
+        rows[1]["_perplexity_reason"] = "timeout"
+        rows[2]["_perplexity_reason"] = ""
+        cfg = _base_cfg(skip_terminal_reasons=True, fallback_enabled=False, delay=0.0)
+        logger, log_buf = _new_logger()
+        called_ids: list[str] = []
+
+        def _fake_perplexity_call_single(*args, **kwargs):  # type: ignore[no-untyped-def]
+            row = args[2]
+            called_ids.append(row["_row_id"])
+            return False, "", False, "sem match", "no_candidates_stage1"
+
+        with tempfile.TemporaryDirectory() as td:
+            out = Path(td) / "out.csv"
+            cp = Path(td) / "cp.json"
+            with patch.object(trf1, "perplexity_call_single", side_effect=_fake_perplexity_call_single):
+                trf1.run_perplexity_enrichment(
+                    rows=rows,
+                    config=cfg,
+                    output_csv=out,
+                    checkpoint_path=cp,
+                    manifest=[],
+                    perplexity_state={"workers": 3, "delay": 0.0},
+                    logger=logger,
+                )
+
+        self.assertEqual(set(called_ids), {rows[1]["_row_id"], rows[2]["_row_id"]})
+        self.assertIn("skipped_terminal=1", log_buf.getvalue())
+
+    def test_terminal_reason_rows_are_reprocessed_when_flag_disables_skip(self) -> None:
+        rows = _sample_rows(2)
+        rows[0]["_perplexity_reason"] = "score_below_threshold"
+        rows[1]["_perplexity_reason"] = "no_candidates_stage1"
+        cfg = _base_cfg(skip_terminal_reasons=False, fallback_enabled=False, delay=0.0)
+        logger, _ = _new_logger()
+        called_ids: list[str] = []
+
+        def _fake_perplexity_call_single(*args, **kwargs):  # type: ignore[no-untyped-def]
+            row = args[2]
+            called_ids.append(row["_row_id"])
+            return False, "", False, "sem match", "no_candidates_stage1"
+
+        with tempfile.TemporaryDirectory() as td:
+            out = Path(td) / "out.csv"
+            cp = Path(td) / "cp.json"
+            with patch.object(trf1, "perplexity_call_single", side_effect=_fake_perplexity_call_single):
+                trf1.run_perplexity_enrichment(
+                    rows=rows,
+                    config=cfg,
+                    output_csv=out,
+                    checkpoint_path=cp,
+                    manifest=[],
+                    perplexity_state={"workers": 3, "delay": 0.0},
+                    logger=logger,
+                )
+
+        self.assertEqual(set(called_ids), {rows[0]["_row_id"], rows[1]["_row_id"]})
+
+    def test_technical_failure_reasons_remain_eligible_with_skip_enabled(self) -> None:
+        rows = _sample_rows(2)
+        rows[0]["_perplexity_reason"] = "rate_limit"
+        rows[1]["_perplexity_reason"] = "timeout"
+        cfg = _base_cfg(skip_terminal_reasons=True, fallback_enabled=False, delay=0.0)
+        logger, _ = _new_logger()
+        called_ids: list[str] = []
+
+        def _fake_perplexity_call_single(*args, **kwargs):  # type: ignore[no-untyped-def]
+            row = args[2]
+            called_ids.append(row["_row_id"])
+            return False, "", False, "erro técnico", "timeout"
+
+        with tempfile.TemporaryDirectory() as td:
+            out = Path(td) / "out.csv"
+            cp = Path(td) / "cp.json"
+            with patch.object(trf1, "perplexity_call_single", side_effect=_fake_perplexity_call_single):
+                trf1.run_perplexity_enrichment(
+                    rows=rows,
+                    config=cfg,
+                    output_csv=out,
+                    checkpoint_path=cp,
+                    manifest=[],
+                    perplexity_state={"workers": 3, "delay": 0.0},
+                    logger=logger,
+                )
+
+        self.assertEqual(set(called_ids), {rows[0]["_row_id"], rows[1]["_row_id"]})
 
     def test_main_ignores_checkpoint_rate_state_by_default(self) -> None:
         captured: dict[str, float | int] = {}
