@@ -23,6 +23,7 @@ import os
 import random
 import re
 import sys
+import threading
 import time
 import unicodedata
 from collections import Counter
@@ -203,6 +204,11 @@ OFFICIAL_NEWS_HINT_TOKENS = (
 )
 PERPLEXITY_DOMAIN_POLICY_CHOICES = ("consagrados_oficiais", "consagrados_apenas")
 PERPLEXITY_DEFAULT_DOMAIN_POLICY = "consagrados_oficiais"
+PERPLEXITY_SCALING_MODE_CHOICES = ("fixed", "adaptive")
+PERPLEXITY_DEFAULT_SCALING_MODE = "fixed"
+PERPLEXITY_DEFAULT_TARGET_RPM = 25
+PERPLEXITY_DEFAULT_MAX_WORKERS = 2
+PERPLEXITY_DEFAULT_DELAY = 1.0
 PERPLEXITY_ACCEPT_REASON_PREFIX = "accepted_stage"
 PERPLEXITY_REJECTABLE_STAGE1_REASONS = {
     "domain_rejected",
@@ -1803,6 +1809,26 @@ def parse_perplexity_content(content: str) -> Dict[str, Any]:
     return out
 
 
+class RequestPacer:
+    def __init__(self, target_rpm: int) -> None:
+        rpm = max(0, int(target_rpm))
+        self._min_interval = (60.0 / float(rpm)) if rpm > 0 else 0.0
+        self._lock = threading.Lock()
+        self._next_slot_at = 0.0
+
+    def wait_turn(self) -> None:
+        if self._min_interval <= 0.0:
+            return
+        wait_for = 0.0
+        with self._lock:
+            now = time.monotonic()
+            wait_for = max(0.0, self._next_slot_at - now)
+            slot_start = now + wait_for
+            self._next_slot_at = slot_start + self._min_interval
+        if wait_for > 0.0:
+            time.sleep(wait_for)
+
+
 def perplexity_call_single(
     session: requests.Session,
     model: str,
@@ -1816,6 +1842,7 @@ def perplexity_call_single(
     retries: int,
     max_tokens: int,
     text_max_chars: int,
+    pacer: Optional[RequestPacer],
     logger: logging.Logger,
 ) -> Tuple[bool, str, bool, str, str]:
     payload = {
@@ -1847,6 +1874,8 @@ def perplexity_call_single(
     reason = ""
     for attempt in range(1, retries + 1):
         try:
+            if pacer is not None:
+                pacer.wait_turn()
             resp = session.post(
                 "https://api.perplexity.ai/chat/completions",
                 json=payload,
@@ -1900,10 +1929,12 @@ def perplexity_call_single(
                 min_score_official=min_score_official,
                 domain_policy=domain_policy,
                 stage=stage,
-            )
+                )
             return True, selected_url, False, "", selected_reason
+        except requests.HTTPError as exc:
+            last_err = str(exc)
+            reason = "http_error"
         except requests.Timeout as exc:
-            saw_rate_limit = True
             last_err = str(exc)
             reason = "timeout"
         except Exception as exc:  # noqa: BLE001
@@ -2295,6 +2326,9 @@ class PerplexityConfig:
     min_score_mainstream: int
     min_score_official: int
     domain_policy: str
+    scaling_mode: str = PERPLEXITY_DEFAULT_SCALING_MODE
+    target_rpm: int = PERPLEXITY_DEFAULT_TARGET_RPM
+    resume_rate_state: bool = False
     max_tokens: int = 280
     text_max_chars: int = 0
 
@@ -2509,8 +2543,15 @@ def run_perplexity_enrichment(
         }
     )
 
-    workers = int(perplexity_state.get("workers", config.max_workers))
-    delay = float(perplexity_state.get("delay", config.delay))
+    state_workers = int(perplexity_state.get("workers", config.max_workers))
+    state_delay = float(perplexity_state.get("delay", config.delay))
+    if config.resume_rate_state:
+        workers = max(1, state_workers)
+        delay = max(0.0, state_delay)
+    else:
+        workers = max(1, int(config.max_workers))
+        delay = max(0.0, float(config.delay))
+    pacer = RequestPacer(config.target_rpm)
 
     total = len(pending)
     logger.info("Perplexity: %d linhas pendentes.", total)
@@ -2564,6 +2605,10 @@ def run_perplexity_enrichment(
             )
             batch_rate_limited = 0
             batch_errors = 0
+            batch_timeouts = 0
+            batch_http_errors = 0
+            batch_other_errors = 0
+            extra_sleep = 0.0
             futures = {}
             with ThreadPoolExecutor(max_workers=max(1, workers)) as ex:
                 for row in batch:
@@ -2581,6 +2626,7 @@ def run_perplexity_enrichment(
                             retries=config.retries,
                             max_tokens=config.max_tokens,
                             text_max_chars=config.text_max_chars,
+                            pacer=pacer,
                             logger=logger,
                         )
                     ] = row
@@ -2594,8 +2640,15 @@ def run_perplexity_enrichment(
                         batch_errors += 1
                         row["_perplexity_done"] = "0"
                         row["_perplexity_reason"] = reason or "error"
-                        if rate_limited:
+                        reason_key = normalize_ws(reason).lower()
+                        if rate_limited or reason_key == "rate_limit":
                             batch_rate_limited += 1
+                        elif reason_key == "timeout":
+                            batch_timeouts += 1
+                        elif reason_key == "http_error":
+                            batch_http_errors += 1
+                        else:
+                            batch_other_errors += 1
                         logger.debug("Perplexity falha row=%s stage=%s: %s", row.get("_row_id"), stage, err)
                     stage_done += 1
                     primary_id = row.get("_row_id") or str(id(row))
@@ -2607,15 +2660,25 @@ def run_perplexity_enrichment(
                             dup["_perplexity_reason"] = reason or "error"
                         stage_done += 1
 
-            error_ratio = batch_errors / max(1, len(batch))
-            if batch_rate_limited > 0 or error_ratio >= 0.25:
-                workers = max(1, workers - 1)
-                delay = min(5.0, delay * 1.5 + 0.1)
-                logger.info("Perplexity autoajuste: reduzindo workers=%d delay=%.2f", workers, delay)
-            elif batch_errors == 0 and workers < config.max_workers_cap:
-                workers += 1
-                delay = max(config.delay, delay * 0.9)
-                logger.info("Perplexity autoajuste: aumentando workers=%d delay=%.2f", workers, delay)
+            if config.scaling_mode == "fixed":
+                workers = max(1, int(config.max_workers))
+                delay = max(0.0, float(config.delay))
+                if batch_rate_limited > 0:
+                    extra_sleep = min(12.0, 1.0 + 0.5 * batch_rate_limited)
+                    logger.info(
+                        "Perplexity fixed cooldown extra: %.2fs (rate_limit_429=%d)",
+                        extra_sleep,
+                        batch_rate_limited,
+                    )
+            else:
+                if batch_rate_limited > 0:
+                    workers = max(1, workers - 1)
+                    delay = min(5.0, delay * 1.5 + 0.1)
+                    logger.info("Perplexity autoajuste: reduzindo workers=%d delay=%.2f", workers, delay)
+                elif batch_errors == 0 and workers < config.max_workers_cap:
+                    workers += 1
+                    delay = max(config.delay, delay * 0.9)
+                    logger.info("Perplexity autoajuste: aumentando workers=%d delay=%.2f", workers, delay)
 
             elapsed = max(0.001, time.perf_counter() - batch_started)
             throughput = len(batch) / elapsed
@@ -2628,14 +2691,27 @@ def run_perplexity_enrichment(
                 checkpoint_payload(manifest=manifest, rows=rows, perplexity_state=perplexity_state),
             )
             logger.info(
-                "Perplexity %s lote concluído: %.2f req/s | erros=%d",
+                (
+                    "Perplexity %s lote concluído: %.2f req/s | "
+                    "errors_total=%d rate_limit_429=%d timeout=%d http_error=%d other_error=%d"
+                ),
                 stage_name,
                 throughput,
                 batch_errors,
+                batch_rate_limited,
+                batch_timeouts,
+                batch_http_errors,
+                batch_other_errors,
             )
             logger.info("Perplexity %s progresso: %d/%d", stage_name, stage_done, stage_total)
-            if end < stage_call_total and delay > 0:
-                time.sleep(delay)
+            if end < stage_call_total:
+                sleep_for = 0.0
+                if delay > 0:
+                    sleep_for += delay
+                if extra_sleep > 0:
+                    sleep_for += extra_sleep
+                if sleep_for > 0:
+                    time.sleep(sleep_for)
         return stage_done
 
     process_perplexity_stage(pending, stage=1)
@@ -2723,12 +2799,30 @@ def build_arg_parser() -> argparse.ArgumentParser:
     p.add_argument("--perplexity-api-key", default="", help="API key Perplexity.")
     p.add_argument("--perplexity-model", default="sonar", help="Modelo Perplexity.")
     p.add_argument("--perplexity-batch-size", type=int, default=20)
-    p.add_argument("--perplexity-max-workers", type=int, default=8)
+    p.add_argument("--perplexity-max-workers", type=int, default=PERPLEXITY_DEFAULT_MAX_WORKERS)
     p.add_argument("--perplexity-max-workers-cap", type=int, default=12)
-    p.add_argument("--perplexity-delay", type=float, default=0.25)
-    p.add_argument("--perplexity-retries", type=int, default=3)
-    p.add_argument("--perplexity-timeout", type=int, default=30)
+    p.add_argument("--perplexity-delay", type=float, default=PERPLEXITY_DEFAULT_DELAY)
+    p.add_argument("--perplexity-retries", type=int, default=2)
+    p.add_argument("--perplexity-timeout", type=int, default=45)
     p.add_argument("--perplexity-max-tokens", type=int, default=280)
+    p.add_argument(
+        "--perplexity-scaling-mode",
+        default=PERPLEXITY_DEFAULT_SCALING_MODE,
+        choices=list(PERPLEXITY_SCALING_MODE_CHOICES),
+        help="Modo de ajuste de concorrência da Perplexity.",
+    )
+    p.add_argument(
+        "--perplexity-target-rpm",
+        type=int,
+        default=PERPLEXITY_DEFAULT_TARGET_RPM,
+        help="Limite alvo de requisições por minuto (0 desativa limitador por RPM).",
+    )
+    p.add_argument(
+        "--perplexity-resume-rate-state",
+        action="store_true",
+        default=False,
+        help="Reaproveita workers/delay salvos no checkpoint ao retomar.",
+    )
     p.add_argument(
         "--perplexity-text-max-chars",
         type=int,
@@ -2835,8 +2929,10 @@ def main() -> None:
             saved_rows = checkpoint.get("rows", [])
             if isinstance(saved_rows, list) and saved_rows:
                 rows = [row_from_checkpoint(r) for r in saved_rows if isinstance(r, dict)]
-                if isinstance(checkpoint.get("perplexity_state"), dict):
+                if args.perplexity_resume_rate_state and isinstance(checkpoint.get("perplexity_state"), dict):
                     perplexity_state.update(checkpoint.get("perplexity_state", {}))
+                elif isinstance(checkpoint.get("perplexity_state"), dict):
+                    logger.info("Checkpoint de rate-state ignorado; usando parâmetros CLI da Perplexity.")
                 logger.info("Checkpoint compatível carregado: %d linhas. Retomando processamento.", len(rows))
             else:
                 logger.info("Checkpoint encontrado, mas sem linhas úteis. Reextraindo base.")
@@ -2897,6 +2993,9 @@ def main() -> None:
         min_score_mainstream=max(0, int(args.perplexity_min_score_mainstream)),
         min_score_official=max(0, int(args.perplexity_min_score_official)),
         domain_policy=args.perplexity_domain_policy,
+        scaling_mode=args.perplexity_scaling_mode,
+        target_rpm=max(0, int(args.perplexity_target_rpm)),
+        resume_rate_state=bool(args.perplexity_resume_rate_state),
         max_tokens=max(0, int(args.perplexity_max_tokens)),
         text_max_chars=max(0, int(args.perplexity_text_max_chars)),
     )
