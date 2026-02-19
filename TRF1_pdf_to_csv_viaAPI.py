@@ -49,6 +49,7 @@ except Exception:
 
 try:
     from openai import OpenAI
+    import openai
 except ImportError as exc:  # pragma: no cover
     raise SystemExit("ERRO: openai não encontrado. Execute: pip install openai") from exc
 
@@ -861,6 +862,17 @@ def build_perplexity_request_key(row: Dict[str, str], text_max_chars: int) -> st
 
 def classify_openai_error(err_text: str) -> str:
     low = (err_text or "").lower()
+    if "empty_json_due_length" in low:
+        return "length"
+    if (
+        "authentication" in low
+        or "invalid api key" in low
+        or "incorrect api key" in low
+        or "permission" in low
+        or "401" in low
+        or "403" in low
+    ):
+        return "auth"
     if "429" in low or "rate limit" in low:
         return "rate_limit"
     if "timeout" in low or "timed out" in low or "read timed out" in low:
@@ -1557,12 +1569,40 @@ def openai_call_single(
     timeout: int,
     retries: int,
     max_completion_tokens: int,
+    max_completion_tokens_cap: int,
+    reasoning_effort: str,
+    verbosity: str,
+    length_fallback_policy: str,
     text_max_chars: int,
     logger: logging.Logger,
 ) -> Tuple[bool, Dict[str, str], str]:
     prompt = build_openai_prompt(row, text_max_chars=text_max_chars)
     last_err = ""
     completion_tokens = max(0, int(max_completion_tokens))
+    completion_cap = max(completion_tokens, int(max_completion_tokens_cap))
+    effort_current = (reasoning_effort or "medium").strip().lower()
+    verbosity_current = (verbosity or "medium").strip().lower()
+    if effort_current not in {"minimal", "low", "medium", "high", "xhigh"}:
+        effort_current = "medium"
+    if verbosity_current not in {"low", "medium", "high"}:
+        verbosity_current = "medium"
+    fallback_policy = (length_fallback_policy or "auto_downgrade").strip().lower()
+    if fallback_policy not in {"auto_downgrade", "keep_deep", "fail_fast"}:
+        fallback_policy = "auto_downgrade"
+
+    fatal_error_classes = (
+        openai.AuthenticationError,
+        openai.PermissionDeniedError,
+        openai.NotFoundError,
+        openai.BadRequestError,
+    )
+    recoverable_error_classes = (
+        openai.RateLimitError,
+        openai.APITimeoutError,
+        openai.APIConnectionError,
+        openai.InternalServerError,
+    )
+
     for attempt in range(1, retries + 1):
         try:
             req_payload: Dict[str, Any] = {
@@ -1585,6 +1625,8 @@ def openai_call_single(
                         "schema": OPENAI_JSON_SCHEMA,
                     },
                 },
+                "reasoning_effort": effort_current,
+                "verbosity": verbosity_current,
                 "timeout": timeout,
             }
             if completion_tokens > 0:
@@ -1607,10 +1649,34 @@ def openai_call_single(
                 raise ValueError("JSON de resposta não é objeto.")
             normalized = normalize_openai_payload(parsed)
             return True, normalized, ""
+        except fatal_error_classes as exc:
+            last_err = str(exc)
+            return False, {}, last_err
+        except recoverable_error_classes as exc:
+            last_err = str(exc)
+            if attempt < retries:
+                wait = (2 ** (attempt - 1)) + random.uniform(0.0, 0.35)
+                logger.debug("OpenAI retry %d/%d em %.2fs: %s", attempt, retries, wait, exc)
+                time.sleep(wait)
+            continue
         except Exception as exc:  # noqa: BLE001
             last_err = str(exc)
-            if "empty_json_due_length" in last_err and completion_tokens > 0:
-                completion_tokens = min(3200, max(completion_tokens + 350, int(completion_tokens * 1.5)))
+            if "empty_json_due_length" in last_err:
+                if completion_tokens > 0:
+                    completion_tokens = min(
+                        completion_cap,
+                        max(completion_tokens + 350, int(completion_tokens * 1.5)),
+                    )
+                if fallback_policy == "auto_downgrade" and effort_current != "minimal":
+                    effort_current = "minimal"
+                elif fallback_policy == "fail_fast":
+                    fail_msg = (
+                        "empty_json_due_length; interrompido por policy fail_fast. "
+                        "Sugestão: aumente --openai-max-completion-tokens, "
+                        "--openai-max-completion-tokens-cap ou use "
+                        "--openai-length-fallback-policy auto_downgrade."
+                    )
+                    return False, {}, fail_msg
             if attempt < retries:
                 wait = (2 ** (attempt - 1)) + random.uniform(0.0, 0.35)
                 logger.debug("OpenAI retry %d/%d em %.2fs: %s", attempt, retries, wait, exc)
@@ -2168,6 +2234,11 @@ class OpenAIConfig:
     timeout: int
     max_workers_cap: int = 14
     max_completion_tokens: int = 700
+    max_completion_tokens_cap: int = 4200
+    reasoning_effort: str = "medium"
+    verbosity: str = "medium"
+    length_fallback_policy: str = "auto_downgrade"
+    length_error_threshold: float = 0.20
     text_max_chars: int = 0
 
 
@@ -2227,12 +2298,13 @@ def run_openai_enrichment(
         len(pending),
         max(0, duplicates_count),
     )
-    client = OpenAI(api_key=config.api_key)
+    client = OpenAI(api_key=config.api_key, max_retries=0)
     workers = max(1, int(config.max_workers))
     workers_cap = max(workers, int(config.max_workers_cap))
     delay = max(0.0, float(config.delay))
     total = len(pending)
     done = 0
+    global_reasoning_effort = (config.reasoning_effort or "medium").strip().lower()
 
     def apply_payload(row: Dict[str, str], payload: Dict[str, str]) -> None:
         for col, value in payload.items():
@@ -2258,6 +2330,9 @@ def run_openai_enrichment(
         batch_errors = 0
         batch_rate_limited = 0
         batch_timeouts = 0
+        batch_length_errors = 0
+        batch_auth_errors = 0
+        batch_upstream_unavailable = 0
         with ThreadPoolExecutor(max_workers=workers) as ex:
             for row in batch:
                 futures[
@@ -2269,6 +2344,10 @@ def run_openai_enrichment(
                         config.timeout,
                         config.retries,
                         config.max_completion_tokens,
+                        config.max_completion_tokens_cap,
+                        global_reasoning_effort,
+                        config.verbosity,
+                        config.length_fallback_policy,
                         config.text_max_chars,
                         logger,
                     )
@@ -2289,6 +2368,12 @@ def run_openai_enrichment(
                         batch_rate_limited += 1
                     elif kind == "timeout":
                         batch_timeouts += 1
+                    elif kind == "length":
+                        batch_length_errors += 1
+                    elif kind == "auth":
+                        batch_auth_errors += 1
+                    elif kind == "upstream_unavailable":
+                        batch_upstream_unavailable += 1
                     logger.debug("OpenAI falha row=%s: %s", row.get("_row_id"), err)
                 done += 1
                 primary_id = row.get("_row_id") or str(id(row))
@@ -2301,8 +2386,34 @@ def run_openai_enrichment(
 
         elapsed = max(0.001, time.perf_counter() - batch_started)
         throughput = len(batch) / elapsed
-        error_ratio = batch_errors / max(1, len(batch))
-        if batch_rate_limited > 0 or error_ratio >= 0.25:
+        length_ratio = batch_length_errors / max(1, len(batch))
+
+        if batch_auth_errors > 0:
+            raise RuntimeError(
+                "OpenAI retornou erro de autenticação/permissão. "
+                "Verifique API key e permissões da conta."
+            )
+
+        if config.length_fallback_policy == "fail_fast" and batch_length_errors > 0:
+            raise RuntimeError(
+                "OpenAI fail_fast: empty_json_due_length recorrente. "
+                "Ajuste --openai-max-completion-tokens, "
+                "--openai-max-completion-tokens-cap, "
+                "ou use --openai-length-fallback-policy auto_downgrade."
+            )
+
+        if (
+            config.length_fallback_policy == "auto_downgrade"
+            and global_reasoning_effort != "minimal"
+            and length_ratio >= max(0.0, float(config.length_error_threshold))
+        ):
+            global_reasoning_effort = "minimal"
+            logger.info("OpenAI fallback: reasoning_effort -> minimal por excesso de length")
+
+        transient_error_ratio = (
+            batch_rate_limited + batch_timeouts + batch_upstream_unavailable
+        ) / max(1, len(batch))
+        if batch_rate_limited > 0 or transient_error_ratio >= 0.25:
             workers = max(1, workers - 1)
             delay = min(2.5, delay * 1.35 + 0.05)
             logger.info("OpenAI autoajuste: reduzindo workers=%d delay=%.2f", workers, delay)
@@ -2311,10 +2422,16 @@ def run_openai_enrichment(
             delay = max(0.0, delay * 0.9)
             logger.info("OpenAI autoajuste: aumentando workers=%d delay=%.2f", workers, delay)
         logger.info(
-            "OpenAI lote concluído: %.2f req/s | erros=%d timeout=%d",
+            (
+                "OpenAI lote concluído: %.2f req/s | erros=%d "
+                "timeout=%d rate_limit=%d upstream=%d length=%d"
+            ),
             throughput,
             batch_errors,
             batch_timeouts,
+            batch_rate_limited,
+            batch_upstream_unavailable,
+            batch_length_errors,
         )
 
         write_csv(output_csv, rows)
@@ -2533,6 +2650,31 @@ def build_arg_parser() -> argparse.ArgumentParser:
     p.add_argument("--openai-retries", type=int, default=3)
     p.add_argument("--openai-timeout", type=int, default=50)
     p.add_argument("--openai-max-completion-tokens", type=int, default=700)
+    p.add_argument("--openai-max-completion-tokens-cap", type=int, default=4200)
+    p.add_argument(
+        "--openai-reasoning-effort",
+        default="medium",
+        choices=["minimal", "low", "medium", "high", "xhigh"],
+        help="Nível de raciocínio do modelo OpenAI.",
+    )
+    p.add_argument(
+        "--openai-verbosity",
+        default="medium",
+        choices=["low", "medium", "high"],
+        help="Nível de verbosidade da resposta OpenAI.",
+    )
+    p.add_argument(
+        "--openai-length-fallback-policy",
+        default="auto_downgrade",
+        choices=["auto_downgrade", "keep_deep", "fail_fast"],
+        help="Política para falhas por comprimento (empty_json_due_length).",
+    )
+    p.add_argument(
+        "--openai-length-error-threshold",
+        type=float,
+        default=0.20,
+        help="Limiar de erros length por lote para ativar fallback global de reasoning.",
+    )
     p.add_argument(
         "--openai-text-max-chars",
         type=int,
@@ -2696,6 +2838,11 @@ def main() -> None:
         retries=max(1, int(args.openai_retries)),
         timeout=max(5, int(args.openai_timeout)),
         max_completion_tokens=max(0, int(args.openai_max_completion_tokens)),
+        max_completion_tokens_cap=max(0, int(args.openai_max_completion_tokens_cap)),
+        reasoning_effort=(args.openai_reasoning_effort or "medium").strip().lower(),
+        verbosity=(args.openai_verbosity or "medium").strip().lower(),
+        length_fallback_policy=(args.openai_length_fallback_policy or "auto_downgrade").strip().lower(),
+        length_error_threshold=max(0.0, float(args.openai_length_error_threshold)),
         text_max_chars=max(0, int(args.openai_text_max_chars)),
     )
     perplexity_cfg = PerplexityConfig(
