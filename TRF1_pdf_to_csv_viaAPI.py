@@ -178,6 +178,8 @@ MAINSTREAM_NEWS_DOMAIN_SUFFIXES = (
     "nexojornal.com.br",
     "cartacapital.com.br",
     "noticias.uol.com.br",
+    "conjur.com.br",
+    "migalhas.com.br",
 )
 OFFICIAL_INSTITUTION_DOMAIN_SUFFIXES = (
     "gov.br",
