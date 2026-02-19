@@ -14,7 +14,7 @@ INPUT_FILE = "boletins_de_jurisprudencia_TRF1.csv"
 OUTPUT_FILE = "boletins_de_jurisprudencia_TRF1_with_news.csv"
 CACHE_FILE = "perplexity_cache.json"
 CHECKPOINT_FILE = ".boletins_de_jurisprudencia_TRF1_with_news.checkpoint.json"
-CHECKPOINT_VERSION = 1
+CHECKPOINT_VERSION = 2
 
 ENDPOINT = "https://api.perplexity.ai/search"
 
@@ -22,12 +22,18 @@ MAX_BATCH_SIZE = 3
 MAX_CONCURRENT = 3
 DELAY_BETWEEN_BATCHES_SEC = 0.5
 
+MAX_LINKS_PER_ROW = 2
+LEGACY_LINK_SEPARATOR = "; "
+LEGACY_NOTICIA_COL = "noticia"
+NOTICIA_COL_1 = "noticia_1"
+NOTICIA_COL_2 = "noticia_2"
+
 # === Cache em disco ===
 CACHE: Dict[str, List[str]] = {}
 
 
-class APICreditsExhaustedError(RuntimeError):
-    """Erro fatal quando a API reporta falta de creditos/quota."""
+class APIFatalStopError(RuntimeError):
+    """Erro fatal nao-retryable da API (creditos/quota/autorizacao)."""
 
 
 def utc_now_iso() -> str:
@@ -36,6 +42,83 @@ def utc_now_iso() -> str:
 
 def normalize_text(value: Any) -> str:
     return str(value or "").strip()
+
+
+def normalize_links(value: Any, *, max_links: Optional[int] = MAX_LINKS_PER_ROW) -> List[str]:
+    raw_links: List[str] = []
+    if isinstance(value, list):
+        raw_links = [normalize_text(item) for item in value]
+    elif isinstance(value, str):
+        text = normalize_text(value)
+        if text:
+            # Delimitador legado oficial: "; " (nao dividir por ";" puro).
+            raw_links = [normalize_text(part) for part in text.split(LEGACY_LINK_SEPARATOR)]
+    elif value is not None:
+        text = normalize_text(value)
+        if text:
+            raw_links = [text]
+
+    deduped: List[str] = []
+    seen: Set[str] = set()
+    for link in raw_links:
+        if not link:
+            continue
+        key = link.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        deduped.append(link)
+
+    if max_links is None or max_links < 0:
+        return deduped
+    return deduped[:max_links]
+
+
+def get_row_news_links(row: Dict[str, str]) -> List[str]:
+    direct = normalize_links(
+        [
+            normalize_text(row.get(NOTICIA_COL_1, "")),
+            normalize_text(row.get(NOTICIA_COL_2, "")),
+        ],
+        max_links=MAX_LINKS_PER_ROW,
+    )
+    if direct:
+        return direct
+    return normalize_links(row.get(LEGACY_NOTICIA_COL, ""), max_links=MAX_LINKS_PER_ROW)
+
+
+def set_row_news_links(row: Dict[str, str], links: Any) -> None:
+    normalized = normalize_links(links, max_links=MAX_LINKS_PER_ROW)
+    row[NOTICIA_COL_1] = normalized[0] if len(normalized) > 0 else ""
+    row[NOTICIA_COL_2] = normalized[1] if len(normalized) > 1 else ""
+    row.pop(LEGACY_NOTICIA_COL, None)
+
+
+def row_has_news(row: Dict[str, str]) -> bool:
+    return bool(normalize_text(row.get(NOTICIA_COL_1, "")) or normalize_text(row.get(NOTICIA_COL_2, "")))
+
+
+def build_output_fieldnames(input_fieldnames: List[str]) -> List[str]:
+    if LEGACY_NOTICIA_COL in input_fieldnames:
+        out: List[str] = []
+        inserted = False
+        for name in input_fieldnames:
+            if name == LEGACY_NOTICIA_COL:
+                if not inserted:
+                    out.extend([NOTICIA_COL_1, NOTICIA_COL_2])
+                    inserted = True
+                continue
+            if name in (NOTICIA_COL_1, NOTICIA_COL_2):
+                continue
+            out.append(name)
+        return out
+
+    out = list(input_fieldnames)
+    if NOTICIA_COL_1 not in out:
+        out.append(NOTICIA_COL_1)
+    if NOTICIA_COL_2 not in out:
+        out.append(NOTICIA_COL_2)
+    return out
 
 
 def read_secret_from_file(path_str: str) -> str:
@@ -88,11 +171,7 @@ def load_cache() -> None:
         for key, value in cached.items():
             if not isinstance(key, str):
                 continue
-            if isinstance(value, list):
-                CACHE[key] = [normalize_text(item) for item in value if normalize_text(item)]
-            elif isinstance(value, str):
-                v = normalize_text(value)
-                CACHE[key] = [v] if v else []
+            CACHE[key] = normalize_links(value, max_links=MAX_LINKS_PER_ROW)
     except Exception as exc:  # noqa: BLE001
         print(f"Aviso: nao foi possivel carregar cache ({exc}).")
 
@@ -138,10 +217,10 @@ def checkpoint_payload(
     input_sig: Dict[str, Any],
     total_rows: int,
     total_candidates: int,
-    processed_rows: Dict[str, str],
+    processed_rows: Dict[str, List[str]],
 ) -> Dict[str, Any]:
     processed_count = len(processed_rows)
-    with_url = sum(1 for v in processed_rows.values() if normalize_text(v))
+    with_url = sum(1 for links in processed_rows.values() if links)
     return {
         "version": CHECKPOINT_VERSION,
         "input_signature": input_sig,
@@ -163,7 +242,7 @@ def save_checkpoint(
     input_sig: Dict[str, Any],
     total_rows: int,
     total_candidates: int,
-    processed_rows: Dict[str, str],
+    processed_rows: Dict[str, List[str]],
 ) -> None:
     payload = checkpoint_payload(
         input_sig=input_sig,
@@ -179,8 +258,8 @@ def normalize_processed_rows(
     *,
     max_rows: int,
     allowed_indices: Set[int],
-) -> Dict[str, str]:
-    out: Dict[str, str] = {}
+) -> Dict[str, List[str]]:
+    out: Dict[str, List[str]] = {}
     if not isinstance(raw, dict):
         return out
     for key, value in raw.items():
@@ -190,7 +269,7 @@ def normalize_processed_rows(
             continue
         if idx < 0 or idx >= max_rows or idx not in allowed_indices:
             continue
-        out[str(idx)] = normalize_text(value)
+        out[str(idx)] = normalize_links(value, max_links=MAX_LINKS_PER_ROW)
     return out
 
 
@@ -210,7 +289,7 @@ def persist_snapshot(
     fieldnames: List[str],
     input_sig: Dict[str, Any],
     total_candidates: int,
-    processed_rows: Dict[str, str],
+    processed_rows: Dict[str, List[str]],
 ) -> None:
     save_cache()
     write_output_csv(rows, fieldnames)
@@ -268,13 +347,23 @@ def extract_api_error_message(raw_body: str) -> str:
     return " | ".join(dict.fromkeys(parts))
 
 
-def is_credit_exhaustion_error(status_code: int, error_message: str) -> bool:
-    if status_code == 402:
-        return True
-
+def classify_fatal_api_error(status_code: int, error_message: str) -> Optional[str]:
     haystack = normalize_text(error_message).lower()
-    if not haystack:
-        return False
+
+    if status_code in (401, 403):
+        return "autorizacao"
+    if status_code == 402:
+        return "creditos/quota"
+
+    auth_tokens = (
+        "authorization required",
+        "unauthorized",
+        "invalid api key",
+        "forbidden",
+        "authentication",
+    )
+    if any(token in haystack for token in auth_tokens):
+        return "autorizacao"
 
     credit_tokens = (
         "insufficient credit",
@@ -292,12 +381,14 @@ def is_credit_exhaustion_error(status_code: int, error_message: str) -> bool:
         "ran out",
     )
     if any(token in haystack for token in credit_tokens):
-        return True
+        return "creditos/quota"
 
-    if status_code == 429 and any(token in haystack for token in ("credit", "quota", "billing", "balance")):
-        return True
+    if status_code == 429 and any(
+        token in haystack for token in ("credit", "quota", "billing", "balance")
+    ):
+        return "creditos/quota"
 
-    return False
+    return None
 
 
 # === Filtro de links juridicos brasileiros ===
@@ -334,8 +425,8 @@ def is_valid_juridical_link(url: str) -> bool:
         return False
 
     allowed_patterns = [
+        "trf1.jus.br",
         "tse.jus.br",
-        "tj",
         ".jus.br",
         "cnj.jus.br",
         "stf.jus.br",
@@ -353,9 +444,8 @@ def is_valid_juridical_link(url: str) -> bool:
         "juris",
         "jus",
         "conjur.com.br",
+        "migalhas.com.br",
         "poder360.com.br",
-        "poder360.com",
-        "trf1.jus.br",
     ]
     if any(pat in url_lower for pat in allowed_patterns):
         return True
@@ -365,7 +455,6 @@ def is_valid_juridical_link(url: str) -> bool:
     return False
 
 
-# === Truncar texto_do_boletim para compor query eficiente ===
 def truncate_text(text: str, max_chars: int = 120) -> str:
     if not text:
         return ""
@@ -375,7 +464,6 @@ def truncate_text(text: str, max_chars: int = 120) -> str:
     return text[:max_chars].strip() + " ..."
 
 
-# === Compor a query focada em noticia de imprensa juridica ===
 def make_query(row: Dict[str, str]) -> Optional[str]:
     punchline = normalize_text(row.get("punchline", ""))
     texto_do_boletim = normalize_text(row.get("texto_do_boletim", ""))
@@ -414,12 +502,11 @@ def make_query(row: Dict[str, str]) -> Optional[str]:
     return query or None
 
 
-# === Call assincrono para Perplexity Search API com prioridade de dominios (nao exclusiva) ===
 async def perplexity_lookup(
     session: aiohttp.ClientSession,
     query: str,
     api_key: str,
-    max_results: int = 2,
+    max_results: int = MAX_LINKS_PER_ROW,
 ) -> Optional[List[str]]:
     if not query:
         return []
@@ -453,10 +540,15 @@ async def perplexity_lookup(
             if resp.status != 200:
                 raw_body = await resp.text()
                 error_message = extract_api_error_message(raw_body)
-                if is_credit_exhaustion_error(resp.status, error_message):
+                fatal_error_kind = classify_fatal_api_error(
+                    resp.status,
+                    error_message or raw_body,
+                )
+                if fatal_error_kind:
                     detail = error_message or "sem detalhe da API"
-                    raise APICreditsExhaustedError(
-                        f"HTTP {resp.status} | {detail} | query='{query[:120]}'"
+                    raise APIFatalStopError(
+                        f"HTTP {resp.status} | tipo={fatal_error_kind} | "
+                        f"{detail} | query='{query[:120]}'"
                     )
 
                 detail_preview = normalize_text(error_message or raw_body)[:220]
@@ -476,16 +568,8 @@ async def perplexity_lookup(
                 url = normalize_text(result.get("url"))
                 if url and is_valid_juridical_link(url):
                     links.append(url)
-            deduped: List[str] = []
-            seen: Set[str] = set()
-            for link in links:
-                key = link.lower()
-                if key in seen:
-                    continue
-                seen.add(key)
-                deduped.append(link)
-            return deduped[:5]
-    except APICreditsExhaustedError:
+            return normalize_links(links, max_links=MAX_LINKS_PER_ROW)
+    except APIFatalStopError:
         raise
     except Exception as exc:  # noqa: BLE001
         print(f"Erro ao chamar Perplexity: {exc}")
@@ -502,27 +586,26 @@ async def fill_noticia_column() -> None:
     load_cache()
 
     rows: List[Dict[str, str]] = []
-    with open(INPUT_FILE, "r", encoding="utf-8", newline="") as f:
+    with open(INPUT_FILE, "r", encoding="utf-8-sig", newline="") as f:
         reader = csv.DictReader(f)
-        fieldnames = list(reader.fieldnames or [])
-        if not fieldnames:
+        input_fieldnames = list(reader.fieldnames or [])
+        if not input_fieldnames:
             raise SystemExit(f"ERRO: CSV sem cabecalho: {INPUT_FILE}")
+        fieldnames = build_output_fieldnames(input_fieldnames)
         for raw_row in reader:
             row: Dict[str, str] = {}
-            for key in fieldnames:
+            for key in input_fieldnames:
                 row[key] = normalize_text(raw_row.get(key, ""))
+            set_row_news_links(row, get_row_news_links(row))
+            for key in fieldnames:
+                row.setdefault(key, "")
             rows.append(row)
-
-    if "noticia" not in fieldnames:
-        fieldnames.append("noticia")
-    for row in rows:
-        row["noticia"] = normalize_text(row.get("noticia", ""))
 
     queries: List[Optional[str]] = [None] * len(rows)
     missing_indices: List[int] = []
     candidate_indices: List[int] = []
     for idx, row in enumerate(rows):
-        if row.get("noticia"):
+        if row_has_news(row):
             continue
         missing_indices.append(idx)
         query = make_query(row)
@@ -538,7 +621,7 @@ async def fill_noticia_column() -> None:
 
     input_sig = file_signature(INPUT_FILE)
     checkpoint = read_checkpoint()
-    processed_rows: Dict[str, str] = {}
+    processed_rows: Dict[str, List[str]] = {}
     resumed_with_url = 0
 
     if checkpoint:
@@ -547,7 +630,7 @@ async def fill_noticia_column() -> None:
         cp_total_rows = int(checkpoint.get("total_rows", -1) or -1)
         cp_total_candidates = int(checkpoint.get("total_candidates", -1) or -1)
         if (
-            cp_version == CHECKPOINT_VERSION
+            cp_version in (1, CHECKPOINT_VERSION)
             and cp_total_rows == total_rows
             and cp_total_candidates == total_candidates
             and isinstance(cp_sig, dict)
@@ -560,8 +643,8 @@ async def fill_noticia_column() -> None:
             )
             for idx_str, links in processed_rows.items():
                 idx = int(idx_str)
+                set_row_news_links(rows[idx], links)
                 if links:
-                    rows[idx]["noticia"] = links
                     resumed_with_url += 1
         else:
             print("Checkpoint ignorado por incompatibilidade com o CSV atual.")
@@ -608,9 +691,14 @@ async def fill_noticia_column() -> None:
         if cached is not None:
             return cached
         async with semaphore:
-            result = await perplexity_lookup(session, query, api_key=api_key, max_results=2)
+            result = await perplexity_lookup(
+                session,
+                query,
+                api_key=api_key,
+                max_results=MAX_LINKS_PER_ROW,
+            )
         if result is not None:
-            CACHE[query] = result
+            CACHE[query] = normalize_links(result, max_links=MAX_LINKS_PER_ROW)
         return result
 
     start_run = time.time()
@@ -669,14 +757,14 @@ async def fill_noticia_column() -> None:
                 batch_ok_with_url = 0
                 batch_ok_without_url = 0
                 batch_errors = 0
-                credits_exhausted_error: Optional[APICreditsExhaustedError] = None
+                fatal_stop_error: Optional[APIFatalStopError] = None
 
                 for idx in batch_indices:
                     result = batch_results.get(idx)
-                    if isinstance(result, APICreditsExhaustedError):
-                        if credits_exhausted_error is None:
-                            credits_exhausted_error = result
-                            print(f"  - CREDITOS ESGOTADOS detectado na linha {idx + 1}: {result}")
+                    if isinstance(result, APIFatalStopError):
+                        if fatal_stop_error is None:
+                            fatal_stop_error = result
+                            print(f"  - ERRO FATAL DA API detectado na linha {idx + 1}: {result}")
                         continue
                     if isinstance(result, Exception):
                         batch_errors += 1
@@ -686,17 +774,15 @@ async def fill_noticia_column() -> None:
                         batch_errors += 1
                         continue
 
-                    links = [normalize_text(link) for link in result if normalize_text(link)]
-                    links_str = "; ".join(links)
-                    if links_str:
-                        rows[idx]["noticia"] = links_str
+                    links = normalize_links(result, max_links=MAX_LINKS_PER_ROW)
+                    if links:
+                        set_row_news_links(rows[idx], links)
                         batch_ok_with_url += 1
                     else:
-                        if not rows[idx].get("noticia"):
-                            rows[idx]["noticia"] = ""
+                        set_row_news_links(rows[idx], [])
                         batch_ok_without_url += 1
 
-                    processed_rows[str(idx)] = links_str
+                    processed_rows[str(idx)] = links
 
                 completed_batch = batch_ok_with_url + batch_ok_without_url
                 completed_this_run += completed_batch
@@ -732,18 +818,21 @@ async def fill_noticia_column() -> None:
                     f"Restante: {remaining} | ETA: {eta}"
                 )
 
-                if credits_exhausted_error is not None:
+                if fatal_stop_error is not None:
                     print(
-                        "Interrompendo processamento: API reportou esgotamento de "
-                        "creditos/quota."
+                        "Interrompendo processamento: API reportou erro fatal "
+                        "(autorizacao/creditos/quota)."
                     )
-                    raise credits_exhausted_error
+                    raise fatal_stop_error
 
                 if start + MAX_BATCH_SIZE < len(pending_indices) and DELAY_BETWEEN_BATCHES_SEC > 0:
                     await asyncio.sleep(DELAY_BETWEEN_BATCHES_SEC)
 
-    except APICreditsExhaustedError as exc:
-        print("\nPROCESSAMENTO INTERROMPIDO: creditos da API Perplexity esgotados.")
+    except APIFatalStopError as exc:
+        print(
+            "\nPROCESSAMENTO INTERROMPIDO: erro fatal da API Perplexity "
+            "(autorizacao/creditos/quota)."
+        )
         print("Salvando snapshot/checkpoint antes de encerrar...")
         persist_snapshot(
             rows=rows,
@@ -756,7 +845,7 @@ async def fill_noticia_column() -> None:
         processed_total = len(processed_rows)
         remaining = max(0, total_candidates - processed_total)
         remaining_batches = (remaining + MAX_BATCH_SIZE - 1) // MAX_BATCH_SIZE
-        output_with_news = sum(1 for row in rows if normalize_text(row.get("noticia")))
+        output_with_news = sum(1 for row in rows if row_has_news(row))
         missing_output = total_rows - output_with_news
         print(f"Motivo da API: {exc}")
         print(
@@ -811,7 +900,7 @@ async def fill_noticia_column() -> None:
     elapsed_total = time.time() - start_run
     processed_total = len(processed_rows)
     remaining = max(0, total_candidates - processed_total)
-    output_with_news = sum(1 for row in rows if normalize_text(row.get("noticia")))
+    output_with_news = sum(1 for row in rows if row_has_news(row))
 
     print("=" * 72)
     print(f"Tempo total: {format_duration(elapsed_total)}")

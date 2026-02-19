@@ -1,0 +1,106 @@
+{
+  "timestamp": "20260219_180728",
+  "mode": "apply",
+  "defaults": {
+    "max_links_per_row": 2,
+    "legacy_separator": "; "
+  },
+  "paths": {
+    "csv_file": "boletins_de_jurisprudencia_TRF1_with_news.csv",
+    "cache_file": "perplexity_cache.json",
+    "checkpoint_file": ".boletins_de_jurisprudencia_TRF1_with_news.checkpoint.json",
+    "overflow_file": "trf1_news_migration_overflow_20260219_180728.csv",
+    "report_file": "trf1_news_migration_report_20260219_180728.json"
+  },
+  "csv": {
+    "path": "boletins_de_jurisprudencia_TRF1_with_news.csv",
+    "exists": true,
+    "status": "migrated",
+    "legacy_column_present": true,
+    "rows_total": 7728,
+    "rows_with_any_link": 1090,
+    "rows_changed": 7728,
+    "overflow_rows": 0,
+    "original_fieldnames": [
+      "classe",
+      "numero_processo",
+      "relator(a)",
+      "orgao_julgador",
+      "data_julgamento",
+      "data_publicacao",
+      "contexto",
+      "tese",
+      "tema",
+      "texto_do_boletim",
+      "decisao",
+      "tribunal",
+      "informativo",
+      "ramo_do_direito",
+      "subramo_do_direito",
+      "punchline",
+      "bullet_points",
+      "jurisprudência",
+      "legislacao",
+      "noticia"
+    ],
+    "output_fieldnames": [
+      "classe",
+      "numero_processo",
+      "relator(a)",
+      "orgao_julgador",
+      "data_julgamento",
+      "data_publicacao",
+      "contexto",
+      "tese",
+      "tema",
+      "texto_do_boletim",
+      "decisao",
+      "tribunal",
+      "informativo",
+      "ramo_do_direito",
+      "subramo_do_direito",
+      "punchline",
+      "bullet_points",
+      "jurisprudência",
+      "legislacao",
+      "noticia_1",
+      "noticia_2"
+    ]
+  },
+  "checkpoint": {
+    "path": ".boletins_de_jurisprudencia_TRF1_with_news.checkpoint.json",
+    "exists": true,
+    "status": "migrated",
+    "version_before": 1,
+    "version_after": 2,
+    "processed_count_before": 1233,
+    "processed_count_after": 1233,
+    "with_url_count_after": 1090,
+    "without_url_count_after": 143,
+    "overflow_rows": 0
+  },
+  "cache": {
+    "path": "perplexity_cache.json",
+    "exists": true,
+    "status": "migrated",
+    "entries_before": 1233,
+    "entries_after": 1233,
+    "overflow_entries": 0
+  },
+  "overflow_records_count": 0,
+  "backups": [
+    {
+      "source": "boletins_de_jurisprudencia_TRF1_with_news.csv",
+      "backup": "boletins_de_jurisprudencia_TRF1_with_news.csv.backup_20260219_180728"
+    },
+    {
+      "source": "perplexity_cache.json",
+      "backup": "perplexity_cache.json.backup_20260219_180728"
+    },
+    {
+      "source": ".boletins_de_jurisprudencia_TRF1_with_news.checkpoint.json",
+      "backup": ".boletins_de_jurisprudencia_TRF1_with_news.checkpoint.json.backup_20260219_180728"
+    }
+  ],
+  "generated_at": "2026-02-19T21:07:31.228653+00:00"
+}

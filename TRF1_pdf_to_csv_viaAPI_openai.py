@@ -81,8 +81,10 @@ CSV_COLUMNS: List[str] = [
     "bullet_points",
     "jurisprudência",
     "legislacao",
-    "noticia",
+    "noticia_1",
+    "noticia_2",
 ]
+NOTICIA_COLUMNS = ("noticia_1", "noticia_2")
 
 INTERNAL_KEYS = ["_row_id", "_openai_done", "_perplexity_done", "_perplexity_reason", "_source_pdf"]
 MISSING_TOKENS = {"", "null", "none", "nan", "na", "n/a"}
@@ -2052,6 +2054,9 @@ def row_from_checkpoint(raw: Dict[str, Any]) -> Dict[str, str]:
     for col in CSV_COLUMNS:
         if col in raw and raw.get(col) is not None:
             row[col] = str(raw.get(col))
+    # Compatibilidade com checkpoints legados que tinham apenas "noticia".
+    if is_missing(row.get("noticia_1")) and not is_missing(raw.get("noticia")):
+        row["noticia_1"] = str(raw.get("noticia", ""))
     if is_missing(row.get("relator(a)")) and not is_missing(raw.get("relator")):
         row["relator(a)"] = str(raw.get("relator", ""))
     for key in INTERNAL_KEYS:
@@ -2133,7 +2138,11 @@ def has_valid_openai_critical_fields(row: Dict[str, str]) -> bool:
 def refresh_done_flags(rows: Sequence[Dict[str, str]]) -> None:
     for row in rows:
         row["_openai_done"] = "1" if has_valid_openai_critical_fields(row) else "0"
-        if row.get("noticia") and validate_url(row.get("noticia", "")):
+        has_valid_noticia = any(
+            row.get(col) and validate_url(row.get(col, ""))
+            for col in NOTICIA_COLUMNS
+        )
+        if has_valid_noticia:
             row["_perplexity_done"] = "1"
             if not row.get("_perplexity_reason"):
                 row["_perplexity_reason"] = "ok"
@@ -2159,7 +2168,7 @@ def summarize_openai_progress(rows: Sequence[Dict[str, str]]) -> Dict[str, int]:
 
 
 def needs_perplexity(row: Dict[str, str]) -> bool:
-    return is_missing(row.get("noticia"))
+    return all(is_missing(row.get(col)) for col in NOTICIA_COLUMNS)
 
 
 def should_skip_perplexity_row(row: Dict[str, str], skip_terminal_reasons: bool) -> bool:
@@ -2643,7 +2652,7 @@ def run_perplexity_enrichment(
     )
 
     def apply_perplexity_result(row: Dict[str, str], url: str, reason: str, stage: int) -> None:
-        row["noticia"] = url
+        row["noticia_1"] = url
         row["_perplexity_done"] = "1" if url else "0"
         row["_perplexity_reason"] = reason or (f"no_candidates_stage{stage}")
 
@@ -2919,8 +2928,9 @@ def ensure_output_rows_format(rows: List[Dict[str, str]]) -> None:
         row["legislacao"] = normalize_legislacao(row.get("legislacao", ""))
         row["jurisprudência"] = normalize_jurisprudencia(row.get("jurisprudência", ""))
         row["punchline"] = truncate_to_words(row.get("punchline", ""), 20)
-        if row.get("noticia") and not validate_url(row.get("noticia", "")):
-            row["noticia"] = ""
+        for noticia_col in NOTICIA_COLUMNS:
+            if row.get(noticia_col) and not validate_url(row.get(noticia_col, "")):
+                row[noticia_col] = ""
         row["_perplexity_reason"] = normalize_ws(row.get("_perplexity_reason", ""))
     refresh_done_flags(rows)
 
