@@ -11,7 +11,7 @@ from unittest.mock import patch
 
 import requests
 
-import TRF1_pdf_to_csv_viaAPI as trf1
+import TRF1_pdf_to_csv_viaAPI_Perplexity as trf1
 
 
 def _new_logger() -> tuple[trf1.logging.Logger, io.StringIO]:
@@ -88,6 +88,16 @@ class _RateLimitSession:
 
 
 class TestPerplexityStabilization(unittest.TestCase):
+    def test_output_constants_are_perplexity_specific(self) -> None:
+        self.assertEqual(trf1.OUTPUT_NAME, "boletins_de_jurisprudencia_TRF1_perplexity.csv")
+        self.assertEqual(trf1.CHECKPOINT_NAME, ".boletins_de_jurisprudencia_TRF1_perplexity.checkpoint.json")
+        self.assertEqual(trf1.QUALITY_REPORT_NAME, ".boletins_de_jurisprudencia_TRF1_perplexity.quality_report.json")
+
+    def test_parser_has_no_openai_flags(self) -> None:
+        help_text = trf1.build_arg_parser().format_help()
+        self.assertIn("--perplexity-api-key", help_text)
+        self.assertNotIn("--openai-", help_text)
+
     def test_parser_defaults_prioritize_perplexity_cost(self) -> None:
         args = trf1.build_arg_parser().parse_args([])
         self.assertFalse(args.perplexity_fallback_enabled)
@@ -339,13 +349,12 @@ class TestPerplexityStabilization(unittest.TestCase):
                 return state
 
             argv = [
-                "TRF1_pdf_to_csv_viaAPI.py",
+                "TRF1_pdf_to_csv_viaAPI_Perplexity.py",
                 "--no-gui",
                 "--input-files",
                 str(pdf),
                 "--output-dir",
                 str(tmp),
-                "--disable-openai",
                 "--perplexity-api-key",
                 "pplx-test",
                 "--perplexity-max-workers",
@@ -355,11 +364,12 @@ class TestPerplexityStabilization(unittest.TestCase):
                 "--quiet",
             ]
             with (
-                patch.object(trf1, "run_openai_enrichment", return_value=None),
+                patch.object(trf1, "run_openai_enrichment", return_value=None) as openai_mock,
                 patch.object(trf1, "run_perplexity_enrichment", side_effect=_fake_run_perplexity_enrichment),
                 patch.object(trf1.sys, "argv", argv),
             ):
                 trf1.main()
+            openai_mock.assert_not_called()
 
         self.assertEqual(captured["workers"], 3)
         self.assertEqual(captured["delay"], 0.75)
@@ -389,13 +399,12 @@ class TestPerplexityStabilization(unittest.TestCase):
                 return state
 
             argv = [
-                "TRF1_pdf_to_csv_viaAPI.py",
+                "TRF1_pdf_to_csv_viaAPI_Perplexity.py",
                 "--no-gui",
                 "--input-files",
                 str(pdf),
                 "--output-dir",
                 str(tmp),
-                "--disable-openai",
                 "--perplexity-api-key",
                 "pplx-test",
                 "--perplexity-max-workers",
@@ -406,11 +415,12 @@ class TestPerplexityStabilization(unittest.TestCase):
                 "--quiet",
             ]
             with (
-                patch.object(trf1, "run_openai_enrichment", return_value=None),
+                patch.object(trf1, "run_openai_enrichment", return_value=None) as openai_mock,
                 patch.object(trf1, "run_perplexity_enrichment", side_effect=_fake_run_perplexity_enrichment),
                 patch.object(trf1.sys, "argv", argv),
             ):
                 trf1.main()
+            openai_mock.assert_not_called()
 
         self.assertEqual(captured["workers"], 1)
         self.assertEqual(captured["delay"], 5.0)

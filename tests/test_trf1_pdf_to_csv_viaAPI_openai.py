@@ -11,7 +11,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-import TRF1_pdf_to_csv_viaAPI as trf1
+import TRF1_pdf_to_csv_viaAPI_openai as trf1
 
 
 def _new_logger() -> tuple[logging.Logger, io.StringIO]:
@@ -98,6 +98,16 @@ class _FakeClient:
 
 
 class TestOpenAIFixes(unittest.TestCase):
+    def test_output_constants_are_openai_specific(self) -> None:
+        self.assertEqual(trf1.OUTPUT_NAME, "boletins_de_jurisprudencia_TRF1_openai.csv")
+        self.assertEqual(trf1.CHECKPOINT_NAME, ".boletins_de_jurisprudencia_TRF1_openai.checkpoint.json")
+        self.assertEqual(trf1.QUALITY_REPORT_NAME, ".boletins_de_jurisprudencia_TRF1_openai.quality_report.json")
+
+    def test_parser_has_no_perplexity_flags(self) -> None:
+        help_text = trf1.build_arg_parser().format_help()
+        self.assertIn("--openai-api-key", help_text)
+        self.assertNotIn("--perplexity-", help_text)
+
     def test_classify_openai_error_maps_length_and_auth(self) -> None:
         self.assertEqual(trf1.classify_openai_error("empty_json_due_length"), "length")
         self.assertEqual(trf1.classify_openai_error("Authentication failed"), "auth")
@@ -284,6 +294,46 @@ class TestOpenAIFixes(unittest.TestCase):
                         perplexity_state={"workers": 1, "delay": 0.0},
                         logger=logger,
                     )
+
+    def test_main_openai_only_skips_perplexity_call(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            tmp = Path(td)
+            pdf = tmp / "dummy.pdf"
+            pdf.write_bytes(b"%PDF-1.4\n%dummy\n")
+            manifest = trf1.compute_manifest([pdf.resolve()])
+            row = _sample_row("row-100")
+            payload = trf1.checkpoint_payload(
+                manifest=manifest,
+                rows=[row],
+                perplexity_state={"workers": 2, "delay": 1.0},
+            )
+            (tmp / trf1.CHECKPOINT_NAME).write_text(
+                trf1.json.dumps(payload, ensure_ascii=False),
+                encoding="utf-8",
+            )
+
+            argv = [
+                "TRF1_pdf_to_csv_viaAPI_openai.py",
+                "--no-gui",
+                "--input-files",
+                str(pdf),
+                "--output-dir",
+                str(tmp),
+                "--openai-api-key",
+                "sk-test",
+                "--quiet",
+            ]
+            with (
+                patch.object(trf1, "run_openai_enrichment", return_value=None) as openai_mock,
+                patch.object(trf1, "run_perplexity_enrichment", return_value={"workers": 2, "delay": 1.0}) as pplx_mock,
+                patch.object(trf1.sys, "argv", argv),
+            ):
+                trf1.main()
+
+            openai_mock.assert_called_once()
+            pplx_mock.assert_not_called()
+            self.assertTrue((tmp / trf1.OUTPUT_NAME).exists())
+            self.assertTrue((tmp / trf1.CHECKPOINT_NAME).exists())
 
 
 if __name__ == "__main__":

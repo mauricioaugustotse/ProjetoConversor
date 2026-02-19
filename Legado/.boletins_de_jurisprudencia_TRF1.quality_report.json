@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-19T12:23:59.956925+00:00",
+  "generated_at": "2026-02-19T18:12:45.526548+00:00",
   "total_rows": 7728,
   "fill_rate": {
     "classe": {
@@ -33,14 +33,14 @@
       "fill_pct": 99.44
     },
     "contexto": {
-      "filled": 2908,
-      "missing": 4820,
-      "fill_pct": 37.63
+      "filled": 7728,
+      "missing": 0,
+      "fill_pct": 100.0
     },
     "tese": {
-      "filled": 2908,
-      "missing": 4820,
-      "fill_pct": 37.63
+      "filled": 7728,
+      "missing": 0,
+      "fill_pct": 100.0
     },
     "tema": {
       "filled": 7728,
@@ -68,39 +68,39 @@
       "fill_pct": 100.0
     },
     "ramo_do_direito": {
-      "filled": 2908,
-      "missing": 4820,
-      "fill_pct": 37.63
+      "filled": 7728,
+      "missing": 0,
+      "fill_pct": 100.0
     },
     "subramo_do_direito": {
-      "filled": 2908,
-      "missing": 4820,
-      "fill_pct": 37.63
+      "filled": 7728,
+      "missing": 0,
+      "fill_pct": 100.0
     },
     "punchline": {
-      "filled": 2908,
-      "missing": 4820,
-      "fill_pct": 37.63
+      "filled": 7728,
+      "missing": 0,
+      "fill_pct": 100.0
     },
     "bullet_points": {
-      "filled": 2908,
-      "missing": 4820,
-      "fill_pct": 37.63
+      "filled": 7728,
+      "missing": 0,
+      "fill_pct": 100.0
     },
     "jurisprudência": {
-      "filled": 1410,
-      "missing": 6318,
-      "fill_pct": 18.25
+      "filled": 3377,
+      "missing": 4351,
+      "fill_pct": 43.7
     },
     "legislacao": {
-      "filled": 2778,
-      "missing": 4950,
-      "fill_pct": 35.95
+      "filled": 7481,
+      "missing": 247,
+      "fill_pct": 96.8
     },
     "noticia": {
-      "filled": 10,
-      "missing": 7718,
-      "fill_pct": 0.13
+      "filled": 23,
+      "missing": 7705,
+      "fill_pct": 0.3
     }
   },
   "metrics": {
@@ -112,22 +112,22 @@
     "data_publicacao_invalid": 0,
     "bullet_blank_like": 0,
     "tema_too_short_count": 0,
-    "openai_done": 2908,
-    "perplexity_done": 10,
-    "noticia_fill_rate_pct": 0.13,
-    "perplexity_stage1_accept_count": 10,
+    "openai_done": 7727,
+    "perplexity_done": 23,
+    "noticia_fill_rate_pct": 0.3,
+    "perplexity_stage1_accept_count": 23,
     "perplexity_stage2_accept_count": 0,
     "perplexity_reject_by_reason": {
-      "score_below_threshold": 1027,
-      "rate_limit": 509,
-      "error": 1194
+      "score_below_threshold": 2427,
+      "error": 288,
+      "http_error": 2
     },
     "perplexity_empty_or_error_reasons": {
-      "score_below_threshold": 1027,
-      "rate_limit": 509,
-      "accepted_stage1_official": 3,
-      "accepted_stage1_mainstream": 7,
-      "error": 1194
+      "score_below_threshold": 2427,
+      "accepted_stage1_mainstream": 16,
+      "accepted_stage1_official": 7,
+      "error": 288,
+      "http_error": 2
     }
   }
 }
