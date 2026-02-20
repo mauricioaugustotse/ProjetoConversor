@@ -86,7 +86,14 @@ CSV_COLUMNS: List[str] = [
 ]
 NOTICIA_COLUMNS = ("noticia_1", "noticia_2")
 
-INTERNAL_KEYS = ["_row_id", "_openai_done", "_perplexity_done", "_perplexity_reason", "_source_pdf"]
+INTERNAL_KEYS = [
+    "_row_id",
+    "_openai_done",
+    "_tema_review_done",
+    "_perplexity_done",
+    "_perplexity_reason",
+    "_source_pdf",
+]
 MISSING_TOKENS = {"", "null", "none", "nan", "na", "n/a"}
 OPENAI_CRITICAL_COLUMNS = [
     "contexto",
@@ -98,7 +105,47 @@ OPENAI_CRITICAL_COLUMNS = [
     "bullet_points",
 ]
 TEMA_MIN_WORDS = 8
-TEMA_MAX_WORDS = 16
+TEMA_MAX_WORDS = 30
+TEMA_TRAILING_CONNECTORS = {
+    "a",
+    "ao",
+    "aos",
+    "à",
+    "às",
+    "com",
+    "contra",
+    "da",
+    "das",
+    "de",
+    "do",
+    "dos",
+    "e",
+    "em",
+    "entre",
+    "na",
+    "nas",
+    "no",
+    "nos",
+    "ou",
+    "para",
+    "pela",
+    "pelas",
+    "pelo",
+    "pelos",
+    "por",
+    "que",
+    "se",
+    "sem",
+    "sob",
+    "sobre",
+}
+TEMA_INPUT_PROFILE_CHOICES = ("lean", "balanced", "full")
+TEMA_PROFILE_FALLBACK_CHOICES = ("auto", "off")
+TEMA_PROFILE_AUTO_CHAIN = {
+    "lean": ["lean", "balanced"],
+    "balanced": ["balanced", "full"],
+    "full": ["full"],
+}
 
 ORG_HEAD_RE = re.compile(
     r"^(primeira|segunda|terceira|quarta|quinta|sexta|s[eé]tima|oitava|nona|d[eé]cima|d[eé]cima primeira|d[eé]cima segunda|d[eé]cima terceira|d[eé]cima quarta|d[eé]cima quinta|d[eé]cima sexta|d[eé]cima s[eé]tima|d[eé]cima oitava|d[eé]cima nona|vig[eé]sima)\s+(turma|se[cç][aã]o)$",
@@ -141,6 +188,7 @@ CASE_LIKELY_START_RE = re.compile(
     r"\b[A-ZÁÀÂÃÉÈÊÍÌÎÓÒÔÕÚÙÛÇ][a-záàâãéèêíìîóòôõúùûç]{2,}(?:\s+[a-záàâãéèêíìîóòôõúùûç]{2,})?\."
 )
 SPACE_RE = re.compile(r"\s+")
+TOKEN_RE = re.compile(r"[A-Za-zÀ-ÿ0-9]{3,}")
 NON_NEWS_EXT_RE = re.compile(r"\.(?:pdf|doc|docx|xls|xlsx|zip|rar)(?:$|[?#])", re.IGNORECASE)
 NEWS_HINT_TOKENS = (
     "noticia",
@@ -798,7 +846,7 @@ def infer_tema_from_texto(texto_do_boletim: str) -> str:
             tokens.append(filler[idx % len(filler)])
             idx += 1
     tokens = tokens[:TEMA_MAX_WORDS]
-    return " ".join(tokens)[:180]
+    return normalize_tema_text(" ".join(tokens))
 
 
 def extract_texto_do_boletim_from_block(block: str, citation_text: str) -> str:
@@ -838,7 +886,11 @@ def tema_word_count(tema: str) -> int:
 
 def is_tema_detailed(tema: str) -> bool:
     wc = tema_word_count(tema)
-    return TEMA_MIN_WORDS <= wc <= TEMA_MAX_WORDS
+    if not (TEMA_MIN_WORDS <= wc <= TEMA_MAX_WORDS):
+        return False
+    if tema_looks_truncated(tema):
+        return False
+    return not tema_is_telegraphic(tema)
 
 
 def generate_row_id(row: Dict[str, str]) -> str:
@@ -1117,6 +1169,65 @@ def normalize_jurisprudencia(value: Any) -> str:
     return ", ".join(cleaned)
 
 
+def strip_tema_trailing_connectors(tokens: List[str]) -> List[str]:
+    out = list(tokens)
+    while out:
+        tail = out[-1].strip(" \t\n\r.,;:!?()[]{}\"'")
+        if not tail:
+            out.pop()
+            continue
+        if tail.casefold() in TEMA_TRAILING_CONNECTORS:
+            out.pop()
+            continue
+        break
+    return out
+
+
+def tema_looks_truncated(tema: str) -> bool:
+    text = normalize_ws(tema)
+    if not text:
+        return True
+    if re.search(r"[,:;/\-]\s*$", text):
+        return True
+    if re.search(r"\b(?:ap[oó]s|at[eé]|desde|de|em|entre)\s+\d{1,2}\s*$", text, flags=re.IGNORECASE):
+        return True
+    tokens = [t for t in text.split(" ") if t]
+    if not tokens:
+        return True
+    tail = tokens[-1].strip(" \t\n\r.,;:!?()[]{}\"'").casefold()
+    if not tail:
+        return True
+    return tail in TEMA_TRAILING_CONNECTORS
+
+
+def tema_is_telegraphic(tema: str) -> bool:
+    text = normalize_ws(tema)
+    if not text:
+        return False
+    return len(re.findall(r"[.;:]", text)) >= 2
+
+
+def normalize_tema_text(tema: str, *, max_words: int = TEMA_MAX_WORDS) -> str:
+    text = normalize_ws(str(tema or ""))
+    if not text:
+        return ""
+    # Remove cauda narrativa de precedentes quando houver tema principal antes dela.
+    lead_in = re.search(
+        r"(?:^|[.;:])\s*O\s+(?:Superior Tribunal de Justiça|Supremo Tribunal Federal)\b",
+        text,
+        flags=re.IGNORECASE,
+    )
+    if lead_in and lead_in.start() > 0:
+        text = normalize_ws(text[: lead_in.start()])
+    tokens = [t for t in text.split(" ") if t]
+    if max_words > 0 and len(tokens) > max_words:
+        tokens = tokens[:max_words]
+    tokens = strip_tema_trailing_connectors(tokens)
+    text = " ".join(tokens).strip(" ,;:-")
+    text = re.sub(r"[/:;\-]+\s*$", "", text).strip(" ,;:-")
+    return normalize_ws(text)
+
+
 def truncate_to_words(text: str, max_words: int) -> str:
     tokens = [t for t in normalize_ws(text).split(" ") if t]
     if len(tokens) <= max_words:
@@ -1136,6 +1247,218 @@ def compact_for_prompt(text: str, max_chars: int, *, keep_tail: int = 420) -> st
     head = cleaned[:head_len].rstrip()
     tail = cleaned[-keep_tail:].lstrip()
     return f"{head} ... [trecho omitido] ... {tail}"
+
+
+def truncate_chars(text: str, max_chars: int) -> str:
+    cleaned = sanitize_boletim_text(text)
+    if max_chars <= 0 or len(cleaned) <= max_chars:
+        return cleaned
+    return cleaned[:max_chars].rstrip(" ,;:-")
+
+
+def split_bullet_points_for_prompt(value: Any) -> List[str]:
+    if value is None:
+        return []
+    text = str(value or "")
+    if not text:
+        return []
+    raw = text.replace("\r\n", "\n").replace("\r", "\n")
+    parts: List[str] = []
+    if "•" in raw:
+        parts = [normalize_ws(x) for x in re.split(r"\s*•\s*", raw) if normalize_ws(x)]
+    else:
+        parts = [normalize_ws(x) for x in re.split(r"[\n;|]+", raw) if normalize_ws(x)]
+    cleaned: List[str] = []
+    seen: set[str] = set()
+    for p in parts:
+        item = normalize_ws(re.sub(r"^[\-\*\d\.\)\s]+", "", p))
+        item = item.strip(" ,;:-")
+        if not item:
+            continue
+        key = item.casefold()
+        if key in seen:
+            continue
+        seen.add(key)
+        cleaned.append(item)
+    return cleaned
+
+
+def compact_bullet_points_for_prompt(value: Any, max_items: int, max_chars_each: int = 120) -> str:
+    items = split_bullet_points_for_prompt(value)
+    if max_items > 0:
+        items = items[:max_items]
+    items = [truncate_chars(x, max_chars_each) for x in items if truncate_chars(x, max_chars_each)]
+    if not items:
+        return ""
+    return " | ".join(items)
+
+
+def split_jurisprudencia_for_prompt(value: Any) -> List[str]:
+    if value is None:
+        return []
+    text = str(value or "")
+    if not text:
+        return []
+    parts = [normalize_ws(x) for x in re.split(r"[,;\n\r|]+", text) if normalize_ws(x)]
+    cleaned: List[str] = []
+    seen: set[str] = set()
+    for p in parts:
+        item = normalize_ws(p).strip(" ,;:-")
+        if not item:
+            continue
+        key = item.casefold()
+        if key in seen:
+            continue
+        seen.add(key)
+        cleaned.append(item)
+    return cleaned
+
+
+def compact_jurisprudencia_numerica_for_prompt(value: Any, max_items: int = 8, max_chars_each: int = 120) -> str:
+    items = split_jurisprudencia_for_prompt(value)
+    numericas = [x for x in items if re.search(r"\d", x)]
+    if max_items > 0:
+        numericas = numericas[:max_items]
+    numericas = [truncate_chars(x, max_chars_each) for x in numericas if truncate_chars(x, max_chars_each)]
+    if not numericas:
+        return ""
+    return " | ".join(numericas)
+
+
+def build_tema_profile_chain(base_profile: str, fallback_policy: str) -> List[str]:
+    base = (base_profile or "lean").strip().lower()
+    if base not in TEMA_INPUT_PROFILE_CHOICES:
+        base = "lean"
+    policy = (fallback_policy or "auto").strip().lower()
+    if policy not in TEMA_PROFILE_FALLBACK_CHOICES:
+        policy = "auto"
+    if policy == "off":
+        return [base]
+    return list(TEMA_PROFILE_AUTO_CHAIN.get(base, [base]))
+
+
+def build_tema_profile_inputs(
+    row: Dict[str, str],
+    *,
+    profile: str,
+    text_max_chars: int,
+    contexto_max_chars: int,
+    bullets_max_items: int,
+) -> Dict[str, str]:
+    p = (profile or "lean").strip().lower()
+    if p not in TEMA_INPUT_PROFILE_CHOICES:
+        p = "lean"
+    out: Dict[str, str] = {
+        "ramo_do_direito": normalize_ws(row.get("ramo_do_direito", "")),
+        "subramo_do_direito": normalize_ws(row.get("subramo_do_direito", "")),
+        "punchline": normalize_ws(row.get("punchline", "")),
+        "tese": normalize_ws(row.get("tese", "")),
+        "bullet_points": compact_bullet_points_for_prompt(row.get("bullet_points", ""), bullets_max_items),
+        "jurisprudencia_numerica": compact_jurisprudencia_numerica_for_prompt(
+            row.get("jurisprudência", row.get("jurisprudencia", ""))
+        ),
+        "contexto": "",
+        "texto_do_boletim": "",
+    }
+    if p in {"balanced", "full"}:
+        out["contexto"] = truncate_chars(row.get("contexto", ""), contexto_max_chars)
+    if p == "full":
+        out["texto_do_boletim"] = compact_for_prompt(row.get("texto_do_boletim", ""), text_max_chars)
+    return out
+
+
+def build_tema_review_request_key(
+    row: Dict[str, str],
+    *,
+    profile: str,
+    text_max_chars: int,
+    contexto_max_chars: int,
+    bullets_max_items: int,
+) -> str:
+    profile_inputs = build_tema_profile_inputs(
+        row,
+        profile=profile,
+        text_max_chars=text_max_chars,
+        contexto_max_chars=contexto_max_chars,
+        bullets_max_items=bullets_max_items,
+    )
+    base = "|".join(
+        [
+            normalize_ws(profile),
+            normalize_ws(row.get("numero_processo", "")),
+            normalize_ws(row.get("classe", "")),
+            normalize_ws(row.get("relator(a)", row.get("relator", ""))),
+            normalize_ws(row.get("tema", "")),
+            normalize_ws(profile_inputs.get("ramo_do_direito", "")),
+            normalize_ws(profile_inputs.get("subramo_do_direito", "")),
+            normalize_ws(profile_inputs.get("punchline", "")),
+            normalize_ws(profile_inputs.get("tese", "")),
+            normalize_ws(profile_inputs.get("bullet_points", "")),
+            normalize_ws(profile_inputs.get("jurisprudencia_numerica", "")),
+            normalize_ws(profile_inputs.get("contexto", "")),
+            normalize_ws(profile_inputs.get("texto_do_boletim", "")),
+        ]
+    )
+    return hashlib.sha1(base.encode("utf-8")).hexdigest()
+
+
+def build_openai_tema_review_prompt(
+    row: Dict[str, str],
+    *,
+    profile: str,
+    text_max_chars: int,
+    contexto_max_chars: int,
+    bullets_max_items: int,
+) -> str:
+    insumos = build_tema_profile_inputs(
+        row,
+        profile=profile,
+        text_max_chars=text_max_chars,
+        contexto_max_chars=contexto_max_chars,
+        bullets_max_items=bullets_max_items,
+    )
+    contexto_block = insumos.get("contexto", "")
+    boletim_block = insumos.get("texto_do_boletim", "")
+    contexto_line = f"- contexto: {contexto_block}" if contexto_block else "- contexto: [não fornecido neste perfil]"
+    boletim_line = (
+        f"- texto_do_boletim: {boletim_block}"
+        if boletim_block
+        else "- texto_do_boletim: [não fornecido neste perfil]"
+    )
+    return f"""
+Você é um assistente jurídico especializado em taxonomia de temas.
+Sua tarefa é revisar e reescrever SOMENTE a coluna `tema` para indexação jurídica.
+
+REGRAS ESTRITAS PARA `tema`:
+1) Entre 8 e 30 palavras.
+2) Frase completa, sem interrupções.
+3) Não terminar em preposição/conjunção (ex.: "de", "em", "sob", "para", "e").
+4) Não iniciar narrativa longa de precedente (evite: "O Superior Tribunal de Justiça, sob ...").
+5) Descrever objeto jurídico + controvérsia central do caso.
+6) Não copiar períodos inteiros do texto do boletim.
+7) Português claro, técnico e conciso.
+8) Priorize precisão usando os insumos disponíveis no perfil atual.
+9) Se faltarem dados no perfil atual, use com parcimônia os metadados do julgado.
+
+Contexto do julgado:
+- perfil_de_insumo: {profile}
+- classe: {row.get('classe', '')}
+- numero_processo: {row.get('numero_processo', '')}
+- relator(a): {row.get('relator(a)', row.get('relator', ''))}
+- orgao_julgador: {row.get('orgao_julgador', '')}
+- data_julgamento: {row.get('data_julgamento', '')}
+- tema_atual: {row.get('tema', '')}
+- ramo_do_direito: {insumos.get('ramo_do_direito', '')}
+- subramo_do_direito: {insumos.get('subramo_do_direito', '')}
+- punchline: {insumos.get('punchline', '')}
+- tese: {insumos.get('tese', '')}
+- bullet_points: {insumos.get('bullet_points', '')}
+- jurisprudência_numerica: {insumos.get('jurisprudencia_numerica', '')}
+{contexto_line}
+{boletim_line}
+
+Retorne APENAS JSON válido: {{"tema":"..."}}
+""".strip()
 
 
 def validate_url(url: str) -> bool:
@@ -1466,11 +1789,16 @@ def normalize_openai_payload(payload: Dict[str, Any]) -> Dict[str, str]:
     bullets = normalize_bullet_points_three(payload.get("bullet_points", ""))
     jurisprudencia = normalize_jurisprudencia(payload.get("jurisprudência", payload.get("jurisprudencia", "")))
     legislacao = normalize_legislacao(payload.get("legislacao", ""))
+    tema = normalize_tema_text(str(payload.get("tema", "") or ""))
+    if not tema or tema_looks_truncated(tema) or tema_is_telegraphic(tema):
+        tema_from_tese = normalize_tema_text(str(payload.get("tese", "") or ""))
+        if tema_from_tese:
+            tema = tema_from_tese
 
     return {
         "contexto": normalize_ws(str(payload.get("contexto", "") or "")),
         "tese": normalize_ws(str(payload.get("tese", "") or "")),
-        "tema": normalize_ws(str(payload.get("tema", "") or "")),
+        "tema": tema,
         "ramo_do_direito": ramo,
         "subramo_do_direito": subramo,
         "punchline": punchline,
@@ -1517,6 +1845,15 @@ OPENAI_JSON_SCHEMA = {
     ],
 }
 
+TEMA_REVIEW_JSON_SCHEMA = {
+    "type": "object",
+    "additionalProperties": False,
+    "properties": {
+        "tema": {"type": "string"},
+    },
+    "required": ["tema"],
+}
+
 
 def build_openai_prompt(row: Dict[str, str], *, text_max_chars: int = 0) -> str:
     texto_base = compact_for_prompt(row.get("texto_do_boletim", ""), text_max_chars)
@@ -1546,7 +1883,9 @@ REGRAS IMPORTANTES:
 1) data_julgamento já está normalizada e não deve ser alterada.
 2) ramo_do_direito: uma única grande área.
 3) subramo_do_direito: exatamente 2 subramos distintos.
-4) tema: entre 8 e 16 palavras, contendo objeto jurídico e controvérsia central.
+4) tema: entre 8 e 30 palavras, contendo objeto jurídico e controvérsia central.
+   Deve ser frase completa; não terminar em preposição/conjunção e não cortar raciocínio.
+   Evite abertura narrativa de precedente (ex.: "O Superior Tribunal de Justiça, sob ...").
    Exemplo ruim: "Ensino superior"
    Exemplo bom: "Antecipação de colação de grau para candidato aprovado em concurso público"
 5) bullet_points: exatamente 3 itens, cada item em linha separada iniciando por "• " e terminando com vírgula. Evite vírgulas dentro do texto do item.
@@ -1704,6 +2043,144 @@ def openai_call_single(
                 logger.debug("OpenAI retry %d/%d em %.2fs: %s", attempt, retries, wait, exc)
                 time.sleep(wait)
     return False, {}, last_err
+
+
+def openai_tema_review_call_single(
+    client: OpenAI,
+    model: str,
+    row: Dict[str, str],
+    *,
+    profile: str,
+    timeout: int,
+    retries: int,
+    max_completion_tokens: int,
+    max_completion_tokens_cap: int,
+    reasoning_effort: str,
+    verbosity: str,
+    length_fallback_policy: str,
+    text_max_chars: int,
+    contexto_max_chars: int,
+    bullets_max_items: int,
+    pacer: Optional["RequestPacer"],
+    logger: logging.Logger,
+) -> Tuple[bool, str, str]:
+    prompt = build_openai_tema_review_prompt(
+        row,
+        profile=profile,
+        text_max_chars=text_max_chars,
+        contexto_max_chars=contexto_max_chars,
+        bullets_max_items=bullets_max_items,
+    )
+    last_err = ""
+    completion_tokens = max(0, int(max_completion_tokens))
+    completion_cap = max(completion_tokens, int(max_completion_tokens_cap))
+    effort_current = (reasoning_effort or "minimal").strip().lower()
+    verbosity_current = (verbosity or "low").strip().lower()
+    if effort_current not in {"minimal", "low", "medium", "high", "xhigh"}:
+        effort_current = "minimal"
+    if verbosity_current not in {"low", "medium", "high"}:
+        verbosity_current = "low"
+    fallback_policy = (length_fallback_policy or "auto_downgrade").strip().lower()
+    if fallback_policy not in {"auto_downgrade", "keep_deep", "fail_fast"}:
+        fallback_policy = "auto_downgrade"
+
+    fatal_error_classes = (
+        openai.AuthenticationError,
+        openai.PermissionDeniedError,
+        openai.NotFoundError,
+        openai.BadRequestError,
+    )
+    recoverable_error_classes = (
+        openai.RateLimitError,
+        openai.APITimeoutError,
+        openai.APIConnectionError,
+        openai.InternalServerError,
+    )
+
+    for attempt in range(1, retries + 1):
+        try:
+            if pacer is not None:
+                pacer.wait_turn()
+            req_payload: Dict[str, Any] = {
+                "model": model,
+                "messages": [
+                    {
+                        "role": "system",
+                        "content": "Você é um assistente jurídico. Responda somente com JSON válido.",
+                    },
+                    {"role": "user", "content": prompt},
+                ],
+                "response_format": {
+                    "type": "json_schema",
+                    "json_schema": {
+                        "name": "trf1_tema_review",
+                        "strict": True,
+                        "schema": TEMA_REVIEW_JSON_SCHEMA,
+                    },
+                },
+                "reasoning_effort": effort_current,
+                "verbosity": verbosity_current,
+                "timeout": timeout,
+            }
+            if completion_tokens > 0:
+                req_payload["max_completion_tokens"] = completion_tokens
+            resp = client.chat.completions.create(**req_payload)
+            choice = resp.choices[0]
+            finish_reason = str(getattr(choice, "finish_reason", "") or "")
+            raw = parse_openai_message_content(choice.message.content)
+            if not raw:
+                if finish_reason == "length":
+                    raise ValueError("empty_json_due_length")
+                refusal = getattr(choice.message, "refusal", None)
+                if refusal:
+                    raise ValueError(f"refusal: {refusal}")
+                raise ValueError("empty_json")
+            parsed = json.loads(raw)
+            if not isinstance(parsed, dict):
+                raise ValueError("JSON de resposta não é objeto")
+            raw_tema = normalize_ws(str(parsed.get("tema", "") or ""))
+            if not raw_tema:
+                raise ValueError("empty_tema")
+            # Confia no conteúdo retornado pela API; aplica apenas limpeza leve.
+            tema = normalize_tema_text(raw_tema)
+            if not tema:
+                tema = raw_tema
+            return True, tema, ""
+        except fatal_error_classes as exc:
+            last_err = str(exc)
+            return False, "", last_err
+        except recoverable_error_classes as exc:
+            last_err = str(exc)
+            if attempt < retries:
+                wait = (2 ** (attempt - 1)) + random.uniform(0.0, 0.35)
+                logger.debug("OpenAI tema retry %d/%d em %.2fs: %s", attempt, retries, wait, exc)
+                time.sleep(wait)
+            continue
+        except Exception as exc:  # noqa: BLE001
+            last_err = str(exc)
+            if "empty_json_due_length" in last_err:
+                if completion_tokens > 0:
+                    completion_tokens = min(
+                        completion_cap,
+                        max(completion_tokens + 80, int(completion_tokens * 1.4)),
+                    )
+                if fallback_policy == "auto_downgrade" and effort_current != "minimal":
+                    effort_current = "minimal"
+                elif fallback_policy == "fail_fast":
+                    return (
+                        False,
+                        "",
+                        (
+                            "empty_json_due_length; interrompido por policy fail_fast. "
+                            "Sugestão: aumente --openai-tema-max-completion-tokens "
+                            "ou use --openai-tema-length-fallback-policy auto_downgrade."
+                        ),
+                    )
+            if attempt < retries:
+                wait = (2 ** (attempt - 1)) + random.uniform(0.0, 0.35)
+                logger.debug("OpenAI tema retry %d/%d em %.2fs: %s", attempt, retries, wait, exc)
+                time.sleep(wait)
+    return False, "", last_err
 
 
 PERPLEXITY_SCHEMA = {
@@ -2375,6 +2852,20 @@ class OpenAIConfig:
     length_fallback_policy: str = "auto_downgrade"
     length_error_threshold: float = 0.20
     text_max_chars: int = 0
+    tema_refine_enabled: bool = True
+    tema_reprocess_mode: str = "all"
+    tema_input_profile: str = "lean"
+    tema_profile_fallback: str = "auto"
+    tema_contexto_max_chars: int = 700
+    tema_bullets_max_items: int = 3
+    tema_target_rpm: int = 180
+    tema_max_completion_tokens: int = 180
+    tema_max_completion_tokens_cap: int = 900
+    tema_reasoning_effort: str = "minimal"
+    tema_verbosity: str = "low"
+    tema_length_fallback_policy: str = "auto_downgrade"
+    tema_length_error_threshold: float = 0.20
+    tema_text_max_chars: int = 2600
 
 
 @dataclass
@@ -2447,8 +2938,28 @@ def run_openai_enrichment(
 
     def apply_payload(row: Dict[str, str], payload: Dict[str, str]) -> None:
         for col, value in payload.items():
+            if col == "tema":
+                continue
             if is_missing(row.get(col)):
                 row[col] = value
+        current_tema = normalize_tema_text(row.get("tema", ""))
+        candidate_tema = normalize_tema_text(payload.get("tema", ""))
+        if not candidate_tema:
+            candidate_tema = normalize_tema_text(payload.get("tese", ""))
+        if candidate_tema:
+            current_is_telegraphic = tema_is_telegraphic(current_tema)
+            if (
+                is_missing(current_tema)
+                or not is_tema_detailed(current_tema)
+                or current_is_telegraphic
+            ):
+                row["tema"] = candidate_tema
+            else:
+                row["tema"] = current_tema
+        else:
+            row["tema"] = current_tema
+        # O enriquecimento base pode alterar insumos usados na revisão dedicada de tema.
+        row["_tema_review_done"] = "0"
         row["subramo_do_direito"] = normalize_subramo_two(row.get("subramo_do_direito", ""))
         row["bullet_points"] = normalize_bullet_points_three(row.get("bullet_points", ""))
         row["_openai_done"] = "1" if has_valid_openai_critical_fields(row) else "0"
@@ -2581,6 +3092,277 @@ def run_openai_enrichment(
         logger.info("OpenAI progresso: %d/%d", done, len(pending_all))
         if end < total and delay > 0:
             time.sleep(delay)
+
+
+def needs_tema_refine(row: Dict[str, str], mode: str) -> bool:
+    tema = normalize_tema_text(row.get("tema", ""))
+    mode_norm = (mode or "invalid_only").strip().lower()
+    if mode_norm == "all":
+        return True
+    if not tema:
+        return True
+    if not is_tema_detailed(tema):
+        return True
+    if re.search(
+        r"\b(?:O\s+Superior Tribunal de Justiça|O\s+Supremo Tribunal Federal)\b",
+        tema,
+        flags=re.IGNORECASE,
+    ):
+        return True
+    return False
+
+
+def run_openai_tema_refinement(
+    rows: List[Dict[str, str]],
+    config: OpenAIConfig,
+    output_csv: Path,
+    checkpoint_path: Path,
+    manifest: Sequence[Dict[str, str]],
+    perplexity_state: Dict[str, Any],
+    logger: logging.Logger,
+) -> None:
+    if not config.enabled or not config.tema_refine_enabled:
+        return
+
+    reprocess_mode = (config.tema_reprocess_mode or "invalid_only").strip().lower()
+    if reprocess_mode not in {"invalid_only", "all"}:
+        reprocess_mode = "invalid_only"
+
+    if reprocess_mode == "all":
+        pending_seed = [row for row in rows if row.get("_tema_review_done", "0") != "1"]
+    else:
+        pending_seed = [
+            row
+            for row in rows
+            if row.get("_tema_review_done", "0") != "1" and needs_tema_refine(row, reprocess_mode)
+        ]
+
+    if not pending_seed:
+        logger.info("OpenAI tema (geração principal): nada pendente.")
+        return
+
+    profile_chain = build_tema_profile_chain(config.tema_input_profile, config.tema_profile_fallback)
+    logger.info("OpenAI tema (geração principal): perfis de insumo em sequência: %s", " -> ".join(profile_chain))
+
+    client = OpenAI(api_key=config.api_key, max_retries=0)
+    pacer = RequestPacer(config.tema_target_rpm)
+    workers = max(1, int(config.max_workers))
+    workers_cap = max(workers, int(config.max_workers_cap))
+    delay = max(0.0, float(config.delay))
+    total_seed = len(pending_seed)
+    api_calls_done = 0
+    stage_rows = list(pending_seed)
+    global_reasoning_effort = (config.tema_reasoning_effort or "minimal").strip().lower()
+
+    def apply_success(row: Dict[str, str], tema: str) -> None:
+        row["tema"] = normalize_tema_text(tema)
+        row["_tema_review_done"] = "1"
+
+    for stage_no, profile in enumerate(profile_chain, start=1):
+        if not stage_rows:
+            break
+
+        dedupe_map: Dict[str, Dict[str, str]] = {}
+        duplicates_by_primary: Dict[str, List[Dict[str, str]]] = {}
+        pending_unique: List[Dict[str, str]] = []
+        for row in stage_rows:
+            key = build_tema_review_request_key(
+                row,
+                profile=profile,
+                text_max_chars=config.tema_text_max_chars,
+                contexto_max_chars=config.tema_contexto_max_chars,
+                bullets_max_items=config.tema_bullets_max_items,
+            )
+            primary = dedupe_map.get(key)
+            if primary is None:
+                dedupe_map[key] = row
+                pending_unique.append(row)
+                continue
+            primary_id = primary.get("_row_id") or str(id(primary))
+            duplicates_by_primary.setdefault(primary_id, []).append(row)
+
+        duplicates_count = len(stage_rows) - len(pending_unique)
+        logger.info(
+            (
+                "OpenAI tema estágio %d/%d (%s): pendentes=%d "
+                "(chamadas únicas=%d; duplicadas reaproveitadas=%d)"
+            ),
+            stage_no,
+            len(profile_chain),
+            profile,
+            len(stage_rows),
+            len(pending_unique),
+            max(0, duplicates_count),
+        )
+
+        stage_success_ids: set[str] = set()
+        stage_call_total = len(pending_unique)
+        stage_done_calls = 0
+
+        for start in range(0, stage_call_total, config.batch_size):
+            end = min(start + config.batch_size, stage_call_total)
+            batch = pending_unique[start:end]
+            batch_started = time.perf_counter()
+            logger.info(
+                "OpenAI tema estágio %s lote %d-%d/%d | workers=%d delay=%.2fs rpm=%d",
+                profile,
+                start + 1,
+                end,
+                stage_call_total,
+                workers,
+                delay,
+                config.tema_target_rpm,
+            )
+            futures = {}
+            batch_errors = 0
+            batch_rate_limited = 0
+            batch_timeouts = 0
+            batch_length_errors = 0
+            batch_auth_errors = 0
+            batch_upstream_unavailable = 0
+
+            with ThreadPoolExecutor(max_workers=workers) as ex:
+                for row in batch:
+                    futures[
+                        ex.submit(
+                            openai_tema_review_call_single,
+                            client,
+                            config.model,
+                            row,
+                            profile=profile,
+                            timeout=config.timeout,
+                            retries=config.retries,
+                            max_completion_tokens=config.tema_max_completion_tokens,
+                            max_completion_tokens_cap=config.tema_max_completion_tokens_cap,
+                            reasoning_effort=global_reasoning_effort,
+                            verbosity=config.tema_verbosity,
+                            length_fallback_policy=config.tema_length_fallback_policy,
+                            text_max_chars=config.tema_text_max_chars,
+                            contexto_max_chars=config.tema_contexto_max_chars,
+                            bullets_max_items=config.tema_bullets_max_items,
+                            pacer=pacer,
+                            logger=logger,
+                        )
+                    ] = row
+
+                for fut in as_completed(futures):
+                    row = futures[fut]
+                    ok, tema_out, err = fut.result()
+                    stage_done_calls += 1
+                    api_calls_done += 1
+
+                    row_id = row.get("_row_id", "")
+                    if ok:
+                        apply_success(row, tema_out)
+                        if row_id:
+                            stage_success_ids.add(row_id)
+                    else:
+                        row["_tema_review_done"] = "0"
+                        batch_errors += 1
+                        kind = classify_openai_error(err)
+                        if kind == "rate_limit":
+                            batch_rate_limited += 1
+                        elif kind == "timeout":
+                            batch_timeouts += 1
+                        elif kind == "length":
+                            batch_length_errors += 1
+                        elif kind == "auth":
+                            batch_auth_errors += 1
+                        elif kind == "upstream_unavailable":
+                            batch_upstream_unavailable += 1
+                        logger.debug(
+                            "OpenAI tema falha row=%s stage=%s: %s",
+                            row.get("_row_id"),
+                            profile,
+                            err,
+                        )
+
+                    primary_id = row_id or str(id(row))
+                    for dup in duplicates_by_primary.get(primary_id, []):
+                        if ok:
+                            apply_success(dup, tema_out)
+                            dup_id = dup.get("_row_id", "")
+                            if dup_id:
+                                stage_success_ids.add(dup_id)
+                        else:
+                            dup["_tema_review_done"] = "0"
+
+            elapsed = max(0.001, time.perf_counter() - batch_started)
+            throughput = len(batch) / elapsed
+            length_ratio = batch_length_errors / max(1, len(batch))
+            transient_error_ratio = (
+                batch_rate_limited + batch_timeouts + batch_upstream_unavailable
+            ) / max(1, len(batch))
+
+            if batch_auth_errors > 0:
+                raise RuntimeError(
+                    "OpenAI tema (geração principal) retornou erro de autenticação/permissão. "
+                    "Verifique API key e permissões da conta."
+                )
+
+            if (
+                config.tema_length_fallback_policy == "auto_downgrade"
+                and global_reasoning_effort != "minimal"
+                and length_ratio >= max(0.0, float(config.tema_length_error_threshold))
+            ):
+                global_reasoning_effort = "minimal"
+                logger.info("OpenAI tema fallback: reasoning_effort -> minimal por excesso de length")
+
+            if batch_rate_limited > 0 or transient_error_ratio >= 0.25:
+                workers = max(1, workers - 1)
+                delay = min(2.5, delay * 1.35 + 0.05)
+                logger.info("OpenAI tema autoajuste: reduzindo workers=%d delay=%.2f", workers, delay)
+            elif batch_errors == 0 and workers < workers_cap:
+                workers += 1
+                delay = max(0.0, delay * 0.9)
+                logger.info("OpenAI tema autoajuste: aumentando workers=%d delay=%.2f", workers, delay)
+
+            write_csv(output_csv, rows)
+            write_checkpoint(
+                checkpoint_path,
+                checkpoint_payload(manifest=manifest, rows=rows, perplexity_state=perplexity_state),
+            )
+
+            logger.info(
+                (
+                    "OpenAI tema lote concluído (%s): %.2f req/s | erros=%d timeout=%d "
+                    "rate_limit=%d upstream=%d length=%d | chamadas_stage=%d/%d"
+                ),
+                profile,
+                throughput,
+                batch_errors,
+                batch_timeouts,
+                batch_rate_limited,
+                batch_upstream_unavailable,
+                batch_length_errors,
+                stage_done_calls,
+                stage_call_total,
+            )
+
+            if end < stage_call_total and delay > 0:
+                time.sleep(delay)
+
+        unresolved = [row for row in stage_rows if row.get("_row_id", "") not in stage_success_ids]
+        resolved_stage = len(stage_rows) - len(unresolved)
+        logger.info(
+            "OpenAI tema estágio %s concluído: resolvidas=%d | remanescentes=%d",
+            profile,
+            resolved_stage,
+            len(unresolved),
+        )
+        stage_rows = unresolved
+
+    if stage_rows:
+        logger.warning(
+            (
+                "OpenAI tema: %d linhas permaneceram sem revisão válida após %d estágio(s). "
+                "Sugestão: usar --openai-tema-input-profile full ou aumentar --openai-tema-text-max-chars."
+            ),
+            len(stage_rows),
+            len(profile_chain),
+        )
+    else:
+        logger.info("OpenAI tema (geração principal) concluído: %d linhas processadas com sucesso.", total_seed)
 
 
 def run_perplexity_enrichment(
@@ -2889,6 +3671,89 @@ def build_arg_parser() -> argparse.ArgumentParser:
         default=0,
         help="Máximo de caracteres do texto_do_boletim no prompt OpenAI (0 = sem corte).",
     )
+    p.add_argument(
+        "--openai-tema-reprocess-mode",
+        choices=["invalid_only", "all"],
+        default="all",
+        help="Modo da geração principal de tema (após enriquecimento OpenAI).",
+    )
+    p.add_argument(
+        "--openai-tema-input-profile",
+        default="lean",
+        choices=list(TEMA_INPUT_PROFILE_CHOICES),
+        help="Perfil base de insumo para geração principal de tema.",
+    )
+    p.add_argument(
+        "--openai-tema-profile-fallback",
+        default="auto",
+        choices=list(TEMA_PROFILE_FALLBACK_CHOICES),
+        help="Fallback automático de perfil na geração principal de tema.",
+    )
+    p.add_argument(
+        "--openai-tema-contexto-max-chars",
+        type=int,
+        default=700,
+        help="Máximo de caracteres do campo contexto na revisão de tema.",
+    )
+    p.add_argument(
+        "--openai-tema-bullets-max-items",
+        type=int,
+        default=3,
+        help="Máximo de bullets enviados como insumo na revisão de tema.",
+    )
+    p.add_argument(
+        "--openai-tema-target-rpm",
+        type=int,
+        default=180,
+        help="Rate target (RPM) para a geração principal de tema.",
+    )
+    p.add_argument(
+        "--openai-tema-max-completion-tokens",
+        type=int,
+        default=180,
+        help="Max completion tokens para geração principal de tema.",
+    )
+    p.add_argument(
+        "--openai-tema-max-completion-tokens-cap",
+        type=int,
+        default=900,
+        help="Cap de max completion tokens para retries na geração de tema.",
+    )
+    p.add_argument(
+        "--openai-tema-reasoning-effort",
+        default="minimal",
+        choices=["minimal", "low", "medium", "high", "xhigh"],
+        help="Nível de raciocínio na geração principal de tema.",
+    )
+    p.add_argument(
+        "--openai-tema-verbosity",
+        default="low",
+        choices=["low", "medium", "high"],
+        help="Nível de verbosidade na geração principal de tema.",
+    )
+    p.add_argument(
+        "--openai-tema-length-fallback-policy",
+        default="auto_downgrade",
+        choices=["auto_downgrade", "keep_deep", "fail_fast"],
+        help="Política de fallback por length na geração principal de tema.",
+    )
+    p.add_argument(
+        "--openai-tema-length-error-threshold",
+        type=float,
+        default=0.20,
+        help="Limiar de erros length por lote para fallback de reasoning na geração de tema.",
+    )
+    p.add_argument(
+        "--openai-tema-text-max-chars",
+        type=int,
+        default=2600,
+        help="Máximo de caracteres de texto_do_boletim na geração principal de tema.",
+    )
+    p.add_argument(
+        "--disable-openai-tema-refine",
+        action="store_true",
+        help="Desativa a etapa principal de geração de tema via perfis.",
+    )
     p.add_argument("--disable-openai", action="store_true")
     return p
 
@@ -2917,9 +3782,11 @@ def ensure_output_rows_format(rows: List[Dict[str, str]]) -> None:
         row["classe"] = normalize_ws(row.get("classe", ""))
         row["texto_do_boletim"] = sanitize_boletim_text(row.get("texto_do_boletim", ""))
         row["decisao"] = normalize_ws(row.get("decisao", "")) or parse_decisao(row.get("texto_do_boletim", ""))
+        row["tema"] = normalize_tema_text(row.get("tema", ""))
         if is_missing(row.get("tema")):
             tema_fallback = infer_tema_from_texto(row.get("texto_do_boletim", ""))
             row["tema"] = tema_fallback if tema_fallback else "Tema não identificado automaticamente"
+        row["tema"] = normalize_tema_text(row.get("tema", ""))
         row["data_julgamento"] = normalize_date_to_mdy(row.get("data_julgamento", ""), source_hint="auto")
         row["data_publicacao"] = normalize_date_to_mdy(row.get("data_publicacao", ""), source_hint="auto")
         row["relator(a)"] = normalize_relator(row.get("relator(a)", "") or row.get("relator", ""))
@@ -2932,6 +3799,7 @@ def ensure_output_rows_format(rows: List[Dict[str, str]]) -> None:
             if row.get(noticia_col) and not validate_url(row.get(noticia_col, "")):
                 row[noticia_col] = ""
         row["_perplexity_reason"] = normalize_ws(row.get("_perplexity_reason", ""))
+        row["_tema_review_done"] = "1" if str(row.get("_tema_review_done", "")).strip() == "1" else "0"
     refresh_done_flags(rows)
 
 
@@ -3023,6 +3891,20 @@ def main() -> None:
         length_fallback_policy=(args.openai_length_fallback_policy or "auto_downgrade").strip().lower(),
         length_error_threshold=max(0.0, float(args.openai_length_error_threshold)),
         text_max_chars=max(0, int(args.openai_text_max_chars)),
+        tema_refine_enabled=(not args.disable_openai_tema_refine),
+        tema_reprocess_mode=(args.openai_tema_reprocess_mode or "invalid_only").strip().lower(),
+        tema_input_profile=(args.openai_tema_input_profile or "lean").strip().lower(),
+        tema_profile_fallback=(args.openai_tema_profile_fallback or "auto").strip().lower(),
+        tema_contexto_max_chars=max(0, int(args.openai_tema_contexto_max_chars)),
+        tema_bullets_max_items=max(0, int(args.openai_tema_bullets_max_items)),
+        tema_target_rpm=max(0, int(args.openai_tema_target_rpm)),
+        tema_max_completion_tokens=max(0, int(args.openai_tema_max_completion_tokens)),
+        tema_max_completion_tokens_cap=max(0, int(args.openai_tema_max_completion_tokens_cap)),
+        tema_reasoning_effort=(args.openai_tema_reasoning_effort or "minimal").strip().lower(),
+        tema_verbosity=(args.openai_tema_verbosity or "low").strip().lower(),
+        tema_length_fallback_policy=(args.openai_tema_length_fallback_policy or "auto_downgrade").strip().lower(),
+        tema_length_error_threshold=max(0.0, float(args.openai_tema_length_error_threshold)),
+        tema_text_max_chars=max(0, int(args.openai_tema_text_max_chars)),
     )
 
     if not openai_cfg.enabled and not args.disable_openai:
@@ -3038,6 +3920,18 @@ def main() -> None:
             perplexity_state=perplexity_state,
             logger=logger,
         )
+        if openai_cfg.tema_refine_enabled:
+            run_openai_tema_refinement(
+                rows=rows,
+                config=openai_cfg,
+                output_csv=output_csv,
+                checkpoint_path=checkpoint_path,
+                manifest=manifest,
+                perplexity_state=perplexity_state,
+                logger=logger,
+            )
+        else:
+            logger.info("OpenAI tema (geração principal): etapa desabilitada por flag.")
     elif args.disable_openai:
         logger.info("OpenAI: etapa desabilitada por flag.")
 

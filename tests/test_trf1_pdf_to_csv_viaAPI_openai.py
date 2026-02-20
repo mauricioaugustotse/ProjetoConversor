@@ -114,6 +114,25 @@ class TestOpenAIFixes(unittest.TestCase):
         self.assertEqual(trf1.classify_openai_error("429 rate limit"), "rate_limit")
         self.assertEqual(trf1.classify_openai_error("read timed out"), "timeout")
 
+    def test_tema_normalization_avoids_interrupted_phrase(self) -> None:
+        raw = (
+            "Execução fiscal. Extinção por prescrição intercorrente quinquenal. "
+            "LEF. STJ (Repet/súmula). O Superior Tribunal de Justiça, sob"
+        )
+        normalized = trf1.normalize_tema_text(raw)
+        self.assertNotIn("O Superior Tribunal de Justiça", normalized)
+        self.assertFalse(trf1.tema_looks_truncated(normalized))
+        self.assertTrue(trf1.tema_is_telegraphic(normalized))
+
+    def test_normalize_openai_payload_uses_tese_when_tema_is_fragment(self) -> None:
+        payload = _sample_openai_payload()
+        payload["tema"] = "Sistema Financeiro de Habitação. Contrato de gaveta. Cessão de direitos firmada após 25 de"
+        payload["tese"] = (
+            "Cessionário de contrato de gaveta após 25/10/1996 depende de anuência do agente financeiro"
+        )
+        normalized = trf1.normalize_openai_payload(payload)
+        self.assertEqual(normalized["tema"], trf1.normalize_tema_text(str(payload["tese"])))
+
     def test_openai_call_single_auto_downgrade_on_length(self) -> None:
         payload = _sample_openai_payload()
         fake = _FakeClient(
@@ -295,6 +314,55 @@ class TestOpenAIFixes(unittest.TestCase):
                         logger=logger,
                     )
 
+    def test_run_openai_replaces_invalid_existing_tema(self) -> None:
+        row = _sample_row("tema-1")
+        row["tema"] = (
+            "Execução fiscal. Extinção por prescrição intercorrente quinquenal. "
+            "LEF. STJ (Repet/súmula). O Superior Tribunal de Justiça, sob"
+        )
+        rows = [row]
+        logger, _ = _new_logger()
+        payload = trf1.normalize_openai_payload(_sample_openai_payload())
+
+        cfg = trf1.OpenAIConfig(
+            enabled=True,
+            api_key="sk-test",
+            model="gpt-5-mini",
+            batch_size=1,
+            max_workers=1,
+            delay=0.0,
+            retries=1,
+            timeout=10,
+            max_workers_cap=2,
+            max_completion_tokens=700,
+            max_completion_tokens_cap=4200,
+            reasoning_effort="medium",
+            verbosity="medium",
+            length_fallback_policy="keep_deep",
+            length_error_threshold=0.20,
+            text_max_chars=0,
+        )
+
+        with tempfile.TemporaryDirectory() as td:
+            out = Path(td) / "out.csv"
+            chk = Path(td) / "cp.json"
+            with (
+                patch.object(trf1, "OpenAI", return_value=object()),
+                patch.object(trf1, "openai_call_single", return_value=(True, payload, "")),
+            ):
+                trf1.run_openai_enrichment(
+                    rows=rows,
+                    config=cfg,
+                    output_csv=out,
+                    checkpoint_path=chk,
+                    manifest=[],
+                    perplexity_state={"workers": 1, "delay": 0.0},
+                    logger=logger,
+                )
+
+        self.assertEqual(rows[0]["tema"], payload["tema"])
+        self.assertTrue(trf1.is_tema_detailed(rows[0]["tema"]))
+
     def test_main_openai_only_skips_perplexity_call(self) -> None:
         with tempfile.TemporaryDirectory() as td:
             tmp = Path(td)
@@ -325,12 +393,14 @@ class TestOpenAIFixes(unittest.TestCase):
             ]
             with (
                 patch.object(trf1, "run_openai_enrichment", return_value=None) as openai_mock,
+                patch.object(trf1, "run_openai_tema_refinement", return_value=None) as tema_review_mock,
                 patch.object(trf1, "run_perplexity_enrichment", return_value={"workers": 2, "delay": 1.0}) as pplx_mock,
                 patch.object(trf1.sys, "argv", argv),
             ):
                 trf1.main()
 
             openai_mock.assert_called_once()
+            tema_review_mock.assert_called_once()
             pplx_mock.assert_not_called()
             self.assertTrue((tmp / trf1.OUTPUT_NAME).exists())
             self.assertTrue((tmp / trf1.CHECKPOINT_NAME).exists())
