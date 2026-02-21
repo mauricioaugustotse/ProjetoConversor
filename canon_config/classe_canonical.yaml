@@ -1,0 +1,24 @@
+{
+  "canonical": [
+    "AC", "ACR", "AGRE", "AGSS", "AGTAR", "AI", "APN", "APOrd", "AR", "AgExPe", "AgInCiv",
+    "AgIntCiv", "AgIntCrim", "AgIntREspAp", "Ap", "ApReeNec", "ArgIncCiv", "CC", "Cjur", "CumSen",
+    "EDAp", "EDCiv", "EDCrim", "EI", "EINul", "EIfNu", "EInfNu", "EInfNul", "ETciv", "ExSusp",
+    "ExcSusp", "HC", "IAC", "IP", "IRDR", "IncImp", "IncSus", "IncSusp", "MS", "PET", "PedConESus",
+    "PetCiv", "REO", "REsp", "RSE", "Rcl", "ReclCrim", "ReeNec", "RevCrim", "RvC", "SLAT", "SLS",
+    "TutCautAnt",
+    "AG", "AgExp", "AgExPenal", "AgInt", "AgIntAI", "AgIntApReeNec", "AgIntCr", "AgIntMS",
+    "AgIntREsp", "AgRRvCr", "AgRegHC", "ApRemNec", "ED", "EDAI", "EDAR", "EDHC", "EDReeNec",
+    "ETCrim", "IncImpCiv", "MSCrim", "PBACrim", "PICMP", "PetCrim", "ReSE", "ReeNecCrim", "RvCr",
+    "SuspApel"
+  ],
+  "aliases": {
+    "ReeNeec": "ReeNec",
+    "AgExpe": "AgExPe",
+    "CJUR": "Cjur",
+    "CJur": "Cjur",
+    "Pet": "PET",
+    "Reo": "REO",
+    "AP": "Ap",
+    "MsCrim": "MSCrim"
+  }
+}

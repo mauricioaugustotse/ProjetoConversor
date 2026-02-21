@@ -1,0 +1,18 @@
+{
+  "timestamp": "20260220_195926",
+  "input_csv": "boletins_de_jurisprudencia_TRF1_with_news.csv",
+  "output_csv": "boletins_de_jurisprudencia_TRF1_with_news_legislacao_padronizada.csv",
+  "output_written": false,
+  "column": "legislacao",
+  "rows_total": 7728,
+  "rows_changed": 7246,
+  "cells_nonempty_before": 7480,
+  "cells_nonempty_after": 6850,
+  "unique_cells_before": 6360,
+  "unique_cells_after": 5771,
+  "unique_pairs_changed": 6142,
+  "items_total_seen": 19497,
+  "items_dropped": 3313,
+  "report_applied": "reports/legislacao_padronizacao_20260220_195926_aplicadas.csv",
+  "report_items": "reports/legislacao_padronizacao_20260220_195926_itens.csv"
+}

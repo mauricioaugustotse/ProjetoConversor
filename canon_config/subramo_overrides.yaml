@@ -1,0 +1,17 @@
+{
+  "aliases": {
+    "Direito Previdenciario": "Direito Previdenciário",
+    "Processo Tributário": "Processual Tributário"
+  },
+  "drop_exact": [
+    "TRF1"
+  ],
+  "forced_two_by_ramo": {
+    "Direito Administrativo": ["Direito Administrativo", "Processo Administrativo"],
+    "Direito Penal": ["Processo Penal", "Direito Penal Comum"],
+    "Direito Previdenciário": ["Benefícios Previdenciários", "Processo Previdenciário"],
+    "Direito Tributário": ["Processual Tributário", "Tributação Federal"],
+    "Direito Civil": ["Responsabilidade Civil", "Processo Civil"],
+    "Direito Público": ["Direito Administrativo", "Processo Civil"]
+  }
+}

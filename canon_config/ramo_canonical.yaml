@@ -1,0 +1,46 @@
+{
+  "canonical": [
+    "Administração Pública",
+    "Direito Administrativo",
+    "Direito Aduaneiro",
+    "Direito Agrário",
+    "Direito Ambiental",
+    "Direito Civil",
+    "Direito Constitucional",
+    "Direito Educacional",
+    "Direito Empresarial",
+    "Direito Internacional",
+    "Direito Internacional Público",
+    "Direito Militar",
+    "Direito Penal",
+    "Direito Previdenciário",
+    "Direito Processual",
+    "Direito Processual Civil",
+    "Direito Processual Penal",
+    "Direito Público",
+    "Direito Tributário",
+    "Direito do Consumidor",
+    "Direito do Trabalho",
+    "Direitos Humanos",
+    "Direitos Humanos e Assistência Social"
+  ],
+  "aliases": {
+    "Administrativo": "Direito Administrativo",
+    "Civil": "Direito Civil",
+    "Penal": "Direito Penal",
+    "Processual": "Direito Processual",
+    "Processual Civil": "Direito Processual Civil",
+    "Processual Penal": "Direito Processual Penal",
+    "Direito tributario": "Direito Tributário",
+    "Direito tribute1rio": "Direito Tributário",
+    "Direito tribut\u001ario": "Direito Tributário",
+    "Direitos fundamentais": "Direitos Humanos",
+    "Direito Administrativista": "Direito Administrativo"
+  },
+  "drop_exact": [
+    "TRF1",
+    "Processo",
+    "iniciando-se o prazo prescricional em 30/06/2017",
+    "viola a boa-fé objetiva e a proibição do comportamento contraditório (venire contra factum proprium). A decisão judicial que supre a lacuna normativa para solucionar o caso concreto não viola o princípio da separação dos poderes"
+  ]
+}

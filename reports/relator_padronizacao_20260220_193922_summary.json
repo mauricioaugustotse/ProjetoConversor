@@ -1,0 +1,16 @@
+{
+  "timestamp": "20260220_193922",
+  "input_csv": "boletins_de_jurisprudencia_TRF1_with_news.csv",
+  "output_csv": "boletins_de_jurisprudencia_TRF1_with_news_relator_padronizado.csv",
+  "output_written": false,
+  "rows_total": 7728,
+  "rows_changed": 2224,
+  "unique_relator_before": 363,
+  "unique_relator_after": 224,
+  "unique_value_pairs_changed": 147,
+  "manual_aliases_loaded": 5,
+  "ambiguous_groups_detected": 7,
+  "applied_report": "reports/relator_padronizacao_20260220_193922_aplicadas.csv",
+  "ambiguous_report": "reports/relator_padronizacao_20260220_193922_ambiguas.csv",
+  "convocado_mode": "preserve"
+}

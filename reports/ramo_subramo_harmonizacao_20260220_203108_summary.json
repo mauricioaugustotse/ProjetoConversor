@@ -1,0 +1,38 @@
+{
+  "timestamp": "20260220_203108",
+  "input_csv": "boletins_de_jurisprudencia_TRF1_with_news.csv",
+  "output_csv": "boletins_de_jurisprudencia_TRF1_with_news_ramo_subramo_harmonizado.csv",
+  "output_written": false,
+  "rows_total": 7728,
+  "rows_changed": 489,
+  "scope": "all",
+  "rows_reviewed_by_llm_or_cache": 2,
+  "rows_reviewed_changed": 2,
+  "rows_fallback": 0,
+  "rows_cache": 0,
+  "unique_requests_total": 2,
+  "unique_requests_pending_api": 2,
+  "unique_requests_cache_hit": 0,
+  "api_calls": 2,
+  "api_failures": 0,
+  "error_kind_counter": {},
+  "openai_enabled": true,
+  "openai_model": "gpt-5-mini",
+  "openai_max_workers": 24,
+  "openai_batch_size": 120,
+  "openai_delay": 0.0,
+  "context_columns": [
+    "tema",
+    "contexto",
+    "tese",
+    "texto_do_boletim"
+  ],
+  "reports": {
+    "aplicadas": "reports/ramo_subramo_harmonizacao_20260220_203108_aplicadas.csv",
+    "revisadas": "reports/ramo_subramo_harmonizacao_20260220_203108_revisadas.csv",
+    "erros_requisicao": "reports/ramo_subramo_harmonizacao_20260220_203108_erros_requisicao.csv",
+    "summary": "reports/ramo_subramo_harmonizacao_20260220_203108_summary.json"
+  },
+  "cache_file": ".checkpoint/ramo_subramo_openai_cache.json",
+  "cache_enabled": true
+}

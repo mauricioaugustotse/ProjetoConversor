@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-02-20T21:50:23.208020+00:00",
+  "database_id": "30d721955c6480679e7ae359ff1c19e7",
+  "apply": true,
+  "coverage": "problematic",
+  "stats": {
+    "pages_total": 7728,
+    "pages_processed": 7728,
+    "pages_problematic": 632,
+    "pages_updated": 563,
+    "pages_update_failed": 69,
+    "unresolved_pages": 0,
+    "llm_calls": 170,
+    "llm_failures": 0,
+    "schema_cleanup_attempted": true,
+    "schema_cleanup_ok": false
+  },
+  "files": {
+    "detected": "reports/apply_after_classe_fix_detected.csv",
+    "applied": "reports/apply_after_classe_fix_applied.csv",
+    "unresolved": "reports/apply_after_classe_fix_unresolved.csv",
+    "checkpoint": ".checkpoint/trf1_canonical_checkpoint.json"
+  },
+  "schema_cleanup": "schema_cleanup_failed: http_400: {\"object\":\"error\",\"status\":400,\"code\":\"validation_error\",\"message\":\"body failed validation: body.properties.relator(a).select.options.length should be ≤ `100`, instead was `363`.\",\"request_id\":\"36931b4b-d5bc-49c7-a98e-b4f8a6ef3aa1\"}. fallback=ignored"
+}
