@@ -1,0 +1,19 @@
+{
+  "script": "TEMAS_SELC_txt_to_csv.py",
+  "input_file": "/mnt/c/Users/mauri/ProjetoConversor/Chave_Notion.txt",
+  "output_csv": "/mnt/c/Users/mauri/ProjetoConversor/Chave_Notion.csv",
+  "checkpoint_file": "/mnt/c/Users/mauri/ProjetoConversor/Chave_Notion.txt.checkpoint.json",
+  "source_signature": {
+    "path": "/mnt/c/Users/mauri/ProjetoConversor/Chave_Notion.txt",
+    "size": 50,
+    "mtime_ns": 1771366997445695400
+  },
+  "status": "empty_output",
+  "openai_model": "gpt-5-mini",
+  "total_julgados": 0,
+  "done_julgados": 0,
+  "registros_extraidos": 0,
+  "rows_written": 0,
+  "elapsed_seconds": 0.03,
+  "updated_at": "2026-02-21T15:59:27.630927+00:00"
+}

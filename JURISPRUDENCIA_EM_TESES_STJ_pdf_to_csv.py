@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """
-Extrai do PDF "Jurisprudencia_em_teses.pdf" os campos solicitados pelo usuário e
-gera um CSV com as colunas:
+Extrai teses do STJ em PDF e gera CSV estruturado.
 
-    Ramo | Edição | Tema | Tese | Precedentes | Referências | Site | Data
-
-Requer: pdfplumber (pip install pdfplumber)
+Fluxo de trabalho:
+1. Lê o PDF com `pdfplumber` e reconstrói linhas/posicionamento por página.
+2. Detecta ramo, edição, tema, tese, precedentes, referências e links associados.
+3. Aplica limpeza de ruído e pós-processamento para unificar registros quebrados.
+4. Expande múltiplos links em colunas `Site 1..N` e numera os itens com `ID`.
+5. Escreve o CSV final com colunas jurídicas padronizadas.
 """
 
 from __future__ import annotations
@@ -15,15 +17,20 @@ import csv
 import re
 import sys
 import unicodedata
+from datetime import date
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional
+
+from gui_intuitiva import open_file_panel
 
 try:
     import pdfplumber
 except ModuleNotFoundError:
     print("Este script depende do pacote 'pdfplumber'. Execute: pip install pdfplumber")
     sys.exit(1)
+
+SCRIPT_DIR = Path(__file__).resolve().parent
 
 MONTHS = {
     "janeiro": "01",
@@ -305,7 +312,13 @@ def parse_pt_br_date(text: str) -> Optional[str]:
     month = MONTHS.get(month_name)
     if not month:
         return None
-    return f"{day:02d}/{month}/{year}"
+    month_int = int(month)
+    year_int = int(year)
+    try:
+        date(year_int, month_int, day)
+    except ValueError:
+        return None
+    return f"{month_int}/{day}/{year_int}"
 
 
 def remove_inline_urls(text: str) -> str:
@@ -1029,6 +1042,20 @@ def write_csv(records: Iterable[Dict[str, str]], output_path: Path) -> None:
             writer.writerow(row)
 
 
+def resolve_input_path(path_value: Path | str) -> Path:
+    path = Path(path_value).expanduser()
+    if not path.is_absolute():
+        path = SCRIPT_DIR / path
+    return path.resolve()
+
+
+def force_output_path(path_value: Path | str) -> Path:
+    name = Path(path_value).name
+    if not name:
+        name = "Jurisprudencia_em_teses.csv"
+    return (SCRIPT_DIR / name).resolve()
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Extrai colunas específicas do PDF 'Jurisprudencia_em_teses.pdf' e gera um CSV estruturado."
@@ -1036,14 +1063,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--pdf",
         type=Path,
-        default=Path("Jurisprudencia_em_teses.pdf"),
+        default=(SCRIPT_DIR / "Jurisprudencia_em_teses.pdf"),
         help="Caminho do PDF de origem.",
     )
     parser.add_argument(
         "--output",
         "-o",
         type=Path,
-        default=Path("Jurisprudencia_em_teses.csv"),
+        default=(SCRIPT_DIR / "Jurisprudencia_em_teses.csv"),
         help="Arquivo CSV de destino.",
     )
     parser.add_argument(
@@ -1051,12 +1078,54 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Mostra mensagens adicionais durante o processamento.",
     )
+    parser.add_argument(
+        "--no-gui",
+        action="store_true",
+        help="Desativa o painel GUI e usa apenas argumentos CLI.",
+    )
     return parser.parse_args()
+
+
+def maybe_collect_gui_inputs(args: argparse.Namespace) -> argparse.Namespace:
+    cli_tokens = list(sys.argv[1:])
+    pdf_explicit = any(tok == "--pdf" or tok.startswith("--pdf=") for tok in cli_tokens)
+    if args.no_gui or pdf_explicit:
+        return args
+
+    current_output = force_output_path(args.output)
+    initial_output_dir = str(SCRIPT_DIR)
+    gui = open_file_panel(
+        title="Jurisprudencia em Teses STJ - PDF para CSV",
+        subtitle="Selecione o PDF de entrada e configure a saida.",
+        filetypes=[("PDF", "*.pdf"), ("Todos os arquivos", "*.*")],
+        extensions=[".pdf"],
+        initial_files=[str(args.pdf)] if args.pdf else [],
+        allow_add_dir=True,
+        recursive_dir=True,
+        min_files=1,
+        output_label="Pasta de saida",
+        initial_output=initial_output_dir,
+        extra_bools=[("debug", "Ativar logs de debug", bool(args.debug))],
+        extra_texts=[("output_name", "Nome do CSV de saida", current_output.name or "jurisprudencia_em_teses.csv")],
+    )
+    if not gui or not gui.get("confirmed"):
+        raise SystemExit("Execucao cancelada no painel GUI.")
+
+    files = list(gui.get("files") or [])
+    if not files:
+        raise SystemExit("Nenhum PDF selecionado no painel GUI.")
+
+    output_name = str((gui.get("texts") or {}).get("output_name", "")).strip() or current_output.name
+    args.pdf = resolve_input_path(files[0])
+    args.output = force_output_path(output_name)
+    args.debug = bool((gui.get("bools") or {}).get("debug", args.debug))
+    return args
 
 
 def main() -> None:
     args = parse_args()
-    pdf_path = args.pdf.resolve()
+    args = maybe_collect_gui_inputs(args)
+    pdf_path = resolve_input_path(args.pdf)
 
     if not pdf_path.exists():
         print(f"Arquivo PDF não encontrado: {pdf_path}")
@@ -1067,8 +1136,9 @@ def main() -> None:
         print("Nenhuma tese foi identificada. Use --debug para investigar o formato do PDF.")
         sys.exit(1)
 
-    write_csv(registros, args.output.resolve())
-    print(f"CSV gerado em: {args.output.resolve()}")
+    output_path = force_output_path(args.output)
+    write_csv(registros, output_path)
+    print(f"CSV gerado em: {output_path}")
     print(f"Total de teses exportadas: {len(registros)}")
 
 

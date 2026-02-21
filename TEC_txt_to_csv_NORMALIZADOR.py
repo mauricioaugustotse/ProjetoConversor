@@ -1,6 +1,23 @@
+"""
+Normaliza o CSV de questões do TEC para padronização textual e de metadados.
+
+Fluxo de trabalho:
+1. Lê o CSV de entrada com questões brutas.
+2. Corrige artefatos de encoding e padroniza `questao_tec` com prefixo `#`.
+3. Extrai cabeçalhos embutidos (ano/banca/ramo/subramo/tribunal) quando presentes.
+4. Reestrutura o corpo da questão e alternativas com regras de quebra de linha.
+5. Normaliza campos finais e grava o CSV de saída.
+"""
+
 import pandas as pd
 import re
 import os
+import argparse
+from pathlib import Path
+
+from gui_intuitiva import open_file_panel
+
+SCRIPT_DIR = Path(__file__).resolve().parent
 
 def corrigir_bloco_texto(texto_bloco):
     """
@@ -384,9 +401,63 @@ def processar_csv(input_filepath, output_filepath):
     except Exception as e:
         print(f"Ocorreu um erro durante o processamento: {e}")
 
-# --- Execução do Script ---
+def build_arg_parser():
+    parser = argparse.ArgumentParser(description="Normalizador de CSV de questoes TEC.")
+    parser.add_argument("--input-csv", default="questoes_compiladas_IA.csv", help="CSV de entrada.")
+    parser.add_argument("--output-csv", default="questoes_normalizadas.csv", help="CSV de saida.")
+    parser.add_argument("--no-gui", action="store_true", help="Desativa painel GUI e usa apenas CLI.")
+    return parser
+
+
+def resolve_input_path(path_value: str) -> str:
+    path = Path(path_value).expanduser()
+    if not path.is_absolute():
+        path = SCRIPT_DIR / path
+    return str(path.resolve())
+
+
+def force_output_path(path_value: str) -> str:
+    name = Path(path_value or "questoes_normalizadas.csv").name or "questoes_normalizadas.csv"
+    return str((SCRIPT_DIR / name).resolve())
+
+
+def maybe_collect_gui_inputs(args):
+    if args.no_gui:
+        return args
+
+    current_output = force_output_path(args.output_csv)
+    gui = open_file_panel(
+        title="TEC Normalizador - CSV para CSV",
+        subtitle="Selecione o CSV de entrada e configure a saida.",
+        filetypes=[("CSV", "*.csv"), ("Todos os arquivos", "*.*")],
+        extensions=[".csv"],
+        initial_files=[args.input_csv] if args.input_csv else [],
+        allow_add_dir=True,
+        recursive_dir=True,
+        min_files=1,
+        output_label="Pasta de saida",
+        initial_output=str(SCRIPT_DIR),
+        extra_texts=[("output_name", "Nome do CSV de saida", os.path.basename(current_output))],
+    )
+    if not gui or not gui.get("confirmed"):
+        return args
+
+    files = list(gui.get("files") or [])
+    if files:
+        args.input_csv = files[0]
+    output_name = str((gui.get("texts") or {}).get("output_name", "")).strip() or os.path.basename(current_output)
+    args.output_csv = force_output_path(output_name)
+    return args
+
+
+def main():
+    args = build_arg_parser().parse_args()
+    args = maybe_collect_gui_inputs(args)
+    processar_csv(
+        resolve_input_path(args.input_csv),
+        force_output_path(args.output_csv),
+    )
+
+
 if __name__ == "__main__":
-    arquivo_entrada = 'questoes_compiladas_IA.csv'
-    arquivo_saida = 'questoes_normalizadas.csv'
-    
-    processar_csv(arquivo_entrada, arquivo_saida)
+    main()

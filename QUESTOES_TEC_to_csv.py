@@ -1,20 +1,30 @@
 # -*- coding: utf-8 -*-
 """
-Este script processa arquivos de texto (.txt) contendo questões de concurso,
-extrai informações estruturadas de cada questão e as salva em um único
-arquivo CSV.
+Consolida arquivos `.txt` de questões do Tec Concursos em CSV único.
+
+Fluxo de trabalho:
+1. Lê `.txt` de `--input-dir` (padrão `arquivos_txt`) e/ou `--input-files` (com fallback de encoding).
+2. Divide o conteúdo em blocos de questão usando URL como separador.
+3. Extrai metadados (id, ano, banca, tribunal, ramo, subramo e gabarito).
+4. Limpa ruídos de navegação/rodapé e monta o enunciado final.
+5. Grava o CSV final na pasta do próprio script com cabeçalho padronizado.
 """
 import os
 import re
 import csv
+import argparse
+from pathlib import Path
+
+from gui_intuitiva import dedupe_files, list_files_in_directory, open_file_panel
 
 # --- CONFIGURAÇÃO ---
-# Nome da pasta onde os arquivos .txt de entrada devem ser colocados.
+# Nome da pasta (relativa à pasta do script) onde os arquivos .txt de entrada devem ser colocados.
 # O script irá criar esta pasta se ela não existir.
 INPUT_DIR = 'arquivos_txt'
 
 # Nome do arquivo CSV que será gerado na mesma pasta do script.
 OUTPUT_FILE = 'questoes_compiladas.csv'
+SCRIPT_DIR = Path(__file__).resolve().parent
 
 # Cabeçalho do arquivo CSV, definindo as colunas.
 CSV_HEADER = [
@@ -22,6 +32,63 @@ CSV_HEADER = [
     'ramo', 'subramo', 'questao'
 ]
 # --- FIM DA CONFIGURAÇÃO ---
+
+
+def build_arg_parser():
+    parser = argparse.ArgumentParser(description="Consolida .txt de questoes TEC em um unico CSV.")
+    parser.add_argument("--input-dir", default=INPUT_DIR, help="Pasta com arquivos .txt.")
+    parser.add_argument("--input-files", nargs="*", default=[], help="Lista de arquivos .txt especificos.")
+    parser.add_argument("--output-csv", default=OUTPUT_FILE, help="Arquivo CSV de saida.")
+    parser.add_argument("--no-gui", action="store_true", help="Desativa painel GUI e usa apenas CLI.")
+    return parser
+
+
+def resolve_script_relative(path_value: str) -> str:
+    path = Path(path_value).expanduser()
+    if not path.is_absolute():
+        path = SCRIPT_DIR / path
+    return str(path.resolve())
+
+
+def force_output_to_script_dir(output_value: str) -> str:
+    name = Path(str(output_value or OUTPUT_FILE)).name or OUTPUT_FILE
+    return str((SCRIPT_DIR / name).resolve())
+
+
+def maybe_collect_gui_inputs(args):
+    if args.no_gui or args.input_files:
+        return args
+    current_output = Path(force_output_to_script_dir(args.output_csv))
+    gui = open_file_panel(
+        title="QUESTOES TEC - TXT para CSV",
+        subtitle="Selecione arquivos .txt de questoes ou adicione pasta.",
+        filetypes=[("TXT", "*.txt"), ("Todos os arquivos", "*.*")],
+        extensions=[".txt"],
+        initial_files=[],
+        allow_add_dir=True,
+        recursive_dir=True,
+        min_files=1,
+        output_label="Pasta de saida",
+        initial_output=str(SCRIPT_DIR),
+        extra_texts=[("output_name", "Nome do CSV de saida", current_output.name or OUTPUT_FILE)],
+    )
+    if not gui or not gui.get("confirmed"):
+        return args
+
+    files = list(gui.get("files") or [])
+    if files:
+        args.input_files = files
+    output_name = str((gui.get("texts") or {}).get("output_name", "")).strip() or current_output.name
+    args.output_csv = force_output_to_script_dir(output_name)
+    return args
+
+
+def discover_txt_files(input_dir: str, input_files):
+    found = []
+    if input_dir and os.path.isdir(input_dir):
+        found.extend(list_files_in_directory(input_dir, [".txt"], recursive=False))
+    found.extend(input_files or [])
+    return dedupe_files(found, [".txt"])
 
 def parse_question_block(block_text):
     """
@@ -103,22 +170,28 @@ def main():
     Função principal que orquestra a leitura dos arquivos .txt,
     o processamento dos dados e a escrita do arquivo .csv.
     """
-    # Verifica se a pasta de entrada existe; se não, a cria e informa o usuário.
-    if not os.path.exists(INPUT_DIR):
-        os.makedirs(INPUT_DIR)
-        print(f"Pasta '{INPUT_DIR}' criada.")
+    args = build_arg_parser().parse_args()
+    args = maybe_collect_gui_inputs(args)
+
+    input_dir = resolve_script_relative(args.input_dir)
+    output_csv = force_output_to_script_dir(args.output_csv)
+    input_files = list(args.input_files or [])
+
+    # Se nao houver arquivos explicitos e a pasta padrao nao existir, cria a pasta como guia.
+    if not input_files and not os.path.exists(input_dir):
+        os.makedirs(input_dir)
+        print(f"Pasta '{input_dir}' criada.")
         print("Por favor, adicione seus arquivos .txt de questões nesta pasta e rode o script novamente.")
         return
 
-    # Lista todos os arquivos .txt na pasta de entrada.
     try:
-        txt_files = [f for f in os.listdir(INPUT_DIR) if f.endswith('.txt')]
+        txt_files = discover_txt_files(input_dir, input_files)
     except OSError as e:
-        print(f"Erro ao acessar a pasta '{INPUT_DIR}': {e}")
+        print(f"Erro ao acessar entradas de texto: {e}")
         return
 
     if not txt_files:
-        print(f"Nenhum arquivo .txt encontrado na pasta '{INPUT_DIR}'.")
+        print(f"Nenhum arquivo .txt encontrado para as entradas informadas.")
         print("Por favor, adicione seus arquivos e tente novamente.")
         return
 
@@ -129,8 +202,8 @@ def main():
     separator_pattern = r'\nwww\.tecconcursos\.com\.br/questoes/'
 
     print("\nIniciando o processamento dos arquivos...")
-    for filename in txt_files:
-        filepath = os.path.join(INPUT_DIR, filename)
+    for filepath in txt_files:
+        filename = os.path.basename(filepath)
         print(f"  - Lendo '{filename}'...")
 
         try:
@@ -172,17 +245,18 @@ def main():
         return
 
     # Escreve os dados coletados no arquivo CSV.
-    print(f"\nEscrevendo {len(all_questions_data)} questões no arquivo '{OUTPUT_FILE}'...")
+    print(f"\nEscrevendo {len(all_questions_data)} questões no arquivo '{output_csv}'...")
     try:
         # 'utf-8-sig' garante a compatibilidade com Excel.
-        with open(OUTPUT_FILE, 'w', newline='', encoding='utf-8-sig') as csvfile:
+        os.makedirs(os.path.dirname(output_csv) or ".", exist_ok=True)
+        with open(output_csv, 'w', newline='', encoding='utf-8-sig') as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=CSV_HEADER)
             writer.writeheader()
             writer.writerows(all_questions_data)
         print("\n--- Processo Concluído com Sucesso! ---")
-        print(f"O arquivo '{OUTPUT_FILE}' foi gerado na mesma pasta deste script.")
+        print(f"O arquivo '{output_csv}' foi gerado com sucesso.")
     except IOError as e:
-        print(f"\nERRO: Não foi possível escrever no arquivo '{OUTPUT_FILE}'.")
+        print(f"\nERRO: Não foi possível escrever no arquivo '{output_csv}'.")
         print(f"Verifique se o arquivo não está aberto em outro programa ou se você tem permissão para escrever na pasta. Detalhe: {e}")
 
 

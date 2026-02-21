@@ -1,16 +1,26 @@
 ﻿# -*- coding: utf-8 -*-
 """
-Script AUTOMÁTICO e ESTRUTURADO para converter um arquivo de legislação
-(Markdown, PDF ou DOCX) em um arquivo CSV formatado para importação no Notion,
-respeitando a hierarquia de artigos, parágrafos, incisos e alíneas.
+Converte legislação (Markdown, PDF ou DOCX) em CSV para importação no Notion.
+
+Fluxo de trabalho:
+1. Localiza o arquivo de entrada automaticamente (ou por seleção manual).
+2. Lê o conteúdo conforme extensão e normaliza caracteres/espaçamentos.
+3. Detecta a hierarquia normativa (artigos, parágrafos, incisos e alíneas).
+4. Limpa títulos/textos, remove ruídos e preserva contexto hierárquico.
+5. Escreve CSV final com `ID`, `Nome (Artigo)` e `Texto do Artigo`.
 """
 
 import csv
 import re
 import os
 import glob
+import argparse
+from pathlib import Path
+
+from gui_intuitiva import open_file_panel
 
 SUPPORTED_EXTENSIONS = (".md", ".pdf", ".docx")
+SCRIPT_DIR = Path(__file__).resolve().parent
 
 
 def normalize_ordinals(text):
@@ -188,41 +198,55 @@ def save_current_item(rows, title, text_lines):
             print(f"[VERBOSE] Item '{title_normalized or title}' extraido e limpo.")
     return [], "", cleaned_text
 
-def select_input_file():
-    """Abre o explorer para selecionar o arquivo de entrada."""
-    try:
-        import tkinter as tk
-        from tkinter import filedialog
-    except Exception as exc:
-        print(f"[AVISO] Não foi possível carregar o explorer: {exc}")
-        return None
+def select_input_and_output_via_gui(default_output_name="legislacao.csv"):
+    """Abre painel GUI completo para selecionar entrada e saida."""
+    gui = open_file_panel(
+        title="Legislacao para CSV (Notion)",
+        subtitle="Selecione arquivo de legislacao e configure a saida.",
+        filetypes=[
+            ("Arquivos suportados", "*.md *.pdf *.docx"),
+            ("Markdown", "*.md"),
+            ("PDF", "*.pdf"),
+            ("Word", "*.docx"),
+            ("Todos os arquivos", "*.*"),
+        ],
+        extensions=[".md", ".pdf", ".docx"],
+        initial_files=[],
+        allow_add_dir=True,
+        recursive_dir=True,
+        min_files=1,
+        output_label="Pasta de saida",
+        initial_output=str(SCRIPT_DIR),
+        extra_texts=[("output_name", "Nome do CSV de saida", default_output_name)],
+    )
+    if not gui or not gui.get("confirmed"):
+        return None, None
 
-    try:
-        root = tk.Tk()
-        root.withdraw()
-        root.update()
-        file_path = filedialog.askopenfilename(
-            title="Selecione o arquivo de legislação",
-            filetypes=[
-                ("Arquivos suportados", "*.md *.pdf *.docx"),
-                ("Markdown", "*.md"),
-                ("PDF", "*.pdf"),
-                ("Word", "*.docx"),
-                ("Todos os arquivos", "*.*"),
-            ],
-        )
-        root.destroy()
-    except Exception as exc:
-        print(f"[AVISO] Não foi possível abrir o explorer: {exc}")
-        return None
+    files = list(gui.get("files") or [])
+    if not files:
+        return None, None
+    input_file = files[0]
+    output_name = str((gui.get("texts") or {}).get("output_name", "")).strip() or default_output_name
+    output_file = str((SCRIPT_DIR / Path(output_name).name).resolve())
+    return input_file, output_file
 
-    return file_path if file_path else None
+
+def resolve_input_path(path_value: str) -> str:
+    path = Path(path_value).expanduser()
+    if not path.is_absolute():
+        path = SCRIPT_DIR / path
+    return str(path.resolve())
+
+
+def force_output_path(path_value: str) -> str:
+    name = Path(str(path_value or "legislacao.csv")).name or "legislacao.csv"
+    return str((SCRIPT_DIR / name).resolve())
 
 def find_local_input_file():
-    """Procura arquivo .md/.pdf/.docx na pasta atual."""
-    print("\n[INFO] Nenhum arquivo selecionado. Procurando por arquivo .md, .pdf ou .docx na pasta atual...")
+    """Procura arquivo .md/.pdf/.docx na pasta do script."""
+    print("\n[INFO] Nenhum arquivo selecionado. Procurando por arquivo .md, .pdf ou .docx na pasta do script...")
     candidates = []
-    for name in glob.glob("*"):
+    for name in glob.glob(str(SCRIPT_DIR / "*")):
         if not os.path.isfile(name):
             continue
         if os.path.splitext(name)[1].lower() in SUPPORTED_EXTENSIONS:
@@ -296,15 +320,25 @@ def load_input_content(file_path):
     print("\n[ERRO] Formato não suportado. Use .md, .pdf ou .docx.")
     return None
 
-def find_and_convert_markdown_to_csv():
+def find_and_convert_markdown_to_csv(input_filename="", output_filename="", use_gui=True):
     """
     Função principal que localiza o arquivo, processa a estrutura e gera o .csv.
     """
     print("--- Conversor Estruturado de Leis (MD/PDF/DOCX) para CSV (Notion) ---")
 
-    print("\n[INFO] Selecione o arquivo (.md, .pdf ou .docx) no explorer.")
-    input_filename = select_input_file()
+    input_filename = str(input_filename or "").strip()
+    output_filename = str(output_filename or "").strip()
+    if not input_filename and use_gui:
+        print("\n[INFO] Abrindo painel GUI para seleção do arquivo...")
+        default_output_name = "legislacao.csv"
+        gui_input, gui_output = select_input_and_output_via_gui(default_output_name=default_output_name)
+        if gui_input:
+            input_filename = gui_input
+            if gui_output:
+                output_filename = gui_output
+
     if input_filename:
+        input_filename = resolve_input_path(input_filename)
         print(f"[INFO] Arquivo selecionado: '{input_filename}'")
         if os.path.splitext(input_filename)[1].lower() not in SUPPORTED_EXTENSIONS:
             print("\n[ERRO] O arquivo selecionado não possui extensão suportada (.md, .pdf, .docx).")
@@ -313,10 +347,13 @@ def find_and_convert_markdown_to_csv():
         input_filename = find_local_input_file()
         if not input_filename:
             return
+        input_filename = resolve_input_path(input_filename)
 
-    base_name = os.path.splitext(os.path.basename(input_filename))[0]
-    output_dir = os.path.dirname(input_filename) or "."
-    output_filename = os.path.join(output_dir, f"{base_name}.csv")
+    if output_filename:
+        output_filename = force_output_path(output_filename)
+    else:
+        base_name = os.path.splitext(os.path.basename(input_filename))[0]
+        output_filename = force_output_path(f"{base_name}.csv")
 
     print(f"\nIniciando a conversão estruturada para '{output_filename}'...")
 
@@ -657,5 +694,23 @@ def find_and_convert_markdown_to_csv():
     except Exception as e:
         print(f"\n[ERRO] Ocorreu um erro inesperado ao escrever o arquivo CSV: {e}")
 
+
+def build_arg_parser():
+    parser = argparse.ArgumentParser(description="Conversor estruturado de legislacao (MD/PDF/DOCX) para CSV.")
+    parser.add_argument("--input-file", default="", help="Arquivo de entrada (.md, .pdf, .docx).")
+    parser.add_argument("--output-csv", default="", help="Arquivo CSV de saida.")
+    parser.add_argument("--no-gui", action="store_true", help="Desativa painel GUI e usa apenas CLI.")
+    return parser
+
+
+def main():
+    args = build_arg_parser().parse_args()
+    find_and_convert_markdown_to_csv(
+        input_filename=args.input_file,
+        output_filename=args.output_csv,
+        use_gui=(not bool(args.no_gui)),
+    )
+
+
 if __name__ == "__main__":
-    find_and_convert_markdown_to_csv()
+    main()
