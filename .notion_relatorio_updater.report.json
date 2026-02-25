@@ -1,6 +1,6 @@
 {
   "script": "NOTION_relatorio_updater_agent.py",
-  "started_at": "2026-02-24T20:23:33.839792+00:00",
+  "started_at": "2026-02-25T16:57:38.209707+00:00",
   "status": "completed",
   "page_url": "https://www.notion.so/DJe-do-TSE-1-semana-2026-decis-es-de-Out-2025-Fev-2026-cd2a97b1ea2e494598c365b76e708df9",
   "source_database_url": "https://www.notion.so/301721955c6480afaa2eedbdc7cd2aba?v=301721955c6481eb9d07000cfb23cbe5",
@@ -17,13 +17,13 @@
     "untouched_non_target": 150,
     "linked_pages": 75,
     "context_primary": 36,
-    "context_fallback": 19,
+    "context_fallback": 0,
     "context_final": 36
   },
   "page_id": "cd2a97b1-ea2e-4945-98c3-65b76e708df9",
   "source_database_id": "30172195-5c64-80af-aa2e-edbdc7cd2aba",
   "data_source_id": "30172195-5c64-81ef-986c-000bcc439db6",
-  "elapsed_seconds": 336.0,
-  "updated_at": "2026-02-24T20:29:09.835837+00:00",
+  "elapsed_seconds": 1364.25,
+  "updated_at": "2026-02-25T17:20:22.458467+00:00",
   "failures": []
 }

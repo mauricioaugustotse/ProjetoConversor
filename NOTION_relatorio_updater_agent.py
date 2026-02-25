@@ -20,6 +20,7 @@ import os
 import re
 import threading
 import time
+import unicodedata
 import uuid
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import asdict, dataclass
@@ -123,12 +124,12 @@ MAX_CONTEXT_CASES = 36
 MAX_FALLBACK_CONTEXTS = 28
 MAX_BLOCK_BATCH = 12
 MAX_NOTION_RICH_TEXT_CHARS = 2000
-OPENAI_BATCH_CHAR_BUDGET = 7000
+OPENAI_BATCH_CHAR_BUDGET = 5600
 DEFAULT_HEARTBEAT_INTERVAL_S = 20.0
 VERBOSE_HEARTBEAT_INTERVAL_S = 10.0
 LINK_CONTEXT_PROGRESS_EVERY = 5
 FALLBACK_PROGRESS_EVERY = 25
-DEFAULT_OPENAI_BATCH_SIZE = 12
+DEFAULT_OPENAI_BATCH_SIZE = 10
 DEFAULT_OPENAI_TARGET_RPM = 180
 DEFAULT_OPENAI_MAX_WORKERS = 2
 DEFAULT_NOTION_MIN_INTERVAL_S = 0.25
@@ -143,7 +144,7 @@ OPENAI_SESSION: Optional[requests.Session] = None
 NOTION_PACER: Optional["RequestPacer"] = None
 OPENAI_PACER: Optional["RequestPacer"] = None
 BLOCK_INDEX: Dict[str, Dict[str, Any]] = {}
-OPENAI_DISABLE_REASONING_PARAMS = False
+OPENAI_DISABLE_REASONING_PARAMS = True
 OPENAI_SCHEMA_TEMP_DISABLED = False
 OPENAI_TIMEOUT_STREAK = 0
 OPENAI_RUNTIME_STATE_LOCK = threading.Lock()
@@ -188,9 +189,18 @@ class RunConfig:
 @dataclass
 class CaseContext:
     processo_cnj: str = ""
+    numero_unico: str = ""
+    data_decisao: str = ""
+    sigla_classe: str = ""
+    nome_municipio: str = ""
+    sigla_uf: str = ""
+    relator: str = ""
+    tema: str = ""
     eleicao_ano: str = ""
     cidade_uf: str = ""
     partes: str = ""
+    punchline: str = ""
+    texto_decisao: str = ""
     partidos: str = ""
     alegacoes: str = ""
     advogados: str = ""
@@ -1203,6 +1213,42 @@ def _page_properties_text(page_obj: Dict[str, Any]) -> Dict[str, str]:
     return out
 
 
+def _normalize_prop_name(value: Any) -> str:
+    raw = _normalize_ws(value).casefold()
+    if not raw:
+        return ""
+    nfkd = unicodedata.normalize("NFKD", raw)
+    stripped = "".join(ch for ch in nfkd if not unicodedata.combining(ch))
+    return re.sub(r"[^a-z0-9]+", "", stripped)
+
+
+def _pick_property_text(properties_text: Dict[str, str], aliases: Sequence[str]) -> str:
+    alias_norm = [_normalize_prop_name(alias) for alias in aliases]
+    alias_norm = [alias for alias in alias_norm if alias]
+    if not alias_norm:
+        return ""
+
+    # Passo 1: match exato do nome da coluna normalizada.
+    for prop_name, prop_text in properties_text.items():
+        value = _normalize_ws(prop_text)
+        if not value:
+            continue
+        prop_norm = _normalize_prop_name(prop_name)
+        if prop_norm in alias_norm:
+            return value
+
+    # Passo 2: match por contem apenas para aliases minimamente informativos.
+    for prop_name, prop_text in properties_text.items():
+        value = _normalize_ws(prop_text)
+        if not value:
+            continue
+        prop_norm = _normalize_prop_name(prop_name)
+        if any(len(alias) >= 5 and alias in prop_norm for alias in alias_norm):
+            return value
+
+    return ""
+
+
 def _text_sentences(text: str) -> List[str]:
     raw = str(text or "").replace("\r", "\n")
     parts = re.split(r"(?<=[\.\!\?;])\s+|\n+", raw)
@@ -1339,7 +1385,16 @@ def _context_has_signal(ctx: CaseContext) -> bool:
     joined = " ".join(
         [
             ctx.processo_cnj,
+            ctx.numero_unico,
+            ctx.data_decisao,
+            ctx.sigla_classe,
+            ctx.nome_municipio,
+            ctx.sigla_uf,
+            ctx.relator,
+            ctx.tema,
             ctx.partes,
+            ctx.punchline,
+            ctx.texto_decisao,
             ctx.partidos,
             ctx.alegacoes,
             ctx.fundamentos,
@@ -1355,18 +1410,84 @@ def _build_context_from_page(page_obj: Dict[str, Any], page_text: str, source_ur
     prop_blob = "\n".join(f"{k}: {v}" for k, v in prop_map.items() if _normalize_ws(v))
     full_text = f"{prop_blob}\n{page_text}".strip()
 
+    numero_unico = _pick_property_text(
+        prop_map,
+        aliases=[
+            "numeroUnico",
+            "numero unico",
+            "número único",
+            "numero do processo",
+            "número do processo",
+        ],
+    )
+    data_decisao = _pick_property_text(
+        prop_map,
+        aliases=["dataDecisao", "data decisao", "data de decisao", "data do julgamento"],
+    )
+    sigla_classe = _pick_property_text(
+        prop_map,
+        aliases=["siglaClasse", "sigla classe", "classe"],
+    )
+    nome_municipio = _pick_property_text(
+        prop_map,
+        aliases=["nomeMunicipio", "nome municipio", "municipio", "cidade"],
+    )
+    sigla_uf = _pick_property_text(
+        prop_map,
+        aliases=["siglaUF", "sigla uf", "uf", "estado"],
+    )
+    relator = _pick_property_text(
+        prop_map,
+        aliases=["relator", "relatora", "ministro relator", "juiz relator"],
+    )
+    advogados_coluna = _pick_property_text(
+        prop_map,
+        aliases=["advogados", "advogado", "banca de advogados", "banca"],
+    )
+    tema = _pick_property_text(
+        prop_map,
+        aliases=["tema", "tema principal", "assunto", "topico"],
+    )
+    punchline = _pick_property_text(
+        prop_map,
+        aliases=["punchline", "ementa curta", "resumo", "sintese"],
+    )
+    texto_decisao = _pick_property_text(
+        prop_map,
+        aliases=["textoDecisao", "texto decisao", "inteiro teor", "texto da decisao"],
+    )
+
+    sigla_uf_clean = _normalize_ws(sigla_uf).upper()
+    if not re.fullmatch(r"[A-Z]{2}", sigla_uf_clean or ""):
+        sigla_uf_clean = ""
+    nome_municipio_clean = _normalize_ws(nome_municipio)
+    cidade_uf = ""
+    if nome_municipio_clean and sigla_uf_clean:
+        cidade_uf = f"{nome_municipio_clean}/{sigla_uf_clean}"
+    if not cidade_uf:
+        cidade_uf = _extract_city_uf(full_text)
+
     return CaseContext(
-        processo_cnj=_extract_cnj(full_text),
+        processo_cnj=_extract_cnj(f"{numero_unico}\n{full_text}"),
+        numero_unico=numero_unico,
+        data_decisao=data_decisao,
+        sigla_classe=sigla_classe,
+        nome_municipio=nome_municipio_clean,
+        sigla_uf=sigla_uf_clean,
+        relator=relator,
+        tema=tema,
         eleicao_ano=_extract_election_year(full_text),
-        cidade_uf=_extract_city_uf(full_text),
+        cidade_uf=cidade_uf,
         partes=_best_partes(prop_map, full_text),
+        punchline=punchline,
+        texto_decisao=texto_decisao,
         partidos=_extract_partidos(full_text),
         alegacoes=_pick_sentences(
             full_text,
             keywords=["alega", "sustenta", "argumenta", "afirma", "defende", "tese"],
             max_items=3,
         ),
-        advogados=_extract_advogados(full_text),
+        advogados=advogados_coluna or _extract_advogados(full_text),
         fundamentos=_pick_sentences(
             full_text,
             keywords=["fundamento", "art.", "lei", "resolucao", "resolução", "sumula", "súmula"],
@@ -1600,9 +1721,18 @@ def _context_for_prompt(contexts: Sequence[CaseContext]) -> List[Dict[str, str]]
         out.append(
             {
                 "processo_cnj": _truncate_text(item.processo_cnj, 40),
+                "numero_unico": _truncate_text(item.numero_unico, 80),
+                "data_decisao": _truncate_text(item.data_decisao, 32),
+                "sigla_classe": _truncate_text(item.sigla_classe, 32),
+                "nome_municipio": _truncate_text(item.nome_municipio, 120),
+                "sigla_uf": _truncate_text(item.sigla_uf, 8),
+                "relator": _truncate_text(item.relator, 140),
+                "tema": _truncate_text(item.tema, 220),
                 "eleicao_ano": _truncate_text(item.eleicao_ano, 8),
                 "cidade_uf": _truncate_text(item.cidade_uf, 80),
                 "partes": _truncate_text(item.partes, 220),
+                "punchline": _truncate_text(item.punchline, 380),
+                "texto_decisao": _truncate_text(item.texto_decisao, 1200),
                 "partidos": _truncate_text(item.partidos, 120),
                 "alegacoes": _truncate_text(item.alegacoes, 380),
                 "advogados": _truncate_text(item.advogados, 220),
@@ -1652,9 +1782,9 @@ def _build_openai_prompt_payload(
     for idx, block in enumerate(block_batch):
         block_type = str(block.get("type", "") or "")
         if compact:
-            max_len = 120 if block_type.startswith("heading_") else 1200
+            max_len = 120 if block_type.startswith("heading_") else 900
         else:
-            max_len = 180 if block_type.startswith("heading_") else 2400
+            max_len = 180 if block_type.startswith("heading_") else 1700
         refs = _block_reference_urls(block)
 
         scoped_contexts_raw = block.get("context_cases")
@@ -1685,6 +1815,7 @@ def _build_openai_prompt_payload(
             "Use somente o contexto_casos_bloco do item correspondente ao mesmo index.",
             "Nao use contexto de um bloco para escrever outro bloco.",
             "Se contexto_casos_bloco vier vazio, reescreva com cautela usando apenas texto_original e links_referencia.",
+            "Priorize os campos estruturados do contexto_casos_bloco quando presentes (numero_unico, data_decisao, sigla_classe, nome_municipio, sigla_uf, relator, partes, advogados, punchline, texto_decisao, tema).",
             "Sempre esclarecer o que ocorreu no caso (campo o_que_ocorreu).",
             "Sempre preencher consequencias com o impacto/desdobramento efetivo do caso.",
             "Evite estilo telegrafado; escreva com fluidez, conectivos e frases completas.",
@@ -1734,9 +1865,9 @@ def _estimate_openai_input_chars(block_batch: Sequence[Dict[str, Any]], *, compa
 def _estimate_openai_block_chars(block: Dict[str, Any], *, compact: bool) -> int:
     block_type = str(block.get("type", "") or "")
     if compact:
-        max_len = 120 if block_type.startswith("heading_") else 1200
+        max_len = 120 if block_type.startswith("heading_") else 900
     else:
-        max_len = 180 if block_type.startswith("heading_") else 2400
+        max_len = 180 if block_type.startswith("heading_") else 1700
     return len(_truncate_text(str(block.get("text", "")), max_len))
 
 
@@ -2212,6 +2343,28 @@ def improve_text_blocks_with_openai(
         total_input_chars,
     )
 
+    is_single_block = len(block_batch) == 1
+    with OPENAI_RUNTIME_STATE_LOCK:
+        schema_temporarily_disabled = bool(OPENAI_SCHEMA_TEMP_DISABLED)
+
+    # Em instabilidade persistente, evitar requests longas por lote para nao ficar preso em timeout.
+    if _allow_micro_fallback and not is_single_block and schema_temporarily_disabled:
+        LOGGER.warning(
+            "[OpenAI] %s | modo de contingencia ativo; processando em micro-fallback por bloco.",
+            label,
+        )
+        micro_out: List[str] = []
+        for idx, block in enumerate(block_batch, start=1):
+            micro_label = f"{label} | micro {idx}/{len(block_batch)}"
+            micro_res = improve_text_blocks_with_openai(
+                [block],
+                context[:12],
+                batch_label=micro_label,
+                _allow_micro_fallback=False,
+            )
+            micro_out.extend(micro_res)
+        return micro_out
+
     if _allow_micro_fallback and len(block_batch) > 1 and total_input_chars > OPENAI_BATCH_CHAR_BUDGET:
         mid = max(1, len(block_batch) // 2)
         LOGGER.info(
@@ -2300,12 +2453,17 @@ def improve_text_blocks_with_openai(
     regular_max_tokens = _estimate_openai_max_tokens(total_input_chars, compact=False)
     compact_input_chars = _estimate_openai_input_chars(block_batch, compact=True)
     compact_max_tokens = _estimate_openai_max_tokens(compact_input_chars, compact=True)
+    is_large_batch = total_input_chars >= int(OPENAI_BATCH_CHAR_BUDGET * 0.8) or len(block_batch) >= 8
+    schema_timeout_s = 45 if not is_large_batch else 35
+    compact_timeout_s = 40 if is_single_block else 30
+    schema_attempts = 1
+    compact_attempts = 2 if is_single_block else 1
+    allow_schema_boost = is_single_block or len(block_batch) <= 3
+    allow_compact_boost = is_single_block or len(block_batch) <= 3
     schema_finish_reason = ""
     schema_content_chars = 0
     compact_finish_reason = ""
     compact_content_chars = 0
-    with OPENAI_RUNTIME_STATE_LOCK:
-        schema_temporarily_disabled = bool(OPENAI_SCHEMA_TEMP_DISABLED)
     if schema_temporarily_disabled:
         LOGGER.info(
             "[OpenAI] %s | schema temporariamente despriorizado por instabilidade recente; iniciando fallback compacto.",
@@ -2318,8 +2476,8 @@ def improve_text_blocks_with_openai(
                 schema=schema,
                 request_label=f"OpenAI {label} (schema)",
                 max_completion_tokens=regular_max_tokens,
-                timeout_s_override=min(max(5, int(OPENAI_CFG.timeout_s)), 60),
-                max_attempts_override=2,
+                timeout_s_override=min(max(5, int(OPENAI_CFG.timeout_s)), schema_timeout_s),
+                max_attempts_override=schema_attempts,
             )
             schema_finish_reason, parsed_text = _extract_openai_choice_text(raw)
             schema_content_chars = len(parsed_text)
@@ -2334,7 +2492,7 @@ def improve_text_blocks_with_openai(
         except Exception as exc:
             LOGGER.warning("[OpenAI] %s | schema falhou: %s. Tentando fallback compacto.", label, exc)
 
-    if parsed is None and schema_finish_reason == "length" and schema_content_chars == 0:
+    if parsed is None and allow_schema_boost and schema_finish_reason == "length" and schema_content_chars == 0:
         boosted_tokens = min(16000, max(4200, regular_max_tokens * 2))
         LOGGER.warning(
             "[OpenAI] %s | length sem conteudo no schema. Repetindo schema com max_completion_tokens=%d.",
@@ -2347,7 +2505,7 @@ def improve_text_blocks_with_openai(
                 schema=schema,
                 request_label=f"OpenAI {label} (schema_boost)",
                 max_completion_tokens=boosted_tokens,
-                timeout_s_override=min(max(5, int(OPENAI_CFG.timeout_s)), 65),
+                timeout_s_override=min(max(5, int(OPENAI_CFG.timeout_s)), 45),
                 max_attempts_override=1,
             )
             schema_finish_reason, parsed_text = _extract_openai_choice_text(raw)
@@ -2384,8 +2542,8 @@ def improve_text_blocks_with_openai(
                 schema=None,
                 request_label=f"OpenAI {label} (compacto)",
                 max_completion_tokens=compact_max_tokens,
-                timeout_s_override=min(max(5, int(OPENAI_CFG.timeout_s)), 50),
-                max_attempts_override=2,
+                timeout_s_override=min(max(5, int(OPENAI_CFG.timeout_s)), compact_timeout_s),
+                max_attempts_override=compact_attempts,
             )
             compact_finish_reason, parsed_text = _extract_openai_choice_text(raw)
             compact_content_chars = len(parsed_text)
@@ -2400,7 +2558,7 @@ def improve_text_blocks_with_openai(
         except Exception as exc:
             LOGGER.error("[OpenAI] %s | fallback compacto falhou: %s", label, exc)
 
-    if parsed is None and compact_finish_reason == "length" and compact_content_chars == 0:
+    if parsed is None and allow_compact_boost and compact_finish_reason == "length" and compact_content_chars == 0:
         boosted_tokens = min(16000, max(3200, compact_max_tokens * 2))
         LOGGER.warning(
             "[OpenAI] %s | length sem conteudo no compacto. Repetindo compacto com tokens=%d e contexto reduzido.",
@@ -2427,7 +2585,7 @@ def improve_text_blocks_with_openai(
                 schema=None,
                 request_label=f"OpenAI {label} (compacto_boost)",
                 max_completion_tokens=boosted_tokens,
-                timeout_s_override=min(max(5, int(OPENAI_CFG.timeout_s)), 55),
+                timeout_s_override=min(max(5, int(OPENAI_CFG.timeout_s)), 35),
                 max_attempts_override=1,
             )
             compact_finish_reason, parsed_text = _extract_openai_choice_text(raw)
@@ -2908,7 +3066,7 @@ def _build_clients(config: RunConfig) -> None:
     NOTION_PACER = RequestPacer(min_interval_s=NOTION_CFG.min_interval_s)
     OPENAI_PACER = RequestPacer(target_rpm=OPENAI_CFG.target_rpm)
     with OPENAI_RUNTIME_STATE_LOCK:
-        OPENAI_DISABLE_REASONING_PARAMS = False
+        OPENAI_DISABLE_REASONING_PARAMS = True
         OPENAI_SCHEMA_TEMP_DISABLED = False
         OPENAI_TIMEOUT_STREAK = 0
     LOGGER.info(
@@ -3041,6 +3199,13 @@ def run_agent(config: RunConfig) -> int:
             effective_batch_size,
         )
         openai_workers = min(max(1, int(config.openai_max_workers or 1)), max(1, total_batches))
+        if max_chars_batch >= int(OPENAI_BATCH_CHAR_BUDGET * 0.9) and openai_workers > 1:
+            LOGGER.info(
+                "[OpenAI] Ajuste de estabilidade: lotes pesados (max_chars=%d). Limitando workers de %d para 1.",
+                max_chars_batch,
+                openai_workers,
+            )
+            openai_workers = 1
         if total_batches >= 4 and openai_workers > 2:
             LOGGER.info(
                 "[OpenAI] Ajuste de estabilidade: limitando workers de %d para 2 (lotes=%d).",
