@@ -1975,20 +1975,20 @@ def _strip_reference_lines(text: Any) -> str:
 
 
 KNOWN_OUTPUT_LABEL_RE = re.compile(
-    r"(?i)^(?:-\s*)?(?:"
+    r"(?i)^(?:-\s*)?(?:\*\*)?(?:"
     r"o\s+que\s+ocorreu|"
     r"consequ[eê]ncias?|"
     r"partes\s+envolvidas|"
-    r"partidos\s+politicos\s+envolvidos|"
+    r"partidos\s+pol[ií]ticos\s+envolvidos|"
     r"advogados\s+em\s+destaque\s+no\s+direito\s+eleitoral|"
-    r"cidade/uf\s+de\s+origem|"
+    r"cidade/uf(?:\s+de\s+origem)?|"
     r"processo\s+\(cnj\)|"
-    r"ano\s+da\s+eleicao|"
-    r"alegacoes\s+suscitadas|"
-    r"fundamentos\s+juridicos|"
+    r"an[oa]\s+da\s+elei[cç][aã]o|"
+    r"alega[cç][oõ]es\s+suscitadas|"
+    r"fundamentos\s+jur[ií]dicos|"
     r"resultado\s+do\s+julgamento|"
     r"refer[eê]ncias(?:\s+notion)?"
-    r")\s*:\s*"
+    r")(?:\*\*)?\s*:\s*"
 )
 
 
@@ -2133,10 +2133,17 @@ def _resolve_output_origin(cidade_uf: str, original_text: str) -> str:
     return origem
 
 
-def _compose_primary_narrative(o_que_ocorreu: str, analise_estrategica: str, consequencias: str) -> str:
-    parts = _dedupe_non_redundant_values([o_que_ocorreu, analise_estrategica])
+def _compose_primary_narrative(
+    o_que_ocorreu: str,
+    analise_estrategica: str,
+    fundamentos: str,
+    consequencias: str,
+    resultado: str,
+) -> str:
+    # Fundamentos juridicos deixam de ser linha separada e passam a integrar o paragrafo principal.
+    parts = _dedupe_non_redundant_values([o_que_ocorreu, fundamentos, analise_estrategica])
     if not parts:
-        parts = _dedupe_non_redundant_values([o_que_ocorreu, consequencias])
+        parts = _dedupe_non_redundant_values([o_que_ocorreu, consequencias, resultado])
     if not parts:
         return "Trecho sem informacao suficiente para sintese objetiva."
     return " ".join(_ensure_sentence_end(part) for part in parts)
@@ -2177,8 +2184,14 @@ def _render_standardized_block_text(
         consequencias = "Sem desfecho explicito no trecho; recomenda-se monitoramento do andamento processual."
 
     origem = _resolve_output_origin(cidade, cleaned_original)
-    primary_narrative = _compose_primary_narrative(o_que_ocorreu, analise_estrategica, consequencias)
-    lines: List[str] = [f"{origem}: {primary_narrative}"]
+    primary_narrative = _compose_primary_narrative(
+        o_que_ocorreu,
+        analise_estrategica,
+        fundamentos,
+        consequencias,
+        resultado,
+    )
+    lines: List[str] = [f"**{origem}**: {primary_narrative}"]
 
     seen_detail_keys: set[str] = set()
 
@@ -2186,7 +2199,8 @@ def _render_standardized_block_text(
         label: str,
         value: str,
         *,
-        bold: bool = False,
+        label_bold: bool = False,
+        value_bold: bool = False,
         party: bool = False,
         dedupe_against: Sequence[str] = (),
     ) -> None:
@@ -2205,33 +2219,24 @@ def _render_standardized_block_text(
         if value_key in seen_detail_keys:
             return
         seen_detail_keys.add(value_key)
-        rendered_value = _markdown_bold(normalized_value) if bold else normalized_value
+        rendered_value = _markdown_bold(normalized_value) if value_bold else normalized_value
         if party:
             rendered_value = _ensure_party_markdown_bold(rendered_value)
-        lines.append(f"{label}: {rendered_value}")
+        rendered_label = f"**{label}:**" if label_bold else f"{label}:"
+        lines.append(f"{rendered_label} {rendered_value}")
 
-    _append_detail("Consequências", consequencias)
-    _append_detail("Partes envolvidas", partes, bold=True)
-    _append_detail("Partidos politicos envolvidos", partidos, bold=True, party=True)
-    _append_detail("Advogados em destaque no Direito Eleitoral", advogados, bold=True)
-    _append_detail(
-        "Cidade/UF de origem",
-        cidade,
-        bold=True,
-        dedupe_against=(origem,),
-    )
-    _append_detail("Processo (CNJ)", processo)
-    _append_detail("Ano da eleicao", eleicao)
-    _append_detail("Alegacoes suscitadas", alegacoes)
-    _append_detail("Fundamentos juridicos", fundamentos)
-    _append_detail(
-        "Resultado do julgamento",
-        resultado,
-        dedupe_against=(consequencias, primary_narrative),
-    )
+    # Ordem fixa solicitada pelo usuario.
+    _append_detail("Consequências", consequencias, label_bold=True)
+    _append_detail("Alegações suscitadas", alegacoes, label_bold=True)
+    _append_detail("Resultado do julgamento", resultado, label_bold=True)
+    _append_detail("Partidos políticos envolvidos", partidos, party=True)
+    _append_detail("Ano da eleição", eleicao, value_bold=True)
+    _append_detail("Partes envolvidas", partes, value_bold=True)
+    _append_detail("Processo (CNJ)", processo, label_bold=True, value_bold=True)
+    _append_detail("Advogados em destaque no Direito Eleitoral", advogados, value_bold=True)
 
     out = "\n".join(lines)
-    out = _apply_semantic_bold(out, [partes, partidos, advogados])
+    out = _apply_semantic_bold(out, [origem, cidade, partes, partidos, advogados])
     out = _ensure_party_markdown_bold(out)
     return _append_reference_line(out, reference_urls)
 
@@ -2283,8 +2288,8 @@ def _render_standardized_fallback_text(base_text: str, reference_urls: Sequence[
     base_raw = _strip_reference_lines(_remove_placeholder_lines(base_text)).strip()
     if not base_raw:
         minimal = (
-            "Origem do caso: Trecho original sem informacao util para sintese objetiva.\n"
-            "Consequências: Necessario monitorar o andamento do processo na pagina de referencia."
+            "**Origem do caso**: Trecho original sem informacao util para sintese objetiva.\n"
+            "**Consequências:** Necessario monitorar o andamento do processo na pagina de referencia."
         )
         return _append_reference_line(minimal, reference_urls)
 
@@ -2300,13 +2305,15 @@ def _render_standardized_fallback_text(base_text: str, reference_urls: Sequence[
     lowered = fallback_summary.casefold()
     has_consequencias = "consequencias:" in lowered or "consequências:" in lowered
 
-    lines: List[str] = [f"{origem}: {fallback_summary}"]
+    lines: List[str] = [f"**{origem}**: {fallback_summary}"]
     if not has_consequencias:
         inferred = _infer_consequencias(fallback_summary)
         if inferred:
-            lines.append(f"Consequências: {inferred}")
+            lines.append(f"**Consequências:** {inferred}")
         else:
-            lines.append("Consequências: Sem desfecho explicito no trecho; recomenda-se monitoramento do andamento processual.")
+            lines.append(
+                "**Consequências:** Sem desfecho explicito no trecho; recomenda-se monitoramento do andamento processual."
+            )
 
     fallback = "\n".join(lines)
     fallback = _ensure_party_markdown_bold(fallback)
