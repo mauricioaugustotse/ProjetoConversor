@@ -1,0 +1,123 @@
+{
+  "started_at": "2026-02-25T02:59:45.217641+00:00",
+  "finished_at": "2026-02-25T03:00:22.122698+00:00",
+  "status": "completed",
+  "model_primary": "gpt-5.1",
+  "model_fallback": "gpt-5-mini",
+  "input_files": [
+    "C:\\Users\\mauri\\ProjetoConversor\\DTQ-8-=_-PL-278-2026 (1).pdf",
+    "C:\\Users\\mauri\\ProjetoConversor\\EMP-1-=_-PL-278-2026.pdf",
+    "C:\\Users\\mauri\\ProjetoConversor\\EMP-12-=_-PL-278-2026.pdf",
+    "C:\\Users\\mauri\\ProjetoConversor\\EMP-16-=_-PL-278-2026.pdf",
+    "C:\\Users\\mauri\\ProjetoConversor\\EMP-25-=_-PL-278-2026.pdf",
+    "C:\\Users\\mauri\\ProjetoConversor\\EMP-63-=_-PL-278-2026.pdf",
+    "C:\\Users\\mauri\\ProjetoConversor\\EMP-68-=_-PL-278-2026.pdf",
+    "C:\\Users\\mauri\\ProjetoConversor\\inteiroTeor-3049495.pdf"
+  ],
+  "parecer_file": "C:\\Users\\mauri\\ProjetoConversor\\inteiroTeor-3049495.pdf",
+  "output_docx": "C:\\Users\\mauri\\ProjetoConversor\\relatorio_objetos_alteradores_20260225_0000.docx",
+  "checkpoint_file": "C:\\Users\\mauri\\ProjetoConversor\\.relatorio_objetos_alteradores.openai.checkpoint.json",
+  "total_targets": 7,
+  "success_count": 7,
+  "failure_count": 0,
+  "resumed_from_checkpoint": false,
+  "items": [
+    {
+      "file_path": "C:\\Users\\mauri\\ProjetoConversor\\DTQ-8-=_-PL-278-2026 (1).pdf",
+      "file_name": "DTQ-8-=_-PL-278-2026 (1).pdf",
+      "objeto_alterador": "DTQ-8",
+      "tipo_objeto": "DTQ",
+      "numero_objeto": 8,
+      "paragrafo_1": "PL 278/2026 - DTQ 8 - Requer que o § 1º do art. 11-B, dispositivo novo incluído na Lei nº 11.196, de 21 de novembro de 2005, pelo art. 2º do substitutivo ao PL 278/2026, seja votado em separado do texto-base. O art. 11-B integra o conjunto de normas que estruturam o Regime Especial de Tributação para Serviços de Datacenter – REDATA, a ser inserido na Lei nº 11.196/2005, que atualmente dispõe sobre incentivos fiscais à inovação tecnológica, à informática e a outros regimes especiais.",
+      "paragrafo_2": "Na prática, o destaque isola o conteúdo normativo do § 1º do art. 11-B para que os deputados possam deliberar especificamente sobre sua manutenção ou exclusão, sem afetar automaticamente o restante do art. 11-B ou das demais regras do REDATA previstas no substitutivo. Assim, a votação permitirá decidir em separado sobre a regra particular veiculada nesse parágrafo, preservando o núcleo do novo regime tributário proposto na Lei nº 11.196/2005 caso o Plenário rejeite apenas o § 1º destacado.",
+      "model_used": "gpt-5.1",
+      "status": "ok",
+      "used_chunk_fallback": false,
+      "error": ""
+    },
+    {
+      "file_path": "C:\\Users\\mauri\\ProjetoConversor\\EMP-1-=_-PL-278-2026.pdf",
+      "file_name": "EMP-1-=_-PL-278-2026.pdf",
+      "objeto_alterador": "EMP-1",
+      "tipo_objeto": "EMP",
+      "numero_objeto": 1,
+      "paragrafo_1": "Acrescenta o § 4º-B ao art. 13 da Lei nº 10.438, de 2002, para estabelecer que os reembolsos recebidos pelas geradoras termelétricas, destinados à cobertura do custo previsto no inciso V do caput desse artigo, sejam equiparados à receita bruta para fins de incidência das contribuições ao PIS/Pasep e à Cofins e da legislação do imposto sobre a renda da pessoa jurídica.",
+      "paragrafo_2": "Com a equiparação dos reembolsos à receita bruta, os valores repassados pela CDE às geradoras de energia termelétrica passam a integrar a base de cálculo das contribuições e tributos mencionados, modificando o tratamento fiscal hoje controvertido e impactando diretamente a apuração de receitas do setor elétrico e a conformação dos registros contábeis a serem disciplinados pela ANEEL.",
+      "model_used": "gpt-5.1",
+      "status": "ok",
+      "used_chunk_fallback": false,
+      "error": ""
+    },
+    {
+      "file_path": "C:\\Users\\mauri\\ProjetoConversor\\EMP-12-=_-PL-278-2026.pdf",
+      "file_name": "EMP-12-=_-PL-278-2026.pdf",
+      "objeto_alterador": "EMP-12",
+      "tipo_objeto": "EMP",
+      "numero_objeto": 12,
+      "paragrafo_1": "Altera a redação do inciso III do § 1º do art. 11-B da Lei nº 11.196, de 2005, na forma proposta pelo projeto, para explicitar que a totalidade da demanda de energia elétrica dos datacenters poderá ser atendida por contratos de suprimento ou autoprodução provenientes de fontes limpas ou de baixa emissão. Para esse fim, a emenda inclui, ao lado das fontes renováveis, o Gás Natural, o Biometano e a energia nuclear como fontes aptas ao cumprimento dos critérios de sustentabilidade energética, condicionados a regulamento.",
+      "paragrafo_2": "O efeito normativo da emenda é ampliar o rol de fontes energéticas consideradas compatíveis com a política de sustentabilidade aplicável aos serviços de datacenter, deslocando o regime de exigência exclusiva de fontes renováveis para um modelo que admite também fontes de baixa emissão e alta confiabilidade. Com isso, flexibiliza-se o requisito de atendimento integral da carga elétrica, conferindo maior segurança energética e previsibilidade operacional aos empreendimentos, sem afastar a diretriz de redução de emissões e observância de parâmetros técnicos a serem definidos em regulamento.",
+      "model_used": "gpt-5.1",
+      "status": "ok",
+      "used_chunk_fallback": false,
+      "error": ""
+    },
+    {
+      "file_path": "C:\\Users\\mauri\\ProjetoConversor\\EMP-16-=_-PL-278-2026.pdf",
+      "file_name": "EMP-16-=_-PL-278-2026.pdf",
+      "objeto_alterador": "EMP-16",
+      "tipo_objeto": "EMP",
+      "numero_objeto": 16,
+      "paragrafo_1": "É modificativa e altera a redação do § 4º do art. 11-C do Projeto de Lei nº 278, de 2026, que institui o REDATA. A proposta passa a restringir a suspensão tributária exclusivamente aos produtos individualizados em ato do Poder Executivo federal, afastando a possibilidade de enquadramento de bens como sistemas para fins de fruição do benefício.",
+      "paragrafo_2": "O efeito normativo da emenda é o de estreitar o campo de incidência do regime especial, impedindo o uso de classificações genéricas ou agregadas que possam reduzir indevidamente a carga tributária. Com isso, reforça-se o controle administrativo sobre os itens beneficiados, limita-se potencial espaço para planejamento abusivo e ajusta-se a aplicação do incentivo à listagem específica de produtos definida pelo Executivo.",
+      "model_used": "gpt-5.1",
+      "status": "ok",
+      "used_chunk_fallback": false,
+      "error": ""
+    },
+    {
+      "file_path": "C:\\Users\\mauri\\ProjetoConversor\\EMP-25-=_-PL-278-2026.pdf",
+      "file_name": "EMP-25-=_-PL-278-2026.pdf",
+      "objeto_alterador": "EMP-25",
+      "tipo_objeto": "EMP",
+      "numero_objeto": 25,
+      "paragrafo_1": "É emenda supressiva que incide sobre o Projeto de Lei nº 278/2026 para afastar, na Lei nº 11.488, de 2007, o § 3º do art. 2º-A, eliminando a exigência de implantação de sistemas de armazenamento químico de energia como condição para que empreendimentos de geração de energia solar, inclusive micro e minigeração distribuída, usufruam dos benefícios do REIDI.",
+      "paragrafo_2": "O efeito normativo pretendido é restaurar o desenho original do regime especial de incentivos à infraestrutura, retirando condicionante tecnológica específica reputada incompatível com os princípios da neutralidade tecnológica, da livre iniciativa, da isonomia concorrencial e da segurança jurídica, de modo a evitar aumento de custos, barreiras regulatórias e risco à viabilidade econômico-financeira dos projetos de geração solar beneficiários do REIDI.",
+      "model_used": "gpt-5.1",
+      "status": "ok",
+      "used_chunk_fallback": false,
+      "error": ""
+    },
+    {
+      "file_path": "C:\\Users\\mauri\\ProjetoConversor\\EMP-63-=_-PL-278-2026.pdf",
+      "file_name": "EMP-63-=_-PL-278-2026.pdf",
+      "objeto_alterador": "EMP-63",
+      "tipo_objeto": "EMP",
+      "numero_objeto": 63,
+      "paragrafo_1": "Altera a redação do § 6º do art. 11-C da Lei nº 11.196, na forma proposta pelo PL nº 278/2026, para substituir o critério de enquadramento dos bens beneficiados pelo regime especial, passando a prever que o benefício fiscal se aplica apenas a equipamentos, máquinas, aparelhos e instrumentos para os quais inexista capacidade de produção nacional equivalente, nos termos de futura regulamentação. Trata-se de ajuste conceitual e terminológico no dispositivo que disciplina o alcance objetivo do Regime Especial de Tributação para Serviços de Datacenter – REDATA.",
+      "paragrafo_2": "O efeito normativo da emenda é restringir e, ao mesmo tempo, atualizar o parâmetro de elegibilidade ao incentivo fiscal, deslocando o foco da simples inexistência de produto similar nacional para a aferição da capacidade efetiva da indústria doméstica em produzir bens equivalentes. Com isso, o dispositivo passa a subordinar a fruição do benefício a critérios técnicos de política industrial e de defesa comercial, a serem detalhados em regulamento, influenciando diretamente a seleção dos bens que poderão ser adquiridos com a fruição das vantagens tributárias do REDATA.",
+      "model_used": "gpt-5.1",
+      "status": "ok",
+      "used_chunk_fallback": false,
+      "error": ""
+    },
+    {
+      "file_path": "C:\\Users\\mauri\\ProjetoConversor\\EMP-68-=_-PL-278-2026.pdf",
+      "file_name": "EMP-68-=_-PL-278-2026.pdf",
+      "objeto_alterador": "EMP-68",
+      "tipo_objeto": "EMP",
+      "numero_objeto": 68,
+      "paragrafo_1": "Acrescenta parágrafos ao art. 11-B da Lei nº 11.196, de 2005, na redação dada pelo Projeto de Lei nº 278, de 2026, para condicionar a habilitação ao Regime Especial de Tributação para Serviços de Datacenter REDATA à apresentação prévia de Relatório de Impacto Socioambiental acompanhado de Plano de Mitigação de Impactos, com conteúdo mínimo obrigatório. Prevê-se ainda que o estudo seja custeado pelo interessado, mas obrigatoriamente contratado por órgão ambiental ou entidade de fiscalização competente, vedada a contratação direta pelo beneficiário junto à entidade responsável pela elaboração do relatório.",
+      "paragrafo_2": "O efeito da emenda é inserir exigência procedimental ambiental específica como requisito para fruição do REDATA, densificando o conteúdo do art. 11-B ao detalhar parâmetros de análise de impactos hídricos, energéticos, territoriais, de infraestrutura e sobre comunidades do entorno. Ao atribuir a contratação do relatório a órgãos públicos ou entidades fiscalizadoras, a proposta reforça o controle estatal e busca assegurar maior independência técnica na avaliação socioambiental dos empreendimentos de datacenter beneficiados pelo regime tributário especial.",
+      "model_used": "gpt-5.1",
+      "status": "ok",
+      "used_chunk_fallback": false,
+      "error": ""
+    }
+  ],
+  "errors": [],
+  "notes": [
+    "config: workers=10 batch=30 rpm=480 delay=0.0s integral_retries=2 chunk_fallback=True",
+    "style_guard: filtros de estruturas dispensaveis e marcadores editoriais ativados",
+    "Modelo usado no resumo do parecer: gpt-5.1"
+  ]
+}
