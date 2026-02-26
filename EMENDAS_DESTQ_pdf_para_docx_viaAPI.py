@@ -5,11 +5,12 @@ Agente PDF -> DOCX para sintese de objetos alteradores com contexto de parecer.
 Fluxo:
 1. Coleta PDFs por CLI/GUI e aplica fallback para pasta do script quando nao houver selecao.
 2. Detecta um unico parecer no padrao inteiroTeor-<id>.pdf (ou usa --parecer-file).
-3. Extrai texto dos PDFs (fitz -> pypdf) e higieniza conteudo.
-4. Resume o parecer e depois cada objeto alterador em 2 paragrafos via OpenAI.
-5. Processa arquivos em paralelo (workers + lotes + pacing RPM) para maior velocidade.
-6. Mantem checkpoint incremental e backup para retomar do ponto interrompido.
-7. Gera DOCX em lista numerada por objeto alterador e salva report tecnico em JSON.
+3. Inclui, quando disponivel, um PDF de inteiro teor complementar como insumo adicional.
+4. Extrai texto dos PDFs (fitz -> pypdf) e higieniza conteudo.
+5. Resume o parecer, integra contexto do inteiro teor e depois sintetiza cada objeto alterador em 2 paragrafos via OpenAI.
+6. Processa arquivos em paralelo (workers + lotes + pacing RPM) para maior velocidade.
+7. Mantem checkpoint incremental e backup para retomar do ponto interrompido.
+8. Gera DOCX em lista numerada por objeto alterador e salva report tecnico em JSON.
 """
 
 from __future__ import annotations
@@ -21,6 +22,7 @@ import os
 import re
 import threading
 import time
+import unicodedata
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import asdict, dataclass, field
 from datetime import datetime
@@ -106,20 +108,22 @@ DISPENSABLE_INLINE_RULES: List[Tuple[str, re.Pattern[str], str]] = [
 
 DEFAULT_OPENAI_MODEL = "gpt-5.1"
 DEFAULT_FALLBACK_MODEL = "gpt-5-mini"
-DEFAULT_OPENAI_TIMEOUT_S = 120
-DEFAULT_OPENAI_RETRIES = 3
+DEFAULT_OPENAI_TIMEOUT_S = 75
+DEFAULT_OPENAI_RETRIES = 2
 DEFAULT_OPENAI_MAX_COMPLETION_TOKENS = 420
-DEFAULT_OPENAI_MAX_WORKERS = 10
-DEFAULT_OPENAI_BATCH_SIZE = 30
+DEFAULT_OPENAI_MAX_WORKERS = 8
+DEFAULT_OPENAI_BATCH_SIZE = 20
 DEFAULT_OPENAI_TARGET_RPM = 480
 DEFAULT_OPENAI_DELAY_S = 0.0
-DEFAULT_INTEGRAL_LENGTH_RETRIES = 2
+DEFAULT_INTEGRAL_LENGTH_RETRIES = 1
 OPENAI_WAIT_HEARTBEAT_INTERVAL_S = 10.0
 BATCH_HEARTBEAT_INTERVAL_S = 8.0
+LOCAL_WAIT_HEARTBEAT_INTERVAL_S = 8.0
 
 # Fallback por chunks e excecao: so entra aqui apos tentativas integrais por length.
 CHUNK_SIZE_CHARS = 120000
 MAX_FINAL_CHUNK_SUMMARY_CHARS = 180000
+MAX_REFERENCE_CONTEXT_CHARS = 8000
 
 LOGGER = logging.getLogger("AGENTE_objetos_alteradores_pdf_para_docx")
 
@@ -130,6 +134,15 @@ PARECER_SCHEMA: Dict[str, Any] = {
     "required": ["parecer_resumo"],
     "properties": {
         "parecer_resumo": {"type": "string"},
+    },
+}
+
+INTEIRO_TEOR_SCHEMA: Dict[str, Any] = {
+    "type": "object",
+    "additionalProperties": False,
+    "required": ["inteiro_teor_resumo"],
+    "properties": {
+        "inteiro_teor_resumo": {"type": "string"},
     },
 }
 
@@ -198,6 +211,7 @@ class RunReport:
     model_fallback: str = DEFAULT_FALLBACK_MODEL
     input_files: List[str] = field(default_factory=list)
     parecer_file: str = ""
+    inteiro_teor_file: str = ""
     output_docx: str = ""
     checkpoint_file: str = ""
     total_targets: int = 0
@@ -315,6 +329,8 @@ class BatchTelemetry:
             idle_s = max(0.0, now - self.last_event_at)
             avg_api_s = (self.api_elapsed_total_s / self.api_success) if self.api_success > 0 else 0.0
             avg_doc_s = (self.docs_elapsed_total_s / self.docs_done) if self.docs_done > 0 else 0.0
+            docs_remaining = max(0, self.total_docs - self.docs_done)
+            eta_docs_s = (docs_remaining * avg_doc_s) if avg_doc_s > 0 else -1.0
             completed_api_calls = self.api_success + self.api_failed
             api_error_rate_pct = (self.api_failed / completed_api_calls * 100.0) if completed_api_calls > 0 else 0.0
             qps_success = (self.api_success / elapsed_total_s) if elapsed_total_s > 0 else 0.0
@@ -333,6 +349,8 @@ class BatchTelemetry:
                 "idle_s": idle_s,
                 "avg_api_s": avg_api_s,
                 "avg_doc_s": avg_doc_s,
+                "docs_remaining": docs_remaining,
+                "eta_docs_s": eta_docs_s,
                 "api_error_rate_pct": api_error_rate_pct,
                 "qps_success": qps_success,
             }
@@ -351,15 +369,18 @@ def start_batch_progress_heartbeat(
     def _heartbeat() -> None:
         while not stop_event.wait(interval_s):
             snap = telemetry.snapshot()
+            eta_txt = f"{snap['eta_docs_s']:.1f}s" if float(snap.get("eta_docs_s", -1.0)) >= 0 else "n/d"
             logger.info(
                 "BATCH_HEARTBEAT | lote=%s | docs_done=%d/%d | inflight=%d | ok=%d | err=%d | "
-                "api_started=%d | api_ok=%d | api_err=%d | retries=%d | avg_api_s=%.2f | idle=%.1fs",
+                "restantes=%d | eta=%s | api_started=%d | api_ok=%d | api_err=%d | retries=%d | avg_api_s=%.2f | idle=%.1fs",
                 snap["label"],
                 snap["docs_done"],
                 snap["total_docs"],
                 snap["docs_inflight"],
                 snap["docs_ok"],
                 snap["docs_err"],
+                snap["docs_remaining"],
+                eta_txt,
                 snap["api_started"],
                 snap["api_success"],
                 snap["api_failed"],
@@ -493,28 +514,40 @@ def maybe_collect_gui_files(args: argparse.Namespace, logger: logging.Logger) ->
     if bool(args.no_gui) or list(args.input_files or []) or list(args.input_dirs or []):
         return args
 
-    recursive_choice = choose_recursive_for_gui(bool(args.recursive), logger)
-    gui = open_file_panel(
-        title="Agente PDF -> DOCX (Objetos Alteradores)",
-        subtitle="Selecione PDFs por arquivo ou pasta.",
-        filetypes=[("PDF", "*.pdf"), ("Todos os arquivos", "*.*")],
-        extensions=[".pdf"],
-        initial_files=[],
-        allow_add_dir=True,
-        recursive_dir=recursive_choice,
-        min_files=1,
-        output_label="Pasta de saida",
-        initial_output=str(resolve_project_path(args.output_dir)),
-        extra_texts=[
-            ("openai_model", "Modelo principal OpenAI", str(args.openai_model)),
-            ("fallback_model", "Modelo fallback OpenAI", str(args.fallback_model)),
-            ("openai_max_workers", "OpenAI workers", str(args.openai_max_workers)),
-            ("openai_batch_size", "OpenAI batch size", str(args.openai_batch_size)),
-            ("openai_target_rpm", "OpenAI target RPM", str(args.openai_target_rpm)),
-        ],
+    logger.info(
+        "Abrindo GUI para selecao de arquivos PDF. "
+        "Se a janela nao aparecer, verifique a barra de tarefas/Alt+Tab. "
+        "Para evitar GUI, use --no-gui."
     )
+    try:
+        recursive_choice = choose_recursive_for_gui(bool(args.recursive), logger)
+        gui = open_file_panel(
+            title="Agente PDF -> DOCX (Objetos Alteradores)",
+            subtitle="Selecione PDFs por arquivo ou pasta.",
+            filetypes=[("PDF", "*.pdf"), ("Todos os arquivos", "*.*")],
+            extensions=[".pdf"],
+            initial_files=[],
+            allow_add_dir=True,
+            recursive_dir=recursive_choice,
+            min_files=1,
+            output_label="Pasta de saida",
+            initial_output=str(resolve_project_path(args.output_dir)),
+            extra_texts=[
+                ("openai_model", "Modelo principal OpenAI", str(args.openai_model)),
+                ("fallback_model", "Modelo fallback OpenAI", str(args.fallback_model)),
+                ("openai_max_workers", "OpenAI workers", str(args.openai_max_workers)),
+                ("openai_batch_size", "OpenAI batch size", str(args.openai_batch_size)),
+                ("openai_target_rpm", "OpenAI target RPM", str(args.openai_target_rpm)),
+            ],
+        )
+    except KeyboardInterrupt as exc:
+        raise AppError(
+            "Interrompido durante a GUI de selecao de arquivos. "
+            "Execute com --no-gui para usar entrada por CLI/pasta."
+        ) from exc
 
     if not gui or not gui.get("confirmed"):
+        logger.info("GUI encerrada sem confirmacao. Seguindo fluxo com entrada padrao/CLI.")
         return args
 
     files = dedupe_files(gui.get("files") or [], [".pdf"])
@@ -559,7 +592,133 @@ def fallback_script_dir_pdfs() -> List[Path]:
     return [Path(p).resolve() for p in deduped]
 
 
-def detect_parecer_path(all_pdfs: Sequence[Path], parecer_cli: str) -> Path:
+def _normalize_for_match(value: str) -> str:
+    text = unicodedata.normalize("NFKD", str(value or ""))
+    text = "".join(ch for ch in text if not unicodedata.combining(ch))
+    text = text.casefold()
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def _compact_match_key(value: str) -> str:
+    clean = _normalize_for_match(value)
+    return re.sub(r"[^a-z0-9]+", "", clean)
+
+
+def _extract_last_number_from_name(path: Path) -> int:
+    numbers = re.findall(r"\d+", path.stem or "")
+    if not numbers:
+        return -1
+    try:
+        return int(numbers[-1])
+    except Exception:
+        return -1
+
+
+def _is_likely_object_pdf(path: Path) -> bool:
+    stem_upper = normalize_ws(path.stem).upper()
+    if re.match(r"^(EMP|DTQ|DVS|REQ|RQS|EMENDA|SUBEMENDA)[-_ ]*\d+", stem_upper):
+        return True
+    obj_type, obj_num, _ = parse_object_from_filename(path)
+    return obj_num >= 0 and obj_type in {"EMP", "DTQ", "DVS", "REQ", "RQS"}
+
+
+def _is_reference_name_candidate(path: Path) -> bool:
+    key = _compact_match_key(path.stem)
+    if not key:
+        return False
+    if "parecer" in key:
+        return True
+    if "inteiroteor" in key:
+        return True
+    return PARECER_FILENAME_RE.match(path.name) is not None
+
+
+def _score_parecer_candidate_name(path: Path) -> int:
+    key = _compact_match_key(path.stem)
+    score = 0
+    if "parecer" in key:
+        score += 30
+    if "inteiroteor" in key:
+        score += 10
+    if PARECER_FILENAME_RE.match(path.name):
+        score += 6
+    return score
+
+
+def _score_parecer_candidate_text(text: str) -> int:
+    base = _normalize_for_match(text)
+    if not base:
+        return 0
+    score = 0
+    indicators: List[Tuple[str, int, int]] = [
+        ("parecer do relator", 22, 2),
+        ("voto do relator", 18, 2),
+        ("relator", 4, 8),
+        ("comissao", 4, 8),
+        ("parecer", 5, 10),
+        ("substitutivo", 3, 6),
+        ("pela aprovacao", 4, 4),
+        ("pela rejeicao", 4, 4),
+    ]
+    for token, weight, cap in indicators:
+        score += min(cap, base.count(token)) * weight
+    penalties: List[Tuple[str, int, int]] = [
+        ("autografo", 3, 5),
+        ("redacao final", 3, 5),
+        ("texto original", 2, 6),
+    ]
+    for token, weight, cap in penalties:
+        score -= min(cap, base.count(token)) * weight
+    return score
+
+
+def _score_inteiro_teor_candidate_name(path: Path) -> int:
+    key = _compact_match_key(path.stem)
+    score = 0
+    if "inteiroteor" in key:
+        score += 18
+    if "parecer" in key:
+        score -= 10
+    return score
+
+
+def _score_inteiro_teor_candidate_text(text: str) -> int:
+    base = _normalize_for_match(text)
+    if not base:
+        return 0
+    score = 0
+    positive: List[Tuple[str, int, int]] = [
+        ("projeto de lei", 6, 8),
+        ("camara dos deputados", 4, 6),
+        ("ementa", 4, 6),
+        ("art.", 1, 20),
+    ]
+    for token, weight, cap in positive:
+        score += min(cap, base.count(token)) * weight
+    negative: List[Tuple[str, int, int]] = [
+        ("parecer do relator", 8, 3),
+        ("voto do relator", 8, 3),
+        ("comissao", 2, 10),
+    ]
+    for token, weight, cap in negative:
+        score -= min(cap, base.count(token)) * weight
+    return score
+
+
+def _safe_extract_preview_for_scoring(path: Path, logger: Optional[logging.Logger]) -> str:
+    try:
+        if logger is not None:
+            raw = extract_pdf_text_with_progress(path, logger, stage_label="Score de referencia")
+        else:
+            raw = extract_pdf_text(path)
+        return normalize_multiline(raw)[:20000]
+    except Exception as exc:  # noqa: BLE001
+        if logger is not None:
+            logger.warning("Score de referencia sem texto para '%s': %s", path.name, normalize_ws(exc))
+        return ""
+
+
+def detect_parecer_path(all_pdfs: Sequence[Path], parecer_cli: str, logger: Optional[logging.Logger] = None) -> Path:
     if normalize_ws(parecer_cli):
         parecer_path = resolve_project_path(parecer_cli)
         if not parecer_path.exists() or not parecer_path.is_file():
@@ -568,21 +727,94 @@ def detect_parecer_path(all_pdfs: Sequence[Path], parecer_cli: str) -> Path:
             raise AppError(f"Parecer informado nao e PDF: {parecer_path}")
         return parecer_path
 
-    candidates = [path for path in all_pdfs if PARECER_FILENAME_RE.match(path.name)]
-    if len(candidates) == 1:
-        return candidates[0]
+    candidates_by_name = [path.resolve() for path in all_pdfs if _is_reference_name_candidate(path)]
+    if not candidates_by_name:
+        non_objects = [path.resolve() for path in all_pdfs if not _is_likely_object_pdf(path)]
+        candidates_by_name = non_objects
 
-    if not candidates:
+    if not candidates_by_name:
         raise AppError(
-            "Nao foi encontrado parecer no padrao 'inteiroTeor-<id>.pdf'. "
-            "Use --parecer-file para indicar explicitamente o arquivo de referencia."
+            "Nao foi possivel detectar automaticamente o parecer. "
+            "Informe --parecer-file com o PDF de referencia."
         )
 
-    candidate_names = ", ".join(path.name for path in candidates)
-    raise AppError(
-        "Mais de um parecer candidato foi encontrado. "
-        f"Candidatos: {candidate_names}. Use --parecer-file para escolher um unico parecer."
-    )
+    if logger is not None:
+        logger.info("Deteccao automatica de parecer | candidatos=%d", len(candidates_by_name))
+
+    scored: List[Tuple[int, int, str, Path]] = []
+    for idx, path in enumerate(candidates_by_name, start=1):
+        if logger is not None:
+            logger.info("Deteccao de parecer | candidato %d/%d | arquivo=%s", idx, len(candidates_by_name), path.name)
+        score = _score_parecer_candidate_name(path)
+        preview = _safe_extract_preview_for_scoring(path, logger)
+        if preview:
+            score += _score_parecer_candidate_text(preview)
+        number_hint = _extract_last_number_from_name(path)
+        # Em empate, prioriza menor id numerico (geralmente parecer principal no pacote baixado).
+        tie_number = number_hint if number_hint >= 0 else 10**12
+        scored.append((score, -tie_number, path.name.casefold(), path))
+
+    scored.sort(reverse=True)
+    if logger is not None and logger.isEnabledFor(logging.DEBUG):
+        logger.debug(
+            "Ranking de parecer: %s",
+            " | ".join(f"{item[3].name}=>{item[0]}" for item in scored[:6]),
+        )
+    if logger is not None:
+        logger.info("Parecer detectado automaticamente: %s", scored[0][3].name)
+    return scored[0][3]
+
+
+def detect_inteiro_teor_path(
+    all_pdfs: Sequence[Path],
+    *,
+    parecer_path: Path,
+    inteiro_teor_cli: str,
+    logger: Optional[logging.Logger] = None,
+) -> Optional[Path]:
+    if normalize_ws(inteiro_teor_cli):
+        inteiro_path = resolve_project_path(inteiro_teor_cli)
+        if not inteiro_path.exists() or not inteiro_path.is_file():
+            raise AppError(f"Inteiro teor informado em --inteiro-teor-file nao existe: {inteiro_path}")
+        if inteiro_path.suffix.lower() != ".pdf":
+            raise AppError(f"Inteiro teor informado nao e PDF: {inteiro_path}")
+        return inteiro_path.resolve()
+
+    candidates = [
+        path.resolve()
+        for path in all_pdfs
+        if path.resolve() != parecer_path.resolve() and _is_reference_name_candidate(path)
+    ]
+    if not candidates:
+        candidates = [path.resolve() for path in all_pdfs if path.resolve() != parecer_path.resolve() and not _is_likely_object_pdf(path)]
+    if not candidates:
+        return None
+
+    if logger is not None:
+        logger.info("Deteccao automatica de inteiro teor complementar | candidatos=%d", len(candidates))
+
+    scored: List[Tuple[int, int, str, Path]] = []
+    for idx, path in enumerate(candidates, start=1):
+        if logger is not None:
+            logger.info("Deteccao de inteiro teor | candidato %d/%d | arquivo=%s", idx, len(candidates), path.name)
+        score = _score_inteiro_teor_candidate_name(path)
+        preview = _safe_extract_preview_for_scoring(path, logger)
+        if preview:
+            score += _score_inteiro_teor_candidate_text(preview)
+        number_hint = _extract_last_number_from_name(path)
+        # Em empate, prioriza maior id numerico para insumo complementar de inteiro teor.
+        tie_number = number_hint if number_hint >= 0 else -1
+        scored.append((score, tie_number, path.name.casefold(), path))
+
+    scored.sort(reverse=True)
+    if logger is not None and logger.isEnabledFor(logging.DEBUG):
+        logger.debug(
+            "Ranking de inteiro teor complementar: %s",
+            " | ".join(f"{item[3].name}=>{item[0]}" for item in scored[:6]),
+        )
+    if logger is not None:
+        logger.info("Inteiro teor complementar detectado automaticamente: %s", scored[0][3].name)
+    return scored[0][3]
 
 
 def parse_openai_message_content(content_obj: Any) -> str:
@@ -708,6 +940,46 @@ def start_openai_wait_heartbeat(
     )
     thread.start()
     return stop_event, thread, started_at
+
+
+def start_local_wait_heartbeat(
+    logger: logging.Logger,
+    *,
+    label: str,
+    interval_s: float = LOCAL_WAIT_HEARTBEAT_INTERVAL_S,
+) -> Tuple[threading.Event, Optional[threading.Thread], float]:
+    started_at = time.monotonic()
+    stop_event = threading.Event()
+    if interval_s <= 0:
+        return stop_event, None, started_at
+
+    def _heartbeat() -> None:
+        while not stop_event.wait(interval_s):
+            elapsed = time.monotonic() - started_at
+            logger.info("LOCAL_WAIT | %s | em andamento ha %.1fs", label, elapsed)
+
+    thread = threading.Thread(
+        target=_heartbeat,
+        name=f"local-heartbeat-{int(started_at)}",
+        daemon=True,
+    )
+    thread.start()
+    return stop_event, thread, started_at
+
+
+def extract_pdf_text_with_progress(path: Path, logger: logging.Logger, *, stage_label: str) -> str:
+    label = f"{stage_label} ({path.name})"
+    logger.info("PDF_EXTRACT_START | %s", label)
+    stop_event, hb_thread, started_at = start_local_wait_heartbeat(logger, label=label)
+    try:
+        raw = extract_pdf_text(path)
+    finally:
+        stop_event.set()
+        if hb_thread is not None:
+            hb_thread.join(timeout=0.2)
+    elapsed = max(0.0, time.monotonic() - started_at)
+    logger.info("PDF_EXTRACT_DONE | %s | elapsed=%.2fs | chars=%d", label, elapsed, len(str(raw or "")))
+    return raw
 
 
 def openai_json_request_with_model(
@@ -1116,6 +1388,50 @@ PARECER (texto integral):
     ]
 
 
+def build_inteiro_teor_messages(inteiro_teor_text: str) -> List[Dict[str, str]]:
+    prompt = f"""
+Resumo-base do inteiro teor:
+- Produza um unico paragrafo curto e objetivo (5 a 8 linhas).
+- Foque no conteudo normativo central, alcance pratico e pontos sensiveis para analise de emendas.
+- Nao use citacoes literais, aspas, bullet points ou numeracao.
+- Retorne apenas JSON valido conforme schema.
+
+INTEIRO TEOR (texto integral):
+---
+{inteiro_teor_text}
+---
+""".strip()
+    return [
+        {
+            "role": "system",
+            "content": (
+                "Voce e um analista legislativo. Responda somente com JSON valido. "
+                "Nao inclua explicacoes fora do JSON."
+            ),
+        },
+        {"role": "user", "content": prompt},
+    ]
+
+
+def merge_reference_context(parecer_summary: str, inteiro_teor_summary: str) -> str:
+    parts: List[str] = []
+    parecer_clean = normalize_multiline(parecer_summary)
+    inteiro_clean = normalize_multiline(inteiro_teor_summary)
+
+    if parecer_clean:
+        parts.append(f"[Resumo do parecer]\n{parecer_clean}")
+
+    if inteiro_clean:
+        same = normalize_ws(inteiro_clean).casefold() == normalize_ws(parecer_clean).casefold()
+        if not same:
+            parts.append(f"[Resumo do inteiro teor]\n{inteiro_clean}")
+
+    merged = "\n\n".join(part for part in parts if part).strip()
+    if len(merged) > MAX_REFERENCE_CONTEXT_CHARS:
+        merged = merged[:MAX_REFERENCE_CONTEXT_CHARS].rstrip()
+    return merged
+
+
 def build_item_messages(
     doc: InputDoc,
     doc_text: str,
@@ -1146,17 +1462,14 @@ INSUMOS DISPONIVEIS NESTA CHAMADA
 4. Link de tramitacao da proposicao principal: {tramitacao_txt}
 
 INSTRUCOES
-1. Foco exclusivo no texto normativo. Explique o que a emenda pretende alterar ou incluir
-na proposicao principal. Nao explique justificacao da emenda.
-2. Resolva as remissoes. Se houver remissao a leis/dispositivos, localize o teor no
-material fornecido e, quando necessario, use referencia legislativa consolidada em
-planalto.gov.br/legislacao para tornar o texto autocontido.
-3. Formato: no maximo dois paragrafos, em prosa corrida. O primeiro paragrafo DEVE iniciar
-exatamente com "{identificacao}".
+1. Foco exclusivo no texto normativo. Explique o que a emenda pretende alterar ou incluir na proposicao principal. Nao explique justificacao da emenda.
+2. Resolva as remissoes. Se houver remissao a leis/dispositivos, localize o teor e, quando necessario, use referencia legislativa consolidada em planalto.gov.br/legislacao para tornar o texto autocontido.
+3. Formato: no maximo dois paragrafos, em prosa corrida. O primeiro paragrafo DEVE iniciar exatamente com "{identificacao}".
 4. Tom profissional e direto, acessivel a parlamentares.
 5. Pense passo a passo internamente antes de redigir (sem expor raciocinio).
 6. Evite estruturas introdutorias dispensaveis apos a identificacao (ex.: "A Emenda ... ao Projeto de Lei ...").
 7. Nao use marcadores editoriais entre colchetes, como [suprime], [substitui], [condiciona].
+8. Exponha claramente as ideias evitando oracoes complexas.
 
 Contexto da proposicao principal:
 ---
@@ -1203,17 +1516,14 @@ INSUMOS DISPONIVEIS NESTA CHAMADA
 3. Link da ficha de tramitacao: {tramitacao_txt}
 
 INSTRUCOES
-1. Foco exclusivo no texto normativo. Explique o que o DVS pretende suprimir ou destacar
-na proposicao principal. Nao explique justificacao ou objetivo politico.
-2. Resolva as remissoes. Se o dispositivo mencionar outras leis ou artigos do proprio projeto,
-localize o teor no material fornecido e, quando necessario, use referencia legislativa consolidada
-no portal planalto.gov.br/legislacao. Torne a explicacao autocontida.
-3. Formato: no maximo dois paragrafos, em prosa corrida. O primeiro paragrafo DEVE iniciar
-exatamente com "{identificacao}".
-4. Tom: profissional e direto, acessivel a parlamentares, sem jargoes desnecessarios.
+1. Foco exclusivo no texto normativo. Explique o que a emenda pretende alterar ou incluir na proposicao principal. Nao explique justificacao da emenda.
+2. Resolva as remissoes. Se houver remissao a leis/dispositivos, localize o teor e, quando necessario, use referencia legislativa consolidada em planalto.gov.br/legislacao para tornar o texto autocontido.
+3. Formato: no maximo dois paragrafos, em prosa corrida. O primeiro paragrafo DEVE iniciar exatamente com "{identificacao}".
+4. Tom profissional e direto, acessivel a parlamentares.
 5. Pense passo a passo internamente antes de redigir (sem expor raciocinio).
-6. Evite estruturas introdutorias dispensaveis apos a identificacao (ex.: "trata da votacao em separado do...").
+6. Evite estruturas introdutorias dispensaveis apos a identificacao (ex.: "A Emenda ... ao Projeto de Lei ...").
 7. Nao use marcadores editoriais entre colchetes, como [suprime], [substitui], [condiciona].
+8. Exponha claramente as ideias evitando oracoes complexas.
 
 Contexto da proposicao principal:
 ---
@@ -1294,14 +1604,14 @@ def build_item_messages_compact(
 Explique o destaque de emenda em no maximo dois paragrafos, com foco exclusivo no texto normativo.
 
 Regras obrigatorias:
-- Nao explique justificacao da emenda.
-- Explique o que a emenda vinculada pretende alterar/incluir na proposicao principal.
-- Resolva remissoes a leis/dispositivos usando o material disponivel e, se preciso,
-  referencia consolidada em planalto.gov.br/legislacao.
-- O primeiro paragrafo DEVE iniciar com "{identificacao}".
-- Pense passo a passo internamente (sem expor o raciocinio).
-- Evite estruturas introdutorias dispensaveis apos a identificacao.
-- Nao use marcadores editoriais entre colchetes, como [suprime], [substitui], [condiciona].
+1. Foco exclusivo no texto normativo. Explique o que a emenda pretende alterar ou incluir na proposicao principal. Nao explique justificacao da emenda.
+2. Resolva as remissoes. Se houver remissao a leis/dispositivos, localize o teor e, quando necessario, use referencia legislativa consolidada em planalto.gov.br/legislacao para tornar o texto autocontido.
+3. Formato: no maximo dois paragrafos, em prosa corrida. O primeiro paragrafo DEVE iniciar exatamente com "{identificacao}".
+4. Tom profissional e direto, acessivel a parlamentares.
+5. Pense passo a passo internamente antes de redigir (sem expor raciocinio).
+6. Evite estruturas introdutorias dispensaveis apos a identificacao (ex.: "A Emenda ... ao Projeto de Lei ...").
+7. Nao use marcadores editoriais entre colchetes, como [suprime], [substitui], [condiciona].
+8. Exponha claramente as ideias evitando oracoes complexas.
 
 Contexto da proposicao principal (resumo):
 {context_short}
@@ -1333,14 +1643,14 @@ Retorne somente JSON valido no schema.
 Explique o DVS em no maximo dois paragrafos, com foco exclusivo no texto normativo.
 
 Regras obrigatorias:
-- Nao explique justificacao nem objetivo politico.
-- Resolva remissoes a leis/dispositivos usando o material disponivel e, se preciso,
-  referencia consolidada em planalto.gov.br/legislacao.
-- O primeiro paragrafo DEVE iniciar com "{identificacao}".
-- O texto deve descrever o objeto do DVS e o efeito normativo da supressao/votacao em separado.
-- Pense passo a passo internamente (sem expor o raciocinio).
-- Evite estruturas introdutorias dispensaveis apos a identificacao.
-- Nao use marcadores editoriais entre colchetes, como [suprime], [substitui], [condiciona].
+1. Foco exclusivo no texto normativo. Explique o que a emenda pretende alterar ou incluir na proposicao principal. Nao explique justificacao da emenda.
+2. Resolva as remissoes. Se houver remissao a leis/dispositivos, localize o teor e, quando necessario, use referencia legislativa consolidada em planalto.gov.br/legislacao para tornar o texto autocontido.
+3. Formato: no maximo dois paragrafos, em prosa corrida. O primeiro paragrafo DEVE iniciar exatamente com "{identificacao}".
+4. Tom profissional e direto, acessivel a parlamentares.
+5. Pense passo a passo internamente antes de redigir (sem expor raciocinio).
+6. Evite estruturas introdutorias dispensaveis apos a identificacao (ex.: "A Emenda ... ao Projeto de Lei ...").
+7. Nao use marcadores editoriais entre colchetes, como [suprime], [substitui], [condiciona].
+8. Exponha claramente as ideias evitando oracoes complexas.
 
 Contexto da proposicao principal (resumo):
 {context_short}
@@ -1812,6 +2122,39 @@ def summarize_parecer(
     return summary, used_model
 
 
+def summarize_inteiro_teor(
+    client: Any,
+    *,
+    inteiro_teor_doc: InputDoc,
+    inteiro_teor_text: str,
+    args: argparse.Namespace,
+    logger: logging.Logger,
+    pacer: Optional[RequestPacer],
+    telemetry: Optional[BatchTelemetry],
+) -> Tuple[str, str]:
+    messages = build_inteiro_teor_messages(inteiro_teor_text)
+    payload, used_model, _ = openai_json_request(
+        client,
+        messages=messages,
+        schema=INTEIRO_TEOR_SCHEMA,
+        schema_name="inteiro_teor_contexto",
+        primary_model=args.openai_model,
+        fallback_model=args.fallback_model,
+        timeout_s=args.openai_timeout,
+        retries=args.openai_retries,
+        max_completion_tokens=320,
+        logger=logger,
+        request_label=f"OpenAI resumo do inteiro teor ({inteiro_teor_doc.name})",
+        pacer=pacer,
+        telemetry=telemetry,
+    )
+
+    summary = normalize_ws(payload.get("inteiro_teor_resumo", ""))
+    if not summary:
+        raise AppError("Resumo do inteiro teor retornou vazio.")
+    return summary, used_model
+
+
 def summarize_single_doc(
     client: Any,
     *,
@@ -2050,6 +2393,47 @@ def checkpoint_path_for_output(output_docx_path: Path) -> Path:
     return output_docx_path.parent / ".relatorio_objetos_alteradores.openai.checkpoint.json"
 
 
+def _strip_object_label_prefix(file_name: str, object_label: str) -> str:
+    source = normalize_ws(file_name)
+    label = normalize_ws(object_label)
+    if not source or not label:
+        return source
+
+    # Caso direto: arquivo coincide com o rotulo do objeto.
+    if _compact_match_key(source) == _compact_match_key(label):
+        return ""
+
+    patterns: List[str] = [
+        rf"^\s*{re.escape(label)}\s*[-_:=/\\\s]*",
+    ]
+    tokens = re.findall(r"[A-Za-z0-9]+", label)
+    if len(tokens) >= 2:
+        relaxed = r"^\s*" + r"\W*".join(re.escape(token) for token in tokens) + r"\W*"
+        patterns.append(relaxed)
+
+    for pattern in patterns:
+        stripped = re.sub(pattern, "", source, count=1, flags=re.IGNORECASE).strip()
+        if stripped and stripped != source:
+            return stripped
+    return source
+
+
+def _build_doc_item_title(item: SummaryItem) -> str:
+    obj = normalize_ws(item.objeto_alterador)
+    fname = normalize_ws(item.file_name)
+    if not obj:
+        return fname
+    if not fname:
+        return obj
+
+    tail = _strip_object_label_prefix(fname, obj)
+    if not tail:
+        return obj
+    if tail != fname:
+        return f"{obj} - {tail}"
+    return f"{obj} - {fname}"
+
+
 def write_docx_report(
     output_path: Path,
     *,
@@ -2058,6 +2442,7 @@ def write_docx_report(
 ) -> None:
     try:
         from docx import Document  # type: ignore
+        from docx.enum.text import WD_ALIGN_PARAGRAPH  # type: ignore
     except Exception as exc:
         raise AppError(
             "python-docx nao encontrado. Instale com: python -m pip install python-docx"
@@ -2070,12 +2455,16 @@ def write_docx_report(
 
     for item in items:
         header = doc.add_paragraph(style="List Number")
-        title = f"{item.objeto_alterador} - {item.file_name}"
+        title = _build_doc_item_title(item)
         run = header.add_run(title)
         run.bold = True
 
         doc.add_paragraph(item.paragrafo_1)
         doc.add_paragraph(item.paragrafo_2)
+
+    # Garante que todo o texto de saida no Word fique justificado.
+    for paragraph in doc.paragraphs:
+        paragraph.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     doc.save(str(output_path))
@@ -2113,10 +2502,14 @@ def build_checkpoint_payload(
     output_docx_path: Path,
     manifest: Sequence[Dict[str, Any]],
     parecer_path: Path,
+    inteiro_teor_path: Optional[Path],
     target_docs: Sequence[InputDoc],
     args: argparse.Namespace,
     parecer_summary: str,
     parecer_model_used: str,
+    inteiro_teor_summary: str,
+    inteiro_teor_model_used: str,
+    reference_context_summary: str,
     results_by_path: Dict[str, SummaryItem],
 ) -> Dict[str, Any]:
     target_paths = [doc.path for doc in target_docs]
@@ -2139,6 +2532,10 @@ def build_checkpoint_payload(
         "parecer_file": str(parecer_path.resolve()),
         "parecer_summary": str(parecer_summary or ""),
         "parecer_model_used": str(parecer_model_used or ""),
+        "inteiro_teor_file": str(inteiro_teor_path.resolve()) if inteiro_teor_path is not None else "",
+        "inteiro_teor_summary": str(inteiro_teor_summary or ""),
+        "inteiro_teor_model_used": str(inteiro_teor_model_used or ""),
+        "reference_context_summary": str(reference_context_summary or ""),
         "input_manifest": list(manifest),
         "target_paths": list(target_paths),
         "total_targets": len(target_paths),
@@ -2153,6 +2550,7 @@ def checkpoint_is_compatible(
     *,
     manifest: Sequence[Dict[str, Any]],
     parecer_path: Path,
+    inteiro_teor_path: Optional[Path],
     target_docs: Sequence[InputDoc],
     args: argparse.Namespace,
 ) -> bool:
@@ -2161,6 +2559,10 @@ def checkpoint_is_compatible(
     if int(checkpoint.get("prompt_version", 0) or 0) != PROMPT_VERSION:
         return False
     if str(checkpoint.get("parecer_file", "")) != str(parecer_path.resolve()):
+        return False
+    cp_inteiro_teor = str(checkpoint.get("inteiro_teor_file", "") or "")
+    current_inteiro_teor = str(inteiro_teor_path.resolve()) if inteiro_teor_path is not None else ""
+    if cp_inteiro_teor != current_inteiro_teor:
         return False
     if list(checkpoint.get("input_manifest", [])) != list(manifest):
         return False
@@ -2224,6 +2626,14 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--input-files", nargs="*", default=[], help="Arquivos PDF especificos.")
     parser.add_argument("--input-dirs", nargs="*", default=[], help="Pastas para buscar PDFs.")
     parser.add_argument("--parecer-file", default="", help="PDF de parecer de referencia.")
+    parser.add_argument(
+        "--inteiro-teor-file",
+        default="",
+        help=(
+            "PDF de inteiro teor complementar para enriquecer o contexto. "
+            "Se omitido, o script tenta detectar automaticamente entre os PDFs de referencia."
+        ),
+    )
     parser.add_argument("--output-dir", default=str(SCRIPT_DIR), help="Pasta de saida para o DOCX.")
     parser.add_argument("--output-docx", default="", help="Nome/caminho do DOCX de saida.")
 
@@ -2314,11 +2724,37 @@ def run(args: argparse.Namespace, logger: logging.Logger) -> int:
         report.input_files = [str(path.resolve()) for path in discovered]
         logger.info("PDFs detectados: %d", len(discovered))
 
-        parecer_path = detect_parecer_path(discovered, args.parecer_file)
+        parecer_path = detect_parecer_path(discovered, args.parecer_file, logger=logger)
         parecer_doc = build_input_doc(parecer_path, kind="parecer")
         report.parecer_file = parecer_doc.path
+        if not normalize_ws(args.parecer_file):
+            parecer_candidates = [path for path in discovered if _is_reference_name_candidate(path)]
+            if len(parecer_candidates) > 1:
+                logger.info(
+                    "Multiplos PDFs de referencia detectados. Parecer principal selecionado automaticamente: %s",
+                    parecer_path.name,
+                )
+        inteiro_teor_path = detect_inteiro_teor_path(
+            discovered,
+            parecer_path=parecer_path,
+            inteiro_teor_cli=str(getattr(args, "inteiro_teor_file", "") or ""),
+            logger=logger,
+        )
+        if inteiro_teor_path is not None:
+            report.inteiro_teor_file = str(inteiro_teor_path.resolve())
+            logger.info("Insumo adicional de inteiro teor habilitado: %s", inteiro_teor_path.name)
+            report.notes.append(f"inteiro_teor_insumo: {inteiro_teor_path.name}")
+        else:
+            logger.info("Insumo adicional de inteiro teor nao encontrado; fluxo segue com parecer.")
 
-        targets: List[Path] = [path for path in discovered if path.resolve() != parecer_path.resolve()]
+        targets: List[Path] = []
+        for path in discovered:
+            resolved = path.resolve()
+            if resolved == parecer_path.resolve():
+                continue
+            if inteiro_teor_path is not None and resolved == inteiro_teor_path.resolve():
+                continue
+            targets.append(resolved)
         if not targets:
             raise AppError("Nenhum PDF de objeto alterador foi encontrado apos excluir o parecer.")
 
@@ -2341,7 +2777,10 @@ def run(args: argparse.Namespace, logger: logging.Logger) -> int:
         report.notes.append("style_guard: filtros de estruturas dispensaveis e marcadores editoriais ativados")
         logger.info("Guardrail de estilo ativo: estruturas dispensaveis serao removidas e sinalizadas com ADVERTENCIA_ESTILO.")
 
-        manifest_paths = [parecer_path] + targets
+        manifest_paths = [parecer_path]
+        if inteiro_teor_path is not None and inteiro_teor_path.resolve() != parecer_path.resolve():
+            manifest_paths.append(inteiro_teor_path)
+        manifest_paths.extend(targets)
         manifest = build_manifest(manifest_paths)
 
         checkpoint_raw = read_json_dict(checkpoint_path)
@@ -2351,6 +2790,7 @@ def run(args: argparse.Namespace, logger: logging.Logger) -> int:
                 checkpoint_raw,
                 manifest=manifest,
                 parecer_path=parecer_path,
+                inteiro_teor_path=inteiro_teor_path,
                 target_docs=target_docs,
                 args=args,
             )
@@ -2378,6 +2818,9 @@ def run(args: argparse.Namespace, logger: logging.Logger) -> int:
         results_by_path: Dict[str, SummaryItem] = {}
         parecer_summary = ""
         parecer_model_used = ""
+        inteiro_teor_summary = ""
+        inteiro_teor_model_used = ""
+        reference_context_summary = ""
 
         if checkpoint_raw and checkpoint_compatible:
             report.resumed_from_checkpoint = True
@@ -2385,6 +2828,11 @@ def run(args: argparse.Namespace, logger: logging.Logger) -> int:
             results_by_path = load_checkpoint_results(checkpoint_raw, target_docs=target_docs)
             parecer_summary = str(checkpoint_raw.get("parecer_summary", "") or "")
             parecer_model_used = str(checkpoint_raw.get("parecer_model_used", "") or "")
+            inteiro_teor_summary = str(checkpoint_raw.get("inteiro_teor_summary", "") or "")
+            inteiro_teor_model_used = str(checkpoint_raw.get("inteiro_teor_model_used", "") or "")
+            reference_context_summary = str(checkpoint_raw.get("reference_context_summary", "") or "")
+            if not normalize_ws(reference_context_summary):
+                reference_context_summary = merge_reference_context(parecer_summary, inteiro_teor_summary)
             done_ok = sum(1 for doc in target_docs if (results_by_path.get(doc.path) and results_by_path[doc.path].status == "ok"))
             logger.info("[resume] checkpoint carregado: %d/%d itens ja concluidos.", done_ok, len(target_docs))
 
@@ -2394,10 +2842,14 @@ def run(args: argparse.Namespace, logger: logging.Logger) -> int:
             output_docx_path=output_docx_path,
             manifest=manifest,
             parecer_path=parecer_path,
+            inteiro_teor_path=inteiro_teor_path,
             target_docs=target_docs,
             args=args,
             parecer_summary=parecer_summary,
             parecer_model_used=parecer_model_used,
+            inteiro_teor_summary=inteiro_teor_summary,
+            inteiro_teor_model_used=inteiro_teor_model_used,
+            reference_context_summary=reference_context_summary,
             results_by_path=results_by_path,
         )
         write_checkpoint(checkpoint_path, checkpoint_payload)
@@ -2417,7 +2869,11 @@ def run(args: argparse.Namespace, logger: logging.Logger) -> int:
 
         if not normalize_ws(parecer_summary):
             logger.info("Extraindo texto do parecer: %s", parecer_doc.name)
-            parecer_text_raw = extract_pdf_text(Path(parecer_doc.path))
+            parecer_text_raw = extract_pdf_text_with_progress(
+                Path(parecer_doc.path),
+                logger,
+                stage_label="Extracao do parecer",
+            )
             parecer_text = normalize_multiline(parecer_text_raw)
             if not normalize_ws(parecer_text):
                 raise AppError(f"Texto do parecer esta vazio/ilegivel: {parecer_doc.name}")
@@ -2435,19 +2891,69 @@ def run(args: argparse.Namespace, logger: logging.Logger) -> int:
             )
             report.notes.append(f"Modelo usado no resumo do parecer: {parecer_model_used}")
 
-            checkpoint_payload = build_checkpoint_payload(
-                status="running",
-                checkpoint_created_at=checkpoint_created_at,
-                output_docx_path=output_docx_path,
-                manifest=manifest,
-                parecer_path=parecer_path,
-                target_docs=target_docs,
-                args=args,
-                parecer_summary=parecer_summary,
-                parecer_model_used=parecer_model_used,
-                results_by_path=results_by_path,
+        if inteiro_teor_path is not None:
+            if inteiro_teor_path.resolve() == parecer_path.resolve():
+                if not normalize_ws(inteiro_teor_summary):
+                    inteiro_teor_summary = parecer_summary
+                    inteiro_teor_model_used = parecer_model_used
+                logger.info("Insumo inteiro teor coincide com parecer; reutilizando resumo do parecer.")
+            elif not normalize_ws(inteiro_teor_summary):
+                inteiro_doc = build_input_doc(inteiro_teor_path, kind="inteiro_teor")
+                logger.info("Extraindo texto do inteiro teor complementar: %s", inteiro_doc.name)
+                inteiro_text_raw = extract_pdf_text_with_progress(
+                    Path(inteiro_doc.path),
+                    logger,
+                    stage_label="Extracao do inteiro teor complementar",
+                )
+                inteiro_text = normalize_multiline(inteiro_text_raw)
+                if normalize_ws(inteiro_text):
+                    logger.info("Gerando resumo do inteiro teor via OpenAI...")
+                    inteiro_client = OpenAI(api_key=openai_key, max_retries=0)
+                    inteiro_teor_summary, inteiro_teor_model_used = summarize_inteiro_teor(
+                        inteiro_client,
+                        inteiro_teor_doc=inteiro_doc,
+                        inteiro_teor_text=inteiro_text,
+                        args=args,
+                        logger=logger,
+                        pacer=pacer,
+                        telemetry=None,
+                    )
+                    report.notes.append(
+                        f"Modelo usado no resumo do inteiro teor: {inteiro_teor_model_used or parecer_model_used}"
+                    )
+                else:
+                    logger.warning(
+                        "Texto do inteiro teor complementar vazio/ilegivel: %s. Insumo complementar sera ignorado.",
+                        inteiro_doc.name,
+                    )
+
+        reference_context_summary = merge_reference_context(parecer_summary, inteiro_teor_summary)
+        if normalize_ws(reference_context_summary):
+            logger.info(
+                "Contexto de referencia consolidado | chars=%d | possui_inteiro_teor=%s",
+                len(reference_context_summary),
+                "sim" if normalize_ws(inteiro_teor_summary) else "nao",
             )
-            write_checkpoint(checkpoint_path, checkpoint_payload)
+        else:
+            logger.warning("Contexto de referencia consolidado ficou vazio; processamento seguira apenas com texto dos objetos.")
+
+        checkpoint_payload = build_checkpoint_payload(
+            status="running",
+            checkpoint_created_at=checkpoint_created_at,
+            output_docx_path=output_docx_path,
+            manifest=manifest,
+            parecer_path=parecer_path,
+            inteiro_teor_path=inteiro_teor_path,
+            target_docs=target_docs,
+            args=args,
+            parecer_summary=parecer_summary,
+            parecer_model_used=parecer_model_used,
+            inteiro_teor_summary=inteiro_teor_summary,
+            inteiro_teor_model_used=inteiro_teor_model_used,
+            reference_context_summary=reference_context_summary,
+            results_by_path=results_by_path,
+        )
+        write_checkpoint(checkpoint_path, checkpoint_payload)
 
         pending_docs = [
             doc
@@ -2470,7 +2976,11 @@ def run(args: argparse.Namespace, logger: logging.Logger) -> int:
             logger.info("DOC_START | arquivo=%s", doc.name)
             client = OpenAI(api_key=openai_key, max_retries=0)
             try:
-                doc_text_raw = extract_pdf_text(Path(doc.path))
+                doc_text_raw = extract_pdf_text_with_progress(
+                    Path(doc.path),
+                    logger,
+                    stage_label="Extracao do objeto",
+                )
                 doc_text = normalize_multiline(doc_text_raw)
                 if not normalize_ws(doc_text):
                     raise AppError(f"Texto vazio/ilegivel no arquivo {doc.name}")
@@ -2478,7 +2988,7 @@ def run(args: argparse.Namespace, logger: logging.Logger) -> int:
                     client,
                     doc=doc,
                     doc_text=doc_text,
-                    parecer_summary=parecer_summary,
+                    parecer_summary=reference_context_summary,
                     args=args,
                     logger=logger,
                     pacer=pacer,
@@ -2558,10 +3068,14 @@ def run(args: argparse.Namespace, logger: logging.Logger) -> int:
                             output_docx_path=output_docx_path,
                             manifest=manifest,
                             parecer_path=parecer_path,
+                            inteiro_teor_path=inteiro_teor_path,
                             target_docs=target_docs,
                             args=args,
                             parecer_summary=parecer_summary,
                             parecer_model_used=parecer_model_used,
+                            inteiro_teor_summary=inteiro_teor_summary,
+                            inteiro_teor_model_used=inteiro_teor_model_used,
+                            reference_context_summary=reference_context_summary,
                             results_by_path=results_by_path,
                         )
                         write_checkpoint(checkpoint_path, checkpoint_payload)
@@ -2579,10 +3093,14 @@ def run(args: argparse.Namespace, logger: logging.Logger) -> int:
                     output_docx_path=output_docx_path,
                     manifest=manifest,
                     parecer_path=parecer_path,
+                    inteiro_teor_path=inteiro_teor_path,
                     target_docs=target_docs,
                     args=args,
                     parecer_summary=parecer_summary,
                     parecer_model_used=parecer_model_used,
+                    inteiro_teor_summary=inteiro_teor_summary,
+                    inteiro_teor_model_used=inteiro_teor_model_used,
+                    reference_context_summary=reference_context_summary,
                     results_by_path=results_by_path,
                 )
                 write_checkpoint(checkpoint_path, checkpoint_payload)
@@ -2663,10 +3181,14 @@ def run(args: argparse.Namespace, logger: logging.Logger) -> int:
             output_docx_path=output_docx_path,
             manifest=manifest,
             parecer_path=parecer_path,
+            inteiro_teor_path=inteiro_teor_path,
             target_docs=target_docs,
             args=args,
             parecer_summary=parecer_summary,
             parecer_model_used=parecer_model_used,
+            inteiro_teor_summary=inteiro_teor_summary,
+            inteiro_teor_model_used=inteiro_teor_model_used,
+            reference_context_summary=reference_context_summary,
             results_by_path=results_by_path,
         )
         write_checkpoint(checkpoint_path, checkpoint_payload)
@@ -2689,6 +3211,13 @@ def run(args: argparse.Namespace, logger: logging.Logger) -> int:
         logger.info("Execucao concluida com sucesso total. Itens no DOCX: %d", len(successful_items))
         return 0
 
+    except KeyboardInterrupt:
+        report.status = "interrupted"
+        report.finished_at = utc_now_iso()
+        report.errors.append("Execucao interrompida manualmente pelo usuario.")
+        write_report(report)
+        logger.warning("Execucao interrompida manualmente pelo usuario.")
+        return 130
     except Exception as exc:  # noqa: BLE001
         msg = normalize_ws(str(exc)) or "erro desconhecido"
         report.status = "failed"
