@@ -1,0 +1,17 @@
+{
+  "script": "SJUR_csv_to_csv_NOTIONfriendly.py",
+  "input_csv": "/mnt/c/Users/mauri/ProjetoConversor/DJe - 2ª semana de FEV_26_a_tratar_3.csv",
+  "output_csv": "/mnt/c/Users/mauri/ProjetoConversor/DJe - 2ª semana de FEV_26_a_tratar_3_notion.csv",
+  "checkpoint_file": "/mnt/c/Users/mauri/ProjetoConversor/.DJe - 2ª semana de FEV_26_a_tratar_3_notion.openai.checkpoint.json",
+  "status": "completed",
+  "stage": "final",
+  "rows_total": 96,
+  "tema_filled": 0,
+  "punchline_filled": 0,
+  "url_tse_filled": 0,
+  "url_tre_filled": 0,
+  "url_gerais_filled_total": 0,
+  "elapsed_seconds": 0.33,
+  "batch_stats": {},
+  "updated_at": "2026-03-01T17:07:47.216998+00:00"
+}

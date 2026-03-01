@@ -8,7 +8,7 @@ Fluxo:
 3. Monta contexto usando links Notion do proprio relatorio e fallback via data source.
 4. Reescreve blocos textuais com OpenAI (gpt-5.1), incluindo destaque de partidos.
 5. Atualiza os blocos no Notion preservando blocos nao textuais.
-6. Gera relatorio local em .notion_relatorio_updater.report.json.
+6. Gera relatorio local em .<nome_do_script>.report.json.
 """
 
 from __future__ import annotations
@@ -42,7 +42,9 @@ from openai_progress_utils import utc_now_iso, write_json_atomic
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-REPORT_FILE = SCRIPT_DIR / ".notion_relatorio_updater.report.json"
+SCRIPT_FILE = Path(__file__).name
+SCRIPT_STEM = Path(__file__).stem
+REPORT_FILE = SCRIPT_DIR / f".{SCRIPT_STEM}.report.json"
 DEFAULT_SOURCE_DATABASE_URL = (
     "https://www.notion.so/301721955c6480afaa2eedbdc7cd2aba?v=301721955c6481eb9d07000cfb23cbe5"
 )
@@ -135,7 +137,7 @@ DEFAULT_OPENAI_MAX_WORKERS = 2
 DEFAULT_NOTION_MIN_INTERVAL_S = 0.25
 
 
-LOGGER = logging.getLogger("NOTION_relatorio_updater_agent")
+LOGGER = logging.getLogger(SCRIPT_STEM)
 
 NOTION_CFG: Optional["NotionConfig"] = None
 OPENAI_CFG: Optional["OpenAIConfig"] = None
@@ -3099,7 +3101,7 @@ def _close_clients() -> None:
 def run_agent(config: RunConfig) -> int:
     started_at = time.time()
     report: Dict[str, Any] = {
-        "script": "NOTION_relatorio_updater_agent.py",
+        "script": SCRIPT_FILE,
         "started_at": utc_now_iso(),
         "status": "running",
         "page_url": config.page_url,
@@ -3473,7 +3475,7 @@ def main() -> int:
     args = parser.parse_args()
 
     logger = configure_standard_logging(
-        "NOTION_relatorio_updater_agent",
+        SCRIPT_STEM,
         verbose=bool(args.verbose),
         quiet=bool(args.quiet),
         debug=bool(args.debug),

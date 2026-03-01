@@ -22,6 +22,7 @@ import sys
 import time
 import threading
 import unicodedata
+from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from datetime import date
@@ -47,9 +48,11 @@ SPACE_RE = re.compile(r"\s+")
 HEADER_ALLOWED_RE = re.compile(r"[^0-9A-Za-z_]+")
 PARTES_SPLIT_RE = re.compile(r"[;,]")
 RELATOR_PREFIX_RE = re.compile(r"^\s*relator(?:\(a\)|a|o)?\s*[:.\-]?\s*", re.IGNORECASE)
-EXCLUDED_COLUMNS = {"numeroDecisao", "numeroProtocolo", "resuultado"}
+EXCLUDED_COLUMNS = {"numeroDecisao", "numeroProtocolo", "naturezaDocumento", "resuultado"}
+OUTPUT_HEADER_REMAP = {"relatores": "relator"}
 URL_COLUMNS = ["noticia_TSE", "noticia_TRE"] + [f"noticia_geral_{i}" for i in range(1, 10)]
 THEME_COLUMNS = ["tema", "punchline"]
+DEFAULT_PRESERVE_COLUMNS = [*THEME_COLUMNS, *URL_COLUMNS]
 ROW_PROGRESS_EVERY = 100
 DEFAULT_PERPLEXITY_KEY_FILE = "Chave_secreta_Perplexity.txt"
 DEFAULT_OPENAI_KEY_FILE = "CHAVE_SECRETA_API_Mauricio_local.txt"
@@ -62,6 +65,16 @@ OPENAI_DEFAULT_TARGET_RPM = 180
 CHECKPOINT_VERSION = 1
 LOGGER = logging.getLogger("SJUR_csv_to_csv_NOTIONfriendly")
 SCRIPT_DIR = Path(__file__).resolve().parent
+# CSVs de origem SJUR/DJe usam datas no padrao brasileiro (D/M/AAAA).
+CSV_INPUT_DATES_DAY_FIRST = True
+EXCLUDED_COLUMNS_NORMALIZED = {
+    re.sub(r"[_\s]+", "", name).casefold()
+    for name in (
+        *EXCLUDED_COLUMNS,
+        "natureza_documento",
+        "naturezadocumento",
+    )
+}
 
 CANONICAL_MINISTERS: list[tuple[str, tuple[str, ...]]] = [
     ("Min. Cármen Lúcia", ("carmen lucia",)),
@@ -81,13 +94,34 @@ COMPOSICAO_SEGMENT_RE = re.compile(
 ADVOGADOS_BLOCK_RE = re.compile(
     r"(?is)advogad(?:o|a|os|as)\s*:\s*(.*?)(?=(?:\b(?:advogad(?:o|a|os|as)|"
     r"recorrente|recorrido|recorrida|agravante|agravado|agravada|representante|"
-    r"relator(?:a)?|minist[eé]rio p[úu]blico eleitoral|decis[aã]o|ac[oó]rd[aã]o|"
-    r"composi[çc][aã]o)\b\s*:)|$)"
+    r"executad[oa]s?|interessad[oa]s?|impetrante|impetrado|requerente|requerid[oa]s?|"
+    r"relator(?:a)?|minist[eé]rio p[úu]blico(?: eleitoral| federal)?|"
+    r"procuradoria-?geral eleitoral|decis[aã]o|ac[oó]rd[aã]o|composi[çc][aã]o|ementa)\b\s*:|"
+    r"\b(?:decis[aã]o|ac[oó]rd[aã]o|ementa)\b|$))"
 )
 ADVOGADO_NOME_OAB_RE = re.compile(
     r"([A-ZÀ-ÖØ-Ý][A-Za-zÀ-ÖØ-öø-ÿ'`´^~.-]+(?:\s+[A-ZÀ-ÖØ-Ýa-zà-öø-ÿ'`´^~.-]+){1,}?)"
     r"\s*(?:[-–—]\s*)?OAB\b",
     re.UNICODE,
+)
+ADVOGADO_TRAILING_ROLE_RE = re.compile(
+    r"(?is)\b(?:recorrente|recorrid[oa]s?|agravant[ea]s?|agravad[oa]s?|representante|"
+    r"executad[oa]s?|interessad[oa]s?|impetrante|impetrado|requerente|requerid[oa]s?|"
+    r"minist[eé]rio p[úu]blico(?: eleitoral| federal)?|procuradoria-?geral eleitoral|"
+    r"decis[aã]o|ac[oó]rd[aã]o|ementa)\b.*$"
+)
+ADVOGADO_OUTROS_SUFFIX_RE = re.compile(r"(?is)\s+e\s+outr[oa]s?\b.*$")
+ADVOGADO_CANDIDATE_NAME_RE = re.compile(
+    r"([A-ZÀ-ÖØ-Ý][A-Za-zÀ-ÖØ-öø-ÿ'`´^~.-]+(?:\s+(?:"
+    r"[A-ZÀ-ÖØ-Ý][A-Za-zÀ-ÖØ-öø-ÿ'`´^~.-]+|da|de|do|das|dos|e|d[aeo])){1,10})"
+)
+ADVOGADO_BAD_PREFIX_RE = re.compile(
+    r"(?i)^(?:recorr|agrav|represent|executad|interessad|impetr|requer|decis|ac[oó]rd|ementa|"
+    r"minist[eé]rio|procuradoria)"
+)
+ADVOGADO_BAD_ENTITY_RE = re.compile(
+    r"(?i)\b(?:partido|coliga[cç][aã]o|minist[eé]rio|procuradoria|advocacia-?geral|"
+    r"uni[aã]o brasil|nacional|municipal)\b"
 )
 LEG_SPLIT_RE = re.compile(r"\s*,\s*(?=LEG\.\s*:)", re.IGNORECASE)
 LEGAL_ENTRY_RE = re.compile(
@@ -167,7 +201,7 @@ class WebLookupConfig:
 class TemaPunchlineConfig:
     enabled: bool = False
     api_key: str = ""
-    model: str = "gpt-5-mini"
+    model: str = "gpt-5.1"
     timeout_seconds: int = OPENAI_DEFAULT_TIMEOUT
     max_workers: int = OPENAI_DEFAULT_MAX_WORKERS
     batch_size: int = OPENAI_DEFAULT_BATCH_SIZE
@@ -213,6 +247,15 @@ def sanitize_header(name: str | None, used: set[str]) -> str:
 
     used.add(text)
     return text
+
+
+def remap_output_header(name: str) -> str:
+    return OUTPUT_HEADER_REMAP.get(name, name)
+
+
+def is_excluded_column(name: str) -> bool:
+    normalized = re.sub(r"[_\s]+", "", str(name or "")).casefold()
+    return normalized in EXCLUDED_COLUMNS_NORMALIZED
 
 
 def sanitize_cell(value: object, max_chars: int, replace_newlines: bool) -> tuple[str, bool]:
@@ -614,7 +657,7 @@ def build_lookup_payload(row: dict[str, str]) -> dict[str, str]:
         "data_decisao": row.get("dataDecisao") or "",
         "assuntos": row.get("assuntos") or "",
         "partes": row.get("partes") or "",
-        "relatores": row.get("relatores") or "",
+        "relator": row.get("relator") or row.get("relatores") or "",
         "texto_decisao": row.get("textoDecisao") or "",
         "texto_ementa": row.get("textoEmenta") or "",
         "sigla_uf": sigla_uf,
@@ -629,7 +672,7 @@ def gerar_prompt_tema_punchline(page_data: dict[str, str]) -> str:
     data_decisao = page_data.get("data_decisao", "")
     assuntos = page_data.get("assuntos", "")
     partes = page_data.get("partes", "")
-    relatores = page_data.get("relatores", "")
+    relator = page_data.get("relator", "")
     texto_ementa = page_data.get("texto_ementa", "")
     texto_decisao = page_data.get("texto_decisao", "")
     sigla_uf = page_data.get("sigla_uf", "")
@@ -644,7 +687,7 @@ numeroUnico: {numero_unico}
 dataDecisao: {data_decisao}
 assuntos: {assuntos}
 partes: {partes}
-relatores: {relatores}
+relator: {relator}
 siglaUF: {sigla_uf}
 nomeMunicipio: {nome_municipio}
 tribunal: {tribunal}
@@ -666,7 +709,7 @@ def gerar_prompt_tse(page_data: dict[str, str]) -> str:
     data_decisao = page_data.get("data_decisao", "")
     assuntos = page_data.get("assuntos", "")
     partes = page_data.get("partes", "")
-    relatores = page_data.get("relatores", "")
+    relator = page_data.get("relator", "")
     texto_decisao = page_data.get("texto_decisao", "")
     texto_ementa = page_data.get("texto_ementa", "")
     sigla_uf = page_data.get("sigla_uf", "")
@@ -679,7 +722,7 @@ numeroUnico: {numero_unico}
 dataDecisao: {data_decisao}
 assuntos: {assuntos}
 partes: {partes}
-relatores: {relatores}
+relator: {relator}
 textoDecisao: {texto_decisao}
 textoEmenta: {texto_ementa}
 siglaUF: {sigla_uf}
@@ -695,7 +738,7 @@ def gerar_prompt_tre(page_data: dict[str, str]) -> str:
     data_decisao = page_data.get("data_decisao", "")
     assuntos = page_data.get("assuntos", "")
     partes = page_data.get("partes", "")
-    relatores = page_data.get("relatores", "")
+    relator = page_data.get("relator", "")
     texto_decisao = page_data.get("texto_decisao", "")
     texto_ementa = page_data.get("texto_ementa", "")
     sigla_uf = page_data.get("sigla_uf", "")
@@ -708,7 +751,7 @@ numeroUnico: {numero_unico}
 dataDecisao: {data_decisao}
 assuntos: {assuntos}
 partes: {partes}
-relatores: {relatores}
+relator: {relator}
 textoDecisao: {texto_decisao}
 textoEmenta: {texto_ementa}
 siglaUF: {sigla_uf}
@@ -724,7 +767,7 @@ def gerar_prompt_gerais(page_data: dict[str, str]) -> str:
     data_decisao = page_data.get("data_decisao", "")
     assuntos = page_data.get("assuntos", "")
     partes = page_data.get("partes", "")
-    relatores = page_data.get("relatores", "")
+    relator = page_data.get("relator", "")
     texto_decisao = page_data.get("texto_decisao", "")
     texto_ementa = page_data.get("texto_ementa", "")
     sigla_uf = page_data.get("sigla_uf", "")
@@ -737,7 +780,7 @@ numeroUnico: {numero_unico}
 dataDecisao: {data_decisao}
 assuntos: {assuntos}
 partes: {partes}
-relatores: {relatores}
+relator: {relator}
 textoDecisao: {texto_decisao}
 textoEmenta: {texto_ementa}
 siglaUF: {sigla_uf}
@@ -758,7 +801,7 @@ def gerar_prompt_gerais_com_sites(page_data: dict[str, str]) -> str:
     data_decisao = page_data.get("data_decisao", "")
     assuntos = page_data.get("assuntos", "")
     partes = page_data.get("partes", "")
-    relatores = page_data.get("relatores", "")
+    relator = page_data.get("relator", "")
     texto_decisao = page_data.get("texto_decisao", "")
     texto_ementa = page_data.get("texto_ementa", "")
     sigla_uf = page_data.get("sigla_uf", "")
@@ -771,7 +814,7 @@ numeroUnico: {numero_unico}
 dataDecisao: {data_decisao}
 assuntos: {assuntos}
 partes: {partes}
-relatores: {relatores}
+relator: {relator}
 textoDecisao: {texto_decisao}
 textoEmenta: {texto_ementa}
 siglaUF: {sigla_uf}
@@ -1099,15 +1142,6 @@ def clean_relator_prefix(value: str) -> str:
     return cleaned
 
 
-def clean_natureza_documento(value: str) -> str:
-    if not value:
-        return ""
-    normalized = normalize_for_match(value)
-    if normalized == "sem anotacao":
-        return ""
-    return value
-
-
 def format_numero_unico_cnj(value: str) -> str:
     if not value:
         return ""
@@ -1118,6 +1152,15 @@ def format_numero_unico_cnj(value: str) -> str:
         f"{digits[0:7]}-{digits[7:9]}.{digits[9:13]}."
         f"{digits[13]}.{digits[14:16]}.{digits[16:20]}"
     )
+
+
+def clean_numero_processo(value: str) -> str:
+    if not value:
+        return ""
+    digits = re.sub(r"\D+", "", value)
+    if digits:
+        return digits
+    return SPACE_RE.sub(" ", value).strip()
 
 
 def normalize_for_match(text: str) -> str:
@@ -1226,6 +1269,39 @@ def extract_composicao_multiselect(*texts: str) -> str:
     return ",".join(found)
 
 
+def _extract_advogado_candidates_without_oab(block: str) -> list[str]:
+    if not block:
+        return []
+
+    trimmed = ADVOGADO_TRAILING_ROLE_RE.sub("", block)
+    trimmed = ADVOGADO_OUTROS_SUFFIX_RE.sub("", trimmed)
+    trimmed = SPACE_RE.sub(" ", trimmed).strip(" ,;.-")
+    if not trimmed:
+        return []
+
+    candidates: list[str] = []
+    parts = re.split(r"\s*[;/]\s*|\s*,\s*(?=[A-ZÀ-ÖØ-Ý])", trimmed)
+    for part in parts:
+        chunk = SPACE_RE.sub(" ", part).strip(" ,;.-")
+        if not chunk:
+            continue
+
+        name_match = ADVOGADO_CANDIDATE_NAME_RE.search(chunk)
+        name = SPACE_RE.sub(" ", name_match.group(1) if name_match else chunk).strip(" ,;.-")
+        if not name:
+            continue
+        name = ADV_TITLES_PREFIX_RE.sub("", name).strip()
+        if len(name.split()) < 2:
+            continue
+        if ADVOGADO_BAD_PREFIX_RE.search(name):
+            continue
+        if ADVOGADO_BAD_ENTITY_RE.search(name):
+            continue
+        candidates.append(name)
+
+    return candidates
+
+
 def extract_advogados_multiselect(*texts: str) -> str:
     source = " ".join(item for item in texts if item)
     if not source:
@@ -1236,12 +1312,16 @@ def extract_advogados_multiselect(*texts: str) -> str:
         block = SPACE_RE.sub(" ", block_match.group(1)).strip()
         if not block:
             continue
+        names_in_block = 0
         for name_match in ADVOGADO_NOME_OAB_RE.finditer(block):
             name = SPACE_RE.sub(" ", name_match.group(1)).strip(" ,;.-")
             if name:
                 cleaned_name = ADV_TITLES_PREFIX_RE.sub("", name).strip()
                 if cleaned_name:
                     names.append(cleaned_name)
+                    names_in_block += 1
+        if names_in_block == 0:
+            names.extend(_extract_advogado_candidates_without_oab(block))
 
     names = dedupe_preserve(names, key_func=lambda item: normalize_for_match(item))
     return ",".join(names)
@@ -1298,7 +1378,16 @@ def process_one_csv(
         report_path = out_dir / f".{input_path.stem}_notion.openai.report.json"
         source_sig = build_file_signature(input_path)
         started_at = time.time()
-        output_fields = [header for header in clean_headers if header not in EXCLUDED_COLUMNS]
+        output_fields: list[str] = []
+        seen_output_fields: set[str] = set()
+        for header in clean_headers:
+            mapped = remap_output_header(header)
+            if is_excluded_column(mapped):
+                continue
+            if mapped in seen_output_fields:
+                continue
+            output_fields.append(mapped)
+            seen_output_fields.add(mapped)
         for derived in ("composicao", "advogados", "resultado", *THEME_COLUMNS):
             if derived not in output_fields:
                 output_fields.append(derived)
@@ -1318,7 +1407,7 @@ def process_one_csv(
         for row_index, source_row in enumerate(reader, start=1):
             clean_row: dict[str, str] = {}
             for original_key, clean_key in mapping:
-                if clean_key in EXCLUDED_COLUMNS:
+                if is_excluded_column(clean_key):
                     continue
 
                 per_cell_limit = max_texto_chars if clean_key in {"textoEmenta", "textoDecisao"} else 0
@@ -1329,14 +1418,14 @@ def process_one_csv(
                 )
                 if clean_key == "partes":
                     clean_value = format_partes_as_multiselect(clean_value)
-                elif clean_key == "relatores":
+                elif clean_key in {"relatores", "relator"}:
                     clean_value = clean_relator_prefix(clean_value)
                 elif clean_key == "referenciasLegislativas":
                     clean_value = clean_referencias_legislativas(clean_value)
-                elif clean_key == "naturezaDocumento":
-                    clean_value = clean_natureza_documento(clean_value)
                 elif clean_key == "numeroUnico":
                     clean_value = format_numero_unico_cnj(clean_value)
+                elif clean_key == "numeroProcesso":
+                    clean_value = clean_numero_processo(clean_value)
                 clean_row[clean_key] = clean_value
                 if was_truncated:
                     truncated_cells += 1
@@ -1349,7 +1438,7 @@ def process_one_csv(
             data_decisao_key = source_key_by_clean.get("dataDecisao")
             assuntos_key = source_key_by_clean.get("assuntos")
             partes_key = source_key_by_clean.get("partes")
-            relatores_key = source_key_by_clean.get("relatores")
+            relator_key = source_key_by_clean.get("relator") or source_key_by_clean.get("relatores")
             sigla_tribunal_je_key = source_key_by_clean.get("siglaTribunalJE")
             origem_decisao_key = source_key_by_clean.get("origemDecisao")
             sigla_uf_key = source_key_by_clean.get("siglaUF")
@@ -1364,7 +1453,7 @@ def process_one_csv(
             data_decisao_raw = source_row.get(data_decisao_key, "") if data_decisao_key else ""
             assuntos_raw = source_row.get(assuntos_key, "") if assuntos_key else ""
             partes_raw = source_row.get(partes_key, "") if partes_key else ""
-            relatores_raw = source_row.get(relatores_key, "") if relatores_key else ""
+            relator_raw = source_row.get(relator_key, "") if relator_key else ""
             sigla_tribunal_je_raw = source_row.get(sigla_tribunal_je_key, "") if sigla_tribunal_je_key else ""
             origem_decisao_raw = source_row.get(origem_decisao_key, "") if origem_decisao_key else ""
             sigla_uf_raw = source_row.get(sigla_uf_key, "") if sigla_uf_key else ""
@@ -1381,7 +1470,7 @@ def process_one_csv(
             data_decisao_full, _ = sanitize_cell(data_decisao_raw, max_chars=0, replace_newlines=replace_newlines)
             assuntos_full, _ = sanitize_cell(assuntos_raw, max_chars=0, replace_newlines=replace_newlines)
             partes_full, _ = sanitize_cell(partes_raw, max_chars=0, replace_newlines=replace_newlines)
-            relatores_full, _ = sanitize_cell(relatores_raw, max_chars=0, replace_newlines=replace_newlines)
+            relator_full, _ = sanitize_cell(relator_raw, max_chars=0, replace_newlines=replace_newlines)
             sigla_tribunal_je_full, _ = sanitize_cell(
                 sigla_tribunal_je_raw,
                 max_chars=0,
@@ -1395,15 +1484,26 @@ def process_one_csv(
             sigla_uf_full, _ = sanitize_cell(sigla_uf_raw, max_chars=0, replace_newlines=replace_newlines)
             nome_municipio_full, _ = sanitize_cell(nome_municipio_raw, max_chars=0, replace_newlines=replace_newlines)
             numero_unico_full = format_numero_unico_cnj(numero_unico_full)
-            numero_processo_full = SPACE_RE.sub(" ", numero_processo_full).strip()
-            data_decisao_full = normalize_date_to_mdy(data_decisao_full, prefer_day_first=False)
+            numero_processo_full = clean_numero_processo(numero_processo_full)
+            data_decisao_full = normalize_date_to_mdy(
+                data_decisao_full,
+                prefer_day_first=CSV_INPUT_DATES_DAY_FIRST,
+            )
             numero_referencia = numero_unico_full or numero_processo_full
             partes_full = format_partes_as_multiselect(partes_full)
-            relatores_full = clean_relator_prefix(relatores_full)
+            relator_full = clean_relator_prefix(relator_full)
 
             for date_key in list(clean_row.keys()):
                 if date_key.lower() in {"datadecisao", "data_decisao", "datajulgamento", "data_publicacao"}:
-                    clean_row[date_key] = normalize_date_to_mdy(clean_row.get(date_key, ""), prefer_day_first=False)
+                    clean_row[date_key] = normalize_date_to_mdy(
+                        clean_row.get(date_key, ""),
+                        prefer_day_first=CSV_INPUT_DATES_DAY_FIRST,
+                    )
+
+            if "relatores" in clean_row or "relator" in clean_row:
+                relator_value = clean_row.get("relator", "") or clean_row.get("relatores", "")
+                clean_row["relator"] = relator_value
+                clean_row.pop("relatores", None)
 
             clean_row["composicao"] = extract_composicao_multiselect(texto_decisao_full, texto_ementa_full)
             clean_row["advogados"] = extract_advogados_multiselect(texto_decisao_full, texto_ementa_full)
@@ -1422,7 +1522,7 @@ def process_one_csv(
                     "data_decisao": data_decisao_full,
                     "assuntos": assuntos_full,
                     "partes": partes_full,
-                    "relatores": relatores_full,
+                    "relator": relator_full,
                     "texto_decisao": texto_decisao_full,
                     "texto_ementa": texto_ementa_full,
                     "sigla_uf": sigla_uf_full,
@@ -1609,6 +1709,118 @@ def compile_csvs(processed_paths: Sequence[Path], combined_output: Path, logger:
     return total_rows
 
 
+def parse_columns_arg(raw_value: str, fallback: Sequence[str]) -> list[str]:
+    if not raw_value.strip():
+        return [item for item in fallback]
+    columns: list[str] = []
+    for part in re.split(r"[;,]", raw_value):
+        name = part.strip()
+        if name and name not in columns:
+            columns.append(name)
+    return columns or [item for item in fallback]
+
+
+def _normalize_match_digits(value: object) -> str:
+    return re.sub(r"\D+", "", str(value or ""))
+
+
+def _build_row_match_candidates(row: dict[str, str]) -> list[str]:
+    numero_unico = _normalize_match_digits(row.get("numeroUnico", ""))
+    numero_processo = _normalize_match_digits(row.get("numeroProcesso", ""))
+    candidates: list[str] = []
+    if numero_unico:
+        candidates.append(f"numeroUnico:{numero_unico}")
+    if numero_processo:
+        candidates.append(f"numeroProcesso:{numero_processo}")
+    return candidates
+
+
+def preserve_columns_from_reference_csv(
+    target_csv: Path,
+    reference_csv: Path,
+    columns: Sequence[str],
+    logger: Callable[[str], None],
+) -> int:
+    if not columns:
+        return 0
+
+    if not reference_csv.exists():
+        raise FileNotFoundError(f"Arquivo de referencia nao encontrado: {reference_csv}")
+
+    with target_csv.open("r", encoding="utf-8-sig", newline="") as handle:
+        target_reader = csv.DictReader(handle)
+        target_headers = target_reader.fieldnames or []
+        target_rows = [dict(row) for row in target_reader]
+
+    if not target_headers:
+        raise ValueError(f"{target_csv.name}: sem cabecalho valido para preservacao.")
+
+    ref_encoding, ref_delimiter = detect_csv_format(reference_csv)
+    with reference_csv.open("r", encoding=ref_encoding, newline="") as handle:
+        ref_reader = csv.DictReader(handle, delimiter=ref_delimiter)
+        reference_rows = [dict(row) for row in ref_reader]
+
+    if not reference_rows:
+        logger(f"[Preservacao] {reference_csv.name}: sem linhas para preservar.")
+        return len(target_rows)
+
+    usable_columns = [col for col in columns if col in target_headers]
+    if not usable_columns:
+        logger("[Preservacao] Nenhuma coluna de preservacao encontrada no CSV de destino.")
+        return len(target_rows)
+
+    key_to_ref_indexes: dict[str, list[int]] = defaultdict(list)
+    for ref_index, ref_row in enumerate(reference_rows):
+        for key in _build_row_match_candidates(ref_row):
+            key_to_ref_indexes[key].append(ref_index)
+
+    fallback_by_index = len(reference_rows) == len(target_rows)
+    matched_by_key = 0
+    used_reference_indexes: set[int] = set()
+    applied_by_column: dict[str, int] = {col: 0 for col in usable_columns}
+    applied_total = 0
+
+    for row_idx, target_row in enumerate(target_rows):
+        reference_row: Optional[dict[str, str]] = None
+        for key in _build_row_match_candidates(target_row):
+            bucket = key_to_ref_indexes.get(key, [])
+            while bucket and bucket[0] in used_reference_indexes:
+                bucket.pop(0)
+            if bucket:
+                ref_index = bucket.pop(0)
+                used_reference_indexes.add(ref_index)
+                reference_row = reference_rows[ref_index]
+                matched_by_key += 1
+                break
+        if reference_row is None and fallback_by_index:
+            reference_row = reference_rows[row_idx]
+
+        if reference_row is None:
+            continue
+
+        for col in usable_columns:
+            value = str(reference_row.get(col, "") or "").strip()
+            if not value:
+                continue
+            if (target_row.get(col, "") or "").strip() == value:
+                continue
+            target_row[col] = value
+            applied_by_column[col] += 1
+            applied_total += 1
+
+    write_csv_atomic(target_csv, target_headers, target_rows)
+    logger(
+        f"[Preservacao] {target_csv.name}: colunas={','.join(usable_columns)} | "
+        f"linhas={len(target_rows)} | chaves={matched_by_key} | "
+        f"fallback_index={'sim' if fallback_by_index else 'nao'} | "
+        f"celulas_atualizadas={applied_total}"
+    )
+    for col in usable_columns:
+        logger(f"[Preservacao] coluna {col}: {applied_by_column[col]} celulas atualizadas.")
+
+    return len(target_rows)
+
+
 def normalize_input_paths(file_paths: Iterable[str]) -> list[Path]:
     normalized: list[Path] = []
     seen: set[Path] = set()
@@ -1636,6 +1848,8 @@ def run_batch(
     web_lookup_config: WebLookupConfig,
     tema_punchline_config: TemaPunchlineConfig,
     logger: Callable[[str], None],
+    preserve_from_csv: str = "",
+    preserve_columns: Sequence[str] = (),
 ) -> tuple[list[ProcessSummary], Path, int]:
     if not files:
         raise ValueError("Nenhum CSV informado para processamento.")
@@ -1681,6 +1895,21 @@ def run_batch(
         combined_output=combined_path,
         logger=logger,
     )
+
+    preserve_source = preserve_from_csv.strip()
+    if preserve_source:
+        preserve_path = Path(preserve_source).expanduser()
+        if not preserve_path.is_absolute():
+            preserve_path = SCRIPT_DIR / preserve_path
+        preserve_path = preserve_path.resolve()
+        columns_to_preserve = list(preserve_columns) if preserve_columns else [*DEFAULT_PRESERVE_COLUMNS]
+        compiled_rows = preserve_columns_from_reference_csv(
+            target_csv=combined_path,
+            reference_csv=preserve_path,
+            columns=columns_to_preserve,
+            logger=logger,
+        )
+
     return summaries, combined_path, compiled_rows
 
 
@@ -1704,7 +1933,7 @@ def launch_gui() -> None:
             self.gerar_tema_punchline_var = tk.BooleanVar(value=False)
             self.openai_key_file_var = tk.StringVar(value=str(SCRIPT_DIR / DEFAULT_OPENAI_KEY_FILE))
             self.openai_api_key_var = tk.StringVar(value=resolve_openai_api_key("", self.openai_key_file_var.get()))
-            self.openai_model_var = tk.StringVar(value="gpt-5-mini")
+            self.openai_model_var = tk.StringVar(value="gpt-5.1")
             self.openai_workers_var = tk.StringVar(value=str(OPENAI_DEFAULT_MAX_WORKERS))
             self.openai_timeout_var = tk.StringVar(value=str(OPENAI_DEFAULT_TIMEOUT))
             self.openai_batch_size_var = tk.StringVar(value=str(OPENAI_DEFAULT_BATCH_SIZE))
@@ -1990,7 +2219,7 @@ def launch_gui() -> None:
                     self.openai_api_key_var.get().strip(),
                     self.openai_key_file_var.get().strip(),
                 ),
-                model=self.openai_model_var.get().strip() or "gpt-5-mini",
+                model=self.openai_model_var.get().strip() or "gpt-5.1",
                 timeout_seconds=openai_timeout,
                 max_workers=openai_workers,
                 batch_size=openai_batch_size,
@@ -2094,7 +2323,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--gerar-tema-punchline-chatgpt",
         action="store_true",
-        help="Ativa geracao de tema e punchline por linha via OpenAI (padrao: gpt-5-mini).",
+        help="Ativa geracao de tema e punchline por linha via OpenAI (padrao: gpt-5.1).",
     )
     parser.add_argument(
         "--perplexity-api-key",
@@ -2153,8 +2382,8 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--openai-model",
-        default="gpt-5-mini",
-        help="Modelo OpenAI para gerar tema/punchline (padrao: gpt-5-mini).",
+        default="gpt-5.1",
+        help="Modelo OpenAI para gerar tema/punchline (padrao: gpt-5.1).",
     )
     parser.add_argument(
         "--openai-max-workers",
@@ -2191,6 +2420,22 @@ def build_parser() -> argparse.ArgumentParser:
         type=int,
         default=OPENAI_DEFAULT_TARGET_RPM,
         help="Limite alvo de requests por minuto para OpenAI (0 desativa pacing).",
+    )
+    parser.add_argument(
+        "--preserve-from-csv",
+        default="",
+        help=(
+            "CSV de referencia para preservar colunas ja preenchidas "
+            "(ex.: saida anterior com dados de API)."
+        ),
+    )
+    parser.add_argument(
+        "--preserve-columns",
+        default="",
+        help=(
+            "Lista de colunas separadas por virgula/; para preservar do CSV de referencia. "
+            f"Padrao: {', '.join(DEFAULT_PRESERVE_COLUMNS)}."
+        ),
     )
     parser.add_argument(
         "--verbose",
@@ -2263,7 +2508,7 @@ def main() -> int:
         tema_punchline_config = TemaPunchlineConfig(
             enabled=args.gerar_tema_punchline_chatgpt,
             api_key=resolve_openai_api_key(args.openai_api_key.strip(), args.openai_key_file),
-            model=args.openai_model.strip() or "gpt-5-mini",
+            model=args.openai_model.strip() or "gpt-5.1",
             timeout_seconds=args.openai_timeout,
             max_workers=args.openai_max_workers,
             batch_size=args.openai_batch_size,
@@ -2280,6 +2525,7 @@ def main() -> int:
             batch_size=args.perplexity_batch_size,
             delay_between_batches=args.perplexity_delay,
         )
+        preserve_columns = parse_columns_arg(args.preserve_columns, DEFAULT_PRESERVE_COLUMNS)
 
         try:
             summaries, combined_path, compiled_rows = run_batch(
@@ -2291,6 +2537,8 @@ def main() -> int:
                 web_lookup_config=web_lookup_config,
                 tema_punchline_config=tema_punchline_config,
                 logger=cli_logger,
+                preserve_from_csv=args.preserve_from_csv,
+                preserve_columns=preserve_columns,
             )
         except Exception as exc:  # pylint: disable=broad-except
             print(f"Erro: {exc}", file=sys.stderr)
