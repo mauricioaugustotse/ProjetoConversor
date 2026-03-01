@@ -9,7 +9,7 @@ Regras atuais:
    - Sul => green
    - Centro-Oeste => yellow
    - Nordeste => orange
-   - Norte => purple
+   - Norte => red
 4) Padroniza `partes` e `advogados` por ordem alfabetica (faixas de letras).
 5) Padroniza `siglaClasse` e `descricaoClasse` por familias de classes processuais.
 6) Sanea etiquetas: remove opcoes sem uso real nos registros da coluna.
@@ -62,7 +62,7 @@ SUPPORTED_COLORS = {
 }
 
 REGION_TO_COLOR = {
-    "norte": "purple",
+    "norte": "red",
     "nordeste": "orange",
     "centro-oeste": "yellow",
     "sudeste": "blue",
