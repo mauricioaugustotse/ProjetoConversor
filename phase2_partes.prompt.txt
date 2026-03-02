@@ -1,0 +1,741 @@
+Aplique este JSON completo na configuracao da propriedade no Notion.
+
+Regras obrigatorias:
+1) Use EXATAMENTE o array `options` enviado abaixo.
+2) Nao altere outras propriedades/colunas.
+3) Confirme ao final as contagens aplicadas.
+
+Base: https://www.notion.so/316721955c6480b4af2cf19fa557a5dd?v=316721955c64816e8f6f000c06433647
+Propriedade: partes
+
+Contagem esperada: set_default=143 | removidos=1319
+
+Formato solicitado pelo Notion Chat:
+{
+  "property": "...",
+  "options": [
+    {"name": "...", "url": "...", "color": "..."}
+  ]
+}
+
+JSON da propriedade:
+{
+  "property": "partes",
+  "options": [
+    {
+      "name": "ABILIO JACQUES BRUNINI MOUMER",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/THpEbQ",
+      "color": "default"
+    },
+    {
+      "name": "ALBERTO BARROS CAVALCANTE NETO",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/fFpvTA",
+      "color": "default"
+    },
+    {
+      "name": "ALEXANDRE FRANCA SIQUEIRA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/VXNSQg",
+      "color": "default"
+    },
+    {
+      "name": "ATILA CESAR MONTEIRO JACOMUSSI",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/WnReTA",
+      "color": "default"
+    },
+    {
+      "name": "AURELIO RAMOS DE OLIVEIRA NETO",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/cGJhcQ",
+      "color": "default"
+    },
+    {
+      "name": "AVANTE (AVANTE) - MUNICIPAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/ant4Qw",
+      "color": "default"
+    },
+    {
+      "name": "CIDADANIA (CIDADANIA) - NACIONAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/b0V7Pw",
+      "color": "default"
+    },
+    {
+      "name": "CIRO NOGUEIRA LIMA FILHO",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/bz9-PA",
+      "color": "default"
+    },
+    {
+      "name": "COLIGAÇÃO AMOR PELA SERRA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/TXNWaQ",
+      "color": "default"
+    },
+    {
+      "name": "COLIGAÇÃO BRASIL DA ESPERANÇA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/Vlhpbw",
+      "color": "default"
+    },
+    {
+      "name": "COLIGAÇÃO CORAGEM E FORÇA PRA MUDAR",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/dFdrRw",
+      "color": "default"
+    },
+    {
+      "name": "COLIGAÇÃO DE VOLTA PRO POVO: A CIDADE SORRINDO DE NOVO",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/bFB0Vg",
+      "color": "default"
+    },
+    {
+      "name": "COLIGAÇÃO JUNTOS POR SÃO BERNARDO",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/WE5IXA",
+      "color": "default"
+    },
+    {
+      "name": "COLIGAÇÃO MINHA VIDA É CASCAVEL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/cEhTRA",
+      "color": "default"
+    },
+    {
+      "name": "COLIGAÇÃO MUDA SERRA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/QENeeQ",
+      "color": "default"
+    },
+    {
+      "name": "COLIGAÇÃO RESGATANDO CUIABÁ",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/Sn58dQ",
+      "color": "default"
+    },
+    {
+      "name": "COLIGAÇÃO SÃO BERNARDO QUE SEGUE EM FRENTE",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/S017Qg",
+      "color": "default"
+    },
+    {
+      "name": "COLIGAÇÃO SEDE POR MUDANÇA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/PEpHdg",
+      "color": "default"
+    },
+    {
+      "name": "COLIGAÇÃO VÁRZEA GRANDE MELHOR",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/aT58Ww",
+      "color": "default"
+    },
+    {
+      "name": "COLIGAÇÃO VERDADE PARA MAUÁ AVANÇAR",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/ZGpRWw",
+      "color": "default"
+    },
+    {
+      "name": "EDER MAURO CARDOSO BARRA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/QH56dw",
+      "color": "default"
+    },
+    {
+      "name": "ELIAS FREIRE FILHO",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/P3RtQg",
+      "color": "default"
+    },
+    {
+      "name": "EMERSON MIGUEL PETRIV",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/TlNEfQ",
+      "color": "default"
+    },
+    {
+      "name": "ERISVANDO TORQUATO DO NASCIMENTO",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/V3xtPw",
+      "color": "default"
+    },
+    {
+      "name": "EUGENIO FERNANDES JUNIOR",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/VEc9Ow",
+      "color": "default"
+    },
+    {
+      "name": "EVANDRO SA BARRETO LEITAO",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/YktdQA",
+      "color": "default"
+    },
+    {
+      "name": "FLAVIO NANTES BOLSONARO",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/amFIQg",
+      "color": "default"
+    },
+    {
+      "name": "FRANCISCO MARCELO DE OLIVEIRA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/fm9DTQ",
+      "color": "default"
+    },
+    {
+      "name": "FRANCISVALDO MENDES DE SOUZA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/WnpCYg",
+      "color": "default"
+    },
+    {
+      "name": "GUSTAVO BITTENCOURT",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/fmxubQ",
+      "color": "default"
+    },
+    {
+      "name": "JAIR MESSIAS BOLSONARO",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/YWJBQw",
+      "color": "default"
+    },
+    {
+      "name": "JOAO MIGUEL DO MONTE ANDRADE",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/d1FiWA",
+      "color": "default"
+    },
+    {
+      "name": "JORGE THADEU LUJAN",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/c1BKVw",
+      "color": "default"
+    },
+    {
+      "name": "JOSE ROBERTO PITERI",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/YWJCcQ",
+      "color": "default"
+    },
+    {
+      "name": "JOSE WILLIAN SIQUEIRA DA FONSECA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/ckV6fA",
+      "color": "default"
+    },
+    {
+      "name": "JUCIVALDO SALAZAR PEREIRA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/VEZgeQ",
+      "color": "default"
+    },
+    {
+      "name": "JUÍZO DA 19ª ZONA ELEITORAL DO DISTRITO FEDERAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/TFlRcQ",
+      "color": "default"
+    },
+    {
+      "name": "JUÍZO DA 26ª ZONA ELEITORAL DE RIO FORMOSO/PE",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/YlhqUQ",
+      "color": "default"
+    },
+    {
+      "name": "LEONALDO PARANHOS DA SILVA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/czptcw",
+      "color": "default"
+    },
+    {
+      "name": "LUIZ FERNANDO TEIXEIRA FERREIRA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/OlB6Yg",
+      "color": "default"
+    },
+    {
+      "name": "MARLY DE FATIMA RIBEIRO",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/P2N9Wg",
+      "color": "default"
+    },
+    {
+      "name": "MATHEUS VINICCIUS RIBEIRO PETRIV",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/aUZsYQ",
+      "color": "default"
+    },
+    {
+      "name": "Ministério Público Eleitoral",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/Qn5IUA",
+      "color": "default"
+    },
+    {
+      "name": "MOBILIZAÇÃO NACIONAL (MOBILIZA) - NACIONAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/ak1VWw",
+      "color": "default"
+    },
+    {
+      "name": "MOVIMENTO DEMOCRÁTICO BRASILEIRO (MDB) - ESTADUAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/e0V9fQ",
+      "color": "default"
+    },
+    {
+      "name": "MOVIMENTO DEMOCRATICO BRASILEIRO (MDB) - MUNICIPAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/aVp3XQ",
+      "color": "default"
+    },
+    {
+      "name": "NICASSIO JOSE BARBOSA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/eF1OfA",
+      "color": "default"
+    },
+    {
+      "name": "PABLO HENRIQUE COSTA MARCAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/YW9xdA",
+      "color": "default"
+    },
+    {
+      "name": "PARTIDO COMUNISTA BRASILEIRO (PCB) - NACIONAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/fUd4cA",
+      "color": "default"
+    },
+    {
+      "name": "PARTIDO DA CAUSA OPERÁRIA (PCO) - NACIONAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/ajt3dw",
+      "color": "default"
+    },
+    {
+      "name": "PARTIDO DA MULHER BRASILEIRA (PMB) - NACIONAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/QU9gPA",
+      "color": "default"
+    },
+    {
+      "name": "PARTIDO DA SOCIAL DEMOCRACIA BRASILEIRA (PSDB) - ESTADUAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/UnVwWQ",
+      "color": "default"
+    },
+    {
+      "name": "PARTIDO DA SOCIAL DEMOCRACIA BRASILEIRA (PSDB) - NACIONAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/b0dVWQ",
+      "color": "default"
+    },
+    {
+      "name": "PARTIDO DEMOCRÁTICO TRABALHISTA (PDT) - ESTADUAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/Z0BSbg",
+      "color": "default"
+    },
+    {
+      "name": "PARTIDO DEMOCRATICO TRABALHISTA (PDT) - MUNICIPAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/OlxvSQ",
+      "color": "default"
+    },
+    {
+      "name": "PARTIDO DEMOCRÁTICO TRABALHISTA (PDT) - NACIONAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/V2pgcA",
+      "color": "default"
+    },
+    {
+      "name": "PARTIDO DOS TRABALHADORES (PT) - ESTADUAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/YFZ2fQ",
+      "color": "default"
+    },
+    {
+      "name": "PARTIDO DOS TRABALHADORES (PT) - MUNICIPAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/aWJmZQ",
+      "color": "default"
+    },
+    {
+      "name": "PARTIDO LIBERAL (PL) - ESTADUAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/fVxraA",
+      "color": "default"
+    },
+    {
+      "name": "PARTIDO LIBERAL (PL) - MUNICIPAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/an1uZg",
+      "color": "default"
+    },
+    {
+      "name": "PARTIDO LIBERAL (PL) - NACIONAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/TmNsRQ",
+      "color": "default"
+    },
+    {
+      "name": "PARTIDO NOVO (NOVO) - NACIONAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/QkxIQA",
+      "color": "default"
+    },
+    {
+      "name": "PARTIDO RENOVAÇÃO DEMOCRÁTICA (PRD) - MUNICIPAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/O3NdcA",
+      "color": "default"
+    },
+    {
+      "name": "PARTIDO SOCIAL DEMOCRATICO (PSD) - ESTADUAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/fFZLdQ",
+      "color": "default"
+    },
+    {
+      "name": "PARTIDO SOCIAL DEMOCRÁTICO (PSD) - MUNICIPAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/YE1vdg",
+      "color": "default"
+    },
+    {
+      "name": "PARTIDO SOCIAL DEMOCRÁTICO (PSD) - NACIONAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/W0R3dA",
+      "color": "default"
+    },
+    {
+      "name": "PARTIDO SOCIALISTA BRASILEIRO (PSB) - ESTADUAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/V0FBPQ",
+      "color": "default"
+    },
+    {
+      "name": "PARTIDO SOCIALISTA BRASILEIRO (PSB) - MUNICIPAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/fXhjZw",
+      "color": "default"
+    },
+    {
+      "name": "PARTIDO VERDE (PV) - NACIONAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/PEBvZA",
+      "color": "default"
+    },
+    {
+      "name": "PODEMOS (PODE) - MUNICIPAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/XWhVQQ",
+      "color": "default"
+    },
+    {
+      "name": "PODEMOS (PODE) - NACIONAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/YGdBXA",
+      "color": "default"
+    },
+    {
+      "name": "PRESIDENTE DO TSE",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/cU1Gdg",
+      "color": "default"
+    },
+    {
+      "name": "PROGRESSISTAS (PP) - ESTADUAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/U3tSUQ",
+      "color": "default"
+    },
+    {
+      "name": "PROGRESSISTAS (PP) - MUNICIPAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/ezxocQ",
+      "color": "default"
+    },
+    {
+      "name": "PROGRESSISTAS (PP) - NACIONAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/YXRRSQ",
+      "color": "default"
+    },
+    {
+      "name": "RAFAEL ALVES DOS SANTOS",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/P29haA",
+      "color": "default"
+    },
+    {
+      "name": "REDE SUSTENTABILIDADE (REDE) - NACIONAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/fDpzSg",
+      "color": "default"
+    },
+    {
+      "name": "RENATO DA SILVA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/TUk-dg",
+      "color": "default"
+    },
+    {
+      "name": "REPUBLICANOS (REPUBLICANOS) - MUNICIPAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/WGRxdQ",
+      "color": "default"
+    },
+    {
+      "name": "REPUBLICANOS (REPUBLICANOS) - NACIONAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/TW8_Wg",
+      "color": "default"
+    },
+    {
+      "name": "RICARDO JOSE MAGALHAES BARROS",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/P0ZPYQ",
+      "color": "default"
+    },
+    {
+      "name": "RUBENS FURLAN",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/VU9tfQ",
+      "color": "default"
+    },
+    {
+      "name": "RUI COSTA PIMENTA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/e0pQXw",
+      "color": "default"
+    },
+    {
+      "name": "SERGIO DA SILVA BERNARDO",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/WFRddg",
+      "color": "default"
+    },
+    {
+      "name": "SIGILOSO",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/bVFQYw",
+      "color": "default"
+    },
+    {
+      "name": "SIMONE NEVES DOS SANTOS VENANCIO",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/XHlbZg",
+      "color": "default"
+    },
+    {
+      "name": "SOLIDARIEDADE (SOLIDARIEDADE) - MUNICIPAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/Q2g7Pg",
+      "color": "default"
+    },
+    {
+      "name": "SUED HAIDAR NOGUEIRA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/TXg9Sg",
+      "color": "default"
+    },
+    {
+      "name": "TRIBUNAL REGIONAL ELEITORAL DE RONDONIA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/XkVtZA",
+      "color": "default"
+    },
+    {
+      "name": "TRIBUNAL REGIONAL ELEITORAL DE RORAIMA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/WVxQQQ",
+      "color": "default"
+    },
+    {
+      "name": "TRIBUNAL REGIONAL ELEITORAL DE SAO PAULO",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/PV9AZA",
+      "color": "default"
+    },
+    {
+      "name": "UNIAO BRASIL (UNIÃO) - MUNICIPAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/UmlIdw",
+      "color": "default"
+    },
+    {
+      "name": "UNIAO BRASIL (UNIÃO) - NACIONAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/bkNCSw",
+      "color": "default"
+    },
+    {
+      "name": "União Federal",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/UWNfVQ",
+      "color": "default"
+    },
+    {
+      "name": "VALDIR PERES PEREIRA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/Y1lpYA",
+      "color": "default"
+    },
+    {
+      "name": "VANIA GARCIA ROSA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/b1p3Ow",
+      "color": "default"
+    },
+    {
+      "name": "VENEZIANO VITAL DO REGO SEGUNDO NETO",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/Skd4Pw",
+      "color": "default"
+    },
+    {
+      "name": "WILSON MARQUES LEOPOLDO",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/bEc9Rg",
+      "color": "default"
+    },
+    {
+      "name": "ELBERT SANTOS OLIVEIRA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/MDY0NmIxNDEtZWZmNS00ZjFiLTkyYTAtYjE2ZjFlODdkYzU0",
+      "color": "default"
+    },
+    {
+      "name": "PEDRO GOMES DE MELLO",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/OTdmNWM2ODQtNjJiNi00M2IyLThkZGYtZjgwZDc2MjQ1YTA2",
+      "color": "default"
+    },
+    {
+      "name": "SANZIA DA SILVA VIRGINIO MELGAO",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/NzA2OWRmNjEtNTcxMS00N2IwLWJiYzktNzhlNTJiYzdlMjEw",
+      "color": "default"
+    },
+    {
+      "name": "RONIVAR MONTEIRO DA COSTA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/ZjRmODQ4NTgtODcyNi00OGJiLWFiZDEtYWE4YmIwZmMwYWZi",
+      "color": "default"
+    },
+    {
+      "name": "SERGIO SILVA PEREIRA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/ZTQ3ODM2NTAtOGE1Mi00MDc0LTg4Y2UtMzA3ZWNmZjcxMWQy",
+      "color": "default"
+    },
+    {
+      "name": "LUCIMARA WOOLCK SANTOS ANTUNES",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/OTI3Yzc0ZDYtMjlmZS00ZDQ2LTg4MmQtZTE0MTZiNzIxNTUw",
+      "color": "default"
+    },
+    {
+      "name": "TALITTA DE OLIVEIRA SILVA DE MARTINO",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/YzE1Y2YwZGItYzIwYS00MDJkLThmOWQtNDk5ODhiNmE4NTUw",
+      "color": "default"
+    },
+    {
+      "name": "TRIBUNAL SUPERIOR ELEITORAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/ZjBhN2ZhOWYtZDMwYi00ODA4LWJiMDUtMGZjYmU2MTY3NjE3",
+      "color": "default"
+    },
+    {
+      "name": "MARIA INEZ MARTINS DE SOUZA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/MDQwODVkN2UtNWM4My00NTlkLWI0NzEtY2FjN2EyZTcwOTRh",
+      "color": "default"
+    },
+    {
+      "name": "FABIO AUGUSTO DE OLIVEIRA BRASIL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/NmE3NDJkNTItMWMwZC00YjJkLWFkNTctZmYxMjM5NzIwY2E5",
+      "color": "default"
+    },
+    {
+      "name": "GILBERTO FRANCISCO DA SILVA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/ZTM3YTY5YWEtNWEwNy00ZWU0LWE1OWMtMmM3ZDA1ODZlODRj",
+      "color": "default"
+    },
+    {
+      "name": "MARIA OTILIA NONATO QUARESMA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/NDA5NzE1MDItMjUwZS00YmU2LTg0OTYtNWExNGYxMzhhMTA0",
+      "color": "default"
+    },
+    {
+      "name": "PARTIDO VERDE (PV) - ESTADUAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/OTQ3Njk0MWYtYzkyZi00MmY5LWEwMDItNzIxNDRhMDRhYmIx",
+      "color": "default"
+    },
+    {
+      "name": "ROBERTO JOAO PEREIRA FREIRE",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/YjZkNDA4N2UtZjZiZS00YzhiLWJiZWEtY2FlMDJlYTU3NzI0",
+      "color": "default"
+    },
+    {
+      "name": "JUÍZO DA 17ª VARA DO TRABALHO DE BRASÍLIA/DF",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/MjY2YjliYTktNDRhYS00OWU4LTk1NDctM2Y3ZTZkNTg4Y2U0",
+      "color": "default"
+    },
+    {
+      "name": "UNIÃO BRASIL (UNIÃO) - ESTADUAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/ODkwMmUyN2ItZGVhOC00NWUwLWFiYjEtNDljMTc2MmMwYjU4",
+      "color": "default"
+    },
+    {
+      "name": "PEDRO HENRIQUE DE BARROS FALCAO",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/ZjMxNDc2ZGQtMjlhNC00NGMxLWFhNWUtZjY0NDMzN2RhMTFk",
+      "color": "default"
+    },
+    {
+      "name": "SILAS FREIRE PEREIRA E SILVA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/ZjQxZThmZDctZmNjZS00MWJmLWJlMjEtN2Q2MTUwNjJiMTE3",
+      "color": "default"
+    },
+    {
+      "name": "LIVIA CARLA DE ARAUJO CAMPOS",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/MzFhMmM3YzUtZTJhNi00ZTg0LWFkNDItZjUzZjliNDg5NjBj",
+      "color": "default"
+    },
+    {
+      "name": "FUNDAÇÃO REPUBLICANA BRASILEIRA (FRB) - NACIONAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/YzMwYjI0MzUtODBhNi00MjMxLThiODktMGYzOTBiNjIxNjRj",
+      "color": "default"
+    },
+    {
+      "name": "VICTOR MATEUS DANTAS BRITO",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/OTA2MzVkNTktMTZmMC00ODg1LThmODMtYWFlMTJlMTA4N2Nj",
+      "color": "default"
+    },
+    {
+      "name": "WESLEY ALVES DA SILVA LIMA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/MTJlMjhjYzUtYWIzNy00ZjYzLWJhODAtNzViOTgwMTRkZGQ4",
+      "color": "default"
+    },
+    {
+      "name": "MARTA MONTEIRO GODINHO",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/YWViZWExNDctYWI0OC00MDZkLWE2NDItZjBjNmE2NGJiMTUw",
+      "color": "default"
+    },
+    {
+      "name": "AILTON BARROS DE AMARANTE",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/MGQ1M2ZhYWMtYjE5NS00ZjBhLWI3YjgtN2ViNjRkNjI0Yjhk",
+      "color": "default"
+    },
+    {
+      "name": "MAISA DINIZ LIMA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/MzU1OTQ3ZGQtZjRkMi00NzExLThhZmUtZGIzNDlkZjljZDFl",
+      "color": "default"
+    },
+    {
+      "name": "RONNIE VON LUIS RODRIGUES",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/NmJlNzRiYmYtODMyMS00MjllLThkYjItODQ5ZjhiYjc1NmMw",
+      "color": "default"
+    },
+    {
+      "name": "LUIZ CARLOS VERA CRUZ",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/OGI3YTY5NjEtZGMwMi00YmQyLWE0ZmUtNWM5MDE3YjUyMWY0",
+      "color": "default"
+    },
+    {
+      "name": "JEAN RODRIGO XAVIER NUNES",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/YjFmYTQwYWUtYWVlYi00Y2UyLWExNGEtNjhjZGY3N2QwODZl",
+      "color": "default"
+    },
+    {
+      "name": "HELIO JANUARIO TELES",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/ZDdmMTQ4MzMtZTU4ZC00ODg3LThhZmItNDY0N2U5YjZmMmU1",
+      "color": "default"
+    },
+    {
+      "name": "PARTIDO NOVO (NOVO) - ESTADUAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/NTdiYjVmZjctM2ExNi00YTQ5LWE4ZWQtNzE2OGUyY2E5MmEy",
+      "color": "default"
+    },
+    {
+      "name": "TALINE GEICE PEREIRA NEIVA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/YWEwZjc4Y2MtNjI1Yy00ZDQ5LWI4YTYtYzY5NmVhZWRmOGE2",
+      "color": "default"
+    },
+    {
+      "name": "MANOEL JOSE MENDES FILHO",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/ZmVhZmU3NjEtNzMzNS00ZDQzLWJmZTUtMmJjY2M2ZjI4ZDdh",
+      "color": "default"
+    },
+    {
+      "name": "GIZELDA VASCONCELOS VIEIRA DE ALCANTARA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/ZDgyZjAxOGEtZTY1Zi00Y2NmLTg5MzctMTBiYjljZDVkNGY4",
+      "color": "default"
+    },
+    {
+      "name": "WALMIR VASCONCELOS DA COSTA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/ZjA0YTM4OTUtNDNhNC00MTI0LWJkNzAtNzdkZTc2ZTQwZTY1",
+      "color": "default"
+    },
+    {
+      "name": "VERALUCIA FERREIRA FEITOSA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/NjI3MWFkZmItZWVjNi00NDA4LWJjZDUtMWE2OGYzYWFmMzdh",
+      "color": "default"
+    },
+    {
+      "name": "JUÍZO 4ª VARA CÍVEL DA COMARCA DE CAMPOS DOS GOYTACAZES/RJ",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/ZWQwNWUzZDMtYjI5NC00MGJkLTkwMzQtMjliZDBjZmY2NmI2",
+      "color": "default"
+    },
+    {
+      "name": "JUÍZO DA 5ª VARA CÍVEL DE CUIABÁ / MT",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/NGE4MWZmYTEtMjBhNS00YzRiLTliMGItY2M5OTEzZTIyODY2",
+      "color": "default"
+    },
+    {
+      "name": "NEIVA APARECIDA BADOTTI",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/YmFkMzJiODgtMDNkMS00OGVhLTllNTktMzQ4ZTRhNGE2Njk0",
+      "color": "default"
+    },
+    {
+      "name": "JOSE JOCILE LOBATO DE OLIVEIRA",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/ZGFkY2JlZTEtYzhhYi00NDY5LWI1ZDgtOTM0MmQ2NDM2OWI0",
+      "color": "default"
+    },
+    {
+      "name": "EDUARDO MATARAZZO SUPLICY",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/MTQwZDAxYmMtYWYwYy00ZTVjLWJkMjQtYzA3MzEyNzI5N2Y5",
+      "color": "default"
+    },
+    {
+      "name": "JOSE LUIZ REZENDE DO CARMO",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/YWMzNTZiN2EtNzA1Mi00MGNiLTg4YzItZjRhNmQyOTdjOTIx",
+      "color": "default"
+    },
+    {
+      "name": "WEDNO DE MATOS MORAES",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/NWQwYmRiOWItOWU5ZS00ZDFiLTg4N2MtYWEzYjFiMWEwY2Iz",
+      "color": "default"
+    },
+    {
+      "name": "ANDREW KELLEHER BROOKS",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/M2VhZmQzNWEtOTIyYi00MjY2LTllZGEtMjhkMzk3Yjk3MDU4",
+      "color": "default"
+    },
+    {
+      "name": "FEDERAÇÃO PSDB CIDADANIA - NACIONAL",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/NjRhODM3MWEtMjhhYS00NjUxLTg1NmUtNzdlODU0YjUwMTRm",
+      "color": "default"
+    },
+    {
+      "name": "ROSANA REPOLHO MORAES",
+      "url": "collectionPropertyOption://31672195-5c64-81a3-8c5b-000b65874751/W3VFcA/M2NlYjg5ZTgtNjViNS00ZDZlLTg2YjgtYTJlNTM3MWUxYzQx",
+      "color": "default"
+    }
+  ]
+}

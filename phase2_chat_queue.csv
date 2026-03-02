@@ -1,0 +1,4 @@
+﻿coluna,bloco,faixa_alfabetica,arquivo_csv,arquivo_payload,arquivo_prompt,status,data_execucao,observacao,total_set_default,total_remove_unused
+advogados,ALL,ALL,,/mnt/c/Users/mauri/ProjetoConversor/phase2_advogados.json,/mnt/c/Users/mauri/ProjetoConversor/phase2_advogados.prompt.txt,GERADO,,Pacote unico por coluna (fase 2),204,1
+nomeMunicipio,ALL,ALL,,/mnt/c/Users/mauri/ProjetoConversor/phase2_nomemunicipio.json,/mnt/c/Users/mauri/ProjetoConversor/phase2_nomemunicipio.prompt.txt,GERADO,,Pacote unico por coluna (fase 2),159,191
+partes,ALL,ALL,,/mnt/c/Users/mauri/ProjetoConversor/phase2_partes.json,/mnt/c/Users/mauri/ProjetoConversor/phase2_partes.prompt.txt,GERADO,,Pacote unico por coluna (fase 2),143,1319

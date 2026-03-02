@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
-"""GUI para executar a padronizacao de etiquetas no Notion por fases/colunas.
+"""GUI simplificada para padronizacao de etiquetas no Notion.
 
-Uso:
-- Execute este arquivo.
-- Selecione as colunas desejadas.
-- Escolha DRY-RUN ou APPLY.
-- Clique em Executar.
+Fluxo pensado para uso leigo:
+1) Escolher operacao (Fase 1, Fase 2 ou Completo).
+2) Selecionar CSV base.
+3) Executar.
+4) Na Fase 2, ler a fila e acompanhar o resumo.
 """
 
 from __future__ import annotations
 
+import csv
 import os
 import subprocess
 import sys
@@ -23,124 +24,202 @@ SCRIPT_NAME = "NOTION_padronizar_cores_etiquetas_DJeTSE.py"
 PHASE_1 = ("siglaUF", "relator", "siglaClasse", "descricaoClasse")
 PHASE_2 = ("nomeMunicipio", "partes", "advogados")
 ALL_COLUMNS = PHASE_1 + PHASE_2
+QUEUE_REQUIRED_FIELDS = [
+    "coluna",
+    "bloco",
+    "faixa_alfabetica",
+    "arquivo_csv",
+    "arquivo_payload",
+    "arquivo_prompt",
+    "status",
+    "data_execucao",
+    "observacao",
+    "total_set_default",
+    "total_remove_unused",
+]
+
+
+def _normalize_key(value: str) -> str:
+    return "".join(ch for ch in " ".join((value or "").strip().lower().split()) if ch.isalnum())
 
 
 class App:
     def __init__(self, root: tk.Tk) -> None:
         self.root = root
-        self.root.title("Notion - Padronizar Etiquetas")
-        self.root.geometry("980x690")
+        self.root.title("Notion - Padronizar Etiquetas (Simples)")
+        self.root.geometry("1120x820")
 
         self.proc: subprocess.Popen[str] | None = None
         self.thread: threading.Thread | None = None
         self.running = False
 
+        self.queue_rows: list[dict[str, str]] = []
+        self.queue_fieldnames: list[str] = []
+
+        base_dir = Path(__file__).resolve().parent
+        source_default = self._detect_default_source_csv(base_dir)
+        out_default = base_dir
+
+        self.operation_var = tk.StringVar(value="completo")
         self.apply_var = tk.BooleanVar(value=False)
         self.debug_var = tk.BooleanVar(value=False)
-        self.prune_var = tk.BooleanVar(value=True)
-        self.phase_var = tk.StringVar(value="1")
-        self.manual_plan_var = tk.StringVar(value="")
-        self.resume_enabled_var = tk.BooleanVar(value=False)
-        self.resume_input_var = tk.StringVar(value="")
+        self.source_csv_var = tk.StringVar(value=str(source_default) if source_default else "")
+        self.output_dir_var = tk.StringVar(value=str(out_default))
+        self.queue_file_var = tk.StringVar(value=str(base_dir / "phase2_chat_queue.csv"))
+
+        # Avancado (oculto por padrao)
+        self.show_advanced_var = tk.BooleanVar(value=False)
         self.min_interval_var = tk.StringVar(value="0.20")
         self.page_size_var = tk.StringVar(value="100")
         self.timeout_var = tk.StringVar(value="30")
         self.retries_var = tk.StringVar(value="4")
-
-        self.column_vars: dict[str, tk.BooleanVar] = {
-            col: tk.BooleanVar(value=(col in PHASE_1)) for col in ALL_COLUMNS
-        }
+        self.manual_plan_var = tk.StringVar(value="")
 
         self._build_ui()
         self.root.protocol("WM_DELETE_WINDOW", self.on_close)
 
+    def _detect_default_source_csv(self, base_dir: Path) -> Path | None:
+        preferred = base_dir / "DJe - 2ª semana - FEV_26_atualizado.csv"
+        if preferred.exists() and preferred.is_file():
+            return preferred
+        csvs = [p for p in base_dir.glob("*.csv") if p.is_file()]
+        if not csvs:
+            return None
+        csvs.sort(key=lambda p: p.stat().st_mtime, reverse=True)
+        return csvs[0]
+
     def _build_ui(self) -> None:
         top = tk.Frame(self.root)
         top.pack(fill="x", padx=12, pady=10)
+        tk.Label(
+            top,
+            text=(
+                "Fluxo recomendado: use 'Completo' para rodar Fase 1 (API) e gerar fila da Fase 2 (Notion Chat). "
+                "A Fase 2 gera 1 JSON + 1 prompt por coluna (nomeMunicipio, partes, advogados), sem blocos."
+            ),
+            anchor="w",
+            justify="left",
+        ).pack(fill="x")
 
-        note = (
-            "Fluxo recomendado: Fase 1 (siglaUF, relator, siglaClasse, descricaoClasse) "
-            "e depois Fase 2 (nomeMunicipio, partes, advogados)."
-        )
-        tk.Label(top, text=note, anchor="w", justify="left").pack(fill="x")
+        # Passo 1
+        step1 = tk.LabelFrame(self.root, text="1) Operacao")
+        step1.pack(fill="x", padx=12, pady=(2, 6))
+        tk.Radiobutton(
+            step1,
+            text="Fase 1 (API oficial): siglaUF, relator, siglaClasse, descricaoClasse",
+            variable=self.operation_var,
+            value="fase1",
+        ).pack(anchor="w", padx=10, pady=3)
+        tk.Radiobutton(
+            step1,
+            text="Fase 2 (Notion Chat): nomeMunicipio, partes, advogados",
+            variable=self.operation_var,
+            value="fase2",
+        ).pack(anchor="w", padx=10, pady=3)
+        tk.Radiobutton(
+            step1,
+            text="Completo (Fase 1 + Fase 2)",
+            variable=self.operation_var,
+            value="completo",
+        ).pack(anchor="w", padx=10, pady=3)
 
-        warn = (
-            "Observacao: colunas muito grandes podem exigir execucao separada por coluna "
-            "por limites da API do Notion."
-        )
-        tk.Label(top, text=warn, fg="#7a4d00", anchor="w", justify="left").pack(fill="x", pady=(4, 0))
+        flags = tk.Frame(step1)
+        flags.pack(fill="x", padx=10, pady=(6, 8))
+        tk.Checkbutton(flags, text="Apply (gravar no Notion)", variable=self.apply_var).pack(side="left")
+        tk.Checkbutton(flags, text="Debug", variable=self.debug_var).pack(side="left", padx=14)
 
-        cols_frame = tk.LabelFrame(self.root, text="Colunas")
-        cols_frame.pack(fill="x", padx=12, pady=(4, 8))
+        # Passo 2
+        step2 = tk.LabelFrame(self.root, text="2) CSV base")
+        step2.pack(fill="x", padx=12, pady=6)
+        tk.Label(step2, text="source-csv").grid(row=0, column=0, sticky="w", padx=10, pady=8)
+        tk.Entry(step2, textvariable=self.source_csv_var).grid(row=0, column=1, sticky="we", padx=10, pady=8)
+        tk.Button(step2, text="Selecionar...", command=self.browse_source_csv).grid(row=0, column=2, padx=10, pady=8)
+        step2.columnconfigure(1, weight=1)
 
-        for idx, col in enumerate(ALL_COLUMNS):
-            r = idx // 4
-            c = idx % 4
-            chk = tk.Checkbutton(cols_frame, text=col, variable=self.column_vars[col], anchor="w")
-            chk.grid(row=r, column=c, sticky="w", padx=10, pady=6)
+        # Passo 3
+        step3 = tk.LabelFrame(self.root, text="3) Saida da Fase 2 (Notion Chat)")
+        step3.pack(fill="x", padx=12, pady=6)
+        tk.Label(step3, text="Pasta de saida").grid(row=0, column=0, sticky="w", padx=10, pady=(8, 4))
+        tk.Entry(step3, textvariable=self.output_dir_var).grid(row=0, column=1, sticky="we", padx=10, pady=(8, 4))
+        tk.Button(step3, text="Selecionar...", command=self.browse_output_dir).grid(row=0, column=2, padx=10, pady=(8, 4))
 
-        presets = tk.Frame(cols_frame)
-        presets.grid(row=3, column=0, columnspan=4, sticky="w", padx=10, pady=(4, 8))
-        tk.Button(presets, text="Marcar Fase 1", command=self.select_phase_1).pack(side="left", padx=(0, 6))
-        tk.Button(presets, text="Marcar Fase 2", command=self.select_phase_2).pack(side="left", padx=6)
-        tk.Button(presets, text="Marcar Todas", command=self.select_all).pack(side="left", padx=6)
-        tk.Button(presets, text="Limpar", command=self.clear_all).pack(side="left", padx=6)
+        tk.Label(step3, text="Arquivo da fila").grid(row=1, column=0, sticky="w", padx=10, pady=(4, 8))
+        tk.Entry(step3, textvariable=self.queue_file_var).grid(row=1, column=1, sticky="we", padx=10, pady=(4, 8))
+        tk.Button(step3, text="Selecionar...", command=self.browse_queue_file).grid(row=1, column=2, padx=10, pady=(4, 8))
+        step3.columnconfigure(1, weight=1)
 
-        opts = tk.LabelFrame(self.root, text="Opcoes de Execucao")
-        opts.pack(fill="x", padx=12, pady=8)
+        # Avancado
+        adv_wrap = tk.Frame(self.root)
+        adv_wrap.pack(fill="x", padx=12, pady=(0, 6))
+        tk.Checkbutton(
+            adv_wrap,
+            text="Mostrar opcoes avancadas",
+            variable=self.show_advanced_var,
+            command=self._toggle_advanced,
+        ).pack(anchor="w")
 
-        tk.Checkbutton(opts, text="Apply (gravar no Notion)", variable=self.apply_var).grid(
-            row=0, column=0, sticky="w", padx=10, pady=6
-        )
-        tk.Checkbutton(opts, text="Debug", variable=self.debug_var).grid(
+        self.advanced_frame = tk.LabelFrame(self.root, text="Opcoes avancadas")
+        tk.Label(self.advanced_frame, text="min-interval").grid(row=0, column=0, sticky="w", padx=10, pady=6)
+        tk.Entry(self.advanced_frame, width=10, textvariable=self.min_interval_var).grid(
             row=0, column=1, sticky="w", padx=10, pady=6
         )
-        tk.Checkbutton(opts, text="Prune etiquetas sem uso", variable=self.prune_var).grid(
-            row=0, column=2, sticky="w", padx=10, pady=6
+        tk.Label(self.advanced_frame, text="page-size").grid(row=0, column=2, sticky="w", padx=10, pady=6)
+        tk.Entry(self.advanced_frame, width=10, textvariable=self.page_size_var).grid(
+            row=0, column=3, sticky="w", padx=10, pady=6
+        )
+        tk.Label(self.advanced_frame, text="timeout").grid(row=0, column=4, sticky="w", padx=10, pady=6)
+        tk.Entry(self.advanced_frame, width=10, textvariable=self.timeout_var).grid(
+            row=0, column=5, sticky="w", padx=10, pady=6
+        )
+        tk.Label(self.advanced_frame, text="retries").grid(row=0, column=6, sticky="w", padx=10, pady=6)
+        tk.Entry(self.advanced_frame, width=10, textvariable=self.retries_var).grid(
+            row=0, column=7, sticky="w", padx=10, pady=6
         )
 
-        phase_frame = tk.Frame(opts)
-        phase_frame.grid(row=0, column=3, sticky="w", padx=10, pady=6)
-        tk.Label(phase_frame, text="Fase:").pack(side="left")
-        tk.Radiobutton(phase_frame, text="1", variable=self.phase_var, value="1").pack(side="left")
-        tk.Radiobutton(phase_frame, text="2", variable=self.phase_var, value="2").pack(side="left")
-        tk.Radiobutton(phase_frame, text="all", variable=self.phase_var, value="all").pack(side="left")
-
-        tk.Label(opts, text="min-interval").grid(row=1, column=0, sticky="w", padx=10)
-        tk.Entry(opts, width=10, textvariable=self.min_interval_var).grid(row=1, column=0, sticky="e", padx=10)
-        tk.Label(opts, text="page-size").grid(row=1, column=1, sticky="w", padx=10)
-        tk.Entry(opts, width=10, textvariable=self.page_size_var).grid(row=1, column=1, sticky="e", padx=10)
-        tk.Label(opts, text="timeout").grid(row=1, column=2, sticky="w", padx=10)
-        tk.Entry(opts, width=10, textvariable=self.timeout_var).grid(row=1, column=2, sticky="e", padx=10)
-        tk.Label(opts, text="retries").grid(row=1, column=3, sticky="w", padx=10)
-        tk.Entry(opts, width=10, textvariable=self.retries_var).grid(row=1, column=3, sticky="e", padx=10)
-
-        tk.Label(opts, text="manual-plan-output (CSV)").grid(row=2, column=0, sticky="w", padx=10)
-        tk.Entry(opts, textvariable=self.manual_plan_var).grid(row=2, column=1, columnspan=3, sticky="we", padx=10)
-
-        tk.Checkbutton(opts, text="Retomar do checkpoint CSV", variable=self.resume_enabled_var).grid(
-            row=3, column=0, sticky="w", padx=10, pady=6
+        tk.Label(self.advanced_frame, text="manual-plan-output").grid(row=1, column=0, sticky="w", padx=10, pady=6)
+        tk.Entry(self.advanced_frame, textvariable=self.manual_plan_var).grid(
+            row=1, column=1, columnspan=6, sticky="we", padx=10, pady=6
         )
-        tk.Entry(opts, textvariable=self.resume_input_var).grid(row=3, column=1, columnspan=2, sticky="we", padx=10)
-        tk.Button(opts, text="Selecionar...", command=self.browse_resume_file).grid(
-            row=3, column=3, sticky="e", padx=10
+        tk.Button(self.advanced_frame, text="Selecionar...", command=self.browse_manual_plan).grid(
+            row=1, column=7, padx=10, pady=6
         )
 
-        actions = tk.Frame(self.root)
-        actions.pack(fill="x", padx=12, pady=8)
-        self.run_btn = tk.Button(actions, text="Executar", command=self.run)
-        self.run_btn.pack(side="left")
-        tk.Button(actions, text="Executar Fase 1", command=self.run_phase_1).pack(side="left", padx=8)
-        tk.Button(actions, text="Executar Fase 2", command=self.run_phase_2).pack(side="left", padx=0)
-        tk.Button(actions, text="Retomar Pendencias", command=self.run_resume).pack(side="left", padx=8)
+        self.advanced_frame.columnconfigure(1, weight=1)
+
+        # Passo 4
+        actions = tk.LabelFrame(self.root, text="4) Executar")
+        actions.pack(fill="x", padx=12, pady=6)
+        self.run_btn = tk.Button(actions, text="Executar operacao selecionada", command=self.run_selected)
+        self.run_btn.pack(side="left", padx=8, pady=8)
+        tk.Button(actions, text="Gerar fila Fase 2", command=self.generate_phase2_queue).pack(side="left", padx=4, pady=8)
+        tk.Button(actions, text="Ler fila", command=self.load_queue).pack(side="left", padx=4, pady=8)
+        tk.Button(actions, text="Abrir pasta de saida", command=self.open_output_folder).pack(side="left", padx=4, pady=8)
         self.stop_btn = tk.Button(actions, text="Parar", command=self.stop, state="disabled")
-        self.stop_btn.pack(side="left", padx=8)
-
+        self.stop_btn.pack(side="left", padx=8, pady=8)
         self.status_label = tk.Label(actions, text="Pronto.")
         self.status_label.pack(side="left", padx=12)
 
-        self.log = scrolledtext.ScrolledText(self.root, wrap="word", height=22, font=("Consolas", 10))
+        # Fila (somente leitura)
+        queue_frame = tk.LabelFrame(self.root, text="Fila Fase 2 (somente leitura)")
+        queue_frame.pack(fill="both", expand=False, padx=12, pady=(2, 8))
+        queue_top = tk.Frame(queue_frame)
+        queue_top.pack(fill="x", padx=8, pady=6)
+        self.queue_status_label = tk.Label(queue_top, text="Itens: 0 | Gerados: 0 | Colunas: 0")
+        self.queue_status_label.pack(side="left", padx=2)
+
+        self.queue_preview = scrolledtext.ScrolledText(queue_frame, wrap="word", height=7, font=("Consolas", 10))
+        self.queue_preview.pack(fill="both", expand=True, padx=8, pady=(0, 8))
+        self.queue_preview.configure(state="disabled")
+
+        # Log
+        self.log = scrolledtext.ScrolledText(self.root, wrap="word", height=14, font=("Consolas", 10))
         self.log.pack(fill="both", expand=True, padx=12, pady=(0, 12))
+
+    def _toggle_advanced(self) -> None:
+        if self.show_advanced_var.get():
+            self.advanced_frame.pack(fill="x", padx=12, pady=(0, 8))
+        else:
+            self.advanced_frame.pack_forget()
 
     def append_log(self, text: str) -> None:
         self.log.insert("end", text)
@@ -149,112 +228,116 @@ class App:
     def set_status(self, text: str) -> None:
         self.status_label.config(text=text)
 
-    def select_phase_1(self) -> None:
-        for col in ALL_COLUMNS:
-            self.column_vars[col].set(col in PHASE_1)
+    def _resolve_path(self, raw: str) -> Path:
+        path = Path(raw).expanduser()
+        if not path.is_absolute():
+            path = Path(__file__).resolve().parent / path
+        return path
 
-    def select_phase_2(self) -> None:
-        for col in ALL_COLUMNS:
-            self.column_vars[col].set(col in PHASE_2)
+    def browse_source_csv(self) -> None:
+        initial = self.source_csv_var.get().strip()
+        initial_dir = str(Path(initial).parent) if initial else str(Path(__file__).resolve().parent)
+        path = filedialog.askopenfilename(
+            title="Selecionar source-csv (base)",
+            initialdir=initial_dir,
+            filetypes=[("CSV", "*.csv"), ("Todos os arquivos", "*.*")],
+        )
+        if path:
+            self.source_csv_var.set(path)
 
-    def select_all(self) -> None:
-        for var in self.column_vars.values():
-            var.set(True)
+    def browse_output_dir(self) -> None:
+        initial = self.output_dir_var.get().strip() or str(Path(__file__).resolve().parent)
+        path = filedialog.askdirectory(title="Selecionar pasta de saida", initialdir=initial)
+        if path:
+            self.output_dir_var.set(path)
+            self.queue_file_var.set(str(Path(path) / "phase2_chat_queue.csv"))
 
-    def clear_all(self) -> None:
-        for var in self.column_vars.values():
-            var.set(False)
+    def browse_queue_file(self) -> None:
+        initial = self.queue_file_var.get().strip()
+        initial_dir = str(Path(initial).parent) if initial else str(Path(__file__).resolve().parent)
+        path = filedialog.askopenfilename(
+            title="Selecionar arquivo da fila",
+            initialdir=initial_dir,
+            filetypes=[("CSV", "*.csv"), ("Todos os arquivos", "*.*")],
+        )
+        if path:
+            self.queue_file_var.set(path)
 
-    def _selected_columns(self) -> list[str]:
-        return [col for col in ALL_COLUMNS if self.column_vars[col].get()]
+    def browse_manual_plan(self) -> None:
+        initial = self.manual_plan_var.get().strip()
+        initial_dir = str(Path(initial).parent) if initial else str(Path(__file__).resolve().parent)
+        path = filedialog.askopenfilename(
+            title="Selecionar manual-plan-output",
+            initialdir=initial_dir,
+            filetypes=[("CSV", "*.csv"), ("Todos os arquivos", "*.*")],
+        )
+        if path:
+            self.manual_plan_var.set(path)
 
-    def _build_command(self) -> list[str]:
+    def _columns_for_operation(self, op: str) -> list[str]:
+        if op == "fase1":
+            return list(PHASE_1)
+        if op == "fase2":
+            return list(PHASE_2)
+        return list(ALL_COLUMNS)
+
+    def _build_command(self, *, op: str, queue_only: bool = False) -> list[str]:
         script_path = Path(__file__).resolve().parent / SCRIPT_NAME
         if not script_path.exists():
-            raise FileNotFoundError(f"Script nao encontrado: {script_path}")
+            raise RuntimeError(f"Script nao encontrado: {script_path}")
 
-        selected_cols = self._selected_columns()
-        if not selected_cols:
-            raise ValueError("Selecione ao menos uma coluna.")
+        src_raw = self.source_csv_var.get().strip()
+        if not src_raw:
+            raise RuntimeError("Selecione o source-csv (base).")
+        src_path = self._resolve_path(src_raw)
+        if not src_path.exists() or not src_path.is_file():
+            raise RuntimeError(f"source-csv nao encontrado: {src_path}")
 
-        cmd: list[str] = [sys.executable, "-u", str(script_path), "--only-properties", ",".join(selected_cols)]
-        cmd.extend(["--phase", self.phase_var.get().strip() or "all"])
-        if self.apply_var.get():
+        cols = self._columns_for_operation(op)
+        phase = "all"
+        phase2_mode = "notion-chat"
+        if op == "fase1":
+            phase = "1"
+            phase2_mode = "api"
+        elif op == "fase2":
+            phase = "2"
+            phase2_mode = "notion-chat"
+
+        cmd = [sys.executable, "-u", str(script_path), "--only-properties", ",".join(cols), "--phase", phase]
+        cmd.extend(["--phase2-mode", phase2_mode, "--source-csv", str(src_path)])
+
+        if self.apply_var.get() and not queue_only:
             cmd.append("--apply")
-        if not self.prune_var.get():
-            cmd.append("--no-prune-unused")
         if self.debug_var.get():
             cmd.append("--debug")
+
         if self.manual_plan_var.get().strip():
             cmd.extend(["--manual-plan-output", self.manual_plan_var.get().strip()])
-        if self.resume_enabled_var.get():
-            resume_path = self.resume_input_var.get().strip()
-            if not resume_path:
-                raise ValueError("Selecione um arquivo de checkpoint CSV para retomada.")
-            cmd.extend(["--resume-plan-input", resume_path])
 
+        # Avancado
         cmd.extend(["--min-interval", self.min_interval_var.get().strip() or "0.20"])
         cmd.extend(["--page-size", self.page_size_var.get().strip() or "100"])
         cmd.extend(["--timeout", self.timeout_var.get().strip() or "30"])
         cmd.extend(["--retries", self.retries_var.get().strip() or "4"])
+
+        if phase2_mode == "notion-chat":
+            out_dir = self.output_dir_var.get().strip()
+            queue_file = self.queue_file_var.get().strip()
+            if out_dir:
+                cmd.extend(["--phase2-chat-output-dir", out_dir])
+            if queue_file:
+                cmd.extend(["--phase2-queue-file", queue_file])
+
         return cmd
 
-    def run_phase_1(self) -> None:
-        self.phase_var.set("1")
-        self.select_phase_1()
-        self.run()
-
-    def run_phase_2(self) -> None:
-        self.phase_var.set("2")
-        self.select_phase_2()
-        self.run()
-
-    def browse_resume_file(self) -> None:
-        path = filedialog.askopenfilename(
-            title="Selecionar checkpoint CSV",
-            filetypes=[("CSV", "*.csv"), ("Todos os arquivos", "*.*")],
-        )
-        if path:
-            self.resume_input_var.set(path)
-            self.resume_enabled_var.set(True)
-
-    def run_resume(self) -> None:
-        self.phase_var.set("all")
-        self.select_all()
-        self.resume_enabled_var.set(True)
-        if not self.resume_input_var.get().strip():
-            self.browse_resume_file()
-            if not self.resume_input_var.get().strip():
-                return
-        self.run()
-
-    def run(self) -> None:
+    def _launch(self, cmd: list[str], status: str) -> None:
         if self.running:
             return
-        if self.apply_var.get() and self.phase_var.get() == "2":
-            proceed = messagebox.askyesno(
-                "Confirmar fase 2",
-                (
-                    "Na API publica do Notion, colunas com muitas opcoes podem ser ignoradas no APPLY "
-                    "(limite de 100 options por chamada).\n\n"
-                    "Se isso ocorrer, o script gera um CSV de plano manual.\n\n"
-                    "Deseja continuar?"
-                ),
-            )
-            if not proceed:
-                return
-        try:
-            cmd = self._build_command()
-        except Exception as exc:
-            messagebox.showerror("Erro de configuracao", str(exc))
-            return
-
         self.running = True
         self.run_btn.config(state="disabled")
         self.stop_btn.config(state="normal")
-        mode = "APPLY" if self.apply_var.get() else "DRY-RUN"
-        self.set_status(f"Executando ({mode})...")
-        self.append_log("\n" + "=" * 80 + "\n")
+        self.set_status(status)
+        self.append_log("\n" + "=" * 100 + "\n")
         self.append_log("Comando: " + " ".join(cmd) + "\n\n")
 
         def worker() -> None:
@@ -282,6 +365,122 @@ class App:
         self.thread = threading.Thread(target=worker, daemon=True)
         self.thread.start()
 
+    def run_selected(self) -> None:
+        op = self.operation_var.get().strip() or "completo"
+        try:
+            cmd = self._build_command(op=op, queue_only=False)
+        except Exception as exc:
+            messagebox.showerror("Erro de configuracao", str(exc))
+            return
+
+        if op in {"fase2", "completo"} and self.apply_var.get():
+            messagebox.showinfo(
+                "Aviso",
+                "Na Fase 2 (Notion Chat), o script gera fila/payload/prompt. "
+                "Nao ha update de cor via API oficial.",
+            )
+
+        self._launch(cmd, "Executando...")
+
+    def generate_phase2_queue(self) -> None:
+        try:
+            cmd = self._build_command(op="fase2", queue_only=True)
+        except Exception as exc:
+            messagebox.showerror("Erro de configuracao", str(exc))
+            return
+        self._launch(cmd, "Gerando fila Fase 2...")
+
+    def _queue_path(self) -> Path:
+        raw = self.queue_file_var.get().strip()
+        if not raw:
+            raise RuntimeError("Informe o arquivo da fila.")
+        return self._resolve_path(raw)
+
+    def _ensure_queue_fieldnames(self, fieldnames: list[str]) -> list[str]:
+        out = list(fieldnames)
+        for name in QUEUE_REQUIRED_FIELDS:
+            if name not in out:
+                out.append(name)
+        return out
+
+    def load_queue(self, show_popup: bool = True) -> None:
+        try:
+            queue_path = self._queue_path()
+        except Exception as exc:
+            if show_popup:
+                messagebox.showerror("Fila", str(exc))
+            return
+        if not queue_path.exists() or not queue_path.is_file():
+            if show_popup:
+                messagebox.showerror("Fila", f"Arquivo de fila nao encontrado: {queue_path}")
+            return
+
+        with queue_path.open("r", encoding="utf-8-sig", newline="") as fp:
+            reader = csv.DictReader(fp)
+            self.queue_fieldnames = self._ensure_queue_fieldnames([n for n in (reader.fieldnames or []) if n])
+            self.queue_rows = [dict(row) for row in reader]
+
+        preview_lines: list[str] = []
+        by_status: dict[str, int] = {"GERADO": 0, "PENDENTE": 0, "CONCLUIDO": 0, "ERRO": 0, "OUTROS": 0}
+        by_coluna: dict[str, int] = {}
+        for idx, row in enumerate(self.queue_rows):
+            status = (row.get("status") or "PENDENTE").strip().upper() or "PENDENTE"
+            row["status"] = status
+            if status in by_status:
+                by_status[status] += 1
+            else:
+                by_status["OUTROS"] += 1
+            coluna = (row.get("coluna") or "").strip() or "(sem coluna)"
+            by_coluna[coluna] = by_coluna.get(coluna, 0) + 1
+
+            if idx < 40:
+                preview_lines.append(
+                    f"{idx + 1:03d} | {status:<9} | {coluna:<14} | bloco {row.get('bloco', ''):<3} "
+                    f"| faixa {row.get('faixa_alfabetica', ''):<7} | default={row.get('total_set_default', '0')} "
+                    f"| rem={row.get('total_remove_unused', '0')}"
+                )
+
+        total = len(self.queue_rows)
+        generated = by_status["GERADO"]
+        self.queue_status_label.config(text=f"Itens: {total} | Gerados: {generated} | Colunas: {len(by_coluna)}")
+
+        summary_lines = ["Resumo por coluna:"]
+        for coluna in sorted(by_coluna):
+            summary_lines.append(f"- {coluna}: {by_coluna[coluna]} arquivo(s)")
+        if total > 40:
+            summary_lines.append(f"... mostrando 40 de {total} linhas.")
+        rendered_preview = "\n".join(summary_lines + ["", "Primeiras linhas:"] + preview_lines)
+        self.queue_preview.configure(state="normal")
+        self.queue_preview.delete("1.0", "end")
+        self.queue_preview.insert("1.0", rendered_preview)
+        self.queue_preview.configure(state="disabled")
+
+        if show_popup:
+            messagebox.showinfo("Fila", f"Fila lida: {queue_path}")
+
+    def _open_path(self, path: Path) -> None:
+        if sys.platform.startswith("win"):
+            os.startfile(str(path))  # type: ignore[attr-defined]
+            return
+        if sys.platform == "darwin":
+            subprocess.Popen(["open", str(path)])
+            return
+        subprocess.Popen(["xdg-open", str(path)])
+
+    def open_output_folder(self) -> None:
+        raw = self.output_dir_var.get().strip()
+        if not raw:
+            messagebox.showerror("Pasta", "Informe a pasta de saida.")
+            return
+        path = self._resolve_path(raw)
+        if not path.exists():
+            messagebox.showerror("Pasta", f"Pasta nao encontrada: {path}")
+            return
+        try:
+            self._open_path(path)
+        except Exception as exc:
+            messagebox.showerror("Pasta", f"Falha ao abrir pasta: {exc}")
+
     def _on_finished(self, rc: int) -> None:
         self.running = False
         self.run_btn.config(state="normal")
@@ -289,6 +488,7 @@ class App:
         if rc == 0:
             self.set_status("Concluido com sucesso.")
             self.append_log("\n[OK] Processo finalizado.\n")
+            self.load_queue(show_popup=False)
         else:
             self.set_status(f"Concluido com erro (exit={rc}).")
             self.append_log(f"\n[ERRO] Processo finalizado com codigo {rc}.\n")

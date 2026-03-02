@@ -1,0 +1,2032 @@
+﻿coluna,etiqueta,cor_atual,cor_alvo,em_uso,remover_se_apply
+nomeMunicipio,ABAETETUBA,default,default,0,1
+nomeMunicipio,ABELARDO LUZ,red,default,0,1
+nomeMunicipio,AÇAILÂNDIA,green,default,0,1
+nomeMunicipio,AFUÁ,gray,default,0,1
+nomeMunicipio,AGRESTINA,red,default,0,1
+nomeMunicipio,ÁGUA DOCE DO NORTE,gray,default,0,1
+nomeMunicipio,ALMENARA,default,default,0,1
+nomeMunicipio,ALTA FLORESTA,yellow,default,0,1
+nomeMunicipio,ANANINDEUA,green,default,0,1
+nomeMunicipio,ANGRA DOS REIS,orange,default,0,1
+nomeMunicipio,ANORI,blue,default,0,1
+nomeMunicipio,APARECIDA DE GOIÂNIA,pink,default,0,1
+nomeMunicipio,ARACI,default,default,1,0
+nomeMunicipio,ARAXÁ,green,default,0,1
+nomeMunicipio,ARENÁPOLIS,gray,default,0,1
+nomeMunicipio,ATALAIA,orange,default,0,1
+nomeMunicipio,AUGUSTO PESTANA,purple,default,0,1
+nomeMunicipio,AVARÉ,default,default,0,1
+nomeMunicipio,AVEIRO,brown,default,1,0
+nomeMunicipio,BANDEIRANTES,gray,default,1,0
+nomeMunicipio,BARBALHA,yellow,default,0,1
+nomeMunicipio,BARBOSA,orange,default,0,1
+nomeMunicipio,BARRA D'ALCÂNTARA,blue,default,0,1
+nomeMunicipio,BARRA MANSA,yellow,default,1,0
+nomeMunicipio,BARREIROS,purple,default,0,1
+nomeMunicipio,BARUERI,brown,default,1,0
+nomeMunicipio,BELÉM,gray,default,1,0
+nomeMunicipio,BELO HORIZONTE,blue,default,1,0
+nomeMunicipio,BEQUIMÃO,blue,default,0,1
+nomeMunicipio,BIRITINGA,green,default,0,1
+nomeMunicipio,BOA VISTA,brown,default,1,0
+nomeMunicipio,BOM JARDIM DE GOIÁS,yellow,default,0,1
+nomeMunicipio,BOM JESUS DO ITABAPOANA,orange,default,1,0
+nomeMunicipio,BONFIM,pink,default,0,1
+nomeMunicipio,BRASÍLIA,red,default,1,0
+nomeMunicipio,BREJO ALEGRE,orange,default,1,0
+nomeMunicipio,BREVES,orange,default,0,1
+nomeMunicipio,BUÍQUE,brown,default,0,1
+nomeMunicipio,BURITICUPU,orange,default,0,1
+nomeMunicipio,CABO DE SANTO AGOSTINHO,gray,default,0,1
+nomeMunicipio,CACHOEIRO DE ITAPEMIRIM,yellow,default,0,1
+nomeMunicipio,CAETANOS,default,default,0,1
+nomeMunicipio,CAMAÇARI,blue,default,0,1
+nomeMunicipio,CAMBUÍ,purple,default,0,1
+nomeMunicipio,CAMPINAS,red,default,0,1
+nomeMunicipio,CAMPO GRANDE,purple,default,0,1
+nomeMunicipio,CANTO DO BURITI,blue,default,0,1
+nomeMunicipio,CAPELA,orange,default,1,0
+nomeMunicipio,CARMO DO RIO CLARO,pink,default,0,1
+nomeMunicipio,CARMÓPOLIS,red,default,0,1
+nomeMunicipio,CASCAVEL,purple,default,1,0
+nomeMunicipio,CAXIAS,blue,default,0,1
+nomeMunicipio,CHORÓ,yellow,default,0,1
+nomeMunicipio,COLATINA,blue,default,0,1
+nomeMunicipio,CONCEIÇÃO DO ARAGUAIA,brown,default,0,1
+nomeMunicipio,CONCÓRDIA DO PARÁ,blue,default,0,1
+nomeMunicipio,COREAÚ,yellow,default,0,1
+nomeMunicipio,CORGUINHO,gray,default,0,1
+nomeMunicipio,COXIM,green,default,0,1
+nomeMunicipio,CRATO,red,default,0,1
+nomeMunicipio,CRISTINÁPOLIS,brown,default,0,1
+nomeMunicipio,CRIXÁS,gray,default,0,1
+nomeMunicipio,CUIABÁ,pink,default,1,0
+nomeMunicipio,CURIMATÁ,purple,default,0,1
+nomeMunicipio,CURITIBA,brown,default,1,0
+nomeMunicipio,EIRUNEPÉ,brown,default,0,1
+nomeMunicipio,ELDORADO,purple,default,0,1
+nomeMunicipio,EUNÁPOLIS,pink,default,0,1
+nomeMunicipio,FAGUNDES,green,default,0,1
+nomeMunicipio,FEIRA DE SANTANA,gray,default,0,1
+nomeMunicipio,FLORIANÓPOLIS,default,default,0,1
+nomeMunicipio,FONTE BOA,blue,default,0,1
+nomeMunicipio,FORMOSA,yellow,default,0,1
+nomeMunicipio,FORTALEZA,yellow,default,1,0
+nomeMunicipio,GAROPABA,orange,default,0,1
+nomeMunicipio,GLÓRIA DO GOITÁ,default,default,0,1
+nomeMunicipio,GOIÂNIA,orange,default,1,0
+nomeMunicipio,GOIATINS,orange,default,0,1
+nomeMunicipio,GONGOGI,gray,default,0,1
+nomeMunicipio,GRAVATÁ,pink,default,0,1
+nomeMunicipio,GUADALUPE,purple,default,0,1
+nomeMunicipio,GUAMARÉ,purple,default,0,1
+nomeMunicipio,GUARULHOS,pink,default,0,1
+nomeMunicipio,GUATAPARÁ,red,default,0,1
+nomeMunicipio,GURUPÁ,pink,default,0,1
+nomeMunicipio,HIDROLÂNDIA,pink,default,0,1
+nomeMunicipio,IBERTIOGA,pink,default,0,1
+nomeMunicipio,IBIRATAIA,gray,default,0,1
+nomeMunicipio,ILHABELA,purple,default,0,1
+nomeMunicipio,INHAMBUPE,orange,default,0,1
+nomeMunicipio,IPU,gray,default,0,1
+nomeMunicipio,IRAQUARA,red,default,0,1
+nomeMunicipio,ITAGIBÁ,purple,default,0,1
+nomeMunicipio,ITANAGRA,pink,default,0,1
+nomeMunicipio,ITAQUIRAÍ,gray,default,1,0
+nomeMunicipio,JACAREACANGA,red,default,0,1
+nomeMunicipio,JACAREÍ,red,default,0,1
+nomeMunicipio,JAGUARAÇU,brown,default,0,1
+nomeMunicipio,JOÃO COSTA,green,default,0,1
+nomeMunicipio,JOÃO NEIVA,red,default,0,1
+nomeMunicipio,JOÃO PESSOA,red,default,1,0
+nomeMunicipio,JOAQUIM GOMES,blue,default,0,1
+nomeMunicipio,JUIZ DE FORA,pink,default,0,1
+nomeMunicipio,LAGARTO,pink,default,0,1
+nomeMunicipio,LAGOA SANTA,brown,default,0,1
+nomeMunicipio,LAVRAS,pink,default,1,0
+nomeMunicipio,LEOPOLDO DE BULHÕES,purple,default,0,1
+nomeMunicipio,LONDRINA,red,default,0,1
+nomeMunicipio,LUZIÂNIA,red,default,0,1
+nomeMunicipio,MACAPÁ,brown,default,1,0
+nomeMunicipio,MACEIÓ,red,default,1,0
+nomeMunicipio,MANAÍRA,gray,default,0,1
+nomeMunicipio,MANAUS,purple,default,1,0
+nomeMunicipio,MANTENA,yellow,default,1,0
+nomeMunicipio,MARAGOGIPE,purple,default,0,1
+nomeMunicipio,MARANGUAPE,yellow,default,0,1
+nomeMunicipio,MARECHAL DEODORO,yellow,default,0,1
+nomeMunicipio,MARIANA,yellow,default,0,1
+nomeMunicipio,MARTINS SOARES,orange,default,0,1
+nomeMunicipio,MAUÁ,brown,default,1,0
+nomeMunicipio,MEDEIROS NETO,default,default,0,1
+nomeMunicipio,MELGAÇO,blue,default,0,1
+nomeMunicipio,MIRANORTE,gray,default,0,1
+nomeMunicipio,MONTE ALEGRE,purple,default,0,1
+nomeMunicipio,MONTE ALEGRE DE SERGIPE,green,default,0,1
+nomeMunicipio,MONTE APRAZÍVEL,orange,default,0,1
+nomeMunicipio,MORROS,default,default,0,1
+nomeMunicipio,MURICI,pink,default,0,1
+nomeMunicipio,NATAL,default,default,1,0
+nomeMunicipio,NERÓPOLIS,green,default,0,1
+nomeMunicipio,NORTELÂNDIA,orange,default,0,1
+nomeMunicipio,NOVA AURORA,red,default,0,1
+nomeMunicipio,NOVA BRASILÂNDIA,purple,default,0,1
+nomeMunicipio,NOVA FRIBURGO,yellow,default,0,1
+nomeMunicipio,NOVA VENÉCIA,purple,default,0,1
+nomeMunicipio,NOVO GAMA,purple,default,0,1
+nomeMunicipio,NOVO JARDIM,red,default,0,1
+nomeMunicipio,NOVO ORIENTE DO PIAUÍ,purple,default,1,0
+nomeMunicipio,OEIRAS DO PARÁ,gray,default,0,1
+nomeMunicipio,OIAPOQUE,gray,default,0,1
+nomeMunicipio,ORIXIMINÁ,yellow,default,1,0
+nomeMunicipio,OSVALDO CRUZ,red,default,0,1
+nomeMunicipio,OURINHOS,pink,default,0,1
+nomeMunicipio,PACATUBA,red,default,0,1
+nomeMunicipio,PACUJÁ,purple,default,0,1
+nomeMunicipio,PALMAS,yellow,default,1,0
+nomeMunicipio,PANORAMA,brown,default,0,1
+nomeMunicipio,PARAGOMINAS,gray,default,0,1
+nomeMunicipio,PARAGUAÇU PAULISTA,green,default,0,1
+nomeMunicipio,PARANAGUÁ,orange,default,0,1
+nomeMunicipio,PARANAÍBA,green,default,0,1
+nomeMunicipio,PARAUAPEBAS,brown,default,1,0
+nomeMunicipio,PARNAÍBA,orange,default,0,1
+nomeMunicipio,PAULISTANA,default,default,0,1
+nomeMunicipio,PEDRO VELHO,yellow,default,0,1
+nomeMunicipio,PEREIRO,purple,default,0,1
+nomeMunicipio,PIRAÍ DO NORTE,orange,default,0,1
+nomeMunicipio,PIRES FERREIRA,green,default,0,1
+nomeMunicipio,PITIMBU,gray,default,0,1
+nomeMunicipio,PLACAS,gray,default,0,1
+nomeMunicipio,POCINHOS,yellow,default,0,1
+nomeMunicipio,PONTA GROSSA,red,default,0,1
+nomeMunicipio,PORTO ALEGRE,yellow,default,1,0
+nomeMunicipio,PORTO RICO,green,default,0,1
+nomeMunicipio,PORTO VELHO,blue,default,1,0
+nomeMunicipio,POSSE,orange,default,0,1
+nomeMunicipio,PRAIA GRANDE,gray,default,0,1
+nomeMunicipio,PRAINHA,green,default,0,1
+nomeMunicipio,PRESIDENTE FIGUEIREDO,orange,default,0,1
+nomeMunicipio,PRIMAVERA DO LESTE,purple,default,0,1
+nomeMunicipio,REBOUAS,yellow,default,0,1
+nomeMunicipio,RECIFE,red,default,1,0
+nomeMunicipio,RERIUTABA,pink,default,0,1
+nomeMunicipio,RESERVA DO CABAÇAL,green,default,0,1
+nomeMunicipio,RIBEIRÃO PIRES,default,default,0,1
+nomeMunicipio,RIO BRANCO DO SUL,default,default,0,1
+nomeMunicipio,RIO CRESPO,red,default,0,1
+nomeMunicipio,RIO DE JANEIRO,brown,default,1,0
+nomeMunicipio,RIO DOS BOIS,pink,default,0,1
+nomeMunicipio,RIOZINHO,yellow,default,0,1
+nomeMunicipio,RUSSAS,orange,default,0,1
+nomeMunicipio,SABARÁ,purple,default,1,0
+nomeMunicipio,SALGADO,orange,default,0,1
+nomeMunicipio,SALINAS DA MARGARIDA,yellow,default,0,1
+nomeMunicipio,SALVADOR,green,default,1,0
+nomeMunicipio,SANTA CRUZ DE MINAS,brown,default,0,1
+nomeMunicipio,SANTA LUZIA DO ITANHY,blue,default,0,1
+nomeMunicipio,SANTANA DO ACARAÚ,purple,default,0,1
+nomeMunicipio,SANTARÉM NOVO,default,default,0,1
+nomeMunicipio,SANTO ANTÔNIO DO LESTE,blue,default,0,1
+nomeMunicipio,SANTO ESTEVÃO,red,default,0,1
+nomeMunicipio,SÃO BERNARDO,red,default,0,1
+nomeMunicipio,SÃO BERNARDO DO CAMPO,yellow,default,1,0
+nomeMunicipio,SÃO GABRIEL DA PALHA,brown,default,0,1
+nomeMunicipio,SÃO JOÃO DA BOA VISTA,purple,default,0,1
+nomeMunicipio,SÃO JOÃO EVANGELISTA,pink,default,0,1
+nomeMunicipio,SÃO JOSÉ DA COROA GRANDE,green,default,0,1
+nomeMunicipio,SÃO JOSÉ DA VARGINHA,green,default,0,1
+nomeMunicipio,SÃO JOSÉ DOS RAMOS,orange,default,0,1
+nomeMunicipio,SÃO LUÍS,default,default,1,0
+nomeMunicipio,SÃO PAULO,brown,default,1,0
+nomeMunicipio,SENADOR SÁ,brown,default,0,1
+nomeMunicipio,SERRA,pink,default,1,0
+nomeMunicipio,SERRA PRETA,green,default,0,1
+nomeMunicipio,SERRA TALHADA,purple,default,0,1
+nomeMunicipio,SERRANA,pink,default,0,1
+nomeMunicipio,SERTÂNIA,purple,default,0,1
+nomeMunicipio,SEVERÍNIA,brown,default,1,0
+nomeMunicipio,SOBRAL,brown,default,0,1
+nomeMunicipio,SOUSA,yellow,default,0,1
+nomeMunicipio,TACIMA,gray,default,0,1
+nomeMunicipio,TAIPU,orange,default,0,1
+nomeMunicipio,TARAUACÁ,brown,default,1,0
+nomeMunicipio,TAUÁ,orange,default,0,1
+nomeMunicipio,TEJUÇUOCA,green,default,0,1
+nomeMunicipio,TEÓFILO OTONI,default,default,0,1
+nomeMunicipio,TERESINA,blue,default,1,0
+nomeMunicipio,TIANGUÁ,gray,default,0,1
+nomeMunicipio,TRAIRI,orange,default,0,1
+nomeMunicipio,TRÊS LAGOAS,yellow,default,0,1
+nomeMunicipio,TRÊS RANCHOS,default,default,0,1
+nomeMunicipio,TUCURUÍ,brown,default,1,0
+nomeMunicipio,TUNAS DO PARANÁ,default,default,0,1
+nomeMunicipio,UARINI,pink,default,0,1
+nomeMunicipio,UNIÃO DOS PALMARES,purple,default,0,1
+nomeMunicipio,UNIFLOR,yellow,default,0,1
+nomeMunicipio,URÂNIA,red,default,0,1
+nomeMunicipio,VÁRZEA DO POÇO,pink,default,0,1
+nomeMunicipio,VÁRZEA GRANDE,gray,default,1,0
+nomeMunicipio,VIAMÃO,yellow,default,0,1
+nomeMunicipio,VICÊNCIA,blue,default,0,1
+nomeMunicipio,VIGIA,pink,default,0,1
+nomeMunicipio,VILHENA,purple,default,0,1
+nomeMunicipio,VISEU,orange,default,0,1
+nomeMunicipio,VITÓRIA,orange,default,1,0
+nomeMunicipio,VITÓRIA DA CONQUISTA,red,default,1,0
+nomeMunicipio,VITÓRIA DO MEARIM,gray,default,0,1
+nomeMunicipio,VOTORANTIM,yellow,default,0,1
+nomeMunicipio,SÃO PAULO DO POTENGI,default,default,1,0
+nomeMunicipio,TOBIAS BARRETO,default,default,1,0
+nomeMunicipio,OLINDA,default,default,1,0
+nomeMunicipio,CORNÉLIO PROCÓPIO,default,default,1,0
+nomeMunicipio,BANNACH,default,default,1,0
+nomeMunicipio,EWBANK DA CÂMARA,default,default,1,0
+nomeMunicipio,ITAPORANGA,default,default,1,0
+nomeMunicipio,RUY BARBOSA,default,default,1,0
+nomeMunicipio,CATUÍPE,default,default,1,0
+nomeMunicipio,IPAUMIRIM,default,default,1,0
+nomeMunicipio,CAMPO LARGO,default,default,1,0
+nomeMunicipio,BOA HORA,default,default,1,0
+nomeMunicipio,CURRAL DE CIMA,default,default,1,0
+nomeMunicipio,FORMIGA,default,default,1,0
+nomeMunicipio,TRACUATEUA,default,default,1,0
+nomeMunicipio,PALMAS DE MONTE ALTO,default,default,1,0
+nomeMunicipio,MATINHOS,default,default,1,0
+nomeMunicipio,SÃO JOSÉ DA LAJE,default,default,1,0
+nomeMunicipio,MAMANGUAPE,default,default,1,0
+nomeMunicipio,ITAPAJÉ,default,default,1,0
+nomeMunicipio,MEDINA,default,default,1,0
+nomeMunicipio,ITAPEVA,default,default,1,0
+nomeMunicipio,RIO GRANDE,default,default,1,0
+nomeMunicipio,CENTENÁRIO,default,default,1,0
+nomeMunicipio,MUTUM,default,default,1,0
+nomeMunicipio,CABEDELO,default,default,1,0
+nomeMunicipio,MUANÁ,default,default,1,0
+nomeMunicipio,ARACAJU,default,default,1,0
+nomeMunicipio,SÃO JOSÉ DOS PINHAIS,default,default,1,0
+nomeMunicipio,ASSUNÇÃO DO PIAUÍ,default,default,1,0
+nomeMunicipio,COTIA,default,default,1,0
+nomeMunicipio,SANTA RITA,default,default,1,0
+nomeMunicipio,ALTAMIRA,default,default,1,0
+nomeMunicipio,MATEUS LEME,default,default,1,0
+nomeMunicipio,MARATAÍZES,default,default,1,0
+nomeMunicipio,SANTOS,default,default,1,0
+nomeMunicipio,BELFORD ROXO,default,default,1,0
+nomeMunicipio,FRANCO DA ROCHA,default,default,1,0
+nomeMunicipio,CABROBÓ,default,default,1,0
+nomeMunicipio,EMBU DAS ARTES,default,default,1,0
+nomeMunicipio,SÃO MATEUS,default,default,1,0
+nomeMunicipio,MARAPOAMA,default,default,1,0
+nomeMunicipio,PASSAGEM FRANCA,default,default,1,0
+nomeMunicipio,PINDARÉ MIRIM,default,default,1,0
+nomeMunicipio,SÃO PEDRO DA ALDEIA,default,default,1,0
+nomeMunicipio,CERRO GRANDE,default,default,1,0
+nomeMunicipio,AROAZES,default,default,1,0
+nomeMunicipio,BOCA DA MATA,default,default,1,0
+nomeMunicipio,NIQUELÂNDIA,default,default,1,0
+nomeMunicipio,LIMOEIRO DO NORTE,default,default,1,0
+nomeMunicipio,OLIVENÇA,default,default,1,0
+nomeMunicipio,NOSSA SENHORA DAS DORES,default,default,1,0
+nomeMunicipio,CRAÍBAS,default,default,1,0
+nomeMunicipio,BARREIRA,default,default,1,0
+nomeMunicipio,SÃO JOÃO,default,default,1,0
+nomeMunicipio,MONGAGUÁ,default,default,1,0
+nomeMunicipio,ROLIM DE MOURA,default,default,1,0
+nomeMunicipio,BARRA DE SÃO MIGUEL,default,default,1,0
+nomeMunicipio,ITAREMA,default,default,1,0
+nomeMunicipio,SÃO JOÃO DA VARJOTA,default,default,1,0
+nomeMunicipio,RIBAS DO RIO PARDO,default,default,1,0
+nomeMunicipio,SALITRE,default,default,1,0
+nomeMunicipio,AÇUCENA,default,default,1,0
+nomeMunicipio,NOVA GRANADA,default,default,1,0
+nomeMunicipio,GOVERNADOR NEWTON BELLO,default,default,1,0
+nomeMunicipio,APIAÍ,default,default,1,0
+nomeMunicipio,JOÃO LISBOA,default,default,1,0
+nomeMunicipio,FERREIRA GOMES,default,default,1,0
+nomeMunicipio,ROLÂNDIA,default,default,1,0
+nomeMunicipio,LAPA,default,default,1,0
+nomeMunicipio,QUEIMADOS,default,default,1,0
+nomeMunicipio,HUMAITÁ,default,default,1,0
+nomeMunicipio,COSTA MARQUES,default,default,1,0
+nomeMunicipio,GOIANÉSIA,default,default,1,0
+nomeMunicipio,NOVA UNIÃO,default,default,1,0
+nomeMunicipio,BREJO SANTO,default,default,1,0
+nomeMunicipio,PARANACITY,default,default,1,0
+nomeMunicipio,FIGUEIRÓPOLIS D'OESTE,default,default,1,0
+nomeMunicipio,MOSSORÓ,default,default,1,0
+nomeMunicipio,SANTA MARIA DA BOA VISTA,default,default,1,0
+nomeMunicipio,MARACANÃ,default,default,1,0
+nomeMunicipio,CARPINA,default,default,1,0
+nomeMunicipio,SANTA CRUZ CABRÁLIA,default,default,1,0
+nomeMunicipio,TEODORO SAMPAIO,default,default,1,0
+nomeMunicipio,CRATEÚS,default,default,1,0
+nomeMunicipio,CAMALAÚ,default,default,1,0
+nomeMunicipio,RIO NEGRO,default,default,1,0
+nomeMunicipio,IPORÁ,default,default,1,0
+nomeMunicipio,POTIRETAMA,default,default,1,0
+nomeMunicipio,PRACUÚBA,default,default,1,0
+nomeMunicipio,JAGUARÉ,default,default,1,0
+nomeMunicipio,QUEIMADAS,default,default,1,0
+nomeMunicipio,CAMPOS DOS GOYTACAZES,default,default,1,0
+nomeMunicipio,BURITI,default,default,1,0
+nomeMunicipio,SÃO TOMÉ,default,default,1,0
+nomeMunicipio,ITUIUTABA,default,default,1,0
+nomeMunicipio,VIÇOSA,default,default,1,0
+nomeMunicipio,BRASILÉIA,default,default,1,0
+nomeMunicipio,CORRENTE,default,default,1,0
+nomeMunicipio,BOM JESUS DA LAPA,default,default,1,0
+nomeMunicipio,VIEIRAS,default,default,1,0
+nomeMunicipio,SUMARÉ,default,default,1,0
+nomeMunicipio,UMBURANAS,default,default,1,0
+nomeMunicipio,RIO BRANCO,default,default,1,0
+nomeMunicipio,ITAPORANGA D'AJUDA,default,default,1,0
+nomeMunicipio,GUARANTÃ DO NORTE,default,default,1,0
+nomeMunicipio,CAIAPÔNIA,default,default,1,0
+nomeMunicipio,SANTANA,default,default,1,0
+nomeMunicipio,SANTA CRUZ DE GOIÁS,default,default,1,0
+nomeMunicipio,TEIXEIRA DE FREITAS,default,default,1,0
+nomeMunicipio,ARACATI,default,default,1,0
+nomeMunicipio,SÃO SEBASTIÃO DA GRAMA,default,default,1,0
+partes,6ª TURMA CÍVEL DO TRIBUNAL DE JUSTIÇA DO DISTRITO FEDERAL E TERRITÓRIOS,purple,default,0,1
+partes,"6ª TURMA CÍVEL DO TRIBUNAL DE JUSTIÇA DO DISTRITO FEDERAL E TERRITÓRIOS,JUÍZO DA 6ª VARA CÍVEL DE BRASÍLIA DF,MOVIMENTO DEMOCRÁTICO BRASILEIRO (MDB) - MUNICIPAL",default,default,0,1
+partes,ABILIO JACQUES BRUNINI MOUMER,pink,default,1,0
+partes,"ABILIO JACQUES BRUNINI MOUMER,COLIGAÇÃO CORAGEM E FORÇA PRA MUDAR,COLIGAÇÃO RESGATANDO CUIABÁ,VANIA GARCIA ROSA",default,default,0,1
+partes,"ABILIO JACQUES BRUNINI MOUMER,COLIGAÇÃO PARA CUIDAR DAS PESSOAS,MARCIA APARECIDA KUHN PINHEIRO,MAURO MENDES FERREIRA,OTAVIANO OLAVO PIVETTA",default,default,0,1
+partes,ABRAAO LINCON ELIZEU,red,default,0,1
+partes,"ABRAAO LINCON ELIZEU,COLIGAÇÃO CHEGOU A HORA DA MUDANÇA,VILMA COSTA AQUINO DE ASSIS",default,default,0,1
+partes,ADALTO JAIR AKAY MUNDURUKU,purple,default,0,1
+partes,"ADALTO JAIR AKAY MUNDURUKU,ALBERTINA DA CONCEICAO VELOSO,ANTONIO MENDES CARDOSO,CIRO RODRIGUES OMENA,FRANCISCA REGINA CORDEIRO DA SILVA,GRACILENE AKAY MUNDURUKU,IVAIR DATIE KARIKAFU,NEUMAR XAVIER DE OLIVEIRA,SANDRO WARO MUNDURUKU,VALDIVINO DE SOUZA PEREIRA",default,default,0,1
+partes,ADAUTO DOS RAMOS DA SILVA,purple,default,0,1
+partes,"ADAUTO DOS RAMOS DA SILVA,ALFREDO VIEIRA DE SOUZA,ANA MICHELE DE BARROS SILVA,ANTONIO JUVINO DA SILVA,CICERO DOS SANTOS,COLIGAÇÃO POR AMOR A SERRA TALHADA,ELISANGELA DA SILVA LOPES,ERNANDO VICENTE DIAS,EVANDRO DE SOUZA LIMA,FRANCISCO DO NASCIMENTO SOUZA,HERBERT FABRICIO FERRAZ FEITOZA,JESSICA BIANCA E SILVA,JESUS PEREIRA MOURATO,JHONATA CAIO SOUZA MARINHO,JULIANA APARECIDA CORREA TENORIO,MARIA HELENA MANDU MINERVINO,MARINEIDE MARQUES DA LUZ,RAMMON PATRICK PEREIRA LIMA,SOLIDARIEDADE (SOLIDARIEDADE) - MUNICIPAL,THIAGO MENDES PEDROSA,WALDIR TENORIO JUNIOR",default,default,0,1
+partes,ADELSON DA COSTA TEIXEIRA,orange,default,0,1
+partes,"ADELSON DA COSTA TEIXEIRA,CASSIO BRASIL DA SILVA,ELIEZER MARTINS DA SILVA,JOSE CARLOS MARIA VALENTE,VANESSA GOUVEIA DE SOUZA",default,default,0,1
+partes,ADEMAR FRANCISCO CHAVES,brown,default,0,1
+partes,"ADEMAR FRANCISCO CHAVES,COLIGAÇÃO JUNTOS SOMOS MAIS FORTES,JOSE FRANCISCO RODRIGUES DE ALMEIDA,RONALDO RAMOS DA SILVA SANTOS",default,default,0,1
+partes,ADENILDES ALVES ROCHA,purple,default,0,1
+partes,ADENILSON RODRIGUES DE ANDRADE,green,default,0,1
+partes,ADHEMAR LUIZ NOVAES,blue,default,0,1
+partes,"ADHEMAR LUIZ NOVAES,COLIGAÇÃO EXPERIÊNCIA QUE FAZ A DIFERENÇA,VALNICIO ARMEDE RIBEIRO",default,default,0,1
+partes,ADILSON DE SOUZA GOMES,default,default,0,1
+partes,"ADILSON DE SOUZA GOMES,AMANDA BETIANE SOUSA MUNIZ,ANTONIO LISBOA GOMES FILHO,ARIADNE DA CRUZ DOS SANTOS DIAS,CANDIDO JOSE MARQUES DA SILVA,CLAUDIO FERNANDO NASCIMENTO DA SILVA,FRANCISCO SILVA ARAUJO,HERALDO LOPES ARAUJO,JOSE LOBATO COIMBRA NETO,JOSE RIBAMAR CONSTANTINO SOBRINHO,LAUANE BARBOSA CARVALHO,Ministério Público Eleitoral,NATANAEL SILVA RODRIGUES,NEUTON VALE FRANCA,VERA LUCIA RAMOS BEZERRA",default,default,0,1
+partes,ADINETE PEREIRA DE AMORIM,orange,default,0,1
+partes,"ADINETE PEREIRA DE AMORIM,ALAN LOPES SANTANA,ALEXANDRE MEGA ALVES,BERNARDO PIRES KUSTER,BRUNO DE CASTRO ENGLER FLORENCIO DE ALMEIDA,CARLOS NANTES BOLSONARO,COLIGAÇÃO BRASIL DA ESPERANÇA,ELISA BROM DE FREITAS,FLAVIO NANTES BOLSONARO,KIM GEORGE BORJA PAIM,LEANDRO PANAZZOLO RUSCHEL,MANUEL DE OLIVEIRA SANTOS,NATALIA ZAMBALDI DESTEFANI,RENZO GRACIE,RESPONSÁVEL PELO PERFIL @VIEIRACLEYTON NO TIKTOK,RICARDO BARBOSA CAVALCANTE,RODRIGO CONSTANTINO ALEXANDRE DOS SANTOS,WESLEY RENATO DE OLIVEIRA SOUZA",default,default,0,1
+partes,ADIR DA SILVA CASTRO,pink,default,0,1
+partes,"ADIR DA SILVA CASTRO,DEGMAR DE SOUSA SARAIVA,EDIVAN LUZ SILVA,ELIDA ELENA MOREIRA,ERINETE BARROS DE SOUZA,FABIO RODRIGUES VALADAO,FABIO RONAN SOUZA SANTOS,FERNANDO VIANA DE OLIVEIRA,GENEBALDO BARBOSA DE QUEIROZ,JAIR LOPES MARTINS,JEFERSON DE SOUSA RAMOS,LARISSA GONCALVES MACEDO,MARCIO RODRIGUES FERREIRA,MARIA ARLENE LOPES VITURINO,MARLON LEAO MOURA,NEILTON DA SILVA ARAUJO,NYKOLE DOS SANTOS PEREIRA,RAUFRAN DA SILVA BESSA,REGINALDO LIMA OLIVEIRA,ROBERTO FRANCISCO MARQUES SALES,SILAS ELIEL PINTO PACHECO,THAMARA LARYS ALVES BATISTA,WILKS SOUZA COSTA",default,default,0,1
+partes,ADONES GOMES DE ARAUJO PEREIRA JUNIOR,red,default,0,1
+partes,ADRIANA DORNELAS CAMARA PAES,gray,default,0,1
+partes,"ADRIANA DORNELAS CAMARA PAES,COLIGAÇÃO JUNTOS PODEMOS MUDAR GLORIA",default,default,0,1
+partes,ADRIANO CEZAR GALDINO DE ARAUJO,yellow,default,0,1
+partes,"ADRIANO CEZAR GALDINO DE ARAUJO,ELIANE MOURA DOS SANTOS GALDINO,MARCIO QUENIO GUIMARAES",default,default,0,1
+partes,ADRIANO PAULINO DA SILVA,default,default,0,1
+partes,"ADRIANO PAULINO DA SILVA,Ministério Público Eleitoral",default,default,0,1
+partes,ADRIANO PAULO BAUER,green,default,0,1
+partes,"ADRIANO PAULO BAUER,AIRTON TREVIZANI DA ROSA",default,default,0,1
+partes,ADRIANO RAMOS,pink,default,0,1
+partes,"ADRIANO RAMOS,COLIGAÇÃO A PARANAGUÁ DE TODOS,COLIGAÇÃO PARANAGUÁ SEGUE EM FRENTE,FABIANA MEDEIROS PARRO ROCHA",default,default,0,1
+partes,ADRIENE CAMPOS DA SILVA,red,default,0,1
+partes,"ADRIENE CAMPOS DA SILVA,ELIZANGELA DE MIRANDA ALTOE,LUIZA DE SOUZA CONCEICAO GOMES,RODRIGO SANDI",default,default,0,1
+partes,AECIO NEVES DA CUNHA,default,default,0,1
+partes,"AECIO NEVES DA CUNHA,PARTIDO DA SOCIAL DEMOCRACIA BRASILEIRA (PSDB) - NACIONAL,RODRIGO BATISTA DE CASTRO,União Federal",default,default,0,1
+partes,AILTON APARECIDO DA SILVA,red,default,0,1
+partes,"AILTON APARECIDO DA SILVA,COLIGAÇÃO JUNTOS POR UMA GUATAPARA MELHOR,OUVIR PARA GOVERNAR,Ministério Público Eleitoral",default,default,0,1
+partes,AIRTON DA COSTA LOURENCO,orange,default,0,1
+partes,AIRTON FRANCISCO PEREIRA,default,default,0,1
+partes,"AIRTON FRANCISCO PEREIRA,ANDRE LUIZ RIBEIRO DE LIMA,CARLOS ALESSANDRO DIAS,CARLOS ROBERTO DA SILVA,FELIPE LEON SILVA CLORADO,JACINTO SANTANA,JESSICA CAROLINA FONSECA,JOSE NASCIMENTO DA ROSA,MAYARA DE MELO LOWEN,MOVIMENTO DEMOCRATICO BRASILEIRO (MDB) - MUNICIPAL,RENAN CASSIO ROSA,REPUBLICANOS (REPUBLICANOS) - MUNICIPAL,TAMY APARECIDA DA SILVA,UNIAO BRASIL (UNIÃO) - MUNICIPAL",default,default,0,1
+partes,AIRTON TREVIZANI DA ROSA,yellow,default,0,1
+partes,ALAN LOPES SANTANA,red,default,0,1
+partes,ALAN RENATO LOPES DO ROSARIO,brown,default,0,1
+partes,"ALAN RENATO LOPES DO ROSARIO,EDNILSON MARTINS BARBOSA,ERMERSON SILVA DA CUNHA,GETULIO ALVES DOS SANTOS,JOSE ROBERTO RIBEIRO DA SILVA,LEANI GUIMARAES VELOSO DE MOURA,MICHELI GONCALVES DE ALMEIDA,PARTIDO LIBERAL (PL) - MUNICIPAL,REJIANE CESAR DE OLIVEIRA DOS SANTOS,SEBASTIAO AUGUSTO DA SILVA,UNIAO BRASIL (UNIÃO) - MUNICIPAL,VALDEMAR PINHEIRO DOS SANTOS,VINICIUS PIRES DOS SANTOS",default,default,0,1
+partes,ALAN RODRIGUES DA SILVA,yellow,default,0,1
+partes,"ALAN RODRIGUES DA SILVA,DANUBIO FERREIRA DE SOUZA SANTOS,Ministério Público Eleitoral,ROBSON QUINTINO DE OLIVEIRA,VALDEMAR GAMBA",default,default,0,1
+partes,ALBERTINA DA CONCEICAO VELOSO,purple,default,0,1
+partes,ALBERTO BARROS CAVALCANTE NETO,gray,default,1,0
+partes,"ALBERTO BARROS CAVALCANTE NETO,COLIGAÇÃO ORDEM E PROGRESSO,DAVID ANTONIO ABISAI PEREIRA DE ALMEIDA",default,default,0,1
+partes,ALCIDES RIBEIRO FILHO,brown,default,0,1
+partes,"ALCIDES RIBEIRO FILHO,COLIGAÇÃO A HORA É ESSA APARECIDA,COLIGAÇÃO PARA APARECIDA SEGUIR AVANÇANDO,LEANDRO VILELA VELLOSO,MAX SANTOS DE MENEZES",default,default,0,1
+partes,ALEX DUARTE SANTANA BARROS,default,default,0,1
+partes,"ALEX DUARTE SANTANA BARROS,DUARTE & GONTIJO ADVOGADOS ASSOCIADOS,Ministério Público Eleitoral",default,default,0,1
+partes,ALEX SANDRO FRANCO DE ANDRADE,brown,default,0,1
+partes,"ALEX SANDRO FRANCO DE ANDRADE,FERNANDO ALMEIDA DE ANDRADE,MOVIMENTO DEMOCRATICO BRASILEIRO (MDB) - MUNICIPAL,PARTIDO DEMOCRATICO TRABALHISTA (PDT) - MUNICIPAL,PARTIDO DOS TRABALHADORES (PT) - MUNICIPAL,PAULO SERGIO PEREIRA",default,default,0,1
+partes,ALEXANDRE FRANCA SIQUEIRA,orange,default,1,0
+partes,"ALEXANDRE FRANCA SIQUEIRA,COLIGAÇÃO FORÇA E UNIÃO PARA CRESCER,COLIGAÇÃO JUNTOS,DE VOLTA AO TRABALHO,ELIANE ALVES DA SILVA,JAIRO REJANIO DE HOLANDA SOUZA,MOVIMENTO DEMOCRATICO BRASILEIRO (MDB) - MUNICIPAL",default,default,0,1
+partes,"ALEXANDRE FRANCA SIQUEIRA,COLIGAÇÃO FORÇA E UNIÃO PARA CRESCER,ELIANE ALVES DA SILVA,JAIRO REJANIO DE HOLANDA SOUZA,MOVIMENTO DEMOCRATICO BRASILEIRO (MDB) - MUNICIPAL,PARTIDO DA SOCIAL DEMOCRACIA BRASILEIRA (PSDB) - MUNICIPAL",default,default,0,1
+partes,ALEXANDRE JOSE DA SILVA,gray,default,0,1
+partes,"ALEXANDRE JOSE DA SILVA,ALMIR TOMAS DE AQUINO MOURA,ANDRE LUIZ DE MIRANDA,APARECIDA DIAS DE MIRANDA,BHARBARA MARIANY NUNES DOS SANTOS,ENNY APARECIDA PEREIRA DOS SANTOS,FLORISVALDO CARBONATO FILHO,FRANCISCO AIRTON FERREIRA COSTA,GILSON ROSA DA SILVA,LEYLA DIAS TAVARES FERREIRA,LUCIANO PEREIRA DA SILVA,PARTIDO LIBERAL (PL) - MUNICIPAL,RAYONE DIOGENES LIMA CARVALHO,SOLIDARIEDADE (SOLIDARIEDADE) - MUNICIPAL,WENDEL CASTRO DE ARAUJO",default,default,0,1
+partes,ALEXANDRE MEGA ALVES,blue,default,0,1
+partes,ALEXANDRO SANTOS DO NASCIMENTO,purple,default,0,1
+partes,"ALEXANDRO SANTOS DO NASCIMENTO,BOAVENTURA SANTOS BOMFIM,ERLANDES DA SILVA CHAVES,FRANSCLEY GABRIEL SOUZA OLIVEIRA,GUTEMBERG PEREIRA DIAS,ISAC DOS SANTOS DAMASCENA,JILDENICE SILVA AMORIM,JORGE LUIZ RIBEIRO DA SILVA,JOSEMAR NASCIMENTO DA SILVA,JULIO CESAR FRANCA PORTUGAL,LIGIA SANTOS LIMA,MARIA DA CONCEICAO ANDRADE DOS ANJOS GOES,MIRISVALDO DE SOUZA LISBOA,NELSON MENDES LIMA FILHO,RANGELMA ALVES DOS SANTOS,SILVIO PEREIRA DOS SANTOS,THAISE PEREIRA DE ALMEIDA,UALAS DOS SANTOS ALMEIDA,VALDIRLANDO SOARES DE OLIVEIRA",default,default,0,1
+partes,"ALEXANDRO SANTOS DO NASCIMENTO,BOAVENTURA SANTOS BOMFIM,FRANSCLEY GABRIEL SOUZA OLIVEIRA,HERALDO NUNES DO NASCIMENTO,JILDENICE SILVA AMORIM,JORGE LUIZ RIBEIRO DA SILVA,JOSEMAR NASCIMENTO DA SILVA,JULIO CESAR FRANCA PORTUGAL,LIGIA SANTOS LIMA,MARIA DA CONCEICAO ANDRADE DOS ANJOS GOES,NELSON MENDES LIMA FILHO,RANGELMA ALVES DOS SANTOS,SILVIO PEREIRA DOS SANTOS,THAISE PEREIRA DE ALMEIDA,UALAS DOS SANTOS ALMEIDA,VALDIRLANDO SOARES DE OLIVEIRA",default,default,0,1
+partes,ALEXSANDRO LUCIO RODRIGUES,default,default,0,1
+partes,"ALEXSANDRO LUCIO RODRIGUES,ANDERSON ALUISIO DA CRUZ,DEBORA CRISTINA VALE DIAS,DIONISIO DA TRINDADE ASSIS,FILOMENA APARECIDA XAVIER DE OLIVEIRA,JORDANE CRUZ,JOSE MARIA DE JESUS,Ministério Público Eleitoral,PAULO SERGIO DE LIMA,RENATO JOSUE MARGOTTI,SILVANA APARECIDA FERREIRA",default,default,0,1
+partes,ALFREDO VIEIRA DE SOUZA,green,default,0,1
+partes,ALINE DE ARAUJO BESERRA TAVARES,pink,default,0,1
+partes,"ALINE DE ARAUJO BESERRA TAVARES,CICERO EDSON DA SILVA,DJALMA ARAUJO DA SILVA,ELSON FRANCISCO E SILVA,JOSE DAIDSON AMORIM DE ALBUQUERQUE,JOSE LOPES DE BARROS FILHO,LEONARDO CESAR ARCOVERDE DE SOUZA,VANILDO ALMEIDA CAVALCANTI",default,default,0,1
+partes,ALINNE ALVES CAMPOS DA SILVA,purple,default,0,1
+partes,ALISON ANDREI PEREIRA DE CAMARGO,green,default,0,1
+partes,"ALISON ANDREI PEREIRA DE CAMARGO,COLIGAÇÃO EU ESCOLHO VOTORANTIM,FABIOLA ALVES DA SILVA",default,default,0,1
+partes,ALMIR TOMAS DE AQUINO MOURA,green,default,0,1
+partes,ALTAIR FERREIRA DA FONSECA,pink,default,0,1
+partes,AMADEU LUIZ PEREIRA JUNIOR,purple,default,0,1
+partes,"AMADEU LUIZ PEREIRA JUNIOR,JESSE JAMES LIMA MIRANDA,PARTIDO SOCIAL DEMOCRATICO (PSD) - MUNICIPAL,RANDAL CARVALHO PEREIRA",default,default,0,1
+partes,AMANDA BESERRA DE FREITAS,green,default,0,1
+partes,AMANDA BETIANE SOUSA MUNIZ,green,default,0,1
+partes,AMILTON ALBERTINAZZI,purple,default,0,1
+partes,"AMILTON ALBERTINAZZI,COLIGAÇÃO TODOS POR OSVALDO CRUZ,VERA LUCIA ALVES",default,default,0,1
+partes,ANA AUGUSTA RIBEIRO DINIZ,red,default,0,1
+partes,"ANA AUGUSTA RIBEIRO DINIZ,COLIGAÇÃO NOVA BRASILÂNDIA NO RUMO CERTO,INSTITUTO TECNOLOGICO DA INFORMACAO S/C - ME",default,default,0,1
+partes,ANA CLAUDIA ALVES DA SILVA,red,default,0,1
+partes,ANA CLAUDIA GOMES DA LUZ,default,default,0,1
+partes,"ANA CLAUDIA GOMES DA LUZ,CARLA EDUARDA DA SILVA CAMPOS,CARLOS HAMILTON AQUINO LIMA,CATIA REGIA RODRIGUES CORREIA,EDMAR ANDRE MARCOS KUPAKA,JOSE AMERICO AQUINO SOUSA FILHO,MANOEL DA SILVA,VALDIVINO ALVES VARAO",default,default,0,1
+partes,ANA DE FATIMA DE MAGALHAES PIRES,green,default,0,1
+partes,"ANA DE FATIMA DE MAGALHAES PIRES,BRUNO DA SILVA ALVES,CELSO DA SILVA,EDA MARIA PEREIRA,ELIANA TEREZINHA PAGIATO,JOAO CARLOS JORGE,PARTIDO SOCIAL DEMOCRÁTICO (PSD) - MUNICIPAL,RAINAN NEVES BITENCOURT,VALDEMIR DEZORZI,VILSON PEREIRA JARDIM",default,default,0,1
+partes,ANA LUCIA DE SOUSA E SILVA,blue,default,0,1
+partes,"ANA LUCIA DE SOUSA E SILVA,COLIGAÇÃO LIBERTA LUZIÂNIA,COLIGAÇÃO PRA LUZIÂNIA SEGUIR MUDANDO,DIEGO VAZ SORGATTO,NELSON LUIZ REBELATO,TELIO RODRIGUES DE QUEIROZ",default,default,0,1
+partes,ANA MARIA BATISTA,yellow,default,0,1
+partes,"ANA MARIA BATISTA,CICERO MECEU CARNEIRO RODRIGUES,DOMINGOS SAVIO DO NASCIMENTO,FRANCISCO REGIS MINGOTE,JORGE VANDCY VASCONCELOS FILHO,JOSE EDNARDO CARNEIRO,MARIA DANIELLE FELIPE LUCIO,MARIA DE FATIMA DE ARAUJO,MARIA FATIMA FEITOSA,PADUA ERICKSON MEDEIROS CARNEIRO",default,default,0,1
+partes,ANA MICHELE DE BARROS SILVA,red,default,0,1
+partes,ANA PAULA BARRETO ALVES,brown,default,0,1
+partes,"ANA PAULA BARRETO ALVES,ANTONIO GERALDO CARMO DA COSTA,EDER MAURO CARDOSO BARRA,EDIVALDO SANTOS,EGLEA MARIA NUNES SANTIAGO GONCALVES,ELIZABETH MARCIA DE ARAUJO GONCALVES,EVERALDO JORGE MARTINS EGUCHI,FABIO ARAUJO FERNANDES,FEDERAÇÃO PSDB CIDADANIA - ESTADUAL / PA,IVANICE ANTUNES MARQUES,JOAQUIM PASSARINHO PINTO DE SOUZA PORTO,JOSE DA CRUZ MARINHO,JOSE RODRIGUES DE MIRANDA,KEWIN KATY PYLES,LEANDRO DOS SANTOS MARAMALDO,LENA RIBEIRO PINTO DE OLIVEIRA,LENILDO MENDES DOS SANTOS SERTAO,LINCOLN CASTALDELLI TRAGANTE GOMES,MALAQUIAS JOSE MOTTIN,NILSON PINTO DE OLIVEIRA,PARTIDO SOCIALISTA BRASILEIRO (PSB) - ESTADUAL,SYGLEA REJANE DOS SANTOS VIEIRA,VALDEMAR COSTA NETO,WAISHINGTON LUIS DE OLIVEIRA",default,default,0,1
+partes,"ANA PAULA BARRETO ALVES,ANTONIO GERALDO CARMO DA COSTA,EDER MAURO CARDOSO BARRA,EDIVALDO SANTOS,EGLEA MARIA NUNES SANTIAGO GONCALVES,ELIZABETH MARCIA DE ARAUJO GONCALVES,EVERALDO JORGE MARTINS EGUCHI,FABIO ARAUJO FERNANDES,FEDERAÇÃO PSDB CIDADANIA - ESTADUAL / PA,IVANICE ANTUNES MARQUES,JOAQUIM PASSARINHO PINTO DE SOUZA PORTO,JOSE DA CRUZ MARINHO,JOSE RODRIGUES DE MIRANDA,KEWIN KATY PYLES,LEANDRO DOS SANTOS MARAMALDO,LENA RIBEIRO PINTO DE OLIVEIRA,LENILDO MENDES DOS SANTOS SERTAO,LINCOLN CASTALDELLI TRAGANTE GOMES,MALAQUIAS JOSE MOTTIN,NILSON PINTO DE OLIVEIRA,SYGLEA REJANE DOS SANTOS VIEIRA,VALDEMAR COSTA NETO,WAISHINGTON LUIS DE OLIVEIRA",default,default,0,1
+partes,"ANA PAULA BARRETO ALVES,ANTONIO GERALDO CARMO DA COSTA,EDER MAURO CARDOSO BARRA,EDIVALDO SANTOS,EGLEA MARIA NUNES SANTIAGO GONCALVES,ELIZABETH MARCIA DE ARAUJO GONCALVES,EVERALDO JORGE MARTINS EGUCHI,FABIO ARAUJO FERNANDES,IVANICE ANTUNES MARQUES,JOAQUIM PASSARINHO PINTO DE SOUZA PORTO,JOSE DA CRUZ MARINHO,JOSE RODRIGUES DE MIRANDA,KEWIN KATY PYLES,LEANDRO DOS SANTOS MARAMALDO,LENILDO MENDES DOS SANTOS SERTAO,LINCOLN CASTALDELLI TRAGANTE GOMES,MALAQUIAS JOSE MOTTIN,PARTIDO SOCIALISTA BRASILEIRO (PSB) - ESTADUAL,SYGLEA REJANE DOS SANTOS VIEIRA,VALDEMAR COSTA NETO,WAISHINGTON LUIS DE OLIVEIRA",default,default,0,1
+partes,"ANA PAULA BARRETO ALVES,ANTONIO GERALDO CARMO DA COSTA,EDER MAURO CARDOSO BARRA,EDIVALDO SANTOS,EGLEA MARIA NUNES SANTIAGO GONCALVES,ELIZABETH MARCIA DE ARAUJO GONCALVES,EVERALDO JORGE MARTINS EGUCHI,FABIO ARAUJO FERNANDES,IVANICE ANTUNES MARQUES,JOAQUIM PASSARINHO PINTO DE SOUZA PORTO,JOSE DA CRUZ MARINHO,JOSE RODRIGUES DE MIRANDA,KEWIN KATY PYLES,LEANDRO DOS SANTOS MARAMALDO,LENILDO MENDES DOS SANTOS SERTAO,LINCOLN CASTALDELLI TRAGANTE GOMES,MALAQUIAS JOSE MOTTIN,PAULO EDUARDO MAESTRI BENGTSON,SYGLEA REJANE DOS SANTOS VIEIRA,VALDEMAR COSTA NETO,WAISHINGTON LUIS DE OLIVEIRA",default,default,0,1
+partes,"ANA PAULA BARRETO ALVES,ANTONIO GERALDO CARMO DA COSTA,EDER MAURO CARDOSO BARRA,EDIVALDO SANTOS,EGLEA MARIA NUNES SANTIAGO GONCALVES,ELIZABETH MARCIA DE ARAUJO GONCALVES,EVERALDO JORGE MARTINS EGUCHI,FABIO ARAUJO FERNANDES,IVANICE ANTUNES MARQUES,JOAQUIM PASSARINHO PINTO DE SOUZA PORTO,JOSE RODRIGUES DE MIRANDA,KEWIN KATY PYLES,LEANDRO DOS SANTOS MARAMALDO,LENILDO MENDES DOS SANTOS SERTAO,LINCOLN CASTALDELLI TRAGANTE GOMES,MALAQUIAS JOSE MOTTIN,PARTIDO LIBERAL (PL) - ESTADUAL,PARTIDO LIBERAL (PL) - NACIONAL,PARTIDO SOCIALISTA BRASILEIRO (PSB) - ESTADUAL,SYGLEA REJANE DOS SANTOS VIEIRA,WAISHINGTON LUIS DE OLIVEIRA",default,default,0,1
+partes,ANA PAULA CARDOZO DE SOUZA,blue,default,0,1
+partes,ANA PAULA SIQUEIRA,gray,default,0,1
+partes,"ANA PAULA SIQUEIRA,GIOVANNI VILLIUS RIGHETTO MOCKUS,IARACI DOS SANTOS DIAS,JULIANA PEREIRA DE SA,MARINA MEDEIROS HELOU,MELCHIOR NAELSON BATISTA DA SILVA,REDE SUSTENTABILIDADE (REDE) - NACIONAL",default,default,0,1
+partes,ANA SHEILA LEMOS ANDRADE,red,default,0,1
+partes,"ANA SHEILA LEMOS ANDRADE,COLIGAÇÃO A FORÇA PRA MUDAR CONQUISTA,COLIGAÇÃO CONQUISTA SEGUE AVANÇANDO,Ministério Público Eleitoral",default,default,0,1
+partes,ANAI CAPRONI PINTO,purple,default,0,1
+partes,"ANAI CAPRONI PINTO,EDINALDO AUGUSTO DA SILVA,PARTIDO DA CAUSA OPERÁRIA (PCO) - NACIONAL,RUI COSTA PIMENTA,União Federal",default,default,0,1
+partes,ANANIAS MARTINS DE SOUZA FILHO,pink,default,0,1
+partes,"ANANIAS MARTINS DE SOUZA FILHO,JOVANIL RAMOS DOS SANTOS,PARTIDO LIBERAL (PL) - ESTADUAL",default,default,0,1
+partes,ANDERSON ALUISIO DA CRUZ,blue,default,0,1
+partes,ANDRÉ DOS SANTOS ABDON,blue,default,0,1
+partes,ANDRE FERNANDES DE MOURA,brown,default,0,1
+partes,"ANDRE FERNANDES DE MOURA,EVANDRO SA BARRETO LEITAO",default,default,0,1
+partes,ANDRE LUIZ DE MIRANDA,orange,default,0,1
+partes,ANDRE LUIZ RIBEIRO DE LIMA,purple,default,0,1
+partes,ANDRE NETO ZEN,gray,default,0,1
+partes,"ANDRE NETO ZEN,CLAUDIO MARCOS ALVES DOS SANTOS,DEBORA DOS SANTOS BRAGA,DEMOCRACIA CRISTÃ (DC) - MUNICIPAL,DENEVAL ROCHA,JOSE CARLOS BALMANT,JOSIAS MENDES MACHADO,OTAMIR CARLONI",default,default,0,1
+partes,ANDREIA CALAZAO VEIGA,default,default,0,1
+partes,ANDREIA DOS SANTOS MOREIRA,brown,default,0,1
+partes,"ANDREIA DOS SANTOS MOREIRA,COLIGAÇÃO BARUERI NÃO PODE PARAR,FABIANO ANDRADE FURLAN,GIDELSON ALVES,NATHALIA NOGUEIRA TRUGILLO ARANTES,SILVIA HELENA BARREIROS ARANTES",default,default,0,1
+partes,ANGELICA BITTENCOURT TEIXEIRA,blue,default,0,1
+partes,"ANGELICA BITTENCOURT TEIXEIRA,COLIGAÇÃO DA MUDANÇA,COLIGAÇÃO PRA FRENTE CAMAÇARI,FLAVIO MARCUS DE AZEVEDO REIS",default,default,0,1
+partes,ANTONIA MAGNOLIA PORTELA ARAGAO,yellow,default,0,1
+partes,"ANTONIA MAGNOLIA PORTELA ARAGAO,COLIGAÇÃO PRA FRENTE TIANGUA",default,default,0,1
+partes,ANTONIO CANTIDIO ARRAIS,yellow,default,0,1
+partes,ANTONIO CARLOS ALVES PERES,purple,default,0,1
+partes,"ANTONIO CARLOS ALVES PERES,COLIGAÇÃO UNIÃO,TRABALHO E CORAGEM,FRANCISCO ERIVAN DA SILVA,JAIRO VARELA GOMES,LUAN PEREIRA XAVIER GOMES",default,default,0,1
+partes,ANTONIO CARLOS DOS SANTOS GOMES,brown,default,0,1
+partes,"ANTONIO CARLOS DOS SANTOS GOMES,GABRIELE SILVA LEITE,LAUDO NATEL SILVA DE ASSUNCAO",default,default,0,1
+partes,ANTONIO DUARTE NOGUEIRA JUNIOR,brown,default,0,1
+partes,"ANTONIO DUARTE NOGUEIRA JUNIOR,FEDERAÇÃO PSDB CIDADANIA - ESTADUAL / SP,JORGE THADEU LUJAN",default,default,0,1
+partes,ANTONIO ELIDIO DA FREITA SILVA,purple,default,0,1
+partes,"ANTONIO ELIDIO DA FREITA SILVA,JOAO GERDAL PAIVA DINIZ JUNIOR,MARIA DA CONCEICAO SANTIAGO FERNANDES,VILSON GONCALVES",default,default,0,1
+partes,ANTONIO FELIPE DOS SANTOS,purple,default,0,1
+partes,"ANTONIO FELIPE DOS SANTOS,Ministério Público Eleitoral,VALTER BATISTA DOS SANTOS",default,default,0,1
+partes,ANTONIO GERALDO CARMO DA COSTA,red,default,0,1
+partes,ANTONIO JOSE MARTINS,purple,default,0,1
+partes,"ANTONIO JOSE MARTINS,COLIGAÇÃO JUNTOS PELA RENOVAÇÃO,COLIGAÇÃO PRA BEQUIMÃO SEGUIR EM FRENTE,IVALDO OLIVEIRA",default,default,0,1
+partes,ANTONIO JOVINIANO PACIFICO,red,default,0,1
+partes,"ANTONIO JOVINIANO PACIFICO,Ministério Público Eleitoral",default,default,0,1
+partes,ANTONIO JUVINO DA SILVA,blue,default,0,1
+partes,ANTONIO LISBOA GOMES FILHO,yellow,default,0,1
+partes,ANTONIO MENDES CARDOSO,brown,default,0,1
+partes,ANTONIO PAULO DE OLIVEIRA FURLAN,default,default,0,1
+partes,"ANTONIO PAULO DE OLIVEIRA FURLAN,COLIGAÇÃO TRABALHANDO PELO POVO,GILVAM PINHEIRO BORGES,MARIO ROCHA DE MATOS NETO",default,default,0,1
+partes,ANTONIO TAKASHI SASADA,pink,default,0,1
+partes,"ANTONIO TAKASHI SASADA,Ministério Público Eleitoral",default,default,0,1
+partes,APARECIDA DIAS DE MIRANDA,red,default,0,1
+partes,APARECIDO FAZZIO,pink,default,0,1
+partes,"APARECIDO FAZZIO,AVANTE (AVANTE) - MUNICiPAL,DEISE CRISTINA PADULA,IVAN SOUBHIA GARCIA,PARTIDO SOCIAL DEMOCRATICO (PSD) - MUNICIPAL",default,default,0,1
+partes,ARIADNE DA CRUZ DOS SANTOS DIAS,default,default,0,1
+partes,ARISTIDES DA SILVA LOPES,green,default,0,1
+partes,ARTHUR DA SILVA COSTA NETO,gray,default,0,1
+partes,"ARTHUR DA SILVA COSTA NETO,Ministério Público Eleitoral",default,default,0,1
+partes,ARTUR LIMA DE SOUSA,red,default,0,1
+partes,"ARTUR LIMA DE SOUSA,BRENO LIMA DE ALMEIDA,Ministério Público Eleitoral",default,default,0,1
+partes,ARTUR SERGIO DE ALMEIDA REIS,orange,default,0,1
+partes,"ARTUR SERGIO DE ALMEIDA REIS,COLIGAÇÃO LAGARTO AVANÇA PARA O FUTURO",default,default,0,1
+partes,"ARTUR SERGIO DE ALMEIDA REIS,COLIGAÇÃO LAGARTO AVANÇA PARA O FUTURO,SUELY SILVA NASCIMENTO MENEZES",default,default,0,1
+partes,ASSOCIAÇÃO BRASILEIRA DE EMISSORAS DE RÁDIO E TELEVISÃO (ABERT),brown,default,0,1
+partes,ATILA CESAR MONTEIRO JACOMUSSI,green,default,1,0
+partes,"ATILA CESAR MONTEIRO JACOMUSSI,COLIGAÇÃO DE VOLTA PRO POVO: A CIDADE SORRINDO DE NOVO,COLIGAÇÃO VERDADE PARA MAUÁ AVANÇAR,FRANCISCO MARCELO DE OLIVEIRA",default,default,0,1
+partes,"ATILA CESAR MONTEIRO JACOMUSSI,COLIGAÇÃO VERDADE PARA MAUÁ AVANÇAR,FRANCISCO MARCELO DE OLIVEIRA",default,default,0,1
+partes,ATLASINTEL TECNOLOGIA DE DADOS LTDA,yellow,default,0,1
+partes,"ATLASINTEL TECNOLOGIA DE DADOS LTDA,COLIGAÇÃO UNIÃO DE VERDADE,JANAD MARQUES DE FREITAS VALCARI",default,default,0,1
+partes,AUREA MARIA ESTER ALVES MARQUES,purple,default,0,1
+partes,AURELIO RAMOS DE OLIVEIRA NETO,blue,default,1,0
+partes,"AURELIO RAMOS DE OLIVEIRA NETO,COLIGAÇÃO UNIÃO POR PARAUAPEBAS",default,default,0,1
+partes,"AURELIO RAMOS DE OLIVEIRA NETO,FRANCISCO ALVES DE SOUZA",default,default,0,1
+partes,AURICELIA SILVA SOUSA,purple,default,0,1
+partes,"AURICELIA SILVA SOUSA,GANDOR CALIL HAGE NETO,PROGRESSISTAS (PP) - MUNICIPAL",default,default,0,1
+partes,AURILANGE CORDEIRO MEDEIROS,yellow,default,0,1
+partes,AVANTE (AVANTE) - MUNICIPAL,default,default,1,0
+partes,"AVANTE (AVANTE) - MUNICIPAL,EDAS JUSTINO DOS SANTOS,FABIANA BRITO MATOS",default,default,0,1
+partes,AYRESNELSON MARLLONS SILVA LIMA,green,default,0,1
+partes,"AYRESNELSON MARLLONS SILVA LIMA,COLIGAÇÃO FRENTE DA MUDANÇA,JAZIEL GONSALVES LAGES,WAGNER ARANTE DA SILVA",default,default,0,1
+partes,BEATRIZ GIBSON CUNHA DE SANTANA,brown,default,0,1
+partes,BERNARDO PIRES KUSTER,green,default,0,1
+partes,BERNARDO ROGERIO MATA DE ARAUJO JUNIOR,red,default,0,1
+partes,"BERNARDO ROGERIO MATA DE ARAUJO JUNIOR,MOBILIZAÇÃO NACIONAL (MOBILIZA) - NACIONAL,PARTIDO RENOVACAO DEMOCRATICA (PRD) - REGIONAL",default,default,0,1
+partes,BHARBARA MARIANY NUNES DOS SANTOS,gray,default,0,1
+partes,BOAVENTURA SANTOS BOMFIM,pink,default,0,1
+partes,BRENO LIMA DE ALMEIDA,default,default,0,1
+partes,BRUNA MACIEL DA SILVA,green,default,0,1
+partes,"BRUNA MACIEL DA SILVA,Ministério Público Eleitoral",default,default,0,1
+partes,BRUNA SALLES ESMANHOTO,orange,default,0,1
+partes,"BRUNA SALLES ESMANHOTO,Ministério Público Eleitoral",default,default,0,1
+partes,BRUNNO LEONARDO VEIGA LOPES,orange,default,0,1
+partes,"BRUNNO LEONARDO VEIGA LOPES,CELIO MARTINS DA ROCHA,COLIGAÇÃO UNIÃO SEGUINDO EM FRENTE,JOSE IRAN MENEZES DA SILVA JUNIOR,RADIO FM AG LTDA,TASSIA CARLA CONSTANTINO RIBEIRO",default,default,0,1
+partes,BRUNO DA SILVA ALVES,pink,default,0,1
+partes,BRUNO DE CASTRO ENGLER FLORENCIO DE ALMEIDA,purple,default,0,1
+partes,CAIO SALDANHA FERREIRA DE ASSIS BEM,blue,default,0,1
+partes,"CAIO SALDANHA FERREIRA DE ASSIS BEM,Ministério Público Eleitoral",default,default,0,1
+partes,CANDIDO JOSE MARQUES DA SILVA,gray,default,0,1
+partes,CARLA EDUARDA DA SILVA CAMPOS,orange,default,0,1
+partes,CARLOS ALBERTO MIRANDA DA COSTA,default,default,0,1
+partes,CARLOS ALBERTO QUEIROZ PEREIRA,yellow,default,0,1
+partes,CARLOS ALESSANDRO DIAS,red,default,0,1
+partes,CARLOS ALEXANDRE MATOSO CHAGAS,green,default,0,1
+partes,"CARLOS ALEXANDRE MATOSO CHAGAS,Ministério Público Eleitoral",default,default,0,1
+partes,CARLOS HAMILTON AQUINO LIMA,brown,default,0,1
+partes,CARLOS HENRIQUE FOCESI SAMPAIO,default,default,0,1
+partes,"CARLOS HENRIQUE FOCESI SAMPAIO,MARCO ANTONIO VILLA,PARTIDO SOCIAL DEMOCRÁTICO (PSD) - NACIONAL",default,default,0,1
+partes,CARLOS NANTES BOLSONARO,red,default,0,1
+partes,CARLOS ROBERTO DA SILVA,default,default,0,1
+partes,CARLOS ROBERTO LUPI,purple,default,0,1
+partes,"CARLOS ROBERTO LUPI,MARCELO DE OLIVEIRA PANELLA,PARTIDO DEMOCRÁTICO TRABALHISTA (PDT) - NACIONAL",default,default,0,1
+partes,CARLOS SEIXO DE BRITO JUNIOR,red,default,0,1
+partes,"CARLOS SEIXO DE BRITO JUNIOR,Ministério Público Eleitoral,TIAGO OLIVEIRA DIETZ",default,default,0,1
+partes,CARMEM LUCIA RAMOS DA GLORIA,pink,default,0,1
+partes,"CARMEM LUCIA RAMOS DA GLORIA,JOSE ALDRIM DE SOUZA,JUMA TOLEDO DE SOUZA,MARIA CLEUDIMAR XAVIER VIEIRA,OSVALDINO VIEIRA PRAIA",default,default,0,1
+partes,CASSIANO JOSE PEREIRA DA SILVA,brown,default,0,1
+partes,"CASSIANO JOSE PEREIRA DA SILVA,COLIGAÇÃO FORTE É O POVO,EDSON DA SILVA SANTOS,JOSE MAURICIO DE SOUZA MEDEIROS",default,default,0,1
+partes,"CASSIANO JOSE PEREIRA DA SILVA,Ministério Público Eleitoral",default,default,0,1
+partes,CASSIANO ROJAS MAIA,green,default,0,1
+partes,"CASSIANO ROJAS MAIA,Ministério Público Eleitoral,VERA HELENA ARSIOLI PINHO",default,default,0,1
+partes,CASSIO BRASIL DA SILVA,green,default,0,1
+partes,CASSIO HENRIQUE MARTINS DE SOUZA,purple,default,0,1
+partes,"CASSIO HENRIQUE MARTINS DE SOUZA,EXPEDITO LOURENCO DE ABREU,GERALDO LUCIO DE ASSIS,LUIZ ROBERTO SILVA SOUZA,MARCELO MENDES DE OLIVEIRA,MARIA APARECIDA DE MELO,MARILIA DAS DORES DOS SANTOS,OTACILIO INACIO MARTINS,PARTIDO DEMOCRATICO TRABALHISTA (PDT) - MUNICIPAL,SHEILA TACIANA LIMA BARROS",default,default,0,1
+partes,CATIA REGIA RODRIGUES CORREIA,default,default,0,1
+partes,CELIA MARIA DE ALBUQUERQUE,green,default,0,1
+partes,CELIO MARTINS DA ROCHA,blue,default,0,1
+partes,CELSO DA SILVA,green,default,0,1
+partes,CELSO FLORENCIO DE SOUZA,pink,default,0,1
+partes,"CELSO FLORENCIO DE SOUZA,COLIGAÇÃO VIVA JACAREÍ",default,default,0,1
+partes,CENTRO BRASILEIRO DE PESQUISA EM AVALIACAO E SELECAO E DE PROMOCAO DE EVENTOS - CEBRASPE,yellow,default,0,1
+partes,"CENTRO BRASILEIRO DE PESQUISA EM AVALIACAO E SELECAO E DE PROMOCAO DE EVENTOS - CEBRASPE,DUANE CANEDO LEITE,MINISTRA CÁRMEN LÚCIA,PRESIDENTE DO TSE",default,default,0,1
+partes,CESAR DA SILVA DOMINGUES,gray,default,0,1
+partes,"CESAR DA SILVA DOMINGUES,JOAO ROBERTO CAMARGO",default,default,0,1
+partes,CESARIO JOSE DA SILVA,orange,default,0,1
+partes,"CESARIO JOSE DA SILVA,Ministério Público Eleitoral",default,default,0,1
+partes,CHELES GOMES CAMPISTA,red,default,0,1
+partes,CICERO DE LUCENA FILHO,default,default,0,1
+partes,"CICERO DE LUCENA FILHO,COLIGAÇÃO JOÃO PESSOA NO CAMINHO CERTO,COLIGAÇÃO PRA MUDAR JOÃO PESSOA DE VERDADE,MARCELO ANTONIO CARTAXO QUEIROGA LOPES,MARIA JANINE ASSIS DE LUCENA BARROS",default,default,0,1
+partes,CICERO DOS SANTOS,yellow,default,0,1
+partes,CICERO EDSON DA SILVA,blue,default,0,1
+partes,CICERO MECEU CARNEIRO RODRIGUES,green,default,0,1
+partes,CIDADANIA (CIDADANIA) - ESTADUAL,blue,default,0,1
+partes,"CIDADANIA (CIDADANIA) - ESTADUAL,EDIO DE SOUZA VIEGAS,MARCELO FRANCISCO ASSIS",default,default,0,1
+partes,CIDADANIA (CIDADANIA) - NACIONAL,yellow,default,1,0
+partes,CINTIA HORTENCIA DURAO FARIAS,default,default,0,1
+partes,"CINTIA HORTENCIA DURAO FARIAS,Ministério Público Eleitoral,RICARDO ADRIANO DE LUNA FARIAS",default,default,0,1
+partes,CIRO NOGUEIRA LIMA FILHO,default,default,1,0
+partes,"CIRO NOGUEIRA LIMA FILHO,PROGRESSISTAS (PP) - NACIONAL,RICARDO JOSE MAGALHAES BARROS",default,default,0,1
+partes,CIRO RODRIGUES OMENA,blue,default,0,1
+partes,CLAUDETE FERRAZ PARRA,blue,default,0,1
+partes,"CLAUDETE FERRAZ PARRA,CLEBER JOSE DE ARAUJO,EDMILSON MODESTO DE OLIVEIRA,ELISÂNGELA MARIA MIRANDA DOS SANTOS,GILSON DE ALMEIDA BARBOSA,KESIA GARCIA ALVES,MARCOS FABIO SEVERINO,Ministério Público Eleitoral,RENATO DE SOUZA PAIVA,RODRIGO PRIMO ANTUNES,VALDECIR MAURICIO DE OLIVEIRA,VALDEMIR ALVES DE OLIVEIRA",default,default,0,1
+partes,CLAUDIO BENVINDO BARBOSA,orange,default,0,1
+partes,CLAUDIO FERNANDO NASCIMENTO DA SILVA,purple,default,0,1
+partes,CLAUDIO MARCOS ALVES DOS SANTOS,blue,default,0,1
+partes,CLEBER JOSE DE ARAUJO,purple,default,0,1
+partes,CLEIBE JUVINAPE TEIXEIRA,default,default,0,1
+partes,"CLEIBE JUVINAPE TEIXEIRA,FRANCISCO DE ASSIS AZEVEDO TORRES FILHO",default,default,0,1
+partes,CLENYS REGES ROSARIO PEREIRA DE CASTRO,purple,default,0,1
+partes,"CLENYS REGES ROSARIO PEREIRA DE CASTRO,Ministério Público Eleitoral",default,default,0,1
+partes,COLIGAÇÃO A FORÇA DA EXPERIENCIA PARA RESGATAR TEJUÇUOCA,default,default,0,1
+partes,"COLIGAÇÃO A FORÇA DA EXPERIENCIA PARA RESGATAR TEJUÇUOCA,JOAO AUGUSTO GOES MOTA,JOSE ANTUNIZIO DE BRITO,MOVIMENTO DEMOCRÁTICO BRASILEIRO (MDB) - MUNICIPAL",default,default,0,1
+partes,COLIGAÇÃO A FORÇA PRA MUDAR CONQUISTA,orange,default,0,1
+partes,COLIGAÇÃO A HORA É ESSA APARECIDA,red,default,0,1
+partes,COLIGAÇÃO A MUDANÇA COMEÇA AGORA,yellow,default,0,1
+partes,"COLIGAÇÃO A MUDANÇA COMEÇA AGORA,COLIGAÇÃO JUNTOS PARA O TRABALHO CONTINUAR",default,default,0,1
+partes,COLIGAÇÃO A PARANAGUÁ DE TODOS,green,default,0,1
+partes,COLIGAÇÃO A UNIÃO CONTINUA UNIFLOR EM BOAS MÃOS,gray,default,0,1
+partes,"COLIGAÇÃO A UNIÃO CONTINUA UNIFLOR EM BOAS MÃOS,MAYCON RODRIGO RODRIGUES DE SOUZA,Ministério Público Eleitoral",default,default,0,1
+partes,COLIGAÇÃO ALIANÇA POR ABELARDO LUZ,blue,default,0,1
+partes,"COLIGAÇÃO ALIANÇA POR ABELARDO LUZ,Ministério Público Eleitoral,NERCI SANTIN",default,default,0,1
+partes,COLIGAÇÃO AMOR PELA SERRA,pink,default,1,0
+partes,"COLIGAÇÃO AMOR PELA SERRA,EDUARDO LIMA DA SILVA",default,default,0,1
+partes,COLIGAÇÃO AMOR POR SÃO PAULO,red,default,0,1
+partes,COLIGAÇÃO AMOR POR SÃO PAULO BRASIL,yellow,default,0,1
+partes,"COLIGAÇÃO AMOR POR SÃO PAULO BRASIL,FEDERAÇÃO PSOL REDE - SÃO PAULO / SP,GUILHERME CASTRO BOULOS,PABLO HENRIQUE COSTA MARCAL",default,default,0,1
+partes,"COLIGAÇÃO AMOR POR SÃO PAULO,GUILHERME CASTRO BOULOS,Ministério Público Eleitoral,RUBENS ALBERTO GATTI NUNES",default,default,0,1
+partes,COLIGAÇÃO BARUERI NÃO PODE PARAR,yellow,default,0,1
+partes,COLIGAÇÃO BRASIL DA ESPERANÇA,default,default,1,0
+partes,"COLIGAÇÃO BRASIL DA ESPERANÇA,COLIGAÇÃO PELO BEM DO BRASIL,JAIR MESSIAS BOLSONARO,LUIZ INACIO LULA DA SILVA,União Federal",default,default,0,1
+partes,"COLIGAÇÃO BRASIL DA ESPERANÇA,GOSPELMENTE PORTAL DE NOTICIAS LTDA,União Federal",default,default,0,1
+partes,COLIGAÇÃO CAMINHANDO JUNTOS,blue,default,0,1
+partes,"COLIGAÇÃO CAMINHANDO JUNTOS,CRIANDO FUTURO,JULIANO VASCONCELOS GONCALVES",default,default,0,1
+partes,COLIGAÇÃO CHEGOU A HORA DA MUDANÇA,red,default,0,1
+partes,COLIGAÇÃO COM A FORÇA DO POVO,default,default,0,1
+partes,"COLIGAÇÃO COM A FORÇA DO POVO,COLIGAÇÃO UM NOVO TEMPO PARA CRISTINÁPOLIS AVANÇAR,JOSE MENEZES LIMA,SANDRO DE JESUS DOS SANTOS",default,default,0,1
+partes,COLIGAÇÃO CONQUISTA SEGUE AVANÇANDO,red,default,0,1
+partes,COLIGAÇÃO CONSTRUINDO UM NOVO TEMPO,orange,default,0,1
+partes,"COLIGAÇÃO CONSTRUINDO UM NOVO TEMPO,ELOI FOUQUET,Ministério Público Eleitoral",default,default,0,1
+partes,COLIGAÇÃO CONTINUIDADE E PROGRESSO!,gray,default,0,1
+partes,"COLIGAÇÃO CONTINUIDADE E PROGRESSO!,USUÁRIO DESCONHECIDO (FACEBOOK) https://www.facebook.com/josesilvanovo",default,default,0,1
+partes,COLIGAÇÃO CORAÇÃO VALENTE,gray,default,0,1
+partes,"COLIGAÇÃO CORAÇÃO VALENTE,VICTOR ANTONIO DOS SANTOS FERREIRA",default,default,0,1
+partes,COLIGAÇÃO CORAGEM E FORÇA PRA MUDAR,red,default,1,0
+partes,COLIGAÇÃO CREDIBILIDADE E AMOR POR NOSSA CIDADE,purple,default,0,1
+partes,"COLIGAÇÃO CREDIBILIDADE E AMOR POR NOSSA CIDADE,RAIMUNDO NONATO EVERTON SILVA",default,default,0,1
+partes,COLIGAÇÃO CURIMATÁ EM MÃOS LIMPAS,yellow,default,0,1
+partes,"COLIGAÇÃO CURIMATÁ EM MÃOS LIMPAS,COLIGAÇÃO UNIDOS SOMOS MAIS FORTES,VALDECIR RODRIGUES DE ALBUQUERQUE JUNIOR",default,default,0,1
+partes,COLIGAÇÃO DA MUDANÇA,yellow,default,0,1
+partes,COLIGAÇÃO DE VOLTA PRO POVO: A CIDADE SORRINDO DE NOVO,gray,default,1,0
+partes,"COLIGAÇÃO DE VOLTA PRO POVO: A CIDADE SORRINDO DE NOVO,COLIGAÇÃO VERDADE PARA MAUÁ AVANÇAR,FRANCISCO MARCELO DE OLIVEIRA",default,default,0,1
+partes,COLIGAÇÃO EU ESCOLHO VOTORANTIM,purple,default,0,1
+partes,COLIGAÇÃO EXPERIÊNCIA E FUTURO PRA GUARULHOS,green,default,0,1
+partes,"COLIGAÇÃO EXPERIÊNCIA E FUTURO PRA GUARULHOS,LUCAS SANCHES PROMESSIA",default,default,0,1
+partes,COLIGAÇÃO EXPERIÊNCIA QUE FAZ A DIFERENÇA,blue,default,0,1
+partes,COLIGAÇÃO FORÇA E UNIÃO PARA CRESCER,orange,default,0,1
+partes,COLIGAÇÃO FORTE É O POVO,default,default,0,1
+partes,COLIGAÇÃO FRENTE AMPLA E DEMOCRÁTICA POR ORIXIMINÁ,gray,default,0,1
+partes,"COLIGAÇÃO FRENTE AMPLA E DEMOCRÁTICA POR ORIXIMINÁ,FRANCISCO AZEVEDO PEREIRA,JOSE WILLIAN SIQUEIRA DA FONSECA",default,default,0,1
+partes,COLIGAÇÃO FRENTE DA MUDANÇA,brown,default,0,1
+partes,COLIGAÇÃO FRENTE POPULAR DE SERTANIA,pink,default,0,1
+partes,"COLIGAÇÃO FRENTE POPULAR DE SERTANIA,DORGIVAL RODRIGUES DOS SANTOS,GUSTAVO MENEZES DOS SANTOS SILVA,POLLYANNA BARBOSA DE ABREU,TERESA RAQUEL RUFINO DE SIQUEIRA VIANA",default,default,0,1
+partes,COLIGAÇÃO FRENTE POPULAR DO CABO,green,default,0,1
+partes,"COLIGAÇÃO FRENTE POPULAR DO CABO,RADIO BETEL LTDA. - ME",default,default,0,1
+partes,COLIGAÇÃO JOÃO PESSOA NO CAMINHO CERTO,brown,default,0,1
+partes,COLIGAÇÃO JUNTOS,orange,default,0,1
+partes,COLIGAÇÃO JUNTOS PARA O TRABALHO CONTINUAR,red,default,0,1
+partes,COLIGAÇÃO JUNTOS PELA RENOVAÇÃO,orange,default,0,1
+partes,COLIGAÇÃO JUNTOS PODEMOS MUDAR GLORIA,red,default,0,1
+partes,COLIGAÇÃO JUNTOS POR GURUPÁ,brown,default,0,1
+partes,"COLIGAÇÃO JUNTOS POR GURUPÁ,MARIA IRACILDA DE ALMEIDA ALHO,Ministério Público Eleitoral,ROSELIO PUREZA DA SILVA",default,default,0,1
+partes,COLIGAÇÃO JUNTOS POR SÃO BERNARDO,red,default,1,0
+partes,"COLIGAÇÃO JUNTOS POR SÃO BERNARDO,COLIGAÇÃO SÃO BERNARDO QUE SEGUE EM FRENTE,LUIZ FERNANDO TEIXEIRA FERREIRA",default,default,0,1
+partes,COLIGAÇÃO JUNTOS POR SÃO LUÍS,brown,default,0,1
+partes,"COLIGAÇÃO JUNTOS POR SÃO LUÍS,EDUARDO SALIM BRAIDE,ESMENIA MIRANDA FERREIRA DA SILVA",default,default,0,1
+partes,COLIGAÇÃO JUNTOS POR SÃO PAULO,blue,default,0,1
+partes,"COLIGAÇÃO JUNTOS POR SÃO PAULO,COLIGAÇÃO SÃO PAULO PRA FRENTE,FERNANDO HADDAD,RODRIGO GARCIA",default,default,0,1
+partes,COLIGAÇÃO JUNTOS POR UMA GUATAPARA MELHOR,brown,default,0,1
+partes,COLIGAÇÃO JUNTOS SOMOS MAIS FORTES,orange,default,0,1
+partes,COLIGAÇÃO LAGARTO AVANÇA PARA O FUTURO,purple,default,0,1
+partes,COLIGAÇÃO LIBERDADE E MUDANÇA!,brown,default,0,1
+partes,"COLIGAÇÃO LIBERDADE E MUDANÇA!,EVERTON DE SOUZA GARCIA SIQUEIRA,GUILHERME SAMPAIO SARAIVA",default,default,0,1
+partes,COLIGAÇÃO LIBERTA LUZIÂNIA,orange,default,0,1
+partes,COLIGAÇÃO MINHA VIDA É CASCAVEL,red,default,1,0
+partes,"COLIGAÇÃO MINHA VIDA É CASCAVEL,FEDERAÇÃO PSDB CIDADANIA - CASCAVEL / PR,LEONALDO PARANHOS DA SILVA,RENATO DA SILVA",default,default,0,1
+partes,COLIGAÇÃO MUDA SERRA,pink,default,1,0
+partes,"COLIGAÇÃO MUDA SERRA,MARILIA DO NASCIMENTO MORINI",default,default,0,1
+partes,COLIGAÇÃO NOVA BRASILÂNDIA NO RUMO CERTO,red,default,0,1
+partes,COLIGAÇÃO O FUTURO É AGORA,purple,default,0,1
+partes,"COLIGAÇÃO O FUTURO É AGORA,COLIGAÇÃO UNIDOS POR UMA COLATINA FORTE,RENZO DE VASCONCELOS,SERGIO MENEGUELLI",default,default,0,1
+partes,COLIGAÇÃO O TRABALHADO CONTINUA,default,default,0,1
+partes,"COLIGAÇÃO O TRABALHADO CONTINUA,ERIKA FROTA MONTE COELHO,FRANCISCO ANTONIO DE MENEZES CRISTINO,HUMBERLANDIA MESQUITA DE ASSIS,JOSE EDEZIO VAZ DE SOUZA,Ministério Público Eleitoral",default,default,0,1
+partes,COLIGAÇÃO O TRABALHO CONTINUA,yellow,default,0,1
+partes,"COLIGAÇÃO O TRABALHO CONTINUA,ERIKA FROTA MONTE COELHO,FRANCISCO ANTONIO DE MENEZES CRISTINO,HUMBERLANDIA MESQUITA DE ASSIS,JOSE EDEZIO VAZ DE SOUZA",default,default,0,1
+partes,COLIGAÇÃO O TRABALHO NÃO PODE PARAR,blue,default,0,1
+partes,"COLIGAÇÃO O TRABALHO NÃO PODE PARAR,HURIBI ALEXANDRINA",default,default,0,1
+partes,COLIGAÇÃO ORDEM E PROGRESSO,red,default,0,1
+partes,COLIGAÇÃO PARA APARECIDA SEGUIR AVANÇANDO,gray,default,0,1
+partes,COLIGAÇÃO PARA CUIDAR DAS PESSOAS,pink,default,0,1
+partes,COLIGAÇÃO PARANAGUÁ SEGUE EM FRENTE,yellow,default,0,1
+partes,COLIGAÇÃO PELA DIGNIDADE DE NOSSA GENTE,default,default,0,1
+partes,"COLIGAÇÃO PELA DIGNIDADE DE NOSSA GENTE,JOSE MARTINS BARROS JUNIOR,MARIA VERIANI ARAUJO COSTA",default,default,0,1
+partes,COLIGAÇÃO PELA UNIÃO E RECONSTRUÇÃO DE RERIUTABA,brown,default,0,1
+partes,"COLIGAÇÃO PELA UNIÃO E RECONSTRUÇÃO DE RERIUTABA,FRANCISCO TARCIANO GOMES CASTRO,PEDRO HUMBERTO COELHO MARQUES",default,default,0,1
+partes,COLIGAÇÃO PELO BEM DO BRASIL,default,default,0,1
+partes,COLIGAÇÃO POR AMOR A LEOPOLDO DE BULHÕES,brown,default,0,1
+partes,"COLIGAÇÃO POR AMOR A LEOPOLDO DE BULHÕES,JOAO ALECIO MENDES,ROBERTA CANDIDA CAETANO",default,default,0,1
+partes,COLIGAÇÃO POR AMOR A MIRANORTE (PROGRESSISTAS E PDT),yellow,default,0,1
+partes,"COLIGAÇÃO POR AMOR A MIRANORTE (PROGRESSISTAS E PDT),M P P DOS SANTOS",default,default,0,1
+partes,COLIGAÇÃO POR AMOR A SERRA TALHADA,red,default,0,1
+partes,COLIGAÇÃO PRA AVANÇAR TEM QUE MUDAR,orange,default,0,1
+partes,"COLIGAÇÃO PRA AVANÇAR TEM QUE MUDAR,EVANDRO SILVA PEREIRA COSTA,LUIZ ANTONIO GOMES SANTOS",default,default,0,1
+partes,COLIGAÇÃO PRA BEQUIMÃO SEGUIR EM FRENTE,orange,default,0,1
+partes,COLIGAÇÃO PRA FRENTE CAMAÇARI,gray,default,0,1
+partes,COLIGAÇÃO PRA FRENTE É QUE SE ANDA,purple,default,0,1
+partes,"COLIGAÇÃO PRA FRENTE É QUE SE ANDA,FABIO MARINHO DOS SANTOS,LUCIANO JARDIM LAGO,REGINA CHAVES DA SILVA GONCALVES,RODRIGO LOBO SILVA,RODRIGO VIANA LORENTZ,TANIA MARA COUTINHO MOURA,UGLENO ALVES PEREIRA SANTOS,VANILSON MACIEL DE SOUZA",default,default,0,1
+partes,COLIGAÇÃO PRA FRENTE TIANGUA,blue,default,0,1
+partes,COLIGAÇÃO PRA LUZIÂNIA SEGUIR MUDANDO,gray,default,0,1
+partes,COLIGAÇÃO PRA MUDAR JOÃO PESSOA DE VERDADE,orange,default,0,1
+partes,COLIGAÇÃO PRA TUCURUÍ PROSPERAR,yellow,default,0,1
+partes,"COLIGAÇÃO PRA TUCURUÍ PROSPERAR,GEOVANE DE SOUZA,MARIA DO SOCORRO BANDEIRA DA SILVA,PARTIDO LIBERAL (PL) - MUNICIPAL,RILDENE LUCAS RAMOS,S. C. D. S.",default,default,0,1
+partes,COLIGAÇÃO RESGATANDO CUIABÁ,orange,default,1,0
+partes,COLIGAÇÃO RIBEIRÃO PIRES PARA TODOS,pink,default,0,1
+partes,"COLIGAÇÃO RIBEIRÃO PIRES PARA TODOS,LUIZ GUSTAVO PINHEIRO VOLPI",default,default,0,1
+partes,COLIGAÇÃO RORAIMA MUITO MELHOR,gray,default,0,1
+partes,"COLIGAÇÃO RORAIMA MUITO MELHOR,TELMARIO MOTA DE OLIVEIRA",default,default,0,1
+partes,COLIGAÇÃO SÃO BERNARDO QUE SEGUE EM FRENTE,red,default,1,0
+partes,COLIGAÇÃO SÃO PAULO PRA FRENTE,purple,default,0,1
+partes,COLIGAÇÃO SEDE POR MUDANÇA,purple,default,1,0
+partes,"COLIGAÇÃO SEDE POR MUDANÇA,COLIGAÇÃO VÁRZEA GRANDE MELHOR,SEBASTIAO DOS REIS GONCALVES",default,default,0,1
+partes,COLIGAÇÃO TAUÁ DE TODOS,gray,default,0,1
+partes,"COLIGAÇÃO TAUÁ DE TODOS,EDYR LINCON CAVALCANTE DIAS,GLAI JONES ALVES FEITOSA,MARIA DE FATIMA VELOSO SOARES MOTA BASTOS,PATRICIA PEQUENO COSTA GOMES DE AGUIAR",default,default,0,1
+partes,COLIGAÇÃO TEMPO DE UNIÃO,gray,default,0,1
+partes,"COLIGAÇÃO TEMPO DE UNIÃO,DEMOCRACIA,DIÁLOGO E LIBERDADE EM SOBRAL,FRANCISCO HERBERT LIMA VASCONCELOS,IVO FERREIRA GOMES",default,default,0,1
+partes,COLIGAÇÃO TODOS JUNTOS DE MÃOS DADAS COM O POVO DE SANTARÉM NOVO,default,default,0,1
+partes,"COLIGAÇÃO TODOS JUNTOS DE MÃOS DADAS COM O POVO DE SANTARÉM NOVO,THIAGO REIS PIMENTEL",default,default,0,1
+partes,COLIGAÇÃO TODOS POR OSVALDO CRUZ,pink,default,0,1
+partes,COLIGAÇÃO TRABALHANDO PELO POVO,yellow,default,0,1
+partes,COLIGAÇÃO UM NOVO TEMPO PARA CRISTINÁPOLIS AVANÇAR,pink,default,0,1
+partes,COLIGAÇÃO UNIÃO,red,default,0,1
+partes,COLIGAÇÃO UNIÃO DE VERDADE,gray,default,0,1
+partes,COLIGAÇÃO UNIÃO POR PARAUAPEBAS,brown,default,0,1
+partes,COLIGAÇÃO UNIÃO SEGUINDO EM FRENTE,red,default,0,1
+partes,COLIGAÇÃO UNIDOS POR UM SANTO ANTONIO MELHOR,brown,default,0,1
+partes,"COLIGAÇÃO UNIDOS POR UM SANTO ANTONIO MELHOR,MIGUEL JOSE BRUNETTA",default,default,0,1
+partes,COLIGAÇÃO UNIDOS POR UMA COLATINA FORTE,red,default,0,1
+partes,COLIGAÇÃO UNIDOS SOMOS MAIS FORTES,default,default,0,1
+partes,COLIGAÇÃO VAMOS JUNTOS POR TUNAS,pink,default,0,1
+partes,"COLIGAÇÃO VAMOS JUNTOS POR TUNAS,LUIZ CARLOS POLLI,MARCO ANTONIO BALDAO",default,default,0,1
+partes,COLIGAÇÃO VÁRZEA GRANDE MELHOR,orange,default,1,0
+partes,COLIGAÇÃO VERDADE PARA MAUÁ AVANÇAR,blue,default,1,0
+partes,COLIGAÇÃO VIVA JACAREÍ,blue,default,0,1
+partes,CRIANDO FUTURO,red,default,0,1
+partes,CRISTIANE FERREIRA DA SILVA ALMEIDA,gray,default,0,1
+partes,DALILA LIMA AGUIAR,blue,default,0,1
+partes,"DALILA LIMA AGUIAR,MARCOS VALERIO BARRETO,PAULO WILLIANS MOREIRA DOS SANTOS",default,default,0,1
+partes,DAMARIS DIAS MOURA KUO,yellow,default,0,1
+partes,"DAMARIS DIAS MOURA KUO,JOSE BERNARDO ORTIZ MONTEIRO JUNIOR,PARTIDO DA SOCIAL DEMOCRACIA BRASILEIRA (PSDB) - NACIONAL",default,default,0,1
+partes,DANIEL OLIVEIRA ALMEIDA,purple,default,0,1
+partes,DANUBIO FERREIRA DE SOUZA SANTOS,red,default,0,1
+partes,DARIO DA SOLIDADE LIMA,brown,default,0,1
+partes,DATA HARVEST SOLUTIONS,purple,default,0,1
+partes,"DATA HARVEST SOLUTIONS,S. DE R. L. DE C. V.,LUIZ LINDBERGH FARIAS FILHO",default,default,0,1
+partes,DAVID ANTONIO ABISAI PEREIRA DE ALMEIDA,orange,default,0,1
+partes,DAYANY BITTENCOURT SANTIL,gray,default,0,1
+partes,DE VOLTA AO TRABALHO,pink,default,0,1
+partes,DEBORA CRISTINA VALE DIAS,gray,default,0,1
+partes,DEBORA DOS SANTOS BRAGA,pink,default,0,1
+partes,DEGMAR DE SOUSA SARAIVA,yellow,default,0,1
+partes,DEISE CRISTINA PADULA,brown,default,0,1
+partes,DEMOCRACIA,brown,default,0,1
+partes,DEMOCRACIA CRISTÃ (DC) - MUNICIPAL,default,default,0,1
+partes,DENEVAL ROCHA,purple,default,0,1
+partes,DESEMBARGADOR ELEITORAL ABELARDO PAULO DA MATTA NETO,pink,default,0,1
+partes,"DESEMBARGADOR ELEITORAL ABELARDO PAULO DA MATTA NETO,MAURICIO ELIAS MUNIZ",default,default,0,1
+partes,DIÁLOGO E LIBERDADE EM SOBRAL,red,default,0,1
+partes,DIANA KELNER CARVALHO DE ALMEIDA,pink,default,0,1
+partes,"DIANA KELNER CARVALHO DE ALMEIDA,MINISTÉRIO PÚBLICO ELEITORAL",default,default,0,1
+partes,DIEGO SOUZA DA SILVA,default,default,0,1
+partes,DIEGO VAZ SORGATTO,orange,default,0,1
+partes,DIONISIO DA TRINDADE ASSIS,green,default,0,1
+partes,DIRLENI VIEIRA BONICENHA,yellow,default,0,1
+partes,"DIRLENI VIEIRA BONICENHA,Ministério Público Eleitoral",default,default,0,1
+partes,DJALMA ARAUJO DA SILVA,green,default,0,1
+partes,DOMINGOS CARLOS FERREIRA DA SILVA,yellow,default,0,1
+partes,"DOMINGOS CARLOS FERREIRA DA SILVA,Ministério Público Eleitoral",default,default,0,1
+partes,DOMINGOS SAVIO DO NASCIMENTO,pink,default,0,1
+partes,DORGIVAL RODRIGUES DOS SANTOS,pink,default,0,1
+partes,DOUGLAS FRANCISCO DA SILVA,red,default,0,1
+partes,"DOUGLAS FRANCISCO DA SILVA,Ministério Público Eleitoral",default,default,0,1
+partes,DUANE CANEDO LEITE,pink,default,0,1
+partes,DUARTE & GONTIJO ADVOGADOS ASSOCIADOS,default,default,0,1
+partes,EDA MARIA PEREIRA,brown,default,0,1
+partes,EDAS JUSTINO DOS SANTOS,default,default,0,1
+partes,EDELVES ANGELO ROCHA,purple,default,0,1
+partes,"EDELVES ANGELO ROCHA,ELIEGI DA SILVA,ELISEU MORAES,FLAVIO PEDROSO,JOEL GOMES,JOSE ADALBERTO DE PAULA,MARIA DO CARMO GONCALVES,Ministério Público Eleitoral,RICARDO CHIMICHAQUE DE SIQUEIRA,ROSALIA JORGE GONCALVES,SIDNEY SANTANA E SILVA",default,default,0,1
+partes,EDER DA SILVA,orange,default,0,1
+partes,"EDER DA SILVA,Ministério Público Eleitoral",default,default,0,1
+partes,EDER DIAS MASCARENHAS,blue,default,0,1
+partes,EDER MAURO CARDOSO BARRA,pink,default,1,0
+partes,"EDER MAURO CARDOSO BARRA,FEDERAÇÃO PSDB CIDADANIA - ESTADUAL / PA,JOAQUIM PASSARINHO PINTO DE SOUZA PORTO,JOSE DA CRUZ MARINHO,KEWIN KATY PYLES,LENA RIBEIRO PINTO DE OLIVEIRA,LENILDO MENDES DOS SANTOS SERTAO,NILSON PINTO DE OLIVEIRA,VALDEMAR COSTA NETO",default,default,0,1
+partes,"EDER MAURO CARDOSO BARRA,FEDERAÇÃO PSDB-CIDADANIA - ESTADUAL / PA,JOAQUIM PASSARINHO PINTO DE SOUZA PORTO,JOSE DA CRUZ MARINHO,KEWIN KATY PYLES,LENA RIBEIRO PINTO DE OLIVEIRA,LENILDO MENDES DOS SANTOS SERTAO,NILSON PINTO DE OLIVEIRA,VALDEMAR COSTA NETO",default,default,0,1
+partes,"EDER MAURO CARDOSO BARRA,JOAQUIM PASSARINHO PINTO DE SOUZA PORTO,LENILDO MENDES DOS SANTOS SERTAO,MOVIMENTO DEMOCRÁTICO BRASILEIRO (MDB) - ESTADUAL",default,default,0,1
+partes,EDINALDO AUGUSTO DA SILVA,purple,default,0,1
+partes,EDIO DE SOUZA VIEGAS,gray,default,0,1
+partes,EDIO NAVARINI,orange,default,0,1
+partes,"EDIO NAVARINI,JAQUELINE SILVA DOS SANTOS,UNIAO BRASIL (UNIÃO) - MUNICIPAL",default,default,0,1
+partes,EDIRAN AMARAL DA SILVA,default,default,0,1
+partes,"EDIRAN AMARAL DA SILVA,PARTIDO DOS TRABALHADORES (PT) - MUNICIPAL",default,default,0,1
+partes,EDIVALDO SANTOS,brown,default,0,1
+partes,EDIVAN LUZ SILVA,yellow,default,0,1
+partes,EDMAR ANDRE MARCOS KUPAKA,pink,default,0,1
+partes,EDMILSON MODESTO DE OLIVEIRA,gray,default,0,1
+partes,EDNALDO DO NASCIMENTO ARAUJO,red,default,0,1
+partes,"EDNALDO DO NASCIMENTO ARAUJO,EGNALDO NASCIMENTO DE ARAUJO,Ministério Público Eleitoral",default,default,0,1
+partes,EDNILSON MARTINS BARBOSA,brown,default,0,1
+partes,EDSON DA SILVA SANTOS,pink,default,0,1
+partes,EDSON DE ASSIS MALDONADO,blue,default,0,1
+partes,"EDSON DE ASSIS MALDONADO,Ministério Público Eleitoral,UNIÃO BRASIL (UNIÃO) - MUNICIPAL",default,default,0,1
+partes,EDUARDO LIMA DA SILVA,gray,default,0,1
+partes,EDUARDO RIBEIRO DA SILVA,blue,default,0,1
+partes,EDUARDO SALIM BRAIDE,default,default,0,1
+partes,EDYR LINCON CAVALCANTE DIAS,purple,default,0,1
+partes,EGLEA MARIA NUNES SANTIAGO GONCALVES,gray,default,0,1
+partes,EGNALDO NASCIMENTO DE ARAUJO,green,default,0,1
+partes,ELANI TAIZA DE ARAUJO,yellow,default,0,1
+partes,"ELANI TAIZA DE ARAUJO,JOSE ANTONIO RODRIGUES DE OLIVEIRA,PARTIDO SOCIALISTA BRASILEIRO (PSB) - MUNICIPAL",default,default,0,1
+partes,ELIANA TEREZINHA PAGIATO,gray,default,0,1
+partes,ELIANE ALVES DA SILVA,purple,default,0,1
+partes,ELIANE LINO GREGORIO,gray,default,0,1
+partes,ELIANE MOURA DOS SANTOS GALDINO,purple,default,0,1
+partes,ELIAS DOS SANTOS BITENCOURT,orange,default,0,1
+partes,ELIAS FREIRE FILHO,gray,default,1,0
+partes,"ELIAS FREIRE FILHO,Ministério Público Eleitoral",default,default,0,1
+partes,ELIAS REAL DA SILVA,default,default,0,1
+partes,"ELIAS REAL DA SILVA,Ministério Público Eleitoral",default,default,0,1
+partes,ELIDA ELENA MOREIRA,default,default,0,1
+partes,ELIEGI DA SILVA,pink,default,0,1
+partes,ELIEZER ALVARO PINHEIRO BENEVIDES,blue,default,0,1
+partes,ELIEZER MARTINS DA SILVA,orange,default,0,1
+partes,ELISA BROM DE FREITAS,orange,default,0,1
+partes,ELISANGELA DA SILVA LOPES,pink,default,0,1
+partes,ELISÂNGELA MARIA MIRANDA DOS SANTOS,brown,default,0,1
+partes,ELISANGELA PAIVA CELESTINO,yellow,default,0,1
+partes,ELISEU MORAES,purple,default,0,1
+partes,ELIVAN VIANA DA SILVA,purple,default,0,1
+partes,ELIZABETH MARCIA DE ARAUJO GONCALVES,blue,default,0,1
+partes,ELIZANGELA DE MIRANDA ALTOE,gray,default,0,1
+partes,ELOI FOUQUET,pink,default,0,1
+partes,ELSON FRANCISCO E SILVA,orange,default,0,1
+partes,ELTON BARALDI,gray,default,0,1
+partes,"ELTON BARALDI,LUIS PEREIRA COSTA",default,default,0,1
+partes,EMERSON MARCIO VITALINO,purple,default,0,1
+partes,EMERSON MIGUEL PETRIV,red,default,1,0
+partes,"EMERSON MIGUEL PETRIV,JOAO VICTOR MATTOS LEAO BETTEGA,MARLY DE FATIMA RIBEIRO,MATHEUS VINICCIUS RIBEIRO PETRIV",default,default,0,1
+partes,"EMERSON MIGUEL PETRIV,MARLY DE FATIMA RIBEIRO,MATHEUS VINICCIUS RIBEIRO PETRIV,Ministério Público Eleitoral",default,default,0,1
+partes,"EMERSON MIGUEL PETRIV,Ministério Público Eleitoral",default,default,0,1
+partes,ENNY APARECIDA PEREIRA DOS SANTOS,gray,default,0,1
+partes,EOVANIO JESUS DOS SANTOS,gray,default,0,1
+partes,"EOVANIO JESUS DOS SANTOS,FEDERAÇÃO PSOL REDE (PSOL/REDE) - IRAQUARA / BA,MARIO GUY SOLON DE OLIVEIRA NETO,MARLUCIA DA SILVA PIRES",default,default,0,1
+partes,ERIK CAMILO FELIPE,pink,default,0,1
+partes,"ERIK CAMILO FELIPE,FERNANDO CELESTINO DE ALMEIDA,GUILHERME ANDREW GONCALVES DA SILVA,HERMINIO BARRETO DE OLIVEIRA BERTANI,JOAO PAULO DE OLIVEIRA ANDRADE,JOAO VITOR GONCALVES DA SILVA,Ministério Público Eleitoral,ROLDSON RAFAEL DOS SANTOS BRAZ,WESLEY CARLOS DA SILVA",default,default,0,1
+partes,ERIKA FROTA MONTE COELHO,red,default,0,1
+partes,ERINETE BARROS DE SOUZA,orange,default,0,1
+partes,ERISVANDO TORQUATO DO NASCIMENTO,brown,default,1,0
+partes,ERLANDES DA SILVA CHAVES,pink,default,0,1
+partes,ERMERSON SILVA DA CUNHA,purple,default,0,1
+partes,ERNANDO VICENTE DIAS,blue,default,0,1
+partes,ESMENIA MIRANDA FERREIRA DA SILVA,red,default,0,1
+partes,ESTADO DO PARA,pink,default,0,1
+partes,EUGENIO FERNANDES JUNIOR,blue,default,1,0
+partes,"EUGENIO FERNANDES JUNIOR,Ministério Público Eleitoral,VALDIR PERES PEREIRA",default,default,0,1
+partes,EUGENIO JOSE DE FREITAS FILHO,yellow,default,0,1
+partes,EVANDRO DE SOUZA LIMA,pink,default,0,1
+partes,EVANDRO FIGUEREDO PEDREIRA,brown,default,0,1
+partes,"EVANDRO FIGUEREDO PEDREIRA,IGOR ALMEIDA SOUSA",default,default,0,1
+partes,EVANDRO SA BARRETO LEITAO,purple,default,1,0
+partes,EVANDRO SILVA PEREIRA COSTA,orange,default,0,1
+partes,EVERALDO JORGE MARTINS EGUCHI,yellow,default,0,1
+partes,EVERTON DE SOUZA GARCIA SIQUEIRA,brown,default,0,1
+partes,EVERTON LUIZ FERNANDES SODARIO RAIMUNDO,brown,default,0,1
+partes,EXPEDITO LOURENCO DE ABREU,red,default,0,1
+partes,FABIANA BRITO MATOS,purple,default,0,1
+partes,FABIANA MEDEIROS PARRO ROCHA,brown,default,0,1
+partes,FABIANO ANDRADE FURLAN,purple,default,0,1
+partes,FABIO ARAUJO FERNANDES,brown,default,0,1
+partes,FABIO MARINHO DOS SANTOS,green,default,0,1
+partes,FABIO RODRIGUES VALADAO,purple,default,0,1
+partes,FABIO RONAN SOUZA SANTOS,blue,default,0,1
+partes,FABIO TYRONE BRAGA DE OLIVEIRA,default,default,0,1
+partes,"FABIO TYRONE BRAGA DE OLIVEIRA,Geralldo Fortte Alckmin registrado(a) civilmente como JOSE GERALDO FORTE DOS SANTOS FERNANDES",default,default,0,1
+partes,FABIOLA ALVES DA SILVA,gray,default,0,1
+partes,FEDERAÇÃO BRASIL DA ESPERANÇA (FE BRASIL) - PIRES FERREIRA / CE,green,default,0,1
+partes,"FEDERAÇÃO BRASIL DA ESPERANÇA (FE BRASIL) - PIRES FERREIRA / CE,LIVIA MARIA MESQUITA MORORO MUNIZ MARQUES",default,default,0,1
+partes,FEDERAÇÃO PSDB CIDADANIA - CASCAVEL / PR,brown,default,0,1
+partes,FEDERAÇÃO PSDB CIDADANIA - ESTADUAL / PA,red,default,0,1
+partes,FEDERAÇÃO PSDB CIDADANIA - ESTADUAL / SP,gray,default,0,1
+partes,FEDERAÇÃO PSDB CIDADANIA - GUAMARÉ / RN,gray,default,0,1
+partes,"FEDERAÇÃO PSDB CIDADANIA - GUAMARÉ / RN,FRANCISCO ADRIANO HOLANDA DIOGENES,JOSIVAN DANTAS DA SILVA,JOSIVAN DANTAS DA SILVA 59599502434",default,default,0,1
+partes,FEDERAÇÃO PSDB CIDADANIA - SÃO JOÃO EVANGELISTA / MG,orange,default,0,1
+partes,"FEDERAÇÃO PSDB CIDADANIA - SÃO JOÃO EVANGELISTA / MG,HERCULES JOSE PROCOPIO",default,default,0,1
+partes,FEDERAÇÃO PSDB CIDADANIA - SEVERÍNIA / SP,green,default,0,1
+partes,"FEDERAÇÃO PSDB CIDADANIA - SEVERÍNIA / SP,GUSTAVO BITTENCOURT,JORGE THADEU LUJAN",default,default,0,1
+partes,FEDERAÇÃO PSDB-CIDADANIA - ESTADUAL / PA,blue,default,0,1
+partes,FEDERAÇÃO PSOL REDE - SÃO PAULO / SP,blue,default,0,1
+partes,FEDERAÇÃO PSOL REDE (PSOL/REDE) - IRAQUARA / BA,pink,default,0,1
+partes,FELIPE FREITAS DE ASSIS,orange,default,0,1
+partes,"FELIPE FREITAS DE ASSIS,LUIZ FERNANDO CUER FERREIRA",default,default,0,1
+partes,FELIPE LEON SILVA CLORADO,red,default,0,1
+partes,FERNANDO ALMEIDA DE ANDRADE,brown,default,0,1
+partes,FERNANDO CELESTINO DE ALMEIDA,yellow,default,0,1
+partes,FERNANDO HADDAD,brown,default,0,1
+partes,FERNANDO LUCIO GIACOBO,purple,default,0,1
+partes,"FERNANDO LUCIO GIACOBO,Ministério Público Eleitoral,PARTIDO LIBERAL (PL) - ESTADUAL,RODRIGO JOSE SAFRAIDER",default,default,0,1
+partes,FERNANDO VIANA DE OLIVEIRA,brown,default,0,1
+partes,FILIPE SOARES DOMINGUES DE SOUZA,blue,default,0,1
+partes,"FILIPE SOARES DOMINGUES DE SOUZA,Ministério Público Eleitoral",default,default,0,1
+partes,FILOMENA APARECIDA XAVIER DE OLIVEIRA,yellow,default,0,1
+partes,FLAVIO MARCUS DE AZEVEDO REIS,pink,default,0,1
+partes,FLAVIO NANTES BOLSONARO,orange,default,1,0
+partes,FLAVIO PEDROSO,gray,default,0,1
+partes,FLORISVALDO CARBONATO FILHO,gray,default,0,1
+partes,FRANCISCA REGINA CORDEIRO DA SILVA,default,default,0,1
+partes,FRANCISCO ADRIANO HOLANDA DIOGENES,default,default,0,1
+partes,FRANCISCO AIRTON FERREIRA COSTA,orange,default,0,1
+partes,FRANCISCO ALVES DE SOUZA,default,default,0,1
+partes,FRANCISCO ANTONIO DE MENEZES CRISTINO,yellow,default,0,1
+partes,FRANCISCO AZEVEDO PEREIRA,default,default,0,1
+partes,FRANCISCO CAETANO MARTIN,gray,default,0,1
+partes,"FRANCISCO CAETANO MARTIN,JOSE LUIZ DE FRANCA PENNA,PARTIDO VERDE (PV) - NACIONAL,REYNALDO NUNES DE MORAIS,União Federal",default,default,0,1
+partes,FRANCISCO CARLOS AMORIM SILVEIRA,green,default,0,1
+partes,"FRANCISCO CARLOS AMORIM SILVEIRA,Ministério Público Eleitoral,NICASSIO JOSE BARBOSA",default,default,0,1
+partes,FRANCISCO DE ASSIS AZEVEDO TORRES FILHO,purple,default,0,1
+partes,FRANCISCO DE ASSIS PINHEIRO DE SOUSA,red,default,0,1
+partes,FRANCISCO DO NASCIMENTO SOUZA,default,default,0,1
+partes,FRANCISCO ERIVAN DA SILVA,default,default,0,1
+partes,FRANCISCO HERBERT LIMA VASCONCELOS,gray,default,0,1
+partes,FRANCISCO LUIZ DE ALBUQUERQUE JUNIOR,blue,default,0,1
+partes,"FRANCISCO LUIZ DE ALBUQUERQUE JUNIOR,IATAHANDSON DE MEDEIROS SILVA,NICOLLAS VON MEYNARD THEOTONIO COSTA",default,default,0,1
+partes,FRANCISCO MARCELO DE OLIVEIRA,yellow,default,1,0
+partes,FRANCISCO REGIS MINGOTE,purple,default,0,1
+partes,FRANCISCO SILVA ARAUJO,gray,default,0,1
+partes,FRANCISCO TARCIANO GOMES CASTRO,orange,default,0,1
+partes,FRANCISCO TORRES DE PAULA FILHO,yellow,default,0,1
+partes,"FRANCISCO TORRES DE PAULA FILHO,JOSE ANTONIO SCAFF FILHO,MOVIMENTO DEMOCRÁTICO BRASILEIRO (MDB) - ESTADUAL",default,default,0,1
+partes,FRANCISVALDO MENDES DE SOUZA,purple,default,1,0
+partes,"FRANCISVALDO MENDES DE SOUZA,FUNDACAO LAURO CAMPOS E MARIELLE FRANCO,LUCIANA KREBS GENRO,RODRIGO DA SILVA PEREIRA,STENIO MATHEUS DE MORAIS LIMA",default,default,0,1
+partes,FRANSCLEY GABRIEL SOUZA OLIVEIRA,red,default,0,1
+partes,FUNDACAO LAURO CAMPOS E MARIELLE FRANCO,orange,default,0,1
+partes,GABRIEL ARAUJO MESQUITA,yellow,default,0,1
+partes,GABRIELE SILVA LEITE,blue,default,0,1
+partes,GANDOR CALIL HAGE NETO,gray,default,0,1
+partes,GEILSON ALVES CHINAIDE,pink,default,0,1
+partes,GENEBALDO BARBOSA DE QUEIROZ,brown,default,0,1
+partes,GENILSE GONCALVES DE FREITAS,orange,default,0,1
+partes,GENTIL MATA DA CRUZ,brown,default,0,1
+partes,"GENTIL MATA DA CRUZ,Ministério Público Eleitoral",default,default,0,1
+partes,GEOVANE DE SOUZA,purple,default,0,1
+partes,GERALDO LUCIO DE ASSIS,orange,default,0,1
+partes,Geralldo Fortte Alckmin registrado(a) civilmente como JOSE GERALDO FORTE DOS SANTOS FERNANDES,blue,default,0,1
+partes,GETULIO ALVES DOS SANTOS,default,default,0,1
+partes,GETULIO BATISTA CANGUSSU,pink,default,0,1
+partes,"GETULIO BATISTA CANGUSSU,JOSE ALEXANDRE PENA DEVESA,LUIZ FERNANDO TEIXEIRA FERREIRA,PARTIDO DOS TRABALHADORES (PT) - MUNICIPAL,PARTIDO SOCIALISTA BRASILEIRO (PSB) - MUNICIPAL,RENATO DE JESUS RAMOS,UNIÃO BRASIL (UNIÃO) - MUNICIPAL,WILLIAM DIB",default,default,0,1
+partes,GIDELSON ALVES,brown,default,0,1
+partes,GILSON DE ALMEIDA BARBOSA,green,default,0,1
+partes,GILSON ROSA DA SILVA,gray,default,0,1
+partes,GILVAM PINHEIRO BORGES,pink,default,0,1
+partes,GIOVANNI VILLIUS RIGHETTO MOCKUS,brown,default,0,1
+partes,GISELDA DA SILVA AZAMBUJA,orange,default,0,1
+partes,GLAI JONES ALVES FEITOSA,gray,default,0,1
+partes,GOSPELMENTE PORTAL DE NOTICIAS LTDA,orange,default,0,1
+partes,GRACILENE AKAY MUNDURUKU,green,default,0,1
+partes,GUILHERME ANDREW GONCALVES DA SILVA,red,default,0,1
+partes,GUILHERME CASTRO BOULOS,orange,default,0,1
+partes,GUILHERME SAMPAIO SARAIVA,green,default,0,1
+partes,GUSTAVO BITTENCOURT,red,default,1,0
+partes,GUSTAVO MENEZES DOS SANTOS SILVA,purple,default,0,1
+partes,GUSTAVO RODRIGUES DA CRUZ,blue,default,0,1
+partes,"GUSTAVO RODRIGUES DA CRUZ,Ministério Público Eleitoral",default,default,0,1
+partes,GUTEMBERG PEREIRA DIAS,brown,default,0,1
+partes,GYSELLE OLIVEIRA DE MORAES,red,default,0,1
+partes,HELIO WILLAMY MIRANDA DA FONSECA,green,default,0,1
+partes,"HELIO WILLAMY MIRANDA DA FONSECA,PROGRESSISTAS (PP) - MUNICIPAL",default,default,0,1
+partes,HERACLIS BEZERRA DE LIMA,default,default,0,1
+partes,HERALDO LOPES ARAUJO,yellow,default,0,1
+partes,HERALDO NUNES DO NASCIMENTO,red,default,0,1
+partes,HERBERT FABRICIO FERRAZ FEITOZA,orange,default,0,1
+partes,HERCULES JOSE PROCOPIO,default,default,0,1
+partes,HERMINIO BARRETO DE OLIVEIRA BERTANI,purple,default,0,1
+partes,HUMBERLANDIA MESQUITA DE ASSIS,orange,default,0,1
+partes,HURIBI ALEXANDRINA,gray,default,0,1
+partes,IARACI DOS SANTOS DIAS,yellow,default,0,1
+partes,IATAHANDSON DE MEDEIROS SILVA,gray,default,0,1
+partes,IGOR ALMEIDA SOUSA,yellow,default,0,1
+partes,INGRID DELAMARE TEIXEIRA,green,default,0,1
+partes,"INGRID DELAMARE TEIXEIRA,Ministério Público Eleitoral,PEDRO RONNY ARGERIN",default,default,0,1
+partes,INSTITUTO TECNOLOGICO DA INFORMACAO S/C - ME,yellow,default,0,1
+partes,ISAC DOS SANTOS DAMASCENA,orange,default,0,1
+partes,IVAIR DATIE KARIKAFU,gray,default,0,1
+partes,IVALDO OLIVEIRA,yellow,default,0,1
+partes,IVAN SOUBHIA GARCIA,brown,default,0,1
+partes,IVANICE ANTUNES MARQUES,pink,default,0,1
+partes,IVO FERREIRA GOMES,purple,default,0,1
+partes,JACINTO SANTANA,red,default,0,1
+partes,JAIR LOPES MARTINS,blue,default,0,1
+partes,"JAIR LOPES MARTINS,Ministério Público Eleitoral",default,default,0,1
+partes,JAIR MESSIAS BOLSONARO,purple,default,1,0
+partes,JAIRO REJANIO DE HOLANDA SOUZA,gray,default,0,1
+partes,JAIRO VARELA GOMES,blue,default,0,1
+partes,JANAD MARQUES DE FREITAS VALCARI,brown,default,0,1
+partes,JANNE ALINE MARCELINO SILVA,green,default,0,1
+partes,JAQUELINE GRIPPA RIBEIRO,yellow,default,0,1
+partes,JAQUELINE SILVA DOS SANTOS,default,default,0,1
+partes,JAZIEL GONSALVES LAGES,pink,default,0,1
+partes,JEFERSON DE SOUSA RAMOS,brown,default,0,1
+partes,JESSE JAMES LIMA MIRANDA,purple,default,0,1
+partes,JESSICA BIANCA E SILVA,red,default,0,1
+partes,JESSICA CAROLINA FONSECA,yellow,default,0,1
+partes,JESUS PEREIRA MOURATO,purple,default,0,1
+partes,JHONATA CAIO SOUZA MARINHO,brown,default,0,1
+partes,JILDENICE SILVA AMORIM,pink,default,0,1
+partes,JOANICE DE OLIVEIRA FERREIRA,orange,default,0,1
+partes,JOAO ALECIO MENDES,orange,default,0,1
+partes,JOAO AUGUSTO GOES MOTA,brown,default,0,1
+partes,JOAO BATISTA DOS ANJOS,purple,default,0,1
+partes,JOAO CARLOS JORGE,brown,default,0,1
+partes,JOAO GERDAL PAIVA DINIZ JUNIOR,purple,default,0,1
+partes,JOAO MIGUEL DO MONTE ANDRADE,pink,default,1,0
+partes,"JOAO MIGUEL DO MONTE ANDRADE,TRIBUNAL REGIONAL ELEITORAL DE RONDONIA",default,default,0,1
+partes,JOAO PAULO DE CASTRO CARNEIRO XEREZ SILVA,pink,default,0,1
+partes,"JOAO PAULO DE CASTRO CARNEIRO XEREZ SILVA,Ministério Público Eleitoral",default,default,0,1
+partes,JOAO PAULO DE OLIVEIRA ANDRADE,red,default,0,1
+partes,JOAO ROBERTO CAMARGO,default,default,0,1
+partes,JOAO VICTOR MATTOS LEAO BETTEGA,gray,default,0,1
+partes,JOAO VITOR GONCALVES DA SILVA,green,default,0,1
+partes,JOAQUIM JULIO COELHO,default,default,0,1
+partes,"JOAQUIM JULIO COELHO,Ministério Público Eleitoral",default,default,0,1
+partes,JOAQUIM PASSARINHO PINTO DE SOUZA PORTO,orange,default,0,1
+partes,JOB XAVIER PALHETA JUNIOR,green,default,0,1
+partes,"JOB XAVIER PALHETA JUNIOR,MARCELO SILVA SALDANHA,PARTIDO RENOVAÇÃO DEMOCRÁTICA (PRD) - MUNICIPAL",default,default,0,1
+partes,JOEL GOMES,pink,default,0,1
+partes,JOELSI FRANK COSTA,yellow,default,0,1
+partes,"JOELSI FRANK COSTA,PARTIDO SOCIALISTA BRASILEIRO (PSB) - MUNICIPAL",default,default,0,1
+partes,JORDANE CRUZ,green,default,0,1
+partes,JORGE LUIZ RIBEIRO DA SILVA,default,default,0,1
+partes,JORGE THADEU LUJAN,default,default,1,0
+partes,JORGE VANDCY VASCONCELOS FILHO,brown,default,0,1
+partes,JOSE ADALBERTO DE PAULA,blue,default,0,1
+partes,JOSE ALDRIM DE SOUZA,pink,default,0,1
+partes,JOSE ALEXANDRE PENA DEVESA,purple,default,0,1
+partes,JOSE ALFREDO SILVA HAGE JUNIOR,brown,default,0,1
+partes,JOSE ALVES DE CARVALHO NETO,orange,default,0,1
+partes,"JOSE ALVES DE CARVALHO NETO,JOSE EVANDRO MARCIEL,Ministério Público Eleitoral",default,default,0,1
+partes,JOSE AMERICO AQUINO SOUSA FILHO,orange,default,0,1
+partes,JOSE ANTONIO RODRIGUES DE OLIVEIRA,pink,default,0,1
+partes,JOSE ANTONIO SCAFF FILHO,default,default,0,1
+partes,JOSE ANTUNIZIO DE BRITO,pink,default,0,1
+partes,JOSE BERNARDO ORTIZ MONTEIRO JUNIOR,default,default,0,1
+partes,JOSE CARLOS BALMANT,orange,default,0,1
+partes,JOSE CARLOS MARIA VALENTE,green,default,0,1
+partes,JOSE CARLOS OLIVEIRA MELO,brown,default,0,1
+partes,"JOSE CARLOS OLIVEIRA MELO,PODEMOS (PODE) - NACIONAL,RENATA HELLMEISTER DE ABREU,União Federal",default,default,0,1
+partes,JOSE DA CRUZ MARINHO,brown,default,0,1
+partes,JOSE DAIDSON AMORIM DE ALBUQUERQUE,pink,default,0,1
+partes,JOSE DOMINGOS RIZZO,red,default,0,1
+partes,JOSE EDEZIO VAZ DE SOUZA,yellow,default,0,1
+partes,JOSE EDNARDO CARNEIRO,purple,default,0,1
+partes,JOSE EVANDRO MARCIEL,yellow,default,0,1
+partes,JOSE FERREIRA DA SILVA,purple,default,0,1
+partes,JOSE FRANCISCO RODRIGUES DE ALMEIDA,orange,default,0,1
+partes,JOSE GILVAN RIBEIRO DE ALMEIDA FILHO,gray,default,0,1
+partes,JOSE HERMANO DO NASCIMENTO NOGUEIRA,blue,default,0,1
+partes,"JOSE HERMANO DO NASCIMENTO NOGUEIRA,REPUBLICANOS (REPUBLICANOS) - MUNICIPAL",default,default,0,1
+partes,JOSE IDSON WANDERLEY BATISTA,brown,default,0,1
+partes,"JOSE IDSON WANDERLEY BATISTA,Ministério Público Eleitoral",default,default,0,1
+partes,JOSE IRAN MENEZES DA SILVA JUNIOR,default,default,0,1
+partes,JOSE LOBATO COIMBRA NETO,red,default,0,1
+partes,JOSE LOPES DE BARROS FILHO,pink,default,0,1
+partes,JOSE LUIZ DE FRANCA PENNA,yellow,default,0,1
+partes,"JOSE LUIZ DE FRANCA PENNA,PARTIDO VERDE (PV) - NACIONAL,REYNALDO NUNES DE MORAIS,União Federal",default,default,0,1
+partes,JOSE MARIA DE JESUS,brown,default,0,1
+partes,JOSE MARTINS BARROS JUNIOR,yellow,default,0,1
+partes,JOSE MAURICIO DE SOUZA MEDEIROS,orange,default,0,1
+partes,JOSE MENEZES LIMA,default,default,0,1
+partes,JOSE NASCIMENTO DA ROSA,red,default,0,1
+partes,JOSE RAIMUNDO BASTOS DA CUNHA,brown,default,0,1
+partes,"JOSE RAIMUNDO BASTOS DA CUNHA,JUCILEIDE MARIA DA COSTA,NARCISO DA SILVA GOMES,ORLANDINA SILVA OLIVEIRA DO NASCIMENTO,RISOMAR SANTOS SOARES,ROGERIO TEIXEIRA DOS SANTOS,ROMILZA ALBINO DE SOUZA",default,default,0,1
+partes,JOSE RAIMUNDO CARDOSO FERREIRA,default,default,0,1
+partes,JOSE RIBAMAR CONSTANTINO SOBRINHO,pink,default,0,1
+partes,JOSE ROBERTO PITERI,red,default,1,0
+partes,"JOSE ROBERTO PITERI,RUBENS FURLAN,UNIÃO BRASIL (UNIÃO) - MUNICIPAL",default,default,0,1
+partes,JOSE ROBERTO RIBEIRO DA SILVA,yellow,default,0,1
+partes,JOSE RODRIGUES DE MIRANDA,yellow,default,0,1
+partes,JOSE RODRIGUES FILHO,yellow,default,0,1
+partes,"JOSE RODRIGUES FILHO,MARBISON FERREIRA GOMES,MASAMY EDA,Ministério Público Eleitoral",default,default,0,1
+partes,JOSE SANDRO RAMOS DO NASCIMENTO,orange,default,0,1
+partes,"JOSE SANDRO RAMOS DO NASCIMENTO,LUCIA VIEIRA DE LIMA,PARTIDO DOS TRABALHADORES (PT) - MUNICIPAL",default,default,0,1
+partes,JOSE TADEU CANDELARIA,orange,default,0,1
+partes,"JOSE TADEU CANDELARIA,JUCIVALDO SALAZAR PEREIRA,PARTIDO LIBERAL (PL) - NACIONAL,VALDEMAR COSTA NETO",default,default,0,1
+partes,JOSE WILLIAN SIQUEIRA DA FONSECA,orange,default,1,0
+partes,JOSEILDO JOSE LIMEIRA,yellow,default,0,1
+partes,"JOSEILDO JOSE LIMEIRA,Ministério Público Eleitoral,REPUBLICANOS (REPUBLICANOS) - MUNICIPAL",default,default,0,1
+partes,JOSEMAR NASCIMENTO DA SILVA,red,default,0,1
+partes,JOSIAS MENDES MACHADO,red,default,0,1
+partes,JOSIVAN DANTAS DA SILVA,pink,default,0,1
+partes,JOSIVAN DANTAS DA SILVA 59599502434,blue,default,0,1
+partes,JOVANIL RAMOS DOS SANTOS,yellow,default,0,1
+partes,JUCILEIDE MARIA DA COSTA,blue,default,0,1
+partes,JUCIVALDO SALAZAR PEREIRA,green,default,1,0
+partes,JUÍZO DA 122ª ZONA ELEITORAL DE SÃO JOÃO DA BOA VISTA SP,red,default,0,1
+partes,"JUÍZO DA 122ª ZONA ELEITORAL DE SÃO JOÃO DA BOA VISTA SP,LUIS CARLOS DOMICIANO",default,default,0,1
+partes,JUÍZO DA 19ª ZONA ELEITORAL DO DISTRITO FEDERAL,gray,default,1,0
+partes,"JUÍZO DA 19ª ZONA ELEITORAL DO DISTRITO FEDERAL,JUÍZO DA 26ª ZONA ELEITORAL DE RIO FORMOSO/PE",default,default,0,1
+partes,JUÍZO DA 26ª ZONA ELEITORAL DE RIO FORMOSO/PE,default,default,1,0
+partes,JUÍZO DA 6ª VARA CÍVEL DE BRASÍLIA DF,blue,default,0,1
+partes,JULIANA APARECIDA CORREA TENORIO,default,default,0,1
+partes,JULIANA DE SOUZA REZENDE,blue,default,0,1
+partes,"JULIANA DE SOUZA REZENDE,Ministério Público Eleitoral",default,default,0,1
+partes,JULIANA PEREIRA DE SA,brown,default,0,1
+partes,JULIANO VASCONCELOS GONCALVES,blue,default,0,1
+partes,JULIO CESAR FRANCA PORTUGAL,red,default,0,1
+partes,JUMA TOLEDO DE SOUZA,blue,default,0,1
+partes,KELLY INAIANE NALVA DOS SANTOS DIAS,orange,default,0,1
+partes,KELMON LUIS DA SILVA SOUZA,default,default,0,1
+partes,"KELMON LUIS DA SILVA SOUZA,LUIZ CLAUDIO MEDEIROS DA FONSECA GAMONAL",default,default,0,1
+partes,KESIA GARCIA ALVES,purple,default,0,1
+partes,KEWIN KATY PYLES,default,default,0,1
+partes,KIM GEORGE BORJA PAIM,gray,default,0,1
+partes,LAERCIO ANTONIO CIPRIANO,red,default,0,1
+partes,"LAERCIO ANTONIO CIPRIANO,MAURO PALUCH FILHO,Ministério Público Eleitoral",default,default,0,1
+partes,LARISSA DANIELA DA ESCOSSIA ROSADO,blue,default,0,1
+partes,LARISSA GONCALVES MACEDO,gray,default,0,1
+partes,LARISSA SOUZA TORRES CAMURÇA,red,default,0,1
+partes,"LARISSA SOUZA TORRES CAMURÇA,RAFAEL MARQUES BASTOS",default,default,0,1
+partes,LAUANE BARBOSA CARVALHO,brown,default,0,1
+partes,LAUDO NATEL SILVA DE ASSUNCAO,red,default,0,1
+partes,LAURIANNE DE MIRANDA GOMES,gray,default,0,1
+partes,LEANDRO DOS SANTOS MARAMALDO,gray,default,0,1
+partes,LEANDRO PANAZZOLO RUSCHEL,brown,default,0,1
+partes,LEANDRO VILELA VELLOSO,red,default,0,1
+partes,LEANI GUIMARAES VELOSO DE MOURA,pink,default,0,1
+partes,LENA RIBEIRO PINTO DE OLIVEIRA,pink,default,0,1
+partes,LENILDO MENDES DOS SANTOS SERTAO,default,default,0,1
+partes,LEONAIR DE BARROS SOST,pink,default,0,1
+partes,"LEONAIR DE BARROS SOST,Ministério Público Eleitoral",default,default,0,1
+partes,LEONALDO PARANHOS DA SILVA,brown,default,1,0
+partes,LEONARDO CESAR ARCOVERDE DE SOUZA,brown,default,0,1
+partes,LEONIDAS FAVERO NETO,brown,default,0,1
+partes,"LEONIDAS FAVERO NETO,MICHELE CAPUTO NETO",default,default,0,1
+partes,LEYLA DIAS TAVARES FERREIRA,green,default,0,1
+partes,LIGIA SANTOS LIMA,gray,default,0,1
+partes,LINCOLN CASTALDELLI TRAGANTE GOMES,default,default,0,1
+partes,LIVIA MARIA MESQUITA MORORO MUNIZ MARQUES,orange,default,0,1
+partes,LUAN PEREIRA XAVIER GOMES,purple,default,0,1
+partes,LUCAS SANCHES PROMESSIA,gray,default,0,1
+partes,LUCIA VIEIRA DE LIMA,gray,default,0,1
+partes,LUCIANA KREBS GENRO,pink,default,0,1
+partes,LUCIANO JARDIM LAGO,blue,default,0,1
+partes,LUCIANO NASCIMENTO DA SILVA,green,default,0,1
+partes,"LUCIANO NASCIMENTO DA SILVA,UNIÃO BRASIL (UNIÃO) - MUNICIPAL",default,default,0,1
+partes,LUCIANO PEREIRA DA SILVA,brown,default,0,1
+partes,LUIS CARLOS DOMICIANO,green,default,0,1
+partes,"LUIS CARLOS DOMICIANO,TRIBUNAL REGIONAL ELEITORAL DE SAO PAULO",default,default,0,1
+partes,LUIS COELHO BRAGA,orange,default,0,1
+partes,LUIS PEREIRA COSTA,gray,default,0,1
+partes,LUIZ ANTONIO GOMES SANTOS,yellow,default,0,1
+partes,LUIZ CARLOS POLLI,brown,default,0,1
+partes,LUIZ CLAUDIO MEDEIROS DA FONSECA GAMONAL,pink,default,0,1
+partes,LUIZ DE FREITAS,pink,default,0,1
+partes,LUIZ FERNANDO CUER FERREIRA,gray,default,0,1
+partes,LUIZ FERNANDO TEIXEIRA FERREIRA,yellow,default,1,0
+partes,LUIZ GUSTAVO PINHEIRO VOLPI,red,default,0,1
+partes,LUIZ INACIO LULA DA SILVA,green,default,0,1
+partes,LUIZ LINDBERGH FARIAS FILHO,green,default,0,1
+partes,LUIZ ROBERTO SILVA SOUZA,purple,default,0,1
+partes,LUIZA DE SOUZA CONCEICAO GOMES,yellow,default,0,1
+partes,M P P DOS SANTOS,red,default,0,1
+partes,MAICON CESAR DAMASCENO,brown,default,0,1
+partes,MALAQUIAS JOSE MOTTIN,red,default,0,1
+partes,MANOEL DA SILVA,green,default,0,1
+partes,MANOEL RODRIGUES NETO,orange,default,0,1
+partes,MANOEL VIRGULINO SIMAO,orange,default,0,1
+partes,"MANOEL VIRGULINO SIMAO,RAMAYARA ALVES PEREIRA",default,default,0,1
+partes,MANUEL DE OLIVEIRA SANTOS,purple,default,0,1
+partes,MARBISON FERREIRA GOMES,blue,default,0,1
+partes,MARCELA RIBEIRO LOPES,default,default,0,1
+partes,"MARCELA RIBEIRO LOPES,Ministério Público Eleitoral",default,default,0,1
+partes,MARCELO ALVES DE OLIVEIRA,orange,default,0,1
+partes,"MARCELO ALVES DE OLIVEIRA,Ministério Público Eleitoral",default,default,0,1
+partes,MARCELO ANTONIO CARTAXO QUEIROGA LOPES,brown,default,0,1
+partes,MARCELO DE OLIVEIRA PANELLA,default,default,0,1
+partes,MARCELO FRANCISCO ASSIS,yellow,default,0,1
+partes,MARCELO MENDES DE OLIVEIRA,blue,default,0,1
+partes,MARCELO RANGEL CRUZ DE OLIVEIRA,yellow,default,0,1
+partes,"MARCELO RANGEL CRUZ DE OLIVEIRA,MOVIMENTO DEMOCRÁTICO BRASILEIRO (MDB) - MUNICIPAL,RADIO MUNDI PARANA LTDA",default,default,0,1
+partes,MARCELO SEBASTIAO SANTOS DA SILVA,purple,default,0,1
+partes,MARCELO SILVA SALDANHA,blue,default,0,1
+partes,MARCELO VERAS MOUSINHO,orange,default,0,1
+partes,"MARCELO VERAS MOUSINHO,ROSALVO AFONSO FERNANDES",default,default,0,1
+partes,MARCIA APARECIDA KUHN PINHEIRO,orange,default,0,1
+partes,MARCIA DA SILVA FURTADO,yellow,default,0,1
+partes,MARCIEL FAURI BERGMANN,default,default,0,1
+partes,"MARCIEL FAURI BERGMANN,RAFAEL BORTOLETTI DALLA NORA",default,default,0,1
+partes,MARCIO QUENIO GUIMARAES,default,default,0,1
+partes,MARCIO RODRIGUES FERREIRA,orange,default,0,1
+partes,MARCO ANTONIO BALDAO,gray,default,0,1
+partes,MARCO ANTONIO VILLA,default,default,0,1
+partes,MARCOS ANTONIO MARQUES,blue,default,0,1
+partes,MARCOS FABIO SEVERINO,purple,default,0,1
+partes,MARCOS MANOEL DA SILVA,pink,default,0,1
+partes,"MARCOS MANOEL DA SILVA,MOVIMENTO DEMOCRATICO BRASILEIRO (MDB) - MUNICIPAL",default,default,0,1
+partes,MARCOS VALERIO BARRETO,orange,default,0,1
+partes,MARCUS FELLIPE NUNES ALVES,pink,default,0,1
+partes,"MARCUS FELLIPE NUNES ALVES,MARIA DE LOURDES PESSA VALENTE DE FIGUEIREDO,PARTIDO SOCIAL DEMOCRATICO (PSD) - MUNICIPAL",default,default,0,1
+partes,MARDONIO SOARES LOPES,orange,default,0,1
+partes,"MARDONIO SOARES LOPES,MIGUEL ESTEVAO PEREIRA NETO",default,default,0,1
+partes,MARIA APARECIDA DE MELO,yellow,default,0,1
+partes,MARIA ARLENE LOPES VITURINO,blue,default,0,1
+partes,MARIA CLEUDIMAR XAVIER VIEIRA,blue,default,0,1
+partes,MARIA DA CONCEICAO ANDRADE DOS ANJOS GOES,yellow,default,0,1
+partes,MARIA DA CONCEICAO SANTIAGO FERNANDES,brown,default,0,1
+partes,MARIA DANIELLE FELIPE LUCIO,yellow,default,0,1
+partes,MARIA DE FATIMA DE ARAUJO,red,default,0,1
+partes,MARIA DE FATIMA VELOSO SOARES MOTA BASTOS,orange,default,0,1
+partes,MARIA DE LOURDES PESSA VALENTE DE FIGUEIREDO,default,default,0,1
+partes,MARIA DO CARMO GONCALVES,brown,default,0,1
+partes,MARIA DO SOCORRO BANDEIRA DA SILVA,blue,default,0,1
+partes,MARIA DO SOCORRO MARQUES MAIA,red,default,0,1
+partes,MARIA FATIMA FEITOSA,pink,default,0,1
+partes,MARIA GILMARA FERREIRA,yellow,default,0,1
+partes,"MARIA GILMARA FERREIRA,NATALIA PALOMA DE SOUSA MENESES,PODEMOS (PODE) - MUNICIPAL",default,default,0,1
+partes,MARIA HELENA MANDU MINERVINO,red,default,0,1
+partes,MARIA IRACILDA DE ALMEIDA ALHO,pink,default,0,1
+partes,MARIA IZABEL DA SILVA,pink,default,0,1
+partes,MARIA JANINE ASSIS DE LUCENA BARROS,red,default,0,1
+partes,MARIA JOSE DO NASCIMENTO,purple,default,0,1
+partes,MARIA SANDRA ALVES ANDRADE,orange,default,0,1
+partes,MARIA VERIANI ARAUJO COSTA,orange,default,0,1
+partes,MARILENE CANDIDA TAVARES,orange,default,0,1
+partes,MARILIA DAS DORES DOS SANTOS,orange,default,0,1
+partes,MARILIA DO NASCIMENTO MORINI,brown,default,0,1
+partes,MARINA MEDEIROS HELOU,default,default,0,1
+partes,MARINEIDE MARQUES DA LUZ,red,default,0,1
+partes,MARIO GUY SOLON DE OLIVEIRA NETO,green,default,0,1
+partes,MARIO ROCHA DE MATOS NETO,orange,default,0,1
+partes,MARLI DE JESUS DA SILVA INACIO,orange,default,0,1
+partes,MARLON LEAO MOURA,gray,default,0,1
+partes,MARLUCIA DA SILVA PIRES,green,default,0,1
+partes,MARLY DE FATIMA RIBEIRO,brown,default,1,0
+partes,MARTA MARIA FREIRE DA COSTA,green,default,0,1
+partes,"MARTA MARIA FREIRE DA COSTA,Ministério Público Eleitoral",default,default,0,1
+partes,MASAMY EDA,blue,default,0,1
+partes,MATHEUS VINICCIUS RIBEIRO PETRIV,gray,default,1,0
+partes,MAURICIO ELIAS MUNIZ,brown,default,0,1
+partes,MAURO MENDES FERREIRA,gray,default,0,1
+partes,MAURO PALUCH FILHO,brown,default,0,1
+partes,MAX SANTOS DE MENEZES,orange,default,0,1
+partes,MAX WEBER NOBRE DE CASTRO,gray,default,0,1
+partes,"MAX WEBER NOBRE DE CASTRO,REMISSON COSTA SANTOS",default,default,0,1
+partes,MAYARA DE MELO LOWEN,brown,default,0,1
+partes,MAYCON RODRIGO RODRIGUES DE SOUZA,orange,default,0,1
+partes,MAYRA BENITA ALVES DIAS GARCIA,default,default,0,1
+partes,MELCHIOR NAELSON BATISTA DA SILVA,orange,default,0,1
+partes,MICHELE CAPUTO NETO,gray,default,0,1
+partes,MICHELI GONCALVES DE ALMEIDA,gray,default,0,1
+partes,MICHELLE MARTINS SILVA,yellow,default,0,1
+partes,MIGUEL ESTEVAO PEREIRA NETO,orange,default,0,1
+partes,MIGUEL JOSE BRUNETTA,pink,default,0,1
+partes,MILENA DAMASCENO CARNEIRO,red,default,0,1
+partes,"MILENA DAMASCENO CARNEIRO,Ministério Público Eleitoral",default,default,0,1
+partes,Ministério Público Eleitoral,yellow,default,1,0
+partes,"Ministério Público Eleitoral,NENEU JOSE ARTIGAS",default,default,0,1
+partes,"Ministério Público Eleitoral,OLIVAS COMERCIO DE BATERIAS AUTOMOTIVAS LTDA,União Federal",default,default,0,1
+partes,"Ministério Público Eleitoral,PARTIDO DEMOCRÁTICO TRABALHISTA (PDT) - ESTADUAL",default,default,0,1
+partes,"Ministério Público Eleitoral,PAULO SERGIO MENDES",default,default,0,1
+partes,"Ministério Público Eleitoral,PEDRO PAULO DE ABREU",default,default,0,1
+partes,"Ministério Público Eleitoral,PIERPAOLO PETRUZZIELLO",default,default,0,1
+partes,"Ministério Público Eleitoral,RAFAEL DE CARVALHO PULLEN PARENTE",default,default,0,1
+partes,"Ministério Público Eleitoral,RAIMUNDO RODRIGUES DE SOUSA FILHO",default,default,0,1
+partes,"Ministério Público Eleitoral,RICARDO ASSIS GIANVECHIO",default,default,0,1
+partes,"Ministério Público Eleitoral,RODOLFO MOTA DA SILVA",default,default,0,1
+partes,"Ministério Público Eleitoral,ROGERIO PETRONILHO",default,default,0,1
+partes,"Ministério Público Eleitoral,RUTH HELENA RODRIGUES MONTEIRO",default,default,0,1
+partes,"Ministério Público Eleitoral,TIAGO DA SILVA CORREA,VINICIUS DA SILVA JULIAO",default,default,0,1
+partes,"Ministério Público Eleitoral,UESLEI NEI DA SILVEIRA TELES",default,default,0,1
+partes,"Ministério Público Eleitoral,VALDIR PERES PEREIRA",default,default,0,1
+partes,"Ministério Público Eleitoral,WILSON BALBINO DE BARROS",default,default,0,1
+partes,MINISTRA CÁRMEN LÚCIA,blue,default,0,1
+partes,MIRISVALDO DE SOUZA LISBOA,gray,default,0,1
+partes,MIUCHA MONTEIRO DA SILVA,default,default,0,1
+partes,MOBILIZAÇÃO NACIONAL (MOBILIZA) - NACIONAL,orange,default,1,0
+partes,MONICA SALVADOR NUNES SANTOS,gray,default,0,1
+partes,MOVIMENTO DEMOCRÁTICO BRASILEIRO (MDB) - ESTADUAL,gray,default,1,0
+partes,MOVIMENTO DEMOCRATICO BRASILEIRO (MDB) - ESTADUAL,yellow,default,1,0
+partes,"MOVIMENTO DEMOCRATICO BRASILEIRO (MDB) - ESTADUAL,VENEZIANO VITAL DO REGO SEGUNDO NETO",default,default,0,1
+partes,MOVIMENTO DEMOCRATICO BRASILEIRO (MDB) - MUNICIPAL,green,default,1,0
+partes,MOVIMENTO DEMOCRÁTICO BRASILEIRO (MDB) - MUNICIPAL,yellow,default,1,0
+partes,"MOVIMENTO DEMOCRÁTICO BRASILEIRO (MDB) - MUNICIPAL,RENATO DE ARAUJO CORREA",default,default,0,1
+partes,NARCISO DA SILVA GOMES,purple,default,0,1
+partes,NATALIA PALOMA DE SOUSA MENESES,pink,default,0,1
+partes,NATALIA ZAMBALDI DESTEFANI,brown,default,0,1
+partes,NATANAEL SILVA RODRIGUES,red,default,0,1
+partes,NATHALIA NOGUEIRA TRUGILLO ARANTES,default,default,0,1
+partes,NEILTON DA SILVA ARAUJO,brown,default,0,1
+partes,NELSON LUIZ REBELATO,yellow,default,0,1
+partes,NELSON MENDES LIMA FILHO,green,default,0,1
+partes,NENEU JOSE ARTIGAS,orange,default,0,1
+partes,NERCI SANTIN,blue,default,0,1
+partes,NEUMAR XAVIER DE OLIVEIRA,purple,default,0,1
+partes,NEUTON VALE FRANCA,purple,default,0,1
+partes,NICASSIO JOSE BARBOSA,green,default,1,0
+partes,NICOLLAS VON MEYNARD THEOTONIO COSTA,yellow,default,0,1
+partes,NILSON PINTO DE OLIVEIRA,red,default,0,1
+partes,NORMA FREITAS DE OLIVEIRA,blue,default,0,1
+partes,NYKOLE DOS SANTOS PEREIRA,red,default,0,1
+partes,ODAIR DE MOURA E SILVA,yellow,default,0,1
+partes,OLIVAS COMERCIO DE BATERIAS AUTOMOTIVAS LTDA,orange,default,0,1
+partes,ORLANDINA SILVA OLIVEIRA DO NASCIMENTO,brown,default,0,1
+partes,OSVALDINO VIEIRA PRAIA,brown,default,0,1
+partes,OTACILIO INACIO MARTINS,red,default,0,1
+partes,OTAMIR CARLONI,yellow,default,0,1
+partes,OTAVIANO OLAVO PIVETTA,red,default,0,1
+partes,OUVIR PARA GOVERNAR,green,default,0,1
+partes,PABLO HENRIQUE COSTA MARCAL,pink,default,1,0
+partes,"PABLO HENRIQUE COSTA MARCAL,RICARDO LUIS REIS NUNES",default,default,0,1
+partes,PADUA ERICKSON MEDEIROS CARNEIRO,brown,default,0,1
+partes,PARTIDO COMUNISTA BRASILEIRO (PCB) - NACIONAL,brown,default,1,0
+partes,PARTIDO DA CAUSA OPERÁRIA (PCO) - NACIONAL,green,default,1,0
+partes,PARTIDO DA MULHER BRASILEIRA (PMB) - NACIONAL,green,default,1,0
+partes,"PARTIDO DA MULHER BRASILEIRA (PMB) - NACIONAL,SERGIO DA SILVA BERNARDO,SUED HAIDAR NOGUEIRA,União Federal",default,default,0,1
+partes,PARTIDO DA SOCIAL DEMOCRACIA BRASILEIRA (PSDB) - ESTADUAL,green,default,1,0
+partes,PARTIDO DA SOCIAL DEMOCRACIA BRASILEIRA (PSDB) - MUNICIPAL,default,default,0,1
+partes,PARTIDO DA SOCIAL DEMOCRACIA BRASILEIRA (PSDB) - NACIONAL,default,default,1,0
+partes,PARTIDO DEMOCRÁTICO TRABALHISTA (PDT) - ESTADUAL,yellow,default,1,0
+partes,"PARTIDO DEMOCRÁTICO TRABALHISTA (PDT) - ESTADUAL,PARTIDO LIBERAL (PL) - ESTADUAL,PARTIDO LIBERAL (PL) - MUNICIPAL,RICARDO CORREA DE BARROS",default,default,0,1
+partes,PARTIDO DEMOCRATICO TRABALHISTA (PDT) - MUNICIPAL,red,default,1,0
+partes,PARTIDO DEMOCRÁTICO TRABALHISTA (PDT) - NACIONAL,purple,default,1,0
+partes,PARTIDO DOS TRABALHADORES (PT) - ESTADUAL,green,default,1,0
+partes,PARTIDO DOS TRABALHADORES (PT) - MUNICIPAL,gray,default,1,0
+partes,PARTIDO DOS TRABALHADORES (PT) - NACIONAL,brown,default,0,1
+partes,PARTIDO LIBERAL (PL) - ESTADUAL,pink,default,1,0
+partes,PARTIDO LIBERAL (PL) - MUNICIPAL,red,default,1,0
+partes,PARTIDO LIBERAL (PL) - NACIONAL,blue,default,1,0
+partes,PARTIDO NOVO (NOVO) - NACIONAL,gray,default,1,0
+partes,"PARTIDO NOVO (NOVO) - NACIONAL,União Federal",default,default,0,1
+partes,PARTIDO RENOVACAO DEMOCRATICA (PRD) - ESTADUAL,pink,default,0,1
+partes,PARTIDO RENOVAÇÃO DEMOCRÁTICA (PRD) - MUNICIPAL,green,default,1,0
+partes,PARTIDO RENOVACAO DEMOCRATICA (PRD) - REGIONAL,green,default,0,1
+partes,PARTIDO REPUBLICANO DA ORDEM SOCIAL (PROS) - NACIONAL,green,default,0,1
+partes,PARTIDO SOCIAL DEMOCRATICO (PSD) - ESTADUAL,yellow,default,1,0
+partes,PARTIDO SOCIAL DEMOCRÁTICO (PSD) - MUNICIPAL,purple,default,1,0
+partes,PARTIDO SOCIAL DEMOCRATICO (PSD) - MUNICIPAL,blue,default,1,0
+partes,PARTIDO SOCIAL DEMOCRÁTICO (PSD) - NACIONAL,orange,default,1,0
+partes,PARTIDO SOCIALISMO E LIBERDADE (PSOL) - ESTADUAL,blue,default,0,1
+partes,PARTIDO SOCIALISTA BRASILEIRO (PSB) - ESTADUAL,pink,default,1,0
+partes,PARTIDO SOCIALISTA BRASILEIRO (PSB) - MUNICIPAL,gray,default,1,0
+partes,PARTIDO VERDE (PV) - NACIONAL,purple,default,1,0
+partes,PATRICIA ESTELA MONTEIRO PEREIRA,purple,default,0,1
+partes,"PATRICIA ESTELA MONTEIRO PEREIRA,REPUBLICANOS (REPUBLICANOS) - MUNICIPAL,ROBERTO DE ARAUJO",default,default,0,1
+partes,PATRICIA PEQUENO COSTA GOMES DE AGUIAR,red,default,0,1
+partes,PATRIOTA (PATRIOTA) - ESTADUAL,purple,default,0,1
+partes,PAULO EDUARDO MAESTRI BENGTSON,green,default,0,1
+partes,PAULO ROBERTO DE OLIVEIRA SANTOS,brown,default,0,1
+partes,PAULO SERGIO DE LIMA,brown,default,0,1
+partes,PAULO SERGIO MENDES,orange,default,0,1
+partes,PAULO SERGIO PEREIRA,yellow,default,0,1
+partes,PAULO WILLIANS MOREIRA DOS SANTOS,green,default,0,1
+partes,PEDRINA OLIVEIRA DE SOUSA AIRES,green,default,0,1
+partes,PEDRO HENRIQUE BELEM,purple,default,0,1
+partes,PEDRO HENRIQUE SILVA OLIVEIRA,red,default,0,1
+partes,PEDRO HUMBERTO COELHO MARQUES,orange,default,0,1
+partes,PEDRO PAULO DE ABREU,blue,default,0,1
+partes,PEDRO RODRIGO DE ANDRADE,yellow,default,0,1
+partes,PEDRO RONNY ARGERIN,gray,default,0,1
+partes,PEDRO TEIXEIRA DE CARVALHO,red,default,0,1
+partes,PIERPAOLO PETRUZZIELLO,blue,default,0,1
+partes,PLINIO COMTE LEITE BITTENCOURT,pink,default,0,1
+partes,"PLINIO COMTE LEITE BITTENCOURT,TRIBUNAL DE JUSTICA DO DISTRITO FEDERAL E DOS TERRITORIOS",default,default,0,1
+partes,PODEMOS (PODE) - MUNICIPAL,blue,default,1,0
+partes,PODEMOS (PODE) - NACIONAL,orange,default,1,0
+partes,POLLYANNA BARBOSA DE ABREU,green,default,0,1
+partes,PRESIDENTE DO TSE,orange,default,1,0
+partes,PROGRESSISTAS (PP) - ESTADUAL,pink,default,1,0
+partes,PROGRESSISTAS (PP) - MUNICIPAL,orange,default,1,0
+partes,PROGRESSISTAS (PP) - NACIONAL,green,default,1,0
+partes,RADIO BETEL LTDA. - ME,brown,default,0,1
+partes,RADIO FM AG LTDA,gray,default,0,1
+partes,RADIO MUNDI PARANA LTDA,yellow,default,0,1
+partes,RAFAEL ALVES DOS SANTOS,orange,default,1,0
+partes,"RAFAEL ALVES DOS SANTOS,WILSON MARQUES LEOPOLDO",default,default,0,1
+partes,RAFAEL BORTOLETTI DALLA NORA,blue,default,0,1
+partes,RAFAEL DE CARVALHO PULLEN PARENTE,pink,default,0,1
+partes,RAFAEL MAGALHAES DE GOUVEIA,pink,default,0,1
+partes,RAFAEL MARQUES BASTOS,purple,default,0,1
+partes,RAIMUNDO NONATO EVERTON SILVA,orange,default,0,1
+partes,RAIMUNDO RODRIGUES DE SOUSA FILHO,purple,default,0,1
+partes,RAINAN NEVES BITENCOURT,blue,default,0,1
+partes,RAMAYARA ALVES PEREIRA,brown,default,0,1
+partes,RAMMON PATRICK PEREIRA LIMA,gray,default,0,1
+partes,RANDAL CARVALHO PEREIRA,orange,default,0,1
+partes,RANGELMA ALVES DOS SANTOS,default,default,0,1
+partes,RAQUEL FIUZA PINHEIRO,brown,default,0,1
+partes,RAUFRAN DA SILVA BESSA,default,default,0,1
+partes,RAYONE DIOGENES LIMA CARVALHO,red,default,0,1
+partes,REDE SUSTENTABILIDADE (REDE) - NACIONAL,gray,default,1,0
+partes,REGINA CHAVES DA SILVA GONCALVES,default,default,0,1
+partes,REGINALDO LIMA OLIVEIRA,pink,default,0,1
+partes,REJIANE CESAR DE OLIVEIRA DOS SANTOS,yellow,default,0,1
+partes,REMISSON COSTA SANTOS,red,default,0,1
+partes,RENAN CASSIO ROSA,gray,default,0,1
+partes,RENATA HELLMEISTER DE ABREU,blue,default,0,1
+partes,RENATA KELLE ASSIS DUTRA,gray,default,0,1
+partes,RENATO DA SILVA,brown,default,1,0
+partes,RENATO DE ARAUJO CORREA,brown,default,0,1
+partes,RENATO DE JESUS RAMOS,pink,default,0,1
+partes,RENATO DE SOUZA PAIVA,brown,default,0,1
+partes,RENATO JOSUE MARGOTTI,yellow,default,0,1
+partes,RENZO DE VASCONCELOS,pink,default,0,1
+partes,RENZO GRACIE,blue,default,0,1
+partes,REPUBLICANOS (REPUBLICANOS) - MUNICIPAL,green,default,1,0
+partes,REPUBLICANOS (REPUBLICANOS) - NACIONAL,red,default,1,0
+partes,RESPONSÁVEL PELO PERFIL @VIEIRACLEYTON NO TIKTOK,pink,default,0,1
+partes,REYNALDO NUNES DE MORAIS,pink,default,0,1
+partes,RICARDO ADRIANO DE LUNA FARIAS,orange,default,0,1
+partes,RICARDO ASSIS GIANVECHIO,yellow,default,0,1
+partes,RICARDO BARBOSA CAVALCANTE,yellow,default,0,1
+partes,RICARDO CARDOSO ALMEIDA,red,default,0,1
+partes,RICARDO CHIMICHAQUE DE SIQUEIRA,orange,default,0,1
+partes,RICARDO CORREA DE BARROS,yellow,default,0,1
+partes,RICARDO JOSE MAGALHAES BARROS,default,default,1,0
+partes,RICARDO LUIS REIS NUNES,default,default,0,1
+partes,RILDENE LUCAS RAMOS,brown,default,0,1
+partes,RISOMAR SANTOS SOARES,orange,default,0,1
+partes,ROBERTA CANDIDA CAETANO,purple,default,0,1
+partes,ROBERTO DE ARAUJO,blue,default,0,1
+partes,ROBERTO FRANCISCO MARQUES SALES,brown,default,0,1
+partes,ROBSON QUINTINO DE OLIVEIRA,pink,default,0,1
+partes,RODOLFO MOTA DA SILVA,yellow,default,0,1
+partes,RODRIGO BATISTA DE CASTRO,gray,default,0,1
+partes,RODRIGO CONSTANTINO ALEXANDRE DOS SANTOS,green,default,0,1
+partes,RODRIGO DA SILVA PEREIRA,orange,default,0,1
+partes,RODRIGO GARCIA,blue,default,0,1
+partes,RODRIGO JOSE SAFRAIDER,yellow,default,0,1
+partes,RODRIGO LOBO SILVA,brown,default,0,1
+partes,RODRIGO POUSO MIRANDA,pink,default,0,1
+partes,RODRIGO PRIMO ANTUNES,purple,default,0,1
+partes,RODRIGO SANDI,gray,default,0,1
+partes,RODRIGO VIANA LORENTZ,blue,default,0,1
+partes,ROGERIO PETRONILHO,red,default,0,1
+partes,ROGERIO SEBASTIAO FIRMINO,pink,default,0,1
+partes,ROGERIO TEIXEIRA DOS SANTOS,brown,default,0,1
+partes,ROLDSON RAFAEL DOS SANTOS BRAZ,purple,default,0,1
+partes,ROMILZA ALBINO DE SOUZA,default,default,0,1
+partes,RONALDO RAMOS DA SILVA SANTOS,gray,default,0,1
+partes,ROSALIA JORGE GONCALVES,purple,default,0,1
+partes,ROSALVO AFONSO FERNANDES,yellow,default,0,1
+partes,ROSELIO PUREZA DA SILVA,green,default,0,1
+partes,RUBENS ALBERTO GATTI NUNES,purple,default,0,1
+partes,RUBENS FURLAN,pink,default,1,0
+partes,RUI COSTA PIMENTA,default,default,1,0
+partes,RUTH HELENA RODRIGUES MONTEIRO,brown,default,0,1
+partes,S. C. D. S.,brown,default,0,1
+partes,S. DE R. L. DE C. V.,orange,default,0,1
+partes,SANDRA MARIA ASSIS DA SILVA MELO,default,default,0,1
+partes,"SANDRA MARIA ASSIS DA SILVA MELO,União Federal",default,default,0,1
+partes,SANDRO DE JESUS DOS SANTOS,blue,default,0,1
+partes,SANDRO WARO MUNDURUKU,brown,default,0,1
+partes,SANSURAY PEREIRA XAVIER,red,default,0,1
+partes,SEBASTIAO AUGUSTO DA SILVA,green,default,0,1
+partes,SEBASTIAO DOS REIS GONCALVES,green,default,0,1
+partes,SERGIO DA SILVA BERNARDO,gray,default,1,0
+partes,SERGIO MENEGUELLI,default,default,0,1
+partes,SEVERINO CAVALCANTE DE MELO,yellow,default,0,1
+partes,SHEILA TACIANA LIMA BARROS,yellow,default,0,1
+partes,SIDNEI ASSIS DA LUZ,green,default,0,1
+partes,SIDNEY SANTANA E SILVA,blue,default,0,1
+partes,SIGILOSO,pink,default,1,0
+partes,SILAS ELIEL PINTO PACHECO,default,default,0,1
+partes,SILVANA APARECIDA FERREIRA,blue,default,0,1
+partes,SILVIA HELENA BARREIROS ARANTES,default,default,0,1
+partes,SILVIA NOBRE LOPES,blue,default,0,1
+partes,SILVIO FONTES BORGES,blue,default,0,1
+partes,SILVIO PEREIRA DOS SANTOS,gray,default,0,1
+partes,SIMONE NEVES DOS SANTOS VENANCIO,purple,default,1,0
+partes,SOLIDARIEDADE (SOLIDARIEDADE) - MUNICIPAL,gray,default,1,0
+partes,STENIO MATHEUS DE MORAIS LIMA,blue,default,0,1
+partes,SUED HAIDAR NOGUEIRA,orange,default,1,0
+partes,SUELY SILVA NASCIMENTO MENEZES,purple,default,0,1
+partes,SYGLEA REJANE DOS SANTOS VIEIRA,green,default,0,1
+partes,TAMARA DAVYDOVA,green,default,0,1
+partes,TAMY APARECIDA DA SILVA,gray,default,0,1
+partes,TANIA MARA COUTINHO MOURA,default,default,0,1
+partes,TASSIA CARLA CONSTANTINO RIBEIRO,blue,default,0,1
+partes,TATIANA DE OLIVEIRA RODRIGUES CUSTODIO,brown,default,0,1
+partes,TAYANA CYNTHIA DOS SANTOS,purple,default,0,1
+partes,TELIO RODRIGUES DE QUEIROZ,red,default,0,1
+partes,TELMARIO MOTA DE OLIVEIRA,red,default,0,1
+partes,TERESA RAQUEL RUFINO DE SIQUEIRA VIANA,gray,default,0,1
+partes,THAISE PEREIRA DE ALMEIDA,default,default,0,1
+partes,THAMARA LARYS ALVES BATISTA,green,default,0,1
+partes,THIAGO MENDES PEDROSA,gray,default,0,1
+partes,THIAGO REIS PIMENTEL,gray,default,0,1
+partes,TIAGO DA SILVA CORREA,default,default,0,1
+partes,TIAGO OLIVEIRA DIETZ,orange,default,0,1
+partes,TIAGO SALES DE BRITO,blue,default,0,1
+partes,TOMAS AGRA CELINO DE MELO,default,default,0,1
+partes,TRABALHO E CORAGEM,green,default,0,1
+partes,TRIBUNAL DE JUSTICA DO DISTRITO FEDERAL E DOS TERRITORIOS,green,default,0,1
+partes,TRIBUNAL REGIONAL ELEITORAL DE GOIÁS,purple,default,0,1
+partes,"TRIBUNAL REGIONAL ELEITORAL DE GOIÁS,interessados",default,default,0,1
+partes,TRIBUNAL REGIONAL ELEITORAL DE RONDONIA,gray,default,1,0
+partes,TRIBUNAL REGIONAL ELEITORAL DE RORAIMA,red,default,1,0
+partes,"TRIBUNAL REGIONAL ELEITORAL DE RORAIMA,interessados",default,default,0,1
+partes,TRIBUNAL REGIONAL ELEITORAL DE SAO PAULO,brown,default,1,0
+partes,UALAS DOS SANTOS ALMEIDA,gray,default,0,1
+partes,UESLEI NEI DA SILVEIRA TELES,gray,default,0,1
+partes,UGLENO ALVES PEREIRA SANTOS,purple,default,0,1
+partes,UNIAO BRASIL (UNIÃO) - MUNICIPAL,default,default,1,0
+partes,UNIÃO BRASIL (UNIÃO) - MUNICIPAL,green,default,1,0
+partes,UNIAO BRASIL (UNIÃO) - NACIONAL,default,default,1,0
+partes,União Federal,pink,default,1,0
+partes,USUÁRIO DESCONHECIDO (FACEBOOK) https://www.facebook.com/josesilvanovo,blue,default,0,1
+partes,VALDECIR MAURICIO DE OLIVEIRA,default,default,0,1
+partes,VALDECIR RODRIGUES DE ALBUQUERQUE JUNIOR,brown,default,0,1
+partes,VALDEMAR COSTA NETO,purple,default,0,1
+partes,VALDEMAR GAMBA,green,default,0,1
+partes,VALDEMAR PINHEIRO DOS SANTOS,purple,default,0,1
+partes,VALDEMIR ALVES DE OLIVEIRA,red,default,0,1
+partes,VALDEMIR DEZORZI,gray,default,0,1
+partes,VALDEZ DE OLIVEIRA DIAS,default,default,0,1
+partes,VALDIR PERES PEREIRA,orange,default,1,0
+partes,VALDIRLANDO SOARES DE OLIVEIRA,pink,default,0,1
+partes,VALDIVINO ALVES VARAO,gray,default,0,1
+partes,VALDIVINO DE SOUZA PEREIRA,purple,default,0,1
+partes,VALNICIO ARMEDE RIBEIRO,brown,default,0,1
+partes,VALQUIRIA RAQUEL FERREIRA DA COSTA,orange,default,0,1
+partes,VALTER BATISTA DOS SANTOS,green,default,0,1
+partes,VANESSA GOUVEIA DE SOUZA,orange,default,0,1
+partes,VANIA GARCIA ROSA,purple,default,1,0
+partes,VANILDO ALMEIDA CAVALCANTI,orange,default,0,1
+partes,VANILSON MACIEL DE SOUZA,orange,default,0,1
+partes,VENEZIANO VITAL DO REGO SEGUNDO NETO,red,default,1,0
+partes,VERA HELENA ARSIOLI PINHO,orange,default,0,1
+partes,VERA LUCIA ALVES,yellow,default,0,1
+partes,VERA LUCIA RAMOS BEZERRA,gray,default,0,1
+partes,VICTOR ANTONIO DOS SANTOS FERREIRA,gray,default,0,1
+partes,VILMA COSTA AQUINO DE ASSIS,orange,default,0,1
+partes,VILSON GONCALVES,orange,default,0,1
+partes,VILSON PEREIRA JARDIM,blue,default,0,1
+partes,VINICIUS DA SILVA JULIAO,yellow,default,0,1
+partes,VINICIUS LOURENCO DA CUNHA,blue,default,0,1
+partes,VINICIUS PIRES DOS SANTOS,yellow,default,0,1
+partes,WAGNER ARANTE DA SILVA,orange,default,0,1
+partes,WAISHINGTON LUIS DE OLIVEIRA,blue,default,0,1
+partes,WALDIR TENORIO JUNIOR,yellow,default,0,1
+partes,WENDEL CASTRO DE ARAUJO,brown,default,0,1
+partes,WESLEY CARLOS DA SILVA,blue,default,0,1
+partes,WESLEY RENATO DE OLIVEIRA SOUZA,gray,default,0,1
+partes,WESTEVALDO KRUSCHMAN FERREIRA,blue,default,0,1
+partes,WILKS SOUZA COSTA,green,default,0,1
+partes,WILLIAM DIB,pink,default,0,1
+partes,WILSON BALBINO DE BARROS,brown,default,0,1
+partes,WILSON MARQUES LEOPOLDO,green,default,1,0
+partes,WILSON ROGERIO TAVARES CARVALHO,default,default,0,1
+partes,"ALEXANDRE FRANCA SIQUEIRA,PARTIDO LIBERAL (PL) - MUNICIPAL",default,default,0,1
+partes,"CARMELITA LOPES DA SILVA,ELIAS ALVES FARIAS JUNIOR,ELIETE LIMA DO NASCIMENTO SILVA,ERIOS GALVINCIO PORTO,GETULIO BARBOSA ANTUNES,JEFFERSON LUIZ INACIO DA SILVA,JOAO MARIA RIBEIRO,JOAO PAULO EVANGELISTA DE MEDEIROS,JUCIER MOURA DA SILVA,MARIA JACQUELINE BEZERRA,MARILEIDE NUNES DA SILVA,MOVIMENTO DEMOCRATICO BRASILEIRO (MDB) - MUNICIPAL,RHANDERSON FERREIRA DO NASCIMENTO,TAYANDESON RADEYVID DE LIMA SILVA",default,default,0,1
+partes,ELBERT SANTOS OLIVEIRA,default,default,1,0
+partes,"ANTONIO RICARDO ACCIOLY CAMPOS,FRANCISCO CARVALHO DA SILVA NETO,MIRELLA FERNANDA BEZERRA DE ALMEIDA,PARTIDO RENOVADOR TRABALHISTA BRASILEIRO (PRTB) - MUNICIPAL",default,default,0,1
+partes,"DANIELLI FERNANDA PORTO,JOAO CARLOS DOS SANTOS,Ministério Público Eleitoral",default,default,0,1
+partes,PEDRO GOMES DE MELLO,default,default,1,0
+partes,"AVANTE (AVANTE) - MUNICIPAL,CARLOS MARIANO FERREIRA,ERICA LUZIA MENDES",default,default,0,1
+partes,"ELLENICE EMILLY RAMALHO PINTO,FRANCISCO DE ASSIS BARREIRO CRIZANTO,IVO TEIXEIRA DE ARAUJO FILHO,MARCIO JOSE GOMES RUFINO,MARIANA XAVIER GOMES,OLIVIO GOMES DE CARVALHO,PROGRESSISTAS (PP) - MUNICIPAL,RICARDO RANGEL PINTO DA SILVA,ROMILDO RODRIGUES DE LIMA,SHERLIANE LIARA DA SILVA FERREIRA,WILKA RODRIGUES DE MEDEIROS",default,default,0,1
+partes,"EVALDO CAVALCANTI DA CRUZ NETO,RENNIERI FELIX DE SENA",default,default,0,1
+partes,SANZIA DA SILVA VIRGINIO MELGAO,default,default,1,0
+partes,"PROGRESSISTAS (PP) - MUNICIPAL,WILSON RIBEIRO DA SILVEIRA",default,default,0,1
+partes,"COLIGAÇÃO POVO,LIBERDADE E DEMOCRACIA,WILSON ALVES DE FREITAS",default,default,0,1
+partes,"CHRISTIANO SOUTO PUPPI,CHRYSTIANE BARBOSA PIANARO CHEMIN,COLIGAÇÃO CAMPO LARGO MERECE MAIS,MAURICIO ROBERTO RIVABEM,PEDRO ALBERTO BARAUSSE",default,default,0,1
+partes,"JULIANO CESAR SOARES DOS SANTOS,Ministério Público Eleitoral",default,default,0,1
+partes,"DANIELLE DYTZ DA CUNHA DOCTOROVICH,WILLIAN CARVALHO DOS SANTOS",default,default,0,1
+partes,"KEYLA MARIA DA ROCHA SILVA,MARIA DA CONCEICAO OLIVEIRA DE ARAUJO",default,default,0,1
+partes,"ALMIR DE FARIAS SILVA,PAULO CESAR FERNANDES DE QUEIROZ",default,default,0,1
+partes,"EDUARDO BRAS NETO ALMEIDA,LUIZ GUSTAVO DE SOUSA TATAGIBA,Ministério Público Eleitoral",default,default,0,1
+partes,RONIVAR MONTEIRO DA COSTA,default,default,1,0
+partes,"MANOEL RUBENS VICENTE DA CRUZ,MARCOS TULIO LARANJEIRA ROCHA,MOVIMENTO DEMOCRÁTICO BRASILEIRO (MDB) - MUNICIPAL,PARTIDO SOCIAL DEMOCRATICO (PSD) - MUNICIPAL,ROSEMAURA PEREIRA MESQUITA BRITO",default,default,0,1
+partes,"ALFREDO XAVIER RIBEIRO,Ministério Público Eleitoral",default,default,0,1
+partes,"ALEXANDRE CESAR BARBOSA DE OLIVEIRA,MERICE DE ANDRADE FONSECA ALVES,PARTIDO DOS TRABALHADORES (PT) - MUNICIPAL",default,default,0,1
+partes,"BABY HELENITA VELOSO SILVA,COLIGAÇÃO O TRABALHO SEGUE EM FRENTE,EDUARDO CARNEIRO DE BRITO,MOOACYR EMILTON DE FIGUEIREDO CARTAXO",default,default,0,1
+partes,"FRANCISCO DAS CHAGAS SOUSA ANDRADE,Ministério Público Eleitoral",default,default,0,1
+partes,SERGIO SILVA PEREIRA,default,default,1,0
+partes,LUCIMARA WOOLCK SANTOS ANTUNES,default,default,1,0
+partes,"JEFFERSON BONILHA MENDES,MOVIMENTO DEMOCRÁTICO BRASILEIRO (MDB) - MUNICIPAL,PODEMOS (PODE) - MUNICIPAL",default,default,0,1
+partes,TALITTA DE OLIVEIRA SILVA DE MARTINO,default,default,1,0
+partes,"FOCILIDES CARVALHO SILVA,MANOEL GALVAO DO NASCIMENTO",default,default,0,1
+partes,"ALBERTO BARROS CAVALCANTE NETO,RENATO FROTA MAGALHAES",default,default,0,1
+partes,"ALEXANDRE CESAR DANTAS SOCCORRO,FRANCISCO ROBERTO DE FREITAS,JORCI MENDES DE ALMEIDA JUNIOR,TRIBUNAL REGIONAL ELEITORAL DE RORAIMA",default,default,0,1
+partes,"DEVAIR HORACIO COELHO,ELIZEU RODRIGUES VIEIRA,REINALDO LUIZ DA SILVA",default,default,0,1
+partes,"ANDRE LUIS ALMEIDA COUTINHO,CAMILA HOLANDA GOMES DA SILVA,MARCIO ALEXANDRE DE MELO E SILVA,Ministério Público Eleitoral,VITOR HUGO PEIXOTO CASTELLIANO",default,default,0,1
+partes,"COLIGAÇÃO LIBERDADE,ESPERANÇA E FÉ,EDER AZEVEDO MAGALHAES,GILMAR NUNES VALE,MARCOS PAULO BARBOSA PANTOJA",default,default,0,1
+partes,"JOSE EDIVAN DO AMORIM,KATIENNE SILVA AMORIM,PARTIDO LIBERAL (PL) - ESTADUAL",default,default,0,1
+partes,"COLIGAÇÃO MUDA SÃO JOSÉ,GERALDO GABRIEL MENDES,THIAGO FERNANDO BUHRER",default,default,0,1
+partes,"FEDERAÇÃO BRASIL DA ESPERANÇA (FE BRASIL) - ASSUNÇÃO DO PIAUÍ / PI,JOVELINO SOARES DA SILVA,MOVIMENTO DEMOCRÁTICO BRASILEIRO (MDB) - MUNICIPAL",default,default,0,1
+partes,"FEDERAÇÃO BRASIL DA ESPERANÇA (FE BRASIL) - COTIA / SP,RAFAEL FERNANDES DANTAS",default,default,0,1
+partes,"AURELIO RAMOS DE OLIVEIRA NETO,EDER MAURO CARDOSO BARRA",default,default,0,1
+partes,"PARTIDO REPUBLICANO PROGRESSISTA (PRP) - NACIONAL,União Federal",default,default,0,1
+partes,"CLAUDIO MARCELO SCHMIDT REHDER,EDUARDO FRANCISCO SCIARRA,FLAVIO CASTELLI CHUERY,GILBERTO KASSAB,GUILHERME CAMPOS JUNIOR,PARTIDO SOCIAL DEMOCRÁTICO (PSD) - NACIONAL,SAULO GARCIA QUEIROZ,União Federal",default,default,0,1
+partes,"JOAO ANDRE DORTA SILVA,PARTIDO DA CAUSA OPERÁRIA (PCO) - NACIONAL,RUI COSTA PIMENTA,União Federal",default,default,0,1
+partes,"ADVOCACIA GERAL DA UNIAO,JOSE TUPINAMBA COELHO,LUCIANO CALDAS BIVAR,Ministério Público Eleitoral,PARTIDO SOCIAL LIBERAL (PSL) - NACIONAL",default,default,0,1
+partes,"MELQUE DA COSTA LIMA,Ministério Público Eleitoral",default,default,0,1
+partes,"JOSE WELLINGTON ROBERTO,Ministério Público Eleitoral",default,default,0,1
+partes,"PARTIDO DEMOCRATICO TRABALHISTA - PDT,PROGRESSISTAS (PP) - MUNICIPAL,THAIS MIRANDA DO NASCIMENTO",default,default,0,1
+partes,"HELENO MAIA SANTOS MARQUES DO NASCIMENTO,Ministério Público Eleitoral",default,default,0,1
+partes,"LUCIANA BARBOSA DE OLIVEIRA SANTOS,PARTIDO COMUNISTA DO BRASIL (PC do B) - NACIONAL,RICARDO ABREU DE MELO,União Federal",default,default,0,1
+partes,TRIBUNAL SUPERIOR ELEITORAL,default,default,1,0
+partes,"Ministério Público Eleitoral,WADSON SAID DE CARVALHO",default,default,0,1
+partes,"MARILIA BRITO XAVIER GOES,Ministério Público Eleitoral",default,default,0,1
+partes,"ALBERTO AHMED,ANTONIO RODRIGUEZ FERNANDEZ,ANTONIO RODRIGUEZ JUNIOR,AVANTE (AVANTE) - NACIONAL,LEANDRO RAMON CAMPOS GUSMAO,LUCAS AMARAL GONCALVES,LUIS HENRIQUE DE OLIVEIRA RESENDE,MARCUS VINICIUS BRITTO DE ALBUQUERQUE DIAS,TALMO SILVA AMARO PESSANHA,União Federal,VINICIUS CORDEIRO",default,default,0,1
+partes,MARIA INEZ MARTINS DE SOUZA,default,default,1,0
+partes,"MANOEL CARLOS ANTUNES,Ministério Público Eleitoral",default,default,0,1
+partes,"EDILSON NEVES GOMES,EDMILSON SILVA COSTA,PARTIDO COMUNISTA BRASILEIRO (PCB) - NACIONAL,União Federal",default,default,0,1
+partes,"CELIO RICARDO SILVA DA COSTA COMUNICACAO,PARTIDO LIBERAL (PL) - MUNICIPAL",default,default,0,1
+partes,"EVERALDO DIAS PEREIRA,LUIZ ROGERIO OGNIBENI VARGAS,PARTIDO SOCIAL CRISTÃO (PSC) - NACIONAL,PODEMOS (PODE)- NACIONAL,União Federal",default,default,0,1
+partes,FABIO AUGUSTO DE OLIVEIRA BRASIL,default,default,1,0
+partes,"COLIGAÇÃO UNINDO FORÇAS E CONSTRUINDO SONHOS,COLIGAÇÃO ""O FUTURO DE FRANCO JÁ COMEÇOU,DIEGO LUIZ HERNANDEZ,LORENA RODRIGUES DE OLIVEIRA",default,default,0,1
+partes,"MIRLENES LOPES DE SOUZA,Ministério Público Eleitoral",default,default,0,1
+partes,GILBERTO FRANCISCO DA SILVA,default,default,1,0
+partes,"GIANE ALVES DE OLIVEIRA,Ministério Público Eleitoral",default,default,0,1
+partes,"JEFERSON HENRIQUE AGUIAR PEREIRA,MAURO ROBERTO PINHEIRO,PABLO SEBASTIAN ANDRADE DE MELO",default,default,0,1
+partes,"Ministério Público Eleitoral,SIGILOSO",default,default,0,1
+partes,"PABLO AURINO RAMOS ARAUJO,PARTIDO DEMOCRATICO TRABALHISTA (PDT) - MUNICIPAL",default,default,0,1
+partes,"AUDIFAX CHARLES PIMENTEL BARCELOS,PARTIDO DEMOCRATICO TRABALHISTA (PDT) - MUNICIPAL",default,default,0,1
+partes,MARIA OTILIA NONATO QUARESMA,default,default,1,0
+partes,"ANTONIO CARLOS BOSCO MASSAROLLO,ANTONIO REGINALDO COSTA MOREIRA,INARA SWOBODA MOREIRA BARRETO,LUCAS ALBANO RIBEIRO DOS SANTOS,MOBILIZAÇÃO NACIONAL (MOBILIZA) - NACIONAL,União Federal",default,default,0,1
+partes,PARTIDO VERDE (PV) - ESTADUAL,default,default,1,0
+partes,"ANGELITA SIQUEIRA,Ministério Público Eleitoral",default,default,0,1
+partes,"JOAO DIONISIO FILGUEIRA BARRETO AMOEDO,MARCOS DE ALCANTARA MACHADO,PARTIDO NOVO (NOVO) - NACIONAL,União Federal",default,default,0,1
+partes,ROBERTO JOAO PEREIRA FREIRE,default,default,1,0
+partes,"Ministério Público Eleitoral,SIMONE NEVES DOS SANTOS VENANCIO",default,default,0,1
+partes,"CESAR VIEIRA DE OLIVEIRA,REPUBLICANOS (REPUBLICANOS) - MUNICiPAL",default,default,0,1
+partes,"COLIGAÇÃO PREFEITURA DE PORTAS ABERTAS PARA O POVO,GUSTAVO BITTENCOURT,JORGE THADEU LUJAN",default,default,0,1
+partes,"COLIGAÇÃO AMOR PELA SERRA,PABLO AURINO RAMOS ARAUJO,PARTIDO DEMOCRATICO TRABALHISTA (PDT) - MUNICIPAL",default,default,0,1
+partes,"CYRO GARCIA,ERNESTO GRADELLA NETO,GENILDA ALVES DE SOUZA,JOSE MARIA DE ALMEIDA,PARTIDO SOCIALISTA DOS TRABALHADORES UNIFICADO (PSTU) - NACIONAL,SEBASTIAO CARLOS PEREIRA FILHO,União Federal",default,default,0,1
+partes,"ADALMO ROMILSON ALVES,PARTIDO RENOVADOR TRABALHISTA BRASILEIRO (PRTB) - NACIONAL",default,default,0,1
+partes,"EDUARDO HENRIQUE ACCIOLY CAMPOS,MARCIO LUIZ FRANCA GOMES,PARTIDO SOCIALISTA BRASILEIRO (PSB) - NACIONAL,União Federal",default,default,0,1
+partes,"ANTONIO CARLOS PEIXOTO DE MAGALHAES NETO,DEMOCRATAS (DEM) - NACIONAL,ROMERO AZEVEDO,UNIAO BRASIL (UNIÃO) - NACIONAL,União Federal",default,default,0,1
+partes,"DANIEL SANTANA BARBOSA,Ministério Público Eleitoral",default,default,0,1
+partes,"COLIGAÇÃO UNIDOS POR MARAPOAMA,LUIS FERNANDO PIOVESANA",default,default,0,1
+partes,"ANTONIO CARLOS PEIXOTO DE MAGALHAES NETO,JOSE AGRIPINO MAIA,ROMERO AZEVEDO,UNIAO BRASIL (UNIÃO) - NACIONAL",default,default,0,1
+partes,"CLAUDENICE DE SOUSA LOPES BRITO,COLIGAÇÃO UNIDOS PELA MUDANÇA,UNIÃO BRASIL (UNIÃO) - MUNICIPAL",default,default,0,1
+partes,"JOSE LEVY FIDELIX DA CRUZ,JOSE LUIZ GLADCHI,PARTIDO RENOVADOR TRABALHISTA BRASILEIRO (PRTB) - NACIONAL,União Federal",default,default,0,1
+partes,"ALFREDO PEREIRA DO NASCIMENTO,JUCIVALDO SALAZAR PEREIRA,PARTIDO LIBERAL (PL) - NACIONAL,União Federal",default,default,0,1
+partes,"JOSE LEVY FIDELIX DA CRUZ,JOSE LUIZ GLADCHI,MARCIEL AROLDO FERREIRA DA ROCHA,MILTON ROMANO,PARTIDO RENOVADOR TRABALHISTA BRASILEIRO (PRTB) - NACIONAL,União Federal",default,default,0,1
+partes,JUÍZO DA 17ª VARA DO TRABALHO DE BRASÍLIA/DF,default,default,1,0
+partes,"FRANCISVALDO MENDES DE SOUZA,IVAN VALENTE,JULIANO MEDEIROS,MARIANA COSTA RISCALI,PARTIDO SOCIALISMO E LIBERDADE (PSOL) - NACIONAL,União Federal",default,default,0,1
+partes,"ADELCIO FREITAS DE SOUZA,Ministério Público Eleitoral",default,default,0,1
+partes,"Ministério Público Eleitoral,WESLEY ORADIA RODRIGUES",default,default,0,1
+partes,"Ministério Público Eleitoral,RENILCE FRANCA PEREIRA",default,default,0,1
+partes,"GEOVANNE FAGUNDES DE SOUZA,Ministério Público Eleitoral",default,default,0,1
+partes,"ANTONIO EDUARDO GONCALVES DE RUEDA,JOSE TUPINAMBA COELHO,PARTIDO SOCIAL LIBERAL (PSL) - NACIONAL,UNIAO BRASIL (UNIÃO) - NACIONAL,União Federal",default,default,0,1
+partes,"ALFREDO COTAIT NETO,PARTIDO SOCIAL DEMOCRÁTICO (PSD) - NACIONAL,RICARDO PASSARELLI,União Federal",default,default,0,1
+partes,"JOSE WILLIAN SIQUEIRA DA FONSECA,MOVIMENTO DEMOCRÁTICO BRASILEIRO (MDB) - MUNICIPAL",default,default,0,1
+partes,"Ministério Público Eleitoral,NICASSIO JOSE BARBOSA",default,default,0,1
+partes,"LINDOMAR VIEIRA ALVES,Ministério Público Eleitoral",default,default,0,1
+partes,UNIÃO BRASIL (UNIÃO) - ESTADUAL,default,default,1,0
+partes,"ALEX BATISTA CRUZ,COLIGAÇÃO MUDA SERRA,REPUBLICANOS (REPUBLICANOS) - MUNICIPAL",default,default,0,1
+partes,"COLIGAÇÃO A SERRA EM BOAS MÃOS,PABLO AURINO RAMOS ARAUJO",default,default,0,1
+partes,"ADALTO FERNANDES JUSTINO,Ministério Público Eleitoral",default,default,0,1
+partes,"JOAO LIMA NUNES NETO,MOVIMENTO DEMOCRATICO BRASILEIRO (MDB) - MUNICIPAL",default,default,0,1
+partes,PEDRO HENRIQUE DE BARROS FALCAO,default,default,1,0
+partes,SILAS FREIRE PEREIRA E SILVA,default,default,1,0
+partes,LIVIA CARLA DE ARAUJO CAMPOS,default,default,1,0
+partes,FUNDAÇÃO REPUBLICANA BRASILEIRA (FRB) - NACIONAL,default,default,1,0
+partes,"ADRIANA APARECIDA DA COSTA BEZERRA,EDUARDO BENEDITO LOPES,EVANDRO GARLA PEREIRA DA SILVA,JOAQUIM MAURO DA SILVA,MARCOS ANTONIO PEREIRA,REPUBLICANOS (REPUBLICANOS) - NACIONAL,ROBERTO WAGNER MONTEIRO,União Federal,VICTOR RENATO JUNQUEIRA LACERDA",default,default,0,1
+partes,"LUCIANA BARBOSA DE OLIVEIRA SANTOS,PARTIDO COMUNISTA DO BRASIL (PC do B) - NACIONAL,PARTIDO PÁTRIA LIVRE (PPL) - NACIONAL,RICARDO ABREU DE MELO,SERGIO RUBENS DE ARAUJO TORRES,ULDURICO ALVES PINTO,União Federal",default,default,0,1
+partes,"COLIGAÇÃO SEDE POR MUDANÇA,COLIGAÇÃO VÁRZEA GRANDE MELHOR,FLAVIA PETERSEN MORETTI,KALIL SARAT BARACAT DE ARRUDA",default,default,0,1
+partes,"RUBENS FURLAN,UNIÃO BRASIL (UNIÃO) - MUNICIPAL",default,default,0,1
+partes,"ANDRE LUIZ ALVES,JOSE ROBERTO RAMIRES,OVASCO ROMA ALTIMARI RESENDE,PARTIDO REPUBLICANO PROGRESSISTA (PRP) - NACIONAL,União Federal",default,default,0,1
+partes,"EULER DE FREITAS SILVA JUNIOR,Ministério Público Eleitoral",default,default,0,1
+partes,"PODEMOS (PODE) - NACIONAL,União Federal",default,default,0,1
+partes,"ENIVALDO RIBEIRO,FRANCISCO OSWALDO NEVES DORNELLES,JOAO MIGUEL FEU ROSA,PROGRESSISTAS (PP) - NACIONAL,RICARDO JOSE MAGALHAES BARROS,União Federal",default,default,0,1
+partes,"BAZILEU ALVES MARGARIDO NETO,JOSE GUSTAVO FAVARO BARBOSA SILVA,JULIO CESAR DE SA DA ROCHA,PEDRO IVO DE SOUZA BATISTA,REDE SUSTENTABILIDADE (REDE) - NACIONAL,RUBENS NOVELLI DIAS,União Federal",default,default,0,1
+partes,"PARTIDO COMUNISTA BRASILEIRO (PCB) - NACIONAL,União Federal",default,default,0,1
+partes,"EDILSON NEVES GOMES,EDMILSON SILVA COSTA,Ministério Público Eleitoral,PARTIDO COMUNISTA BRASILEIRO (PCB) - NACIONAL,União Federal",default,default,0,1
+partes,"GLAUCIA REGINA BROCCO,Ministério Público Eleitoral",default,default,0,1
+partes,"PARTIDO LIBERAL (PL) - MUNICIPAL,RAFAEL DE GOES BRITO",default,default,0,1
+partes,"EUNÍCIO LOPES DE OLIVEIRA,MOVIMENTO DEMOCRÁTICO BRASILEIRO (MDB) - NACIONAL,ROMERO JUCÁ FILHO,União Federal",default,default,0,1
+partes,"MARIA OSMARINA MARINA DA SILVA VAZ DE LIMA,União Federal",default,default,0,1
+partes,"PARTIDO DA SOCIAL DEMOCRACIA BRASILEIRA (PSDB) - NACIONAL,União Federal",default,default,0,1
+partes,"JOSE ADALBERTO DE SOUSA,MANOEL PORTELA DE CARVALHO NETO,Ministério Público Eleitoral,SHIRLYS DE MARIA GOMES FEITOSA,TALITA KARINE LUSTOSA LIMA VALLE MELLO",default,default,0,1
+partes,"COLIGAÇÃO JUNTOS POR SÃO BERNARDO,COLIGAÇÃO SÃO BERNARDO QUE SEGUE EM FRENTE,LUIZ FERNANDO TEIXEIRA FERREIRA,NAYARA CRISTINA DA CONCEICAO",default,default,0,1
+partes,"MOVIMENTO DEMOCRATICO BRASILEIRO (MDB) - ESTADUAL,Ministério Público Eleitoral,VENEZIANO VITAL DO REGO SEGUNDO NETO",default,default,0,1
+partes,"COMITÊ FINANCEIRO NACIONAL PARA PRESIDENTE DA REPÚBLICA - PCB,PARTIDO COMUNISTA BRASILEIRO (PCB) - NACIONAL,União Federal",default,default,0,1
+partes,"BRUNO FEIJO TEIXEIRA,COLIGAÇÃO A MUDANÇA É AGORA,PARTIDO LIBERAL (PL) - MUNICIPAL,SERGIO MACIEL DA COSTA",default,default,0,1
+partes,"FERNANDO CARNEIRO DA SILVA,HEIDER BRAZ DE LIMA,Ministério Público Eleitoral",default,default,0,1
+partes,"ADRIANO JOSE DE FREITAS,COLIGAÇÃO JUNTOS POR LIMOEIRO",default,default,0,1
+partes,"COLIGAÇÃO AQUI TEM BARUERI,GILBERTO MACEDO GIL ARANTES,RUBENS FURLAN,WELLINGTON ALVES",default,default,0,1
+partes,"DJALMA DA SILVA GOMES,PARTIDO DOS TRABALHADORES (PT) - MUNICIPAL,ROSINEIDE GOMES DA SILVA",default,default,0,1
+partes,"ALEX SOUZA DE FARIAS,ALFREDO TERTULINO DA CUNHA NETO,CHAUI BEZERRA TAVARES DUTRA,DANIEL BARBOSA SOARES SANTA ROSA,ERIKA GUILHERME LOPES DANTAS,FRANCISCA SANDRA GOMES DA SILVA,FRANCISCO DE ASSIS ARAUJO,JAILSON DIAS DE MOURA,JOAO MARIA RIBEIRO,JOAO REINIELLI DIAS COSME,LEANDRO DANTAS DE OLIVEIRA,SOLIDARIEDADE (SOLIDARIEDADE) - MUNICIPAL,VANUZA CASSIMIRO DA SILVA",default,default,0,1
+partes,VICTOR MATEUS DANTAS BRITO,default,default,1,0
+partes,"ALMIR PEREIRA DA SILVA,CARLOS HENRIQUE BIZERRA BARROS,FRANCIVALDO BARBOSA PEREIRA,MARCIO CESAR DA SILVA MELO",default,default,0,1
+partes,WESLEY ALVES DA SILVA LIMA,default,default,1,0
+partes,"ALTAIR JOSE GASPARETTO,FABIANA MIORANZA,JONI ZANELLA FERREIRA",default,default,0,1
+partes,MARTA MONTEIRO GODINHO,default,default,1,0
+partes,"JOAO BATISTA CORDEIRO MORORO JUNIOR,Ministério Público Eleitoral",default,default,0,1
+partes,"COLIGAÇÃO JUNTOS PARA RENOVAR,JULIO CEZAR DE CARVALHO SILVA SANTOS,LUIZ BERBIZ DE OLIVEIRA,TERESA CRISTINA AGUIAR TOFANELLO WIAZOWSKI",default,default,0,1
+partes,"Ministério Público Eleitoral,PARTIDO DA MULHER BRASILEIRA (PMB) - MUNICIPAL,PAULO ALVAREZ ORTIZ",default,default,0,1
+partes,"PARTIDO DOS TRABALHADORES (PT) - MUNICIPAL,PEDRO JULIAO PITA DE ARAUJO,ROBERTO DE ARAUJO ALECIO",default,default,0,1
+partes,"COLIGAÇÃO FORTALEZA NÃO PODE PARAR,EVANDRO SA BARRETO LEITAO,GABRIELLA PEQUENO COSTA GOMES DE AGUIAR,JOSE SARTO NOGUEIRA MOREIRA",default,default,0,1
+partes,AILTON BARROS DE AMARANTE,default,default,1,0
+partes,"JOSE FERREIRA,JOSE WILIAM DE SOUSA,PARTIDO DOS TRABALHADORES (PT) - MUNICIPAL",default,default,0,1
+partes,"Ministério Público Eleitoral,PAULO LEOCADIO,ROBERSON LUIZ MOUREIRA",default,default,0,1
+partes,"ADAO HELINDOMAR HENIS,ANTONIO EDINALDO DE MORAIS,CARLOS ANTONIO DE SOUZA,ERIDIANA RIBEIRO DA SILVA,ESTER DE FREITAS SARAIVA,FEDERAÇÃO BRASIL DA ESPERANÇA (FÉ BRASIL) - SALITRE / CE,FRANCISCO PAULO PEREIRA,JOEL LIMA DOS SANTOS,JOSE EDICARLOS DIAS,MARLEIDE SABINO LUCIO ALENCAR,PARTIDO COMUNISTA do BRASIL (PC do B) - MUNICIPAL,PARTIDO DOS TRABALHADORES (PT) - MUNICIPAL,PARTIDO SOCIAL DEMOCRATICO (PSD) - MUNICIPAL,PARTIDO SOCIALISTA BRASILEIRO (PSB) - MUNICIPAL,PARTIDO VERDE (PV) - MUNICIPAL",default,default,0,1
+partes,"KASSYO SANTOS RAMOS,LEIVO RODRIGUES DOS SANTOS,Ministério Público Eleitoral,PARTIDO RENOVAÇÃO DEMOCRÁTICA (PRD) - MUNICIPAL",default,default,0,1
+partes,"KETLIN VITORIA MENEGUSSE,Ministério Público Eleitoral",default,default,0,1
+partes,"GLAUCO SATHLER SIMAN,RAULISSON MORAIS",default,default,0,1
+partes,"GILSON LUCAS DE ABREU,PAULO ROBERTO SALES DE LIMA,RICARDO BILIA DE LIMA FRUCTUOSO,RONALDO CARVALHO DE SOUZA,ROSELI ESTEVES SERRANO",default,default,0,1
+partes,"GENICLEUDO VIEIRA SOUSA,MOVIMENTO DEMOCRÁTICO BRASILEIRO (MDB) - MUNICIPAL,ROBERTO SILVA ARAUJO",default,default,0,1
+partes,"ANTONIO ARIMATEA ROSA FILHO,ARILDO ROSA VIEIRA BARROS,CARLA LEITE MELO,CHRISTIANO ROGERIO REGO CAVALCANTE,CLARA MIRANIR SANTOS,CLEVERTON DIAS DOS SANTOS,COLIGAÇÃO PRA CONTINUAR,PRA AVANÇAR,JORDANA AMORIM SANTOS,JULIANA DE MOURA MOTA,PARTIDO SOCIAL CRISTÃO (PSC) - MUNICIPAL,REPUBLICANOS (REPUBLICANOS) - MUNICIPAL,ROSANNY LIMA DE MELO,SILVANY YANINA MAMLAK",default,default,0,1
+partes,MAISA DINIZ LIMA,default,default,1,0
+partes,"ANDREA ANGELITA LISBOA,FEDERAÇÃO PSDB CIDADANIA (PSDB/CIDADANIA) - APIAÍ / SP,JOAO PAULO PEREIRA DE OLIVEIRA PEDROSO,PODEMOS (PODE) MUNICIPAL,RITA DE CASSIA OLIVEIRA SANTIAGO",default,default,0,1
+partes,RONNIE VON LUIS RODRIGUES,default,default,1,0
+partes,"PROGRESSISTAS (PP) - MUNICIPAL,ANTONIO JOSE GUIMARAES JUNIOR,ELENILSON DE LIMA PEREIRA,IRANILCE COELHO MACIEL,IRANILCE DA SILVA GOMES,IZILDA CRISTIANE ALFAIA DE PAULA,JACI BRAZAO DOS REIS,PARTIDO RENOVACÃO DEMOCRÁTICA (PRD) - MUNICIPAL,REPUBLICANOS (REPUBLICANOS) - MUNICIPAL,ROSIANE DE SOUZA BRANDAO",default,default,0,1
+partes,"Ministério Público Eleitoral,ROSELIA CRISTINA DA SILVA MARQUES",default,default,0,1
+partes,"MAVILDA CLIMECK DE OLIVEIRA,TRIBUNAL REGIONAL ELEITORAL DE SAO PAULO",default,default,0,1
+partes,LUIZ CARLOS VERA CRUZ,default,default,1,0
+partes,JEAN RODRIGO XAVIER NUNES,default,default,1,0
+partes,"AILTON APARECIDO MAISTRO,Ministério Público Eleitoral",default,default,0,1
+partes,"COLIGAÇÃO DE VOLTA PRO POVO: A CIDADE SORRINDO DE NOVO,COLIGAÇÃO VERDADE PARA MAUÁ AVANÇAR,FRANCISCO MARCELO DE OLIVEIRA,JOAO VERISSIMO FERNANDES,PARTIDO SOCIAL DEMOCRÁTICO (PSD) - MUNICIPAL",default,default,0,1
+partes,"LUCIANA SARNEY ALVES DE ARAUJO COSTA,OLIVIA CASTRO SANTOS,SAMARA COSTA BRAUNA,TRIBUNAL REGIONAL ELEITORAL DO MARANHÃO",default,default,0,1
+partes,"MANSUR DE JESUS DAOU,Ministério Público Eleitoral",default,default,0,1
+partes,"GLAUCO BARBOSA HOFFMAN KAIZER,MAX RODRIGUES LEMOS",default,default,0,1
+partes,"HERIVANEO VIEIRA DE OLIVEIRA,Ministério Público Eleitoral",default,default,0,1
+partes,"JUSSARA MENICUCCI DE OLIVEIRA,PARTIDO DEMOCRÁTICO TRABALHISTA (PDT) - MUNICIPAL,PARTIDO SOCIAL DEMOCRÁTICO (PSD) - MUNICIPAL,PODEMOS (PODE) - MUNICIPAL,RODOLPHO WILSON CREPALDI",default,default,0,1
+partes,HELIO JANUARIO TELES,default,default,1,0
+partes,"JAIRO TAMURA,OGIER ALBERGE BUCHI,PARTIDO LIBERAL (PL) - ESTADUAL,ROMULO QUINTINO",default,default,0,1
+partes,"Ministério Público Eleitoral,VAGNER MIRANDA DA SILVA",default,default,0,1
+partes,"ANDREA ANGELITA LISBOA,FEDERAÇÃO PSDB CIDADANIA (PSDB/CIDADANIA) - APIAI / SP,JOAO PAULO PEREIRA DE OLIVEIRA PEDROSO,PODEMOS (PODE) MUNICIPAL,RITA DE CASSIA OLIVEIRA SANTIAGO",default,default,0,1
+partes,"MUCIO SANTANA MARTINS,UNIÃO BRASIL (UNIÃO) - MUNICIPAL",default,default,0,1
+partes,"COLIGAÇÃO O FUTURO É PRA JÁ,IRAJA SILVESTRE FILHO,LAUREZ DA ROCHA MOREIRA,WANDERLEI BARBOSA CASTRO",default,default,0,1
+partes,PARTIDO NOVO (NOVO) - ESTADUAL,default,default,1,0
+partes,TALINE GEICE PEREIRA NEIVA,default,default,1,0
+partes,"COLIGAÇÃO UNIÃO E PROGRESSO,EUSEBIO FERREIRA DA SILVA,MARIA AUXILIADORA DE SOUSA MOURA,MARIA FURTADO DE LUCENA",default,default,0,1
+partes,"ANDRE LUIZ MORON,JORGE ALVES FARIAS,Ministério Público Eleitoral",default,default,0,1
+partes,"ADEMIR FELICIO GARCIA,FEDERAÇÃO PSDB CIDADANIA - FIGUEIRÓPOLIS D'OESTE / MT,JOAO RAPOSA FILHO",default,default,0,1
+partes,"CLOVIS GUERHARDT,RODOLFO TADEU DA SILVA",default,default,0,1
+partes,"CARMEM JULIA ARAUJO HOLANDA MONTENEGRO,LAWRENCE CARLOS AMORIM DE ARAUJO",default,default,0,1
+partes,"ANSELMO GOMES DA SILVA,GEORGE RODRIGUES DUARTE,PODEMOS (PODE) - MUNICIPAL",default,default,0,1
+partes,MANOEL JOSE MENDES FILHO,default,default,1,0
+partes,GIZELDA VASCONCELOS VIEIRA DE ALCANTARA,default,default,1,0
+partes,WALMIR VASCONCELOS DA COSTA,default,default,1,0
+partes,"BRUNO FIGUEIREDO ROBERTO,ISAAC VENERANDO PEREIRA DE LIMA,TERCIO ARNAUD TOMAZ",default,default,0,1
+partes,"EDUARDO CONCEICAO PEREIRA,ENOCK DA COSTA FERREIRA,GEOVAN PINHEIRO MARTINS,REGINALDO DE ALCANTARA CARRERA",default,default,0,1
+partes,"LEANDRO FELIPE DO NASCIMENTO,PODEMOS (PODE) - MUNICIPAL",default,default,0,1
+partes,"CLAUDIO ALEXANDRE FARIA MENDES,GIRLEI LIMA NAZARETH,PROGRESSISTAS (PP) - MUNICIPAL",default,default,0,1
+partes,"JOAO PAULO VAZ GOES,JOSENILTON FERREIRA RODRIGUES,PARTIDO SOCIAL DEMOCRATICO (PSD) - MUNICIPAL,VALDELUCIA DOS REIS SANTOS",default,default,0,1
+partes,"COLIGAÇÃO PARA CUIDAR BEM DO POVO,RADIO VALE DO RIO POTY LTDA",default,default,0,1
+partes,"LAURA CRISTINA HUEBRA DE SOUZA,Ministério Público Eleitoral",default,default,0,1
+partes,VERALUCIA FERREIRA FEITOSA,default,default,1,0
+partes,"COLIGAÇÃO CURITIBA AMOR E INOVAÇÃO,CRISTINA REIS GRAEML,EDUARDO PIMENTEL SLAVIERO",default,default,0,1
+partes,"EDSON MUNIZ DOS SANTOS,HENRIQUE MITSUO VARGAS EZOE,Ministério Público Eleitoral",default,default,0,1
+partes,"COLIGAÇÃO UNIAO POR BARRA MANSA,LUIZ ANTONIO FURLANI FILHO,MARCELO BORGES DA SILVA",default,default,0,1
+partes,"Ministério Público Eleitoral,NACOITAN ARAUJO LEITE",default,default,0,1
+partes,"LUIZ FELIPE BALEIA TENUTO ROSSI,MARCELO COSTA E CASTRO,MOVIMENTO DEMOCRÁTICO BRASILEIRO (MDB) - NACIONAL",default,default,0,1
+partes,"MARIA LUCIA SANTOS ROCHA,UNIAO BRASIL (UNIÃO) - MUNICIPAL",default,default,0,1
+partes,"AMALIA REGINA DE LIMA,AURELIO RAMOS DE OLIVEIRA NETO,PARTIDO LIBERAL (PL) - MUNICIPAL",default,default,0,1
+partes,"COLIGAÇÃO POR AMOR AO NOSSO POVO,LUAN DANTAS FELIX",default,default,0,1
+partes,"MARCELO MARCAL COSTA ALVES,Ministério Público Eleitoral",default,default,0,1
+partes,"MARCOS ANTONIO GUERRA WANDERMUREM,REPUBLICANOS (REPUBLICANOS) - MUNICIPAL",default,default,0,1
+partes,"ANDRE BATISTA DE OLIVEIRA,FEDERAÇÃO BRASIL DA ESPERANÇA (FE BRASIL) - QUEIMADAS / BA,PARTIDO SOCIAL DEMOCRÁTICO (PSD) - MUNICIPAL",default,default,0,1
+partes,JUÍZO 4ª VARA CÍVEL DA COMARCA DE CAMPOS DOS GOYTACAZES/RJ,default,default,1,0
+partes,JUÍZO DA 5ª VARA CÍVEL DE CUIABÁ / MT,default,default,1,0
+partes,"COLIGAÇÃO AQUI TEM BARUERI,JOSE ROBERTO PITERI",default,default,0,1
+partes,"ATILA CESAR MONTEIRO JACOMUSSI,COLIGAÇÃO DE VOLTA PARA O POVO: A CIDADE SORRINDO DE NOVO,COLIGAÇÃO VERDADE PARA MAUÁ AVANÇAR,FRANCISCO MARCELO DE OLIVEIRA",default,default,0,1
+partes,"BEATRIZ KICIS TORRENTS DE SORDI,CARLA ZAMBELLI SALGADO DE OLIVEIRA,COLIGAÇÃO BRASIL DA ESPERANÇA,EDUARDO NANTES BOLSONARO,FLAVIO NANTES BOLSONARO,GUSTAVO GAYER MACHADO DE ARAUJO,JAIR MESSIAS BOLSONARO,MAGNO PEREIRA MALTA,NIKOLAS FERREIRA DE OLIVEIRA,WALTER SOUZA BRAGA NETTO",default,default,0,1
+partes,"ANDRE AUGUSTO KERBER INTROVINI,COLIGAÇÃO A FORÇA QUE VEM DO POVO",default,default,0,1
+partes,"ELIEL HERNANDES ROQUE,Ministério Público Eleitoral,ROSIMEIRE AMORIM PAZINI DE SOUZA",default,default,0,1
+partes,"EDER MAURO CARDOSO BARRA,IGOR WANDER CENTENO NORMANDO",default,default,0,1
+partes,"JOSE TUPINAMBA COELHO,LUCIANO CALDAS BIVAR,PARTIDO SOCIAL LIBERAL (PSL) - NACIONAL,UNIAO BRASIL (UNIÃO) - NACIONAL",default,default,0,1
+partes,"COLIGAÇÃO DE MÃOS DADAS COM O POVO,COLIGAÇÃO RECONSTRUIR E TRANSFORMAR ITUIUTABA,LEANDRA GUEDES FERREIRA",default,default,0,1
+partes,"AFRÂNIO TENÓRIO CAVALCANTE NETO,COLIGAÇÃO PRA VIÇOSA ACELERAR,JOAO VICTOR CALHEIROS AMORIM SANTOS",default,default,0,1
+partes,NEIVA APARECIDA BADOTTI,default,default,1,0
+partes,"PABLO HENRIQUE COSTA MARCAL,TABATA CLAUDIA AMARAL DE PONTES",default,default,0,1
+partes,JOSE JOCILE LOBATO DE OLIVEIRA,default,default,1,0
+partes,"COLIGAÇÃO VITÓRIA DA UNIÃO,HIGOR LACERDA DA CRUZ",default,default,0,1
+partes,"JOILMA GLEICE SCHIAVI GOMES,JOSE VITOR COSTA JUNIOR,LETICIA BOTELHO,TRIBUNAL REGIONAL ELEITORAL DE RONDÔNIA 04.565.735/0001-13",default,default,0,1
+partes,"FABIO NUNES DIAS,PARTIDO SOCIAL DEMOCRÁTICO (PSD) - MUNICIPAL",default,default,0,1
+partes,"PODEMOS (PODE) - MUNICIPAL,YANNE GABRIELA BARAUNA",default,default,0,1
+partes,"COLIGAÇÃO ALAGOAS DAQUI PRA MELHOR,COLIGAÇÃO ALAGOAS MERECE MAIS,PAULO SURUAGY DO AMARAL DANTAS,RONALDO AUGUSTO LESSA SANTOS",default,default,0,1
+partes,"COLIGAÇÃO A ESPERANÇA VAI VENCER,RICARDO CELLES MAIA",default,default,0,1
+partes,"JAIR SILVERIO DA SILVA,PARTIDO PROGRESSISTAS (PP) - MUNICIPAL,UNIÃO BRASIL (UNIÃO) - MUNICIPAL",default,default,0,1
+partes,"HENRIQUE STEIN SCIASCIO,NN&A PRODUCOES JORNALISTICAS LTDA - ME,VINICIUS CAETANO SEGALLA",default,default,0,1
+partes,"COLIGAÇÃO A MUDANÇA É AGORA,FABRICIO LOPES RIBEIRO DE ALMEIDA",default,default,0,1
+partes,"JEAN FABIAN DAUD GASPAR,UNIÃO BRASIL (UNIÃO) - MUNICIPAL",default,default,0,1
+partes,"Ministério Público Eleitoral,SEBASTIAO BOCALOM RODRIGUES",default,default,0,1
+partes,EDUARDO MATARAZZO SUPLICY,default,default,1,0
+partes,JOSE LUIZ REZENDE DO CARMO,default,default,1,0
+partes,WEDNO DE MATOS MORAES,default,default,1,0
+partes,ANDREW KELLEHER BROOKS,default,default,1,0
+partes,"ANTONIO ALVES DA SILVA,ANTONIO ALVES DOS SANTOS",default,default,0,1
+partes,"EDUARDO RODRIGO FERNANDES RIBEIRO,JOAO DIONISIO FILGUEIRA BARRETO AMOEDO,MOISES DOS SANTOS JARDIM,PARTIDO NOVO (NOVO) - NACIONAL",default,default,0,1
+partes,FEDERAÇÃO PSDB CIDADANIA - NACIONAL,default,default,1,0
+partes,"Ministério Público Eleitoral,PARTIDO SOCIAL DEMOCRÁTICO (PSD) - ESTADUAL",default,default,0,1
+partes,"PARTIDO RENOVAÇÃO DEMOCRÁTICA (PRD) - NACIONAL,PODEMOS (PODE) - NACIONAL",default,default,0,1
+partes,"Ministério Público Eleitoral,NORECI CLARO",default,default,0,1
+partes,"ADILSON PEREIRA DO NASCIMENTO,ADRIANO QUINTINO DE OLIVEIRA,AMANDA COIMBRA ARAUJO,CLEUTON JOSE DINIZ DOS REIS,FLANTIESCO APARECIDO GOULART,GUILHERME ROQUE SANTOS DA MATA DE PAULA,IARLA DA SILVA LIMA,JAMILTON PEREIRA DE MORAES,JEAN CARLOS NEVES MORAIS,JOSE CARLOS DE SOUSA,JOSE ROBERTO ALVES DE SOUSA,LIVIA RODRIGUES MENDES,OCLEIDES RIBEIRO DE SOUSA,PARTIDO DEMOCRÁTICO TRABALHISTA (PDT) - MUNICIPAL,RUBENS FARIA DE MELO FILHO,SANDOVAL RIBEIRO DE SOUSA",default,default,0,1
+partes,"LUDMILLA CRISTINA FERNANDES CAVALCANTE,Ministério Público Eleitoral",default,default,0,1
+partes,"ARTUR JOSE DE LEMOS JUNIOR,NADISON LUIZ BORGES HAX,PARTIDO DA SOCIAL DEMOCRACIA BRASILEIRA (PSDB) - ESTADUAL",default,default,0,1
+partes,"ELMA GARCIA GOMES NASCIMENTO,Ministério Público Eleitoral,PARTIDO DEMOCRATAS - DEM",default,default,0,1
+partes,ROSANA REPOLHO MORAES,default,default,1,0
+partes,"MARILIA VALENCA ROCHA ARRAES DE ALENCAR,SEBASTIAO IGNACIO DE OLIVEIRA JUNIOR",default,default,0,1
+partes,"DENNYSON RAMOS MOREIRA,União Federal",default,default,0,1
+partes,"ANGELO NATAL DA PAZ,CLAUDIO FERREIRA TAVARES,ESLEY AUGUSTO DAMASO,PATRICIA TEODORO ARANTES DAMASO,PROGRESSISTAS (PP) - MUNICIPAL",default,default,0,1
+partes,"LEONARDO BARRETO DE PINHO,Ministério Público Eleitoral",default,default,0,1
+partes,"ALECSSANDER PEREIRA DOS SANTOS,ALENCAR ALVES RODRIGUES,AMARILDO RIBEIRO DO PRADO,ANA PAULA DE OLIVEIRA SANTOS,ARISTON PINHEIRO DA COSTA,BEZALEEL SALES RENDEIRO,CARMINO OLIVEIRA SANTANA,CLAUDIA CRISTINA FERREIRA DOS SANTOS,DIJALMA QUEIROZ DOS SANTOS,EDGAR ALVES,EDINALDO DOS REIS DE GOIS,EVERALDO DE JESUS GOMES,FABIANE COSTA DA SILVA,JULIO CESAR DE OLIVEIRA CAVALCANTE,LETICIA DOS SANTOS FERREIRA,MARCOS GOMES ALMEIDA,MATEUS LOPES BARBOSA,MICHELLE SOUZA NASCIMENTO,PARTIDO DEMOCRÁTICO TRABALHISTA (PDT) - MUNICIPAL,ROGERIO BRITO MORORO,RUTILEIA PINHO PAIXAO COIMBRA,SERGIO DA SILVA SANTANA,TARCISIO AGUIAR DE ALMEIDA",default,default,0,1
+partes,"EVANDRO SA BARRETO LEITAO,PARTIDO DEMOCRÁTICO TRABALHISTA (PDT) - NACIONAL",default,default,0,1
+partes,"MARCIO ANTONIO DE OLIVEIRA,MINISTRA CÁRMEN LÚCIA ANTUNES ROCHA,PRESIDENTE DO TSE",default,default,0,1
+partes,"JOAO ARNALDO NOVAES JUNIOR,MARILIA VALENCA ROCHA ARRAES DE ALENCAR",default,default,0,1
+partes,"COLIGAÇÃO MINHA VIDA É CASCAVEL,HENRIQUE ANTUNES MECABO,LEONALDO PARANHOS DA SILVA,RENATO DA SILVA",default,default,0,1
+partes,"Ministério Público Eleitoral,PEDRO DOS SANTOS MARTINS",default,default,0,1
+partes,"COLIGAÇÃO CASCAVEL UNIDA E PRA FRENTE,COLIGAÇÃO MINHA VIDA É CASCAVEL,HENRIQUE ANTUNES MECABO,LEONALDO PARANHOS DA SILVA,RENATO DA SILVA",default,default,0,1
+partes,"CAETANO GUEDES NETO,COLIGAÇÃO SEGUIR EM FRENTE,JOAO MOREIRA FALCAO NETO",default,default,0,1
+partes,"COLIGAÇÃO É HORA DE AVANÇAR,JOSE FRANCISCO MARTHA",default,default,0,1
+advogados,Abdon Clementino de Marinho,red,default,0,1
+advogados,Gabriela Vilela Buzzo,gray,default,1,0
+advogados,Ricardo Vita Porto,pink,default,1,0
+advogados,Sânzia da Silva Virginio Melgão,default,default,1,0
+advogados,Ivan Martins Pinheiro,purple,default,1,0
+advogados,Maísa Climeck de Oliveira,yellow,default,1,0
+advogados,Bruno Rangel Avelino da Silva,blue,default,1,0
+advogados,Ricardo Pedroso Stella,brown,default,1,0
+advogados,Francisvaldo Mendes de Souza,orange,default,1,0
+advogados,Benedito Silva Júnior,green,default,1,0
+advogados,Herman Ted Barbosa,blue,default,1,0
+advogados,Fernanda Cristina Caprio,blue,default,1,0
+advogados,Bruno Lopes de Araújo,pink,default,1,0
+advogados,Luciana Meira Lins Miranda,pink,default,1,0
+advogados,Laislon César Dória Costa,blue,default,1,0
+advogados,Thiago Fernandes Boverio,red,default,1,0
+advogados,Manoel José Mendes Filho,gray,default,1,0
+advogados,Paulo Machado Guimarães,brown,default,1,0
+advogados,Valcemir de Araújo Cunha,green,default,1,0
+advogados,Rubens Marcelo Pereira da Silva,orange,default,1,0
+advogados,Luiz Antônio Pereira de Lira,brown,default,1,0
+advogados,Thiago Luiz Gomes Lima,default,default,1,0
+advogados,Ângelo Longo Ferraro,purple,default,1,0
+advogados,Tarcísio Vieira de Carvalho Neto,orange,default,1,0
+advogados,Karina de Paula Kufa,brown,default,1,0
+advogados,Alberto Pavie Ribeiro,gray,default,1,0
+advogados,Flávia Cardoso Campos Guth,pink,default,1,0
+advogados,Romulo Martins Nagib,default,default,1,0
+advogados,Thiago Rodrigues de Faria,yellow,default,1,0
+advogados,Rodrigo Teixeira Teles,pink,default,1,0
+advogados,André Henrique Pimentel Lucena,blue,default,1,0
+advogados,Rafael Diogo Lemos,yellow,default,1,0
+advogados,Eugênio José Guilherme de Aragão,purple,default,1,0
+advogados,Ezikelly Silva Barros e outros,red,default,1,0
+advogados,Gilmar Moura de Souza,yellow,default,1,0
+advogados,José Patrocínio de Brito Júnior,red,default,1,0
+advogados,Fabrício Juliano Mendes Medeiros,green,default,1,0
+advogados,Luiz Fernando Zornig Filho,pink,default,1,0
+advogados,Rafael de Alencar Araripe Carneiro,green,default,1,0
+advogados,Arthur Macedo Borges do,default,default,1,0
+advogados,Tulio Marcelo Denig Bandeira,gray,default,1,0
+advogados,Maurício Fabiane de Almeida Benedito,yellow,default,1,0
+advogados,João Luís Brasil Batista Rolim de Castro,blue,default,1,0
+advogados,Raoni do,red,default,1,0
+advogados,João Luis Brasil Batista Rolim de Castro,purple,default,1,0
+advogados,Adrielly de Lima,default,default,1,0
+advogados,Rafael Henrique Guimarães Teixeira de Freitas,pink,default,1,0
+advogados,Bruno Cardoso Maia,purple,default,1,0
+advogados,Fabio Cunha Alves de Sena,purple,default,1,0
+advogados,Lucas Costa Freire Luzardo,green,default,1,0
+advogados,Mauro Jorge de Paula Bomfim,default,default,1,0
+advogados,Edson Ferrari Filho,gray,default,1,0
+advogados,Guilherme Tadeu Albuquerque Barbosa,orange,default,1,0
+advogados,Thiago Esteves Barbosa,orange,default,1,0
+advogados,Oliver Oliveira Sousa,default,default,1,0
+advogados,Thiago Fernandes Boverio DESPACHO,pink,default,1,0
+advogados,b) quanto ao descumprimento do § 5º do art. 44 da Lei no 9.096,gray,default,1,0
+advogados,Fundo Partidário,default,default,1,0
+advogados,Ministro André Mendonça,orange,default,1,0
+advogados,Cláudia Alves Gomes,purple,default,1,0
+advogados,Thiago Ibiapina Coelho,purple,default,1,0
+advogados,Daniel Leonardo de Lima Viana,green,default,1,0
+advogados,Vanderlei Rafael de Almeida,default,default,1,0
+advogados,André Luiz Santos da Silva,brown,default,1,0
+advogados,Pedro Durans Braid Ribeiro,default,default,1,0
+advogados,Taiandre Paixão Costa,red,default,1,0
+advogados,Mauricio Fabiane de Almeida Benedito,yellow,default,1,0
+advogados,Maria de Viveiros Fernandes,brown,default,1,0
+advogados,Josias Ramos Vieira,pink,default,1,0
+advogados,Lauro Vinícius Ramos Rabha,green,default,1,0
+advogados,Lucas Bessoni Coutinho de Magalhaes,purple,default,1,0
+advogados,Mauro Jorge de Paulo Bomfim,yellow,default,1,0
+advogados,Charles Leandro Oliveira Noiola,blue,default,1,0
+advogados,Mário Aparecido de Souza,red,default,1,0
+advogados,Marcela Vila Nova,brown,default,1,0
+advogados,Cassio Felipe Goes Pacheco,default,default,1,0
+advogados,Bruno Coelho Costa de Oliveira,yellow,default,1,0
+advogados,Orlando Moises Fischer Pessuti,pink,default,1,0
+advogados,Luiz Paulo Muller Franqui,purple,default,1,0
+advogados,Luiz Eduardo Peccinin,red,default,1,0
+advogados,Caio Fernandes Gioia Enne Aded,pink,default,1,0
+advogados,Américo Botelho Lobato Neto,default,default,1,0
+advogados,Haroldo Cavalcante Coelho,default,default,1,0
+advogados,Flavia Daiana Lima da Costa,orange,default,1,0
+advogados,Bruno Aurélio Rodrigues da Silva Pena,yellow,default,1,0
+advogados,Lucas Danillo Fontes do,gray,default,1,0
+advogados,Eduardo do,gray,default,1,0
+advogados,Wederson Advincula Siqueira,purple,default,1,0
+advogados,Sílvio Alexandre Carvalho de Melo,blue,default,1,0
+advogados,Juliana Bandeira de Figueiredo,yellow,default,1,0
+advogados,Rafael Moreira Mota,green,default,1,0
+advogados,Anne Cristine Silva Cabral,blue,default,1,0
+advogados,Ênio Siqueira Santos,brown,default,1,0
+advogados,Ívilla Barbosa Araújo,default,default,1,0
+advogados,Francisco Octavio de Almeida Prado Filho,red,default,1,0
+advogados,Gabriel Costa Fragoso de Albuquerque,brown,default,1,0
+advogados,Maria Andreia Lemos,brown,default,1,0
+advogados,Fabiano Freire Feitosa,orange,default,1,0
+advogados,Luciano Del Castilo Silva,blue,default,1,0
+advogados,Andre Luiz Santos da Silva,brown,default,1,0
+advogados,Gustavo Guilherme Bezerra Kanffer,pink,default,1,0
+advogados,Alice Adolfa Miranda Ploger Zeni,default,default,1,0
+advogados,Carlos Lourenço Mitsuoshi Daltro Hayashida,blue,default,1,0
+advogados,Felipe Costa Fernando,red,default,1,0
+advogados,Álvaro Carvalho Galvão Gomes de Mattos,pink,default,1,0
+advogados,Manolys Marcelino Passerat de Silans,purple,default,1,0
+advogados,Mauricio Linhares Nunes,pink,default,1,0
+advogados,Joelson Costa Dias,yellow,default,1,0
+advogados,Wellington Alves Cavalcante,default,default,1,0
+advogados,Daiana Diello Sandrini,yellow,default,1,0
+advogados,Vera Lúcia Cabral,blue,default,1,0
+advogados,Lucas Bortolozzo Clemente,blue,default,1,0
+advogados,Elias Sebastião Venâncio,pink,default,1,0
+advogados,Samuel Camargo Falavinha,gray,default,1,0
+advogados,Camila Batista Moreira,gray,default,1,0
+advogados,Kayo Alves Ribeiro,orange,default,1,0
+advogados,Igor Brito Barros Lemes,gray,default,1,0
+advogados,Nelson Canedo Motta,orange,default,1,0
+advogados,Andre Luiz Gomes Antonio,pink,default,1,0
+advogados,Danilo Victor da Silva Bezerra,red,default,1,0
+advogados,Raimundo Candido Neto,red,default,1,0
+advogados,Delmiro Dantas Campos Neto,pink,default,1,0
+advogados,Jéssica Marques Menezes Jardim,gray,default,1,0
+advogados,Mauro Gomes de Barros,yellow,default,1,0
+advogados,Tarcísio de Andrade Pereira,red,default,1,0
+advogados,Ogier Alberge Buchi,gray,default,1,0
+advogados,Luiz Fernando Casagrande Pereira,pink,default,1,0
+advogados,Fabrício de Mello Marsango,yellow,default,1,0
+advogados,Carolina Puglia Freo,purple,default,1,0
+advogados,Gustavo Luiz Simões,purple,default,1,0
+advogados,Ricardo Alexander Eduardo Cavalcante,blue,default,1,0
+advogados,CE 22566,pink,default,1,0
+advogados,Danúbio Cardoso Remy Romano Frauzino,orange,default,1,0
+advogados,Francisco Edison Vasconcelos Junior,pink,default,1,0
+advogados,Karissa Mirelle Terêncio Costa,blue,default,1,0
+advogados,Luiz Fellipe Padilha de França,yellow,default,1,0
+advogados,Kaleo Dornaika Guaraty,purple,default,1,0
+advogados,Leticia Aparecida do Couto,gray,default,1,0
+advogados,Lorena Costa Pereira,green,default,1,0
+advogados,Joseane Gois Santos,brown,default,1,0
+advogados,Pedro Augusto Fatel da Silva Targino Granja,brown,default,1,0
+advogados,Ciro Bezerra Rebouças Junior,pink,default,1,0
+advogados,Marcelo Luiz Ávila de Bessa,green,default,1,0
+advogados,Rafael Delgado Chiaradia,orange,default,1,0
+advogados,Hélio Freitas de Carvalho da Silveira,green,default,1,0
+advogados,Evaldo Cavalcanti da Cruz Neto,gray,default,1,0
+advogados,Thiago Leite Ferreira,green,default,1,0
+advogados,Frederich Diniz Tomé de Lima,blue,default,1,0
+advogados,Nilton Velho,green,default,1,0
+advogados,Marcos Cesar Minuci de Sousa,yellow,default,1,0
+advogados,Maurício Linhares Nunes,yellow,default,1,0
+advogados,Antônio Germano Marques do Nascimento,green,default,1,0
+advogados,Liliane Borges de Souza,red,default,1,0
+advogados,Sophia Noeme Souza de Oliveira,blue,default,1,0
+advogados,Dionever Pacheco Pereira,purple,default,1,0
+advogados,Rafaela Priscila Borges Jara,yellow,default,1,0
+advogados,José Severo de Souza Júnior,gray,default,1,0
+advogados,Lucas Albano Ribeiro do,default,default,1,0
+advogados,EMANUELE DALLABRIDA MORI,yellow,default,1,0
+advogados,EDSON RODRIGO RISKE,blue,default,1,0
+advogados,Cássio Felipe Goes Pacheco,gray,default,1,0
+advogados,José Wilson de Melo,default,default,1,0
+advogados,Geissiane Thalita Marques Aguiar,green,default,1,0
+advogados,Dinoel Antônio Avancini da Silva,yellow,default,1,0
+advogados,Tarcísio Augusto Sousa de Barros,yellow,default,1,0
+advogados,Cristiano Vilela de Pinho,purple,default,1,0
+advogados,Thiago Matiolli Kleinfelder,default,default,1,0
+advogados,Matheus Nogueira Pereira Lima,blue,default,1,0
+advogados,Cássio Felipe Goês Pacheco,pink,default,1,0
+advogados,Renato Oliveira Ramos,yellow,default,1,0
+advogados,Paulo Roberto Oliveira,green,default,1,0
+advogados,Eduardo Conde da Silva Júnior,yellow,default,1,0
+advogados,Alessandro Martello Panno,gray,default,1,0
+advogados,Juliano Alessander Lopes Barbosa,green,default,1,0
+advogados,Saulo Vítor da Silva Munhoz,default,default,1,0
+advogados,Joel de Matos Pereira,orange,default,1,0
+advogados,Wederson Advíncula Siqueira,purple,default,1,0
+advogados,Isabela Dadalt,blue,default,1,0
+advogados,Luciano Mtanios Hanna,red,default,1,0
+advogados,Vera Lúcia da Motta,brown,default,1,0
+advogados,Guilherme Trentin Affonso Soares,yellow,default,1,0
+advogados,Isabela Dealis Ferreira,green,default,1,0
+advogados,Juliano Ricardo de Vasconcellos Costa Couto,blue,default,1,0
+advogados,Antônio Ricardo Accioly Campos,default,default,1,0
+advogados,Rafael Carneiro Leão Gonçalves Ferreira,purple,default,1,0
+advogados,Obadia Azulay,default,default,1,0
+advogados,Alberto Luís Mendonça Rollo,red,default,1,0
+advogados,Tibério de Araújo Coutinho Madruga,blue,default,1,0
+advogados,Davi Leonard Barbieri,brown,default,1,0
+advogados,Roberto Correa da Silva Bleser,yellow,default,1,0
+advogados,Erêndirah Máxima de Balbino e Trindade,orange,default,1,0
+advogados,Damião Soares Tenório,orange,default,1,0
+advogados,Sara Campelo Sombra,purple,default,1,0
+advogados,Larissa Favareto do,blue,default,1,0
+advogados,Gabriel de Oliveira Carvalho,yellow,default,1,0
+advogados,Tiago Leal Ayres,red,default,1,0
+advogados,Marcelo Nunes de Sousa Leal,red,default,1,0
+advogados,Raimundo de Araújo Silva Júnior,orange,default,1,0
+advogados,Thiago Benato,pink,default,1,0
+advogados,Vinicius Buligon,yellow,default,1,0
+advogados,Igor de Castro Beserra,brown,default,1,0
+advogados,Teodoro Antônio da Cruz Filho,blue,default,1,0
+advogados,Thais Fernanda Mariano de Paiva,purple,default,1,0
+advogados,Ivan Barbosa Teixeira,default,default,1,0
+advogados,Amanda Ferreira Rocha,pink,default,1,0
+advogados,Flávio Cheim Jorge,pink,default,1,0
+advogados,Mateus Navarro Barbosa Alle,orange,default,1,0
+advogados,Lucas Couto Lazari,blue,default,1,0
+advogados,Ana Paula Machado da Silva,purple,default,1,0
+advogados,Sidclei Nogueira da Silva Bernardo,brown,default,1,0
+advogados,Adonyara de Jesus Teixeira Azevedo Dias,yellow,default,1,0
+advogados,Daniely Moreira Pimentel,pink,default,1,0
