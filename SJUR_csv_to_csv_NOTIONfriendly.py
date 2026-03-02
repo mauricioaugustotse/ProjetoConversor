@@ -27,7 +27,7 @@ from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
-from typing import Callable, Dict, Iterable, Optional, Sequence
+from typing import Any, Callable, Dict, Iterable, Optional, Sequence
 from urllib.parse import urlparse
 
 import requests
@@ -48,20 +48,39 @@ SPACE_RE = re.compile(r"\s+")
 HEADER_ALLOWED_RE = re.compile(r"[^0-9A-Za-z_]+")
 PARTES_SPLIT_RE = re.compile(r"[;,]")
 RELATOR_PREFIX_RE = re.compile(r"^\s*relator(?:\(a\)|a|o)?\s*[:.\-]?\s*", re.IGNORECASE)
-EXCLUDED_COLUMNS = {"numeroDecisao", "numeroProtocolo", "naturezaDocumento", "resuultado"}
+GENERAL_NEWS_COLUMNS = [f"noticia_geral_{i}" for i in range(1, 3)]
+REMOVED_GENERAL_NEWS_COLUMNS = [f"noticia_geral_{i}" for i in range(3, 10)]
+EXCLUDED_COLUMNS = {
+    "numeroDecisao",
+    "numeroProtocolo",
+    "naturezaDocumento",
+    "resuultado",
+    *REMOVED_GENERAL_NEWS_COLUMNS,
+}
 OUTPUT_HEADER_REMAP = {"relatores": "relator"}
-URL_COLUMNS = ["noticia_TSE", "noticia_TRE"] + [f"noticia_geral_{i}" for i in range(1, 10)]
+URL_COLUMNS = ["noticia_TSE", "noticia_TRE", *GENERAL_NEWS_COLUMNS]
 THEME_COLUMNS = ["tema", "punchline"]
 DEFAULT_PRESERVE_COLUMNS = [*THEME_COLUMNS, *URL_COLUMNS]
 ROW_PROGRESS_EVERY = 100
 DEFAULT_PERPLEXITY_KEY_FILE = "Chave_secreta_Perplexity.txt"
 DEFAULT_OPENAI_KEY_FILE = "CHAVE_SECRETA_API_Mauricio_local.txt"
+OPENAI_KEY_FALLBACK_FILES = (
+    "Chave Secreta API_Mauricio_local.txt",
+    "Chave_Secreta_API_Mauricio_local.txt",
+    "chave_secreta_api_mauricio_local.txt",
+)
+PERPLEXITY_KEY_FALLBACK_FILES = (
+    "Chave_secreta_Perplexity.txt",
+    "Chave secreta Perplexity.txt",
+    "chave_secreta_perplexity.txt",
+)
 OPENAI_DEFAULT_MAX_WORKERS = 10
 OPENAI_DEFAULT_TIMEOUT = 45
 OPENAI_DEFAULT_BATCH_SIZE = 40
 OPENAI_DEFAULT_DELAY = 0.05
 OPENAI_DEFAULT_RETRIES = 3
 OPENAI_DEFAULT_TARGET_RPM = 180
+DEFAULT_COMBINED_MULTI = "DJe_consolidado.csv"
 CHECKPOINT_VERSION = 1
 LOGGER = logging.getLogger("SJUR_csv_to_csv_NOTIONfriendly")
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -143,6 +162,140 @@ NAO_CONHECIMENTO_NORM_RE = re.compile(
 )
 ADV_TITLES_PREFIX_RE = re.compile(r"^\s*(?:dr|dra|doutor|doutora)\.?\s+", re.IGNORECASE)
 CNJ_DIGITS_RE = re.compile(r"\D+")
+HEADER_END_RE = re.compile(r"(?i)\b(?:decis[aã]o|ac[oó]rd[aã]o|ementa|voto)\b")
+HEADER_LABEL_RE = re.compile(
+    r"(?i)\b("
+    r"recorrentes?|recorrid[oa]s?|agravantes?|agravad[oa]s?|impetrantes?|impetrad[oa]s?|"
+    r"requerentes?|requerid[oa]s?|exequentes?|executad[oa]s?|embargantes?|embargad[oa]s?|"
+    r"apelantes?|apelad[oa]s?|autores?|r[eé]us?|interessad[oa]s?|representad[oa]s?|"
+    r"org[aã]o\s+coator|autoridade\s+coator[ao]|"
+    r"advogad(?:o|a|os|as)|"
+    r"representantes?\s+do\s*\(a\)\s+[a-zà-öø-ÿ0-9._\-/ ]{1,40}"
+    r")\s*:",
+    re.IGNORECASE,
+)
+HEADER_PARTY_ROLE_PREFIXES = (
+    "recorr",
+    "agrav",
+    "impetr",
+    "requer",
+    "exequ",
+    "execut",
+    "embarg",
+    "apel",
+    "autor",
+    "réu",
+    "reu",
+    "interessad",
+    "representad",
+    "orgao coator",
+    "autoridade coator",
+)
+HEADER_ADV_ROLE_PREFIXES = (
+    "advogad",
+    "representante do (a)",
+    "representantes do (a)",
+)
+ENTITY_SPLIT_RE = re.compile(
+    r"\s*;\s*|\s*,\s*(?=(?:[A-ZÀ-ÖØ-Ý]|Minist[eé]rio|Partido|Coliga[cç][aã]o|"
+    r"Federa[cç][aã]o|Uni[aã]o|Ju[ií]zo|Tribunal|Defensoria|Procuradoria))"
+)
+ENTITY_OUTROS_SUFFIX_RE = re.compile(r"(?is)\s+e\s+outr[oa]s?\b.*$")
+ENTITY_OAB_TAIL_RE = re.compile(r"(?is)\s*(?:[-–—]\s*)?OAB\b[^,;]*")
+ENTITY_UF_NUM_SUFFIX_RE = re.compile(r"\s*[-–—]\s*[A-Z]{2}\d{3,}(?:-[A-Z])?$")
+ENTITY_ID_TAIL_RE = re.compile(r"(?is)\s+id\.?\s*\d+.*$")
+ENTITY_CNPJ_TAIL_RE = re.compile(r"\s+\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}\b.*$")
+ENTITY_INLINE_LABEL_CUT_RE = re.compile(
+    r"(?is)\b(?:advogad(?:o|a|os|as)|representantes?\s+do\s*\(a\)|"
+    r"autoridade\s+coator[ao]|decis[aã]o|ac[oó]rd[aã]o|ementa)\b"
+)
+ENTITY_DECISION_NOISE_RE = re.compile(
+    r"(?i)\b(?:decis[aã]o|ac[oó]rd[aã]o|ementa|tribunal|elei[cç][oõ]es|"
+    r"despacho|ante\s+o\s+exposto|publique-se|intimem-se)\b"
+)
+ENTITY_INSTITUTION_RE = re.compile(
+    r"(?i)\b(?:minist[eé]rio|procuradoria|defensoria|advocacia-?geral|ju[ií]zo|tribunal)\b"
+)
+DEFAULT_METADATA_HEADER_MAX_CHARS = 1200
+DEFAULT_ASSUNTOS_MAX_ITEMS = 2
+ASSUNTOS_TAXONOMY_CHOICES = ("controlled", "mixed", "free")
+
+ASSUNTOS_CANONICOS = (
+    "Abuso de poder",
+    "AIJE",
+    "Captação de sufrágio",
+    "Condições de elegibilidade",
+    "Condutas vedadas a agente público",
+    "Consulta",
+    "Contas de campanha",
+    "Contas de exercício financeiro",
+    "Cota gênero",
+    "Crime eleitoral",
+    "Criação de zona eleitoral",
+    "Doação",
+    "Filiação partidária",
+    "Fundo Partidário",
+    "Inelegibilidade",
+    "Infidelidade partidária",
+    "Intempestividade",
+    "Lista tríplice",
+    "Matéria administrativa",
+    "Matéria processual",
+    "Pesquisa eleitoral",
+    "Propaganda eleitoral antecipada",
+    "Propaganda eleitoral irregular",
+    "Registro de candidatura",
+)
+
+ASSUNTOS_ALIAS_TO_CANONICAL = {
+    "aije": "AIJE",
+    "acao de investigacao judicial eleitoral": "AIJE",
+    "captacao ilicita de sufragio": "Captação de sufrágio",
+    "captacao de sufragio": "Captação de sufrágio",
+    "condutas vedadas a agente publico": "Condutas vedadas a agente público",
+    "cota de genero": "Cota gênero",
+    "contas de exercicio financeiro": "Contas de exercício financeiro",
+    "filiacao partidaria": "Filiação partidária",
+    "fundo partidario": "Fundo Partidário",
+    "lista triplice": "Lista tríplice",
+    "materia administrativa": "Matéria administrativa",
+    "materia processual": "Matéria processual",
+    "propaganda eleitoral antecipada": "Propaganda eleitoral antecipada",
+    "propaganda eleitoral irregular": "Propaganda eleitoral irregular",
+}
+
+ASSUNTOS_RULES_DESCRICAO = (
+    ("Lista tríplice", re.compile(r"(?i)\blista\s+tr[ií]plice\b")),
+    ("Consulta", re.compile(r"(?i)\bconsulta\b")),
+    ("Contas de exercício financeiro", re.compile(r"(?i)\bpresta[cç][aã]o\s+de\s+contas\s+anual\b")),
+    ("Matéria administrativa", re.compile(r"(?i)\bpeti[cç][aã]o\s+c[ií]vel\b")),
+)
+
+ASSUNTOS_RULES_TEXT = (
+    ("AIJE", re.compile(r"(?i)\b(?:aije|a[cç][aã]o\s+de\s+investiga[cç][aã]o\s+judicial\s+eleitoral)\b")),
+    ("Abuso de poder", re.compile(r"(?i)\babuso\s+de\s+poder\b")),
+    ("Captação de sufrágio", re.compile(r"(?i)\bcapta[cç][aã]o(?:\s+il[ií]cita)?\s+de\s+sufr[aá]gio\b")),
+    ("Condições de elegibilidade", re.compile(r"(?i)\bcondi[cç][oõ]es\s+de\s+elegibilidade\b")),
+    ("Condutas vedadas a agente público", re.compile(r"(?i)\bcondutas?\s+vedadas?\b")),
+    ("Contas de campanha", re.compile(r"(?i)\b(?:presta[cç][aã]o\s+de\s+contas\s+de\s+campanha|contas?\s+de\s+campanha)\b")),
+    ("Contas de exercício financeiro", re.compile(r"(?i)\b(?:presta[cç][aã]o\s+de\s+contas\s+anual|exerc[ií]cio\s+financeiro)\b")),
+    ("Cota gênero", re.compile(r"(?i)\b(?:cota\s+de\s+g[eê]nero|fraude\s+[aà]\s+cota\s+de\s+g[eê]nero)\b")),
+    ("Crime eleitoral", re.compile(r"(?i)\bcrime\s+eleitoral\b")),
+    ("Criação de zona eleitoral", re.compile(r"(?i)\bcria[cç][aã]o\s+de\s+zona\s+eleitoral\b")),
+    ("Doação", re.compile(r"(?i)\bdoa[cç][aã]o\b")),
+    ("Filiação partidária", re.compile(r"(?i)\bfilia[cç][aã]o\s+partid[aá]ria\b")),
+    ("Fundo Partidário", re.compile(r"(?i)\bfundo\s+partid[aá]rio\b")),
+    ("Inelegibilidade", re.compile(r"(?i)\binelegibil(?:idade|idades)\b")),
+    ("Infidelidade partidária", re.compile(r"(?i)\binfidelidade\s+partid[aá]ria\b")),
+    ("Intempestividade", re.compile(r"(?i)\bintempestiv(?:idade|o|a|os|as)?\b")),
+    ("Lista tríplice", re.compile(r"(?i)\blista\s+tr[ií]plice\b")),
+    ("Matéria administrativa", re.compile(r"(?i)\bmat[eé]ria\s+administrativa\b")),
+    ("Matéria processual", re.compile(r"(?i)\b(?:mat[eé]ria\s+processual|embargos?\s+de\s+declara[cç][aã]o|agravo\s+interno)\b")),
+    ("Pesquisa eleitoral", re.compile(r"(?i)\bpesquisa\s+eleitoral\b")),
+    ("Propaganda eleitoral antecipada", re.compile(r"(?i)\bpropaganda\s+eleitoral\s+antecipad[ao]?\b")),
+    ("Propaganda eleitoral irregular", re.compile(r"(?i)\b(?:propaganda\s+eleitoral\s+irregular|derram(?:e|amento)\s+de\s+santinh)\b")),
+    ("Registro de candidatura", re.compile(r"(?i)\bregistro\s+de\s+candidatur\w*\b")),
+)
 
 VEICULOS_GERAIS = [
     "folha de s.paulo",
@@ -208,6 +361,28 @@ class TemaPunchlineConfig:
     delay_between_batches: float = OPENAI_DEFAULT_DELAY
     retries: int = OPENAI_DEFAULT_RETRIES
     target_rpm: int = OPENAI_DEFAULT_TARGET_RPM
+
+
+@dataclass
+class MetadataExtractionConfig:
+    include_institutional_entities: bool = True
+    header_max_chars: int = DEFAULT_METADATA_HEADER_MAX_CHARS
+    max_entity_words: int = 14
+
+
+@dataclass
+class AssuntosEnrichmentConfig:
+    enabled: bool = False
+    api_key: str = ""
+    model: str = "gpt-5.1"
+    timeout_seconds: int = OPENAI_DEFAULT_TIMEOUT
+    max_workers: int = OPENAI_DEFAULT_MAX_WORKERS
+    batch_size: int = OPENAI_DEFAULT_BATCH_SIZE
+    delay_between_batches: float = OPENAI_DEFAULT_DELAY
+    retries: int = OPENAI_DEFAULT_RETRIES
+    target_rpm: int = OPENAI_DEFAULT_TARGET_RPM
+    max_items: int = DEFAULT_ASSUNTOS_MAX_ITEMS
+    taxonomy_mode: str = "mixed"
 
 
 def detect_csv_format(path: Path) -> tuple[str, str]:
@@ -338,18 +513,57 @@ def read_secret_from_file(path_str: str) -> str:
     path = path.resolve()
     if not path.exists() or not path.is_file():
         return ""
-    try:
-        raw = path.read_text(encoding="utf-8").strip()
-    except Exception:
-        return ""
+    raw = ""
+    for encoding in (*ENCODINGS_TO_TRY, "utf-16", "utf-16-le", "utf-16-be"):
+        try:
+            raw = path.read_text(encoding=encoding).strip()
+            break
+        except UnicodeError:
+            continue
+        except Exception:
+            return ""
+    if not raw:
+        try:
+            raw = path.read_text(encoding="utf-8", errors="ignore").strip()
+        except Exception:
+            return ""
     if not raw:
         return ""
 
     first_line = raw.splitlines()[0].strip()
     if "=" in first_line:
         first_line = first_line.split("=", 1)[1].strip()
-    first_line = first_line.strip("\"' ")
+    first_line = first_line.lstrip("\ufeff").strip("\"' ")
     return first_line
+
+
+def _resolve_existing_key_file_path(primary_path: str, fallback_names: Sequence[str]) -> str:
+    base_path = Path(primary_path).expanduser() if primary_path else (SCRIPT_DIR / fallback_names[0])
+    if not base_path.is_absolute():
+        base_path = SCRIPT_DIR / base_path
+    base_path = base_path.resolve()
+    if base_path.exists() and base_path.is_file():
+        return str(base_path)
+
+    search_dir = base_path.parent if base_path.parent.exists() else SCRIPT_DIR
+    tried: set[Path] = set()
+    for name in fallback_names:
+        candidate = (search_dir / name).resolve()
+        if candidate in tried:
+            continue
+        tried.add(candidate)
+        if candidate.exists() and candidate.is_file():
+            return str(candidate)
+
+    primary_name_norm = normalize_for_match(base_path.name).replace(" ", "")
+    if primary_name_norm:
+        for candidate in search_dir.glob("*"):
+            if not candidate.is_file():
+                continue
+            candidate_name_norm = normalize_for_match(candidate.name).replace(" ", "")
+            if candidate_name_norm == primary_name_norm:
+                return str(candidate.resolve())
+    return str(base_path)
 
 
 def resolve_perplexity_api_key(cli_value: str, key_file_path: str) -> str:
@@ -358,7 +572,8 @@ def resolve_perplexity_api_key(cli_value: str, key_file_path: str) -> str:
     env_value = os.getenv("PERPLEXITY_API_KEY", "").strip()
     if env_value:
         return env_value
-    file_value = read_secret_from_file(key_file_path)
+    resolved_path = _resolve_existing_key_file_path(key_file_path, PERPLEXITY_KEY_FALLBACK_FILES)
+    file_value = read_secret_from_file(resolved_path)
     if file_value:
         return file_value
     return ""
@@ -370,7 +585,8 @@ def resolve_openai_api_key(cli_value: str, key_file_path: str) -> str:
     env_value = os.getenv("OPENAI_API_KEY", "").strip()
     if env_value:
         return env_value
-    file_value = read_secret_from_file(key_file_path)
+    resolved_path = _resolve_existing_key_file_path(key_file_path, OPENAI_KEY_FALLBACK_FILES)
+    file_value = read_secret_from_file(resolved_path)
     if file_value:
         return file_value
     return ""
@@ -463,7 +679,27 @@ class GerenciadorOpenAI:
             }
         )
 
-    async def call_tema_punchline(self, prompt: str, timeout: int = OPENAI_DEFAULT_TIMEOUT) -> Optional[dict[str, str]]:
+    @staticmethod
+    def _extract_message_content(result: dict[str, object]) -> str:
+        content_obj = ((result.get("choices") or [{}])[0].get("message", {}) or {}).get("content", "")
+        if isinstance(content_obj, list):
+            chunks: list[str] = []
+            for item in content_obj:
+                if isinstance(item, dict):
+                    text = item.get("text")
+                    if isinstance(text, str):
+                        chunks.append(text)
+            return "".join(chunks).strip()
+        return str(content_obj or "").strip()
+
+    async def _call_json_schema(
+        self,
+        *,
+        prompt: str,
+        timeout: int,
+        schema_name: str,
+        schema: dict[str, object],
+    ) -> Optional[dict[str, Any]]:
         payload = {
             "model": self.model,
             "messages": [
@@ -479,17 +715,9 @@ class GerenciadorOpenAI:
             "response_format": {
                 "type": "json_schema",
                 "json_schema": {
-                    "name": "tema_punchline",
+                    "name": schema_name,
                     "strict": True,
-                    "schema": {
-                        "type": "object",
-                        "additionalProperties": False,
-                        "properties": {
-                            "tema": {"type": "string"},
-                            "punchline": {"type": "string"},
-                        },
-                        "required": ["tema", "punchline"],
-                    },
+                    "schema": schema,
                 },
             },
         }
@@ -507,32 +735,19 @@ class GerenciadorOpenAI:
                 )
                 response.raise_for_status()
                 result = response.json()
-                content_obj = ((result.get("choices") or [{}])[0].get("message", {}) or {}).get("content", "")
-                if isinstance(content_obj, list):
-                    chunks: list[str] = []
-                    for item in content_obj:
-                        if isinstance(item, dict):
-                            text = item.get("text")
-                            if isinstance(text, str):
-                                chunks.append(text)
-                    raw_content = "".join(chunks).strip()
-                else:
-                    raw_content = str(content_obj or "").strip()
+                raw_content = self._extract_message_content(result if isinstance(result, dict) else {})
                 if not raw_content:
                     if attempt < self.retries:
                         await asyncio.sleep(min(8.0, 0.8 * (2 ** (attempt - 1))))
                         continue
                     return None
-
                 parsed = json.loads(raw_content)
                 if not isinstance(parsed, dict):
                     if attempt < self.retries:
                         await asyncio.sleep(min(8.0, 0.8 * (2 ** (attempt - 1))))
                         continue
                     return None
-                tema = SPACE_RE.sub(" ", str(parsed.get("tema", "") or "")).strip()
-                punchline = SPACE_RE.sub(" ", str(parsed.get("punchline", "") or "")).strip()
-                return {"tema": tema, "punchline": punchline}
+                return parsed
             except requests.exceptions.Timeout:
                 if attempt < self.retries:
                     await asyncio.sleep(min(8.0, 0.8 * (2 ** (attempt - 1))))
@@ -550,6 +765,60 @@ class GerenciadorOpenAI:
                     await asyncio.sleep(min(8.0, 0.8 * (2 ** (attempt - 1))))
                     continue
                 return None
+
+    async def call_tema_punchline(self, prompt: str, timeout: int = OPENAI_DEFAULT_TIMEOUT) -> Optional[dict[str, str]]:
+        parsed = await self._call_json_schema(
+            prompt=prompt,
+            timeout=timeout,
+            schema_name="tema_punchline",
+            schema={
+                "type": "object",
+                "additionalProperties": False,
+                "properties": {
+                    "tema": {"type": "string"},
+                    "punchline": {"type": "string"},
+                },
+                "required": ["tema", "punchline"],
+            },
+        )
+        if not isinstance(parsed, dict):
+            return None
+        tema = SPACE_RE.sub(" ", str(parsed.get("tema", "") or "")).strip()
+        punchline = SPACE_RE.sub(" ", str(parsed.get("punchline", "") or "")).strip()
+        return {"tema": tema, "punchline": punchline}
+
+    async def call_assuntos(
+        self,
+        prompt: str,
+        *,
+        max_items: int,
+        timeout: int = OPENAI_DEFAULT_TIMEOUT,
+    ) -> Optional[dict[str, list[str]]]:
+        max_items_safe = max(1, int(max_items))
+        parsed = await self._call_json_schema(
+            prompt=prompt,
+            timeout=timeout,
+            schema_name="assuntos_enrichment",
+            schema={
+                "type": "object",
+                "additionalProperties": False,
+                "properties": {
+                    "assuntos": {
+                        "type": "array",
+                        "items": {"type": "string"},
+                        "maxItems": max_items_safe,
+                    }
+                },
+                "required": ["assuntos"],
+            },
+        )
+        if not isinstance(parsed, dict):
+            return None
+        raw_items = parsed.get("assuntos")
+        if not isinstance(raw_items, list):
+            return None
+        assuntos = [SPACE_RE.sub(" ", str(item or "")).strip() for item in raw_items]
+        return {"assuntos": assuntos}
 
     def close(self) -> None:
         self.sessao.close()
@@ -660,6 +929,8 @@ def build_lookup_payload(row: dict[str, str]) -> dict[str, str]:
         "relator": row.get("relator") or row.get("relatores") or "",
         "texto_decisao": row.get("textoDecisao") or "",
         "texto_ementa": row.get("textoEmenta") or "",
+        "descricao_classe": row.get("descricaoClasse") or "",
+        "nome_tipo_processo": row.get("nomeTipoProcesso") or "",
         "sigla_uf": sigla_uf,
         "nome_municipio": nome_municipio,
         "tribunal": tribunal,
@@ -702,6 +973,64 @@ Instrucoes de saida:
 - Nao invente fatos fora do texto fornecido.
 - Retorne somente JSON valido no formato:
 {{"tema":"...","punchline":"..."}}"""
+
+
+def gerar_prompt_assuntos(
+    page_data: dict[str, str],
+    *,
+    max_items: int,
+    taxonomy_mode: str,
+) -> str:
+    numero_unico = page_data.get("numero_unico", "")
+    data_decisao = page_data.get("data_decisao", "")
+    assuntos = page_data.get("assuntos", "")
+    partes = page_data.get("partes", "")
+    relator = page_data.get("relator", "")
+    texto_ementa = page_data.get("texto_ementa", "")
+    texto_decisao = page_data.get("texto_decisao", "")
+    tribunal = page_data.get("tribunal", "")
+    origem = page_data.get("origem", "")
+    classe = page_data.get("descricao_classe", "")
+    tipo = page_data.get("nome_tipo_processo", "")
+    canonic = ", ".join(ASSUNTOS_CANONICOS)
+
+    modo_instrucao = (
+        "Use apenas assuntos canônicos da lista."
+        if taxonomy_mode == "controlled"
+        else (
+            "Priorize assuntos canônicos da lista. Se nenhum canônico representar bem o caso, "
+            "voce pode incluir um assunto novo curto."
+            if taxonomy_mode == "mixed"
+            else "Pode usar assuntos canônicos ou novos, mantendo alta precisão."
+        )
+    )
+
+    return f"""Com base no caso abaixo, preencha o campo "assuntos" com ate {max_items} etiquetas.
+
+Contexto do caso:
+numeroUnico: {numero_unico}
+dataDecisao: {data_decisao}
+classe: {classe}
+tipoProcesso: {tipo}
+assuntos_existentes: {assuntos}
+partes: {partes}
+relator: {relator}
+tribunal: {tribunal}
+origem: {origem}
+textoEmenta: {texto_ementa}
+textoDecisao: {texto_decisao}
+
+Lista canonica preferencial:
+{canonic}
+
+Regras obrigatorias:
+- {modo_instrucao}
+- Retorne no maximo {max_items} itens.
+- Nao repita itens.
+- Nao invente fatos fora do texto.
+- Responda somente JSON valido no formato:
+{{"assuntos":["item1","item2"]}}
+"""
 
 
 def gerar_prompt_tse(page_data: dict[str, str]) -> str:
@@ -773,6 +1102,7 @@ def gerar_prompt_gerais(page_data: dict[str, str]) -> str:
     sigla_uf = page_data.get("sigla_uf", "")
     nome_municipio = page_data.get("nome_municipio", "")
     veiculos_str = ", ".join(VEICULOS_GERAIS)
+    max_urls = len(GENERAL_NEWS_COLUMNS)
 
     return f"""Encontre noticias sobre este caso eleitoral em grandes veículos de mídia brasileira.
 
@@ -789,7 +1119,7 @@ nomeMunicipio: {nome_municipio}
 Procure apenas nos seguintes veículos: {veiculos_str}.
 
 REGRAS DE RESPOSTA (OBRIGATÓRIAS):
-- Responda SOMENTE com uma lista de até 9 URLs.
+- Responda SOMENTE com uma lista de até {max_urls} URLs.
 - Cada URL deve aparecer sozinha em uma linha.
 - Não escreva texto explicativo, títulos, comentários ou bullets.
 - Se não encontrar nenhuma noticia, responda exatamente: VAZIO
@@ -807,6 +1137,7 @@ def gerar_prompt_gerais_com_sites(page_data: dict[str, str]) -> str:
     sigla_uf = page_data.get("sigla_uf", "")
     nome_municipio = page_data.get("nome_municipio", "")
     sites_str = " ".join([f"site:{domain}" for domain in VEICULOS_DOMINIOS])
+    max_urls = len(GENERAL_NEWS_COLUMNS)
 
     return f"""Encontre noticias sobre este caso eleitoral nos domínios listados.
 
@@ -823,7 +1154,7 @@ nomeMunicipio: {nome_municipio}
 Restrição de domínios (obrigatória): {sites_str}
 
 REGRAS DE RESPOSTA (OBRIGATÓRIAS):
-- Responda SOMENTE com uma lista de até 9 URLs.
+- Responda SOMENTE com uma lista de até {max_urls} URLs.
 - Cada URL deve aparecer sozinha em uma linha.
 - Não escreva texto explicativo, títulos, comentários ou bullets.
 - Se não encontrar nenhuma noticia, responda exatamente: VAZIO
@@ -927,8 +1258,7 @@ def _aplicar_urls_no_row(row: dict[str, str], url_tse: Optional[str], url_tre: O
         return
 
     idx_url = 0
-    for idx in range(1, 10):
-        col = f"noticia_geral_{idx}"
+    for col in GENERAL_NEWS_COLUMNS:
         if row.get(col):
             continue
         if idx_url >= len(gerais):
@@ -968,7 +1298,7 @@ async def enriquecer_rows_com_urls_async(
             for row, lookup_data in zip(lote, lote_payloads):
                 precisa_tse = not bool((row.get("noticia_TSE") or "").strip())
                 precisa_tre = not bool((row.get("noticia_TRE") or "").strip())
-                precisa_gerais = any(not bool((row.get(f"noticia_geral_{i}") or "").strip()) for i in range(1, 10))
+                precisa_gerais = any(not bool((row.get(col) or "").strip()) for col in GENERAL_NEWS_COLUMNS)
                 tarefas.append(
                     buscar_todas_noticias_async(
                         gerenciador,
@@ -986,11 +1316,11 @@ async def enriquecer_rows_com_urls_async(
             for row, (url_tse, url_tre, urls_gerais) in zip(lote, resultados):
                 before_tse = bool((row.get("noticia_TSE") or "").strip())
                 before_tre = bool((row.get("noticia_TRE") or "").strip())
-                before_gerais = sum(bool((row.get(f"noticia_geral_{i}") or "").strip()) for i in range(1, 10))
+                before_gerais = sum(bool((row.get(col) or "").strip()) for col in GENERAL_NEWS_COLUMNS)
                 _aplicar_urls_no_row(row, url_tse, url_tre, urls_gerais)
                 after_tse = bool((row.get("noticia_TSE") or "").strip())
                 after_tre = bool((row.get("noticia_TRE") or "").strip())
-                after_gerais = sum(bool((row.get(f"noticia_geral_{i}") or "").strip()) for i in range(1, 10))
+                after_gerais = sum(bool((row.get(col) or "").strip()) for col in GENERAL_NEWS_COLUMNS)
                 if not before_tse and after_tse:
                     batch_tse += 1
                 if not before_tre and after_tre:
@@ -1011,6 +1341,121 @@ async def enriquecer_rows_com_urls_async(
                         "novos_tse": batch_tse,
                         "novos_tre": batch_tre,
                         "novas_gerais": batch_gerais,
+                    },
+                )
+            if end < total and config.delay_between_batches > 0:
+                await asyncio.sleep(config.delay_between_batches)
+    finally:
+        gerenciador.close()
+
+
+def _aplicar_assuntos_no_row(
+    row: dict[str, str],
+    assuntos: Sequence[str],
+    *,
+    max_items: int,
+    taxonomy_mode: str,
+) -> None:
+    if (row.get("assuntos") or "").strip():
+        return
+    sanitized: list[str] = []
+    for item in assuntos:
+        normalized = normalize_assunto_value(str(item or ""), taxonomy_mode=taxonomy_mode)
+        if not normalized:
+            continue
+        sanitized.append(normalized)
+    sanitized = dedupe_preserve(sanitized, key_func=normalize_for_match)
+    if not sanitized:
+        return
+    row["assuntos"] = ",".join(sanitized[: max(1, int(max_items))])
+
+
+async def enriquecer_rows_com_assuntos_openai_async(
+    rows: list[dict[str, str]],
+    logger: Callable[[str], None],
+    config: AssuntosEnrichmentConfig,
+    lookup_payloads: Optional[Sequence[dict[str, str]]] = None,
+    on_batch_done: Optional[Callable[[int, int, int, Dict[str, int]], None]] = None,
+) -> None:
+    if not rows:
+        return
+    if lookup_payloads is not None and len(lookup_payloads) != len(rows):
+        raise ValueError("lookup_payloads precisa ter o mesmo tamanho de rows.")
+    gerenciador = GerenciadorOpenAI(
+        api_key=config.api_key,
+        model=config.model,
+        max_workers=config.max_workers,
+        retries=config.retries,
+        target_rpm=config.target_rpm,
+    )
+    try:
+        total = len(rows)
+        for start in range(0, total, config.batch_size):
+            end = min(start + config.batch_size, total)
+            lote = rows[start:end]
+            lote_payloads = (
+                list(lookup_payloads[start:end])
+                if lookup_payloads is not None
+                else [build_lookup_payload(row) for row in lote]
+            )
+            logger(f"[Assuntos/OpenAI] Processando lote {start + 1}-{end} de {total}")
+            tarefas = []
+            linhas_consultadas = 0
+            for row, lookup_data in zip(lote, lote_payloads):
+                if (row.get("assuntos") or "").strip():
+                    tarefas.append(asyncio.sleep(0, result=None))
+                    continue
+                linhas_consultadas += 1
+                prompt = gerar_prompt_assuntos(
+                    lookup_data,
+                    max_items=config.max_items,
+                    taxonomy_mode=config.taxonomy_mode,
+                )
+                tarefas.append(
+                    gerenciador.call_assuntos(
+                        prompt,
+                        max_items=config.max_items,
+                        timeout=config.timeout_seconds,
+                    )
+                )
+            resultados = await asyncio.gather(*tarefas)
+
+            assuntos_preenchidos = 0
+            sem_retorno = 0
+            for row, resultado in zip(lote, resultados):
+                antes = bool((row.get("assuntos") or "").strip())
+                if not isinstance(resultado, dict):
+                    if not antes:
+                        sem_retorno += 1
+                    continue
+                raw_assuntos = resultado.get("assuntos", [])
+                if not isinstance(raw_assuntos, list):
+                    if not antes:
+                        sem_retorno += 1
+                    continue
+                _aplicar_assuntos_no_row(
+                    row,
+                    [str(item or "") for item in raw_assuntos],
+                    max_items=config.max_items,
+                    taxonomy_mode=config.taxonomy_mode,
+                )
+                depois = bool((row.get("assuntos") or "").strip())
+                if not antes and depois:
+                    assuntos_preenchidos += 1
+            logger(
+                "[Assuntos/OpenAI] Lote "
+                f"{start + 1}-{end} concluido | linhas_consultadas={linhas_consultadas} | "
+                f"assuntos_preenchidos={assuntos_preenchidos} | sem_retorno={sem_retorno}"
+            )
+            if on_batch_done is not None:
+                on_batch_done(
+                    start,
+                    end,
+                    total,
+                    {
+                        "linhas_consultadas": linhas_consultadas,
+                        "assuntos_preenchidos": assuntos_preenchidos,
+                        "sem_retorno": sem_retorno,
                     },
                 )
             if end < total and config.delay_between_batches > 0:
@@ -1120,18 +1565,7 @@ def format_partes_as_multiselect(value: str) -> str:
     if not value:
         return ""
 
-    seen: set[str] = set()
-    ordered: list[str] = []
-    for part in PARTES_SPLIT_RE.split(value):
-        item = SPACE_RE.sub(" ", part).strip(" ,;")
-        if not item:
-            continue
-        key = item.casefold()
-        if key in seen:
-            continue
-        seen.add(key)
-        ordered.append(item)
-    return ",".join(ordered)
+    return ",".join(split_multiselect_values(value))
 
 
 def clean_relator_prefix(value: str) -> str:
@@ -1182,6 +1616,25 @@ def dedupe_preserve(items: Iterable[str], key_func: Callable[[str], str] | None 
         seen.add(key)
         ordered.append(item)
     return ordered
+
+
+def split_multiselect_values(value: str) -> list[str]:
+    if not value:
+        return []
+    items: list[str] = []
+    for part in PARTES_SPLIT_RE.split(value):
+        item = SPACE_RE.sub(" ", part).strip(" ,;")
+        if item:
+            items.append(item)
+    return dedupe_preserve(items, key_func=normalize_for_match)
+
+
+def merge_multiselect_values(*values: str) -> str:
+    merged: list[str] = []
+    for value in values:
+        merged.extend(split_multiselect_values(value))
+    merged = dedupe_preserve(merged, key_func=normalize_for_match)
+    return ",".join(merged)
 
 
 def format_br_number(number: str) -> str:
@@ -1269,62 +1722,253 @@ def extract_composicao_multiselect(*texts: str) -> str:
     return ",".join(found)
 
 
-def _extract_advogado_candidates_without_oab(block: str) -> list[str]:
+def _prepare_metadata_header_text(text: str, max_chars: int) -> str:
+    if not text:
+        return ""
+    cleaned = SPACE_RE.sub(" ", text).strip()
+    if not cleaned:
+        return ""
+    end_match = HEADER_END_RE.search(cleaned)
+    if end_match:
+        cleaned = cleaned[: end_match.start()]
+    if max_chars > 0 and len(cleaned) > max_chars:
+        cleaned = cleaned[:max_chars]
+    return cleaned.strip()
+
+
+def _split_candidate_on_conjunction(candidate: str) -> list[str]:
+    if not candidate or " e " not in candidate.lower():
+        return [candidate]
+    if ENTITY_INSTITUTION_RE.search(candidate):
+        return [candidate]
+    parts = [piece.strip(" ,;.-") for piece in re.split(r"(?i)\s+e\s+", candidate) if piece.strip(" ,;.-")]
+    if len(parts) == 2 and all(len(part.split()) >= 2 for part in parts):
+        return parts
+    return [candidate]
+
+
+def _clean_entity_candidate(raw_value: str) -> str:
+    cleaned = SPACE_RE.sub(" ", raw_value or "").strip(" ,;.-")
+    if not cleaned:
+        return ""
+    cleaned = ENTITY_INLINE_LABEL_CUT_RE.split(cleaned)[0]
+    cleaned = SPACE_RE.sub(" ", cleaned).strip(" ,;.-")
+    if not cleaned:
+        return ""
+    cleaned = ENTITY_OUTROS_SUFFIX_RE.sub("", cleaned)
+    cleaned = ENTITY_OAB_TAIL_RE.sub("", cleaned)
+    cleaned = ENTITY_UF_NUM_SUFFIX_RE.sub("", cleaned)
+    cleaned = ENTITY_ID_TAIL_RE.sub("", cleaned)
+    cleaned = ENTITY_CNPJ_TAIL_RE.sub("", cleaned)
+    cleaned = ADV_TITLES_PREFIX_RE.sub("", cleaned)
+    cleaned = SPACE_RE.sub(" ", cleaned).strip(" ,;.-")
+    return cleaned
+
+
+def _split_header_block_entities(block: str, config: MetadataExtractionConfig) -> list[str]:
     if not block:
         return []
-
-    trimmed = ADVOGADO_TRAILING_ROLE_RE.sub("", block)
-    trimmed = ADVOGADO_OUTROS_SUFFIX_RE.sub("", trimmed)
+    trimmed = SPACE_RE.sub(" ", block).strip(" ,;.-")
+    if not trimmed:
+        return []
+    trimmed = ENTITY_INLINE_LABEL_CUT_RE.split(trimmed)[0]
     trimmed = SPACE_RE.sub(" ", trimmed).strip(" ,;.-")
     if not trimmed:
         return []
 
-    candidates: list[str] = []
-    parts = re.split(r"\s*[;/]\s*|\s*,\s*(?=[A-ZÀ-ÖØ-Ý])", trimmed)
-    for part in parts:
-        chunk = SPACE_RE.sub(" ", part).strip(" ,;.-")
-        if not chunk:
+    entities: list[str] = []
+    for chunk in ENTITY_SPLIT_RE.split(trimmed):
+        cleaned_chunk = _clean_entity_candidate(chunk)
+        if not cleaned_chunk:
             continue
-
-        name_match = ADVOGADO_CANDIDATE_NAME_RE.search(chunk)
-        name = SPACE_RE.sub(" ", name_match.group(1) if name_match else chunk).strip(" ,;.-")
-        if not name:
-            continue
-        name = ADV_TITLES_PREFIX_RE.sub("", name).strip()
-        if len(name.split()) < 2:
-            continue
-        if ADVOGADO_BAD_PREFIX_RE.search(name):
-            continue
-        if ADVOGADO_BAD_ENTITY_RE.search(name):
-            continue
-        candidates.append(name)
-
-    return candidates
+        for candidate in _split_candidate_on_conjunction(cleaned_chunk):
+            final_candidate = _clean_entity_candidate(candidate)
+            if not final_candidate:
+                continue
+            if ENTITY_DECISION_NOISE_RE.search(final_candidate):
+                continue
+            if len(final_candidate.split()) > max(2, int(config.max_entity_words)):
+                continue
+            entities.append(final_candidate)
+    return dedupe_preserve(entities, key_func=normalize_for_match)
 
 
-def extract_advogados_multiselect(*texts: str) -> str:
-    source = " ".join(item for item in texts if item)
-    if not source:
+def _is_adv_role(role_norm: str) -> bool:
+    return role_norm.startswith("advogad") or role_norm.startswith("representante do") or role_norm.startswith(
+        "representantes do"
+    )
+
+
+def _is_party_role(role_norm: str) -> bool:
+    return any(role_norm.startswith(prefix) for prefix in HEADER_PARTY_ROLE_PREFIXES)
+
+
+def _is_valid_advogado_entity(entity: str, *, include_institutional_entities: bool) -> bool:
+    cleaned = SPACE_RE.sub(" ", str(entity or "")).strip(" ,;.-")
+    if not cleaned:
+        return False
+    if ENTITY_DECISION_NOISE_RE.search(cleaned):
+        return False
+    if re.search(r"(?i)\b(?:art\.?|s[uú]mula|ac[oó]rd[aã]o|lei|fls?\.?)\b", cleaned):
+        return False
+    if re.search(r"(?i)\b(?:ministr[oa]|relator(?:a)?)\b", cleaned):
+        return False
+    if re.search(r"(?i)\b(?:fundo\s+partid[aá]rio|inelegibil|propaganda|mat[eé]ria|doa[cç][aã]o)\b", cleaned):
+        return False
+    if ENTITY_INSTITUTION_RE.search(cleaned):
+        return include_institutional_entities
+
+    words = cleaned.split()
+    if len(words) < 2:
+        return False
+    lower_words = 0
+    for word in words:
+        token = re.sub(r"[^A-Za-zÀ-ÖØ-öø-ÿ]", "", word)
+        if not token:
+            continue
+        if token.lower() in {"de", "da", "do", "das", "dos", "e", "d"}:
+            continue
+        if not token[0].isupper():
+            lower_words += 1
+    return lower_words <= 1
+
+
+def sanitize_advogados_multiselect(value: str, config: MetadataExtractionConfig) -> str:
+    if not value:
         return ""
-
-    names: list[str] = []
-    for block_match in ADVOGADOS_BLOCK_RE.finditer(source):
-        block = SPACE_RE.sub(" ", block_match.group(1)).strip()
-        if not block:
+    cleaned_items: list[str] = []
+    for item in split_multiselect_values(value):
+        candidate = _clean_entity_candidate(item)
+        if not _is_valid_advogado_entity(
+            candidate,
+            include_institutional_entities=config.include_institutional_entities,
+        ):
             continue
-        names_in_block = 0
-        for name_match in ADVOGADO_NOME_OAB_RE.finditer(block):
-            name = SPACE_RE.sub(" ", name_match.group(1)).strip(" ,;.-")
-            if name:
-                cleaned_name = ADV_TITLES_PREFIX_RE.sub("", name).strip()
-                if cleaned_name:
-                    names.append(cleaned_name)
-                    names_in_block += 1
-        if names_in_block == 0:
-            names.extend(_extract_advogado_candidates_without_oab(block))
+        cleaned_items.append(candidate)
+    cleaned_items = dedupe_preserve(cleaned_items, key_func=normalize_for_match)
+    return ",".join(cleaned_items)
 
-    names = dedupe_preserve(names, key_func=lambda item: normalize_for_match(item))
-    return ",".join(names)
+
+def extract_header_metadata(
+    *texts: str,
+    config: Optional[MetadataExtractionConfig] = None,
+) -> dict[str, list[str]]:
+    metadata_config = config or MetadataExtractionConfig()
+    partes: list[str] = []
+    advogados: list[str] = []
+
+    for text in texts:
+        header_text = _prepare_metadata_header_text(text, max_chars=metadata_config.header_max_chars)
+        if not header_text:
+            continue
+        labels = list(HEADER_LABEL_RE.finditer(header_text))
+        if not labels:
+            continue
+        for index, label_match in enumerate(labels):
+            role_norm = normalize_for_match(label_match.group(1))
+            start = label_match.end()
+            end = labels[index + 1].start() if index + 1 < len(labels) else len(header_text)
+            entities = _split_header_block_entities(header_text[start:end], metadata_config)
+            if not entities:
+                continue
+            if _is_adv_role(role_norm):
+                for entity in entities:
+                    if not _is_valid_advogado_entity(
+                        entity,
+                        include_institutional_entities=metadata_config.include_institutional_entities,
+                    ):
+                        continue
+                    advogados.append(entity)
+                continue
+            if _is_party_role(role_norm):
+                partes.extend(entities)
+
+    return {
+        "partes": dedupe_preserve(partes, key_func=normalize_for_match),
+        "advogados": dedupe_preserve(advogados, key_func=normalize_for_match),
+    }
+
+
+def extract_partes_multiselect(*texts: str, config: Optional[MetadataExtractionConfig] = None) -> str:
+    metadata = extract_header_metadata(*texts, config=config)
+    return ",".join(metadata.get("partes", []))
+
+
+def extract_advogados_multiselect(*texts: str, config: Optional[MetadataExtractionConfig] = None) -> str:
+    metadata = extract_header_metadata(*texts, config=config)
+    return ",".join(metadata.get("advogados", []))
+
+
+def _canonical_assuntos_map() -> dict[str, str]:
+    canonical = {normalize_for_match(item): item for item in ASSUNTOS_CANONICOS}
+    for alias, canonical_label in ASSUNTOS_ALIAS_TO_CANONICAL.items():
+        canonical[normalize_for_match(alias)] = canonical_label
+    return canonical
+
+
+def normalize_assunto_value(value: str, taxonomy_mode: str) -> str:
+    raw = SPACE_RE.sub(" ", str(value or "")).strip(" ,;")
+    if not raw:
+        return ""
+    if len(raw.split()) > 8:
+        return ""
+    if ENTITY_DECISION_NOISE_RE.search(raw):
+        return ""
+    canonical_map = _canonical_assuntos_map()
+    normalized_key = normalize_for_match(raw)
+    canonical = canonical_map.get(normalized_key, "")
+    if canonical:
+        return canonical
+    if taxonomy_mode == "controlled":
+        return ""
+    if taxonomy_mode not in ASSUNTOS_TAXONOMY_CHOICES:
+        taxonomy_mode = "mixed"
+    # mixed/free: aceita etiqueta nova curta e limpa.
+    return raw
+
+
+def extract_assuntos_deterministic(
+    *,
+    descricao_classe: str,
+    nome_tipo_processo: str,
+    texto_decisao: str,
+    texto_ementa: str,
+    max_items: int,
+    taxonomy_mode: str,
+) -> list[str]:
+    max_items_safe = max(1, int(max_items))
+    scores: dict[str, int] = defaultdict(int)
+    order = {label: idx for idx, label in enumerate(ASSUNTOS_CANONICOS)}
+
+    descricao_scope = " ".join((descricao_classe or "", nome_tipo_processo or ""))
+    for label, pattern in ASSUNTOS_RULES_DESCRICAO:
+        if pattern.search(descricao_scope):
+            scores[label] += 5
+
+    texto_scope = " ".join(
+        (
+            _prepare_metadata_header_text(texto_decisao or "", max_chars=900),
+            (texto_ementa or "")[:1200],
+        )
+    )
+    for label, pattern in ASSUNTOS_RULES_TEXT:
+        if pattern.search(texto_scope):
+            weight = 1 if label == "Matéria processual" else 3
+            scores[label] += weight
+
+    if not scores:
+        return []
+
+    sorted_labels = sorted(scores.items(), key=lambda item: (-item[1], order.get(item[0], 10_000), item[0]))
+    extracted: list[str] = []
+    for label, _score in sorted_labels:
+        normalized = normalize_assunto_value(label, taxonomy_mode=taxonomy_mode)
+        if not normalized:
+            continue
+        extracted.append(normalized)
+        if len(extracted) >= max_items_safe:
+            break
+    return dedupe_preserve(extracted, key_func=normalize_for_match)
 
 
 def classify_resultado(texto_decisao: str, descricao_tipo_decisao: str = "") -> str:
@@ -1358,6 +2002,8 @@ def process_one_csv(
     replace_newlines: bool,
     web_lookup_config: WebLookupConfig,
     tema_punchline_config: TemaPunchlineConfig,
+    assuntos_enrichment_config: AssuntosEnrichmentConfig,
+    metadata_extraction_config: MetadataExtractionConfig,
     logger: Callable[[str], None],
 ) -> ProcessSummary:
     encoding, delimiter = detect_csv_format(input_path)
@@ -1403,6 +2049,10 @@ def process_one_csv(
         processed_rows: list[dict[str, str]] = []
         lookup_payloads: list[dict[str, str]] = []
         truncated_cells = 0
+        partes_added_total = 0
+        advogados_added_total = 0
+        assuntos_filled_rules_total = 0
+        assuntos_filled_openai_total = 0
 
         for row_index, source_row in enumerate(reader, start=1):
             clean_row: dict[str, str] = {}
@@ -1438,7 +2088,10 @@ def process_one_csv(
             data_decisao_key = source_key_by_clean.get("dataDecisao")
             assuntos_key = source_key_by_clean.get("assuntos")
             partes_key = source_key_by_clean.get("partes")
+            advogados_key = source_key_by_clean.get("advogados")
             relator_key = source_key_by_clean.get("relator") or source_key_by_clean.get("relatores")
+            descricao_classe_key = source_key_by_clean.get("descricaoClasse")
+            nome_tipo_processo_key = source_key_by_clean.get("nomeTipoProcesso")
             sigla_tribunal_je_key = source_key_by_clean.get("siglaTribunalJE")
             origem_decisao_key = source_key_by_clean.get("origemDecisao")
             sigla_uf_key = source_key_by_clean.get("siglaUF")
@@ -1453,7 +2106,10 @@ def process_one_csv(
             data_decisao_raw = source_row.get(data_decisao_key, "") if data_decisao_key else ""
             assuntos_raw = source_row.get(assuntos_key, "") if assuntos_key else ""
             partes_raw = source_row.get(partes_key, "") if partes_key else ""
+            advogados_raw = source_row.get(advogados_key, "") if advogados_key else ""
             relator_raw = source_row.get(relator_key, "") if relator_key else ""
+            descricao_classe_raw = source_row.get(descricao_classe_key, "") if descricao_classe_key else ""
+            nome_tipo_processo_raw = source_row.get(nome_tipo_processo_key, "") if nome_tipo_processo_key else ""
             sigla_tribunal_je_raw = source_row.get(sigla_tribunal_je_key, "") if sigla_tribunal_je_key else ""
             origem_decisao_raw = source_row.get(origem_decisao_key, "") if origem_decisao_key else ""
             sigla_uf_raw = source_row.get(sigla_uf_key, "") if sigla_uf_key else ""
@@ -1470,7 +2126,14 @@ def process_one_csv(
             data_decisao_full, _ = sanitize_cell(data_decisao_raw, max_chars=0, replace_newlines=replace_newlines)
             assuntos_full, _ = sanitize_cell(assuntos_raw, max_chars=0, replace_newlines=replace_newlines)
             partes_full, _ = sanitize_cell(partes_raw, max_chars=0, replace_newlines=replace_newlines)
+            advogados_full, _ = sanitize_cell(advogados_raw, max_chars=0, replace_newlines=replace_newlines)
             relator_full, _ = sanitize_cell(relator_raw, max_chars=0, replace_newlines=replace_newlines)
+            descricao_classe_full, _ = sanitize_cell(descricao_classe_raw, max_chars=0, replace_newlines=replace_newlines)
+            nome_tipo_processo_full, _ = sanitize_cell(
+                nome_tipo_processo_raw,
+                max_chars=0,
+                replace_newlines=replace_newlines,
+            )
             sigla_tribunal_je_full, _ = sanitize_cell(
                 sigla_tribunal_je_raw,
                 max_chars=0,
@@ -1491,7 +2154,38 @@ def process_one_csv(
             )
             numero_referencia = numero_unico_full or numero_processo_full
             partes_full = format_partes_as_multiselect(partes_full)
+            advogados_full = sanitize_advogados_multiselect(advogados_full, metadata_extraction_config)
             relator_full = clean_relator_prefix(relator_full)
+            metadata = extract_header_metadata(
+                texto_decisao_full,
+                texto_ementa_full,
+                config=metadata_extraction_config,
+            )
+            partes_extraidas = ",".join(metadata.get("partes", []))
+            advogados_extraidos = ",".join(metadata.get("advogados", []))
+            partes_merged = merge_multiselect_values(partes_full, partes_extraidas)
+            advogados_merged = merge_multiselect_values(advogados_full, advogados_extraidos)
+            assuntos_deterministic = extract_assuntos_deterministic(
+                descricao_classe=descricao_classe_full,
+                nome_tipo_processo=nome_tipo_processo_full,
+                texto_decisao=texto_decisao_full,
+                texto_ementa=texto_ementa_full,
+                max_items=assuntos_enrichment_config.max_items,
+                taxonomy_mode=assuntos_enrichment_config.taxonomy_mode,
+            )
+            assuntos_merged = assuntos_full.strip()
+            if not assuntos_merged and assuntos_deterministic:
+                assuntos_merged = ",".join(assuntos_deterministic)
+                assuntos_filled_rules_total += 1
+
+            partes_added_total += max(
+                0,
+                len(split_multiselect_values(partes_merged)) - len(split_multiselect_values(partes_full)),
+            )
+            advogados_added_total += max(
+                0,
+                len(split_multiselect_values(advogados_merged)) - len(split_multiselect_values(advogados_full)),
+            )
 
             for date_key in list(clean_row.keys()):
                 if date_key.lower() in {"datadecisao", "data_decisao", "datajulgamento", "data_publicacao"}:
@@ -1505,8 +2199,12 @@ def process_one_csv(
                 clean_row["relator"] = relator_value
                 clean_row.pop("relatores", None)
 
+            if "partes" in clean_row or "partes" in output_fields:
+                clean_row["partes"] = partes_merged
+            if "assuntos" in clean_row or "assuntos" in output_fields:
+                clean_row["assuntos"] = assuntos_merged
             clean_row["composicao"] = extract_composicao_multiselect(texto_decisao_full, texto_ementa_full)
-            clean_row["advogados"] = extract_advogados_multiselect(texto_decisao_full, texto_ementa_full)
+            clean_row["advogados"] = advogados_merged
             clean_row["resultado"] = classify_resultado(
                 texto_decisao=texto_decisao_full,
                 descricao_tipo_decisao=descricao_tipo_decisao_full,
@@ -1520,9 +2218,12 @@ def process_one_csv(
                 {
                     "numero_unico": numero_referencia,
                     "data_decisao": data_decisao_full,
-                    "assuntos": assuntos_full,
-                    "partes": partes_full,
+                    "assuntos": assuntos_merged,
+                    "partes": partes_merged,
+                    "advogados": advogados_merged,
                     "relator": relator_full,
+                    "descricao_classe": descricao_classe_full,
+                    "nome_tipo_processo": nome_tipo_processo_full,
                     "texto_decisao": texto_decisao_full,
                     "texto_ementa": texto_ementa_full,
                     "sigla_uf": sigla_uf_full,
@@ -1547,13 +2248,26 @@ def process_one_csv(
         def _count_filled(col: str) -> int:
             return sum(1 for row in processed_rows if (row.get(col) or "").strip())
 
+        def _count_empty_assuntos() -> int:
+            return sum(1 for row in processed_rows if not (row.get("assuntos") or "").strip())
+
         def _count_filled_gerais() -> int:
             total = 0
             for row in processed_rows:
-                for i in range(1, 10):
-                    if (row.get(f"noticia_geral_{i}") or "").strip():
+                for col in GENERAL_NEWS_COLUMNS:
+                    if (row.get(col) or "").strip():
                         total += 1
             return total
+
+        def _refresh_lookup_payloads_from_rows() -> None:
+            for idx, row in enumerate(processed_rows):
+                if idx >= len(lookup_payloads):
+                    break
+                lookup_payloads[idx]["assuntos"] = row.get("assuntos", "") or ""
+                lookup_payloads[idx]["partes"] = row.get("partes", "") or ""
+                lookup_payloads[idx]["advogados"] = row.get("advogados", "") or ""
+                lookup_payloads[idx]["tema"] = row.get("tema", "") or ""
+                lookup_payloads[idx]["punchline"] = row.get("punchline", "") or ""
 
         def _save_state(status: str, stage: str, extra: Optional[Dict[str, int]] = None) -> None:
             write_csv_atomic(output_path, output_fields, processed_rows)
@@ -1567,6 +2281,7 @@ def process_one_csv(
                     "status": status,
                     "stage": stage,
                     "tema_enabled": bool(tema_punchline_config.enabled),
+                    "assuntos_openai_enabled": bool(assuntos_enrichment_config.enabled),
                     "perplexity_enabled": bool(web_lookup_config.enabled),
                     "processed_rows": processed_rows,
                     "updated_at": utc_now_iso(),
@@ -1584,6 +2299,11 @@ def process_one_csv(
                     "rows_total": len(processed_rows),
                     "tema_filled": _count_filled("tema"),
                     "punchline_filled": _count_filled("punchline"),
+                    "partes_added": partes_added_total,
+                    "advogados_added": advogados_added_total,
+                    "assuntos_filled_rules": assuntos_filled_rules_total,
+                    "assuntos_filled_openai": assuntos_filled_openai_total,
+                    "rows_still_empty_assuntos": _count_empty_assuntos(),
                     "url_tse_filled": _count_filled("noticia_TSE"),
                     "url_tre_filled": _count_filled("noticia_TRE"),
                     "url_gerais_filled_total": _count_filled_gerais(),
@@ -1613,7 +2333,40 @@ def process_one_csv(
             if restored:
                 logger(f"[resume] checkpoint aplicado: {restored}/{len(processed_rows)} linhas.")
 
+        _refresh_lookup_payloads_from_rows()
         _save_state("running", "prepared")
+
+        if assuntos_enrichment_config.enabled:
+            logger(f"[Assuntos/OpenAI] Iniciando enriquecimento para {len(processed_rows)} linhas...")
+            logger(
+                "[Assuntos/OpenAI] Config: "
+                f"model={assuntos_enrichment_config.model}, workers={assuntos_enrichment_config.max_workers}, "
+                f"batch={assuntos_enrichment_config.batch_size}, timeout={assuntos_enrichment_config.timeout_seconds}s, "
+                f"delay={assuntos_enrichment_config.delay_between_batches}s, "
+                f"max_itens={assuntos_enrichment_config.max_items}, "
+                f"taxonomy_mode={assuntos_enrichment_config.taxonomy_mode}"
+            )
+            assuntos_filled_antes_openai = _count_filled("assuntos")
+            asyncio.run(
+                enriquecer_rows_com_assuntos_openai_async(
+                    processed_rows,
+                    logger,
+                    assuntos_enrichment_config,
+                    lookup_payloads=lookup_payloads,
+                    on_batch_done=lambda s, e, t, stats: _save_state(
+                        "running",
+                        f"openai_assuntos_batch_{s + 1}_{e}_of_{t}",
+                        stats,
+                    ),
+                )
+            )
+            assuntos_preenchidos_pos_openai = _count_filled("assuntos")
+            assuntos_filled_openai_total = max(
+                0,
+                assuntos_preenchidos_pos_openai - assuntos_filled_antes_openai,
+            )
+            _refresh_lookup_payloads_from_rows()
+            _save_state("running", "after_openai_assuntos")
 
         if tema_punchline_config.enabled:
             logger(f"[ChatGPT] Iniciando geracao de tema/punchline para {len(processed_rows)} linhas...")
@@ -1636,6 +2389,7 @@ def process_one_csv(
                     ),
                 )
             )
+            _refresh_lookup_payloads_from_rows()
             _save_state("running", "after_openai")
 
         if web_lookup_config.enabled:
@@ -1663,8 +2417,12 @@ def process_one_csv(
 
         write_csv_atomic(output_path, output_fields, processed_rows)
         _save_state("completed", "final")
-        if checkpoint_path.exists():
-            checkpoint_path.unlink()
+        cleanup_processing_artifacts(
+            output_path=output_path,
+            checkpoint_path=checkpoint_path,
+            report_path=report_path,
+            logger=logger,
+        )
 
         rows = len(processed_rows)
 
@@ -1821,6 +2579,102 @@ def preserve_columns_from_reference_csv(
     return len(target_rows)
 
 
+def cleanup_processing_artifacts(
+    *,
+    output_path: Path,
+    checkpoint_path: Path,
+    report_path: Path,
+    logger: Callable[[str], None],
+) -> None:
+    removed: list[str] = []
+
+    candidates = [
+        checkpoint_path,
+        report_path,
+        output_path.with_suffix(output_path.suffix + ".tmp"),
+        checkpoint_path.with_suffix(checkpoint_path.suffix + ".tmp"),
+        report_path.with_suffix(report_path.suffix + ".tmp"),
+    ]
+    for candidate in candidates:
+        try:
+            if candidate.exists() and candidate.is_file():
+                candidate.unlink()
+                removed.append(candidate.name)
+        except Exception:
+            continue
+
+    backup_pattern = f"{output_path.name}.startup_backup_*"
+    for backup_path in output_path.parent.glob(backup_pattern):
+        try:
+            if backup_path.is_file():
+                backup_path.unlink()
+                removed.append(backup_path.name)
+        except Exception:
+            continue
+
+    if removed:
+        logger(
+            f"[Limpeza] {output_path.name}: removidos {len(removed)} artefatos auxiliares "
+            f"({', '.join(removed[:6])}{' ...' if len(removed) > 6 else ''})"
+        )
+
+
+def cleanup_global_notion_artifacts(out_dir: Path, logger: Callable[[str], None]) -> None:
+    patterns = (
+        ".*_notion.openai.report.json",
+        ".*_notion.openai.checkpoint.json",
+        "*_notion.csv.startup_backup_*",
+        "*_notion.csv.tmp",
+        ".tmp_validacao*.csv",
+        "*_limpeza_check.csv",
+    )
+    removed: list[str] = []
+    for pattern in patterns:
+        for path in out_dir.glob(pattern):
+            try:
+                if path.is_file():
+                    path.unlink()
+                    removed.append(path.name)
+            except Exception:
+                continue
+    if removed:
+        logger(
+            f"[Limpeza] Remocao global de artefatos: {len(removed)} arquivos "
+            f"({', '.join(removed[:6])}{' ...' if len(removed) > 6 else ''})"
+        )
+
+
+def infer_combined_name(input_paths: Sequence[Path], requested_name: str) -> str:
+    cleaned = SPACE_RE.sub(" ", str(requested_name or "")).strip()
+    if cleaned:
+        return cleaned
+    if len(input_paths) == 1:
+        return f"{input_paths[0].stem}_consolidado.csv"
+    return DEFAULT_COMBINED_MULTI
+
+
+def cleanup_intermediate_processed_csvs(
+    summaries: Sequence[ProcessSummary],
+    *,
+    combined_path: Path,
+    logger: Callable[[str], None],
+) -> None:
+    removed = 0
+    combined_resolved = combined_path.resolve()
+    for summary in summaries:
+        path = summary.output_path.resolve()
+        if path == combined_resolved:
+            continue
+        try:
+            if path.exists() and path.is_file():
+                path.unlink()
+                removed += 1
+        except Exception:
+            continue
+    if removed:
+        logger(f"[Limpeza] Removidos {removed} CSVs intermediarios *_notion.csv (saida unica consolidada).")
+
+
 def normalize_input_paths(file_paths: Iterable[str]) -> list[Path]:
     normalized: list[Path] = []
     seen: set[Path] = set()
@@ -1847,6 +2701,8 @@ def run_batch(
     replace_newlines: bool,
     web_lookup_config: WebLookupConfig,
     tema_punchline_config: TemaPunchlineConfig,
+    assuntos_enrichment_config: AssuntosEnrichmentConfig,
+    metadata_extraction_config: MetadataExtractionConfig,
     logger: Callable[[str], None],
     preserve_from_csv: str = "",
     preserve_columns: Sequence[str] = (),
@@ -1862,20 +2718,26 @@ def run_batch(
             "Use --perplexity-api-key, a variavel de ambiente PERPLEXITY_API_KEY "
             f"ou o arquivo {DEFAULT_PERPLEXITY_KEY_FILE}."
         )
-    if tema_punchline_config.enabled and not tema_punchline_config.api_key:
+    openai_api_key = (tema_punchline_config.api_key or assuntos_enrichment_config.api_key).strip()
+    if (tema_punchline_config.enabled or assuntos_enrichment_config.enabled) and not openai_api_key:
         raise ValueError(
-            "Geracao de tema/punchline ativada, mas sem API key da OpenAI. "
+            "Recursos OpenAI ativados (tema/punchline e/ou assuntos), mas sem API key da OpenAI. "
             "Use --openai-api-key, a variavel de ambiente OPENAI_API_KEY "
             f"ou o arquivo {DEFAULT_OPENAI_KEY_FILE}."
         )
+    if tema_punchline_config.enabled and not tema_punchline_config.api_key:
+        tema_punchline_config.api_key = openai_api_key
+    if assuntos_enrichment_config.enabled and not assuntos_enrichment_config.api_key:
+        assuntos_enrichment_config.api_key = openai_api_key
 
     input_paths = normalize_input_paths(files)
     output_dir = SCRIPT_DIR.resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    if not combined_name.lower().endswith(".csv"):
-        combined_name = f"{combined_name}.csv"
-    combined_path = output_dir / combined_name
+    chosen_combined_name = infer_combined_name(input_paths, combined_name)
+    if not chosen_combined_name.lower().endswith(".csv"):
+        chosen_combined_name = f"{chosen_combined_name}.csv"
+    combined_path = output_dir / chosen_combined_name
 
     summaries: list[ProcessSummary] = []
     for input_path in input_paths:
@@ -1886,6 +2748,8 @@ def run_batch(
             replace_newlines=replace_newlines,
             web_lookup_config=web_lookup_config,
             tema_punchline_config=tema_punchline_config,
+            assuntos_enrichment_config=assuntos_enrichment_config,
+            metadata_extraction_config=metadata_extraction_config,
             logger=logger,
         )
         summaries.append(summary)
@@ -1910,6 +2774,9 @@ def run_batch(
             logger=logger,
         )
 
+    cleanup_intermediate_processed_csvs(summaries, combined_path=combined_path, logger=logger)
+    cleanup_global_notion_artifacts(output_dir, logger)
+
     return summaries, combined_path, compiled_rows
 
 
@@ -1921,17 +2788,22 @@ def launch_gui() -> None:
         def __init__(self, root: tk.Tk) -> None:
             self.root = root
             self.root.title("CSV -> Notion Friendly (Lote)")
-            self.root.geometry("900x620")
+            self.root.geometry("900x680")
 
             self.file_vars: dict[str, tk.BooleanVar] = {}
 
             self.output_dir_var = tk.StringVar(value=str(SCRIPT_DIR))
             self.max_texto_chars_var = tk.StringVar(value="9000")
-            self.combined_name_var = tk.StringVar(value="jurisprudencia_compilado_notion.csv")
+            self.combined_name_var = tk.StringVar(value="")
             self.replace_newlines_var = tk.BooleanVar(value=True)
             self.buscar_urls_var = tk.BooleanVar(value=False)
             self.gerar_tema_punchline_var = tk.BooleanVar(value=False)
-            self.openai_key_file_var = tk.StringVar(value=str(SCRIPT_DIR / DEFAULT_OPENAI_KEY_FILE))
+            self.enriquecer_assuntos_var = tk.BooleanVar(value=False)
+            self.assuntos_max_itens_var = tk.StringVar(value=str(DEFAULT_ASSUNTOS_MAX_ITEMS))
+            self.assuntos_taxonomy_mode_var = tk.StringVar(value="mixed")
+            self.openai_key_file_var = tk.StringVar(
+                value=_resolve_existing_key_file_path(DEFAULT_OPENAI_KEY_FILE, OPENAI_KEY_FALLBACK_FILES)
+            )
             self.openai_api_key_var = tk.StringVar(value=resolve_openai_api_key("", self.openai_key_file_var.get()))
             self.openai_model_var = tk.StringVar(value="gpt-5.1")
             self.openai_workers_var = tk.StringVar(value=str(OPENAI_DEFAULT_MAX_WORKERS))
@@ -1940,7 +2812,9 @@ def launch_gui() -> None:
             self.openai_delay_var = tk.StringVar(value=str(OPENAI_DEFAULT_DELAY))
             self.openai_retries_var = tk.StringVar(value=str(OPENAI_DEFAULT_RETRIES))
             self.openai_target_rpm_var = tk.StringVar(value=str(OPENAI_DEFAULT_TARGET_RPM))
-            self.perplexity_key_file_var = tk.StringVar(value=str(SCRIPT_DIR / DEFAULT_PERPLEXITY_KEY_FILE))
+            self.perplexity_key_file_var = tk.StringVar(
+                value=_resolve_existing_key_file_path(DEFAULT_PERPLEXITY_KEY_FILE, PERPLEXITY_KEY_FALLBACK_FILES)
+            )
             self.perplexity_api_key_var = tk.StringVar(
                 value=resolve_perplexity_api_key("", self.perplexity_key_file_var.get())
             )
@@ -1979,11 +2853,12 @@ def launch_gui() -> None:
             scrollbar.pack(side="right", fill="y")
 
             self.files_frame = ttk.Frame(self.canvas)
-            self.canvas.create_window((0, 0), window=self.files_frame, anchor="nw")
+            self.files_frame_window = self.canvas.create_window((0, 0), window=self.files_frame, anchor="nw")
             self.files_frame.bind(
                 "<Configure>",
                 lambda _event: self.canvas.configure(scrollregion=self.canvas.bbox("all")),
             )
+            self.canvas.bind("<Configure>", self._on_files_canvas_configure)
 
             options = ttk.LabelFrame(main, text="Opcoes", padding=10)
             options.pack(fill="x", pady=(0, 10))
@@ -1995,7 +2870,12 @@ def launch_gui() -> None:
             ttk.Label(options, text="Limite em textoDecisao/textoEmenta (0 = sem truncamento):").grid(row=1, column=0, sticky="w", pady=(8, 0))
             ttk.Entry(options, textvariable=self.max_texto_chars_var, width=12).grid(row=1, column=1, sticky="w", padx=8, pady=(8, 0))
 
-            ttk.Label(options, text="Nome do compilado:").grid(row=2, column=0, sticky="w", pady=(8, 0))
+            ttk.Label(options, text="Nome do compilado (vazio = automatico):").grid(
+                row=2,
+                column=0,
+                sticky="w",
+                pady=(8, 0),
+            )
             ttk.Entry(options, textvariable=self.combined_name_var, width=35).grid(
                 row=2,
                 column=1,
@@ -2022,18 +2902,41 @@ def launch_gui() -> None:
                 variable=self.gerar_tema_punchline_var,
             ).grid(row=5, column=0, columnspan=3, sticky="w", pady=(10, 0))
 
-            ttk.Label(options, text="OpenAI API key:").grid(row=6, column=0, sticky="w", pady=(8, 0))
+            ttk.Checkbutton(
+                options,
+                text="Enriquecer assuntos vazios com ChatGPT",
+                variable=self.enriquecer_assuntos_var,
+            ).grid(row=6, column=0, columnspan=3, sticky="w", pady=(8, 0))
+
+            assuntos_frame = ttk.Frame(options)
+            assuntos_frame.grid(row=7, column=0, columnspan=3, sticky="w", pady=(6, 0))
+            ttk.Label(assuntos_frame, text="Max assuntos/linha").grid(row=0, column=0, sticky="w")
+            ttk.Entry(assuntos_frame, textvariable=self.assuntos_max_itens_var, width=6).grid(
+                row=0,
+                column=1,
+                padx=(4, 14),
+            )
+            ttk.Label(assuntos_frame, text="Taxonomia").grid(row=0, column=2, sticky="w")
+            ttk.Combobox(
+                assuntos_frame,
+                textvariable=self.assuntos_taxonomy_mode_var,
+                values=list(ASSUNTOS_TAXONOMY_CHOICES),
+                state="readonly",
+                width=12,
+            ).grid(row=0, column=3, padx=(4, 0))
+
+            ttk.Label(options, text="OpenAI API key:").grid(row=8, column=0, sticky="w", pady=(8, 0))
             ttk.Entry(options, textvariable=self.openai_api_key_var, width=70, show="*").grid(
-                row=6,
+                row=8,
                 column=1,
                 sticky="ew",
                 padx=8,
                 pady=(8, 0),
             )
 
-            ttk.Label(options, text="Arquivo da chave OpenAI:").grid(row=7, column=0, sticky="w", pady=(8, 0))
+            ttk.Label(options, text="Arquivo da chave OpenAI:").grid(row=9, column=0, sticky="w", pady=(8, 0))
             ttk.Entry(options, textvariable=self.openai_key_file_var, width=70).grid(
-                row=7,
+                row=9,
                 column=1,
                 sticky="ew",
                 padx=8,
@@ -2041,7 +2944,7 @@ def launch_gui() -> None:
             )
 
             openai_frame = ttk.Frame(options)
-            openai_frame.grid(row=8, column=0, columnspan=3, sticky="w", pady=(8, 0))
+            openai_frame.grid(row=10, column=0, columnspan=3, sticky="w", pady=(8, 0))
             ttk.Label(openai_frame, text="Modelo OpenAI").grid(row=0, column=0, sticky="w")
             ttk.Entry(openai_frame, textvariable=self.openai_model_var, width=12).grid(row=0, column=1, padx=(4, 14))
             ttk.Label(openai_frame, text="Workers").grid(row=0, column=2, sticky="w")
@@ -2057,18 +2960,18 @@ def launch_gui() -> None:
             ttk.Label(openai_frame, text="Target RPM").grid(row=1, column=2, sticky="w", pady=(6, 0))
             ttk.Entry(openai_frame, textvariable=self.openai_target_rpm_var, width=8).grid(row=1, column=3, padx=(4, 14), pady=(6, 0))
 
-            ttk.Label(options, text="Perplexity API key:").grid(row=9, column=0, sticky="w", pady=(8, 0))
+            ttk.Label(options, text="Perplexity API key:").grid(row=11, column=0, sticky="w", pady=(8, 0))
             ttk.Entry(options, textvariable=self.perplexity_api_key_var, width=70, show="*").grid(
-                row=9,
+                row=11,
                 column=1,
                 sticky="ew",
                 padx=8,
                 pady=(8, 0),
             )
 
-            ttk.Label(options, text="Arquivo da chave Perplexity:").grid(row=10, column=0, sticky="w", pady=(8, 0))
+            ttk.Label(options, text="Arquivo da chave Perplexity:").grid(row=12, column=0, sticky="w", pady=(8, 0))
             ttk.Entry(options, textvariable=self.perplexity_key_file_var, width=70).grid(
-                row=10,
+                row=12,
                 column=1,
                 sticky="ew",
                 padx=8,
@@ -2076,7 +2979,7 @@ def launch_gui() -> None:
             )
 
             perf_frame = ttk.Frame(options)
-            perf_frame.grid(row=11, column=0, columnspan=3, sticky="w", pady=(8, 0))
+            perf_frame.grid(row=13, column=0, columnspan=3, sticky="w", pady=(8, 0))
             ttk.Label(perf_frame, text="Modelo Perplexity").grid(row=0, column=0, sticky="w")
             ttk.Entry(perf_frame, textvariable=self.perplexity_model_var, width=10).grid(row=0, column=1, padx=(4, 14))
             ttk.Label(perf_frame, text="Workers").grid(row=0, column=2, sticky="w")
@@ -2092,7 +2995,7 @@ def launch_gui() -> None:
                 options,
                 text="Verbose no terminal (CLI/GUI)",
                 variable=self.verbose_terminal_var,
-            ).grid(row=12, column=0, columnspan=3, sticky="w", pady=(8, 0))
+            ).grid(row=14, column=0, columnspan=3, sticky="w", pady=(8, 0))
 
             options.columnconfigure(1, weight=1)
 
@@ -2103,6 +3006,10 @@ def launch_gui() -> None:
             self.log_widget = tk.Text(log_box, height=12, wrap="word")
             self.log_widget.pack(fill="both", expand=True)
             self.log_widget.configure(state="disabled")
+            self.refresh_file_list()
+
+        def _on_files_canvas_configure(self, event: tk.Event) -> None:
+            self.canvas.itemconfigure(self.files_frame_window, width=event.width)
 
         def log(self, message: str) -> None:
             self.log_widget.configure(state="normal")
@@ -2114,11 +3021,21 @@ def launch_gui() -> None:
             self.root.update_idletasks()
 
         def add_files(self) -> None:
-            file_paths = filedialog.askopenfilenames(
+            raw_selection = filedialog.askopenfilenames(
                 title="Selecione os arquivos CSV",
                 filetypes=[("CSV", "*.csv"), ("Todos os arquivos", "*.*")],
             )
-            for file_path in file_paths:
+            if not raw_selection:
+                return
+            try:
+                file_paths = list(self.root.tk.splitlist(raw_selection))
+            except Exception:
+                if isinstance(raw_selection, (list, tuple)):
+                    file_paths = [str(item) for item in raw_selection]
+                else:
+                    file_paths = [str(raw_selection)]
+            for raw_path in file_paths:
+                file_path = str(Path(raw_path).expanduser().resolve())
                 if file_path not in self.file_vars:
                     self.file_vars[file_path] = tk.BooleanVar(value=True)
             self.refresh_file_list()
@@ -2154,6 +3071,14 @@ def launch_gui() -> None:
             for child in self.files_frame.winfo_children():
                 child.destroy()
 
+            if not self.file_vars:
+                ttk.Label(self.files_frame, text="Nenhum CSV selecionado.").grid(
+                    row=0,
+                    column=0,
+                    sticky="w",
+                    padx=4,
+                    pady=2,
+                )
             for row_index, file_path in enumerate(sorted(self.file_vars)):
                 label = Path(file_path).name
                 ttk.Checkbutton(self.files_frame, text=label, variable=self.file_vars[file_path]).grid(
@@ -2163,6 +3088,10 @@ def launch_gui() -> None:
                     padx=4,
                     pady=2,
                 )
+            self.files_frame.update_idletasks()
+            bbox = self.canvas.bbox("all")
+            if bbox:
+                self.canvas.configure(scrollregion=bbox)
 
         def process_selected(self) -> None:
             selected_files = [path for path, var in self.file_vars.items() if var.get()]
@@ -2186,6 +3115,7 @@ def launch_gui() -> None:
                 openai_delay = float(self.openai_delay_var.get().strip())
                 openai_retries = int(self.openai_retries_var.get().strip())
                 openai_target_rpm = int(self.openai_target_rpm_var.get().strip())
+                assuntos_max_itens = int(self.assuntos_max_itens_var.get().strip())
                 perplexity_workers = int(self.perplexity_workers_var.get().strip())
                 perplexity_timeout = int(self.perplexity_timeout_var.get().strip())
                 perplexity_batch_size = int(self.perplexity_batch_size_var.get().strip())
@@ -2199,6 +3129,16 @@ def launch_gui() -> None:
 
             if min(openai_workers, openai_timeout, openai_batch_size, openai_retries) <= 0:
                 messagebox.showerror("Erro", "OpenAI: workers, timeout, batch e retries precisam ser maiores que zero.")
+                return
+            if assuntos_max_itens <= 0:
+                messagebox.showerror("Erro", "Assuntos: max assuntos por linha deve ser maior que zero.")
+                return
+            assuntos_taxonomy_mode = (self.assuntos_taxonomy_mode_var.get().strip() or "mixed").lower()
+            if assuntos_taxonomy_mode not in ASSUNTOS_TAXONOMY_CHOICES:
+                messagebox.showerror(
+                    "Erro",
+                    f"Assuntos: taxonomia invalida. Use {', '.join(ASSUNTOS_TAXONOMY_CHOICES)}.",
+                )
                 return
             if openai_target_rpm < 0:
                 messagebox.showerror("Erro", "OpenAI: target RPM nao pode ser negativo.")
@@ -2227,6 +3167,26 @@ def launch_gui() -> None:
                 retries=openai_retries,
                 target_rpm=openai_target_rpm,
             )
+            assuntos_enrichment_config = AssuntosEnrichmentConfig(
+                enabled=self.enriquecer_assuntos_var.get(),
+                api_key=resolve_openai_api_key(
+                    self.openai_api_key_var.get().strip(),
+                    self.openai_key_file_var.get().strip(),
+                ),
+                model=self.openai_model_var.get().strip() or "gpt-5.1",
+                timeout_seconds=openai_timeout,
+                max_workers=openai_workers,
+                batch_size=openai_batch_size,
+                delay_between_batches=openai_delay,
+                retries=openai_retries,
+                target_rpm=openai_target_rpm,
+                max_items=assuntos_max_itens,
+                taxonomy_mode=assuntos_taxonomy_mode,
+            )
+            metadata_extraction_config = MetadataExtractionConfig(
+                include_institutional_entities=True,
+                header_max_chars=DEFAULT_METADATA_HEADER_MAX_CHARS,
+            )
             web_lookup_config = WebLookupConfig(
                 enabled=self.buscar_urls_var.get(),
                 api_key=resolve_perplexity_api_key(
@@ -2245,10 +3205,12 @@ def launch_gui() -> None:
                     files=selected_files,
                     out_dir=self.output_dir_var.get().strip(),
                     max_texto_chars=max_texto_chars,
-                    combined_name=self.combined_name_var.get().strip() or "jurisprudencia_compilado_notion.csv",
+                    combined_name=self.combined_name_var.get().strip(),
                     replace_newlines=self.replace_newlines_var.get(),
                     web_lookup_config=web_lookup_config,
                     tema_punchline_config=tema_punchline_config,
+                    assuntos_enrichment_config=assuntos_enrichment_config,
+                    metadata_extraction_config=metadata_extraction_config,
                     logger=self.log,
                 )
             except Exception as exc:  # pylint: disable=broad-except
@@ -2307,8 +3269,11 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--combined-name",
-        default="jurisprudencia_compilado_notion.csv",
-        help="Nome do arquivo compilado final.",
+        default="",
+        help=(
+            "Nome do arquivo compilado final. Se vazio: 1 arquivo => <entrada>_consolidado.csv; "
+            f"varios arquivos => {DEFAULT_COMBINED_MULTI}."
+        ),
     )
     parser.add_argument(
         "--keep-newlines",
@@ -2324,6 +3289,23 @@ def build_parser() -> argparse.ArgumentParser:
         "--gerar-tema-punchline-chatgpt",
         action="store_true",
         help="Ativa geracao de tema e punchline por linha via OpenAI (padrao: gpt-5.1).",
+    )
+    parser.add_argument(
+        "--enriquecer-assuntos-openai",
+        action="store_true",
+        help="Ativa fallback OpenAI para preencher assuntos apenas em linhas ainda vazias.",
+    )
+    parser.add_argument(
+        "--assuntos-max-itens",
+        type=int,
+        default=DEFAULT_ASSUNTOS_MAX_ITEMS,
+        help=f"Numero maximo de assuntos por linha (padrao: {DEFAULT_ASSUNTOS_MAX_ITEMS}).",
+    )
+    parser.add_argument(
+        "--assuntos-taxonomy-mode",
+        default="mixed",
+        choices=list(ASSUNTOS_TAXONOMY_CHOICES),
+        help="Modo de taxonomia para assuntos: controlled, mixed ou free.",
     )
     parser.add_argument(
         "--perplexity-api-key",
@@ -2501,13 +3483,16 @@ def main() -> int:
             parser.error("--openai-target-rpm nao pode ser negativo.")
         if args.openai_delay < 0:
             parser.error("--openai-delay nao pode ser negativo.")
+        if args.assuntos_max_itens <= 0:
+            parser.error("--assuntos-max-itens deve ser maior que zero.")
 
         def cli_logger(message: str) -> None:
             logger.info(message)
 
+        resolved_openai_api_key = resolve_openai_api_key(args.openai_api_key.strip(), args.openai_key_file)
         tema_punchline_config = TemaPunchlineConfig(
             enabled=args.gerar_tema_punchline_chatgpt,
-            api_key=resolve_openai_api_key(args.openai_api_key.strip(), args.openai_key_file),
+            api_key=resolved_openai_api_key,
             model=args.openai_model.strip() or "gpt-5.1",
             timeout_seconds=args.openai_timeout,
             max_workers=args.openai_max_workers,
@@ -2515,6 +3500,23 @@ def main() -> int:
             delay_between_batches=args.openai_delay,
             retries=args.openai_retries,
             target_rpm=args.openai_target_rpm,
+        )
+        assuntos_enrichment_config = AssuntosEnrichmentConfig(
+            enabled=args.enriquecer_assuntos_openai,
+            api_key=resolved_openai_api_key,
+            model=args.openai_model.strip() or "gpt-5.1",
+            timeout_seconds=args.openai_timeout,
+            max_workers=args.openai_max_workers,
+            batch_size=args.openai_batch_size,
+            delay_between_batches=args.openai_delay,
+            retries=args.openai_retries,
+            target_rpm=args.openai_target_rpm,
+            max_items=args.assuntos_max_itens,
+            taxonomy_mode=args.assuntos_taxonomy_mode.strip().lower(),
+        )
+        metadata_extraction_config = MetadataExtractionConfig(
+            include_institutional_entities=True,
+            header_max_chars=DEFAULT_METADATA_HEADER_MAX_CHARS,
         )
         web_lookup_config = WebLookupConfig(
             enabled=args.buscar_urls_perplexity,
@@ -2536,6 +3538,8 @@ def main() -> int:
                 replace_newlines=not args.keep_newlines,
                 web_lookup_config=web_lookup_config,
                 tema_punchline_config=tema_punchline_config,
+                assuntos_enrichment_config=assuntos_enrichment_config,
+                metadata_extraction_config=metadata_extraction_config,
                 logger=cli_logger,
                 preserve_from_csv=args.preserve_from_csv,
                 preserve_columns=preserve_columns,
