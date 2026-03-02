@@ -1,18 +1,15 @@
 #!/usr/bin/env python3
-"""Padroniza cores de etiquetas no Notion para a base DJe.
+"""Padroniza cores de etiquetas no Notion para a base DJe (FASE 1).
 
-Regras atuais:
+Escopo deste script (fase 1, API oficial):
 1) Nao altera a coluna `composicao`.
 2) Replica cores de `composicao` para `relator`.
-3) Padroniza `siglaUF` e `nomeMunicipio` por regiao do Brasil.
-   - Sudeste => blue
-   - Sul => green
-   - Centro-Oeste => yellow
-   - Nordeste => orange
-   - Norte => red
-4) Padroniza `partes` e `advogados` por ordem alfabetica (faixas de letras).
-5) Padroniza `siglaClasse` e `descricaoClasse` por familias de classes processuais.
-6) Sanea etiquetas: remove opcoes sem uso real nos registros da coluna.
+3) Padroniza `siglaUF`.
+4) Padroniza `siglaClasse` e `descricaoClasse` por familias processuais.
+5) Remove etiquetas sem uso (quando aplicavel).
+
+Fase 2 (`nomeMunicipio`, `partes`, `advogados`) foi separada para:
+`NOTION_corrigir_etiquetas.py` (JSON/TXT para Notion Chat).
 
 Padrao de execucao: dry-run. Use --apply para efetivar alteracoes.
 """
@@ -2618,11 +2615,29 @@ def update_property_options(
 
 
 def run(args: argparse.Namespace) -> int:
+    only_keys_raw = _parse_only_properties(_normalize_ws(args.only_properties))
+    unsupported_only_keys = only_keys_raw & _phase_property_keys("2")
+    if unsupported_only_keys:
+        human = ", ".join(sorted(unsupported_only_keys))
+        raise RuntimeError(
+            "Este script agora processa apenas Fase 1. "
+            f"Colunas de Fase 2 detectadas em --only-properties: {human}. "
+            "Use NOTION_corrigir_etiquetas.py para a fase 2."
+        )
+
     requested_keys = _requested_property_keys(args)
     phase1_keys = _phase_property_keys("1")
     phase2_keys = _phase_property_keys("2")
     requested_phase1 = requested_keys & phase1_keys
     requested_phase2 = requested_keys & phase2_keys
+    if requested_phase2:
+        human = ", ".join(sorted(requested_phase2))
+        raise RuntimeError(
+            "Este script agora processa apenas Fase 1. "
+            f"Solicitacao de Fase 2 detectada: {human}. "
+            "Use NOTION_corrigir_etiquetas.py para gerar JSON/TXT da fase 2."
+        )
+
     phase2_mode = _normalize_ws(args.phase2_mode).lower()
     source_csv_raw = _normalize_ws(args.source_csv)
     source_csv_path: Optional[Path] = None
@@ -3373,8 +3388,8 @@ def run(args: argparse.Namespace) -> int:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description=(
-            "Padroniza cores de etiquetas no Notion (DJe): siglaUF, nomeMunicipio, "
-            "relator, partes, advogados, siglaClasse e descricaoClasse."
+            "Padroniza cores de etiquetas no Notion (DJe) - somente Fase 1: "
+            "siglaUF, relator, siglaClasse e descricaoClasse."
         )
     )
     parser.add_argument(
@@ -3400,68 +3415,51 @@ def build_parser() -> argparse.ArgumentParser:
         default="",
         help=(
             "Lista de colunas separadas por virgula para processar exclusivamente "
-            "(ex.: siglaUF,relator,siglaClasse,descricaoClasse)."
+            "(ex.: siglaUF,relator,siglaClasse,descricaoClasse). "
+            "Colunas de fase 2 nao sao aceitas neste script."
         ),
     )
     parser.add_argument(
         "--phase",
-        default="all",
-        choices=("all", "1", "2"),
+        default="1",
+        choices=("1",),
         help=(
-            "Fase de processamento: "
-            "1=siglaUF/relator/siglaClasse/descricaoClasse, "
-            "2=nomeMunicipio/partes/advogados, "
-            "all=todas."
+            "Fase de processamento suportada neste script: "
+            "1=siglaUF/relator/siglaClasse/descricaoClasse."
         ),
     )
     parser.add_argument(
         "--phase2-mode",
         default="api",
         choices=("api", "notion-chat"),
-        help=(
-            "Modo da fase 2: "
-            "api=fluxo legado via API oficial; "
-            "notion-chat=gera fila JSON/prompt para execucao manual assistida no Notion Chat."
-        ),
+        help=argparse.SUPPRESS,
     )
     parser.add_argument(
         "--phase2-blocks-input-dir",
         default="",
-        help=(
-            "Pasta de entrada com CSVs de blocos da fase 2 (phase2_*_bloco_*.csv). "
-            "Uso legado/opcional para reaproveitar blocos ja existentes."
-        ),
+        help=argparse.SUPPRESS,
     )
     parser.add_argument(
         "--phase2-chat-output-dir",
         default="",
-        help=(
-            "Pasta de saida para artefatos do modo notion-chat (json/prompt/fila). "
-            "Vazio = pasta atual (sem criar subpasta automatica)."
-        ),
+        help=argparse.SUPPRESS,
     )
     parser.add_argument(
         "--phase2-queue-file",
         default="",
-        help=(
-            "Arquivo CSV da fila do mode notion-chat. "
-            "Vazio = <phase2-chat-output-dir>/phase2_chat_queue.csv."
-        ),
+        help=argparse.SUPPRESS,
     )
     parser.add_argument(
         "--no-phase2-force-default",
         action="store_false",
         dest="phase2_force_default",
-        help=(
-            "No mode notion-chat, nao forca default em todas as etiquetas do bloco "
-            "(usa somente linhas com divergencia cor_atual vs cor_alvo)."
-        ),
+        help=argparse.SUPPRESS,
     )
     parser.add_argument(
         "--no-phase2-include-removals",
         action="store_false",
         dest="phase2_include_removals",
-        help="No mode notion-chat, nao inclui remocoes de etiquetas sem uso na fila.",
+        help=argparse.SUPPRESS,
     )
     parser.set_defaults(phase2_force_default=True, phase2_include_removals=True)
     parser.add_argument(
@@ -3476,27 +3474,20 @@ def build_parser() -> argparse.ArgumentParser:
         "--phase2-block-size",
         type=int,
         default=95,
-        help=(
-            "Tamanho maximo de cada bloco alfabetico da fase 2 no plano manual "
-            f"(padrao: 95, limite API: {NOTION_OPTIONS_PATCH_LIMIT})."
-        ),
+        help=argparse.SUPPRESS,
     )
     parser.add_argument(
         "--phase2-blocks-output-dir",
         default="",
-        help=(
-            "Pasta para salvar os CSVs de blocos alfabeticos da fase 2 "
-            "(A-C, D-F, etc.) quando houver colunas ignoradas por limite API."
-        ),
+        help=argparse.SUPPRESS,
     )
     parser.add_argument(
         "--resume-plan-input",
         default="",
         help=(
             "CSV de checkpoint (manual-plan-output) para retomar automaticamente apenas pendencias. "
-            "Quando informado, o script aplica somente colunas/etiquetas pendentes desse arquivo. "
-            "Na fase 2 com --apply, o CSV pode ser processado em blocos alfabeticos automaticamente "
-            f"(ate {NOTION_OPTIONS_PATCH_LIMIT} options por chamada)."
+            "Quando informado, o script aplica somente colunas/etiquetas pendentes desse arquivo "
+            "(somente fase 1 neste script)."
         ),
     )
     parser.add_argument(
