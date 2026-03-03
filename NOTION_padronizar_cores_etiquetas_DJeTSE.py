@@ -38,7 +38,7 @@ import requests
 
 NOTION_BASE_URL = "https://api.notion.com"
 DEFAULT_NOTION_VERSION = "2025-09-03"
-DEFAULT_DATABASE_URL = "https://www.notion.so/316721955c6480b4af2cf19fa557a5dd?v=316721955c64816e8f6f000c06433647"
+DEFAULT_DATABASE_URL = "https://www.notion.so/317721955c6480d3b642cc296d6074c7?v=6dde3c179e6b400ab0309cd7eac7d61d"
 DEFAULT_PAGE_SIZE = 100
 DEFAULT_TIMEOUT_S = 30
 DEFAULT_RETRIES = 4
@@ -2604,14 +2604,47 @@ def update_property_options(
         }
     }
 
-    return notion_request(
-        session,
-        "PATCH",
-        f"/v1/data_sources/{data_source_id}",
-        json_body=body,
-        timeout_s=timeout_s,
-        retries=retries,
-    )
+    try:
+        return notion_request(
+            session,
+            "PATCH",
+            f"/v1/data_sources/{data_source_id}",
+            json_body=body,
+            timeout_s=timeout_s,
+            retries=retries,
+        )
+    except Exception as data_source_exc:
+        data_source_msg = str(data_source_exc or "")
+        data_source_msg_lc = data_source_msg.lower()
+        should_try_database_patch = (
+            "404" in data_source_msg_lc
+            or "object_not_found" in data_source_msg_lc
+            or "could not find database with id" in data_source_msg_lc
+        )
+        if not should_try_database_patch:
+            raise
+
+        LOGGER.warning(
+            "[%s] PATCH via data_source falhou (%s). Tentando fallback em /v1/databases/%s.",
+            property_name,
+            _normalize_ws(data_source_msg) or "<sem mensagem>",
+            database_id,
+        )
+        try:
+            return notion_request(
+                session,
+                "PATCH",
+                f"/v1/databases/{database_id}",
+                json_body=body,
+                timeout_s=timeout_s,
+                retries=retries,
+            )
+        except Exception as database_exc:
+            raise RuntimeError(
+                "Falha no PATCH da propriedade via /data_sources e fallback /databases | "
+                f"erro_data_source={_normalize_ws(data_source_msg) or '<sem mensagem>'} | "
+                f"erro_database={_normalize_ws(database_exc) or '<sem mensagem>'}"
+            ) from database_exc
 
 
 def run(args: argparse.Namespace) -> int:

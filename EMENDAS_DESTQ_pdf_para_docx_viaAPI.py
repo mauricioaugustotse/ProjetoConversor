@@ -43,7 +43,7 @@ from openai_progress_utils import (
 SCRIPT_DIR = Path(__file__).resolve().parent
 REPORT_FILE = SCRIPT_DIR / ".relatorio_objetos_alteradores.report.json"
 CHECKPOINT_VERSION = 1
-PROMPT_VERSION = 3
+PROMPT_VERSION = 5
 
 PARECER_FILENAME_RE = re.compile(r"^inteiroTeor-\d+\.pdf$", re.IGNORECASE)
 OBJETO_RE = re.compile(r"([A-Z]{2,6})[-_ ]*(\d+)", re.IGNORECASE)
@@ -105,12 +105,47 @@ DISPENSABLE_INLINE_RULES: List[Tuple[str, re.Pattern[str], str]] = [
         " ",
     ),
 ]
+MISSING_INPUT_META_RULES: List[Tuple[str, re.Pattern[str], str]] = [
+    (
+        "meta_missing_input_teor_exato",
+        re.compile(
+            r"(?:^|[.;:]\s*)(?:contudo|todavia|entretanto)?[,]?\s*o\s+teor\s+exato.{0,240}?\binsumos?\s+fornecid[oa]s?.{0,240}?\.",
+            re.IGNORECASE,
+        ),
+        ". ",
+    ),
+    (
+        "meta_missing_input_insumos_nao_constam",
+        re.compile(
+            r"(?:^|[.;:]\s*)(?:contudo|todavia|entretanto)?[,]?\s*(?:os?\s+)?insumos?\s+fornecid[oa]s?.{0,200}?(?:n[aã]o\s+consta(?:m)?|n[aã]o\s+permite(?:m)?|impede(?:m)?|impossibilita(?:m)?).{0,140}?\.",
+            re.IGNORECASE,
+        ),
+        ". ",
+    ),
+    (
+        "meta_missing_input_nao_possivel_detalhar",
+        re.compile(
+            r"(?:^|[.;:]\s*)(?:contudo|todavia|entretanto)?[,]?\s*n[aã]o\s+[eé]\s+poss[ií]vel\s+detalhar.{0,220}?\.",
+            re.IGNORECASE,
+        ),
+        ". ",
+    ),
+    (
+        "meta_missing_input_impossivel_detalhar",
+        re.compile(
+            r"(?:^|[.;:]\s*)(?:contudo|todavia|entretanto)?[,]?\s*imposs[ií]vel\s+detalhar.{0,220}?\.",
+            re.IGNORECASE,
+        ),
+        ". ",
+    ),
+]
 
 DEFAULT_OPENAI_MODEL = "gpt-5.1"
 DEFAULT_FALLBACK_MODEL = "gpt-5-mini"
 DEFAULT_OPENAI_TIMEOUT_S = 75
 DEFAULT_OPENAI_RETRIES = 2
 DEFAULT_OPENAI_MAX_COMPLETION_TOKENS = 420
+LENGTH_RETRY_MAX_COMPLETION_TOKENS = 2200
 DEFAULT_OPENAI_MAX_WORKERS = 8
 DEFAULT_OPENAI_BATCH_SIZE = 20
 DEFAULT_OPENAI_TARGET_RPM = 480
@@ -1001,6 +1036,7 @@ def openai_json_request_with_model(
     last_error: Optional[OpenAIErrorInfo] = None
     prompt_chars = estimate_prompt_chars(messages)
     token_limit = max(0, int(max_completion_tokens))
+    current_token_limit = token_limit
 
     for attempt in range(1, max_attempts + 1):
         try:
@@ -1015,7 +1051,7 @@ def openai_json_request_with_model(
                 attempt,
                 max_attempts,
                 max(5, int(timeout_s)),
-                token_limit,
+                current_token_limit,
                 prompt_chars,
             )
 
@@ -1032,8 +1068,8 @@ def openai_json_request_with_model(
                 },
                 "timeout": max(5, int(timeout_s)),
             }
-            if int(max_completion_tokens) > 0:
-                payload["max_completion_tokens"] = int(max_completion_tokens)
+            if current_token_limit > 0:
+                payload["max_completion_tokens"] = int(current_token_limit)
 
             stop_event, hb_thread, started_at = start_openai_wait_heartbeat(
                 logger,
@@ -1097,6 +1133,33 @@ def openai_json_request_with_model(
                 )
                 time.sleep(delay)
                 continue
+
+            if info.kind == "length" and attempt < max_attempts:
+                prev_limit = current_token_limit
+                if prev_limit > 0:
+                    growth = max(180, int(prev_limit * 0.6))
+                    current_token_limit = min(
+                        int(LENGTH_RETRY_MAX_COMPLETION_TOKENS),
+                        int(prev_limit + growth),
+                    )
+                delay = 0.4
+                if telemetry is not None:
+                    telemetry.on_api_retry()
+                logger.warning(
+                    "OPENAI_RETRY | %s | model=%s | tentativa=%d/%d | kind=%s | status=%s | msg=%s | next_max_completion_tokens=%s | retry_em=%.2fs",
+                    request_label,
+                    model,
+                    attempt,
+                    max_attempts,
+                    info.kind,
+                    info.status_code,
+                    short_error_message(info.message),
+                    str(current_token_limit if current_token_limit > 0 else "auto"),
+                    delay,
+                )
+                time.sleep(delay)
+                continue
+
             if telemetry is not None:
                 telemetry.on_api_fail()
             logger.error(
@@ -1155,7 +1218,7 @@ def openai_json_request(
         allow_fallback = (
             bool(fallback)
             and fallback != primary
-            and primary_error.info.kind in {"permission", "model", "unavailable"}
+            and primary_error.info.kind in {"permission", "model", "unavailable", "length"}
         )
         if not allow_fallback:
             raise
@@ -1462,14 +1525,20 @@ INSUMOS DISPONIVEIS NESTA CHAMADA
 4. Link de tramitacao da proposicao principal: {tramitacao_txt}
 
 INSTRUCOES
-1. Foco exclusivo no texto normativo. Explique o que a emenda pretende alterar ou incluir na proposicao principal. Nao explique justificacao da emenda.
+1. Foco exclusivo no texto normativo. Explique o que a emenda pretende alterar ou incluir na proposicao principal e a relacao entre destaque, emenda e texto principal. Nao explique justificacao politica.
 2. Resolva as remissoes. Se houver remissao a leis/dispositivos, localize o teor e, quando necessario, use referencia legislativa consolidada em planalto.gov.br/legislacao para tornar o texto autocontido.
-3. Formato: no maximo dois paragrafos, em prosa corrida. O primeiro paragrafo DEVE iniciar exatamente com "{identificacao}".
-4. Tom profissional e direto, acessivel a parlamentares.
-5. Pense passo a passo internamente antes de redigir (sem expor raciocinio).
-6. Evite estruturas introdutorias dispensaveis apos a identificacao (ex.: "A Emenda ... ao Projeto de Lei ...").
-7. Nao use marcadores editoriais entre colchetes, como [suprime], [substitui], [condiciona].
-8. Exponha claramente as ideias evitando oracoes complexas.
+3. Formato: exatamente dois paragrafos, em prosa corrida. O primeiro paragrafo DEVE iniciar exatamente com "{identificacao}".
+4. Estrutura obrigatoria:
+   a) Paragrafo 1 = ANTES + OPERACAO. Descreva como fica o texto principal antes da votacao e identifique a operacao normativa exata (supressao, inclusao, substituicao, nova redacao etc.), com o dispositivo atingido.
+   b) Paragrafo 2 = DEPOIS. Compare explicitamente os dois cenarios no texto principal: (i) se o destaque/emenda for aprovado; (ii) se for rejeitado, indicando o que permanece no texto.
+5. Sempre explicite o que cada dispositivo citado faz no texto principal. Evite descricao abstrata.
+6. Evite formulacoes vagas ou hipoteticas genericas (ex.: "qualquer que seja", "quaisquer comandos especificos").
+7. Nao mencione ausencia/falta de insumos, limites da base recebida ou impossibilidade de detalhamento.
+8. Tom profissional e direto, acessivel a parlamentares. Seja conciso: no maximo 2 frases por paragrafo e ate 120 palavras no total.
+9. Pense passo a passo internamente antes de redigir (sem expor raciocinio).
+10. Evite estruturas introdutorias dispensaveis apos a identificacao (ex.: "A Emenda ... ao Projeto de Lei ...").
+11. Nao use marcadores editoriais entre colchetes, como [suprime], [substitui], [condiciona].
+12. Exponha claramente as ideias evitando oracoes complexas.
 
 Contexto da proposicao principal:
 ---
@@ -1516,14 +1585,20 @@ INSUMOS DISPONIVEIS NESTA CHAMADA
 3. Link da ficha de tramitacao: {tramitacao_txt}
 
 INSTRUCOES
-1. Foco exclusivo no texto normativo. Explique o que a emenda pretende alterar ou incluir na proposicao principal. Nao explique justificacao da emenda.
-2. Resolva as remissoes. Se houver remissao a leis/dispositivos, localize o teor e, quando necessario, use referencia legislativa consolidada em planalto.gov.br/legislacao para tornar o texto autocontido.
-3. Formato: no maximo dois paragrafos, em prosa corrida. O primeiro paragrafo DEVE iniciar exatamente com "{identificacao}".
-4. Tom profissional e direto, acessivel a parlamentares.
-5. Pense passo a passo internamente antes de redigir (sem expor raciocinio).
-6. Evite estruturas introdutorias dispensaveis apos a identificacao (ex.: "A Emenda ... ao Projeto de Lei ...").
-7. Nao use marcadores editoriais entre colchetes, como [suprime], [substitui], [condiciona].
-8. Exponha claramente as ideias evitando oracoes complexas.
+1. Foco exclusivo no texto normativo. Explique o objeto do DVS e a relacao com o texto principal destacado/emendado. Nao explique justificacao politica.
+2. Resolva as remissoes: explique o conteudo normativo dos dispositivos citados. Se houver remissao a leis/dispositivos, localize o teor e, quando necessario, use referencia legislativa consolidada em planalto.gov.br/legislacao para tornar o texto autocontido.
+3. Formato: exatamente dois paragrafos, em prosa corrida. O primeiro paragrafo DEVE iniciar exatamente com "{identificacao}".
+4. Estrutura obrigatoria:
+   a) Paragrafo 1 = ANTES + OPERACAO. Descreva como esta o texto principal antes da votacao e qual operacao normativa o DVS promove (supressao, destaque para votacao em separado etc.), com o dispositivo atingido.
+   b) Paragrafo 2 = DEPOIS. Compare explicitamente os dois cenarios no texto principal: (i) com aprovacao do DVS; (ii) com rejeicao do DVS, indicando o que permanece.
+5. Sempre explicite o que cada dispositivo citado faz no texto principal. Evite descricao abstrata.
+6. Evite formulacoes vagas ou hipoteticas genericas (ex.: "qualquer que seja", "quaisquer comandos especificos").
+7. Nao mencione ausencia/falta de insumos, limites da base recebida ou impossibilidade de detalhamento.
+8. Tom profissional e direto, acessivel a parlamentares. Seja conciso: no maximo 2 frases por paragrafo e ate 120 palavras no total.
+9. Pense passo a passo internamente antes de redigir (sem expor raciocinio).
+10. Evite estruturas introdutorias dispensaveis apos a identificacao (ex.: "A Emenda ... ao Projeto de Lei ...").
+11. Nao use marcadores editoriais entre colchetes, como [suprime], [substitui], [condiciona].
+12. Exponha claramente as ideias evitando oracoes complexas.
 
 Contexto da proposicao principal:
 ---
@@ -1601,17 +1676,23 @@ def build_item_messages_compact(
         context_short = normalize_ws(parecer_summary) or "Nao fornecido separadamente nesta chamada."
 
         prompt = f"""
-Explique o destaque de emenda em no maximo dois paragrafos, com foco exclusivo no texto normativo.
+Explique o destaque de emenda em exatamente dois paragrafos, com foco exclusivo no texto normativo.
 
 Regras obrigatorias:
-1. Foco exclusivo no texto normativo. Explique o que a emenda pretende alterar ou incluir na proposicao principal. Nao explique justificacao da emenda.
-2. Resolva as remissoes. Se houver remissao a leis/dispositivos, localize o teor e, quando necessario, use referencia legislativa consolidada em planalto.gov.br/legislacao para tornar o texto autocontido.
-3. Formato: no maximo dois paragrafos, em prosa corrida. O primeiro paragrafo DEVE iniciar exatamente com "{identificacao}".
-4. Tom profissional e direto, acessivel a parlamentares.
-5. Pense passo a passo internamente antes de redigir (sem expor raciocinio).
-6. Evite estruturas introdutorias dispensaveis apos a identificacao (ex.: "A Emenda ... ao Projeto de Lei ...").
-7. Nao use marcadores editoriais entre colchetes, como [suprime], [substitui], [condiciona].
-8. Exponha claramente as ideias evitando oracoes complexas.
+1. Foco exclusivo no texto normativo. Explique o que a emenda pretende alterar ou incluir na proposicao principal e a relacao entre destaque, emenda e texto principal. Nao explique justificacao politica.
+2. Resolva as remissoes: explique o conteúdo normativo dos dispositivos citados. Se houver remissao a leis/dispositivos, localize o teor e, quando necessario, use referencia legislativa consolidada em planalto.gov.br/legislacao para tornar o texto autocontido.
+3. Formato: exatamente dois paragrafos, em prosa corrida. O primeiro paragrafo DEVE iniciar exatamente com "{identificacao}".
+4. Estrutura obrigatoria:
+   a) Paragrafo 1 = ANTES + OPERACAO no texto principal.
+   b) Paragrafo 2 = DEPOIS, comparando explicitamente os cenarios "se aprovado" e "se rejeitado".
+5. Sempre explicite o que cada dispositivo citado faz no texto principal.
+6. Evite formulacoes vagas ou hipoteticas genericas (ex.: "qualquer que seja", "quaisquer comandos especificos").
+7. Nao mencione ausencia/falta de insumos, limites da base recebida ou impossibilidade de detalhamento.
+8. Tom profissional e direto, acessivel a parlamentares. Seja conciso: no maximo 2 frases por paragrafo e ate 120 palavras no total.
+9. Pense passo a passo internamente antes de redigir (sem expor raciocinio).
+10. Evite estruturas introdutorias dispensaveis apos a identificacao (ex.: "A Emenda ... ao Projeto de Lei ...").
+11. Nao use marcadores editoriais entre colchetes, como [suprime], [substitui], [condiciona].
+12. Exponha claramente as ideias evitando oracoes complexas.
 
 Contexto da proposicao principal (resumo):
 {context_short}
@@ -1640,17 +1721,23 @@ Retorne somente JSON valido no schema.
         context_short = normalize_ws(parecer_summary) or "Nao fornecido separadamente nesta chamada."
 
         prompt = f"""
-Explique o DVS em no maximo dois paragrafos, com foco exclusivo no texto normativo.
+Explique o DVS em exatamente dois paragrafos, com foco exclusivo no texto normativo.
 
 Regras obrigatorias:
-1. Foco exclusivo no texto normativo. Explique o que a emenda pretende alterar ou incluir na proposicao principal. Nao explique justificacao da emenda.
+1. Foco exclusivo no texto normativo. Explique o objeto do DVS e a relacao com o texto principal destacado/emendado. Nao explique justificacao politica.
 2. Resolva as remissoes. Se houver remissao a leis/dispositivos, localize o teor e, quando necessario, use referencia legislativa consolidada em planalto.gov.br/legislacao para tornar o texto autocontido.
-3. Formato: no maximo dois paragrafos, em prosa corrida. O primeiro paragrafo DEVE iniciar exatamente com "{identificacao}".
-4. Tom profissional e direto, acessivel a parlamentares.
-5. Pense passo a passo internamente antes de redigir (sem expor raciocinio).
-6. Evite estruturas introdutorias dispensaveis apos a identificacao (ex.: "A Emenda ... ao Projeto de Lei ...").
-7. Nao use marcadores editoriais entre colchetes, como [suprime], [substitui], [condiciona].
-8. Exponha claramente as ideias evitando oracoes complexas.
+3. Formato: exatamente dois paragrafos, em prosa corrida. O primeiro paragrafo DEVE iniciar exatamente com "{identificacao}".
+4. Estrutura obrigatoria:
+   a) Paragrafo 1 = ANTES + OPERACAO no texto principal.
+   b) Paragrafo 2 = DEPOIS, comparando explicitamente os cenarios "se aprovado" e "se rejeitado".
+5. Sempre explicite o que cada dispositivo citado faz no texto principal.
+6. Evite formulacoes vagas ou hipoteticas genericas (ex.: "qualquer que seja", "quaisquer comandos especificos").
+7. Nao mencione ausencia/falta de insumos, limites da base recebida ou impossibilidade de detalhamento.
+8. Tom profissional e direto, acessivel a parlamentares. Seja conciso: no maximo 2 frases por paragrafo e ate 120 palavras no total.
+9. Pense passo a passo internamente antes de redigir (sem expor raciocinio).
+10. Evite estruturas introdutorias dispensaveis apos a identificacao (ex.: "A Emenda ... ao Projeto de Lei ...").
+11. Nao use marcadores editoriais entre colchetes, como [suprime], [substitui], [condiciona].
+12. Exponha claramente as ideias evitando oracoes complexas.
 
 Contexto da proposicao principal (resumo):
 {context_short}
@@ -1727,9 +1814,12 @@ Trecho {chunk_index}/{total_chunks}
 Tarefa deste passo:
 - Resumir apenas este trecho em ate 6 frases curtas.
 - Focar no texto normativo da emenda vinculada e no que sera alterado/incluido na proposicao.
+- Capturar elementos de ANTES (texto principal antes da votacao) e de DEPOIS (efeito se aprovado e se rejeitado) que aparecam neste trecho.
+- Identificar a operacao normativa exata e o dispositivo atingido.
 - Resolver remissoes quando identificaveis no proprio trecho/contexto.
 - Nao tratar de justificacao.
 - Nao usar marcadores editoriais entre colchetes.
+- Evitar formulacoes vagas ou hipoteticas genericas.
 
 Contexto da proposicao principal:
 {context_short}
@@ -1760,9 +1850,12 @@ Trecho {chunk_index}/{total_chunks}
 Tarefa deste passo:
 - Resumir apenas este trecho em ate 6 frases curtas.
 - Focar no texto normativo do que sera suprimido/destacado para votacao em separado.
+- Capturar elementos de ANTES (texto principal antes da votacao) e de DEPOIS (efeito se aprovado e se rejeitado) que aparecam neste trecho.
+- Identificar a operacao normativa exata e o dispositivo atingido.
 - Resolver remissoes quando identificaveis no proprio trecho/contexto.
 - Nao tratar de justificacao politica.
 - Nao usar marcadores editoriais entre colchetes.
+- Evitar formulacoes vagas ou hipoteticas genericas.
 
 Contexto da proposicao principal:
 {context_short}
@@ -1852,14 +1945,21 @@ def build_item_from_chunk_messages(
 Consolide os resumos de chunks em explicacao final de destaque de emenda.
 
 Instrucoes obrigatorias:
-- No maximo dois paragrafos em prosa corrida.
+- Exatamente dois paragrafos em prosa corrida.
 - O primeiro paragrafo DEVE iniciar com "{identificacao}".
-- Explicar somente o texto normativo: o que a emenda vinculada altera/inclui e o efeito normativo.
+- Explicar somente o texto normativo: o que a emenda vinculada altera/inclui e o efeito no texto principal.
+- Estrutura obrigatoria:
+  1) Paragrafo 1 = ANTES + OPERACAO no texto principal.
+  2) Paragrafo 2 = DEPOIS, comparando explicitamente os cenarios "se aprovado" e "se rejeitado".
 - Nao abordar justificacao.
 - Resolver remissoes para tornar a explicacao autocontida.
 - Pense passo a passo internamente (sem expor raciocinio).
 - Evitar estruturas introdutorias dispensaveis apos a identificacao.
 - Nao usar marcadores editoriais entre colchetes.
+- Sempre explicitar o que cada dispositivo citado faz no texto principal.
+- Evitar formulacoes vagas ou hipoteticas genericas.
+- Nao mencionar ausencia/falta de insumos, limites da base recebida ou impossibilidade de detalhamento.
+- Ser conciso: no maximo 2 frases por paragrafo e ate 120 palavras no total.
 
 Contexto da proposicao principal:
 {context_short}
@@ -1891,14 +1991,21 @@ Retorne apenas JSON valido no schema.
 Consolide os resumos de chunks em explicacao final de DVS.
 
 Instrucoes obrigatorias:
-- No maximo dois paragrafos em prosa corrida.
+- Exatamente dois paragrafos em prosa corrida.
 - O primeiro paragrafo DEVE iniciar com "{identificacao}".
-- Explicar somente o texto normativo: objeto do DVS e efeito normativo da supressao/votacao em separado.
+- Explicar somente o texto normativo: objeto do DVS e efeito no texto principal.
+- Estrutura obrigatoria:
+  1) Paragrafo 1 = ANTES + OPERACAO no texto principal.
+  2) Paragrafo 2 = DEPOIS, comparando explicitamente os cenarios "se aprovado" e "se rejeitado".
 - Nao abordar justificacao nem objetivo politico.
 - Resolver remissoes para tornar a explicacao autocontida.
 - Pense passo a passo internamente (sem expor raciocinio).
 - Evitar estruturas introdutorias dispensaveis apos a identificacao.
 - Nao usar marcadores editoriais entre colchetes.
+- Sempre explicitar o que cada dispositivo citado faz no texto principal.
+- Evitar formulacoes vagas ou hipoteticas genericas.
+- Nao mencionar ausencia/falta de insumos, limites da base recebida ou impossibilidade de detalhamento.
+- Ser conciso: no maximo 2 frases por paragrafo e ate 120 palavras no total.
 
 Contexto da proposicao principal:
 {context_short}
@@ -1999,7 +2106,14 @@ def cleanup_dispensable_structures(
             cleaned_body = updated
             warnings.append(f"{tag}:{count}")
 
+    for tag, pattern, repl in MISSING_INPUT_META_RULES:
+        updated, count = pattern.subn(repl, cleaned_body)
+        if count > 0:
+            cleaned_body = updated
+            warnings.append(f"{tag}:{count}")
+
     cleaned_body = re.sub(r"\s+", " ", cleaned_body)
+    cleaned_body = re.sub(r"\.{2,}", ".", cleaned_body)
     cleaned_body = re.sub(r"\s+([,.;:])", r"\1", cleaned_body)
     cleaned_body = re.sub(r"([,;:])(?=\S)", r"\1 ", cleaned_body)
     cleaned_body = re.sub(r"\s{2,}", " ", cleaned_body).strip(" ,;")

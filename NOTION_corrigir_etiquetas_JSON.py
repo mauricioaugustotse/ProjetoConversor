@@ -37,7 +37,7 @@ import requests
 
 NOTION_BASE_URL = "https://api.notion.com"
 DEFAULT_NOTION_VERSION = "2025-09-03"
-DEFAULT_DATABASE_URL = "https://www.notion.so/316721955c6480b4af2cf19fa557a5dd?v=316721955c64816e8f6f000c06433647"
+DEFAULT_DATABASE_URL = "https://www.notion.so/317721955c6480d3b642cc296d6074c7?v=6dde3c179e6b400ab0309cd7eac7d61d"
 DEFAULT_PROPERTIES = ("nomeMunicipio", "partes", "advogados")
 
 LOGGER = logging.getLogger("NOTION_corrigir_etiquetas")
@@ -384,6 +384,69 @@ def load_manual_plan_rows(path: Path) -> List[Dict[str, str]]:
     return rows
 
 
+def _write_manual_plan_csv(path: Path, rows: List[Dict[str, str]]) -> None:
+    fieldnames = ["coluna", "etiqueta", "cor_atual", "cor_alvo", "remover_se_apply"]
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8-sig", newline="") as fp:
+        writer = csv.DictWriter(fp, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def _parse_selected_property_keys(raw: str) -> set[str]:
+    return {_normalize_key(item) for item in str(raw).split(",") if _normalize_key(item)}
+
+
+def _resolve_manual_plan_csv_path(raw_path: str) -> Path:
+    path = Path(_normalize_ws(raw_path))
+    if not path.is_absolute():
+        path = Path.cwd() / path
+    return path
+
+
+def _resolve_manual_plan_output_path(*, manual_plan_output: str, manual_plan_csv: str) -> Path:
+    candidate = _normalize_ws(manual_plan_output) or _normalize_ws(manual_plan_csv) or "notion_etiquetas_plano_manual_fase2.csv"
+    path = Path(candidate)
+    if not path.is_absolute():
+        path = Path.cwd() / path
+    return path
+
+
+def _build_manual_plan_rows_from_schema(
+    *,
+    tag_props: Dict[str, Dict[str, Any]],
+    selected_keys: set[str],
+) -> Tuple[List[Dict[str, str]], List[str], List[str]]:
+    rows: List[Dict[str, str]] = []
+    available_by_key = {_normalize_key(name): name for name in tag_props}
+    missing = [key for key in sorted(selected_keys) if key not in available_by_key]
+    selected_names: List[str] = []
+
+    for key in sorted(selected_keys):
+        property_name = available_by_key.get(key)
+        if not property_name:
+            continue
+        selected_names.append(property_name)
+        prop = tag_props.get(property_name, {})
+        for option in prop.get("options", []):
+            if not isinstance(option, dict):
+                continue
+            label = _normalize_ws(option.get("name"))
+            if not label:
+                continue
+            current_color = _normalize_ws(option.get("color")) or "default"
+            rows.append(
+                {
+                    "coluna": property_name,
+                    "etiqueta": label,
+                    "cor_atual": current_color,
+                    "cor_alvo": current_color,
+                    "remover_se_apply": "0",
+                }
+            )
+    return rows, selected_names, missing
+
+
 def _dedupe_labels(labels: List[str]) -> List[str]:
     out: List[str] = []
     seen: set[str] = set()
@@ -500,6 +563,16 @@ def parse_args() -> argparse.Namespace:
         help="CSV de plano manual com colunas/etiquetas alvo.",
     )
     parser.add_argument(
+        "--generate-manual-plan-only",
+        action="store_true",
+        help="Gera somente o CSV de plano manual a partir do schema da base (sem gerar JSON/TXT).",
+    )
+    parser.add_argument(
+        "--manual-plan-output",
+        default="",
+        help="Arquivo de saida para o CSV manual quando usado com --generate-manual-plan-only.",
+    )
+    parser.add_argument(
         "--properties",
         default=",".join(DEFAULT_PROPERTIES),
         help="Colunas alvo separadas por virgula (padrao: nomeMunicipio,partes,advogados).",
@@ -538,15 +611,68 @@ def main() -> int:
         format="%(asctime)s | %(levelname)s | %(message)s",
     )
 
-    notion_token = resolve_notion_key()
-    if not notion_token:
-        raise RuntimeError(
-            "Chave do Notion ausente. Crie Chave_Notion.txt ou defina NOTION_API_KEY/NOTION_TOKEN."
-        )
+    selected_keys = _parse_selected_property_keys(args.properties)
+    if not selected_keys:
+        raise RuntimeError("Nenhuma coluna selecionada em --properties.")
 
-    manual_plan_path = Path(_normalize_ws(args.manual_plan_csv))
-    if not manual_plan_path.is_absolute():
-        manual_plan_path = Path.cwd() / manual_plan_path
+    if args.generate_manual_plan_only:
+        notion_token = resolve_notion_key()
+        if not notion_token:
+            raise RuntimeError(
+                "Chave do Notion ausente. Crie Chave_Notion.txt ou defina NOTION_API_KEY/NOTION_TOKEN."
+            )
+
+        database_id = extract_notion_id_from_url(args.database_url)
+        session = requests.Session()
+        session.headers.update(
+            {
+                "Authorization": f"Bearer {notion_token}",
+                "Notion-Version": args.notion_version,
+                "Content-Type": "application/json",
+            }
+        )
+        data_source_id = retrieve_data_source_id(
+            session,
+            database_id=database_id,
+            timeout_s=args.timeout,
+            retries=args.retries,
+        )
+        data_source = retrieve_data_source(
+            session,
+            data_source_id=data_source_id,
+            timeout_s=args.timeout,
+            retries=args.retries,
+        )
+        properties = data_source.get("properties")
+        if not isinstance(properties, dict):
+            raise RuntimeError("Data source sem schema de propriedades.")
+
+        tag_props = collect_tag_properties(properties)
+        manual_rows, selected_names, missing_keys = _build_manual_plan_rows_from_schema(
+            tag_props=tag_props,
+            selected_keys=selected_keys,
+        )
+        if missing_keys:
+            human = ", ".join(missing_keys)
+            raise RuntimeError(
+                f"Colunas nao encontradas no schema da base: {human}"
+            )
+
+        manual_out = _resolve_manual_plan_output_path(
+            manual_plan_output=args.manual_plan_output,
+            manual_plan_csv=args.manual_plan_csv,
+        )
+        _write_manual_plan_csv(manual_out, manual_rows)
+        LOGGER.info(
+            "CSV manual gerado | arquivo=%s | linhas=%d | colunas=%s",
+            manual_out,
+            len(manual_rows),
+            ",".join(selected_names),
+        )
+        print("[OK] CSV manual gerado.")
+        return 0
+
+    manual_plan_path = _resolve_manual_plan_csv_path(args.manual_plan_csv)
     rows = load_manual_plan_rows(manual_plan_path)
     LOGGER.info("CSV carregado | arquivo=%s | linhas=%d", manual_plan_path, len(rows))
 
@@ -555,9 +681,11 @@ def main() -> int:
         output_dir = Path.cwd() / output_dir
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    selected_keys = {_normalize_key(item) for item in str(args.properties).split(",") if _normalize_key(item)}
-    if not selected_keys:
-        raise RuntimeError("Nenhuma coluna selecionada em --properties.")
+    notion_token = resolve_notion_key()
+    if not notion_token:
+        raise RuntimeError(
+            "Chave do Notion ausente. Crie Chave_Notion.txt ou defina NOTION_API_KEY/NOTION_TOKEN."
+        )
 
     grouped: Dict[str, List[Dict[str, str]]] = {}
     for row in rows:

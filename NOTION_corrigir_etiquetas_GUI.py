@@ -22,8 +22,9 @@ BACKEND_CANDIDATES = (
     "NOTION_corrigir_etiquetas.py",
     "NOTION_corrigir_etiquetas_JSON.py",
 )
-DEFAULT_DATABASE_URL = "https://www.notion.so/316721955c6480b4af2cf19fa557a5dd?v=316721955c64816e8f6f000c06433647"
+DEFAULT_DATABASE_URL = "https://www.notion.so/317721955c6480d3b642cc296d6074c7?v=6dde3c179e6b400ab0309cd7eac7d61d"
 PHASE2_COLUMNS = ("nomeMunicipio", "partes", "advogados")
+MANUAL_PLAN_FILENAME = "notion_etiquetas_plano_manual_fase2.csv"
 
 
 class App:
@@ -35,10 +36,11 @@ class App:
         self.proc: subprocess.Popen[str] | None = None
         self.thread: threading.Thread | None = None
         self.running = False
+        self.current_action: str | None = None
 
         base_dir = Path(__file__).resolve().parent
 
-        self.manual_plan_var = tk.StringVar(value=str(base_dir / "notion_etiquetas_plano_manual_fase2.csv"))
+        self.manual_plan_var = tk.StringVar(value="")
         self.output_dir_var = tk.StringVar(value=str(base_dir))
         self.database_url_var = tk.StringVar(value=DEFAULT_DATABASE_URL)
 
@@ -63,8 +65,8 @@ class App:
         tk.Label(
             intro,
             text=(
-                "Esta GUI gera os arquivos da Fase 2 para Notion Chat: "
-                "phase2_<coluna>.json, phase2_<coluna>.prompt.txt e phase2_chat_queue.csv"
+                "Fluxo em 2 etapas: (1) gerar manual-plan-csv (insumos) e "
+                "(2) gerar phase2_<coluna>.json, phase2_<coluna>.prompt.txt e phase2_chat_queue.csv"
             ),
             anchor="w",
             justify="left",
@@ -126,8 +128,10 @@ class App:
         actions = tk.LabelFrame(self.root, text="4) Executar")
         actions.pack(fill="x", padx=12, pady=6)
 
-        self.run_btn = tk.Button(actions, text="Gerar JSON/TXT Fase 2", command=self.run)
-        self.run_btn.pack(side="left", padx=8, pady=8)
+        self.run_manual_btn = tk.Button(actions, text="Gerar manual-plan (insumos)", command=self.run_manual_plan)
+        self.run_manual_btn.pack(side="left", padx=8, pady=8)
+        self.run_json_btn = tk.Button(actions, text="Gerar JSON/TXT Fase 2", command=self.run_json_txt)
+        self.run_json_btn.pack(side="left", padx=4, pady=8)
         tk.Button(actions, text="Ler fila gerada", command=self.load_queue).pack(side="left", padx=4, pady=8)
         tk.Button(actions, text="Abrir pasta de saida", command=self.open_output_folder).pack(side="left", padx=4, pady=8)
 
@@ -185,7 +189,49 @@ class App:
             props.append("advogados")
         return props
 
-    def _build_command(self) -> tuple[list[str], Path]:
+    def _build_manual_plan_command(self) -> tuple[list[str], Path]:
+        script_path = self._backend_script()
+
+        db_url = self.database_url_var.get().strip()
+        if not db_url:
+            raise RuntimeError("Informe o database-url.")
+
+        out_raw = self.output_dir_var.get().strip()
+        if not out_raw:
+            raise RuntimeError("Informe a pasta de saida.")
+        out_dir = self._resolve_path(out_raw)
+        out_dir.mkdir(parents=True, exist_ok=True)
+
+        props = self._selected_properties()
+        if not props:
+            raise RuntimeError("Selecione pelo menos uma coluna da fase 2.")
+
+        manual_path = out_dir / MANUAL_PLAN_FILENAME
+        self.manual_plan_var.set(str(manual_path))
+
+        cmd = [
+            sys.executable,
+            "-u",
+            str(script_path),
+            "--database-url",
+            db_url,
+            "--properties",
+            ",".join(props),
+            "--generate-manual-plan-only",
+            "--manual-plan-output",
+            str(manual_path),
+            "--timeout",
+            self.timeout_var.get().strip() or "30",
+            "--retries",
+            self.retries_var.get().strip() or "4",
+        ]
+
+        if self.debug_var.get():
+            cmd.append("--debug")
+
+        return cmd, manual_path
+
+    def _build_json_command(self) -> tuple[list[str], Path]:
         script_path = self._backend_script()
 
         manual_raw = self.manual_plan_var.get().strip()
@@ -236,11 +282,13 @@ class App:
 
         return cmd, out_dir
 
-    def _launch(self, cmd: list[str], status: str) -> None:
+    def _launch(self, cmd: list[str], status: str, *, action: str) -> None:
         if self.running:
             return
         self.running = True
-        self.run_btn.config(state="disabled")
+        self.current_action = action
+        self.run_manual_btn.config(state="disabled")
+        self.run_json_btn.config(state="disabled")
         self.stop_btn.config(state="normal")
         self.set_status(status)
         self.append_log("\n" + "=" * 100 + "\n")
@@ -288,13 +336,25 @@ class App:
         if path:
             self.output_dir_var.set(path)
 
-    def run(self) -> None:
+    def run_manual_plan(self) -> None:
         try:
-            cmd, _ = self._build_command()
+            cmd, manual_path = self._build_manual_plan_command()
         except Exception as exc:
             messagebox.showerror("Erro de configuracao", str(exc))
             return
-        self._launch(cmd, "Gerando JSON/TXT da Fase 2...")
+        self._launch(
+            cmd,
+            f"Gerando manual-plan-csv em {manual_path}...",
+            action="manual_plan",
+        )
+
+    def run_json_txt(self) -> None:
+        try:
+            cmd, _ = self._build_json_command()
+        except Exception as exc:
+            messagebox.showerror("Erro de configuracao", str(exc))
+            return
+        self._launch(cmd, "Gerando JSON/TXT da Fase 2...", action="json_txt")
 
     def _queue_path(self) -> Path:
         out_dir = self._resolve_path(self.output_dir_var.get().strip())
@@ -351,17 +411,32 @@ class App:
 
     def _on_finished(self, rc: int) -> None:
         self.running = False
-        self.run_btn.config(state="normal")
+        action = self.current_action or "unknown"
+        self.current_action = None
+        self.run_manual_btn.config(state="normal")
+        self.run_json_btn.config(state="normal")
         self.stop_btn.config(state="disabled")
         if rc == 0:
-            self.set_status("Concluido com sucesso.")
-            self.append_log("\n[OK] Processo finalizado.\n")
-            try:
-                self.load_queue()
-            except Exception:
-                pass
+            if action == "manual_plan":
+                self.set_status("Insumos gerados com sucesso.")
+                self.append_log("\n[OK] Geracao de manual-plan-csv concluida.\n")
+            elif action == "json_txt":
+                self.set_status("JSON/TXT gerados com sucesso.")
+                self.append_log("\n[OK] Geracao de JSON/TXT concluida.\n")
+                try:
+                    self.load_queue()
+                except Exception:
+                    pass
+            else:
+                self.set_status("Concluido com sucesso.")
+                self.append_log("\n[OK] Processo finalizado.\n")
         else:
-            self.set_status(f"Concluido com erro (exit={rc}).")
+            if action == "manual_plan":
+                self.set_status(f"Erro na geracao de insumos (exit={rc}).")
+            elif action == "json_txt":
+                self.set_status(f"Erro na geracao de JSON/TXT (exit={rc}).")
+            else:
+                self.set_status(f"Concluido com erro (exit={rc}).")
             self.append_log(f"\n[ERRO] Processo finalizado com codigo {rc}.\n")
 
     def stop(self) -> None:

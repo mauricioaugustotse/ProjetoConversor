@@ -1824,12 +1824,12 @@ def _build_openai_prompt_payload(
             "No campo o_que_ocorreu, escreva um paragrafo analitico de 2-4 frases com contexto, prova e desfecho.",
             "No campo consequencias, descreva efeitos juridicos e praticos em linguagem corrida, sem repeticao literal.",
             "Campos centrais por item: o_que_ocorreu e consequencias.",
-            "No JSON final, inclua tambem analise_estrategica, partes, partidos, advogados_famosos, cidade_uf, processo_cnj, eleicao_ano, alegacoes, fundamentos e resultado.",
+            "No JSON final, inclua tambem analise_estrategica, partes, partidos, advogados_famosos, cidade_uf, processo_cnj, eleicao_ano e fundamentos.",
             "Considere links_referencia para preservar rastreabilidade da base.",
             "Nao inventar dados; quando faltar evidencia para um campo complementar, retorne string vazia nesse campo.",
             "Nunca escreva placeholders de ausencia de dados.",
             "Priorize cidade_uf quando houver evidencia no caso.",
-            "Evite repeticao literal entre o_que_ocorreu, consequencias e resultado.",
+            "Evite repeticao literal entre o_que_ocorreu e consequencias.",
             "Quando possivel, forneca analise_estrategica curta (1-2 frases) com impacto pratico para o analista.",
             "Usar frases diretas, voz ativa, sem redundancia.",
         ],
@@ -1848,9 +1848,7 @@ def _build_openai_prompt_payload(
                     "cidade_uf": "cidade/UF",
                     "processo_cnj": "numero CNJ",
                     "eleicao_ano": "ano da eleicao",
-                    "alegacoes": "alegacoes das partes",
                     "fundamentos": "fundamentos juridicos",
-                    "resultado": "resultado do julgamento",
                 }
             ]
         },
@@ -2229,8 +2227,6 @@ def _render_standardized_block_text(
 
     # Ordem fixa solicitada pelo usuario.
     _append_detail("Consequências", consequencias, label_bold=True)
-    _append_detail("Alegações suscitadas", alegacoes, label_bold=True)
-    _append_detail("Resultado do julgamento", resultado, label_bold=True)
     _append_detail("Partidos políticos envolvidos", partidos, party=True)
     _append_detail("Ano da eleição", eleicao, value_bold=True)
     _append_detail("Partes envolvidas", partes, value_bold=True)
@@ -2419,9 +2415,7 @@ def improve_text_blocks_with_openai(
                         "cidade_uf": {"type": "string"},
                         "processo_cnj": {"type": "string"},
                         "eleicao_ano": {"type": "string"},
-                        "alegacoes": {"type": "string"},
                         "fundamentos": {"type": "string"},
-                        "resultado": {"type": "string"},
                     },
                     "required": [
                         "index",
@@ -2434,9 +2428,7 @@ def improve_text_blocks_with_openai(
                         "cidade_uf",
                         "processo_cnj",
                         "eleicao_ano",
-                        "alegacoes",
                         "fundamentos",
-                        "resultado",
                     ],
                 },
             }
@@ -2671,9 +2663,7 @@ def improve_text_blocks_with_openai(
                     "cidade_uf",
                     "processo_cnj",
                     "eleicao_ano",
-                    "alegacoes",
                     "fundamentos",
-                    "resultado",
                 )
             )
             if has_structured:
