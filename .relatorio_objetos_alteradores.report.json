@@ -1,43 +1,43 @@
 {
-  "started_at": "2026-03-02T23:34:52.955264+00:00",
-  "finished_at": "2026-03-02T23:35:18.960098+00:00",
+  "started_at": "2026-03-03T21:48:48.962273+00:00",
+  "finished_at": "2026-03-03T21:49:20.698852+00:00",
   "status": "completed",
   "model_primary": "gpt-5.1",
   "model_fallback": "gpt-5-mini",
   "input_files": [
-    "C:\\Users\\mauri\\ProjetoConversor\\DTQ-1-=_-PL-10556-2018.pdf",
-    "C:\\Users\\mauri\\ProjetoConversor\\inteiroTeor-1675731.pdf",
-    "C:\\Users\\mauri\\ProjetoConversor\\inteiroTeor-3089230.pdf"
+    "C:\\Users\\mauri\\ProjetoConversor\\DESTAQUES E EMENDAS\\DTQ-1-=_-PL-3879-2024.pdf",
+    "C:\\Users\\mauri\\ProjetoConversor\\DESTAQUES E EMENDAS\\Tramitacao-PL-3879-2024.pdf"
   ],
-  "parecer_file": "C:\\Users\\mauri\\ProjetoConversor\\inteiroTeor-3089230.pdf",
-  "inteiro_teor_file": "C:\\Users\\mauri\\ProjetoConversor\\inteiroTeor-1675731.pdf",
-  "output_docx": "C:\\Users\\mauri\\ProjetoConversor\\relatorio_objetos_alteradores_20260302_2035.docx",
-  "checkpoint_file": "C:\\Users\\mauri\\ProjetoConversor\\.relatorio_objetos_alteradores.openai.checkpoint.json",
+  "parecer_file": "C:\\Users\\mauri\\ProjetoConversor\\DESTAQUES E EMENDAS\\Tramitacao-PL-3879-2024.pdf",
+  "inteiro_teor_file": "",
+  "output_docx": "C:\\Users\\mauri\\OneDrive\\Documentos\\CONLE\\SESSÕES PLENÁRIAS\\DESTAQUES E EMENDAS\\relatorio_objetos_alteradores_20260303_1849.docx",
+  "checkpoint_file": "C:\\Users\\mauri\\OneDrive\\Documentos\\CONLE\\SESSÕES PLENÁRIAS\\DESTAQUES E EMENDAS\\.relatorio_objetos_alteradores.openai.checkpoint.json",
   "total_targets": 1,
   "success_count": 1,
   "failure_count": 0,
   "resumed_from_checkpoint": false,
   "items": [
     {
-      "file_path": "C:\\Users\\mauri\\ProjetoConversor\\DTQ-1-=_-PL-10556-2018.pdf",
-      "file_name": "DTQ-1-=_-PL-10556-2018.pdf",
+      "file_path": "C:\\Users\\mauri\\ProjetoConversor\\DESTAQUES E EMENDAS\\DTQ-1-=_-PL-3879-2024.pdf",
+      "file_name": "DTQ-1-=_-PL-3879-2024.pdf",
       "objeto_alterador": "DTQ-1",
       "tipo_objeto": "DTQ",
       "numero_objeto": 1,
-      "paragrafo_1": "PL 10556/2018 - DTQ 1 - Destaca para votação em separado o art. 6º do substitutivo, com a finalidade expressa de rejeitar esse dispositivo. No substitutivo, o art. 6º é o dispositivo que trata das sanções e providências aplicáveis em caso de infração às regras de uso das denominações “leite”, “produtos lácteos”, “carne” e similares, normalmente remetendo ao Código de Defesa do Consumidor e à legislação sanitária, definindo penalidades administrativas como advertência, multa, apreensão de produtos, suspensão de fornecimento ou de publicidade e outras medidas de fiscalização.",
-      "paragrafo_2": "Se o DVS for aprovado, o art. 6º será excluído do texto final, de modo que permanecem as definições e restrições de uso das denominações protegidas, mas sem o dispositivo específico que detalha as sanções administrativas, prevalecendo apenas a aplicação genérica das normas já existentes no CDC e na legislação sanitária. Se o DVS for rejeitado, o art. 6º é mantido, de forma que o projeto passa a prever expressamente o rol de sanções e o enquadramento das infrações às regras de rotulagem e publicidade de produtos similares a lácteos e carnes, reforçando a atuação fiscalizatória dos órgãos competentes.",
+      "paragrafo_1": "PL 3879/2024 - DTQ 1 - Recai sobre o texto do Substitutivo do relator, pedindo destaque para votação em separado do art. 1º, que hoje estabelece o reajuste dos vencimentos básicos dos cargos efetivos, em comissão e das funções comissionadas do MPU e do CNMP, em três parcelas sucessivas de 8% (em 1º/7/2026, 1º/7/2027 e 1º/7/2028), além de determinar que, a partir de 1º/7/2026, os Anexos III a VI da Lei nº 13.316/2016 passem a vigorar com a redação dos novos anexos da própria lei. O DVS propõe a supressão integral desse artigo do Substitutivo, retirando do texto-base tanto os reajustes escalonados quanto a atualização correlata das tabelas remuneratórias anexas.",
+      "paragrafo_2": "Se o destaque for aprovado em Plenário, o art. 1º do Substitutivo será destacado para deliberação específica, e somente a votação separada desse dispositivo definirá se o reajuste em três parcelas de 8% e a substituição dos Anexos III a VI da Lei nº 13.316/2016 serão mantidos ou excluídos do projeto. Se o destaque for rejeitado, o art. 1º permanece incluído na votação conjunta do texto-base do Substitutivo, seguindo intacto com a disciplina dos reajustes e da alteração dos anexos remuneratórios da lei de regência do MPU e do CNMP.",
       "model_used": "gpt-5.1",
       "status": "ok",
       "used_chunk_fallback": false,
-      "error": ""
+      "error": "",
+      "pl_referencia": "PL 3879/2024",
+      "destaque_objeto": "DTQ 1",
+      "objeto_legislativo": "DVS - objeto legislativo nao identificado"
     }
   ],
   "errors": [],
   "notes": [
-    "inteiro_teor_insumo: inteiroTeor-1675731.pdf",
     "config: workers=8 batch=20 rpm=480 delay=0.0s integral_retries=1 chunk_fallback=True",
     "style_guard: filtros de estruturas dispensaveis e marcadores editoriais ativados",
-    "Modelo usado no resumo do parecer: gpt-5.1",
-    "Modelo usado no resumo do inteiro teor: gpt-5.1"
+    "Modelo usado no resumo do parecer: gpt-5.1"
   ]
 }
