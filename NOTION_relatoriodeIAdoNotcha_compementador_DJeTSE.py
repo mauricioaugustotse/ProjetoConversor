@@ -3,7 +3,7 @@
 Agente IA para atualizar relatorios no Notion com GUI simples.
 
 Fluxo:
-1. Resolve URL da pagina alvo via CLI/GUI/input.
+1. Sempre abre uma GUI para confirmar a URL da pagina alvo.
 2. Le blocos da pagina no Notion e identifica blocos textuais.
 3. Monta contexto usando links Notion do proprio relatorio e fallback via data source.
 4. Reescreve blocos textuais com OpenAI (gpt-5.1), incluindo destaque de partidos.
@@ -14,6 +14,7 @@ Fluxo:
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 import json
 import logging
 import os
@@ -38,7 +39,7 @@ except Exception:
     pass
 
 from openai_log_utils import configure_standard_logging, install_print_logger_bridge
-from openai_progress_utils import utc_now_iso, write_json_atomic
+from openai_progress_utils import read_json_dict, utc_now_iso, write_json_atomic
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -46,7 +47,7 @@ SCRIPT_FILE = Path(__file__).name
 SCRIPT_STEM = Path(__file__).stem
 REPORT_FILE = SCRIPT_DIR / f".{SCRIPT_STEM}.report.json"
 DEFAULT_SOURCE_DATABASE_URL = (
-    "https://www.notion.so/301721955c6480afaa2eedbdc7cd2aba?v=301721955c6481eb9d07000cfb23cbe5"
+    "https://www.notion.so/317721955c6480d3b642cc296d6074c7"
 )
 
 NOTION_BASE_URL = "https://api.notion.com"
@@ -71,6 +72,10 @@ PROC_SHORT_RE = re.compile(r"\b\d{6,7}-\d{2}\b")
 YEAR_RE = re.compile(r"\b(19\d{2}|20\d{2})\b")
 URL_RE = re.compile(r"https?://[^\s)>\"]+")
 CITY_UF_RE = re.compile(r"\b([A-Z][A-Za-zÀ-ÿ' .-]{2,})\s*/\s*([A-Z]{2})\b")
+PARTY_FULL_NAME_RE = re.compile(
+    r"\b((?:PARTIDO\s+)?[A-ZÀ-ÖØ-Ý][A-Za-zÀ-ÖØ-öø-ÿ' .-]{2,}?)\s*\(([A-Z]{2,20})\)\s*(?:-\s*(NACIONAL|ESTADUAL|MUNICIPAL))?",
+    flags=re.IGNORECASE,
+)
 
 PARTY_ABBREVIATIONS = {
     "AGIR",
@@ -88,6 +93,7 @@ PARTY_ABBREVIATIONS = {
     "PP",
     "PRD",
     "PRTB",
+    "PROS",
     "PSB",
     "PSD",
     "PSDB",
@@ -116,6 +122,7 @@ PARTY_UF_RE = re.compile(
     + r"/[A-Z]{2})\b",
     flags=re.IGNORECASE,
 )
+GENERIC_PARTY_SCOPED_RE = re.compile(r"\b([A-Z]{2,20}/(?:[A-Z]{2}|Nacional))\b")
 
 ADV_BLOCK_RE = re.compile(r"(?is)\badvogad(?:o|a|os|as)\s*:\s*(.*?)(?=(?:\n\n|\r\n\r\n|$))")
 ADV_OAB_RE = re.compile(
@@ -135,6 +142,12 @@ DEFAULT_OPENAI_BATCH_SIZE = 10
 DEFAULT_OPENAI_TARGET_RPM = 180
 DEFAULT_OPENAI_MAX_WORKERS = 2
 DEFAULT_NOTION_MIN_INTERVAL_S = 0.25
+MAX_NOTION_APPEND_CHILDREN = 100
+AUTO_TABLE_MARKER_PREFIX = "[[AUTO_CASES::"
+AUTO_LAWYERS_MARKER = "[[AUTO_ADVOGADOS]]"
+AUTO_MARKER_PREFIXES = (AUTO_TABLE_MARKER_PREFIX, AUTO_LAWYERS_MARKER)
+LAWYER_FREQ_MIN_CASES = 2
+LAWYER_FREQ_MAX_ITEMS = 25
 
 
 LOGGER = logging.getLogger(SCRIPT_STEM)
@@ -218,6 +231,24 @@ class BlockPatchPlan:
     original_text: str
     improved_text: str
     rich_text_payload: List[Dict[str, Any]]
+
+
+@dataclass
+class TableCompanionTarget:
+    table_id: str
+    parent_id: str
+    source_linked_page_ids: List[str]
+    row_text_by_page_id: Dict[str, str]
+    marker: str
+
+
+@dataclass
+class TableCompanionPlan:
+    table_id: str
+    parent_id: str
+    marker: str
+    title: str
+    process_texts: List[str]
 
 
 class RequestPacer:
@@ -746,8 +777,69 @@ def _block_rich_text(block: Dict[str, Any]) -> List[Dict[str, Any]]:
     return []
 
 
+def _table_row_rich_text(block: Dict[str, Any]) -> List[Dict[str, Any]]:
+    if str(block.get("type", "") or "") != "table_row":
+        return []
+    body = block.get("table_row")
+    if not isinstance(body, dict):
+        return []
+    cells = body.get("cells")
+    if not isinstance(cells, list):
+        return []
+    out: List[Dict[str, Any]] = []
+    for cell in cells:
+        if not isinstance(cell, list):
+            continue
+        for item in cell:
+            if isinstance(item, dict):
+                out.append(item)
+    return out
+
+
+def _iter_block_rich_text_items(block: Dict[str, Any]) -> List[Dict[str, Any]]:
+    items = _block_rich_text(block)
+    if items:
+        return items
+    return _table_row_rich_text(block)
+
+
 def _block_plain_text(block: Dict[str, Any]) -> str:
     return _rich_text_plain_text(_block_rich_text(block))
+
+
+def _table_row_plain_text(block: Dict[str, Any]) -> str:
+    if str(block.get("type", "") or "") != "table_row":
+        return ""
+    body = block.get("table_row")
+    if not isinstance(body, dict):
+        return ""
+    cells = body.get("cells")
+    if not isinstance(cells, list):
+        return ""
+    cell_texts: List[str] = []
+    for cell in cells:
+        text = _rich_text_plain_text(cell if isinstance(cell, list) else [])
+        if text:
+            cell_texts.append(text)
+    return " | ".join(cell_texts).strip()
+
+
+def _block_plain_text_any(block: Dict[str, Any]) -> str:
+    text = _block_plain_text(block)
+    if text:
+        return text
+    return _table_row_plain_text(block)
+
+
+def _contains_auto_marker(text: Any) -> bool:
+    value = str(text or "")
+    if not value:
+        return False
+    return any(marker in value for marker in AUTO_MARKER_PREFIXES)
+
+
+def _block_contains_auto_marker(block: Dict[str, Any]) -> bool:
+    return _contains_auto_marker(_block_plain_text_any(block))
 
 
 def retrieve_all_block_children_recursive(block_id: str) -> List[Dict[str, Any]]:
@@ -800,6 +892,44 @@ def extract_textual_blocks(page_blocks: List[Dict[str, Any]]) -> List[Dict[str, 
             }
         )
     return out
+
+
+def _collect_auto_root_block_ids(page_blocks: Sequence[Dict[str, Any]]) -> set[str]:
+    out: set[str] = set()
+    for block in page_blocks:
+        block_id = _normalize_ws(block.get("id", ""))
+        if not block_id:
+            continue
+        if _block_contains_auto_marker(block):
+            out.add(block_id)
+    return out
+
+
+def _block_has_ancestor(block: Dict[str, Any], ancestor_ids: set[str]) -> bool:
+    parent_id = _normalize_ws(block.get("_parent_id", ""))
+    visited: set[str] = set()
+    while parent_id and parent_id not in visited:
+        if parent_id in ancestor_ids:
+            return True
+        visited.add(parent_id)
+        parent = BLOCK_INDEX.get(parent_id)
+        if not isinstance(parent, dict):
+            break
+        parent_id = _normalize_ws(parent.get("_parent_id", ""))
+    return False
+
+
+def _collect_ignored_block_ids(page_blocks: Sequence[Dict[str, Any]], auto_root_ids: set[str]) -> set[str]:
+    ignored = set(auto_root_ids)
+    if not auto_root_ids:
+        return ignored
+    for block in page_blocks:
+        block_id = _normalize_ws(block.get("id", ""))
+        if not block_id or block_id in ignored:
+            continue
+        if _block_has_ancestor(block, auto_root_ids):
+            ignored.add(block_id)
+    return ignored
 
 
 def _extract_notion_ids_from_text(text: str) -> List[str]:
@@ -896,7 +1026,7 @@ def _extract_notion_page_ids_from_block(block: Dict[str, Any]) -> List[str]:
                 except Exception:
                     pass
 
-    rich_text = _block_rich_text(block)
+    rich_text = _iter_block_rich_text_items(block)
     for item in rich_text:
         href = item.get("href")
         if isinstance(href, str) and "notion.so" in href.lower():
@@ -959,7 +1089,7 @@ def _extract_notion_urls_from_block(block: Dict[str, Any]) -> List[str]:
                 except Exception:
                     pass
 
-    rich_text = _block_rich_text(block)
+    rich_text = _iter_block_rich_text_items(block)
     for item in rich_text:
         href = item.get("href")
         if isinstance(href, str):
@@ -1099,6 +1229,108 @@ def select_target_text_blocks_by_source_links(
         stats["source_linked_pages"],
     )
     return target_blocks, source_linked_page_ids, stats
+
+
+def select_table_companion_targets_by_source_links(
+    page_blocks: Sequence[Dict[str, Any]],
+    *,
+    source_database_id: str,
+    source_data_source_id: str,
+    ignored_block_ids: Optional[set[str]] = None,
+) -> tuple[List[TableCompanionTarget], List[str], Dict[str, int]]:
+    ignored_ids = ignored_block_ids or set()
+    parent_cache: Dict[str, bool] = {}
+    source_linked_page_ids: List[str] = []
+    seen_global_page_ids: set[str] = set()
+    target_order: List[str] = []
+    target_map: Dict[str, TableCompanionTarget] = {}
+    table_rows_with_any_notion_link = 0
+
+    table_rows = [
+        block
+        for block in page_blocks
+        if str(block.get("type", "") or "") == "table_row"
+        and _normalize_ws(block.get("id", "")) not in ignored_ids
+    ]
+    total = len(table_rows)
+    LOGGER.info(
+        "[Filtro-tabela] Validando linhas de tabela com links explicitos para a base fonte... total=%d",
+        total,
+    )
+
+    for idx, block in enumerate(table_rows, start=1):
+        linked_page_ids = _extract_notion_page_ids_from_block(block)
+        if not linked_page_ids:
+            continue
+        table_rows_with_any_notion_link += 1
+
+        matched_ids: List[str] = []
+        for linked_page_id in linked_page_ids:
+            if _page_parent_matches_source(
+                linked_page_id,
+                source_database_id=source_database_id,
+                source_data_source_id=source_data_source_id,
+                cache=parent_cache,
+            ):
+                matched_ids.append(linked_page_id)
+        if not matched_ids:
+            continue
+
+        table_id = _normalize_ws(block.get("_parent_id", ""))
+        table_block = BLOCK_INDEX.get(table_id)
+        if not table_id or not isinstance(table_block, dict):
+            continue
+        if str(table_block.get("type", "") or "") != "table":
+            continue
+        parent_id = _normalize_ws(table_block.get("_parent_id", ""))
+        if not parent_id:
+            continue
+
+        row_text = _table_row_plain_text(block)
+        if table_id not in target_map:
+            target_map[table_id] = TableCompanionTarget(
+                table_id=table_id,
+                parent_id=parent_id,
+                source_linked_page_ids=[],
+                row_text_by_page_id={},
+                marker=f"{AUTO_TABLE_MARKER_PREFIX}{table_id}]]",
+            )
+            target_order.append(table_id)
+        target = target_map[table_id]
+
+        for matched_id in matched_ids:
+            if matched_id not in target.row_text_by_page_id:
+                target.source_linked_page_ids.append(matched_id)
+                target.row_text_by_page_id[matched_id] = row_text
+            if matched_id not in seen_global_page_ids:
+                seen_global_page_ids.add(matched_id)
+                source_linked_page_ids.append(matched_id)
+
+        if idx % 40 == 0 or idx == total:
+            LOGGER.info(
+                "[Filtro-tabela] progresso %d/%d | linhas_com_link=%d | tabelas_alvo=%d",
+                idx,
+                total,
+                table_rows_with_any_notion_link,
+                len(target_order),
+            )
+
+    targets = [target_map[table_id] for table_id in target_order]
+    stats = {
+        "table_rows_total": total,
+        "table_rows_with_any_notion_link": table_rows_with_any_notion_link,
+        "tables_targeted": len(targets),
+        "table_companion_cases": sum(len(item.source_linked_page_ids) for item in targets),
+    }
+    LOGGER.info(
+        "[Filtro-tabela] concluido | linhas=%d | linhas_com_link=%d | tabelas_alvo=%d | casos=%d | paginas_fonte=%d",
+        stats["table_rows_total"],
+        stats["table_rows_with_any_notion_link"],
+        stats["tables_targeted"],
+        stats["table_companion_cases"],
+        len(source_linked_page_ids),
+    )
+    return targets, source_linked_page_ids, stats
 
 
 def retrieve_database_and_datasource_id(database_id: str) -> str:
@@ -1312,18 +1544,84 @@ def _extract_city_uf(text: str) -> str:
     return f"{city}/{uf}"
 
 
-def _extract_partidos(text: str) -> str:
+def _looks_national_party_context(text: str) -> bool:
+    low = _normalize_lower(text)
+    if not low:
+        return False
+    return bool(
+        re.search(
+            r"\((?:[a-z]{2,20})\)\s*-\s*nacional|"
+            r"\bdiret[oó]rio\s+nacional\b|"
+            r"\bexecutiva\s+nacional\b|"
+            r"\bcomiss[aã]o\s+provis[oó]ria\s+nacional\b|"
+            r"\bpartido\b.{0,40}\bnacional\b",
+            low,
+        )
+    )
+
+
+def _format_party_token(token: str, *, sigla_uf: str = "", is_national: bool = False) -> str:
+    clean = _normalize_ws(token).upper()
+    if not clean:
+        return ""
+    if "/" in clean:
+        return clean
+    if is_national:
+        return f"{clean}/Nacional"
+    uf = _normalize_ws(sigla_uf).upper()
+    if re.fullmatch(r"[A-Z]{2}", uf or ""):
+        return f"{clean}/{uf}"
+    return clean
+
+
+def _extract_partidos(text: str, sigla_uf: str = "") -> str:
+    is_national = _looks_national_party_context(text)
     out: List[str] = []
     for match in PARTY_UF_RE.finditer(text or ""):
         token = _normalize_ws(match.group(1)).upper()
         base = token.split("/", 1)[0]
         if base in PARTY_ABBREVIATIONS:
             out.append(token)
+    for match in PARTY_FULL_NAME_RE.finditer(text or ""):
+        full_name = _normalize_ws(match.group(1))
+        sigla = _normalize_ws(match.group(2)).upper()
+        scope = _normalize_ws(match.group(3)).upper()
+        full_name_low = _normalize_lower(full_name)
+        looks_like_party_name = (
+            sigla in PARTY_ABBREVIATIONS
+            or "partido" in full_name_low
+            or "coliga" in full_name_low
+            or "diret" in full_name_low
+            or "federa" in full_name_low
+            or "comiss" in full_name_low
+            or "executiva" in full_name_low
+        )
+        if not looks_like_party_name:
+            continue
+        out.append(
+            _format_party_token(
+                sigla,
+                sigla_uf=sigla_uf,
+                is_national=(scope == "NACIONAL") or is_national,
+            )
+        )
     for match in PARTY_TOKEN_RE.finditer(text or ""):
         token = _normalize_ws(match.group(0)).upper()
         if token:
-            out.append(token)
-    return _safe_join(out)
+            out.append(_format_party_token(token, sigla_uf=sigla_uf, is_national=is_national))
+
+    deduped = _safe_join(out).split(", ") if out else []
+    scoped_bases = {
+        token.split("/", 1)[0].casefold()
+        for token in deduped
+        if "/" in token
+    }
+    filtered = [
+        token
+        for token in deduped
+        if "/" in token or token.casefold() not in scoped_bases
+    ]
+    return _safe_join(filtered)
 
 
 def _extract_advogados(text: str) -> str:
@@ -1458,6 +1756,14 @@ def _build_context_from_page(page_obj: Dict[str, Any], page_text: str, source_ur
         prop_map,
         aliases=["textoDecisao", "texto decisao", "inteiro teor", "texto da decisao"],
     )
+    analysis_text = "\n".join(
+        [
+            _normalize_multiline_ws(punchline),
+            _normalize_multiline_ws(texto_decisao),
+            _normalize_multiline_ws(page_text),
+            full_text,
+        ]
+    ).strip()
 
     sigla_uf_clean = _normalize_ws(sigla_uf).upper()
     if not re.fullmatch(r"[A-Z]{2}", sigla_uf_clean or ""):
@@ -1480,23 +1786,23 @@ def _build_context_from_page(page_obj: Dict[str, Any], page_text: str, source_ur
         tema=tema,
         eleicao_ano=_extract_election_year(full_text),
         cidade_uf=cidade_uf,
-        partes=_best_partes(prop_map, full_text),
+        partes=_best_partes(prop_map, analysis_text or full_text),
         punchline=punchline,
         texto_decisao=texto_decisao,
-        partidos=_extract_partidos(full_text),
+        partidos=_extract_partidos(full_text, sigla_uf=sigla_uf_clean),
         alegacoes=_pick_sentences(
-            full_text,
+            analysis_text or full_text,
             keywords=["alega", "sustenta", "argumenta", "afirma", "defende", "tese"],
             max_items=3,
         ),
         advogados=advogados_coluna or _extract_advogados(full_text),
         fundamentos=_pick_sentences(
-            full_text,
+            analysis_text or full_text,
             keywords=["fundamento", "art.", "lei", "resolucao", "resolução", "sumula", "súmula"],
             max_items=3,
         ),
         resultado=_pick_sentences(
-            full_text,
+            analysis_text or full_text,
             keywords=[
                 "resultado",
                 "julg",
@@ -1758,6 +2064,7 @@ def _ensure_party_markdown_bold(text: str) -> str:
         if piece.startswith("**") and piece.endswith("**") and len(piece) >= 4:
             out.append(piece)
             continue
+        piece = GENERIC_PARTY_SCOPED_RE.sub(lambda m: f"**{m.group(1)}**", piece)
         piece = PARTY_UF_RE.sub(lambda m: f"**{m.group(1)}**", piece)
         subparts = re.split(r"(\*\*.+?\*\*)", piece, flags=re.DOTALL)
         rebuilt: List[str] = []
@@ -1783,6 +2090,7 @@ def _build_openai_prompt_payload(
     scoped_context_limit = 2 if compact else 4
     for idx, block in enumerate(block_batch):
         block_type = str(block.get("type", "") or "")
+        item_kind = _normalize_ws(block.get("item_kind", "")) or "patch_text_block"
         if compact:
             max_len = 120 if block_type.startswith("heading_") else 900
         else:
@@ -1800,7 +2108,9 @@ def _build_openai_prompt_payload(
         blocks_payload.append(
             {
                 "index": idx,
+                "item_kind": item_kind,
                 "block_type": block_type,
+                "headline_semente": _truncate_text(str(block.get("headline_seed", "")), 220),
                 "texto_original": _truncate_text(str(block.get("text", "")), max_len),
                 "links_referencia": refs,
                 "contexto_casos_bloco": _context_for_prompt(scoped_contexts),
@@ -1810,27 +2120,29 @@ def _build_openai_prompt_payload(
     return {
         "objetivo": (
             "Melhorar textos de relatorio juridico eleitoral no Notion. "
-            "Reescrever apenas os blocos abaixo, sem inventar fatos."
+            "Reescrever apenas os itens abaixo, sem inventar fatos e mantendo rastreabilidade para a base Notion."
         ),
         "regras_obrigatorias": [
             "Retorne um item por bloco com os campos padronizados exigidos.",
             "Use somente o contexto_casos_bloco do item correspondente ao mesmo index.",
             "Nao use contexto de um bloco para escrever outro bloco.",
             "Se contexto_casos_bloco vier vazio, reescreva com cautela usando apenas texto_original e links_referencia.",
-            "Priorize os campos estruturados do contexto_casos_bloco quando presentes (numero_unico, data_decisao, sigla_classe, nome_municipio, sigla_uf, relator, partes, advogados, punchline, texto_decisao, tema).",
-            "Sempre esclarecer o que ocorreu no caso (campo o_que_ocorreu).",
-            "Sempre preencher consequencias com o impacto/desdobramento efetivo do caso.",
-            "Evite estilo telegrafado; escreva com fluidez, conectivos e frases completas.",
-            "No campo o_que_ocorreu, escreva um paragrafo analitico de 2-4 frases com contexto, prova e desfecho.",
-            "No campo consequencias, descreva efeitos juridicos e praticos em linguagem corrida, sem repeticao literal.",
-            "Campos centrais por item: o_que_ocorreu e consequencias.",
-            "No JSON final, inclua tambem analise_estrategica, partes, partidos, advogados_famosos, cidade_uf, processo_cnj, eleicao_ano e fundamentos.",
-            "Considere links_referencia para preservar rastreabilidade da base.",
+            "Priorize os campos estruturados do contexto_casos_bloco quando presentes (numero_unico, data_decisao, sigla_classe, nome_municipio, sigla_uf, relator, partes, advogados, punchline, texto_decisao, tema, partidos, fundamentos, resultado).",
+            "Para item_kind=table_companion, trate a unidade de analise como um processo judicial e use o contexto estruturado como fonte principal dos fatos.",
+            "Para item_kind=patch_text_block, reescreva o proprio bloco preservando o foco tematico da secao onde ele esta inserido.",
+            "Preencha obrigatoriamente headline, o_que_ocorreu, fundamentos_juridicos e consequencia_aplicada.",
+            "No campo o_que_ocorreu, explique com 2-4 frases o contexto do processo, o que foi discutido, os fundamentos mais relevantes e o desfecho aplicado.",
+            "No campo fundamentos_juridicos, resuma a ratio decidendi e as teses normativas/jurisprudenciais invocadas.",
+            "No campo consequencia_aplicada, descreva o efeito juridico e pratico concreto da decisao.",
+            "No campo impacto_2026, escreva somente quando houver lastro suficiente na propria base; caso contrario, retorne string vazia.",
+            "No campo partidos, normalize em sigla/UF quando houver siglaUF do caso e o contexto nao for nacional; quando o proprio caso for nacional, normalize em sigla/Nacional.",
+            "Sempre negrite partidos no texto final sera responsabilidade do renderer, mas o campo partidos deve vir limpo e consistente.",
+            "Use advogados_relevantes priorizando os nomes estruturados do contexto; nao invente notoriedade externa.",
             "Nao inventar dados; quando faltar evidencia para um campo complementar, retorne string vazia nesse campo.",
             "Nunca escreva placeholders de ausencia de dados.",
-            "Priorize cidade_uf quando houver evidencia no caso.",
-            "Evite repeticao literal entre o_que_ocorreu e consequencias.",
-            "Quando possivel, forneca analise_estrategica curta (1-2 frases) com impacto pratico para o analista.",
+            "Considere links_referencia para preservar rastreabilidade da base.",
+            "Priorize cidade_uf e processo_cnj quando houver evidencia no caso.",
+            "Evite repeticao literal entre o_que_ocorreu, fundamentos_juridicos e consequencia_aplicada.",
             "Usar frases diretas, voz ativa, sem redundancia.",
         ],
         "contexto_casos": [],
@@ -1839,16 +2151,16 @@ def _build_openai_prompt_payload(
             "items": [
                 {
                     "index": 0,
-                    "o_que_ocorreu": "descricao objetiva do caso",
-                    "consequencias": "efeitos concretos da decisao",
-                    "analise_estrategica": "implicacao pratica para o analista",
-                    "partes": "nomes das partes",
+                    "headline": "titulo curto do caso",
+                    "o_que_ocorreu": "descricao analitica do caso",
+                    "fundamentos_juridicos": "fundamentos centrais",
+                    "consequencia_aplicada": "efeitos concretos da decisao",
+                    "impacto_2026": "impacto para o pleito de 2026, se houver base",
+                    "partes_relevantes": "nomes das partes relevantes",
                     "partidos": "partidos envolvidos",
-                    "advogados_famosos": "advogados relevantes",
+                    "advogados_relevantes": "advogados relevantes",
                     "cidade_uf": "cidade/UF",
                     "processo_cnj": "numero CNJ",
-                    "eleicao_ano": "ano da eleicao",
-                    "fundamentos": "fundamentos juridicos",
                 }
             ]
         },
@@ -1968,6 +2280,8 @@ def _strip_reference_lines(text: Any) -> str:
         for line in lines
         if not line.casefold().startswith("referencias notion:")
         and not line.casefold().startswith("referências notion:")
+        and not line.casefold().startswith("referência notion:")
+        and not line.casefold().startswith("referencia notion:")
         and not line.casefold().startswith("referencias:")
         and not line.casefold().startswith("referências:")
     ]
@@ -1976,18 +2290,17 @@ def _strip_reference_lines(text: Any) -> str:
 
 KNOWN_OUTPUT_LABEL_RE = re.compile(
     r"(?i)^(?:-\s*)?(?:\*\*)?(?:"
+    r"caso|"
     r"o\s+que\s+ocorreu|"
-    r"consequ[eê]ncias?|"
-    r"partes\s+envolvidas|"
-    r"partidos\s+pol[ií]ticos\s+envolvidos|"
-    r"advogados\s+em\s+destaque\s+no\s+direito\s+eleitoral|"
-    r"cidade/uf(?:\s+de\s+origem)?|"
-    r"processo\s+\(cnj\)|"
-    r"an[oa]\s+da\s+elei[cç][aã]o|"
-    r"alega[cç][oõ]es\s+suscitadas|"
     r"fundamentos\s+jur[ií]dicos|"
-    r"resultado\s+do\s+julgamento|"
-    r"refer[eê]ncias(?:\s+notion)?"
+    r"consequ[eê]ncia\s+aplicada|"
+    r"impacto\s+para\s+2026|"
+    r"partes\s+relevantes|"
+    r"partidos\s+envolvidos|"
+    r"advogados\s+relevantes|"
+    r"cidade/uf|"
+    r"processo\s+\(cnj\)|"
+    r"refer[eê]ncia(?:s)?\s+(?:notion)?"
     r")(?:\*\*)?\s*:\s*"
 )
 
@@ -2124,29 +2437,20 @@ def _ensure_sentence_end(text: Any) -> str:
     return f"{out}."
 
 
-def _resolve_output_origin(cidade_uf: str, original_text: str) -> str:
-    origem = _normalize_structured_value(cidade_uf)
-    if not origem:
-        origem = _extract_city_uf(original_text)
-    if not origem:
-        origem = "Origem do caso"
-    return origem
+def _infer_impact_2026(text: str) -> str:
+    cleaned = _normalize_ws(text)
+    if "2026" not in cleaned:
+        return ""
+    picked = _pick_sentences(cleaned, keywords=["2026"], max_items=2)
+    return picked
 
 
-def _compose_primary_narrative(
-    o_que_ocorreu: str,
-    analise_estrategica: str,
-    fundamentos: str,
-    consequencias: str,
-    resultado: str,
-) -> str:
-    # Fundamentos juridicos deixam de ser linha separada e passam a integrar o paragrafo principal.
-    parts = _dedupe_non_redundant_values([o_que_ocorreu, fundamentos, analise_estrategica])
-    if not parts:
-        parts = _dedupe_non_redundant_values([o_que_ocorreu, consequencias, resultado])
-    if not parts:
-        return "Trecho sem informacao suficiente para sintese objetiva."
-    return " ".join(_ensure_sentence_end(part) for part in parts)
+def _resolve_first_non_empty(*values: Any) -> str:
+    for value in values:
+        text = _normalize_structured_value(value)
+        if text:
+            return text
+    return ""
 
 
 def _render_standardized_block_text(
@@ -2154,87 +2458,78 @@ def _render_standardized_block_text(
     reference_urls: Sequence[str],
     *,
     original_text: str = "",
+    compact: bool = False,
 ) -> str:
     cleaned_original = _strip_reference_lines(_remove_placeholder_lines(original_text))
     normalized_original_summary = _strip_known_output_labels(cleaned_original)
-    o_que_ocorreu = _normalize_structured_value(item.get("o_que_ocorreu"))
-    consequencias = _normalize_structured_value(item.get("consequencias"))
-    analise_estrategica = _normalize_structured_value(item.get("analise_estrategica"))
-
-    partes = _normalize_structured_value(item.get("partes"))
-    partidos = _normalize_structured_value(item.get("partidos"))
-    advogados = _normalize_structured_value(item.get("advogados_famosos"))
-    cidade = _normalize_structured_value(item.get("cidade_uf"))
-    processo = _normalize_structured_value(item.get("processo_cnj"))
-    eleicao = _normalize_structured_value(item.get("eleicao_ano"))
-    alegacoes = _normalize_structured_value(item.get("alegacoes"))
-    fundamentos = _normalize_structured_value(item.get("fundamentos"))
-    resultado = _normalize_structured_value(item.get("resultado"))
-
-    if not o_que_ocorreu:
-        o_que_ocorreu = normalized_original_summary
+    headline = _resolve_first_non_empty(item.get("headline"), item.get("headline_seed"))
+    o_que_ocorreu = _resolve_first_non_empty(item.get("o_que_ocorreu"), normalized_original_summary)
+    fundamentos = _resolve_first_non_empty(item.get("fundamentos_juridicos"), item.get("fundamentos"))
+    consequencia = _resolve_first_non_empty(
+        item.get("consequencia_aplicada"),
+        item.get("consequencias"),
+    )
+    impacto_2026 = _resolve_first_non_empty(item.get("impacto_2026"))
+    partes = _resolve_first_non_empty(item.get("partes_relevantes"), item.get("partes"))
+    partidos = _resolve_first_non_empty(item.get("partidos"))
+    advogados = _resolve_first_non_empty(item.get("advogados_relevantes"), item.get("advogados_famosos"))
+    processo = _resolve_first_non_empty(item.get("processo_cnj"))
     if not o_que_ocorreu:
         o_que_ocorreu = "Trecho sem informacao suficiente para sintese objetiva."
-    if not consequencias:
+    if not consequencia:
         consequence_source = ". ".join(
-            [part for part in [resultado, fundamentos, o_que_ocorreu, normalized_original_summary] if part]
+            [
+                part
+                for part in [
+                    item.get("resultado"),
+                    fundamentos,
+                    item.get("punchline"),
+                    o_que_ocorreu,
+                    normalized_original_summary,
+                ]
+                if _normalize_structured_value(part)
+            ]
         )
-        consequencias = _infer_consequencias(consequence_source)
-    if not consequencias:
-        consequencias = "Sem desfecho explicito no trecho; recomenda-se monitoramento do andamento processual."
+        consequencia = _infer_consequencias(consequence_source)
+    if not impacto_2026:
+        impacto_2026 = _infer_impact_2026(
+            ". ".join(
+                part
+                for part in [
+                    item.get("impacto_2026"),
+                    item.get("tema"),
+                    item.get("punchline"),
+                    item.get("texto_decisao"),
+                    cleaned_original,
+                ]
+                if _normalize_structured_value(part)
+            )
+        )
 
-    origem = _resolve_output_origin(cidade, cleaned_original)
-    primary_narrative = _compose_primary_narrative(
-        o_que_ocorreu,
-        analise_estrategica,
-        fundamentos,
-        consequencias,
-        resultado,
-    )
-    lines: List[str] = [f"**{origem}**: {primary_narrative}"]
-
-    seen_detail_keys: set[str] = set()
-
-    def _append_detail(
-        label: str,
-        value: str,
-        *,
-        label_bold: bool = False,
-        value_bold: bool = False,
-        party: bool = False,
-        dedupe_against: Sequence[str] = (),
-    ) -> None:
-        normalized_value = _normalize_structured_value(value)
-        if not normalized_value:
-            return
-        value_key = _normalize_compare_key(normalized_value)
-        if not value_key:
-            return
-        for other in dedupe_against:
-            other_key = _normalize_compare_key(other)
-            if not other_key:
-                continue
-            if value_key == other_key or value_key in other_key or other_key in value_key:
-                return
-        if value_key in seen_detail_keys:
-            return
-        seen_detail_keys.add(value_key)
-        rendered_value = _markdown_bold(normalized_value) if value_bold else normalized_value
-        if party:
-            rendered_value = _ensure_party_markdown_bold(rendered_value)
-        rendered_label = f"**{label}:**" if label_bold else f"{label}:"
-        lines.append(f"{rendered_label} {rendered_value}")
-
-    # Ordem fixa solicitada pelo usuario.
-    _append_detail("Consequências", consequencias, label_bold=True)
-    _append_detail("Partidos políticos envolvidos", partidos, party=True)
-    _append_detail("Ano da eleição", eleicao, value_bold=True)
-    _append_detail("Partes envolvidas", partes, value_bold=True)
-    _append_detail("Processo (CNJ)", processo, label_bold=True, value_bold=True)
-    _append_detail("Advogados em destaque no Direito Eleitoral", advogados, value_bold=True)
-
+    lines: List[str] = []
+    if headline and not compact:
+        lines.append(f"**Caso:** {headline}")
+    lines.append(f"**O que ocorreu:** {_ensure_sentence_end(o_que_ocorreu)}")
+    if fundamentos:
+        lines.append(f"**Fundamentos jurídicos:** {_ensure_sentence_end(fundamentos)}")
+    if consequencia:
+        lines.append(f"**Consequência aplicada:** {_ensure_sentence_end(consequencia)}")
+    else:
+        lines.append(
+            "**Consequência aplicada:** Sem desfecho explicito no trecho; recomenda-se monitoramento do andamento processual."
+        )
+    if impacto_2026:
+        lines.append(f"**Impacto para 2026:** {_ensure_sentence_end(impacto_2026)}")
+    if partes:
+        lines.append(f"**Partes relevantes:** {partes}")
+    if partidos:
+        lines.append(f"**Partidos envolvidos:** {partidos}")
+    if advogados:
+        lines.append(f"**Advogados relevantes:** {advogados}")
+    if processo:
+        lines.append(f"**Processo (CNJ):** {processo}")
     out = "\n".join(lines)
-    out = _apply_semantic_bold(out, [origem, cidade, partes, partidos, advogados])
+    out = _apply_semantic_bold(out, [partes, partidos, advogados])
     out = _ensure_party_markdown_bold(out)
     return _append_reference_line(out, reference_urls)
 
@@ -2267,6 +2562,8 @@ def _append_reference_line(text: str, reference_urls: Sequence[str]) -> str:
         for line in lines
         if not line.casefold().startswith("referencias notion:")
         and not line.casefold().startswith("referências notion:")
+        and not line.casefold().startswith("referência notion:")
+        and not line.casefold().startswith("referencia notion:")
         and not line.casefold().startswith("referencias:")
         and not line.casefold().startswith("referências:")
     ]
@@ -2276,46 +2573,42 @@ def _append_reference_line(text: str, reference_urls: Sequence[str]) -> str:
         return cleaned_base
 
     numbered_refs = " ".join(f"[{idx}]({url})" for idx, url in enumerate(merged_refs, start=1))
-    ref_line = f"Referências: {numbered_refs}"
+    ref_line = f"Referência Notion: {numbered_refs}"
     if not cleaned_base:
         return ref_line
     return f"{cleaned_base}\n{ref_line}"
 
 
-def _render_standardized_fallback_text(base_text: str, reference_urls: Sequence[str]) -> str:
+def _render_standardized_fallback_text(
+    base_text: str,
+    reference_urls: Sequence[str],
+    *,
+    compact: bool = False,
+) -> str:
     base_raw = _strip_reference_lines(_remove_placeholder_lines(base_text)).strip()
     if not base_raw:
-        minimal = (
-            "**Origem do caso**: Trecho original sem informacao util para sintese objetiva.\n"
-            "**Consequências:** Necessario monitorar o andamento do processo na pagina de referencia."
+        minimal = _render_standardized_block_text(
+            {
+                "o_que_ocorreu": "Trecho original sem informacao util para sintese objetiva.",
+                "consequencia_aplicada": "Necessario monitorar o andamento do processo na pagina de referencia.",
+            },
+            reference_urls,
+            original_text="",
+            compact=compact,
         )
-        return _append_reference_line(minimal, reference_urls)
+        return minimal
 
-    origem = _resolve_output_origin("", base_raw)
-    fallback_summary = _strip_known_output_labels(base_raw)
-    if not fallback_summary:
-        fallback_summary = _normalize_ws(base_raw)
-    if not fallback_summary:
-        fallback_summary = "Trecho original sem informacao util para sintese objetiva."
-    if len(fallback_summary) > 900:
-        fallback_summary = _truncate_text(fallback_summary, 900)
-
-    lowered = fallback_summary.casefold()
-    has_consequencias = "consequencias:" in lowered or "consequências:" in lowered
-
-    lines: List[str] = [f"**{origem}**: {fallback_summary}"]
-    if not has_consequencias:
-        inferred = _infer_consequencias(fallback_summary)
-        if inferred:
-            lines.append(f"**Consequências:** {inferred}")
-        else:
-            lines.append(
-                "**Consequências:** Sem desfecho explicito no trecho; recomenda-se monitoramento do andamento processual."
-            )
-
-    fallback = "\n".join(lines)
-    fallback = _ensure_party_markdown_bold(fallback)
-    return _append_reference_line(fallback, reference_urls)
+    fallback_summary = _strip_known_output_labels(base_raw) or _normalize_ws(base_raw)
+    consequence = _infer_consequencias(fallback_summary)
+    return _render_standardized_block_text(
+        {
+            "o_que_ocorreu": _truncate_text(fallback_summary, 900),
+            "consequencia_aplicada": consequence,
+        },
+        reference_urls,
+        original_text=base_raw,
+        compact=compact,
+    )
 
 
 def improve_text_blocks_with_openai(
@@ -2406,29 +2699,29 @@ def improve_text_blocks_with_openai(
                     "additionalProperties": False,
                     "properties": {
                         "index": {"type": "integer"},
+                        "headline": {"type": "string"},
                         "o_que_ocorreu": {"type": "string"},
-                        "consequencias": {"type": "string"},
-                        "analise_estrategica": {"type": "string"},
-                        "partes": {"type": "string"},
+                        "fundamentos_juridicos": {"type": "string"},
+                        "consequencia_aplicada": {"type": "string"},
+                        "impacto_2026": {"type": "string"},
+                        "partes_relevantes": {"type": "string"},
                         "partidos": {"type": "string"},
-                        "advogados_famosos": {"type": "string"},
+                        "advogados_relevantes": {"type": "string"},
                         "cidade_uf": {"type": "string"},
                         "processo_cnj": {"type": "string"},
-                        "eleicao_ano": {"type": "string"},
-                        "fundamentos": {"type": "string"},
                     },
                     "required": [
                         "index",
+                        "headline",
                         "o_que_ocorreu",
-                        "consequencias",
-                        "analise_estrategica",
-                        "partes",
+                        "fundamentos_juridicos",
+                        "consequencia_aplicada",
+                        "impacto_2026",
+                        "partes_relevantes",
                         "partidos",
-                        "advogados_famosos",
+                        "advogados_relevantes",
                         "cidade_uf",
                         "processo_cnj",
-                        "eleicao_ano",
-                        "fundamentos",
                     ],
                 },
             }
@@ -2650,34 +2943,69 @@ def improve_text_blocks_with_openai(
         original = _normalize_ws(block.get("text", ""))
         refs = _block_reference_urls(block)
         item = mapped.get(idx, {})
+        merged_item = dict(item)
+        scoped_contexts_raw = block.get("context_cases")
+        primary_ctx: Optional[CaseContext] = None
+        if isinstance(scoped_contexts_raw, list):
+            for ctx in scoped_contexts_raw:
+                if isinstance(ctx, CaseContext):
+                    primary_ctx = ctx
+                    break
+        if primary_ctx is not None:
+            fallback_fields = {
+                "headline_seed": primary_ctx.tema,
+                "partes_relevantes": primary_ctx.partes,
+                "partidos": primary_ctx.partidos,
+                "advogados_relevantes": primary_ctx.advogados,
+                "cidade_uf": primary_ctx.cidade_uf,
+                "processo_cnj": primary_ctx.processo_cnj or primary_ctx.numero_unico,
+                "fundamentos_juridicos": primary_ctx.fundamentos or primary_ctx.punchline,
+                "consequencia_aplicada": primary_ctx.resultado,
+                "tema": primary_ctx.tema,
+                "punchline": primary_ctx.punchline,
+                "texto_decisao": primary_ctx.texto_decisao,
+            }
+            for key, value in fallback_fields.items():
+                if not _normalize_structured_value(merged_item.get(key, "")):
+                    merged_item[key] = value
         improved = ""
-        if item:
+        if merged_item:
             has_structured = any(
-                _normalize_structured_value(item.get(key, "")) for key in (
+                _normalize_structured_value(merged_item.get(key, "")) for key in (
+                    "headline",
                     "o_que_ocorreu",
-                    "consequencias",
-                    "analise_estrategica",
-                    "partes",
+                    "fundamentos_juridicos",
+                    "consequencia_aplicada",
+                    "impacto_2026",
+                    "partes_relevantes",
                     "partidos",
-                    "advogados_famosos",
+                    "advogados_relevantes",
                     "cidade_uf",
                     "processo_cnj",
-                    "eleicao_ano",
-                    "fundamentos",
                 )
             )
             if has_structured:
-                improved = _render_standardized_block_text(item, refs, original_text=original)
+                improved = _render_standardized_block_text(
+                    merged_item,
+                    refs,
+                    original_text=original,
+                    compact=bool(block.get("render_compact", False)),
+                )
             else:
-                free_text = _normalize_ws(item.get("improved_text", ""))
+                free_text = _normalize_ws(merged_item.get("improved_text", ""))
                 if free_text:
                     improved = _render_standardized_fallback_text(
                         _ensure_party_markdown_bold(free_text),
                         refs,
+                        compact=bool(block.get("render_compact", False)),
                     )
 
         if not improved:
-            improved = _render_standardized_fallback_text(original, refs)
+            improved = _render_standardized_fallback_text(
+                original,
+                refs,
+                compact=bool(block.get("render_compact", False)),
+            )
         out.append(improved)
     LOGGER.info(
         "[OpenAI] %s | concluido | blocos=%d | melhorados=%d",
@@ -2819,32 +3147,127 @@ def patch_text_block(block_id: str, block_type: str, rich_text: List[Dict[str, A
     notion_request("PATCH", f"/v1/blocks/{block_id}", json_body=payload)
 
 
-def _run_gui_for_page_url(initial_value: str = "") -> str:
+def delete_block(block_id: str) -> None:
+    notion_request("DELETE", f"/v1/blocks/{block_id}")
+
+
+def append_block_children(
+    parent_id: str,
+    children: Sequence[Dict[str, Any]],
+    *,
+    after_block_id: str = "",
+) -> List[Dict[str, Any]]:
+    created: List[Dict[str, Any]] = []
+    if not children:
+        return created
+
+    for start in range(0, len(children), MAX_NOTION_APPEND_CHILDREN):
+        chunk = list(children[start : start + MAX_NOTION_APPEND_CHILDREN])
+        body: Dict[str, Any] = {"children": chunk}
+        if after_block_id:
+            body["position"] = {
+                "type": "after_block",
+                "after_block": {"id": after_block_id},
+            }
+        payload = notion_request("PATCH", f"/v1/blocks/{parent_id}/children", json_body=body)
+        results = payload.get("results", [])
+        if isinstance(results, list):
+            created.extend([item for item in results if isinstance(item, dict)])
+        after_block_id = ""
+    return created
+
+
+def _build_paragraph_block(text: str) -> Dict[str, Any]:
+    return {
+        "object": "block",
+        "type": "paragraph",
+        "paragraph": {
+            "rich_text": markdown_bold_to_notion_rich_text(text),
+            "color": "default",
+        },
+    }
+
+
+def _build_bulleted_block(text: str) -> Dict[str, Any]:
+    return {
+        "object": "block",
+        "type": "bulleted_list_item",
+        "bulleted_list_item": {
+            "rich_text": markdown_bold_to_notion_rich_text(text),
+            "color": "default",
+        },
+    }
+
+
+def _build_heading_2_block(text: str) -> Dict[str, Any]:
+    return {
+        "object": "block",
+        "type": "heading_2",
+        "heading_2": {
+            "rich_text": markdown_bold_to_notion_rich_text(text),
+            "color": "default",
+        },
+    }
+
+
+def _build_toggle_block(text: str) -> Dict[str, Any]:
+    return {
+        "object": "block",
+        "type": "toggle",
+        "toggle": {
+            "rich_text": markdown_bold_to_notion_rich_text(text),
+            "color": "gray_background",
+        },
+    }
+
+
+def _load_last_page_url() -> str:
+    payload = read_json_dict(REPORT_FILE)
+    return _normalize_ws(payload.get("page_url", ""))
+
+
+def _run_gui_for_page_url(initial_value: str = "") -> Optional[str]:
     try:
         import tkinter as tk
         from tkinter import messagebox, ttk
     except Exception:
-        return ""
+        LOGGER.warning("Tkinter indisponivel. GUI nao pode ser aberta neste ambiente.")
+        return None
 
     result = {"url": ""}
 
-    root = tk.Tk()
+    try:
+        root = tk.Tk()
+    except Exception as exc:
+        LOGGER.warning("Falha ao abrir GUI Tkinter: %s", exc)
+        return None
+
     root.title("Agente IA - Notion Relatorio")
-    root.geometry("760x160")
-    root.minsize(680, 140)
+    root.geometry("840x220")
+    root.minsize(760, 200)
 
     frame = ttk.Frame(root, padding=12)
     frame.pack(fill="both", expand=True)
 
     ttk.Label(
         frame,
-        text="Cole o link da pagina do relatorio no Notion para atualizar:",
+        text="Cole o link da pagina do Notion que sera processada pela API:",
     ).pack(anchor="w")
+    ttk.Label(
+        frame,
+        text=(
+            "A pagina informada abaixo sera a pagina lida e atualizada. "
+            "Voce pode colar qualquer URL de pagina do seu workspace com acesso da integracao."
+        ),
+        wraplength=790,
+        justify="left",
+    ).pack(anchor="w", pady=(4, 0))
 
     url_var = tk.StringVar(value=initial_value)
     entry = ttk.Entry(frame, textvariable=url_var)
-    entry.pack(fill="x", pady=(8, 10))
+    entry.pack(fill="x", pady=(10, 12))
     entry.focus_set()
+    entry.icursor("end")
 
     row = ttk.Frame(frame)
     row.pack(fill="x")
@@ -2854,12 +3277,20 @@ def _run_gui_for_page_url(initial_value: str = "") -> str:
         if not value:
             messagebox.showwarning("URL obrigatoria", "Informe o link da pagina do Notion.")
             return
+        try:
+            extract_notion_id_from_url(value)
+        except Exception as exc:
+            messagebox.showerror("URL invalida", str(exc))
+            return
         result["url"] = value
         root.destroy()
 
     def _on_cancel() -> None:
         result["url"] = ""
         root.destroy()
+
+    root.bind("<Return>", lambda _event: _on_run())
+    root.bind("<Escape>", lambda _event: _on_cancel())
 
     ttk.Button(row, text="Cancelar", command=_on_cancel).pack(side="right")
     ttk.Button(row, text="Executar", command=_on_run).pack(side="right", padx=(0, 8))
@@ -2923,6 +3354,109 @@ def _attach_scoped_contexts_to_blocks(
         "total_context_refs": total_context_refs,
     }
     return out, stats
+
+
+def _build_table_companion_items(
+    targets: Sequence[TableCompanionTarget],
+    *,
+    context_by_page_id: Dict[str, CaseContext],
+) -> tuple[List[Dict[str, Any]], Dict[str, int]]:
+    items: List[Dict[str, Any]] = []
+    tables_with_context = 0
+    tables_without_context = 0
+    cases_with_context = 0
+    cases_without_context = 0
+
+    for target in targets:
+        local_count = 0
+        for page_id in target.source_linked_page_ids:
+            ctx = context_by_page_id.get(page_id)
+            if ctx is None:
+                cases_without_context += 1
+                continue
+            local_count += 1
+            cases_with_context += 1
+            row_text = _normalize_ws(target.row_text_by_page_id.get(page_id, ""))
+            seed_text = row_text or _normalize_ws(ctx.tema) or _normalize_ws(ctx.punchline)
+            items.append(
+                {
+                    "id": f"{target.table_id}:{page_id}",
+                    "table_id": target.table_id,
+                    "table_marker": target.marker,
+                    "parent_id": target.parent_id,
+                    "type": "table_companion",
+                    "item_kind": "table_companion",
+                    "text": seed_text,
+                    "headline_seed": _normalize_ws(ctx.tema) or row_text,
+                    "source_linked_page_ids": [page_id],
+                    "context_cases": [ctx],
+                    "render_compact": False,
+                }
+            )
+        if local_count > 0:
+            tables_with_context += 1
+        else:
+            tables_without_context += 1
+
+    stats = {
+        "tables_total": len(targets),
+        "tables_with_context": tables_with_context,
+        "tables_without_context": tables_without_context,
+        "cases_with_context": cases_with_context,
+        "cases_without_context": cases_without_context,
+    }
+    return items, stats
+
+
+def _split_structured_names(value: Any) -> List[str]:
+    raw = str(value or "")
+    if not raw:
+        return []
+    parts = re.split(r"\s*[;\n]\s*|\s*,\s*", raw)
+    out: List[str] = []
+    seen: set[str] = set()
+    for part in parts:
+        text = _normalize_ws(part)
+        if not text:
+            continue
+        text = re.sub(r"\s*-\s*OAB.*$", "", text, flags=re.IGNORECASE)
+        key = text.casefold()
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(text)
+    return out
+
+
+def _compute_lawyer_frequency_lines(
+    used_page_ids: Sequence[str],
+    *,
+    context_by_page_id: Dict[str, CaseContext],
+) -> List[str]:
+    freq: Counter[str] = Counter()
+    for raw_page_id in used_page_ids:
+        try:
+            page_id = _normalize_notion_id(str(raw_page_id))
+        except Exception:
+            continue
+        ctx = context_by_page_id.get(page_id)
+        if ctx is None:
+            continue
+        for name in _split_structured_names(ctx.advogados):
+            freq[name] += 1
+
+    ranked = sorted(freq.items(), key=lambda item: (-item[1], item[0].casefold()))
+    filtered = [(name, count) for name, count in ranked if count >= LAWYER_FREQ_MIN_CASES]
+    if not filtered:
+        filtered = ranked[:LAWYER_FREQ_MAX_ITEMS]
+    else:
+        filtered = filtered[:LAWYER_FREQ_MAX_ITEMS]
+
+    out: List[str] = []
+    for name, count in filtered:
+        suffix = "caso" if count == 1 else "casos"
+        out.append(f"{name} — {count} {suffix}")
+    return out
 
 
 def _log_block_link_audit(target_blocks: Sequence[Dict[str, Any]]) -> None:
@@ -3015,6 +3549,186 @@ def _chunk_items_for_openai(
     if current:
         out.append(current)
     return out
+
+
+def _build_table_companion_plans(
+    targets: Sequence[TableCompanionTarget],
+    item_texts_by_id: Dict[str, str],
+) -> List[TableCompanionPlan]:
+    plans: List[TableCompanionPlan] = []
+    for target in targets:
+        process_texts: List[str] = []
+        for page_id in target.source_linked_page_ids:
+            item_id = f"{target.table_id}:{page_id}"
+            text = _normalize_multiline_ws(item_texts_by_id.get(item_id, ""))
+            if text:
+                process_texts.append(text)
+        if not process_texts:
+            continue
+        plans.append(
+            TableCompanionPlan(
+                table_id=target.table_id,
+                parent_id=target.parent_id,
+                marker=target.marker,
+                title=f"{target.marker} Casos detalhados por processo",
+                process_texts=process_texts,
+            )
+        )
+    return plans
+
+
+def _apply_table_companion_plan(plan: TableCompanionPlan) -> str:
+    created = append_block_children(
+        plan.parent_id,
+        [_build_toggle_block(plan.title)],
+        after_block_id=plan.table_id,
+    )
+    if not created:
+        raise RuntimeError(f"Falha ao criar companion da tabela {plan.table_id}")
+    root_id = _normalize_ws(created[0].get("id", ""))
+    if not root_id:
+        raise RuntimeError(f"Resposta sem ID ao criar companion da tabela {plan.table_id}")
+
+    children = [_build_paragraph_block(text) for text in plan.process_texts]
+    append_block_children(root_id, children)
+    return root_id
+
+
+def _apply_lawyer_section(page_id: str, lines: Sequence[str]) -> List[str]:
+    blocks: List[Dict[str, Any]] = [
+        _build_heading_2_block(f"13. Advogados recorrentes nos casos detalhados {AUTO_LAWYERS_MARKER}"),
+    ]
+    if lines:
+        blocks.append(_build_toggle_block(f"{AUTO_LAWYERS_MARKER} Lista por frequencia"))
+    else:
+        blocks.append(_build_paragraph_block(f"{AUTO_LAWYERS_MARKER} Nenhum advogado recorrente foi identificado."))
+
+    created = append_block_children(page_id, blocks)
+    created_ids = [_normalize_ws(item.get("id", "")) for item in created if _normalize_ws(item.get("id", ""))]
+    if lines and len(created_ids) >= 2:
+        append_block_children(created_ids[1], [_build_bulleted_block(line) for line in lines])
+    return created_ids
+
+
+def _delete_auto_generated_roots(auto_root_ids: Sequence[str]) -> int:
+    deleted = 0
+    for block_id in auto_root_ids:
+        try:
+            delete_block(block_id)
+            deleted += 1
+        except Exception as exc:
+            LOGGER.warning("Falha ao remover bloco auto-gerado %s: %s", block_id, exc)
+    return deleted
+
+
+def _process_items_via_openai(
+    items: Sequence[Dict[str, Any]],
+    *,
+    config: RunConfig,
+    final_context: Sequence[CaseContext],
+    batch_prefix: str,
+) -> tuple[Dict[str, str], Dict[str, int]]:
+    outputs_by_id: Dict[str, str] = {}
+    effective_batch_size = max(1, int(config.openai_batch_size or MAX_BLOCK_BATCH))
+    batches = _chunk_items_for_openai(
+        items,
+        max_items=effective_batch_size,
+        char_budget=OPENAI_BATCH_CHAR_BUDGET,
+    )
+    total_batches = len(batches)
+    max_chars_batch = max((_estimate_openai_input_chars(batch, compact=False) for batch in batches), default=0)
+    LOGGER.info(
+        "[OpenAI] %s | lotes preparados | total=%d | max_chars_lote=%d | limite_chars=%d | max_itens_lote=%d",
+        batch_prefix,
+        total_batches,
+        max_chars_batch,
+        OPENAI_BATCH_CHAR_BUDGET,
+        effective_batch_size,
+    )
+    openai_workers = min(max(1, int(config.openai_max_workers or 1)), max(1, total_batches))
+    if max_chars_batch >= int(OPENAI_BATCH_CHAR_BUDGET * 0.9) and openai_workers > 1:
+        LOGGER.info(
+            "[OpenAI] %s | ajuste de estabilidade: lotes pesados (max_chars=%d). Limitando workers de %d para 1.",
+            batch_prefix,
+            max_chars_batch,
+            openai_workers,
+        )
+        openai_workers = 1
+    if total_batches >= 4 and openai_workers > 2:
+        LOGGER.info(
+            "[OpenAI] %s | ajuste de estabilidade: limitando workers de %d para 2 (lotes=%d).",
+            batch_prefix,
+            openai_workers,
+            total_batches,
+        )
+        openai_workers = 2
+
+    improved_batches: Dict[int, List[str]] = {}
+    if total_batches > 0 and openai_workers <= 1:
+        LOGGER.info("[OpenAI] %s | execucao sequencial de %d lote(s).", batch_prefix, total_batches)
+        for batch_idx, batch in enumerate(batches, start=1):
+            batch_label = f"{batch_prefix} | lote {batch_idx}/{total_batches}"
+            LOGGER.info("[OpenAI] %s | itens_no_lote=%d", batch_label, len(batch))
+            improved_batches[batch_idx - 1] = improve_text_blocks_with_openai(
+                list(batch),
+                list(final_context),
+                batch_label=batch_label,
+            )
+    elif total_batches > 0:
+        LOGGER.info(
+            "[OpenAI] %s | execucao paralela de %d lote(s) com %d worker(s).",
+            batch_prefix,
+            total_batches,
+            openai_workers,
+        )
+
+        def _batch_job(payload: tuple[int, List[Dict[str, Any]]]) -> tuple[int, List[str]]:
+            zero_idx, batch_data = payload
+            one_idx = zero_idx + 1
+            batch_label = f"{batch_prefix} | lote {one_idx}/{total_batches}"
+            LOGGER.info("[OpenAI] %s | iniciado em worker | itens=%d", batch_label, len(batch_data))
+            improved_local = improve_text_blocks_with_openai(
+                batch_data,
+                list(final_context),
+                batch_label=batch_label,
+            )
+            return zero_idx, improved_local
+
+        with ThreadPoolExecutor(max_workers=openai_workers) as executor:
+            future_map = {
+                executor.submit(_batch_job, (idx, list(batch))): idx
+                for idx, batch in enumerate(batches)
+            }
+            for future in as_completed(future_map):
+                idx = future_map[future]
+                try:
+                    done_idx, improved = future.result()
+                    improved_batches[done_idx] = improved
+                    LOGGER.info("[OpenAI] %s | lote %d/%d concluido.", batch_prefix, done_idx + 1, total_batches)
+                except Exception as exc:
+                    LOGGER.error(
+                        "[OpenAI] %s | lote %d/%d falhou no worker: %s",
+                        batch_prefix,
+                        idx + 1,
+                        total_batches,
+                        exc,
+                    )
+                    improved_batches[idx] = [str(block.get("text", "")) for block in batches[idx]]
+
+    for batch_idx, batch in enumerate(batches):
+        improved = improved_batches.get(batch_idx, [str(block.get("text", "")) for block in batch])
+        for item, new_text in zip(batch, improved):
+            item_id = _normalize_ws(item.get("id", ""))
+            if not item_id:
+                continue
+            outputs_by_id[item_id] = _normalize_multiline_ws(new_text)
+
+    stats = {
+        "items_total": len(items),
+        "batches_total": total_batches,
+        "max_chars_batch": max_chars_batch,
+    }
+    return outputs_by_id, stats
 
 
 def _build_clients(config: RunConfig) -> None:
@@ -3114,16 +3828,49 @@ def run_agent(config: RunConfig) -> int:
         page_blocks = retrieve_all_block_children_recursive(page_id)
         global BLOCK_INDEX
         BLOCK_INDEX = {str(block.get("id", "")): block for block in page_blocks if block.get("id")}
-        textual_blocks = extract_textual_blocks(page_blocks)
-        LOGGER.info("Blocos totais: %d | textuais: %d", len(page_blocks), len(textual_blocks))
+        auto_root_ids = _collect_auto_root_block_ids(page_blocks)
+        ignored_block_ids = _collect_ignored_block_ids(page_blocks, auto_root_ids)
+        filtered_page_blocks = [
+            block
+            for block in page_blocks
+            if _normalize_ws(block.get("id", "")) not in ignored_block_ids
+        ]
+        textual_blocks = extract_textual_blocks(filtered_page_blocks)
+        LOGGER.info(
+            "Blocos totais: %d | textuais_filtrados: %d | auto_roots_detectados: %d | blocos_ignorados: %d",
+            len(page_blocks),
+            len(textual_blocks),
+            len(auto_root_ids),
+            len(ignored_block_ids),
+        )
 
-        LOGGER.info("[Stage 3/6] Selecionando apenas blocos-alvo com link explicito da base fonte...")
+        LOGGER.info("[Stage 3/6] Selecionando alvos textuais e companions de tabela com link explicito da base fonte...")
         target_text_blocks, linked_page_ids, target_stats = select_target_text_blocks_by_source_links(
             textual_blocks,
             source_database_id=source_database_id,
             source_data_source_id=data_source_id,
         )
-        if not target_text_blocks:
+        table_targets, table_linked_page_ids, table_stats = select_table_companion_targets_by_source_links(
+            filtered_page_blocks,
+            source_database_id=source_database_id,
+            source_data_source_id=data_source_id,
+            ignored_block_ids=ignored_block_ids,
+        )
+
+        all_linked_page_ids: List[str] = []
+        seen_linked_page_ids: set[str] = set()
+        for raw_page_id in list(linked_page_ids) + list(table_linked_page_ids):
+            try:
+                page_id_norm = _normalize_notion_id(str(raw_page_id))
+            except Exception:
+                continue
+            if page_id_norm in seen_linked_page_ids:
+                continue
+            seen_linked_page_ids.add(page_id_norm)
+            all_linked_page_ids.append(page_id_norm)
+
+        if not target_text_blocks and not table_targets:
+            deleted_auto = _delete_auto_generated_roots(sorted(auto_root_ids))
             elapsed_no_target = round(max(0.0, time.time() - started_at), 2)
             report.update(
                 {
@@ -3135,29 +3882,33 @@ def run_agent(config: RunConfig) -> int:
                         "text_blocks_total": len(textual_blocks),
                         "text_blocks_targeted": 0,
                         "text_blocks_not_targeted": len(textual_blocks),
+                        "tables_targeted": 0,
+                        "table_companion_cases": 0,
                         "patch_candidates": 0,
                         "updated": 0,
                         "failed": 0,
                         "unchanged_targeted": 0,
                         "untouched_non_target": len(textual_blocks),
                         "linked_pages": 0,
+                        "auto_deleted": deleted_auto,
                         "context_primary": 0,
                         "context_fallback": 0,
                         "context_final": 0,
                     },
-                    "note": "Nenhum bloco elegivel: somente blocos com links explicitos para a base fonte sao alterados.",
+                    "note": "Nenhum alvo elegivel: somente blocos textuais e tabelas com links explicitos para a base fonte sao processados.",
                 }
             )
             write_json_atomic(REPORT_FILE, report)
             LOGGER.info(
-                "Nenhum bloco elegivel para alteracao. "
-                "A pagina foi mantida intacta (criterio: link explicito para base fonte)."
+                "Nenhum alvo elegivel para alteracao. "
+                "A pagina foi mantida intacta (criterio: link explicito para base fonte). auto_removidos=%d",
+                deleted_auto,
             )
             LOGGER.info("Relatorio salvo em: %s", REPORT_FILE)
             return 0
 
         LOGGER.info("[Stage 4/6] Construindo contexto estrito por link de cada bloco...")
-        context_by_page_id = build_case_context_map_from_linked_pages(linked_page_ids)
+        context_by_page_id = build_case_context_map_from_linked_pages(all_linked_page_ids)
         context_primary = _dedupe_contexts(list(context_by_page_id.values()), limit=MAX_CONTEXT_CASES)
         context_fallback: List[CaseContext] = []
         final_context = context_primary
@@ -3166,141 +3917,86 @@ def run_agent(config: RunConfig) -> int:
             context_by_page_id=context_by_page_id,
             per_block_limit=3,
         )
+        prepared_text_targets: List[Dict[str, Any]] = []
+        for block in target_text_blocks:
+            item = dict(block)
+            item["item_kind"] = "patch_text_block"
+            item["render_compact"] = True
+            prepared_text_targets.append(item)
+        target_text_blocks = prepared_text_targets
+
+        table_case_items, table_scope_stats = _build_table_companion_items(
+            table_targets,
+            context_by_page_id=context_by_page_id,
+        )
         LOGGER.info(
             "[Fallback] desativado no modo estrito por bloco: cada bloco usa apenas contexto do(s) seu(s) link(s)."
         )
 
         LOGGER.info(
-            "Contexto: links_fonte=%d | contexto_links=%d | blocos_com_contexto=%d | blocos_sem_contexto=%d | refs_contexto=%d",
-            len(linked_page_ids),
+            "Contexto: links_fonte=%d | contexto_links=%d | blocos_com_contexto=%d | blocos_sem_contexto=%d | refs_contexto=%d | tabelas_com_contexto=%d | casos_tabela=%d",
+            len(all_linked_page_ids),
             len(context_primary),
             int(scope_stats.get("blocks_with_context", 0)),
             int(scope_stats.get("blocks_without_context", 0)),
             int(scope_stats.get("total_context_refs", 0)),
+            int(table_scope_stats.get("tables_with_context", 0)),
+            int(table_scope_stats.get("cases_with_context", 0)),
         )
         _log_block_link_audit(target_text_blocks)
 
         LOGGER.info("[Stage 5/6] Gerando melhorias via OpenAI...")
         patch_plans: List[BlockPatchPlan] = []
-        effective_batch_size = max(1, int(config.openai_batch_size or MAX_BLOCK_BATCH))
-        batches = _chunk_items_for_openai(
+        text_outputs_by_id, text_ai_stats = _process_items_via_openai(
             target_text_blocks,
-            max_items=effective_batch_size,
-            char_budget=OPENAI_BATCH_CHAR_BUDGET,
+            config=config,
+            final_context=final_context,
+            batch_prefix="patch_text_block",
         )
-        total_batches = len(batches)
-        max_chars_batch = max((_estimate_openai_input_chars(batch, compact=False) for batch in batches), default=0)
-        LOGGER.info(
-            "[OpenAI] Lotes preparados | total=%d | max_chars_lote=%d | limite_chars=%d | max_blocos_lote=%d",
-            total_batches,
-            max_chars_batch,
-            OPENAI_BATCH_CHAR_BUDGET,
-            effective_batch_size,
+        table_outputs_by_id, table_ai_stats = _process_items_via_openai(
+            table_case_items,
+            config=config,
+            final_context=final_context,
+            batch_prefix="table_companion",
         )
-        openai_workers = min(max(1, int(config.openai_max_workers or 1)), max(1, total_batches))
-        if max_chars_batch >= int(OPENAI_BATCH_CHAR_BUDGET * 0.9) and openai_workers > 1:
-            LOGGER.info(
-                "[OpenAI] Ajuste de estabilidade: lotes pesados (max_chars=%d). Limitando workers de %d para 1.",
-                max_chars_batch,
-                openai_workers,
-            )
-            openai_workers = 1
-        if total_batches >= 4 and openai_workers > 2:
-            LOGGER.info(
-                "[OpenAI] Ajuste de estabilidade: limitando workers de %d para 2 (lotes=%d).",
-                openai_workers,
-                total_batches,
-            )
-            openai_workers = 2
-        if total_batches == 0:
-            LOGGER.info("[OpenAI] Nenhum bloco textual para processar.")
 
-        improved_batches: Dict[int, List[str]] = {}
-        if total_batches > 0 and openai_workers <= 1:
-            LOGGER.info("[OpenAI] Execucao sequencial de %d lote(s).", total_batches)
-            for batch_idx, batch in enumerate(batches, start=1):
-                batch_label = f"lote {batch_idx}/{total_batches}"
-                LOGGER.info(
-                    "[OpenAI] %s | blocos_no_lote=%d",
-                    batch_label,
-                    len(batch),
+        for item in target_text_blocks:
+            original = _normalize_ws(item.get("text", ""))
+            improved_text = _normalize_multiline_ws(text_outputs_by_id.get(str(item.get("id", "")), ""))
+            if not improved_text:
+                improved_text = original
+            if _normalize_ws(improved_text) == original:
+                continue
+            rich_text = markdown_bold_to_notion_rich_text(improved_text)
+            patch_plans.append(
+                BlockPatchPlan(
+                    block_id=str(item.get("id", "")),
+                    block_type=str(item.get("type", "")),
+                    original_text=original,
+                    improved_text=improved_text,
+                    rich_text_payload=rich_text,
                 )
-                improved_batches[batch_idx - 1] = improve_text_blocks_with_openai(
-                    batch,
-                    final_context,
-                    batch_label=batch_label,
-                )
-        elif total_batches > 0:
-            LOGGER.info(
-                "[OpenAI] Execucao paralela de %d lote(s) com %d worker(s).",
-                total_batches,
-                openai_workers,
             )
 
-            def _batch_job(payload: tuple[int, List[Dict[str, Any]]]) -> tuple[int, List[str]]:
-                zero_idx, batch_data = payload
-                one_idx = zero_idx + 1
-                batch_label = f"lote {one_idx}/{total_batches}"
-                LOGGER.info(
-                    "[OpenAI] %s | iniciado em worker | blocos=%d",
-                    batch_label,
-                    len(batch_data),
-                )
-                improved_local = improve_text_blocks_with_openai(
-                    batch_data,
-                    final_context,
-                    batch_label=batch_label,
-                )
-                return zero_idx, improved_local
-
-            with ThreadPoolExecutor(max_workers=openai_workers) as executor:
-                future_map = {
-                    executor.submit(_batch_job, (idx, batch)): idx
-                    for idx, batch in enumerate(batches)
-                }
-                for future in as_completed(future_map):
-                    idx = future_map[future]
-                    try:
-                        done_idx, improved = future.result()
-                        improved_batches[done_idx] = improved
-                        LOGGER.info("[OpenAI] lote %d/%d concluido.", done_idx + 1, total_batches)
-                    except Exception as exc:
-                        LOGGER.error(
-                            "[OpenAI] lote %d/%d falhou no worker: %s",
-                            idx + 1,
-                            total_batches,
-                            exc,
-                        )
-                        improved_batches[idx] = [str(block.get("text", "")) for block in batches[idx]]
-
-        for batch_idx, batch in enumerate(batches):
-            improved = improved_batches.get(batch_idx, [str(block.get("text", "")) for block in batch])
-            for item, new_text in zip(batch, improved):
-                original = _normalize_ws(item.get("text", ""))
-                improved_text = _normalize_multiline_ws(new_text)
-                if not improved_text:
-                    improved_text = original
-                if _normalize_ws(improved_text) == original:
-                    continue
-                rich_text = markdown_bold_to_notion_rich_text(improved_text)
-                patch_plans.append(
-                    BlockPatchPlan(
-                        block_id=str(item.get("id", "")),
-                        block_type=str(item.get("type", "")),
-                        original_text=original,
-                        improved_text=improved_text,
-                        rich_text_payload=rich_text,
-                    )
-                )
+        companion_plans = _build_table_companion_plans(table_targets, table_outputs_by_id)
+        lawyer_lines = _compute_lawyer_frequency_lines(
+            all_linked_page_ids,
+            context_by_page_id=context_by_page_id,
+        )
 
         LOGGER.info(
-            "[Stage 6/6] Aplicando patches no Notion... total=%d",
+            "[Stage 6/6] Aplicando patches, companions e secao de advogados no Notion... patches=%d | companions=%d | advogados=%d",
             len(patch_plans),
+            len(companion_plans),
+            len(lawyer_lines),
         )
+        deleted_auto = _delete_auto_generated_roots(sorted(auto_root_ids))
         updated = 0
         failed = 0
         unchanged_targeted = len(target_text_blocks) - len(patch_plans)
         untouched_non_target = len(textual_blocks) - len(target_text_blocks)
+        table_companions_created = 0
+        lawyer_section_created = 0
         failures: List[Dict[str, str]] = []
 
         for idx, plan in enumerate(patch_plans, start=1):
@@ -3326,6 +4022,42 @@ def run_agent(config: RunConfig) -> int:
                     exc,
                 )
 
+        for idx, plan in enumerate(companion_plans, start=1):
+            try:
+                root_id = _apply_table_companion_plan(plan)
+                table_companions_created += 1
+                LOGGER.info(
+                    "[Companion %d/%d] Tabela %s recebeu cluster %s com %d processo(s).",
+                    idx,
+                    len(companion_plans),
+                    plan.table_id,
+                    root_id,
+                    len(plan.process_texts),
+                )
+            except Exception as exc:
+                failed += 1
+                failures.append({"table_id": plan.table_id, "erro": str(exc)})
+                LOGGER.error(
+                    "[Companion %d/%d] Falha ao criar cluster da tabela %s: %s",
+                    idx,
+                    len(companion_plans),
+                    plan.table_id,
+                    exc,
+                )
+
+        try:
+            lawyer_section_ids = _apply_lawyer_section(page_id, lawyer_lines)
+            lawyer_section_created = len(lawyer_section_ids)
+            LOGGER.info(
+                "[Advogados] Secao atualizada | blocos_criados=%d | itens=%d",
+                lawyer_section_created,
+                len(lawyer_lines),
+            )
+        except Exception as exc:
+            failed += 1
+            failures.append({"section": "advogados_recorrentes", "erro": str(exc)})
+            LOGGER.error("[Advogados] Falha ao atualizar secao final: %s", exc)
+
         elapsed = round(max(0.0, time.time() - started_at), 2)
         report.update(
             {
@@ -3338,15 +4070,26 @@ def run_agent(config: RunConfig) -> int:
                     "text_blocks_targeted": len(target_text_blocks),
                     "text_blocks_not_targeted": untouched_non_target,
                     "text_blocks_with_any_notion_link": int(target_stats.get("text_blocks_with_any_notion_link", 0)),
+                    "tables_targeted": len(table_targets),
+                    "table_rows_with_any_notion_link": int(table_stats.get("table_rows_with_any_notion_link", 0)),
+                    "table_companion_cases": int(table_stats.get("table_companion_cases", 0)),
+                    "table_companions_created": table_companions_created,
+                    "lawyer_frequency_items": len(lawyer_lines),
+                    "lawyer_section_blocks_created": lawyer_section_created,
+                    "auto_deleted": deleted_auto,
                     "patch_candidates": len(patch_plans),
                     "updated": updated,
                     "failed": failed,
                     "unchanged_targeted": unchanged_targeted,
                     "untouched_non_target": untouched_non_target,
-                    "linked_pages": len(linked_page_ids),
+                    "linked_pages": len(all_linked_page_ids),
                     "context_primary": len(context_primary),
                     "context_fallback": len(context_fallback),
                     "context_final": len(final_context),
+                    "table_cases_with_context": int(table_scope_stats.get("cases_with_context", 0)),
+                    "table_cases_without_context": int(table_scope_stats.get("cases_without_context", 0)),
+                    "openai_text_batches": int(text_ai_stats.get("batches_total", 0)),
+                    "openai_table_batches": int(table_ai_stats.get("batches_total", 0)),
                 },
                 "failures": failures,
             }
@@ -3354,10 +4097,13 @@ def run_agent(config: RunConfig) -> int:
         write_json_atomic(REPORT_FILE, report)
         LOGGER.info("Relatorio salvo em: %s", REPORT_FILE)
         LOGGER.info(
-            "Resumo: atualizados=%d | inalterados_alvo=%d | intactos_fora_criterio=%d | falhas=%d",
+            "Resumo: atualizados=%d | companions=%d | advogados=%d | inalterados_alvo=%d | intactos_fora_criterio=%d | auto_removidos=%d | falhas=%d",
             updated,
+            table_companions_created,
+            len(lawyer_lines),
             unchanged_targeted,
             untouched_non_target,
+            deleted_auto,
             failed,
         )
         return 0 if failed == 0 else 2
@@ -3380,25 +4126,22 @@ def run_agent(config: RunConfig) -> int:
 
 
 def _resolve_page_url(args: argparse.Namespace) -> str:
-    page_url = _normalize_ws(args.page_url)
-    if page_url:
-        return page_url
-    if not bool(args.no_gui):
-        picked = _run_gui_for_page_url(initial_value="")
-        if picked:
-            return _normalize_ws(picked)
-    try:
-        typed = input("Cole o link da pagina do relatorio no Notion: ").strip()
-    except EOFError:
-        typed = ""
-    return _normalize_ws(typed)
+    initial_value = _normalize_ws(args.page_url) or _load_last_page_url()
+    picked = _run_gui_for_page_url(initial_value=initial_value)
+    if picked is None:
+        return initial_value
+    return _normalize_ws(picked)
 
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description="Atualiza blocos textuais de relatorio no Notion com apoio de IA."
     )
-    parser.add_argument("--page-url", default="", help="URL da pagina de relatorio no Notion.")
+    parser.add_argument(
+        "--page-url",
+        default="",
+        help="URL inicial da pagina no Notion para preencher a GUI.",
+    )
     parser.add_argument(
         "--source-database-url",
         default=DEFAULT_SOURCE_DATABASE_URL,
@@ -3452,7 +4195,6 @@ def build_parser() -> argparse.ArgumentParser:
         default=4,
         help="Tentativas de chamada Notion (padrao: 4).",
     )
-    parser.add_argument("--no-gui", action="store_true", help="Desativa GUI e usa CLI/input.")
     parser.add_argument("--verbose", action="store_true", help="Logs detalhados.")
     parser.add_argument("--quiet", action="store_true", help="Exibe apenas avisos/erros.")
     parser.add_argument("--debug", action="store_true", help="Ativa logs de debug tecnico.")
