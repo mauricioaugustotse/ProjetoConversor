@@ -29,14 +29,14 @@ from typing import List, Dict, Any, Tuple, Set, Optional
 import traceback
 
 from gui_intuitiva import dedupe_files, list_files_in_directory, open_file_panel
-from openai_progress_utils import (
+from Artefatos.scripts.openai_progress_utils import (
     build_file_signature,
     make_backup,
     utc_now_iso,
     write_csv_atomic,
     write_json_atomic,
 )
-from openai_log_utils import configure_standard_logging, install_print_logger_bridge
+from Artefatos.scripts.openai_log_utils import configure_standard_logging, install_print_logger_bridge
 
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")

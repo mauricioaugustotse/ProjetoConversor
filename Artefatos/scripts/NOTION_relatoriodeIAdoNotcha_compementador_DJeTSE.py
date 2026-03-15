@@ -19,6 +19,7 @@ import json
 import logging
 import os
 import re
+import sys
 import threading
 import time
 import unicodedata
@@ -38,14 +39,19 @@ try:
 except Exception:
     pass
 
-from openai_log_utils import configure_standard_logging, install_print_logger_bridge
-from openai_progress_utils import read_json_dict, utc_now_iso, write_json_atomic
-
-
 SCRIPT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = SCRIPT_DIR.parent.parent
+root_path = str(PROJECT_ROOT)
+if root_path not in sys.path:
+    sys.path.insert(0, root_path)
+
+from Artefatos.scripts.project_layout import KEYS_DIR, default_report_path, notion_secret_candidates
+from Artefatos.scripts.openai_log_utils import configure_standard_logging, install_print_logger_bridge
+from Artefatos.scripts.openai_progress_utils import read_json_dict, utc_now_iso, write_json_atomic
+
 SCRIPT_FILE = Path(__file__).name
 SCRIPT_STEM = Path(__file__).stem
-REPORT_FILE = SCRIPT_DIR / f".{SCRIPT_STEM}.report.json"
+REPORT_FILE = default_report_path(SCRIPT_STEM)
 DEFAULT_SOURCE_DATABASE_URL = (
     "https://www.notion.so/317721955c6480d3b642cc296d6074c7"
 )
@@ -332,11 +338,7 @@ def resolve_notion_key() -> str:
         if value:
             return value
 
-    candidates = [
-        SCRIPT_DIR / "Chave_Notion.txt",
-        Path.cwd() / "Chave_Notion.txt",
-    ]
-    for candidate in candidates:
+    for candidate in notion_secret_candidates("Chave_Notion.txt"):
         value = _read_secret_from_file(candidate)
         if value:
             return value
@@ -349,6 +351,8 @@ def resolve_openai_key() -> str:
         return env_value
 
     candidates = [
+        KEYS_DIR / "CHAVE_SECRETA_API_Mauricio_local.txt",
+        KEYS_DIR / "Chave Secreta API_Mauricio_local.txt",
         SCRIPT_DIR / "CHAVE_SECRETA_API_Mauricio_local.txt",
         SCRIPT_DIR / "Chave Secreta API_Mauricio_local.txt",
         Path.cwd() / "CHAVE_SECRETA_API_Mauricio_local.txt",

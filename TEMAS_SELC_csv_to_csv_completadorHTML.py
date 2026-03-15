@@ -38,8 +38,8 @@ from urllib.parse import urlparse
 from dotenv import load_dotenv
 from openai import OpenAI
 from gui_intuitiva import dedupe_files, open_file_panel
-from openai_progress_utils import build_file_signature, make_backup, utc_now_iso
-from openai_log_utils import configure_standard_logging, install_print_logger_bridge
+from Artefatos.scripts.openai_progress_utils import build_file_signature, make_backup, utc_now_iso
+from Artefatos.scripts.openai_log_utils import configure_standard_logging, install_print_logger_bridge
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 

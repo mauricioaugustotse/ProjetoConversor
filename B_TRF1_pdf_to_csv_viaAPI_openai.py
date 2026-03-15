@@ -22,7 +22,6 @@ import math
 import os
 import random
 import re
-import sys
 import threading
 import time
 import unicodedata
@@ -34,7 +33,7 @@ from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 from urllib.parse import urlparse
 from gui_intuitiva import open_file_panel
-from openai_log_utils import configure_standard_logging
+from Artefatos.scripts.openai_log_utils import configure_standard_logging
 
 import requests
 from requests.adapters import HTTPAdapter

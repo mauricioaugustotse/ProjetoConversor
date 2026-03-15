@@ -22,7 +22,6 @@ import os
 import random
 import re
 import shutil
-import sys
 import threading
 import time
 from dataclasses import dataclass
@@ -30,7 +29,7 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 from gui_intuitiva import open_file_panel
-from openai_log_utils import configure_standard_logging
+from Artefatos.scripts.openai_log_utils import configure_standard_logging
 
 try:
     from dotenv import load_dotenv

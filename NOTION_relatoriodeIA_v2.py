@@ -40,16 +40,22 @@ try:
 except Exception:
     pass
 
-from openai_log_utils import configure_standard_logging, install_print_logger_bridge
-from openai_progress_utils import read_json_dict, utc_now_iso, write_json_atomic
-
-
 SCRIPT_DIR = Path(__file__).resolve().parent
+from Artefatos.scripts.project_layout import (
+    KEYS_DIR,
+    default_checkpoint_path,
+    default_report_path,
+    named_log_path,
+    notion_secret_candidates,
+)
+from Artefatos.scripts.openai_log_utils import configure_standard_logging, install_print_logger_bridge
+from Artefatos.scripts.openai_progress_utils import read_json_dict, utc_now_iso, write_json_atomic
+
 SCRIPT_FILE = Path(__file__).name
 SCRIPT_STEM = Path(__file__).stem
-REPORT_FILE = SCRIPT_DIR / f".{SCRIPT_STEM}.report.json"
-CHECKPOINT_FILE = SCRIPT_DIR / f".{SCRIPT_STEM}.checkpoint.json"
-DEFAULT_LOG_FILE = SCRIPT_DIR / "run_producao_relatorio_v2.log"
+REPORT_FILE = default_report_path(SCRIPT_STEM)
+CHECKPOINT_FILE = default_checkpoint_path(SCRIPT_STEM)
+DEFAULT_LOG_FILE = named_log_path("run_producao_relatorio_v2.log")
 
 DEFAULT_SOURCE_DATABASE_URL = "https://www.notion.so/317721955c6480d3b642cc296d6074c7?v=6dde3c179e6b400ab0309cd7eac7d61d"
 DEFAULT_NOTION_VERSION = "2025-09-03"
@@ -895,7 +901,7 @@ def resolve_notion_key() -> str:
         value = os.getenv(env_name, "").strip()
         if value:
             return value
-    for candidate in (SCRIPT_DIR / "Chave_Notion.txt", Path.cwd() / "Chave_Notion.txt"):
+    for candidate in notion_secret_candidates("Chave_Notion.txt"):
         value = _read_secret_from_file(candidate)
         if value:
             return value
@@ -907,6 +913,8 @@ def resolve_openai_key() -> str:
     if value:
         return value
     candidates = (
+        KEYS_DIR / "CHAVE_SECRETA_API_Mauricio_local.txt",
+        KEYS_DIR / "Chave Secreta API_Mauricio_local.txt",
         SCRIPT_DIR / "CHAVE_SECRETA_API_Mauricio_local.txt",
         SCRIPT_DIR / "Chave Secreta API_Mauricio_local.txt",
         Path.cwd() / "CHAVE_SECRETA_API_Mauricio_local.txt",

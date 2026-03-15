@@ -20,8 +20,8 @@ from pathlib import Path
 from typing import Callable, Sequence
 
 import SJUR_csv_to_csv_NOTIONfriendly as sjur
-from openai_log_utils import configure_standard_logging, install_print_logger_bridge
-from openai_progress_utils import make_backup, write_csv_atomic
+from Artefatos.scripts.openai_log_utils import configure_standard_logging, install_print_logger_bridge
+from Artefatos.scripts.openai_progress_utils import make_backup, write_csv_atomic
 
 
 @dataclass

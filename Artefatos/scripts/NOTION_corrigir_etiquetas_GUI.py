@@ -17,6 +17,13 @@ import tkinter as tk
 from pathlib import Path
 from tkinter import filedialog, messagebox, scrolledtext
 
+SCRIPT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = SCRIPT_DIR.parent.parent
+root_path = str(PROJECT_ROOT)
+if root_path not in sys.path:
+    sys.path.insert(0, root_path)
+
+from Artefatos.scripts.project_layout import PHASE2_DIR, default_manual_plan_path, default_phase2_queue_path, resolve_project_path
 
 BACKEND_CANDIDATES = (
     "NOTION_corrigir_etiquetas.py",
@@ -38,10 +45,8 @@ class App:
         self.running = False
         self.current_action: str | None = None
 
-        base_dir = Path(__file__).resolve().parent
-
         self.manual_plan_var = tk.StringVar(value="")
-        self.output_dir_var = tk.StringVar(value=str(base_dir))
+        self.output_dir_var = tk.StringVar(value=str(PHASE2_DIR))
         self.database_url_var = tk.StringVar(value=DEFAULT_DATABASE_URL)
 
         self.col_nome_var = tk.BooleanVar(value=True)
@@ -164,10 +169,7 @@ class App:
         self.status_label.config(text=text)
 
     def _resolve_path(self, raw: str) -> Path:
-        p = Path(raw).expanduser()
-        if not p.is_absolute():
-            p = Path(__file__).resolve().parent / p
-        return p
+        return resolve_project_path(raw, default=PHASE2_DIR)
 
     def _backend_script(self) -> Path:
         base = Path(__file__).resolve().parent
@@ -206,7 +208,8 @@ class App:
         if not props:
             raise RuntimeError("Selecione pelo menos uma coluna da fase 2.")
 
-        manual_path = out_dir / MANUAL_PLAN_FILENAME
+        manual_path = out_dir / "manual_plan" / MANUAL_PLAN_FILENAME
+        manual_path.parent.mkdir(parents=True, exist_ok=True)
         self.manual_plan_var.set(str(manual_path))
 
         cmd = [
@@ -321,7 +324,7 @@ class App:
 
     def browse_manual_plan(self) -> None:
         initial = self.manual_plan_var.get().strip()
-        initial_dir = str(Path(initial).parent) if initial else str(Path(__file__).resolve().parent)
+        initial_dir = str(Path(initial).parent) if initial else str(default_manual_plan_path().parent)
         path = filedialog.askopenfilename(
             title="Selecionar manual-plan-csv",
             initialdir=initial_dir,
@@ -331,7 +334,7 @@ class App:
             self.manual_plan_var.set(path)
 
     def browse_output_dir(self) -> None:
-        initial = self.output_dir_var.get().strip() or str(Path(__file__).resolve().parent)
+        initial = self.output_dir_var.get().strip() or str(PHASE2_DIR)
         path = filedialog.askdirectory(title="Selecionar pasta de saida", initialdir=initial)
         if path:
             self.output_dir_var.set(path)
@@ -357,8 +360,10 @@ class App:
         self._launch(cmd, "Gerando JSON/TXT da Fase 2...", action="json_txt")
 
     def _queue_path(self) -> Path:
-        out_dir = self._resolve_path(self.output_dir_var.get().strip())
-        return out_dir / "phase2_chat_queue.csv"
+        output_raw = self.output_dir_var.get().strip()
+        if output_raw:
+            return self._resolve_path(output_raw) / "queues" / "phase2_chat_queue.csv"
+        return default_phase2_queue_path()
 
     def load_queue(self) -> None:
         queue_path = self._queue_path()

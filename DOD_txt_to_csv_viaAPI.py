@@ -25,7 +25,7 @@ from pathlib import Path
 from typing import List, Any, Dict, Pattern, Optional
 
 import pandas as pd
-from openai_progress_utils import (
+from Artefatos.scripts.openai_progress_utils import (
     build_file_signature,
     make_backup,
     read_json_dict,
@@ -34,7 +34,7 @@ from openai_progress_utils import (
     write_csv_atomic,
     write_json_atomic,
 )
-from openai_log_utils import configure_standard_logging, install_print_logger_bridge
+from Artefatos.scripts.openai_log_utils import configure_standard_logging, install_print_logger_bridge
 
 try:
     import tkinter as tk

@@ -19,6 +19,13 @@ import tkinter as tk
 from pathlib import Path
 from tkinter import filedialog, messagebox, scrolledtext
 
+SCRIPT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = SCRIPT_DIR.parent.parent
+root_path = str(PROJECT_ROOT)
+if root_path not in sys.path:
+    sys.path.insert(0, root_path)
+
+from Artefatos.scripts.project_layout import DATA_CSV_DIR, PHASE2_MANUAL_PLAN_DIR, resolve_project_path
 
 SCRIPT_NAME = "NOTION_padronizar_cores_etiquetas_DJeTSE.py"
 PHASE_1_COLUMNS = ("siglaUF", "relator", "siglaClasse", "descricaoClasse")
@@ -34,8 +41,7 @@ class App:
         self.thread: threading.Thread | None = None
         self.running = False
 
-        base_dir = Path(__file__).resolve().parent
-        source_default = self._detect_default_source_csv(base_dir)
+        source_default = self._detect_default_source_csv(DATA_CSV_DIR)
 
         self.apply_var = tk.BooleanVar(value=False)
         self.debug_var = tk.BooleanVar(value=False)
@@ -147,14 +153,11 @@ class App:
         self.status_label.config(text=text)
 
     def _resolve_path(self, raw: str) -> Path:
-        path = Path(raw).expanduser()
-        if not path.is_absolute():
-            path = Path(__file__).resolve().parent / path
-        return path
+        return resolve_project_path(raw)
 
     def browse_source_csv(self) -> None:
         initial = self.source_csv_var.get().strip()
-        initial_dir = str(Path(initial).parent) if initial else str(Path(__file__).resolve().parent)
+        initial_dir = str(Path(initial).parent) if initial else str(DATA_CSV_DIR)
         path = filedialog.askopenfilename(
             title="Selecionar source-csv (base)",
             initialdir=initial_dir,
@@ -165,7 +168,7 @@ class App:
 
     def browse_manual_plan(self) -> None:
         initial = self.manual_plan_var.get().strip()
-        initial_dir = str(Path(initial).parent) if initial else str(Path(__file__).resolve().parent)
+        initial_dir = str(Path(initial).parent) if initial else str(PHASE2_MANUAL_PLAN_DIR)
         path = filedialog.asksaveasfilename(
             title="Selecionar manual-plan-output",
             initialdir=initial_dir,
@@ -262,7 +265,7 @@ class App:
         self._launch(cmd, "Executando Fase 1...")
 
     def open_project_folder(self) -> None:
-        path = Path(__file__).resolve().parent
+        path = resolve_project_path("")
         try:
             if sys.platform.startswith("win"):
                 os.startfile(str(path))  # type: ignore[attr-defined]

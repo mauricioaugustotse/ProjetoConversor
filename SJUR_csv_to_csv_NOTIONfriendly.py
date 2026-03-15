@@ -31,7 +31,7 @@ from typing import Any, Callable, Dict, Iterable, Optional, Sequence
 from urllib.parse import urlparse
 
 import requests
-from openai_progress_utils import (
+from Artefatos.scripts.openai_progress_utils import (
     build_file_signature,
     make_backup,
     read_json_dict,
@@ -40,7 +40,7 @@ from openai_progress_utils import (
     write_csv_atomic,
     write_json_atomic,
 )
-from openai_log_utils import configure_standard_logging, install_print_logger_bridge
+from Artefatos.scripts.openai_log_utils import configure_standard_logging, install_print_logger_bridge
 
 ENCODINGS_TO_TRY = ("utf-8-sig", "utf-8", "cp1252", "latin-1")
 CONTROL_CHAR_RE = re.compile(r"[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]")

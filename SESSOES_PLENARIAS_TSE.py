@@ -26,8 +26,8 @@ from typing import Any, Callable, Dict, List, Optional, Set, Tuple
 from dotenv import load_dotenv
 from openai import OpenAI, APIError
 from gui_intuitiva import open_file_panel
-from openai_log_utils import configure_standard_logging
-from openai_progress_utils import (
+from Artefatos.scripts.openai_log_utils import configure_standard_logging
+from Artefatos.scripts.openai_progress_utils import (
     build_file_signature,
     make_backup,
     read_json_dict,

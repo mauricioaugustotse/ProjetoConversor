@@ -25,6 +25,7 @@ import json
 import logging
 import os
 import re
+import sys
 import time
 import unicodedata
 import uuid
@@ -34,6 +35,20 @@ from urllib.parse import parse_qs, unquote, urlparse
 
 import requests
 
+SCRIPT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = SCRIPT_DIR.parent.parent
+root_path = str(PROJECT_ROOT)
+if root_path not in sys.path:
+    sys.path.insert(0, root_path)
+
+from Artefatos.scripts.project_layout import (
+    PHASE2_PAYLOADS_DIR,
+    PHASE2_PROMPTS_DIR,
+    default_manual_plan_path,
+    default_phase2_queue_path,
+    notion_secret_candidates,
+    resolve_project_path,
+)
 
 NOTION_BASE_URL = "https://api.notion.com"
 DEFAULT_NOTION_VERSION = "2025-09-03"
@@ -89,7 +104,7 @@ def resolve_notion_key() -> str:
         value = os.getenv(env_name, "").strip()
         if value:
             return value
-    for candidate in (Path.cwd() / "Chave_Notion.txt", Path(__file__).resolve().parent / "Chave_Notion.txt"):
+    for candidate in notion_secret_candidates("Chave_Notion.txt"):
         value = _read_secret_from_file(candidate)
         if value:
             return value
@@ -398,18 +413,30 @@ def _parse_selected_property_keys(raw: str) -> set[str]:
 
 
 def _resolve_manual_plan_csv_path(raw_path: str) -> Path:
-    path = Path(_normalize_ws(raw_path))
-    if not path.is_absolute():
-        path = Path.cwd() / path
-    return path
+    return resolve_project_path(_normalize_ws(raw_path), default=default_manual_plan_path())
 
 
 def _resolve_manual_plan_output_path(*, manual_plan_output: str, manual_plan_csv: str) -> Path:
-    candidate = _normalize_ws(manual_plan_output) or _normalize_ws(manual_plan_csv) or "notion_etiquetas_plano_manual_fase2.csv"
-    path = Path(candidate)
-    if not path.is_absolute():
-        path = Path.cwd() / path
-    return path
+    candidate = _normalize_ws(manual_plan_output) or _normalize_ws(manual_plan_csv)
+    return resolve_project_path(candidate, default=default_manual_plan_path())
+
+
+def _resolve_output_bundle(raw_output_dir: str) -> tuple[Path, Path, Path]:
+    candidate = _normalize_ws(raw_output_dir)
+    if candidate:
+        base_dir = resolve_project_path(candidate)
+        payload_dir = base_dir / "payloads"
+        prompt_dir = base_dir / "prompts"
+        queue_path = base_dir / "queues" / "phase2_chat_queue.csv"
+    else:
+        payload_dir = PHASE2_PAYLOADS_DIR
+        prompt_dir = PHASE2_PROMPTS_DIR
+        queue_path = default_phase2_queue_path()
+
+    payload_dir.mkdir(parents=True, exist_ok=True)
+    prompt_dir.mkdir(parents=True, exist_ok=True)
+    queue_path.parent.mkdir(parents=True, exist_ok=True)
+    return payload_dir, prompt_dir, queue_path
 
 
 def _build_manual_plan_rows_from_schema(
@@ -559,7 +586,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--manual-plan-csv",
-        default="notion_etiquetas_plano_manual_fase2.csv",
+        default=str(default_manual_plan_path()),
         help="CSV de plano manual com colunas/etiquetas alvo.",
     )
     parser.add_argument(
@@ -579,8 +606,8 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--output-dir",
-        default=".",
-        help="Pasta de saida dos arquivos JSON/TXT/queue.",
+        default="",
+        help="Pasta base de saida. Vazio = usa Artefatos/phase2/{payloads,prompts,queues}.",
     )
     parser.add_argument(
         "--color-mode",
@@ -676,10 +703,7 @@ def main() -> int:
     rows = load_manual_plan_rows(manual_plan_path)
     LOGGER.info("CSV carregado | arquivo=%s | linhas=%d", manual_plan_path, len(rows))
 
-    output_dir = Path(_normalize_ws(args.output_dir) or ".")
-    if not output_dir.is_absolute():
-        output_dir = Path.cwd() / output_dir
-    output_dir.mkdir(parents=True, exist_ok=True)
+    payload_dir, prompt_dir, queue_path = _resolve_output_bundle(args.output_dir)
 
     notion_token = resolve_notion_key()
     if not notion_token:
@@ -737,8 +761,8 @@ def main() -> int:
         )
 
         prop_token = _sanitize_filename_token(property_name)
-        json_path = output_dir / f"phase2_{prop_token}.json"
-        prompt_path = output_dir / f"phase2_{prop_token}.prompt.txt"
+        json_path = payload_dir / f"phase2_{prop_token}.json"
+        prompt_path = prompt_dir / f"phase2_{prop_token}.prompt.txt"
 
         json_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         prompt_path.write_text(
@@ -769,7 +793,6 @@ def main() -> int:
             json_path,
         )
 
-    queue_path = output_dir / "phase2_chat_queue.csv"
     with queue_path.open("w", encoding="utf-8-sig", newline="") as fp:
         writer = csv.DictWriter(
             fp,

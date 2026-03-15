@@ -23,6 +23,7 @@ import json
 import logging
 import os
 import re
+import sys
 import time
 import unicodedata
 import uuid
@@ -35,6 +36,21 @@ from urllib.parse import parse_qs, unquote, urlparse
 
 import requests
 
+SCRIPT_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = SCRIPT_DIR.parent.parent
+root_path = str(PROJECT_ROOT)
+if root_path not in sys.path:
+    sys.path.insert(0, root_path)
+
+from Artefatos.scripts.project_layout import (
+    DATA_CSV_DIR,
+    PHASE2_NOTION_CHAT_DIR,
+    default_manual_plan_timestamped_path,
+    default_phase2_blocks_dir,
+    default_phase2_queue_path,
+    notion_secret_candidates,
+    resolve_project_path,
+)
 
 NOTION_BASE_URL = "https://api.notion.com"
 DEFAULT_NOTION_VERSION = "2025-09-03"
@@ -198,12 +214,9 @@ def _phase_property_keys(phase: str) -> set[str]:
 def _resolve_manual_plan_path(raw_path: str) -> Path:
     candidate = _normalize_ws(raw_path)
     if candidate:
-        out = Path(candidate)
+        out = resolve_project_path(candidate)
     else:
-        stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        out = Path.cwd() / f"notion_etiquetas_plano_manual_{stamp}.csv"
-    if not out.is_absolute():
-        out = Path.cwd() / out
+        out = default_manual_plan_timestamped_path()
     out.parent.mkdir(parents=True, exist_ok=True)
     return out
 
@@ -257,12 +270,9 @@ def _write_manual_plan_csv(path: Path, rows: List[Dict[str, str]]) -> None:
 def _resolve_phase2_blocks_dir(raw_path: str, fallback_parent: Path) -> Path:
     candidate = _normalize_ws(raw_path)
     if candidate:
-        out = Path(candidate)
+        out = resolve_project_path(candidate)
     else:
-        stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        out = fallback_parent / f"notion_etiquetas_fase2_blocos_{stamp}"
-    if not out.is_absolute():
-        out = Path.cwd() / out
+        out = default_phase2_blocks_dir()
     out.mkdir(parents=True, exist_ok=True)
     return out
 
@@ -282,12 +292,9 @@ def _canonical_phase2_name_by_key() -> Dict[str, str]:
 def _resolve_phase2_chat_output_dir(raw_path: str, fallback_parent: Path) -> Path:
     candidate = _normalize_ws(raw_path)
     if candidate:
-        out = Path(candidate)
+        out = resolve_project_path(candidate)
     else:
-        # Fluxo simplificado: por padrao, grava no diretorio base (sem pasta extra por timestamp).
-        out = fallback_parent
-    if not out.is_absolute():
-        out = Path.cwd() / out
+        out = PHASE2_NOTION_CHAT_DIR
     out.mkdir(parents=True, exist_ok=True)
     return out
 
@@ -295,11 +302,9 @@ def _resolve_phase2_chat_output_dir(raw_path: str, fallback_parent: Path) -> Pat
 def _resolve_phase2_queue_file(raw_path: str, out_dir: Path) -> Path:
     candidate = _normalize_ws(raw_path)
     if candidate:
-        out = Path(candidate)
+        out = resolve_project_path(candidate)
     else:
-        out = out_dir / "phase2_chat_queue.csv"
-    if not out.is_absolute():
-        out = Path.cwd() / out
+        out = default_phase2_queue_path()
     out.parent.mkdir(parents=True, exist_ok=True)
     return out
 
@@ -1163,7 +1168,7 @@ def resolve_notion_key() -> str:
         value = os.getenv(env_name, "").strip()
         if value:
             return value
-    for candidate in (Path.cwd() / "Chave_Notion.txt", Path(__file__).resolve().parent / "Chave_Notion.txt"):
+    for candidate in notion_secret_candidates("Chave_Notion.txt"):
         value = _read_secret_from_file(candidate)
         if value:
             return value
@@ -2675,9 +2680,12 @@ def run(args: argparse.Namespace) -> int:
     source_csv_raw = _normalize_ws(args.source_csv)
     source_csv_path: Optional[Path] = None
     if source_csv_raw:
-        source_csv_path = Path(source_csv_raw)
-        if not source_csv_path.is_absolute():
-            source_csv_path = Path.cwd() / source_csv_path
+        if Path(source_csv_raw).is_absolute():
+            source_csv_path = resolve_project_path(source_csv_raw)
+        else:
+            source_csv_from_root = resolve_project_path(source_csv_raw)
+            source_csv_from_data_dir = resolve_project_path(source_csv_raw, base_dir=DATA_CSV_DIR)
+            source_csv_path = source_csv_from_root if source_csv_from_root.exists() else source_csv_from_data_dir
         if not source_csv_path.exists() or not source_csv_path.is_file():
             raise RuntimeError(f"Arquivo --source-csv nao encontrado: {source_csv_path}")
     queue_from_existing_blocks = bool(
@@ -2891,9 +2899,7 @@ def run(args: argparse.Namespace) -> int:
 
         resume_data: Optional[ResumePlanData] = None
         if _normalize_ws(args.resume_plan_input):
-            resume_path = Path(_normalize_ws(args.resume_plan_input))
-            if not resume_path.is_absolute():
-                resume_path = Path.cwd() / resume_path
+            resume_path = resolve_project_path(_normalize_ws(args.resume_plan_input))
             resume_data = _load_resume_plan_csv(resume_path)
             resume_prop_keys = (
                 set(resume_data.target_colors_by_property)

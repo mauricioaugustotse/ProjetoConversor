@@ -16,7 +16,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import List, Tuple, Dict, Any, Optional
 from gui_intuitiva import dedupe_files, list_files_in_directory, open_file_panel
-from openai_progress_utils import (
+from Artefatos.scripts.openai_progress_utils import (
     build_file_signature,
     make_backup,
     read_json_dict,
@@ -25,7 +25,7 @@ from openai_progress_utils import (
     write_csv_atomic,
     write_json_atomic,
 )
-from openai_log_utils import configure_standard_logging, install_print_logger_bridge
+from Artefatos.scripts.openai_log_utils import configure_standard_logging, install_print_logger_bridge
 
 # --- Bloco de Cores para o Terminal (para um log mais sofisticado) ---
 class C:
