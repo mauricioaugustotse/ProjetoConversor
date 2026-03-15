@@ -1,40 +1,423 @@
 {
   "script": "NOTION_relatoriodeIAdoNotcha_compementador_DJeTSE.py",
-  "started_at": "2026-03-08T01:43:07.191251+00:00",
-  "status": "completed",
-  "page_url": "https://www.notion.so/Relat-rio-DJe-TSE-1-Semana-de-Fevereiro-de-2026-02-a-06-02-31d721955c6480059560f3fa31adfb72",
+  "started_at": "2026-03-14T14:23:22.823503+00:00",
+  "status": "completed_with_errors",
+  "page_url": "https://www.notion.so/DJe-do-TSE-1-semana-de-2026-2-a-6-de-fevereiro-31d721955c6480059560f3fa31adfb72",
   "source_database_url": "https://www.notion.so/317721955c6480d3b642cc296d6074c7",
   "stats": {
-    "blocks_total": 250,
-    "text_blocks_total": 122,
-    "text_blocks_targeted": 28,
-    "text_blocks_not_targeted": 94,
-    "text_blocks_with_any_notion_link": 29,
+    "blocks_total": 393,
+    "text_blocks_total": 230,
+    "text_blocks_targeted": 129,
+    "text_blocks_not_targeted": 101,
+    "text_blocks_with_any_notion_link": 130,
     "tables_targeted": 8,
-    "table_rows_with_any_notion_link": 72,
+    "table_rows_with_any_notion_link": 70,
     "table_companion_cases": 131,
     "table_companions_created": 8,
     "lawyer_frequency_items": 25,
     "lawyer_section_blocks_created": 2,
-    "auto_deleted": 0,
-    "patch_candidates": 28,
-    "updated": 28,
-    "failed": 0,
+    "auto_deleted": 1,
+    "global_reference_count": 148,
+    "text_blocks_reference_normalized": 207,
+    "table_rows_reference_normalized": 53,
+    "link_to_page_reference_converted": 0,
+    "patch_candidates": 129,
+    "updated": 129,
+    "failed": 63,
     "unchanged_targeted": 0,
-    "untouched_non_target": 94,
+    "untouched_non_target": 101,
     "linked_pages": 147,
     "context_primary": 36,
     "context_fallback": 0,
     "context_final": 36,
     "table_cases_with_context": 131,
     "table_cases_without_context": 0,
-    "openai_text_batches": 3,
+    "openai_text_batches": 43,
     "openai_table_batches": 14
   },
   "page_id": "31d72195-5c64-8005-9560-f3fa31adfb72",
   "source_database_id": "31772195-5c64-80d3-b642-cc296d6074c7",
   "data_source_id": "31772195-5c64-8025-9bf9-000bf281663d",
-  "elapsed_seconds": 1067.54,
-  "updated_at": "2026-03-08T02:00:54.729212+00:00",
-  "failures": []
+  "elapsed_seconds": 2672.15,
+  "updated_at": "2026-03-14T15:07:54.972326+00:00",
+  "failures": [
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "c398a721-77d7-4c12-a248-6111b18124d7",
+      "block_type": "numbered_list_item",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/c398a721-77d7-4c12-a248-6111b18124d7: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "6ea04334-7924-44dc-860c-504045fadfd5",
+      "block_type": "table_row",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/6ea04334-7924-44dc-860c-504045fadfd5: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "bd43a703-14f2-494b-9687-7164ef075a20",
+      "block_type": "table_row",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/bd43a703-14f2-494b-9687-7164ef075a20: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "8f71008c-66b6-47a1-ab00-0e611234937c",
+      "block_type": "table_row",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/8f71008c-66b6-47a1-ab00-0e611234937c: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "344896ee-8ce5-403f-9313-983dbe859f82",
+      "block_type": "table_row",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/344896ee-8ce5-403f-9313-983dbe859f82: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "70e8b193-7e8c-4af3-8a7a-020abfd75ea8",
+      "block_type": "table_row",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/70e8b193-7e8c-4af3-8a7a-020abfd75ea8: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "32372195-5c64-8100-bd63-f2e426cefdd9",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/32372195-5c64-8100-bd63-f2e426cefdd9: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "32372195-5c64-81cb-8b79-ca256b506614",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/32372195-5c64-81cb-8b79-ca256b506614: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "32372195-5c64-81c9-b2f7-f7a613e73222",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/32372195-5c64-81c9-b2f7-f7a613e73222: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "32372195-5c64-8137-bc73-d91ccc7716de",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/32372195-5c64-8137-bc73-d91ccc7716de: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "32372195-5c64-819e-87f5-d80f25b9c7b6",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/32372195-5c64-819e-87f5-d80f25b9c7b6: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "32372195-5c64-8159-8240-d26d82a7a5d2",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/32372195-5c64-8159-8240-d26d82a7a5d2: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "32372195-5c64-8169-ae42-e054a7b8e8da",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/32372195-5c64-8169-ae42-e054a7b8e8da: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "32372195-5c64-813d-b87a-f0e98e3b666f",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/32372195-5c64-813d-b87a-f0e98e3b666f: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "31d72195-5c64-8156-a31d-d839bcc83069",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/31d72195-5c64-8156-a31d-d839bcc83069: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "31d72195-5c64-81ad-8390-f55917b0283c",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/31d72195-5c64-81ad-8390-f55917b0283c: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "31d72195-5c64-8165-a9cb-cf9369b13b34",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/31d72195-5c64-8165-a9cb-cf9369b13b34: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "31d72195-5c64-8137-b770-dddf66d1c7b9",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/31d72195-5c64-8137-b770-dddf66d1c7b9: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "31d72195-5c64-81e3-92bc-c3ce60a317e6",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/31d72195-5c64-81e3-92bc-c3ce60a317e6: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "31d72195-5c64-81eb-b2f9-cff16cf10c5e",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/31d72195-5c64-81eb-b2f9-cff16cf10c5e: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "31d72195-5c64-8146-8e38-d083713d4e33",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/31d72195-5c64-8146-8e38-d083713d4e33: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "31d72195-5c64-811e-95dc-ed33c3972ed2",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/31d72195-5c64-811e-95dc-ed33c3972ed2: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "c0d6a96e-d991-45b9-9371-1cadbc0397f4",
+      "block_type": "table_row",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/c0d6a96e-d991-45b9-9371-1cadbc0397f4: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "a5368fdb-1b83-42a3-a1f1-b0293b264a6d",
+      "block_type": "table_row",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/a5368fdb-1b83-42a3-a1f1-b0293b264a6d: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "646cf873-a150-418f-b1c9-a4cc83b12a3e",
+      "block_type": "table_row",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/646cf873-a150-418f-b1c9-a4cc83b12a3e: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "34f10fee-561c-49a0-afe9-6fcfd7de724c",
+      "block_type": "table_row",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/34f10fee-561c-49a0-afe9-6fcfd7de724c: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "3129392c-7205-4533-a2c9-1a4754418e33",
+      "block_type": "table_row",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/3129392c-7205-4533-a2c9-1a4754418e33: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "848809ea-0a9b-4630-b727-f59564e0aaaa",
+      "block_type": "table_row",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/848809ea-0a9b-4630-b727-f59564e0aaaa: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "5c0ca291-1b4a-4bd8-86d7-07d1ceb0e95b",
+      "block_type": "table_row",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/5c0ca291-1b4a-4bd8-86d7-07d1ceb0e95b: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "32372195-5c64-81f2-819c-e1955e53a5ee",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/32372195-5c64-81f2-819c-e1955e53a5ee: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "32372195-5c64-81e4-9666-f37920a1fdd0",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/32372195-5c64-81e4-9666-f37920a1fdd0: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "32372195-5c64-81f6-8251-e7489f3ff74b",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/32372195-5c64-81f6-8251-e7489f3ff74b: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "32372195-5c64-81dd-a663-ebbfd5023602",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/32372195-5c64-81dd-a663-ebbfd5023602: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "32372195-5c64-81d6-bc92-e40160de74c2",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/32372195-5c64-81d6-bc92-e40160de74c2: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "32372195-5c64-8171-bab5-fd0a3e5a0c9f",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/32372195-5c64-8171-bab5-fd0a3e5a0c9f: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "32372195-5c64-81fc-9bfb-c2ba58952636",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/32372195-5c64-81fc-9bfb-c2ba58952636: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "32372195-5c64-81bb-8926-f254e0cb0685",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/32372195-5c64-81bb-8926-f254e0cb0685: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "32372195-5c64-81e0-93b2-ee64f44bfb87",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/32372195-5c64-81e0-93b2-ee64f44bfb87: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "32372195-5c64-813f-a618-fe117769fd5d",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/32372195-5c64-813f-a618-fe117769fd5d: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "32372195-5c64-8175-bd88-df13d053de34",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/32372195-5c64-8175-bd88-df13d053de34: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "32372195-5c64-811a-9174-e885b90b4b12",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/32372195-5c64-811a-9174-e885b90b4b12: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "31d72195-5c64-81c6-b5f9-d7a7b38e1427",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/31d72195-5c64-81c6-b5f9-d7a7b38e1427: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "31d72195-5c64-81ba-baff-e4a7d5fe3357",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/31d72195-5c64-81ba-baff-e4a7d5fe3357: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "31d72195-5c64-81bc-948b-f6563013149f",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/31d72195-5c64-81bc-948b-f6563013149f: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "31d72195-5c64-8164-9e17-e68c34326a9f",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/31d72195-5c64-8164-9e17-e68c34326a9f: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "31d72195-5c64-81c9-abfa-cb36b8ad0a53",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/31d72195-5c64-81c9-abfa-cb36b8ad0a53: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "31d72195-5c64-81ef-9347-c3c643e4e929",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/31d72195-5c64-81ef-9347-c3c643e4e929: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "31d72195-5c64-81d3-bc89-f5f26a8607af",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/31d72195-5c64-81d3-bc89-f5f26a8607af: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "31d72195-5c64-8157-82c9-f0b62d83d215",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/31d72195-5c64-8157-82c9-f0b62d83d215: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "31d72195-5c64-8165-8f41-cd9855ccc80a",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/31d72195-5c64-8165-8f41-cd9855ccc80a: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "31d72195-5c64-81a9-aa95-e2fab5f452de",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/31d72195-5c64-81a9-aa95-e2fab5f452de: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "31d72195-5c64-819a-b5f8-f967c64baadb",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/31d72195-5c64-819a-b5f8-f967c64baadb: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "31d72195-5c64-81ab-989a-cf427aebe3f5",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/31d72195-5c64-81ab-989a-cf427aebe3f5: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "83ae3af9-c356-48ff-997a-a7b59487b820",
+      "block_type": "bulleted_list_item",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/83ae3af9-c356-48ff-997a-a7b59487b820: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "17392210-2d6f-438d-84d1-1531b0217a7d",
+      "block_type": "bulleted_list_item",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/17392210-2d6f-438d-84d1-1531b0217a7d: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "92c4ed9f-ee88-4374-a520-7d2cb3da3d33",
+      "block_type": "bulleted_list_item",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/92c4ed9f-ee88-4374-a520-7d2cb3da3d33: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "213f1b4f-06b8-497c-8b9b-d06cddab0419",
+      "block_type": "bulleted_list_item",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/213f1b4f-06b8-497c-8b9b-d06cddab0419: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "165ec236-ba85-45b5-9893-caa9c9bc31dc",
+      "block_type": "bulleted_list_item",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/165ec236-ba85-45b5-9893-caa9c9bc31dc: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "c5e00d91-8321-4a62-a820-84371c47ca68",
+      "block_type": "bulleted_list_item",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/c5e00d91-8321-4a62-a820-84371c47ca68: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "26964a07-07ab-40b4-bb5e-0b5ab9a42e53",
+      "block_type": "bulleted_list_item",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/26964a07-07ab-40b4-bb5e-0b5ab9a42e53: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "4daa566c-f6f8-4bdb-b712-eb04bd043594",
+      "block_type": "paragraph",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/4daa566c-f6f8-4bdb-b712-eb04bd043594: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "7566e454-ba26-46dd-be69-117ea1a7144e",
+      "block_type": "numbered_list_item",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/7566e454-ba26-46dd-be69-117ea1a7144e: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    },
+    {
+      "section": "normalizacao_referencias",
+      "block_id": "52fa559d-5cb5-4e71-870d-5a5a91bdafcf",
+      "block_type": "callout",
+      "erro": "Erro Notion 400 em PATCH /v1/blocks/52fa559d-5cb5-4e71-870d-5a5a91bdafcf: Can't edit page on block with an archived ancestor. You must unarchive the ancestor before editing page."
+    }
+  ]
 }

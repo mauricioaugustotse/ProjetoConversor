@@ -1120,6 +1120,132 @@ def _extract_notion_urls_from_block(block: Dict[str, Any]) -> List[str]:
     return urls
 
 
+def _rich_text_item_plain_text(item: Dict[str, Any]) -> str:
+    if not isinstance(item, dict):
+        return ""
+    plain = item.get("plain_text")
+    if isinstance(plain, str):
+        return plain
+    text_obj = item.get("text")
+    if isinstance(text_obj, dict):
+        content = text_obj.get("content")
+        if isinstance(content, str):
+            return content
+    return ""
+
+
+def _rich_text_item_link_url(item: Dict[str, Any]) -> str:
+    if not isinstance(item, dict):
+        return ""
+    href = item.get("href")
+    if isinstance(href, str) and href:
+        return href
+    text_obj = item.get("text")
+    if isinstance(text_obj, dict):
+        link_obj = text_obj.get("link")
+        if isinstance(link_obj, dict):
+            url = link_obj.get("url")
+            if isinstance(url, str):
+                return url
+    mention = item.get("mention")
+    if isinstance(mention, dict) and mention.get("type") == "page":
+        page_obj = mention.get("page")
+        if isinstance(page_obj, dict):
+            page_id = page_obj.get("id")
+            if isinstance(page_id, str) and page_id:
+                try:
+                    return _notion_page_url_from_id(_normalize_notion_id(page_id))
+                except Exception:
+                    return ""
+    return ""
+
+
+def _wrap_markdown_bold(text: str, *, bold: bool) -> str:
+    if not text:
+        return ""
+    if not bold:
+        return text
+    return f"**{text}**"
+
+
+def _replace_notion_urls_in_text_with_refs(
+    text: str,
+    reference_numbers: Dict[str, int],
+) -> tuple[str, bool]:
+    raw_text = str(text or "")
+    if not raw_text:
+        return "", False
+    replaced = False
+
+    def _repl(match: re.Match[str]) -> str:
+        nonlocal replaced
+        raw_url = match.group(0)
+        cleaned = _normalize_notion_reference_url(raw_url)
+        if not cleaned:
+            return raw_url
+        idx = reference_numbers.get(cleaned.casefold())
+        if not idx:
+            return raw_url
+        replaced = True
+        suffix = raw_url[len(cleaned) :] if raw_url.startswith(cleaned) else ""
+        return f"[{idx}]({cleaned}){suffix}"
+
+    return URL_RE.sub(_repl, raw_text), replaced
+
+
+def _render_rich_text_items_with_global_refs(
+    items: Sequence[Dict[str, Any]],
+    reference_numbers: Dict[str, int],
+) -> tuple[str, bool]:
+    parts: List[str] = []
+    touched_notion_ref = False
+
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        bold = bool((item.get("annotations") or {}).get("bold"))
+        raw_link_url = _rich_text_item_link_url(item)
+        notion_link_url = _normalize_notion_reference_url(raw_link_url)
+        if notion_link_url:
+            idx = reference_numbers.get(notion_link_url.casefold())
+            if idx:
+                parts.append(_wrap_markdown_bold(f"[{idx}]({notion_link_url})", bold=bold))
+                touched_notion_ref = True
+                continue
+
+        text = _rich_text_item_plain_text(item)
+        if not text:
+            continue
+
+        text, replaced_raw_url = _replace_notion_urls_in_text_with_refs(text, reference_numbers)
+        touched_notion_ref = touched_notion_ref or replaced_raw_url
+
+        external_link_url = _normalize_ws(raw_link_url)
+        if external_link_url and not notion_link_url:
+            if text == external_link_url:
+                rendered = external_link_url
+            else:
+                rendered = f"[{text}]({external_link_url})"
+        else:
+            rendered = text
+        parts.append(_wrap_markdown_bold(rendered, bold=bold))
+
+    return "".join(parts), touched_notion_ref
+
+
+def _build_global_notion_reference_numbers(page_blocks: Sequence[Dict[str, Any]]) -> Dict[str, int]:
+    reference_numbers: Dict[str, int] = {}
+    next_index = 1
+    for block in page_blocks:
+        for url in _extract_notion_urls_from_block(block):
+            key = url.casefold()
+            if key in reference_numbers:
+                continue
+            reference_numbers[key] = next_index
+            next_index += 1
+    return reference_numbers
+
+
 def _page_parent_matches_source(
     page_id: str,
     *,
@@ -3147,6 +3273,14 @@ def patch_text_block(block_id: str, block_type: str, rich_text: List[Dict[str, A
     notion_request("PATCH", f"/v1/blocks/{block_id}", json_body=payload)
 
 
+def patch_table_row_block(block_id: str, cells: Sequence[Sequence[Dict[str, Any]]]) -> None:
+    block = BLOCK_INDEX.get(block_id)
+    if block is None:
+        raise RuntimeError(f"Linha de tabela nao encontrada para patch: {block_id}")
+    payload = {"table_row": {"cells": [list(cell) for cell in cells]}}
+    notion_request("PATCH", f"/v1/blocks/{block_id}", json_body=payload)
+
+
 def delete_block(block_id: str) -> None:
     notion_request("DELETE", f"/v1/blocks/{block_id}")
 
@@ -3175,6 +3309,150 @@ def append_block_children(
             created.extend([item for item in results if isinstance(item, dict)])
         after_block_id = ""
     return created
+
+
+def _normalize_text_block_notion_references(
+    block: Dict[str, Any],
+    reference_numbers: Dict[str, int],
+) -> bool:
+    block_id = _normalize_ws(block.get("id", ""))
+    block_type = str(block.get("type", "") or "")
+    if not block_id or block_type not in SUPPORTED_TEXT_BLOCK_TYPES:
+        return False
+    current_items = _block_rich_text(block)
+    if not current_items:
+        return False
+    rendered_markdown, touched = _render_rich_text_items_with_global_refs(current_items, reference_numbers)
+    if not touched:
+        return False
+    new_rich_text = markdown_bold_to_notion_rich_text(rendered_markdown)
+    current_plain = _normalize_ws(_rich_text_plain_text(current_items))
+    new_plain = _normalize_ws(_rich_text_plain_text(new_rich_text))
+    if current_plain == new_plain:
+        return False
+    patch_text_block(block_id, block_type, new_rich_text)
+    return True
+
+
+def _normalize_table_row_notion_references(
+    block: Dict[str, Any],
+    reference_numbers: Dict[str, int],
+) -> bool:
+    if str(block.get("type", "") or "") != "table_row":
+        return False
+    block_id = _normalize_ws(block.get("id", ""))
+    if not block_id:
+        return False
+    body = block.get("table_row")
+    if not isinstance(body, dict):
+        return False
+    cells = body.get("cells")
+    if not isinstance(cells, list):
+        return False
+
+    any_touched = False
+    any_changed = False
+    new_cells: List[List[Dict[str, Any]]] = []
+    for cell in cells:
+        cell_items = [item for item in cell if isinstance(item, dict)] if isinstance(cell, list) else []
+        rendered_markdown, touched = _render_rich_text_items_with_global_refs(cell_items, reference_numbers)
+        if not touched:
+            new_cells.append(cell_items)
+            continue
+        any_touched = True
+        new_rich_text = markdown_bold_to_notion_rich_text(rendered_markdown)
+        current_plain = _normalize_ws(_rich_text_plain_text(cell_items))
+        new_plain = _normalize_ws(_rich_text_plain_text(new_rich_text))
+        if current_plain != new_plain:
+            any_changed = True
+        new_cells.append(new_rich_text)
+
+    if not any_touched or not any_changed:
+        return False
+    patch_table_row_block(block_id, new_cells)
+    return True
+
+
+def _convert_link_to_page_block_to_reference(
+    block: Dict[str, Any],
+    reference_numbers: Dict[str, int],
+) -> bool:
+    if str(block.get("type", "") or "") != "link_to_page":
+        return False
+    block_id = _normalize_ws(block.get("id", ""))
+    parent_id = _normalize_ws(block.get("_parent_id", ""))
+    if not block_id or not parent_id:
+        return False
+    obj = block.get("link_to_page")
+    if not isinstance(obj, dict):
+        return False
+    page_id = obj.get("page_id")
+    if not isinstance(page_id, str) or not page_id:
+        return False
+    try:
+        notion_url = _notion_page_url_from_id(_normalize_notion_id(page_id))
+    except Exception:
+        return False
+    idx = reference_numbers.get(notion_url.casefold())
+    if not idx:
+        return False
+
+    created = append_block_children(
+        parent_id,
+        [_build_paragraph_block(f"[{idx}]({notion_url})")],
+        after_block_id=block_id,
+    )
+    if not created:
+        raise RuntimeError(f"Falha ao converter link_to_page {block_id}")
+    delete_block(block_id)
+    return True
+
+
+def normalize_global_notion_references(page_id: str) -> Dict[str, Any]:
+    page_blocks = retrieve_all_block_children_recursive(page_id)
+    global BLOCK_INDEX
+    BLOCK_INDEX = {str(block.get("id", "")): block for block in page_blocks if block.get("id")}
+
+    reference_numbers = _build_global_notion_reference_numbers(page_blocks)
+    stats: Dict[str, Any] = {
+        "reference_count": len(reference_numbers),
+        "text_blocks_normalized": 0,
+        "table_rows_normalized": 0,
+        "link_to_page_converted": 0,
+        "failures": [],
+    }
+    if not reference_numbers:
+        return stats
+
+    for block in page_blocks:
+        block_id = _normalize_ws(block.get("id", ""))
+        block_type = str(block.get("type", "") or "")
+        try:
+            if block_type in SUPPORTED_TEXT_BLOCK_TYPES:
+                if _normalize_text_block_notion_references(block, reference_numbers):
+                    stats["text_blocks_normalized"] += 1
+            elif block_type == "table_row":
+                if _normalize_table_row_notion_references(block, reference_numbers):
+                    stats["table_rows_normalized"] += 1
+            elif block_type == "link_to_page":
+                if _convert_link_to_page_block_to_reference(block, reference_numbers):
+                    stats["link_to_page_converted"] += 1
+        except Exception as exc:
+            stats["failures"].append(
+                {
+                    "block_id": block_id,
+                    "block_type": block_type,
+                    "erro": str(exc),
+                }
+            )
+            LOGGER.error(
+                "[Refs-globais] Falha ao normalizar bloco %s (%s): %s",
+                block_id,
+                block_type,
+                exc,
+            )
+
+    return stats
 
 
 def _build_paragraph_block(text: str) -> Dict[str, Any]:
@@ -4058,6 +4336,42 @@ def run_agent(config: RunConfig) -> int:
             failures.append({"section": "advogados_recorrentes", "erro": str(exc)})
             LOGGER.error("[Advogados] Falha ao atualizar secao final: %s", exc)
 
+        reference_norm_stats: Dict[str, Any] = {
+            "reference_count": 0,
+            "text_blocks_normalized": 0,
+            "table_rows_normalized": 0,
+            "link_to_page_converted": 0,
+            "failures": [],
+        }
+        try:
+            LOGGER.info("[Refs-globais] Normalizando referencias do Notion na ordem do relatorio...")
+            reference_norm_stats = normalize_global_notion_references(page_id)
+            reference_norm_failures = [
+                {
+                    "section": "normalizacao_referencias",
+                    "block_id": item.get("block_id", ""),
+                    "block_type": item.get("block_type", ""),
+                    "erro": item.get("erro", ""),
+                }
+                for item in (reference_norm_stats.get("failures") or [])
+                if isinstance(item, dict)
+            ]
+            if reference_norm_failures:
+                failed += len(reference_norm_failures)
+                failures.extend(reference_norm_failures)
+            LOGGER.info(
+                "[Refs-globais] referencias=%d | blocos_texto=%d | linhas_tabela=%d | link_to_page=%d | falhas=%d",
+                int(reference_norm_stats.get("reference_count", 0)),
+                int(reference_norm_stats.get("text_blocks_normalized", 0)),
+                int(reference_norm_stats.get("table_rows_normalized", 0)),
+                int(reference_norm_stats.get("link_to_page_converted", 0)),
+                len(reference_norm_failures),
+            )
+        except Exception as exc:
+            failed += 1
+            failures.append({"section": "normalizacao_referencias", "erro": str(exc)})
+            LOGGER.error("[Refs-globais] Falha na normalizacao final: %s", exc)
+
         elapsed = round(max(0.0, time.time() - started_at), 2)
         report.update(
             {
@@ -4077,6 +4391,10 @@ def run_agent(config: RunConfig) -> int:
                     "lawyer_frequency_items": len(lawyer_lines),
                     "lawyer_section_blocks_created": lawyer_section_created,
                     "auto_deleted": deleted_auto,
+                    "global_reference_count": int(reference_norm_stats.get("reference_count", 0)),
+                    "text_blocks_reference_normalized": int(reference_norm_stats.get("text_blocks_normalized", 0)),
+                    "table_rows_reference_normalized": int(reference_norm_stats.get("table_rows_normalized", 0)),
+                    "link_to_page_reference_converted": int(reference_norm_stats.get("link_to_page_converted", 0)),
                     "patch_candidates": len(patch_plans),
                     "updated": updated,
                     "failed": failed,
