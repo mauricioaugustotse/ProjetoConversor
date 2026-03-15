@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "prompt_version": 4,
+  "status": "running",
+  "created_at": "2026-03-02T23:16:53.341759+00:00",
+  "updated_at": "2026-03-02T23:17:29.035364+00:00",
+  "output_docx": "C:\\Users\\mauri\\ProjetoConversor\\relatorio_objetos_alteradores_20260302_2017.docx",
+  "openai_model": "gpt-5.1",
+  "fallback_model": "gpt-5-mini",
+  "openai_timeout": 75,
+  "openai_retries": 2,
+  "integral_length_retries": 1,
+  "enable_chunk_fallback": true,
+  "parecer_file": "C:\\Users\\mauri\\ProjetoConversor\\inteiroTeor-3089230.pdf",
+  "parecer_summary": "O parecer examina um conjunto de projetos que tratam da denominação, apresentação, rotulagem, publicidade e comercialização de produtos similares a lácteos e carnes, inclusive de origem vegetal. A análise adota como critério central a redução da assimetria de informações entre fornecedores e consumidores, reforçando o direito à informação clara e adequada previsto no Código de Defesa do Consumidor. O eixo normativo principal é a reserva de determinados termos tradicionais a produtos de origem animal e a imposição de deveres de rotulagem e diferenciação visual para similares e produtos plant based. A comissão considera que todas as proposições convergem para esse objetivo e o consolida em um substitutivo único, avaliado como constitucional, juridicamente adequado e sem impacto orçamentário relevante.",
+  "parecer_model_used": "gpt-5.1",
+  "inteiro_teor_file": "C:\\Users\\mauri\\ProjetoConversor\\inteiroTeor-1675731.pdf",
+  "inteiro_teor_summary": "O projeto de lei reserva o uso da palavra leite, em embalagens, rótulos e publicidade, exclusivamente ao produto de secreção mamária de fêmeas de mamíferos, sem adições ou extrações, e define que produtos lácteos são apenas os derivados exclusivamente desse leite. Determina que termos como queijo, manteiga, iogurte, creme de leite, bebida láctea, doce de leite e outros correlatos sejam de uso exclusivo para produtos lácteos, vedando seu emprego em alimentos de origem vegetal. A medida busca evitar confusão ao consumidor, restringir práticas de marketing de bebidas e extratos vegetais e alinhar-se a normas europeias. Pontos sensíveis para emendas incluem a transição para o setor de alimentos vegetais, regras de rotulagem alternativas, exceções para produtos tradicionais e harmonização com normas da Anvisa e do Mercosul.",
+  "inteiro_teor_model_used": "gpt-5.1",
+  "reference_context_summary": "[Resumo do parecer]\nO parecer examina um conjunto de projetos que tratam da denominação, apresentação, rotulagem, publicidade e comercialização de produtos similares a lácteos e carnes, inclusive de origem vegetal. A análise adota como critério central a redução da assimetria de informações entre fornecedores e consumidores, reforçando o direito à informação clara e adequada previsto no Código de Defesa do Consumidor. O eixo normativo principal é a reserva de determinados termos tradicionais a produtos de origem animal e a imposição de deveres de rotulagem e diferenciação visual para similares e produtos plant based. A comissão considera que todas as proposições convergem para esse objetivo e o consolida em um substitutivo único, avaliado como constitucional, juridicamente adequado e sem impacto orçamentário relevante.\n\n[Resumo do inteiro teor]\nO projeto de lei reserva o uso da palavra leite, em embalagens, rótulos e publicidade, exclusivamente ao produto de secreção mamária de fêmeas de mamíferos, sem adições ou extrações, e define que produtos lácteos são apenas os derivados exclusivamente desse leite. Determina que termos como queijo, manteiga, iogurte, creme de leite, bebida láctea, doce de leite e outros correlatos sejam de uso exclusivo para produtos lácteos, vedando seu emprego em alimentos de origem vegetal. A medida busca evitar confusão ao consumidor, restringir práticas de marketing de bebidas e extratos vegetais e alinhar-se a normas europeias. Pontos sensíveis para emendas incluem a transição para o setor de alimentos vegetais, regras de rotulagem alternativas, exceções para produtos tradicionais e harmonização com normas da Anvisa e do Mercosul.",
+  "input_manifest": [
+    {
+      "path": "C:\\Users\\mauri\\ProjetoConversor\\DTQ-1-=_-PL-10556-2018.pdf",
+      "size": 577191,
+      "mtime_ns": 1772493374664968300
+    },
+    {
+      "path": "C:\\Users\\mauri\\ProjetoConversor\\inteiroTeor-1675731.pdf",
+      "size": 125599,
+      "mtime_ns": 1772493390189992600
+    },
+    {
+      "path": "C:\\Users\\mauri\\ProjetoConversor\\inteiroTeor-3089230.pdf",
+      "size": 235428,
+      "mtime_ns": 1772493403359477200
+    }
+  ],
+  "target_paths": [
+    "C:\\Users\\mauri\\ProjetoConversor\\DTQ-1-=_-PL-10556-2018.pdf"
+  ],
+  "total_targets": 1,
+  "ok_count": 0,
+  "pending_count": 1,
+  "results_by_path": {
+    "C:\\Users\\mauri\\ProjetoConversor\\DTQ-1-=_-PL-10556-2018.pdf": {
+      "file_path": "C:\\Users\\mauri\\ProjetoConversor\\DTQ-1-=_-PL-10556-2018.pdf",
+      "file_name": "DTQ-1-=_-PL-10556-2018.pdf",
+      "objeto_alterador": "DTQ-1",
+      "tipo_objeto": "DTQ",
+      "numero_objeto": 1,
+      "paragrafo_1": "",
+      "paragrafo_2": "",
+      "model_used": "",
+      "status": "error",
+      "used_chunk_fallback": false,
+      "error": "[length] empty_json_due_length"
+    }
+  }
+}

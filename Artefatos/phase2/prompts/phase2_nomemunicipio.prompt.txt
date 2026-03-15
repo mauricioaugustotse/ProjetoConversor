@@ -1,0 +1,2166 @@
+Aplique este JSON completo na configuracao da propriedade no Notion.
+
+Regras obrigatorias:
+1) Use EXATAMENTE o array `options` enviado abaixo.
+2) Nao altere outras propriedades/colunas.
+3) Confirme ao final as contagens aplicadas.
+
+Base: https://www.notion.so/317721955c6480d3b642cc296d6074c7?v=6dde3c179e6b400ab0309cd7eac7d61d
+Propriedade: nomeMunicipio
+
+Contagem esperada: set_default=428 | removidos=0
+
+Formato solicitado:
+{
+  "property": "...",
+  "options": [
+    {"name": "...", "url": "...", "color": "..."}
+  ]
+}
+
+JSON da propriedade:
+{
+  "property": "nomeMunicipio",
+  "options": [
+    {
+      "name": "GUARULHOS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/PG1IXg",
+      "color": "default"
+    },
+    {
+      "name": "VICÊNCIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/ZG5VWQ",
+      "color": "default"
+    },
+    {
+      "name": "SANTA CRUZ DE MINAS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/bVV5Sg",
+      "color": "default"
+    },
+    {
+      "name": "BRASÍLIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/TXZaYg",
+      "color": "default"
+    },
+    {
+      "name": "ORIXIMINÁ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/a3d9Zg",
+      "color": "default"
+    },
+    {
+      "name": "SÃO PAULO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/SFNISA",
+      "color": "default"
+    },
+    {
+      "name": "ARENÁPOLIS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Y3JWPg",
+      "color": "default"
+    },
+    {
+      "name": "CUIABÁ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/PmdnZg",
+      "color": "default"
+    },
+    {
+      "name": "MACAPÁ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Ulc8bg",
+      "color": "default"
+    },
+    {
+      "name": "BARUERI",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/eHtNVw",
+      "color": "default"
+    },
+    {
+      "name": "GAROPABA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/VH1hVA",
+      "color": "default"
+    },
+    {
+      "name": "CURITIBA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/QEY8Sw",
+      "color": "default"
+    },
+    {
+      "name": "OIAPOQUE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/W2B1Yg",
+      "color": "default"
+    },
+    {
+      "name": "JAURU",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/d1ZYYA",
+      "color": "default"
+    },
+    {
+      "name": "SENADOR SÁ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/dUBpSA",
+      "color": "default"
+    },
+    {
+      "name": "CAXIAS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/SkRCeA",
+      "color": "default"
+    },
+    {
+      "name": "UARINI",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Vnp6Vw",
+      "color": "default"
+    },
+    {
+      "name": "MACEIÓ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/P3ZxYQ",
+      "color": "default"
+    },
+    {
+      "name": "NOVA AURORA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/bXNJaA",
+      "color": "default"
+    },
+    {
+      "name": "SÃO DOMINGOS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/dHlLXQ",
+      "color": "default"
+    },
+    {
+      "name": "MANAÍRA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/PTpMOw",
+      "color": "default"
+    },
+    {
+      "name": "SÃO JOSÉ DOS RAMOS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/PWdWZw",
+      "color": "default"
+    },
+    {
+      "name": "CAMBUÍ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/ajxgXw",
+      "color": "default"
+    },
+    {
+      "name": "COXIM",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/flE7eA",
+      "color": "default"
+    },
+    {
+      "name": "PALMAS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/a0l5cA",
+      "color": "default"
+    },
+    {
+      "name": "BARRA MANSA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/V2ZkbA",
+      "color": "default"
+    },
+    {
+      "name": "MAUÁ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/XEl3bw",
+      "color": "default"
+    },
+    {
+      "name": "MONTE ALEGRE DE SERGIPE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/fT91Ww",
+      "color": "default"
+    },
+    {
+      "name": "FEIRA DE SANTANA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/dkl-WA",
+      "color": "default"
+    },
+    {
+      "name": "VOTORANTIM",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/QFBhcA",
+      "color": "default"
+    },
+    {
+      "name": "VILHENA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/akd7RQ",
+      "color": "default"
+    },
+    {
+      "name": "SÃO LUÍS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/TkhRYw",
+      "color": "default"
+    },
+    {
+      "name": "PARAUAPEBAS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/P1VlYg",
+      "color": "default"
+    },
+    {
+      "name": "PORTO RICO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/dUxJVw",
+      "color": "default"
+    },
+    {
+      "name": "MANAUS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Yj9uXg",
+      "color": "default"
+    },
+    {
+      "name": "BELÉM",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/cFZdYA",
+      "color": "default"
+    },
+    {
+      "name": "BANDEIRANTES",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/VztrYA",
+      "color": "default"
+    },
+    {
+      "name": "ITANAGRA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/anFjQQ",
+      "color": "default"
+    },
+    {
+      "name": "SERRA PRETA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/UEs6WQ",
+      "color": "default"
+    },
+    {
+      "name": "LAGARTO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/eldgfQ",
+      "color": "default"
+    },
+    {
+      "name": "FORTALEZA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/O2JJUQ",
+      "color": "default"
+    },
+    {
+      "name": "PORTO SEGURO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/P14-fg",
+      "color": "default"
+    },
+    {
+      "name": "HIDROLÂNDIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/UGpNdQ",
+      "color": "default"
+    },
+    {
+      "name": "UNIFLOR",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/OnVrbw",
+      "color": "default"
+    },
+    {
+      "name": "MARTINS SOARES",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/bFpvbQ",
+      "color": "default"
+    },
+    {
+      "name": "GUAMARÉ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/bnl0UA",
+      "color": "default"
+    },
+    {
+      "name": "BENTO FERNANDES",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/YnpUTQ",
+      "color": "default"
+    },
+    {
+      "name": "TEÓFILO OTONI",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/aW4_SQ",
+      "color": "default"
+    },
+    {
+      "name": "FORMOSA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/TEtnYw",
+      "color": "default"
+    },
+    {
+      "name": "PAULISTANA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/eXl9ag",
+      "color": "default"
+    },
+    {
+      "name": "SOUSA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/PnVUWA",
+      "color": "default"
+    },
+    {
+      "name": "TAIPU",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/ZmFDTQ",
+      "color": "default"
+    },
+    {
+      "name": "BELO HORIZONTE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/a3RTYA",
+      "color": "default"
+    },
+    {
+      "name": "CAMBARÁ DO SUL",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/QXt5cA",
+      "color": "default"
+    },
+    {
+      "name": "POSSE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/O0d7eQ",
+      "color": "default"
+    },
+    {
+      "name": "BARBALHA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/fVlDOg",
+      "color": "default"
+    },
+    {
+      "name": "MEDEIROS NETO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/eX1wOw",
+      "color": "default"
+    },
+    {
+      "name": "CRIXÁS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/TWFaRA",
+      "color": "default"
+    },
+    {
+      "name": "MURICI",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Z0Z-YA",
+      "color": "default"
+    },
+    {
+      "name": "VÁRZEA DO POÇO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/V2I6UA",
+      "color": "default"
+    },
+    {
+      "name": "ANANINDEUA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/OnxjaQ",
+      "color": "default"
+    },
+    {
+      "name": "RESERVA DO CABAÇAL",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/U0M-WQ",
+      "color": "default"
+    },
+    {
+      "name": "AÇAILÂNDIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/dkd1dQ",
+      "color": "default"
+    },
+    {
+      "name": "SANTA LUZIA DO ITANHY",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/PUVecw",
+      "color": "default"
+    },
+    {
+      "name": "PEDRO VELHO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/P1F3ew",
+      "color": "default"
+    },
+    {
+      "name": "PARAGOMINAS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/bUhoVQ",
+      "color": "default"
+    },
+    {
+      "name": "REBOUAS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/RmI_bA",
+      "color": "default"
+    },
+    {
+      "name": "TRAIRI",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/fE53eQ",
+      "color": "default"
+    },
+    {
+      "name": "ATALAIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/eHpacw",
+      "color": "default"
+    },
+    {
+      "name": "JOAQUIM GOMES",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/blE7Ww",
+      "color": "default"
+    },
+    {
+      "name": "ANGRA DOS REIS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/RE5-cw",
+      "color": "default"
+    },
+    {
+      "name": "BURITICUPU",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/TV9QUQ",
+      "color": "default"
+    },
+    {
+      "name": "BREVES",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/TEBHOg",
+      "color": "default"
+    },
+    {
+      "name": "TUCURUÍ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/TWJIdg",
+      "color": "default"
+    },
+    {
+      "name": "POCINHOS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/fUxZWg",
+      "color": "default"
+    },
+    {
+      "name": "CAPELA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Wlpicg",
+      "color": "default"
+    },
+    {
+      "name": "TAUÁ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/W0FLVQ",
+      "color": "default"
+    },
+    {
+      "name": "CORGUINHO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Vz1hew",
+      "color": "default"
+    },
+    {
+      "name": "SANTO ANTÔNIO DO LESTE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/WUFMTg",
+      "color": "default"
+    },
+    {
+      "name": "INHAMBUPE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/ZGZVcg",
+      "color": "default"
+    },
+    {
+      "name": "IBERTIOGA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/S01dOw",
+      "color": "default"
+    },
+    {
+      "name": "RIO BANANAL",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/bGZLYw",
+      "color": "default"
+    },
+    {
+      "name": "EIRUNEPÉ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/XFhAbg",
+      "color": "default"
+    },
+    {
+      "name": "RECIFE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/dFZhSA",
+      "color": "default"
+    },
+    {
+      "name": "JUIZ DE FORA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/VnB1XQ",
+      "color": "default"
+    },
+    {
+      "name": "OSVALDO CRUZ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/VU09Sw",
+      "color": "default"
+    },
+    {
+      "name": "BUÍQUE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/c1NBRQ",
+      "color": "default"
+    },
+    {
+      "name": "FONTE BOA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/fGNhVQ",
+      "color": "default"
+    },
+    {
+      "name": "CACHOEIRO DE ITAPEMIRIM",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/TmJEXA",
+      "color": "default"
+    },
+    {
+      "name": "VITÓRIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/ZGB1dA",
+      "color": "default"
+    },
+    {
+      "name": "CARMÓPOLIS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/dHtvcw",
+      "color": "default"
+    },
+    {
+      "name": "RIO DE JANEIRO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/TE99TQ",
+      "color": "default"
+    },
+    {
+      "name": "NOVO GAMA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/S2BhcA",
+      "color": "default"
+    },
+    {
+      "name": "CONCEIÇÃO DA FEIRA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/aXNXbA",
+      "color": "default"
+    },
+    {
+      "name": "PRAIA GRANDE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/QHF-Vg",
+      "color": "default"
+    },
+    {
+      "name": "SERTÂNIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/XG9QZQ",
+      "color": "default"
+    },
+    {
+      "name": "SEVERÍNIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/SnZXPg",
+      "color": "default"
+    },
+    {
+      "name": "FLORIANÓPOLIS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/SW8_UQ",
+      "color": "default"
+    },
+    {
+      "name": "LEOPOLDO DE BULHÕES",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/c1RnXQ",
+      "color": "default"
+    },
+    {
+      "name": "AFUÁ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/YkhncA",
+      "color": "default"
+    },
+    {
+      "name": "CONCÓRDIA DO PARÁ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/VntkTA",
+      "color": "default"
+    },
+    {
+      "name": "NORTELÂNDIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/WlM-QQ",
+      "color": "default"
+    },
+    {
+      "name": "BARRA D'ALCÂNTARA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/UHtKRA",
+      "color": "default"
+    },
+    {
+      "name": "TARAUACÁ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/RmBHcA",
+      "color": "default"
+    },
+    {
+      "name": "ÁGUA DOCE DO NORTE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/dmlXVQ",
+      "color": "default"
+    },
+    {
+      "name": "TERESINA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/WWdXWA",
+      "color": "default"
+    },
+    {
+      "name": "PIRAÍ DO NORTE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/UmNgXw",
+      "color": "default"
+    },
+    {
+      "name": "TIANGUÁ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/PWdCTQ",
+      "color": "default"
+    },
+    {
+      "name": "PEREIRO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/S1VlWw",
+      "color": "default"
+    },
+    {
+      "name": "CAETANOS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/SkRrWg",
+      "color": "default"
+    },
+    {
+      "name": "SÃO GABRIEL DA PALHA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/RldkSQ",
+      "color": "default"
+    },
+    {
+      "name": "VIAMÃO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/W2tAPw",
+      "color": "default"
+    },
+    {
+      "name": "BONFIM",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/eDtFWA",
+      "color": "default"
+    },
+    {
+      "name": "BOM JARDIM DE GOIÁS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/VH1CQg",
+      "color": "default"
+    },
+    {
+      "name": "SALVADOR",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/UkhwZw",
+      "color": "default"
+    },
+    {
+      "name": "PRIMAVERA DO LESTE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/fnZQVQ",
+      "color": "default"
+    },
+    {
+      "name": "NOVA BRASILÂNDIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/QDxhUA",
+      "color": "default"
+    },
+    {
+      "name": "OEIRAS DO PARÁ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/cXBteQ",
+      "color": "default"
+    },
+    {
+      "name": "MIRANORTE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Z2Zbdg",
+      "color": "default"
+    },
+    {
+      "name": "UNIÃO DOS PALMARES",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/QUtkUw",
+      "color": "default"
+    },
+    {
+      "name": "GUATAPARÁ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/SWZZdw",
+      "color": "default"
+    },
+    {
+      "name": "NOVA FRIBURGO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/SHtofg",
+      "color": "default"
+    },
+    {
+      "name": "IRAQUARA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/XjxQaQ",
+      "color": "default"
+    },
+    {
+      "name": "PACATUBA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/aUNfbA",
+      "color": "default"
+    },
+    {
+      "name": "CANTO DO BURITI",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/eXJfXg",
+      "color": "default"
+    },
+    {
+      "name": "NOVO JARDIM",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/cztQQg",
+      "color": "default"
+    },
+    {
+      "name": "CONCEIÇÃO DO ARAGUAIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/XmlcWg",
+      "color": "default"
+    },
+    {
+      "name": "SANTANA DO ACARAÚ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/T0liUA",
+      "color": "default"
+    },
+    {
+      "name": "SERRA TALHADA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/dGw9eA",
+      "color": "default"
+    },
+    {
+      "name": "TACIMA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/QXNVZA",
+      "color": "default"
+    },
+    {
+      "name": "RIO DOS BOIS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Q3tzZg",
+      "color": "default"
+    },
+    {
+      "name": "SÃO BERNARDO DO CAMPO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Xn48RA",
+      "color": "default"
+    },
+    {
+      "name": "LUZIÂNIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/fnxrfQ",
+      "color": "default"
+    },
+    {
+      "name": "IPU",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/bFJjSQ",
+      "color": "default"
+    },
+    {
+      "name": "JOÃO COSTA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/XztpQQ",
+      "color": "default"
+    },
+    {
+      "name": "RIO DAS OSTRAS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/VGZKVQ",
+      "color": "default"
+    },
+    {
+      "name": "MARECHAL DEODORO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Q2o9aQ",
+      "color": "default"
+    },
+    {
+      "name": "BREJO ALEGRE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/WktUcA",
+      "color": "default"
+    },
+    {
+      "name": "JOÃO PESSOA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/TWhpRQ",
+      "color": "default"
+    },
+    {
+      "name": "CARMO DO RIO CLARO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/UntvUw",
+      "color": "default"
+    },
+    {
+      "name": "CRISTINÁPOLIS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/ck5GQw",
+      "color": "default"
+    },
+    {
+      "name": "PRAINHA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/QkA8XA",
+      "color": "default"
+    },
+    {
+      "name": "TRÊS LAGOAS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/ZE9-TA",
+      "color": "default"
+    },
+    {
+      "name": "MANTENA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/SF5rcg",
+      "color": "default"
+    },
+    {
+      "name": "PARANAÍBA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/XExjTw",
+      "color": "default"
+    },
+    {
+      "name": "PRIMAVERA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/QT51QQ",
+      "color": "default"
+    },
+    {
+      "name": "MORROS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/bnZGPg",
+      "color": "default"
+    },
+    {
+      "name": "RERIUTABA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/ZUk8XQ",
+      "color": "default"
+    },
+    {
+      "name": "NOVO ORIENTE DO PIAUÍ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/S1RYbA",
+      "color": "default"
+    },
+    {
+      "name": "VITÓRIA DA CONQUISTA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/d2F5VA",
+      "color": "default"
+    },
+    {
+      "name": "OURINHOS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/RV9lXw",
+      "color": "default"
+    },
+    {
+      "name": "PARNAÍBA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Sj1jTw",
+      "color": "default"
+    },
+    {
+      "name": "JACAREÍ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/anZePA",
+      "color": "default"
+    },
+    {
+      "name": "AVARÉ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Q2RAbw",
+      "color": "default"
+    },
+    {
+      "name": "TEJUÇUOCA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/bllnYg",
+      "color": "default"
+    },
+    {
+      "name": "CURIMATÁ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/T1A8Qg",
+      "color": "default"
+    },
+    {
+      "name": "BARBOSA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/X35jZw",
+      "color": "default"
+    },
+    {
+      "name": "MONTE APRAZÍVEL",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/d1Bqag",
+      "color": "default"
+    },
+    {
+      "name": "FAGUNDES",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/bnJ-Ow",
+      "color": "default"
+    },
+    {
+      "name": "PONTA GROSSA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/OmpkXw",
+      "color": "default"
+    },
+    {
+      "name": "SALINAS DA MARGARIDA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/WEJVPg",
+      "color": "default"
+    },
+    {
+      "name": "BOM JESUS DO ITABAPOANA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/fntocw",
+      "color": "default"
+    },
+    {
+      "name": "BIRITINGA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/dGY7bw",
+      "color": "default"
+    },
+    {
+      "name": "SÃO JOÃO DA BOA VISTA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/YUV7dw",
+      "color": "default"
+    },
+    {
+      "name": "GRAVATÁ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/V2NMfg",
+      "color": "default"
+    },
+    {
+      "name": "RIO CRESPO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/bV1tYw",
+      "color": "default"
+    },
+    {
+      "name": "VÁRZEA GRANDE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/TnZoaA",
+      "color": "default"
+    },
+    {
+      "name": "ELDORADO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/RVFwQA",
+      "color": "default"
+    },
+    {
+      "name": "GOIÂNIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/bEFkQA",
+      "color": "default"
+    },
+    {
+      "name": "CABO DE SANTO AGOSTINHO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/PztnUA",
+      "color": "default"
+    },
+    {
+      "name": "NERÓPOLIS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/W0RIUg",
+      "color": "default"
+    },
+    {
+      "name": "PITIMBU",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/YmpFYA",
+      "color": "default"
+    },
+    {
+      "name": "JAGUARAÇU",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/b1hRUw",
+      "color": "default"
+    },
+    {
+      "name": "EUNÁPOLIS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/dzpsaQ",
+      "color": "default"
+    },
+    {
+      "name": "RIO BRANCO DO SUL",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/P1J7cg",
+      "color": "default"
+    },
+    {
+      "name": "PARANAGUÁ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/cGVQOg",
+      "color": "default"
+    },
+    {
+      "name": "SOBRAL",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Q046Vw",
+      "color": "default"
+    },
+    {
+      "name": "ALTA FLORESTA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/P254Ow",
+      "color": "default"
+    },
+    {
+      "name": "ABAETETUBA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/aX1KSA",
+      "color": "default"
+    },
+    {
+      "name": "MARAGOGIPE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/PG5DVA",
+      "color": "default"
+    },
+    {
+      "name": "TRACUATEUA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/XH5lRw",
+      "color": "default"
+    },
+    {
+      "name": "GLÓRIA DO GOITÁ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/R2RSfg",
+      "color": "default"
+    },
+    {
+      "name": "ITAGIBÁ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Ym57cg",
+      "color": "default"
+    },
+    {
+      "name": "RUSSAS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/XUR4RQ",
+      "color": "default"
+    },
+    {
+      "name": "MELGAÇO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/VlVCfA",
+      "color": "default"
+    },
+    {
+      "name": "PORTO VELHO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/a25SPg",
+      "color": "default"
+    },
+    {
+      "name": "GOVERNADOR NEWTON BELLO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/PVZ7RQ",
+      "color": "default"
+    },
+    {
+      "name": "SERRA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/UVpDfA",
+      "color": "default"
+    },
+    {
+      "name": "GUAÇUÍ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/fUhGeg",
+      "color": "default"
+    },
+    {
+      "name": "MAMANGUAPE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Uj87fA",
+      "color": "default"
+    },
+    {
+      "name": "CATUÍPE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/dj9Zdg",
+      "color": "default"
+    },
+    {
+      "name": "ITAPORANGA D'AJUDA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/b1tWTQ",
+      "color": "default"
+    },
+    {
+      "name": "SÃO BERNARDO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/YXxGaA",
+      "color": "default"
+    },
+    {
+      "name": "ARACI",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/RnNbPQ",
+      "color": "default"
+    },
+    {
+      "name": "CONTAGEM",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/YEY_dg",
+      "color": "default"
+    },
+    {
+      "name": "IPORÁ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/U1o_RA",
+      "color": "default"
+    },
+    {
+      "name": "TEIXEIRA DE FREITAS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/bD1NfA",
+      "color": "default"
+    },
+    {
+      "name": "NIQUELÂNDIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/ZUlKbA",
+      "color": "default"
+    },
+    {
+      "name": "SABARÁ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/S0FBRQ",
+      "color": "default"
+    },
+    {
+      "name": "BANNACH",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/TmttTQ",
+      "color": "default"
+    },
+    {
+      "name": "MUANÁ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/SFtecQ",
+      "color": "default"
+    },
+    {
+      "name": "PARAGUAÇU PAULISTA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/c00_Rg",
+      "color": "default"
+    },
+    {
+      "name": "BOA HORA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/bj87YA",
+      "color": "default"
+    },
+    {
+      "name": "FRANCO DA ROCHA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/QWJOPA",
+      "color": "default"
+    },
+    {
+      "name": "BLUMENAU",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Z0JSUg",
+      "color": "default"
+    },
+    {
+      "name": "PRADO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/YVNAZQ",
+      "color": "default"
+    },
+    {
+      "name": "ITAREMA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/dlRgWg",
+      "color": "default"
+    },
+    {
+      "name": "DIVINA PASTORA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/ZD1zdw",
+      "color": "default"
+    },
+    {
+      "name": "COSTA MARQUES",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/S35adA",
+      "color": "default"
+    },
+    {
+      "name": "RIBEIRÃO PIRES",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/QnVdWA",
+      "color": "default"
+    },
+    {
+      "name": "ALTAMIRA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/eWxpXQ",
+      "color": "default"
+    },
+    {
+      "name": "ITAPEVI",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/SEtsQA",
+      "color": "default"
+    },
+    {
+      "name": "COREAÚ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/T1F-QA",
+      "color": "default"
+    },
+    {
+      "name": "NOVO LINO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/bHF-dw",
+      "color": "default"
+    },
+    {
+      "name": "ATIBAIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Y0g8aw",
+      "color": "default"
+    },
+    {
+      "name": "SÃO SEBASTIÃO DO PASSE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/b1FnYA",
+      "color": "default"
+    },
+    {
+      "name": "SÃO PAULO DO POTENGI",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/e1R8eg",
+      "color": "default"
+    },
+    {
+      "name": "VIEIRAS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Y2hrcg",
+      "color": "default"
+    },
+    {
+      "name": "TRÊS RANCHOS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/VXxZQA",
+      "color": "default"
+    },
+    {
+      "name": "APIAÍ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/UkY_Ow",
+      "color": "default"
+    },
+    {
+      "name": "MURIAÉ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/O1dvew",
+      "color": "default"
+    },
+    {
+      "name": "ÁGUA CLARA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/PW1Hcw",
+      "color": "default"
+    },
+    {
+      "name": "CAUCAIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/aVhvcQ",
+      "color": "default"
+    },
+    {
+      "name": "RIACHINHO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/ZGlcVQ",
+      "color": "default"
+    },
+    {
+      "name": "SÃO JOÃO DA VARJOTA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/dGJ8bg",
+      "color": "default"
+    },
+    {
+      "name": "QUEIMADOS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/dXN5PQ",
+      "color": "default"
+    },
+    {
+      "name": "CHORÓ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/V2hFbg",
+      "color": "default"
+    },
+    {
+      "name": "MANDIRITUBA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/aWldOw",
+      "color": "default"
+    },
+    {
+      "name": "PALHANO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/UVl7eA",
+      "color": "default"
+    },
+    {
+      "name": "ARACAJU",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/cU9SaQ",
+      "color": "default"
+    },
+    {
+      "name": "SÃO MATEUS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/P055QQ",
+      "color": "default"
+    },
+    {
+      "name": "ANORI",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/SFNpPQ",
+      "color": "default"
+    },
+    {
+      "name": "ARAXÁ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/S1VSZg",
+      "color": "default"
+    },
+    {
+      "name": "SÃO SEBASTIÃO DA GRAMA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Z348YA",
+      "color": "default"
+    },
+    {
+      "name": "GUADALUPE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/aV1PTw",
+      "color": "default"
+    },
+    {
+      "name": "PARANACITY",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Umw7ew",
+      "color": "default"
+    },
+    {
+      "name": "RUY BARBOSA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/QVo-Xg",
+      "color": "default"
+    },
+    {
+      "name": "BELFORD ROXO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/UVdiSw",
+      "color": "default"
+    },
+    {
+      "name": "ASSUNÇÃO DO PIAUÍ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/fUBpTA",
+      "color": "default"
+    },
+    {
+      "name": "DIADEMA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/VH1zSQ",
+      "color": "default"
+    },
+    {
+      "name": "SANTA LUZIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/c2phYw",
+      "color": "default"
+    },
+    {
+      "name": "JACUPIRANGA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/QUZoOg",
+      "color": "default"
+    },
+    {
+      "name": "PORTO ALEGRE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/RE51Sw",
+      "color": "default"
+    },
+    {
+      "name": "MARACANÃ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/UVtsdA",
+      "color": "default"
+    },
+    {
+      "name": "GURUPÁ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/P3dNSg",
+      "color": "default"
+    },
+    {
+      "name": "AMPARO DO SERRA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/TXxYdA",
+      "color": "default"
+    },
+    {
+      "name": "BOA VISTA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/R3hzTA",
+      "color": "default"
+    },
+    {
+      "name": "IBIÁ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/ZXloQQ",
+      "color": "default"
+    },
+    {
+      "name": "GOIANÉSIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/WWFuRw",
+      "color": "default"
+    },
+    {
+      "name": "MARIANA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/TVlFRA",
+      "color": "default"
+    },
+    {
+      "name": "JUSSARA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/ZllTfg",
+      "color": "default"
+    },
+    {
+      "name": "MUTUM",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/fVp6Zw",
+      "color": "default"
+    },
+    {
+      "name": "NATAL",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/dFQ_Og",
+      "color": "default"
+    },
+    {
+      "name": "AGRESTINA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Wk5vZw",
+      "color": "default"
+    },
+    {
+      "name": "CASCAVEL",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/ZVFDUg",
+      "color": "default"
+    },
+    {
+      "name": "TAQUARITINGA DO NORTE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/SUVJeA",
+      "color": "default"
+    },
+    {
+      "name": "BOM JESUS DA LAPA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/UEpcTw",
+      "color": "default"
+    },
+    {
+      "name": "CRAÍBAS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/UmA-cw",
+      "color": "default"
+    },
+    {
+      "name": "APARECIDA DE GOIÂNIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Y3tSRw",
+      "color": "default"
+    },
+    {
+      "name": "GOVERNADOR MANGABEIRA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/PkJRaQ",
+      "color": "default"
+    },
+    {
+      "name": "AÇUCENA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/ekBAVQ",
+      "color": "default"
+    },
+    {
+      "name": "SÃO JOSÉ DA VARGINHA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/e2FzXQ",
+      "color": "default"
+    },
+    {
+      "name": "ALTO SANTO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Y3E8Vg",
+      "color": "default"
+    },
+    {
+      "name": "ARACATI",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Vm1mdg",
+      "color": "default"
+    },
+    {
+      "name": "JUNDIAÍ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/YE5kRw",
+      "color": "default"
+    },
+    {
+      "name": "CABROBÓ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Yl9ifA",
+      "color": "default"
+    },
+    {
+      "name": "OLIVENÇA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/UG9abQ",
+      "color": "default"
+    },
+    {
+      "name": "IPAUMIRIM",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/c05daQ",
+      "color": "default"
+    },
+    {
+      "name": "PORTO DA FOLHA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/bVlkdA",
+      "color": "default"
+    },
+    {
+      "name": "ARAL MOREIRA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/O1Q9Og",
+      "color": "default"
+    },
+    {
+      "name": "VIGIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/RnJuTQ",
+      "color": "default"
+    },
+    {
+      "name": "FREI PAULO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/VjtHPQ",
+      "color": "default"
+    },
+    {
+      "name": "COLATINA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/SFd-Rg",
+      "color": "default"
+    },
+    {
+      "name": "TOBIAS BARRETO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/SVB9aQ",
+      "color": "default"
+    },
+    {
+      "name": "UMBURANAS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/SWlUTA",
+      "color": "default"
+    },
+    {
+      "name": "BARREIROS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/QVw9Tw",
+      "color": "default"
+    },
+    {
+      "name": "ARAUCÁRIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Q05haw",
+      "color": "default"
+    },
+    {
+      "name": "PINDARÉ MIRIM",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/YWNmRg",
+      "color": "default"
+    },
+    {
+      "name": "SANTA RITA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/P0ByOw",
+      "color": "default"
+    },
+    {
+      "name": "SÃO JOSÉ DA LAJE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/ZXVtcw",
+      "color": "default"
+    },
+    {
+      "name": "PORTO REAL DO COLÉGIO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/fV92YA",
+      "color": "default"
+    },
+    {
+      "name": "CAMPO LARGO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/YHteWA",
+      "color": "default"
+    },
+    {
+      "name": "JAQUIRANA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/WX1cVQ",
+      "color": "default"
+    },
+    {
+      "name": "ITAQUIRAÍ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/SGRCPQ",
+      "color": "default"
+    },
+    {
+      "name": "RIBAS DO RIO PARDO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/aV5zeg",
+      "color": "default"
+    },
+    {
+      "name": "SANTA QUITÉRIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/TU1dVQ",
+      "color": "default"
+    },
+    {
+      "name": "CAIAPÔNIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/P1FCRQ",
+      "color": "default"
+    },
+    {
+      "name": "DIAMANTINA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Pl49Ww",
+      "color": "default"
+    },
+    {
+      "name": "LASSANCE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/QT1ucg",
+      "color": "default"
+    },
+    {
+      "name": "LAVRAS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/OlpwXw",
+      "color": "default"
+    },
+    {
+      "name": "MEDINA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/RUdfdQ",
+      "color": "default"
+    },
+    {
+      "name": "JACAREACANGA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/aWxiWA",
+      "color": "default"
+    },
+    {
+      "name": "SÃO PEDRO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/SWVebg",
+      "color": "default"
+    },
+    {
+      "name": "CAMAÇARI",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/d1NwYQ",
+      "color": "default"
+    },
+    {
+      "name": "POTIRETAMA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/PkhQcQ",
+      "color": "default"
+    },
+    {
+      "name": "NOSSA SENHORA DAS DORES",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/O2BtcQ",
+      "color": "default"
+    },
+    {
+      "name": "GUARACIABA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/PFxVZQ",
+      "color": "default"
+    },
+    {
+      "name": "BRASILÉIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/d3xhWQ",
+      "color": "default"
+    },
+    {
+      "name": "LAPA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/OmJKWw",
+      "color": "default"
+    },
+    {
+      "name": "MONGAGUÁ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/UklSTw",
+      "color": "default"
+    },
+    {
+      "name": "CURRAL DE CIMA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/bk9GXw",
+      "color": "default"
+    },
+    {
+      "name": "CAMPO GRANDE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/anttVw",
+      "color": "default"
+    },
+    {
+      "name": "VITÓRIA DO MEARIM",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/YkR6eQ",
+      "color": "default"
+    },
+    {
+      "name": "ÓBIDOS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/V11few",
+      "color": "default"
+    },
+    {
+      "name": "FIGUEIRÓPOLIS D'OESTE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/blFvaQ",
+      "color": "default"
+    },
+    {
+      "name": "OLINDA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/cD1NcA",
+      "color": "default"
+    },
+    {
+      "name": "COTIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Xkw8WA",
+      "color": "default"
+    },
+    {
+      "name": "SERRANA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/QmQ-Pw",
+      "color": "default"
+    },
+    {
+      "name": "ITAPORANGA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/VFBMbw",
+      "color": "default"
+    },
+    {
+      "name": "CATOLÂNDIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/PU5OaQ",
+      "color": "default"
+    },
+    {
+      "name": "GUARANTÃ DO NORTE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/T1lOWw",
+      "color": "default"
+    },
+    {
+      "name": "PIAÇABUÇU",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/eFI_Og",
+      "color": "default"
+    },
+    {
+      "name": "MORENO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/QW9OYg",
+      "color": "default"
+    },
+    {
+      "name": "SANTANA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/cGtmTw",
+      "color": "default"
+    },
+    {
+      "name": "SÃO JOÃO EVANGELISTA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/bEZ0XQ",
+      "color": "default"
+    },
+    {
+      "name": "ITAPAJÉ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/fWpOUA",
+      "color": "default"
+    },
+    {
+      "name": "MATEUS LEME",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/bHhHSQ",
+      "color": "default"
+    },
+    {
+      "name": "POTENGI",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Xz1wbA",
+      "color": "default"
+    },
+    {
+      "name": "GUAIÚBA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/bGdYRw",
+      "color": "default"
+    },
+    {
+      "name": "CANOAS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Wnd1eg",
+      "color": "default"
+    },
+    {
+      "name": "BOCAINA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/d1hJVA",
+      "color": "default"
+    },
+    {
+      "name": "SANTO INÁCIO DO PIAUÍ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/PWZVdw",
+      "color": "default"
+    },
+    {
+      "name": "CAMPOS DOS GOYTACAZES",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/eW1CWA",
+      "color": "default"
+    },
+    {
+      "name": "SANTO ESTEVÃO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/P0FGaQ",
+      "color": "default"
+    },
+    {
+      "name": "LAGOA SANTA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/cWh3Pg",
+      "color": "default"
+    },
+    {
+      "name": "AVEIRO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/V2FFXg",
+      "color": "default"
+    },
+    {
+      "name": "PANORAMA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/V1R5UQ",
+      "color": "default"
+    },
+    {
+      "name": "MATINHOS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/eUNQXA",
+      "color": "default"
+    },
+    {
+      "name": "NOVA GRANADA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/ZldcaQ",
+      "color": "default"
+    },
+    {
+      "name": "ITAPECERICA DA SERRA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/dUE7SQ",
+      "color": "default"
+    },
+    {
+      "name": "PINHEIRO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/TFRtXw",
+      "color": "default"
+    },
+    {
+      "name": "PLACAS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/VVtFcA",
+      "color": "default"
+    },
+    {
+      "name": "ITAPEVA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/eFlTaw",
+      "color": "default"
+    },
+    {
+      "name": "SALGADO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/bERzaw",
+      "color": "default"
+    },
+    {
+      "name": "ITUIUTABA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/bTxDVA",
+      "color": "default"
+    },
+    {
+      "name": "MARATAÍZES",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/YXJwPg",
+      "color": "default"
+    },
+    {
+      "name": "BARREIRA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/X3ZMXQ",
+      "color": "default"
+    },
+    {
+      "name": "URÂNIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/UX5BdQ",
+      "color": "default"
+    },
+    {
+      "name": "CAMALAÚ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/QFBZZg",
+      "color": "default"
+    },
+    {
+      "name": "PACUJÁ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/QmdAcg",
+      "color": "default"
+    },
+    {
+      "name": "SÃO FRANCISCO DE ASSIS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/U0NQeQ",
+      "color": "default"
+    },
+    {
+      "name": "BURITI",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/ZEtudg",
+      "color": "default"
+    },
+    {
+      "name": "BAGRE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/W3hUdQ",
+      "color": "default"
+    },
+    {
+      "name": "FERREIRA GOMES",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/PTxLYA",
+      "color": "default"
+    },
+    {
+      "name": "CAETITÉ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/YXtSTA",
+      "color": "default"
+    },
+    {
+      "name": "MARANGUAPE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/dHd5PQ",
+      "color": "default"
+    },
+    {
+      "name": "PIÚMA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/U3FyVg",
+      "color": "default"
+    },
+    {
+      "name": "LONDRINA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Q1lsSA",
+      "color": "default"
+    },
+    {
+      "name": "AROAZES",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/WVBReA",
+      "color": "default"
+    },
+    {
+      "name": "BARRA DE SÃO MIGUEL",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/ZUE8Ww",
+      "color": "default"
+    },
+    {
+      "name": "SALITRE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/dldHdg",
+      "color": "default"
+    },
+    {
+      "name": "ITUPEVA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/SDpoOg",
+      "color": "default"
+    },
+    {
+      "name": "MARAPOAMA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/dVxjWw",
+      "color": "default"
+    },
+    {
+      "name": "CORNÉLIO PROCÓPIO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/aj9Lcg",
+      "color": "default"
+    },
+    {
+      "name": "ÁGUAS LINDAS DE GOIÁS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/RFRZPA",
+      "color": "default"
+    },
+    {
+      "name": "IBIRATAIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/TFZ6Pg",
+      "color": "default"
+    },
+    {
+      "name": "SANTO ANDRÉ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/aT1uPw",
+      "color": "default"
+    },
+    {
+      "name": "TUNAS DO PARANÁ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/WFF7fQ",
+      "color": "default"
+    },
+    {
+      "name": "ANTÔNIO CARDOSO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/O3N9RQ",
+      "color": "default"
+    },
+    {
+      "name": "ROLIM DE MOURA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/dmZiPw",
+      "color": "default"
+    },
+    {
+      "name": "RIO GRANDE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Sm5DaA",
+      "color": "default"
+    },
+    {
+      "name": "RIOZINHO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/aldZXg",
+      "color": "default"
+    },
+    {
+      "name": "TEODORO SAMPAIO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Zjtlcw",
+      "color": "default"
+    },
+    {
+      "name": "ROLÂNDIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/ZG5acw",
+      "color": "default"
+    },
+    {
+      "name": "RIO CLARO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/TnBpaA",
+      "color": "default"
+    },
+    {
+      "name": "IGARAPÉ DO MEIO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/akdSQA",
+      "color": "default"
+    },
+    {
+      "name": "RIO NEGRO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Sk1wTQ",
+      "color": "default"
+    },
+    {
+      "name": "AUGUSTO PESTANA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/PndMTg",
+      "color": "default"
+    },
+    {
+      "name": "VÁRZEA ALEGRE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/dXV5Vw",
+      "color": "default"
+    },
+    {
+      "name": "GOIATINS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/flBrYA",
+      "color": "default"
+    },
+    {
+      "name": "RIO NOVO DO SUL",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/X2NlYQ",
+      "color": "default"
+    },
+    {
+      "name": "GASPAR",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/S2M8YQ",
+      "color": "default"
+    },
+    {
+      "name": "ALMENARA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/eE49bA",
+      "color": "default"
+    },
+    {
+      "name": "CERRO GRANDE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/RnNHTw",
+      "color": "default"
+    },
+    {
+      "name": "RIO BRANCO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/bWI7Xw",
+      "color": "default"
+    },
+    {
+      "name": "SANTA CRUZ CABRÁLIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/WD5DTw",
+      "color": "default"
+    },
+    {
+      "name": "BREJO SANTO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/S1lXYQ",
+      "color": "default"
+    },
+    {
+      "name": "ITATIRA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Ulc6QQ",
+      "color": "default"
+    },
+    {
+      "name": "SANTOS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Ozt9Qg",
+      "color": "default"
+    },
+    {
+      "name": "JOÃO NEIVA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/fVZvbA",
+      "color": "default"
+    },
+    {
+      "name": "FORMIGA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/fGtsew",
+      "color": "default"
+    },
+    {
+      "name": "SÃO TOMÉ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/WGdXdg",
+      "color": "default"
+    },
+    {
+      "name": "CABEDELO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/eVViag",
+      "color": "default"
+    },
+    {
+      "name": "ILHABELA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/ST1JYw",
+      "color": "default"
+    },
+    {
+      "name": "SÃO JOÃO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/e1RyWg",
+      "color": "default"
+    },
+    {
+      "name": "SÃO JOSÉ DOS PINHAIS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/bFdRbg",
+      "color": "default"
+    },
+    {
+      "name": "RIBEIRÃO PRETO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/VltOdA",
+      "color": "default"
+    },
+    {
+      "name": "PALMAS DE MONTE ALTO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/SGBvfA",
+      "color": "default"
+    },
+    {
+      "name": "NOVA VENÉCIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Q0dKRA",
+      "color": "default"
+    },
+    {
+      "name": "SÃO PEDRO DA ALDEIA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/dmhRVg",
+      "color": "default"
+    },
+    {
+      "name": "CARPINA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/fWd7Yw",
+      "color": "default"
+    },
+    {
+      "name": "CRATO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/PUl0Ow",
+      "color": "default"
+    },
+    {
+      "name": "CENTENÁRIO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/fENzZw",
+      "color": "default"
+    },
+    {
+      "name": "VIÇOSA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/djx2TA",
+      "color": "default"
+    },
+    {
+      "name": "SUMARÉ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/eE1DXw",
+      "color": "default"
+    },
+    {
+      "name": "CORRENTE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/eEhJYA",
+      "color": "default"
+    },
+    {
+      "name": "NAZARÉ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/UXFyZQ",
+      "color": "default"
+    },
+    {
+      "name": "PALHOÇA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/SVldQA",
+      "color": "default"
+    },
+    {
+      "name": "EMBU DAS ARTES",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/b09bWw",
+      "color": "default"
+    },
+    {
+      "name": "EWBANK DA CÂMARA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/UG1gSw",
+      "color": "default"
+    },
+    {
+      "name": "PRACUÚBA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/QU9aPQ",
+      "color": "default"
+    },
+    {
+      "name": "ITUPIRANGA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/V1h1VA",
+      "color": "default"
+    },
+    {
+      "name": "SANTA TEREZINHA DE ITAIPU",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/PHNyVA",
+      "color": "default"
+    },
+    {
+      "name": "CRATEÚS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/WnRUcw",
+      "color": "default"
+    },
+    {
+      "name": "SÃO JOSÉ DA COROA GRANDE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/cU1RaQ",
+      "color": "default"
+    },
+    {
+      "name": "LIMOEIRO DO NORTE",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/S0NKRw",
+      "color": "default"
+    },
+    {
+      "name": "PIANCÓ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/UD1BXg",
+      "color": "default"
+    },
+    {
+      "name": "BALNEÁRIO CAMBORIÚ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/e2JAYw",
+      "color": "default"
+    },
+    {
+      "name": "GONGOGI",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/blFkZg",
+      "color": "default"
+    },
+    {
+      "name": "MOSSORÓ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/eXhKQQ",
+      "color": "default"
+    },
+    {
+      "name": "HUMAITÁ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/bUR7XQ",
+      "color": "default"
+    },
+    {
+      "name": "SANTA MARIA DA BOA VISTA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/PnQ_Ow",
+      "color": "default"
+    },
+    {
+      "name": "ABELARDO LUZ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/T1Q6cw",
+      "color": "default"
+    },
+    {
+      "name": "MÃE DO RIO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/REpbYA",
+      "color": "default"
+    },
+    {
+      "name": "JOÃO LISBOA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/cDpGdw",
+      "color": "default"
+    },
+    {
+      "name": "SANTA CRUZ DE GOIÁS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/empkZg",
+      "color": "default"
+    },
+    {
+      "name": "POÁ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/W21BZg",
+      "color": "default"
+    },
+    {
+      "name": "PASSAGEM FRANCA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/SVBARA",
+      "color": "default"
+    },
+    {
+      "name": "JAGUARÉ",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/XDprTQ",
+      "color": "default"
+    },
+    {
+      "name": "BOCA DA MATA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Wl1KYA",
+      "color": "default"
+    },
+    {
+      "name": "DEODÁPOLIS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/V2l3PA",
+      "color": "default"
+    },
+    {
+      "name": "NOVA UNIÃO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/Q1c_bw",
+      "color": "default"
+    },
+    {
+      "name": "LIMEIRA",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/TF5reg",
+      "color": "default"
+    },
+    {
+      "name": "PRESIDENTE FIGUEIREDO",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/fVdDfg",
+      "color": "default"
+    },
+    {
+      "name": "RONCADOR",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/d1x8bQ",
+      "color": "default"
+    },
+    {
+      "name": "QUEIMADAS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/a2Vnew",
+      "color": "default"
+    },
+    {
+      "name": "PAU DOS FERROS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/SXBcbA",
+      "color": "default"
+    },
+    {
+      "name": "DOURADOS",
+      "url": "collectionPropertyOption://31772195-5c64-8025-9bf9-000bf281663d/ZVtxUA/flM-bg",
+      "color": "default"
+    }
+  ]
+}
