@@ -13530,3 +13530,162 @@
 2026-03-14 23:35:44 | DEBUG | NOTION_relatoriodeIA_v2 | OpenAI síntese executiva | tentativa 1/4 concluida em 24.37s | status=200
 2026-03-14 23:35:44 | INFO | NOTION_relatoriodeIA_v2 | [Stage 5/5] Dry run ativo; nenhuma escrita foi feita no Notion.
 2026-03-14 23:35:44 | INFO | NOTION_relatoriodeIA_v2 | Concluído | processos=21 | período=13/02/2026 | dry_run=True
+2026-03-15 17:40:11 | INFO | NOTION_relatoriodeIA_v2 | Arquivo de log: C:\Users\mauri\ProjetoConversor\Artefatos\logs\run_producao_relatorio_v2.log
+2026-03-15 17:40:32 | INFO | NOTION_relatoriodeIA_v2 | Perf config: openai_batch=1 | openai_workers=12 | openai_rpm=360 | openai_timeout=90s
+2026-03-15 17:40:32 | INFO | NOTION_relatoriodeIA_v2 | [Stage 1/5] Validando página alvo...
+2026-03-15 17:40:34 | AVISO | NOTION_relatoriodeIA_v2 | Limpando 1 bloco(s) existentes na página alvo.
+2026-03-15 17:40:34 | INFO | NOTION_relatoriodeIA_v2 | [Stage 2/5] Resolvendo data source e consultando base...
+2026-03-15 17:40:36 | INFO | NOTION_relatoriodeIA_v2 | Query página 1 recebida | itens=13 | has_more=False
+2026-03-15 17:40:36 | INFO | NOTION_relatoriodeIA_v2 | [Stage 3/5] Analisando 13 processo(s)...
+2026-03-15 17:40:36 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lotes preparados | total=13 | max_chars_lote=3969 | limite_chars=14000 | max_itens_lote=1 | workers=12
+2026-03-15 17:40:36 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 1/13 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:40:36 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 2/13 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:40:36 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 3/13 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:40:36 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 4/13 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:40:36 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 5/13 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:40:36 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 6/13 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:40:36 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 7/13 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:40:36 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 8/13 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:40:36 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 9/13 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:40:36 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 10/13 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:40:36 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 11/13 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:40:36 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 12/13 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:40:46 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 13/13 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:40:46 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 4/13 concluido | concluidos_agora=1/13
+2026-03-15 17:40:47 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 12/13 concluido | concluidos_agora=2/13
+2026-03-15 17:40:47 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 2/13 concluido | concluidos_agora=3/13
+2026-03-15 17:40:47 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 7/13 concluido | concluidos_agora=4/13
+2026-03-15 17:40:47 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 5/13 concluido | concluidos_agora=5/13
+2026-03-15 17:40:48 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 6/13 concluido | concluidos_agora=6/13
+2026-03-15 17:40:48 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 8/13 concluido | concluidos_agora=7/13
+2026-03-15 17:40:48 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 3/13 concluido | concluidos_agora=8/13
+2026-03-15 17:40:48 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 1/13 concluido | concluidos_agora=9/13
+2026-03-15 17:40:49 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 11/13 concluido | concluidos_agora=10/13
+2026-03-15 17:40:50 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 9/13 concluido | concluidos_agora=11/13
+2026-03-15 17:40:50 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 10/13 concluido | concluidos_agora=12/13
+2026-03-15 17:41:01 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 13/13 concluido | concluidos_agora=13/13
+2026-03-15 17:41:01 | INFO | NOTION_relatoriodeIA_v2 | [Stage 4/5] Gerando síntese executiva...
+2026-03-15 17:41:16 | INFO | NOTION_relatoriodeIA_v2 | OpenAI síntese executiva em andamento... 15.0s decorrido.
+2026-03-15 17:41:29 | INFO | NOTION_relatoriodeIA_v2 | [Stage 5/5] Publicando relatório no Notion...
+2026-03-15 17:41:40 | INFO | NOTION_relatoriodeIA_v2 | Concluído | processos=13 | período=16/02/2026 a 20/02/2026 | dry_run=False
+2026-03-15 17:56:57 | INFO | NOTION_relatoriodeIA_v2 | Arquivo de log: C:\Users\mauri\ProjetoConversor\Artefatos\logs\run_producao_relatorio_v2.log
+2026-03-15 17:57:28 | INFO | NOTION_relatoriodeIA_v2 | Perf config: openai_batch=1 | openai_workers=12 | openai_rpm=360 | openai_timeout=90s
+2026-03-15 17:57:28 | INFO | NOTION_relatoriodeIA_v2 | [Stage 1/5] Validando página alvo...
+2026-03-15 17:57:29 | AVISO | NOTION_relatoriodeIA_v2 | Limpando 1 bloco(s) existentes na página alvo.
+2026-03-15 17:57:30 | INFO | NOTION_relatoriodeIA_v2 | [Stage 2/5] Resolvendo data source e consultando base...
+2026-03-15 17:57:32 | INFO | NOTION_relatoriodeIA_v2 | Query página 1 recebida | itens=57 | has_more=False
+2026-03-15 17:57:32 | INFO | NOTION_relatoriodeIA_v2 | [Stage 3/5] Analisando 57 processo(s)...
+2026-03-15 17:57:32 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] checkpoint reaproveitado | análises_prontas=4/57 | pendentes=53
+2026-03-15 17:57:32 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] pré-filtro local marcou 4 processo(s) como BAIXO e evitou chamada à API.
+2026-03-15 17:57:32 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lotes preparados | total=53 | max_chars_lote=4673 | limite_chars=14000 | max_itens_lote=1 | workers=12
+2026-03-15 17:57:32 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 1/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:32 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 2/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:32 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 3/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:32 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 4/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:32 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 5/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:32 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 6/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:32 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 7/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:32 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 8/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:32 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 9/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:32 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 10/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:32 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 11/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:32 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 12/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:43 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 13/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:43 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 6/53 concluido | concluidos_agora=5/57
+2026-03-15 17:57:43 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 14/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:43 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 9/53 concluido | concluidos_agora=6/57
+2026-03-15 17:57:43 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 15/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:43 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 5/53 concluido | concluidos_agora=7/57
+2026-03-15 17:57:43 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 16/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:43 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 11/53 concluido | concluidos_agora=8/57
+2026-03-15 17:57:43 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 17/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:43 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 2/53 concluido | concluidos_agora=9/57
+2026-03-15 17:57:43 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 18/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:43 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 4/53 concluido | concluidos_agora=10/57
+2026-03-15 17:57:44 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 19/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:44 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 12/53 concluido | concluidos_agora=11/57
+2026-03-15 17:57:44 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 20/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:44 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 1/53 concluido | concluidos_agora=12/57
+2026-03-15 17:57:45 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 21/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:45 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 7/53 concluido | concluidos_agora=13/57
+2026-03-15 17:57:45 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 22/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:45 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 10/53 concluido | concluidos_agora=14/57
+2026-03-15 17:57:45 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 23/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:45 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 8/53 concluido | concluidos_agora=15/57
+2026-03-15 17:57:46 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 24/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:46 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 3/53 concluido | concluidos_agora=16/57
+2026-03-15 17:57:51 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 25/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:51 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 16/53 concluido | concluidos_agora=17/57
+2026-03-15 17:57:52 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 26/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:52 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 17/53 concluido | concluidos_agora=18/57
+2026-03-15 17:57:52 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 27/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:52 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 13/53 concluido | concluidos_agora=19/57
+2026-03-15 17:57:52 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 28/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:52 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 15/53 concluido | concluidos_agora=20/57
+2026-03-15 17:57:53 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 29/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:53 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 18/53 concluido | concluidos_agora=21/57
+2026-03-15 17:57:53 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 30/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:53 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 20/53 concluido | concluidos_agora=22/57
+2026-03-15 17:57:54 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 31/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:54 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 19/53 concluido | concluidos_agora=23/57
+2026-03-15 17:57:54 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 32/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:54 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 21/53 concluido | concluidos_agora=24/57
+2026-03-15 17:57:54 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 33/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:54 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 14/53 concluido | concluidos_agora=25/57
+2026-03-15 17:57:55 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 34/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:55 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 22/53 concluido | concluidos_agora=26/57
+2026-03-15 17:57:56 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 35/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:56 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 23/53 concluido | concluidos_agora=27/57
+2026-03-15 17:57:56 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 36/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:57:56 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 24/53 concluido | concluidos_agora=28/57
+2026-03-15 17:58:03 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 37/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:58:03 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 25/53 concluido | concluidos_agora=29/57
+2026-03-15 17:58:03 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 38/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:58:03 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 27/53 concluido | concluidos_agora=30/57
+2026-03-15 17:58:03 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 39/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:58:03 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 29/53 concluido | concluidos_agora=31/57
+2026-03-15 17:58:03 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 40/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:58:03 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 30/53 concluido | concluidos_agora=32/57
+2026-03-15 17:58:04 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 41/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:58:04 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 26/53 concluido | concluidos_agora=33/57
+2026-03-15 17:58:04 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 42/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:58:04 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 31/53 concluido | concluidos_agora=34/57
+2026-03-15 17:58:05 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 43/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:58:05 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 28/53 concluido | concluidos_agora=35/57
+2026-03-15 17:58:05 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 44/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:58:05 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 34/53 concluido | concluidos_agora=36/57
+2026-03-15 17:58:05 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 45/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:58:05 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 32/53 concluido | concluidos_agora=37/57
+2026-03-15 17:58:05 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 46/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:58:05 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 33/53 concluido | concluidos_agora=38/57
+2026-03-15 17:58:08 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 47/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:58:08 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 35/53 concluido | concluidos_agora=39/57
+2026-03-15 17:58:10 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 48/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:58:10 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 36/53 concluido | concluidos_agora=40/57
+2026-03-15 17:58:12 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 49/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:58:12 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 40/53 concluido | concluidos_agora=41/57
+2026-03-15 17:58:12 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 50/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:58:12 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 38/53 concluido | concluidos_agora=42/57
+2026-03-15 17:58:13 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 51/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:58:13 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 42/53 concluido | concluidos_agora=43/57
+2026-03-15 17:58:14 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 52/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:58:14 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 44/53 concluido | concluidos_agora=44/57
+2026-03-15 17:58:14 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 53/53 | casos_no_lote=1 | iniciado em worker
+2026-03-15 17:58:14 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 43/53 concluido | concluidos_agora=45/57
+2026-03-15 17:58:14 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 45/53 concluido | concluidos_agora=46/57
+2026-03-15 17:58:15 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 46/53 concluido | concluidos_agora=47/57
+2026-03-15 17:58:15 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 41/53 concluido | concluidos_agora=48/57
+2026-03-15 17:58:16 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 39/53 concluido | concluidos_agora=49/57
+2026-03-15 17:58:17 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 37/53 concluido | concluidos_agora=50/57
+2026-03-15 17:58:18 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 47/53 concluido | concluidos_agora=51/57
+2026-03-15 17:58:19 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 48/53 concluido | concluidos_agora=52/57
+2026-03-15 17:58:22 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 50/53 concluido | concluidos_agora=53/57
+2026-03-15 17:58:23 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 49/53 concluido | concluidos_agora=54/57
+2026-03-15 17:58:23 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 51/53 concluido | concluidos_agora=55/57
+2026-03-15 17:58:25 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 52/53 concluido | concluidos_agora=56/57
+2026-03-15 17:58:25 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 53/53 concluido | concluidos_agora=57/57
+2026-03-15 17:58:25 | INFO | NOTION_relatoriodeIA_v2 | [Stage 4/5] Gerando síntese executiva...
+2026-03-15 17:58:40 | INFO | NOTION_relatoriodeIA_v2 | OpenAI síntese executiva em andamento... 15.0s decorrido.
+2026-03-15 17:58:55 | INFO | NOTION_relatoriodeIA_v2 | OpenAI síntese executiva em andamento... 30.0s decorrido.
+2026-03-15 17:59:05 | INFO | NOTION_relatoriodeIA_v2 | [Stage 5/5] Publicando relatório no Notion...
+2026-03-15 17:59:21 | INFO | NOTION_relatoriodeIA_v2 | Concluído | processos=57 | período=23/02/2026 a 27/02/2026 | dry_run=False

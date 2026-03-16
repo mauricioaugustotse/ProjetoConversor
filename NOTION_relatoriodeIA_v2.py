@@ -2405,7 +2405,7 @@ def summarize_report(
             max_completion_tokens=2800,
         )
         return ReportSummary(
-            overview_callout=truncate_text(response.get("overview_callout"), 420, suffix=""),
+            overview_callout=_normalize_ws(response.get("overview_callout")),
             executive_highlights=_unique_preserve_order(response.get("executive_highlights") or []),
             party_alerts=_unique_preserve_order(response.get("party_alerts") or []),
             lawyer_signals=_unique_preserve_order(response.get("lawyer_signals") or []),
@@ -2433,7 +2433,9 @@ def _chunk_text_for_notion(text: str, max_chars: int = MAX_NOTION_RICH_TEXT_CHAR
         if cut < int(max_chars * 0.6):
             cut = max_chars
         chunks.append(remaining[:cut])
-        remaining = remaining[cut:].lstrip()
+        # Preserve the boundary whitespace in the next chunk so adjacent
+        # rich_text items do not collapse words when Notion renders them.
+        remaining = remaining[cut:]
     return chunks or [""]
 
 
