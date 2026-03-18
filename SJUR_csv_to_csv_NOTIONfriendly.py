@@ -14,6 +14,7 @@ from __future__ import annotations
 import argparse
 import asyncio
 import csv
+import hashlib
 import json
 import os
 import logging
@@ -81,9 +82,15 @@ OPENAI_DEFAULT_DELAY = 0.05
 OPENAI_DEFAULT_RETRIES = 3
 OPENAI_DEFAULT_TARGET_RPM = 180
 DEFAULT_COMBINED_MULTI = "DJe_consolidado.csv"
-CHECKPOINT_VERSION = 1
+CHECKPOINT_VERSION = 2
+PERPLEXITY_NEWS_STRATEGY_VERSION = 5
+PERPLEXITY_DEFAULT_MAX_TOKENS = 180
+PERPLEXITY_EMENTA_CONTEXT_MAX_CHARS = 700
+PERPLEXITY_DECISAO_CONTEXT_MAX_CHARS = 900
+PERPLEXITY_CACHE_FILENAME = f".sjur_perplexity_news_cache.v{PERPLEXITY_NEWS_STRATEGY_VERSION}.json"
 LOGGER = logging.getLogger("SJUR_csv_to_csv_NOTIONfriendly")
 SCRIPT_DIR = Path(__file__).resolve().parent
+ARTIFACTS_ROOT = (SCRIPT_DIR / "Artefatos").resolve()
 # CSVs de origem SJUR/DJe usam datas no padrao brasileiro (D/M/AAAA).
 CSV_INPUT_DATES_DAY_FIRST = True
 EXCLUDED_COLUMNS_NORMALIZED = {
@@ -327,6 +334,83 @@ VEICULOS_DOMINIOS = [
     "valor.globo.com",
 ]
 
+NEWS_CONFIDENCE_LEVELS = ("none", "low", "medium", "high")
+NEWS_MATCH_STRONG_FIELDS = {"numero_unico", "numero_processo"}
+NEWS_MATCH_HARD_CONTEXT_FIELDS = {
+    "data_decisao",
+    "tribunal",
+    "origem",
+    "sigla_uf",
+    "nome_municipio",
+    "descricao_classe",
+    "nome_tipo_processo",
+    "relator",
+}
+NEWS_MATCH_SOFT_CONTEXT_FIELDS = {
+    "assuntos",
+    "partes",
+    "tema",
+    "punchline",
+}
+NEWS_MATCH_CONTEXT_FIELDS = {
+    *NEWS_MATCH_HARD_CONTEXT_FIELDS,
+    *NEWS_MATCH_SOFT_CONTEXT_FIELDS,
+}
+NEWS_GENERIC_SEGMENTS_BLOCKLIST = {
+    "busca",
+    "search",
+    "tag",
+    "tags",
+    "categoria",
+    "categorias",
+    "arquivo",
+    "arquivos",
+    "acervo",
+    "clipping",
+    "blog",
+    "blogs",
+    "coluna",
+    "colunas",
+    "opiniao",
+    "opinion",
+    "editorial",
+    "agenda",
+    "servicos",
+    "servico",
+    "institucional",
+    "jurisprudencia",
+    "pje",
+    "consulta-processual",
+    "processo",
+    "processos",
+    "busca-processual",
+    "documentos",
+    "pdf",
+    "fotos",
+    "fotogaleria",
+    "videos",
+    "video",
+    "podcasts",
+    "podcast",
+    "tv",
+}
+NEWS_GENERIC_LAST_SEGMENTS = {
+    "noticias",
+    "news",
+    "politica",
+    "brasil",
+    "eleicoes",
+    "home",
+    "index",
+    "index.html",
+    "ultimas-noticias",
+    "ultimas",
+    "editoria",
+    "editorias",
+    "ao-vivo",
+    "ao-vivo.html",
+}
+
 
 @dataclass
 class ProcessSummary:
@@ -348,6 +432,7 @@ class WebLookupConfig:
     max_workers: int = 4
     batch_size: int = 20
     delay_between_batches: float = 0.3
+    max_tokens: int = PERPLEXITY_DEFAULT_MAX_TOKENS
 
 
 @dataclass
@@ -625,6 +710,19 @@ class GerenciadorRequisicoes:
             }
         )
 
+    @staticmethod
+    def _extract_message_content(result: dict[str, object]) -> str:
+        content_obj = ((result.get("choices") or [{}])[0].get("message", {}) or {}).get("content", "")
+        if isinstance(content_obj, list):
+            chunks: list[str] = []
+            for item in content_obj:
+                if isinstance(item, dict):
+                    text = item.get("text")
+                    if isinstance(text, str):
+                        chunks.append(text)
+            return "".join(chunks).strip()
+        return str(content_obj or "").strip()
+
     async def call_perplexity(self, prompt: str, timeout: int = 15) -> Optional[dict[str, object]]:
         payload = {
             "model": self.model,
@@ -643,11 +741,137 @@ class GerenciadorRequisicoes:
             )
             response.raise_for_status()
             result = response.json()
-            content = result["choices"][0]["message"]["content"].strip()
+            content = self._extract_message_content(result if isinstance(result, dict) else {})
             citations = result.get("citations") or []
             if not isinstance(citations, list):
                 citations = []
             return {"content": content, "citations": citations}
+        except requests.exceptions.Timeout:
+            return None
+        except Exception:
+            return None
+
+    async def call_news_lookup(
+        self,
+        *,
+        prompt: str,
+        timeout: int,
+        max_tokens: int,
+        max_general_urls: int,
+    ) -> Optional[dict[str, object]]:
+        payload = {
+            "model": self.model,
+            "messages": [
+                {
+                    "role": "system",
+                    "content": (
+                        "Voce faz pesquisa juridico-jornalistica eleitoral. "
+                        "Pesquise primeiro com o numero do processo exato entre aspas e com os filtros "
+                        "de dominio sugeridos pelo usuario. "
+                        "Ignore resultados genericos sobre regras eleitorais, calendario, resolucoes, "
+                        "pautas ou paginas institucionais sem aderencia ao caso. "
+                        "Responda exclusivamente em JSON valido, sem markdown, "
+                        "sem comentarios e sem texto adicional."
+                    ),
+                },
+                {"role": "user", "content": prompt},
+            ],
+            "search_mode": "web",
+            "max_tokens": max(1, int(max_tokens)),
+            "response_format": {
+                "type": "json_schema",
+                "json_schema": {
+                    "name": "sjur_news_lookup",
+                    "strict": True,
+                    "schema": {
+                        "type": "object",
+                        "additionalProperties": False,
+                        "properties": {
+                            "tse": {
+                                "type": "object",
+                                "additionalProperties": False,
+                                "properties": {
+                                    "url": {"type": "string"},
+                                    "confidence": {"type": "string", "enum": list(NEWS_CONFIDENCE_LEVELS)},
+                                    "matched_fields": {
+                                        "type": "array",
+                                        "items": {"type": "string"},
+                                        "maxItems": 8,
+                                    },
+                                },
+                                "required": ["url", "confidence", "matched_fields"],
+                            },
+                            "tre": {
+                                "type": "object",
+                                "additionalProperties": False,
+                                "properties": {
+                                    "url": {"type": "string"},
+                                    "confidence": {"type": "string", "enum": list(NEWS_CONFIDENCE_LEVELS)},
+                                    "matched_fields": {
+                                        "type": "array",
+                                        "items": {"type": "string"},
+                                        "maxItems": 8,
+                                    },
+                                },
+                                "required": ["url", "confidence", "matched_fields"],
+                            },
+                            "gerais": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "additionalProperties": False,
+                                    "properties": {
+                                        "url": {"type": "string"},
+                                        "confidence": {"type": "string", "enum": list(NEWS_CONFIDENCE_LEVELS)},
+                                        "matched_fields": {
+                                            "type": "array",
+                                            "items": {"type": "string"},
+                                            "maxItems": 8,
+                                        },
+                                    },
+                                    "required": ["url", "confidence", "matched_fields"],
+                                },
+                                "maxItems": max(1, int(max_general_urls)),
+                            },
+                        },
+                        "required": ["tse", "tre", "gerais"],
+                    },
+                },
+            },
+        }
+        try:
+            loop = asyncio.get_event_loop()
+            response = await loop.run_in_executor(
+                self.executor,
+                lambda: self.sessao.post(
+                    "https://api.perplexity.ai/chat/completions",
+                    json=payload,
+                    timeout=timeout,
+                ),
+            )
+            response.raise_for_status()
+            result = response.json()
+            content = self._extract_message_content(result if isinstance(result, dict) else {})
+            citations = result.get("citations") or []
+            if not isinstance(citations, list):
+                citations = []
+            parsed = json.loads(content) if content else {}
+            if not isinstance(parsed, dict):
+                return None
+            tse = parsed.get("tse", {})
+            tre = parsed.get("tre", {})
+            raw_gerais = parsed.get("gerais", [])
+            gerais: list[dict[str, object]] = []
+            if isinstance(raw_gerais, list):
+                for item in raw_gerais:
+                    if isinstance(item, dict):
+                        gerais.append(dict(item))
+            return {
+                "tse": tse,
+                "tre": tre,
+                "gerais": gerais,
+                "citations": citations,
+            }
         except requests.exceptions.Timeout:
             return None
         except Exception:
@@ -881,13 +1105,145 @@ def _host(url: str) -> str:
         return ""
 
 
+def _parsed_url(url: str):
+    try:
+        return urlparse(url)
+    except Exception:
+        return None
+
+
+def _path_segments(url: str) -> list[str]:
+    parsed = _parsed_url(url)
+    if parsed is None:
+        return []
+    return [segment for segment in (parsed.path or "").lower().split("/") if segment]
+
+
+def _query_looks_like_listing(url: str) -> bool:
+    parsed = _parsed_url(url)
+    if parsed is None:
+        return True
+    query = (parsed.query or "").lower()
+    if not query:
+        return False
+    return any(
+        marker in query
+        for marker in ("q=", "query=", "search=", "tag=", "tags=", "categoria=", "page=")
+    )
+
+
+def _path_has_sequence(segments: Sequence[str], expected: Sequence[str]) -> bool:
+    expected_list = [item for item in expected if item]
+    if not expected_list or len(segments) < len(expected_list):
+        return False
+    target = list(expected_list)
+    for idx in range(0, len(segments) - len(target) + 1):
+        if list(segments[idx : idx + len(target)]) == target:
+            return True
+    return False
+
+
+def _last_path_segment(segments: Sequence[str]) -> str:
+    return segments[-1] if segments else ""
+
+
+def _clean_slug(segment: str) -> str:
+    return re.sub(r"\.(?:html?|ghtml|shtml)$", "", str(segment or "").strip().lower())
+
+
+def _looks_like_article_terminal(segment: str) -> bool:
+    slug = _clean_slug(segment)
+    if not slug or slug in NEWS_GENERIC_LAST_SEGMENTS:
+        return False
+    if len(slug) < 8:
+        return False
+    if "/" in slug:
+        return False
+    if "." in slug and not segment.lower().endswith((".html", ".htm", ".ghtml", ".shtml")):
+        return False
+    if slug.isdigit():
+        return False
+    return ("-" in slug) or any(ch.isdigit() for ch in slug) or len(slug) >= 16
+
+
+def _is_probably_article_url(
+    url: str,
+    *,
+    min_segments: int,
+    required_sequence: Optional[Sequence[str]] = None,
+) -> bool:
+    segments = _path_segments(url)
+    if len(segments) < min_segments:
+        return False
+    if required_sequence is not None and not _path_has_sequence(segments, required_sequence):
+        return False
+    if _query_looks_like_listing(url):
+        return False
+    if any(segment in NEWS_GENERIC_SEGMENTS_BLOCKLIST for segment in segments):
+        return False
+    return _looks_like_article_terminal(_last_path_segment(segments))
+
+
+def _normalize_match_field_name(value: object) -> str:
+    normalized = normalize_for_match(str(value or ""))
+    normalized = re.sub(r"[^a-z0-9]+", "_", normalized).strip("_")
+    return normalized
+
+
+def _extract_news_candidate(raw_value: object) -> tuple[Optional[str], str, set[str]]:
+    if isinstance(raw_value, dict):
+        url = _limpar_url_bruta(str(raw_value.get("url", "") or ""))
+        confidence = _normalize_lookup_text(raw_value.get("confidence", "")).lower()
+        if confidence not in NEWS_CONFIDENCE_LEVELS:
+            confidence = "none"
+        matched_fields_raw = raw_value.get("matched_fields", [])
+        matched_fields: set[str] = set()
+        if isinstance(matched_fields_raw, list):
+            for item in matched_fields_raw:
+                field_name = _normalize_match_field_name(item)
+                if field_name:
+                    matched_fields.add(field_name)
+        return url, confidence, matched_fields
+    if isinstance(raw_value, str):
+        return _limpar_url_bruta(raw_value), "none", set()
+    return None, "none", set()
+
+
+def _news_candidate_passes_gate(
+    confidence: str,
+    matched_fields: set[str],
+    *,
+    official_source: bool,
+) -> bool:
+    if confidence not in {"high", "medium"}:
+        return False
+    if matched_fields & NEWS_MATCH_STRONG_FIELDS:
+        return True
+    hard_matches = matched_fields & NEWS_MATCH_HARD_CONTEXT_FIELDS
+    soft_matches = matched_fields & NEWS_MATCH_SOFT_CONTEXT_FIELDS
+    context_matches = matched_fields & NEWS_MATCH_CONTEXT_FIELDS
+    if official_source:
+        if confidence == "high":
+            return bool(hard_matches) or len(context_matches) >= 2
+        return (bool(hard_matches) and len(context_matches) >= 2) or len(context_matches) >= 3
+    if confidence == "high":
+        return (bool(hard_matches) and len(context_matches) >= 2) or len(context_matches) >= 3
+    return bool(hard_matches) and bool(soft_matches) and len(context_matches) >= 2
+
+
 def _is_tse_url(url: str) -> bool:
     return _host(url).endswith("tse.jus.br")
 
 
 def _is_tse_news_url(url: str) -> bool:
     host = _host(url)
-    return host.endswith("tse.jus.br") and "/comunicacao/noticias/" in url.lower()
+    if not host.endswith("tse.jus.br"):
+        return False
+    return _is_probably_article_url(
+        url,
+        min_segments=5,
+        required_sequence=("comunicacao", "noticias"),
+    )
 
 
 def _is_tre_url(url: str) -> bool:
@@ -898,13 +1254,27 @@ def _is_tre_url(url: str) -> bool:
 def _is_tre_news_url(url: str) -> bool:
     if not _is_tre_url(url):
         return False
-    lower = url.lower()
-    return "/comunicacao/noticias/" in lower or "/noticias/" in lower
+    segments = _path_segments(url)
+    if _path_has_sequence(segments, ("comunicacao", "noticias")):
+        return _is_probably_article_url(
+            url,
+            min_segments=5,
+            required_sequence=("comunicacao", "noticias"),
+        )
+    if _path_has_sequence(segments, ("noticias",)):
+        return _is_probably_article_url(
+            url,
+            min_segments=3,
+            required_sequence=("noticias",),
+        )
+    return False
 
 
 def _is_general_media_url(url: str) -> bool:
     host = _host(url)
-    return any(host == domain or host.endswith("." + domain) for domain in VEICULOS_DOMINIOS)
+    if not any(host == domain or host.endswith("." + domain) for domain in VEICULOS_DOMINIOS):
+        return False
+    return _is_probably_article_url(url, min_segments=2)
 
 
 def _pick_first(urls: Iterable[str], predicate: Callable[[str], bool]) -> Optional[str]:
@@ -935,6 +1305,262 @@ def build_lookup_payload(row: dict[str, str]) -> dict[str, str]:
         "nome_municipio": nome_municipio,
         "tribunal": tribunal,
         "origem": origem,
+        "tema": row.get("tema") or "",
+        "punchline": row.get("punchline") or "",
+    }
+
+
+def resolve_artifacts_dir(*parts: str) -> Path:
+    path = Path(ARTIFACTS_ROOT).expanduser().resolve()
+    for part in parts:
+        path /= part
+    path.mkdir(parents=True, exist_ok=True)
+    return path
+
+
+def resolve_checkpoint_artifact_path(output_path: Path) -> Path:
+    return (resolve_artifacts_dir("checkpoints") / f".{output_path.stem}.openai.checkpoint.json").resolve()
+
+
+def resolve_report_artifact_path(output_path: Path) -> Path:
+    return (resolve_artifacts_dir("reports") / f".{output_path.stem}.openai.report.json").resolve()
+
+
+def resolve_backup_artifacts_dir() -> Path:
+    return resolve_artifacts_dir("backups")
+
+
+def resolve_intermediate_csv_dir() -> Path:
+    return resolve_artifacts_dir("intermediarios", "csv")
+
+
+def resolve_web_lookup_cache_path(base_dir: Optional[Path] = None) -> Path:
+    _ = base_dir
+    return (resolve_artifacts_dir("cache") / PERPLEXITY_CACHE_FILENAME).resolve()
+
+
+def _normalize_lookup_text(value: object) -> str:
+    return SPACE_RE.sub(" ", str(value or "")).strip()
+
+
+def _truncate_lookup_text(value: object, max_chars: int) -> str:
+    text = _normalize_lookup_text(value)
+    if max_chars > 0 and len(text) > max_chars:
+        return text[:max_chars].rstrip()
+    return text
+
+
+def _quote_search_term(value: object, max_chars: int = 120) -> str:
+    text = _truncate_lookup_text(value, max_chars)
+    text = text.replace('"', " ").strip()
+    return f'"{text}"' if text else ""
+
+
+def _derive_tre_domain_hint(page_data: dict[str, object]) -> str:
+    sigla_uf = _normalize_lookup_text(page_data.get("sigla_uf", "")).upper()
+    if not sigla_uf:
+        tribunal = _normalize_lookup_text(page_data.get("tribunal", "")).upper()
+        match = re.search(r"\bTRE[-\s/]?([A-Z]{2})\b", tribunal)
+        if match:
+            sigla_uf = match.group(1)
+    if re.fullmatch(r"[A-Z]{2}", sigla_uf):
+        return f"tre-{sigla_uf.lower()}.jus.br"
+    return "tre-xx.jus.br"
+
+
+def _join_query_terms(*values: object) -> str:
+    terms: list[str] = []
+    seen: set[str] = set()
+    for value in values:
+        quoted = _quote_search_term(value)
+        if not quoted:
+            continue
+        normalized = quoted.casefold()
+        if normalized in seen:
+            continue
+        seen.add(normalized)
+        terms.append(quoted)
+    return " ".join(terms)
+
+
+def build_news_query_hints(page_data: dict[str, object]) -> dict[str, str]:
+    numero_unico = _normalize_lookup_text(page_data.get("numero_unico", ""))
+    tema = _truncate_lookup_text(page_data.get("tema", ""), 120)
+    assuntos = _truncate_lookup_text(page_data.get("assuntos", ""), 80)
+    relator = _truncate_lookup_text(page_data.get("relator", ""), 80)
+    nome_municipio = _truncate_lookup_text(page_data.get("nome_municipio", ""), 60)
+    sigla_uf = _normalize_lookup_text(page_data.get("sigla_uf", "")).upper()
+    descricao_classe = _truncate_lookup_text(page_data.get("descricao_classe", ""), 60)
+    partes = _truncate_lookup_text(page_data.get("partes", ""), 80)
+    tre_domain = _derive_tre_domain_hint(page_data)
+    return {
+        "tre_domain": tre_domain,
+        "tse_exact": "site:tse.jus.br/comunicacao/noticias "
+        + _join_query_terms(numero_unico, tema),
+        "tre_exact": f"site:{tre_domain}/comunicacao/noticias "
+        + _join_query_terms(numero_unico, tema, nome_municipio, sigla_uf),
+        "general_exact": _join_query_terms(numero_unico, tema, nome_municipio, sigla_uf),
+        "tse_context": "site:tse.jus.br/comunicacao/noticias "
+        + _join_query_terms(tema, descricao_classe, nome_municipio, sigla_uf, relator),
+        "tre_context": f"site:{tre_domain} "
+        + _join_query_terms(tema, descricao_classe, nome_municipio, sigla_uf, relator),
+        "general_context": _join_query_terms(tema, assuntos, nome_municipio, sigla_uf, partes),
+    }
+
+
+def build_news_lookup_request(
+    page_data: dict[str, str],
+    *,
+    model: str,
+) -> dict[str, object]:
+    tema = _normalize_lookup_text(page_data.get("tema", ""))
+    punchline = _normalize_lookup_text(page_data.get("punchline", ""))
+    precisa_contexto_textual = not tema or not punchline
+    texto_ementa_contexto = ""
+    texto_decisao_contexto = ""
+    if precisa_contexto_textual:
+        texto_ementa_contexto = _truncate_lookup_text(
+            page_data.get("texto_ementa", ""),
+            PERPLEXITY_EMENTA_CONTEXT_MAX_CHARS,
+        )
+        if not texto_ementa_contexto:
+            texto_decisao_contexto = _truncate_lookup_text(
+                page_data.get("texto_decisao", ""),
+                PERPLEXITY_DECISAO_CONTEXT_MAX_CHARS,
+            )
+    return {
+        "strategy_version": PERPLEXITY_NEWS_STRATEGY_VERSION,
+        "model": _normalize_lookup_text(model),
+        "numero_unico": _normalize_lookup_text(page_data.get("numero_unico", "")),
+        "data_decisao": _normalize_lookup_text(page_data.get("data_decisao", "")),
+        "assuntos": _normalize_lookup_text(page_data.get("assuntos", "")),
+        "partes": _normalize_lookup_text(page_data.get("partes", "")),
+        "advogados": _normalize_lookup_text(page_data.get("advogados", "")),
+        "relator": _normalize_lookup_text(page_data.get("relator", "")),
+        "descricao_classe": _normalize_lookup_text(page_data.get("descricao_classe", "")),
+        "nome_tipo_processo": _normalize_lookup_text(page_data.get("nome_tipo_processo", "")),
+        "sigla_uf": _normalize_lookup_text(page_data.get("sigla_uf", "")),
+        "nome_municipio": _normalize_lookup_text(page_data.get("nome_municipio", "")),
+        "tribunal": _normalize_lookup_text(page_data.get("tribunal", "")),
+        "origem": _normalize_lookup_text(page_data.get("origem", "")),
+        "tema": tema,
+        "punchline": punchline,
+        "texto_ementa_contexto": texto_ementa_contexto,
+        "texto_decisao_contexto": texto_decisao_contexto,
+    }
+
+
+def build_news_request_key(request_payload: dict[str, object]) -> str:
+    serialized = json.dumps(request_payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha1(serialized.encode("utf-8")).hexdigest()
+
+
+def _normalize_general_news_urls(urls: object) -> list[str]:
+    out: list[str] = []
+    vistos: set[str] = set()
+    if isinstance(urls, str):
+        urls_iter: Iterable[object] = [urls]
+    elif isinstance(urls, list):
+        urls_iter = urls
+    else:
+        urls_iter = []
+    for item in urls_iter:
+        url = _limpar_url_bruta(str(item or ""))
+        if not url or url in vistos:
+            continue
+        vistos.add(url)
+        out.append(url)
+    return out[: len(GENERAL_NEWS_COLUMNS)]
+
+
+def normalize_news_cache_entry(raw: object) -> Optional[dict[str, object]]:
+    if not isinstance(raw, dict):
+        return None
+    status = _normalize_lookup_text(raw.get("status", "")).lower()
+    if status not in {"filled", "no_match", "error_retryable"}:
+        return None
+    tse = _limpar_url_bruta(str(raw.get("tse", "") or "")) or ""
+    tre = _limpar_url_bruta(str(raw.get("tre", "") or "")) or ""
+    gerais = _normalize_general_news_urls(raw.get("gerais", []))
+    return {
+        "status": status,
+        "tse": tse,
+        "tre": tre,
+        "gerais": gerais,
+        "updated_at": _normalize_lookup_text(raw.get("updated_at", "")) or utc_now_iso(),
+    }
+
+
+def read_news_cache(path: Path) -> dict[str, dict[str, object]]:
+    payload = read_json_dict(path)
+    version = int(payload.get("version", 0) or 0)
+    strategy_version = int(payload.get("strategy_version", 0) or 0)
+    if version != 1 or strategy_version != PERPLEXITY_NEWS_STRATEGY_VERSION:
+        return {}
+    entries_raw = payload.get("entries", {})
+    if not isinstance(entries_raw, dict):
+        return {}
+    entries: dict[str, dict[str, object]] = {}
+    for key, value in entries_raw.items():
+        if not isinstance(key, str):
+            continue
+        entry = normalize_news_cache_entry(value)
+        if entry is not None:
+            entries[key] = entry
+    return entries
+
+
+def write_news_cache(path: Path, entries: dict[str, dict[str, object]]) -> None:
+    write_json_atomic(
+        path,
+        {
+            "version": 1,
+            "strategy_version": PERPLEXITY_NEWS_STRATEGY_VERSION,
+            "updated_at": utc_now_iso(),
+            "entries": entries,
+        },
+    )
+
+
+def _is_terminal_news_cache_status(status: object) -> bool:
+    return _normalize_lookup_text(status).lower() in {"filled", "no_match"}
+
+
+def estimate_news_api_calls(
+    rows: Sequence[dict[str, str]],
+    *,
+    lookup_payloads: Optional[Sequence[dict[str, str]]] = None,
+    model: str = "sonar",
+    cache_path: Optional[Path] = None,
+) -> dict[str, int]:
+    if lookup_payloads is not None and len(lookup_payloads) != len(rows):
+        raise ValueError("lookup_payloads precisa ter o mesmo tamanho de rows.")
+    news_cache = read_news_cache(cache_path) if cache_path is not None else {}
+    request_keys_needed: set[str] = set()
+    skipped_existing = 0
+    terminal_cache_hits = 0
+    for idx, row in enumerate(rows):
+        precisa_tse = not bool((row.get("noticia_TSE") or "").strip())
+        precisa_tre = not bool((row.get("noticia_TRE") or "").strip())
+        precisa_gerais = any(not bool((row.get(col) or "").strip()) for col in GENERAL_NEWS_COLUMNS)
+        if not (precisa_tse or precisa_tre or precisa_gerais):
+            skipped_existing += 1
+            continue
+        lookup_payload = (
+            dict(lookup_payloads[idx])
+            if lookup_payloads is not None
+            else build_lookup_payload(row)
+        )
+        request_key = build_news_request_key(build_news_lookup_request(lookup_payload, model=model))
+        cache_entry = news_cache.get(request_key)
+        if cache_entry is not None and _is_terminal_news_cache_status(cache_entry.get("status", "")):
+            terminal_cache_hits += 1
+            continue
+        request_keys_needed.add(request_key)
+    return {
+        "estimated_api_calls": len(request_keys_needed),
+        "estimated_cache_hits": terminal_cache_hits,
+        "estimated_skipped_existing": skipped_existing,
     }
 
 
@@ -1033,132 +1659,132 @@ Regras obrigatorias:
 """
 
 
-def gerar_prompt_tse(page_data: dict[str, str]) -> str:
-    numero_unico = page_data.get("numero_unico", "")
-    data_decisao = page_data.get("data_decisao", "")
-    assuntos = page_data.get("assuntos", "")
-    partes = page_data.get("partes", "")
-    relator = page_data.get("relator", "")
-    texto_decisao = page_data.get("texto_decisao", "")
-    texto_ementa = page_data.get("texto_ementa", "")
-    sigla_uf = page_data.get("sigla_uf", "")
-    nome_municipio = page_data.get("nome_municipio", "")
-    tribunal = page_data.get("tribunal", "")
+def gerar_prompt_noticias(page_data: dict[str, object], *, max_general_urls: int) -> str:
+    domains_str = ", ".join(VEICULOS_DOMINIOS)
+    partes = str(page_data.get("partes", "") or "")
+    advogados = str(page_data.get("advogados", "") or "")
+    tema = str(page_data.get("tema", "") or "")
+    punchline = str(page_data.get("punchline", "") or "")
+    texto_ementa_contexto = str(page_data.get("texto_ementa_contexto", "") or "")
+    texto_decisao_contexto = str(page_data.get("texto_decisao_contexto", "") or "")
+    hints = build_news_query_hints(page_data)
+    return f"""Encontre noticias sobre o MESMO caso eleitoral abaixo e responda APENAS em JSON.
 
-    return f"""Encontre uma notícia OFICIAL da Justiça Eleitoral APENAS no domínio tse.jus.br sobre o caso abaixo:
+Objetivo:
+- "tse": objeto com URL de noticia oficial do TSE.
+- "tre": objeto com URL de noticia oficial de TRE estadual.
+- "gerais": ate {max_general_urls} objetos com URLs de noticias da imprensa geral.
 
-numeroUnico: {numero_unico}
-dataDecisao: {data_decisao}
-assuntos: {assuntos}
+Fluxo obrigatorio de busca:
+1. Pesquise primeiro pelo numero do processo exato entre aspas.
+2. Para "tse", use como prioridade absoluta os caminhos de noticia em `tse.jus.br/comunicacao/noticias`.
+3. Para "tre", priorize o dominio oficial `{hints["tre_domain"]}` e caminhos com `comunicacao/noticias` ou `noticias`.
+4. Para "gerais", use primeiro o numero do processo; se ele nao aparecer em nenhuma materia, aceite noticia com aderencia forte ao mesmo fato, municipio/UF, classe, partes ou relator.
+5. Ignore totalmente resultados sobre regras gerais das eleicoes, calendario eleitoral, resolucoes de 2026, IA nas eleicoes, pautas de julgamento genericas, propaganda em abstrato ou paginas meramente institucionais.
+
+Consultas sugeridas:
+- TSE exata: {hints["tse_exact"]}
+- TRE exata: {hints["tre_exact"]}
+- Gerais exata: {hints["general_exact"]}
+- TSE contextual: {hints["tse_context"]}
+- TRE contextual: {hints["tre_context"]}
+- Gerais contextual: {hints["general_context"]}
+
+Regras de resposta:
+1. "tse" so pode conter noticia oficial em tse.jus.br com perfil noticioso. Rejeite paginas genericas, arquivo de eleicoes, busca, acordaos, PDFs e paginas administrativas.
+2. "tre" so pode conter noticia oficial em dominio tre-xx.jus.br com perfil noticioso. Rejeite consulta processual, busca, PDF, acordao, edital e pagina institucional generica.
+3. "gerais" so pode conter URLs nos dominios: {domains_str}
+4. Rejeite URLs duplicadas, opiniao, blog, clipping, pagina generica, busca, tag, liveblog ou pagina sem aderencia clara ao caso.
+5. Prefira correspondencia por numero do processo. Na falta disso, aceite a noticia quando houver combinacao consistente de relator, tribunal/origem, municipio/UF, classe, partes, data e fato central.
+6. Prefira retornar vazio a arriscar link fraco, mas nao exija perfeicao literal. Se a aderencia estiver boa porem sem prova absoluta, use confidence "medium" com matched_fields honestos.
+7. Use confidence "high" quando a aderencia ao MESMO caso estiver forte. Use "medium" quando a aderencia estiver plausivel e consistente. Use "low" ou "none" quando houver fragilidade relevante.
+8. Em matched_fields, liste apenas nomes deste conjunto quando de fato ajudarem a confirmar o caso: numero_unico, data_decisao, tribunal, origem, sigla_uf, nome_municipio, descricao_classe, nome_tipo_processo, assuntos, partes, relator, tema, punchline.
+9. Para "gerais", pode retornar 1 ou 2 links quando ambos forem claramente aderentes e nao duplicados.
+
+Contexto principal:
+numeroUnico: {page_data.get("numero_unico", "")}
+dataDecisao: {page_data.get("data_decisao", "")}
+tribunal: {page_data.get("tribunal", "")}
+origem: {page_data.get("origem", "")}
+siglaUF: {page_data.get("sigla_uf", "")}
+nomeMunicipio: {page_data.get("nome_municipio", "")}
+descricaoClasse: {page_data.get("descricao_classe", "")}
+nomeTipoProcesso: {page_data.get("nome_tipo_processo", "")}
+assuntos: {page_data.get("assuntos", "")}
 partes: {partes}
-relator: {relator}
-textoDecisao: {texto_decisao}
-textoEmenta: {texto_ementa}
-siglaUF: {sigla_uf}
-nomeMunicipio: {nome_municipio}
-tribunal: {tribunal}
+advogados: {advogados}
+relator: {page_data.get("relator", "")}
+tema: {tema}
+punchline: {punchline}
+textoEmentaContexto: {texto_ementa_contexto}
+textoDecisaoContexto: {texto_decisao_contexto}
 
-RETORNE APENAS o URL direto da notícia encontrada (começando com http), sem explicações.
-Se NÃO encontrar, retorne: VAZIO"""
-
-
-def gerar_prompt_tre(page_data: dict[str, str]) -> str:
-    numero_unico = page_data.get("numero_unico", "")
-    data_decisao = page_data.get("data_decisao", "")
-    assuntos = page_data.get("assuntos", "")
-    partes = page_data.get("partes", "")
-    relator = page_data.get("relator", "")
-    texto_decisao = page_data.get("texto_decisao", "")
-    texto_ementa = page_data.get("texto_ementa", "")
-    sigla_uf = page_data.get("sigla_uf", "")
-    nome_municipio = page_data.get("nome_municipio", "")
-    origem = page_data.get("origem", "")
-
-    return f"""Encontre uma notícia OFICIAL de um Tribunal Regional Eleitoral (TRE estadual) em domínios tre-XX.jus.br sobre o caso abaixo:
-
-numeroUnico: {numero_unico}
-dataDecisao: {data_decisao}
-assuntos: {assuntos}
-partes: {partes}
-relator: {relator}
-textoDecisao: {texto_decisao}
-textoEmenta: {texto_ementa}
-siglaUF: {sigla_uf}
-nomeMunicipio: {nome_municipio}
-origem: {origem}
-
-RETORNE APENAS o URL direto da notícia (começando com http e contendo tre-), sem explicações.
-Se NÃO encontrar, retorne: VAZIO"""
+Formato JSON obrigatorio:
+{{
+  "tse": {{"url": "", "confidence": "none", "matched_fields": []}},
+  "tre": {{"url": "", "confidence": "none", "matched_fields": []}},
+  "gerais": [
+    {{"url": "", "confidence": "high", "matched_fields": ["numero_unico", "tema"]}}
+  ]
+}}
+""".strip()
 
 
-def gerar_prompt_gerais(page_data: dict[str, str]) -> str:
-    numero_unico = page_data.get("numero_unico", "")
-    data_decisao = page_data.get("data_decisao", "")
-    assuntos = page_data.get("assuntos", "")
-    partes = page_data.get("partes", "")
-    relator = page_data.get("relator", "")
-    texto_decisao = page_data.get("texto_decisao", "")
-    texto_ementa = page_data.get("texto_ementa", "")
-    sigla_uf = page_data.get("sigla_uf", "")
-    nome_municipio = page_data.get("nome_municipio", "")
-    veiculos_str = ", ".join(VEICULOS_GERAIS)
-    max_urls = len(GENERAL_NEWS_COLUMNS)
-
-    return f"""Encontre noticias sobre este caso eleitoral em grandes veículos de mídia brasileira.
-
-numeroUnico: {numero_unico}
-dataDecisao: {data_decisao}
-assuntos: {assuntos}
-partes: {partes}
-relator: {relator}
-textoDecisao: {texto_decisao}
-textoEmenta: {texto_ementa}
-siglaUF: {sigla_uf}
-nomeMunicipio: {nome_municipio}
-
-Procure apenas nos seguintes veículos: {veiculos_str}.
-
-REGRAS DE RESPOSTA (OBRIGATÓRIAS):
-- Responda SOMENTE com uma lista de até {max_urls} URLs.
-- Cada URL deve aparecer sozinha em uma linha.
-- Não escreva texto explicativo, títulos, comentários ou bullets.
-- Se não encontrar nenhuma noticia, responda exatamente: VAZIO
-"""
-
-
-def gerar_prompt_gerais_com_sites(page_data: dict[str, str]) -> str:
-    numero_unico = page_data.get("numero_unico", "")
-    data_decisao = page_data.get("data_decisao", "")
-    assuntos = page_data.get("assuntos", "")
-    partes = page_data.get("partes", "")
-    relator = page_data.get("relator", "")
-    texto_decisao = page_data.get("texto_decisao", "")
-    texto_ementa = page_data.get("texto_ementa", "")
-    sigla_uf = page_data.get("sigla_uf", "")
-    nome_municipio = page_data.get("nome_municipio", "")
-    sites_str = " ".join([f"site:{domain}" for domain in VEICULOS_DOMINIOS])
-    max_urls = len(GENERAL_NEWS_COLUMNS)
-
-    return f"""Encontre noticias sobre este caso eleitoral nos domínios listados.
-
-numeroUnico: {numero_unico}
-dataDecisao: {data_decisao}
-assuntos: {assuntos}
-partes: {partes}
-relator: {relator}
-textoDecisao: {texto_decisao}
-textoEmenta: {texto_ementa}
-siglaUF: {sigla_uf}
-nomeMunicipio: {nome_municipio}
-
-Restrição de domínios (obrigatória): {sites_str}
-
-REGRAS DE RESPOSTA (OBRIGATÓRIAS):
-- Responda SOMENTE com uma lista de até {max_urls} URLs.
-- Cada URL deve aparecer sozinha em uma linha.
-- Não escreva texto explicativo, títulos, comentários ou bullets.
-- Se não encontrar nenhuma noticia, responda exatamente: VAZIO
-"""
+def _normalize_news_lookup_response(
+    response: object,
+    *,
+    precisa_tse: bool,
+    precisa_tre: bool,
+    precisa_gerais: bool,
+) -> tuple[Optional[str], Optional[str], Optional[list[str]]]:
+    tse_url = None
+    tre_url = None
+    gerais_urls: list[str] = []
+    if isinstance(response, dict):
+        if precisa_tse:
+            raw_tse, confidence_tse, matched_tse = _extract_news_candidate(response.get("tse", {}))
+            if (
+                raw_tse
+                and _is_tse_news_url(raw_tse)
+                and _news_candidate_passes_gate(
+                    confidence_tse,
+                    matched_tse,
+                    official_source=True,
+                )
+            ):
+                tse_url = raw_tse
+        if precisa_tre:
+            raw_tre, confidence_tre, matched_tre = _extract_news_candidate(response.get("tre", {}))
+            if (
+                raw_tre
+                and _is_tre_news_url(raw_tre)
+                and _news_candidate_passes_gate(
+                    confidence_tre,
+                    matched_tre,
+                    official_source=True,
+                )
+            ):
+                tre_url = raw_tre
+        if precisa_gerais:
+            raw_gerais = response.get("gerais", [])
+            vistos: set[str] = set()
+            if isinstance(raw_gerais, list):
+                for item in raw_gerais:
+                    url, confidence, matched_fields = _extract_news_candidate(item)
+                    if (
+                        not url
+                        or not _is_general_media_url(url)
+                        or not _news_candidate_passes_gate(
+                            confidence,
+                            matched_fields,
+                            official_source=False,
+                        )
+                        or url in vistos
+                    ):
+                        continue
+                    vistos.add(url)
+                    gerais_urls.append(url)
+    return tse_url, tre_url, (gerais_urls if gerais_urls else None)
 
 
 async def buscar_todas_noticias_async(
@@ -1168,83 +1794,34 @@ async def buscar_todas_noticias_async(
     precisa_tre: bool,
     precisa_gerais: bool,
     timeout_seconds: int,
-) -> tuple[Optional[str], Optional[str], Optional[list[str]]]:
-    prompt_tse = gerar_prompt_tse(page_data) if precisa_tse else None
-    prompt_tre = gerar_prompt_tre(page_data) if precisa_tre else None
-    prompt_gerais = gerar_prompt_gerais(page_data) if precisa_gerais else None
-    prompt_gerais_site = gerar_prompt_gerais_com_sites(page_data) if precisa_gerais else None
-
-    async def _none() -> None:
-        return None
-
-    try:
-        resposta_tse, resposta_tre, resposta_gerais, resposta_gerais_site = await asyncio.gather(
-            gerenciador.call_perplexity(prompt_tse, timeout=timeout_seconds) if prompt_tse else _none(),
-            gerenciador.call_perplexity(prompt_tre, timeout=timeout_seconds) if prompt_tre else _none(),
-            gerenciador.call_perplexity(prompt_gerais, timeout=timeout_seconds) if prompt_gerais else _none(),
-            gerenciador.call_perplexity(prompt_gerais_site, timeout=timeout_seconds) if prompt_gerais_site else _none(),
-        )
-    except Exception:
-        return None, None, None
-
-    def content_of(resp: object) -> str:
-        if isinstance(resp, dict):
-            return str(resp.get("content", "") or "")
-        return ""
-
-    def citations_of(resp: object) -> list[str]:
-        if isinstance(resp, dict):
-            return extrair_urls_de_citations(resp.get("citations"))
-        return []
-
-    # TSE: prioriza noticias oficiais e usa fallback para dominio geral do TSE apenas se necessario.
-    tse_content = content_of(resposta_tse)
-    tse_content_url = limpar_url(tse_content) if tse_content else None
-    tse_citations = citations_of(resposta_tse)
-    url_tse = None
-    if tse_content_url and _is_tse_news_url(tse_content_url):
-        url_tse = tse_content_url
-    if not url_tse:
-        url_tse = _pick_first(tse_citations, _is_tse_news_url)
-    if not url_tse and tse_content_url and _is_tse_url(tse_content_url):
-        url_tse = tse_content_url
-    if not url_tse:
-        url_tse = _pick_first(tse_citations, _is_tse_url)
-
-    # TRE: prioriza noticias em dominios TRE, com fallback para paginas gerais do TRE.
-    tre_content = content_of(resposta_tre)
-    tre_content_url = limpar_url(tre_content) if tre_content else None
-    tre_citations = citations_of(resposta_tre)
-    url_tre = None
-    if tre_content_url and _is_tre_news_url(tre_content_url):
-        url_tre = tre_content_url
-    if not url_tre:
-        url_tre = _pick_first(tre_citations, _is_tre_news_url)
-    if not url_tre and tre_content_url and _is_tre_url(tre_content_url):
-        url_tre = tre_content_url
-    if not url_tre:
-        url_tre = _pick_first(tre_citations, _is_tre_url)
-
-    urls_gerais: list[str] = []
-    vistos: set[str] = set()
-    for resposta in (resposta_gerais, resposta_gerais_site):
-        texto = content_of(resposta)
-        extraidas = None
-        if texto:
-            extraidas = extrair_urls_multiplas(texto)
-            if extraidas:
-                extraidas = [url for url in extraidas if _is_general_media_url(url)]
-        if not extraidas:
-            citations_media = [url for url in citations_of(resposta) if _is_general_media_url(url)]
-            extraidas = citations_media if citations_media else None
-        if not extraidas:
-            continue
-        for url in extraidas:
-            if url not in vistos:
-                vistos.add(url)
-                urls_gerais.append(url)
-
-    return url_tse, url_tre, (urls_gerais if urls_gerais else None)
+    max_tokens: int,
+) -> dict[str, object]:
+    prompt = gerar_prompt_noticias(page_data, max_general_urls=len(GENERAL_NEWS_COLUMNS))
+    resposta = await gerenciador.call_news_lookup(
+        prompt=prompt,
+        timeout=timeout_seconds,
+        max_tokens=max_tokens,
+        max_general_urls=len(GENERAL_NEWS_COLUMNS),
+    )
+    if not isinstance(resposta, dict):
+        return {
+            "status": "error_retryable",
+            "tse": None,
+            "tre": None,
+            "gerais": None,
+        }
+    tse_url, tre_url, gerais_urls = _normalize_news_lookup_response(
+        resposta,
+        precisa_tse=precisa_tse,
+        precisa_tre=precisa_tre,
+        precisa_gerais=precisa_gerais,
+    )
+    return {
+        "status": "ok",
+        "tse": tse_url,
+        "tre": tre_url,
+        "gerais": gerais_urls,
+    }
 
 
 def _aplicar_urls_no_row(row: dict[str, str], url_tse: Optional[str], url_tre: Optional[str], urls_gerais: Optional[list[str]]) -> None:
@@ -1273,16 +1850,31 @@ async def enriquecer_rows_com_urls_async(
     config: WebLookupConfig,
     lookup_payloads: Optional[Sequence[dict[str, str]]] = None,
     on_batch_done: Optional[Callable[[int, int, int, Dict[str, int]], None]] = None,
-) -> None:
+    cache_path: Optional[Path] = None,
+    row_indices: Optional[Sequence[int]] = None,
+    row_progress: Optional[dict[str, dict[str, object]]] = None,
+) -> dict[str, int]:
     if not rows:
-        return
+        return {
+            "perplexity_api_calls": 0,
+            "perplexity_cache_hits": 0,
+            "perplexity_no_match": 0,
+            "perplexity_retryable_errors": 0,
+            "perplexity_skipped_existing": 0,
+        }
     if lookup_payloads is not None and len(lookup_payloads) != len(rows):
         raise ValueError("lookup_payloads precisa ter o mesmo tamanho de rows.")
-    gerenciador = GerenciadorRequisicoes(
-        api_key=config.api_key,
-        model=config.model,
-        max_workers=config.max_workers,
-    )
+    if row_indices is not None and len(row_indices) != len(rows):
+        raise ValueError("row_indices precisa ter o mesmo tamanho de rows.")
+    gerenciador: Optional[GerenciadorRequisicoes] = None
+    news_cache = read_news_cache(cache_path) if cache_path is not None else {}
+    metrics = {
+        "perplexity_api_calls": 0,
+        "perplexity_cache_hits": 0,
+        "perplexity_no_match": 0,
+        "perplexity_retryable_errors": 0,
+        "perplexity_skipped_existing": 0,
+    }
     try:
         total = len(rows)
         for start in range(0, total, config.batch_size):
@@ -1294,29 +1886,159 @@ async def enriquecer_rows_com_urls_async(
                 else [build_lookup_payload(row) for row in lote]
             )
             logger(f"[Perplexity] Processando lote {start + 1}-{end} de {total}")
-            tarefas = []
-            for row, lookup_data in zip(lote, lote_payloads):
+            batch_stage = f"perplexity_batch_{start + 1}_{end}_of_{total}"
+            planos: list[dict[str, object]] = []
+            tarefas_por_chave: dict[str, asyncio.Task] = {}
+            for offset, (row, lookup_data) in enumerate(zip(lote, lote_payloads)):
+                absolute_index = row_indices[start + offset] if row_indices is not None else start + offset
                 precisa_tse = not bool((row.get("noticia_TSE") or "").strip())
                 precisa_tre = not bool((row.get("noticia_TRE") or "").strip())
                 precisa_gerais = any(not bool((row.get(col) or "").strip()) for col in GENERAL_NEWS_COLUMNS)
-                tarefas.append(
-                    buscar_todas_noticias_async(
-                        gerenciador,
-                        lookup_data,
-                        precisa_tse=precisa_tse,
-                        precisa_tre=precisa_tre,
-                        precisa_gerais=precisa_gerais,
-                        timeout_seconds=config.timeout_seconds,
+                if not (precisa_tse or precisa_tre or precisa_gerais):
+                    plano = {
+                        "source": "existing",
+                        "row": row,
+                        "absolute_index": absolute_index,
+                        "request_key": "",
+                    }
+                    planos.append(plano)
+                    if row_progress is not None:
+                        row_progress[str(absolute_index)] = {
+                            "stage": batch_stage,
+                            "request_key": "",
+                            "news_status": "skipped_existing",
+                        }
+                    continue
+                request_payload = build_news_lookup_request(lookup_data, model=config.model)
+                request_key = build_news_request_key(request_payload)
+                cache_entry = news_cache.get(request_key)
+                if cache_entry is not None and _is_terminal_news_cache_status(cache_entry.get("status", "")):
+                    planos.append(
+                        {
+                            "source": "cache",
+                            "row": row,
+                            "absolute_index": absolute_index,
+                            "request_key": request_key,
+                            "cache_entry": cache_entry,
+                        }
                     )
+                    if row_progress is not None:
+                        row_progress[str(absolute_index)] = {
+                            "stage": batch_stage,
+                            "request_key": request_key,
+                            "news_status": str(cache_entry.get("status", "")),
+                        }
+                    continue
+                if gerenciador is None:
+                    gerenciador = GerenciadorRequisicoes(
+                        api_key=config.api_key,
+                        model=config.model,
+                        max_workers=config.max_workers,
+                    )
+                planos.append(
+                    {
+                        "source": "api",
+                        "row": row,
+                        "absolute_index": absolute_index,
+                        "request_key": request_key,
+                        "task_key": request_key,
+                    }
                 )
-            resultados = await asyncio.gather(*tarefas)
+                if request_key not in tarefas_por_chave:
+                    tarefas_por_chave[request_key] = asyncio.create_task(
+                        buscar_todas_noticias_async(
+                            gerenciador,
+                            lookup_data,
+                            precisa_tse=precisa_tse,
+                            precisa_tre=precisa_tre,
+                            precisa_gerais=precisa_gerais,
+                            timeout_seconds=config.timeout_seconds,
+                            max_tokens=config.max_tokens,
+                        )
+                    )
+                if row_progress is not None:
+                    row_progress[str(absolute_index)] = {
+                        "stage": batch_stage,
+                        "request_key": request_key,
+                        "news_status": "pending",
+                    }
+            resultados_api = (
+                await asyncio.gather(*tarefas_por_chave.values())
+                if tarefas_por_chave
+                else []
+            )
+            resultados_por_chave = {
+                key: result for key, result in zip(tarefas_por_chave.keys(), resultados_api)
+            }
             batch_tse = 0
             batch_tre = 0
             batch_gerais = 0
-            for row, (url_tse, url_tre, urls_gerais) in zip(lote, resultados):
+            batch_api_calls = len(tarefas_por_chave)
+            batch_cache_hits = 0
+            batch_no_match = 0
+            batch_retryable_errors = 0
+            batch_skipped_existing = 0
+            cache_dirty = False
+            for plano in planos:
+                row = plano["row"]
+                absolute_index = int(plano.get("absolute_index", 0) or 0)
+                request_key = str(plano.get("request_key", "") or "")
                 before_tse = bool((row.get("noticia_TSE") or "").strip())
                 before_tre = bool((row.get("noticia_TRE") or "").strip())
                 before_gerais = sum(bool((row.get(col) or "").strip()) for col in GENERAL_NEWS_COLUMNS)
+                source = str(plano.get("source", "") or "")
+                url_tse = None
+                url_tre = None
+                urls_gerais = None
+                news_status = "pending"
+                if source == "existing":
+                    batch_skipped_existing += 1
+                    metrics["perplexity_skipped_existing"] += 1
+                    news_status = "skipped_existing"
+                elif source == "cache":
+                    cache_entry = plano.get("cache_entry", {})
+                    batch_cache_hits += 1
+                    metrics["perplexity_cache_hits"] += 1
+                    if isinstance(cache_entry, dict):
+                        url_tse = _limpar_url_bruta(str(cache_entry.get("tse", "") or "")) or None
+                        url_tre = _limpar_url_bruta(str(cache_entry.get("tre", "") or "")) or None
+                        urls_gerais = _normalize_general_news_urls(cache_entry.get("gerais", [])) or None
+                        news_status = str(cache_entry.get("status", "") or "pending")
+                    if news_status == "no_match":
+                        batch_no_match += 1
+                        metrics["perplexity_no_match"] += 1
+                elif source == "api":
+                    resultado = resultados_por_chave.get(
+                        str(plano.get("task_key", "") or ""),
+                        {"status": "error_retryable", "tse": None, "tre": None, "gerais": None},
+                    )
+                    if isinstance(resultado, dict):
+                        raw_status = str(resultado.get("status", "") or "").strip().lower()
+                        if raw_status == "ok":
+                            url_tse = _limpar_url_bruta(str(resultado.get("tse", "") or "")) or None
+                            url_tre = _limpar_url_bruta(str(resultado.get("tre", "") or "")) or None
+                            urls_gerais = _normalize_general_news_urls(resultado.get("gerais", [])) or None
+                            news_status = "filled" if any([url_tse, url_tre, urls_gerais]) else "no_match"
+                            if news_status == "no_match":
+                                batch_no_match += 1
+                                metrics["perplexity_no_match"] += 1
+                        else:
+                            news_status = "error_retryable"
+                            batch_retryable_errors += 1
+                            metrics["perplexity_retryable_errors"] += 1
+                    else:
+                        news_status = "error_retryable"
+                        batch_retryable_errors += 1
+                        metrics["perplexity_retryable_errors"] += 1
+                    if request_key:
+                        news_cache[request_key] = {
+                            "status": news_status,
+                            "tse": url_tse or "",
+                            "tre": url_tre or "",
+                            "gerais": urls_gerais or [],
+                            "updated_at": utc_now_iso(),
+                        }
+                        cache_dirty = True
                 _aplicar_urls_no_row(row, url_tse, url_tre, urls_gerais)
                 after_tse = bool((row.get("noticia_TSE") or "").strip())
                 after_tre = bool((row.get("noticia_TRE") or "").strip())
@@ -1327,10 +2049,21 @@ async def enriquecer_rows_com_urls_async(
                     batch_tre += 1
                 if after_gerais > before_gerais:
                     batch_gerais += after_gerais - before_gerais
+                if row_progress is not None:
+                    row_progress[str(absolute_index)] = {
+                        "stage": batch_stage,
+                        "request_key": request_key,
+                        "news_status": news_status,
+                    }
+            metrics["perplexity_api_calls"] += batch_api_calls
+            if cache_dirty and cache_path is not None:
+                write_news_cache(cache_path, news_cache)
             logger(
                 "[Perplexity] Lote "
                 f"{start + 1}-{end} concluido | novos_tse={batch_tse} | "
-                f"novos_tre={batch_tre} | novas_gerais={batch_gerais}"
+                f"novos_tre={batch_tre} | novas_gerais={batch_gerais} | "
+                f"api={batch_api_calls} | cache={batch_cache_hits} | "
+                f"no_match={batch_no_match} | retryable={batch_retryable_errors}"
             )
             if on_batch_done is not None:
                 on_batch_done(
@@ -1341,12 +2074,19 @@ async def enriquecer_rows_com_urls_async(
                         "novos_tse": batch_tse,
                         "novos_tre": batch_tre,
                         "novas_gerais": batch_gerais,
+                        "perplexity_api_calls": batch_api_calls,
+                        "perplexity_cache_hits": batch_cache_hits,
+                        "perplexity_no_match": batch_no_match,
+                        "perplexity_retryable_errors": batch_retryable_errors,
+                        "perplexity_skipped_existing": batch_skipped_existing,
                     },
                 )
             if end < total and config.delay_between_batches > 0:
                 await asyncio.sleep(config.delay_between_batches)
     finally:
-        gerenciador.close()
+        if gerenciador is not None:
+            gerenciador.close()
+    return metrics
 
 
 def _aplicar_assuntos_no_row(
@@ -2020,8 +2760,9 @@ def process_one_csv(
         source_key_by_clean = {clean: original for original, clean in mapping}
 
         output_path = out_dir / f"{input_path.stem}_notion.csv"
-        checkpoint_path = out_dir / f".{input_path.stem}_notion.openai.checkpoint.json"
-        report_path = out_dir / f".{input_path.stem}_notion.openai.report.json"
+        checkpoint_path = resolve_checkpoint_artifact_path(output_path)
+        report_path = resolve_report_artifact_path(output_path)
+        cache_path = resolve_web_lookup_cache_path(out_dir)
         source_sig = build_file_signature(input_path)
         started_at = time.time()
         output_fields: list[str] = []
@@ -2042,7 +2783,11 @@ def process_one_csv(
                 output_fields.append(url_column)
 
         if output_path.exists() and not checkpoint_path.exists():
-            backup = make_backup(output_path, label="startup_backup")
+            backup = make_backup(
+                output_path,
+                backup_dir=resolve_backup_artifacts_dir(),
+                label="startup_backup",
+            )
             if backup is not None:
                 logger(f"[Backup] {output_path.name} -> {backup.name}")
 
@@ -2053,6 +2798,15 @@ def process_one_csv(
         advogados_added_total = 0
         assuntos_filled_rules_total = 0
         assuntos_filled_openai_total = 0
+        restored_from_output_total = 0
+        row_progress: dict[str, dict[str, object]] = {}
+        perplexity_metrics_total = {
+            "perplexity_api_calls": 0,
+            "perplexity_cache_hits": 0,
+            "perplexity_no_match": 0,
+            "perplexity_retryable_errors": 0,
+            "perplexity_skipped_existing": 0,
+        }
 
         for row_index, source_row in enumerate(reader, start=1):
             clean_row: dict[str, str] = {}
@@ -2209,6 +2963,8 @@ def process_one_csv(
                 texto_decisao=texto_decisao_full,
                 descricao_tipo_decisao=descricao_tipo_decisao_full,
             )
+            for theme_column in THEME_COLUMNS:
+                clean_row[theme_column] = clean_row.get(theme_column, "")
 
             for url_column in URL_COLUMNS:
                 clean_row[url_column] = clean_row.get(url_column, "")
@@ -2232,6 +2988,8 @@ def process_one_csv(
                         part for part in (sigla_tribunal_je_full, origem_decisao_full) if part
                     ).strip(),
                     "origem": " ".join(part for part in (sigla_uf_full, nome_municipio_full) if part).strip(),
+                    "tema": clean_row.get("tema", "") or "",
+                    "punchline": clean_row.get("punchline", "") or "",
                 }
             )
             if row_index % ROW_PROGRESS_EVERY == 0:
@@ -2270,6 +3028,7 @@ def process_one_csv(
                 lookup_payloads[idx]["punchline"] = row.get("punchline", "") or ""
 
         def _save_state(status: str, stage: str, extra: Optional[Dict[str, int]] = None) -> None:
+            completed_at = utc_now_iso() if status == "completed" else ""
             write_csv_atomic(output_path, output_fields, processed_rows)
             write_json_atomic(
                 checkpoint_path,
@@ -2283,7 +3042,11 @@ def process_one_csv(
                     "tema_enabled": bool(tema_punchline_config.enabled),
                     "assuntos_openai_enabled": bool(assuntos_enrichment_config.enabled),
                     "perplexity_enabled": bool(web_lookup_config.enabled),
+                    "strategy_version": PERPLEXITY_NEWS_STRATEGY_VERSION,
+                    "cache_file": str(cache_path.resolve()),
+                    "row_progress": row_progress,
                     "processed_rows": processed_rows,
+                    "completed_at": completed_at,
                     "updated_at": utc_now_iso(),
                 },
             )
@@ -2294,8 +3057,10 @@ def process_one_csv(
                     "input_csv": str(input_path.resolve()),
                     "output_csv": str(output_path.resolve()),
                     "checkpoint_file": str(checkpoint_path.resolve()),
+                    "cache_file": str(cache_path.resolve()),
                     "status": status,
                     "stage": stage,
+                    "strategy_version": PERPLEXITY_NEWS_STRATEGY_VERSION,
                     "rows_total": len(processed_rows),
                     "tema_filled": _count_filled("tema"),
                     "punchline_filled": _count_filled("punchline"),
@@ -2307,7 +3072,14 @@ def process_one_csv(
                     "url_tse_filled": _count_filled("noticia_TSE"),
                     "url_tre_filled": _count_filled("noticia_TRE"),
                     "url_gerais_filled_total": _count_filled_gerais(),
+                    "restored_from_output_csv": restored_from_output_total,
+                    "perplexity_api_calls": perplexity_metrics_total["perplexity_api_calls"],
+                    "perplexity_cache_hits": perplexity_metrics_total["perplexity_cache_hits"],
+                    "perplexity_no_match": perplexity_metrics_total["perplexity_no_match"],
+                    "perplexity_retryable_errors": perplexity_metrics_total["perplexity_retryable_errors"],
+                    "perplexity_skipped_existing": perplexity_metrics_total["perplexity_skipped_existing"],
                     "elapsed_seconds": round(max(0.0, time.time() - started_at), 2),
+                    "completed_at": completed_at,
                     "batch_stats": extra or {},
                     "updated_at": utc_now_iso(),
                 },
@@ -2317,7 +3089,7 @@ def process_one_csv(
         cp_sig = cp.get("source_signature", {})
         cp_rows = cp.get("processed_rows", [])
         if (
-            int(cp.get("version", 0) or 0) == CHECKPOINT_VERSION
+            int(cp.get("version", 0) or 0) in (1, CHECKPOINT_VERSION)
             and same_file_signature(cp_sig, source_sig)
             and isinstance(cp_rows, list)
             and len(cp_rows) == len(processed_rows)
@@ -2332,6 +3104,34 @@ def process_one_csv(
                 restored += 1
             if restored:
                 logger(f"[resume] checkpoint aplicado: {restored}/{len(processed_rows)} linhas.")
+            cp_row_progress = cp.get("row_progress", {})
+            if isinstance(cp_row_progress, dict):
+                for idx_key, saved_progress in cp_row_progress.items():
+                    if not isinstance(saved_progress, dict):
+                        continue
+                    try:
+                        idx_value = int(str(idx_key))
+                    except Exception:
+                        continue
+                    if idx_value < 0 or idx_value >= len(processed_rows):
+                        continue
+                    row_progress[str(idx_value)] = {
+                        "stage": str(saved_progress.get("stage", "") or ""),
+                        "request_key": str(saved_progress.get("request_key", "") or ""),
+                        "news_status": str(saved_progress.get("news_status", "") or ""),
+                    }
+        elif output_path.exists() and not checkpoint_path.exists():
+            preserved_stats = preserve_columns_from_reference_rows(
+                target_rows=processed_rows,
+                reference_csv=output_path,
+                columns=DEFAULT_PRESERVE_COLUMNS,
+            )
+            restored_from_output_total = int(preserved_stats.get("applied_total", 0) or 0)
+            if restored_from_output_total > 0:
+                logger(
+                    f"[resume] reaproveitado do CSV existente: {restored_from_output_total} "
+                    f"celulas em {output_path.name}."
+                )
 
         _refresh_lookup_payloads_from_rows()
         _save_state("running", "prepared")
@@ -2393,14 +3193,30 @@ def process_one_csv(
             _save_state("running", "after_openai")
 
         if web_lookup_config.enabled:
+            estimate = estimate_news_api_calls(
+                processed_rows,
+                lookup_payloads=lookup_payloads,
+                model=web_lookup_config.model,
+                cache_path=cache_path,
+            )
             logger(f"[Perplexity] Iniciando busca de URLs para {len(processed_rows)} linhas...")
+            logger(
+                "[Perplexity] Politica balanceada: aceita confidence=high ou medium quando houver "
+                "matched_fields suficientes e validacao local de pagina noticiosa."
+            )
             logger(
                 "[Perplexity] Config: "
                 f"model={web_lookup_config.model}, workers={web_lookup_config.max_workers}, "
                 f"batch={web_lookup_config.batch_size}, timeout={web_lookup_config.timeout_seconds}s, "
                 f"delay={web_lookup_config.delay_between_batches}s"
             )
-            asyncio.run(
+            logger(
+                "[Perplexity] Estimativa antes do run: "
+                f"api={estimate['estimated_api_calls']} | "
+                f"cache_terminal={estimate['estimated_cache_hits']} | "
+                f"ja_preenchidas={estimate['estimated_skipped_existing']}"
+            )
+            perplexity_metrics_total = asyncio.run(
                 enriquecer_rows_com_urls_async(
                     processed_rows,
                     logger,
@@ -2411,6 +3227,8 @@ def process_one_csv(
                         f"perplexity_batch_{s + 1}_{e}_of_{t}",
                         stats,
                     ),
+                    cache_path=cache_path,
+                    row_progress=row_progress,
                 )
             )
             _save_state("running", "after_perplexity")
@@ -2493,6 +3311,95 @@ def _build_row_match_candidates(row: dict[str, str]) -> list[str]:
     return candidates
 
 
+def _apply_preserved_columns_to_rows(
+    *,
+    target_rows: list[dict[str, str]],
+    reference_rows: Sequence[dict[str, str]],
+    columns: Sequence[str],
+) -> dict[str, object]:
+    usable_columns = [col for col in columns if any(col in row for row in target_rows)]
+    stats: dict[str, object] = {
+        "rows_total": len(target_rows),
+        "reference_rows_total": len(reference_rows),
+        "usable_columns": usable_columns,
+        "matched_by_key": 0,
+        "fallback_by_index": len(reference_rows) == len(target_rows),
+        "applied_total": 0,
+        "applied_by_column": {col: 0 for col in usable_columns},
+    }
+    if not target_rows or not reference_rows or not usable_columns:
+        return stats
+
+    key_to_ref_indexes: dict[str, list[int]] = defaultdict(list)
+    for ref_index, ref_row in enumerate(reference_rows):
+        for key in _build_row_match_candidates(ref_row):
+            key_to_ref_indexes[key].append(ref_index)
+
+    matched_by_key = 0
+    used_reference_indexes: set[int] = set()
+    fallback_by_index = bool(stats["fallback_by_index"])
+    applied_by_column = dict(stats["applied_by_column"])
+    applied_total = 0
+
+    for row_idx, target_row in enumerate(target_rows):
+        reference_row: Optional[dict[str, str]] = None
+        for key in _build_row_match_candidates(target_row):
+            bucket = key_to_ref_indexes.get(key, [])
+            while bucket and bucket[0] in used_reference_indexes:
+                bucket.pop(0)
+            if bucket:
+                ref_index = bucket.pop(0)
+                used_reference_indexes.add(ref_index)
+                reference_row = dict(reference_rows[ref_index])
+                matched_by_key += 1
+                break
+        if reference_row is None and fallback_by_index and row_idx < len(reference_rows):
+            reference_row = dict(reference_rows[row_idx])
+        if reference_row is None:
+            continue
+        for col in usable_columns:
+            value = str(reference_row.get(col, "") or "").strip()
+            if not value:
+                continue
+            if (target_row.get(col, "") or "").strip() == value:
+                continue
+            target_row[col] = value
+            applied_by_column[col] = int(applied_by_column.get(col, 0) or 0) + 1
+            applied_total += 1
+
+    stats["matched_by_key"] = matched_by_key
+    stats["applied_total"] = applied_total
+    stats["applied_by_column"] = applied_by_column
+    return stats
+
+
+def preserve_columns_from_reference_rows(
+    *,
+    target_rows: list[dict[str, str]],
+    reference_csv: Path,
+    columns: Sequence[str],
+) -> dict[str, object]:
+    if not columns or not reference_csv.exists():
+        return {
+            "rows_total": len(target_rows),
+            "reference_rows_total": 0,
+            "usable_columns": [],
+            "matched_by_key": 0,
+            "fallback_by_index": False,
+            "applied_total": 0,
+            "applied_by_column": {},
+        }
+    ref_encoding, ref_delimiter = detect_csv_format(reference_csv)
+    with reference_csv.open("r", encoding=ref_encoding, newline="") as handle:
+        ref_reader = csv.DictReader(handle, delimiter=ref_delimiter)
+        reference_rows = [dict(row) for row in ref_reader]
+    return _apply_preserved_columns_to_rows(
+        target_rows=target_rows,
+        reference_rows=reference_rows,
+        columns=columns,
+    )
+
+
 def preserve_columns_from_reference_csv(
     target_csv: Path,
     reference_csv: Path,
@@ -2513,60 +3420,27 @@ def preserve_columns_from_reference_csv(
     if not target_headers:
         raise ValueError(f"{target_csv.name}: sem cabecalho valido para preservacao.")
 
-    ref_encoding, ref_delimiter = detect_csv_format(reference_csv)
-    with reference_csv.open("r", encoding=ref_encoding, newline="") as handle:
-        ref_reader = csv.DictReader(handle, delimiter=ref_delimiter)
-        reference_rows = [dict(row) for row in ref_reader]
-
-    if not reference_rows:
+    stats = preserve_columns_from_reference_rows(
+        target_rows=target_rows,
+        reference_csv=reference_csv,
+        columns=columns,
+    )
+    if not any(stats.get("usable_columns", [])):
+        logger("[Preservacao] Nenhuma coluna de preservacao encontrada no CSV de destino.")
+        return len(target_rows)
+    if int(stats.get("reference_rows_total", 0) or 0) == 0:
         logger(f"[Preservacao] {reference_csv.name}: sem linhas para preservar.")
         return len(target_rows)
 
-    usable_columns = [col for col in columns if col in target_headers]
-    if not usable_columns:
-        logger("[Preservacao] Nenhuma coluna de preservacao encontrada no CSV de destino.")
-        return len(target_rows)
-
-    key_to_ref_indexes: dict[str, list[int]] = defaultdict(list)
-    for ref_index, ref_row in enumerate(reference_rows):
-        for key in _build_row_match_candidates(ref_row):
-            key_to_ref_indexes[key].append(ref_index)
-
-    fallback_by_index = len(reference_rows) == len(target_rows)
-    matched_by_key = 0
-    used_reference_indexes: set[int] = set()
-    applied_by_column: dict[str, int] = {col: 0 for col in usable_columns}
-    applied_total = 0
-
-    for row_idx, target_row in enumerate(target_rows):
-        reference_row: Optional[dict[str, str]] = None
-        for key in _build_row_match_candidates(target_row):
-            bucket = key_to_ref_indexes.get(key, [])
-            while bucket and bucket[0] in used_reference_indexes:
-                bucket.pop(0)
-            if bucket:
-                ref_index = bucket.pop(0)
-                used_reference_indexes.add(ref_index)
-                reference_row = reference_rows[ref_index]
-                matched_by_key += 1
-                break
-        if reference_row is None and fallback_by_index:
-            reference_row = reference_rows[row_idx]
-
-        if reference_row is None:
-            continue
-
-        for col in usable_columns:
-            value = str(reference_row.get(col, "") or "").strip()
-            if not value:
-                continue
-            if (target_row.get(col, "") or "").strip() == value:
-                continue
-            target_row[col] = value
-            applied_by_column[col] += 1
-            applied_total += 1
-
     write_csv_atomic(target_csv, target_headers, target_rows)
+    usable_columns = [str(item) for item in stats.get("usable_columns", [])]
+    matched_by_key = int(stats.get("matched_by_key", 0) or 0)
+    fallback_by_index = bool(stats.get("fallback_by_index"))
+    applied_total = int(stats.get("applied_total", 0) or 0)
+    applied_by_column = {
+        str(key): int(value or 0)
+        for key, value in dict(stats.get("applied_by_column", {})).items()
+    }
     logger(
         f"[Preservacao] {target_csv.name}: colunas={','.join(usable_columns)} | "
         f"linhas={len(target_rows)} | chaves={matched_by_key} | "
@@ -2589,8 +3463,6 @@ def cleanup_processing_artifacts(
     removed: list[str] = []
 
     candidates = [
-        checkpoint_path,
-        report_path,
         output_path.with_suffix(output_path.suffix + ".tmp"),
         checkpoint_path.with_suffix(checkpoint_path.suffix + ".tmp"),
         report_path.with_suffix(report_path.suffix + ".tmp"),
@@ -2604,7 +3476,7 @@ def cleanup_processing_artifacts(
             continue
 
     backup_pattern = f"{output_path.name}.startup_backup_*"
-    for backup_path in output_path.parent.glob(backup_pattern):
+    for backup_path in resolve_backup_artifacts_dir().glob(backup_pattern):
         try:
             if backup_path.is_file():
                 backup_path.unlink()
@@ -2620,23 +3492,20 @@ def cleanup_processing_artifacts(
 
 
 def cleanup_global_notion_artifacts(out_dir: Path, logger: Callable[[str], None]) -> None:
-    patterns = (
-        ".*_notion.openai.report.json",
-        ".*_notion.openai.checkpoint.json",
-        "*_notion.csv.startup_backup_*",
-        "*_notion.csv.tmp",
-        ".tmp_validacao*.csv",
-        "*_limpeza_check.csv",
+    locations_and_patterns = (
+        (out_dir, ("*_notion.csv.tmp", ".tmp_validacao*.csv", "*_limpeza_check.csv")),
+        (resolve_backup_artifacts_dir(), ("*_notion.csv.startup_backup_*", "*_APIenriched.csv.apienriched_backup_*")),
     )
     removed: list[str] = []
-    for pattern in patterns:
-        for path in out_dir.glob(pattern):
-            try:
-                if path.is_file():
-                    path.unlink()
-                    removed.append(path.name)
-            except Exception:
-                continue
+    for location, patterns in locations_and_patterns:
+        for pattern in patterns:
+            for path in location.glob(pattern):
+                try:
+                    if path.is_file():
+                        path.unlink()
+                        removed.append(path.name)
+                except Exception:
+                    continue
     if removed:
         logger(
             f"[Limpeza] Remocao global de artefatos: {len(removed)} arquivos "
@@ -2659,20 +3528,12 @@ def cleanup_intermediate_processed_csvs(
     combined_path: Path,
     logger: Callable[[str], None],
 ) -> None:
-    removed = 0
-    combined_resolved = combined_path.resolve()
-    for summary in summaries:
-        path = summary.output_path.resolve()
-        if path == combined_resolved:
-            continue
-        try:
-            if path.exists() and path.is_file():
-                path.unlink()
-                removed += 1
-        except Exception:
-            continue
-    if removed:
-        logger(f"[Limpeza] Removidos {removed} CSVs intermediarios *_notion.csv (saida unica consolidada).")
+    _ = summaries
+    _ = combined_path
+    logger(
+        "[Limpeza] CSVs intermediarios *_notion.csv preservados em Artefatos para retomada "
+        "e enriquecimento posterior."
+    )
 
 
 def normalize_input_paths(file_paths: Iterable[str]) -> list[Path]:
@@ -2731,19 +3592,25 @@ def run_batch(
         assuntos_enrichment_config.api_key = openai_api_key
 
     input_paths = normalize_input_paths(files)
-    output_dir = SCRIPT_DIR.resolve()
+    output_dir = Path(out_dir).expanduser().resolve() if str(out_dir or "").strip() else SCRIPT_DIR.resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
+    processed_output_dir = resolve_intermediate_csv_dir()
 
     chosen_combined_name = infer_combined_name(input_paths, combined_name)
     if not chosen_combined_name.lower().endswith(".csv"):
         chosen_combined_name = f"{chosen_combined_name}.csv"
     combined_path = output_dir / chosen_combined_name
 
+    logger(
+        "[Saida] CSVs por arquivo/etapa gravados em "
+        f"{processed_output_dir}. Apenas o consolidado final sai em {output_dir}."
+    )
+
     summaries: list[ProcessSummary] = []
     for input_path in input_paths:
         summary = process_one_csv(
             input_path=input_path,
-            out_dir=output_dir,
+            out_dir=processed_output_dir,
             max_texto_chars=max_texto_chars,
             replace_newlines=replace_newlines,
             web_lookup_config=web_lookup_config,
@@ -2781,16 +3648,25 @@ def run_batch(
 
 
 def launch_gui() -> None:
-    import tkinter as tk
-    from tkinter import filedialog, messagebox, ttk
+    try:
+        import tkinter as tk
+        from tkinter import filedialog, messagebox, ttk
+    except ModuleNotFoundError as exc:
+        raise RuntimeError(
+            "Tkinter nao esta disponivel neste Python. "
+            "Instale/suporte tkinter ou use modo CLI com --no-gui."
+        ) from exc
 
     class App:
         def __init__(self, root: tk.Tk) -> None:
             self.root = root
-            self.root.title("CSV -> Notion Friendly (Lote)")
-            self.root.geometry("900x680")
+            self.root.title("SJUR CSV Pipeline")
+            self.root.geometry("1040x860")
+            self.root.minsize(920, 760)
 
             self.file_vars: dict[str, tk.BooleanVar] = {}
+            self.busy = False
+            self.busy_widgets: list[tk.Widget] = []
 
             self.output_dir_var = tk.StringVar(value=str(SCRIPT_DIR))
             self.max_texto_chars_var = tk.StringVar(value="9000")
@@ -2799,6 +3675,15 @@ def launch_gui() -> None:
             self.buscar_urls_var = tk.BooleanVar(value=False)
             self.gerar_tema_punchline_var = tk.BooleanVar(value=False)
             self.enriquecer_assuntos_var = tk.BooleanVar(value=False)
+
+            self.enrich_out_dir_var = tk.StringVar(value="")
+            self.enrich_suffix_var = tk.StringVar(value="_APIenriched")
+            self.enrich_in_place_var = tk.BooleanVar(value=False)
+            self.enrich_no_backup_var = tk.BooleanVar(value=False)
+            self.enrich_fill_tema_punchline_var = tk.BooleanVar(value=True)
+            self.enrich_fill_assuntos_var = tk.BooleanVar(value=False)
+            self.enrich_fill_urls_var = tk.BooleanVar(value=True)
+
             self.assuntos_max_itens_var = tk.StringVar(value=str(DEFAULT_ASSUNTOS_MAX_ITEMS))
             self.assuntos_taxonomy_mode_var = tk.StringVar(value="mixed")
             self.openai_key_file_var = tk.StringVar(
@@ -2825,32 +3710,62 @@ def launch_gui() -> None:
             self.perplexity_delay_var = tk.StringVar(value="0.3")
             self.verbose_terminal_var = tk.BooleanVar(value=True)
 
+            self.prep_resume_var = tk.StringVar(
+                value="Resume: selecione arquivos para ver checkpoints e saidas reaproveitaveis."
+            )
+            self.enrich_resume_var = tk.StringVar(
+                value="Resume: a aba de enriquecimento procura checkpoints e saidas existentes."
+            )
+            self.enrich_estimate_var = tk.StringVar(
+                value="Estimativa Perplexity: selecione arquivos e habilite noticias para calcular."
+            )
+
             self._build_ui()
+            self._attach_hint_traces()
+
+        def _register_busy_widget(self, widget: tk.Widget) -> tk.Widget:
+            self.busy_widgets.append(widget)
+            return widget
+
+        def _set_busy(self, busy: bool) -> None:
+            self.busy = busy
+            state = "disabled" if busy else "normal"
+            for widget in self.busy_widgets:
+                try:
+                    widget.configure(state=state)
+                except Exception:
+                    continue
 
         def _build_ui(self) -> None:
             main = ttk.Frame(self.root, padding=12)
             main.pack(fill="both", expand=True)
 
-            top_controls = ttk.Frame(main)
-            top_controls.pack(fill="x")
+            files_box = ttk.LabelFrame(main, text="Arquivos", padding=8)
+            files_box.pack(fill="x")
 
-            ttk.Button(top_controls, text="Processar selecionados", command=self.process_selected).pack(
-                side="right", padx=(8, 0)
-            )
-            ttk.Button(top_controls, text="Selecionar CSVs", command=self.add_files).pack(side="left", padx=(0, 8))
-            ttk.Button(top_controls, text="Adicionar pasta", command=self.add_folder).pack(side="left", padx=(0, 8))
-            ttk.Button(top_controls, text="Marcar todos", command=self.check_all).pack(side="left", padx=(0, 8))
-            ttk.Button(top_controls, text="Desmarcar todos", command=self.uncheck_all).pack(side="left", padx=(0, 8))
-            ttk.Button(top_controls, text="Limpar lista", command=self.clear_files).pack(side="left")
+            file_controls = ttk.Frame(files_box)
+            file_controls.pack(fill="x")
+            self._register_busy_widget(
+                ttk.Button(file_controls, text="Selecionar CSVs", command=self.add_files)
+            ).pack(side="left", padx=(0, 8))
+            self._register_busy_widget(
+                ttk.Button(file_controls, text="Adicionar pasta", command=self.add_folder)
+            ).pack(side="left", padx=(0, 8))
+            self._register_busy_widget(
+                ttk.Button(file_controls, text="Marcar todos", command=self.check_all)
+            ).pack(side="left", padx=(0, 8))
+            self._register_busy_widget(
+                ttk.Button(file_controls, text="Desmarcar todos", command=self.uncheck_all)
+            ).pack(side="left", padx=(0, 8))
+            self._register_busy_widget(
+                ttk.Button(file_controls, text="Limpar lista", command=self.clear_files)
+            ).pack(side="left")
 
-            list_box = ttk.LabelFrame(main, text="Arquivos selecionados (checkbox)", padding=8)
-            list_box.pack(fill="both", expand=False, pady=(10, 10))
-
-            self.canvas = tk.Canvas(list_box, height=230)
-            scrollbar = ttk.Scrollbar(list_box, orient="vertical", command=self.canvas.yview)
+            self.canvas = tk.Canvas(files_box, height=180)
+            scrollbar = ttk.Scrollbar(files_box, orient="vertical", command=self.canvas.yview)
             self.canvas.configure(yscrollcommand=scrollbar.set)
-            self.canvas.pack(side="left", fill="both", expand=True)
-            scrollbar.pack(side="right", fill="y")
+            self.canvas.pack(side="left", fill="both", expand=True, pady=(8, 0))
+            scrollbar.pack(side="right", fill="y", pady=(8, 0))
 
             self.files_frame = ttk.Frame(self.canvas)
             self.files_frame_window = self.canvas.create_window((0, 0), window=self.files_frame, anchor="nw")
@@ -2860,165 +3775,319 @@ def launch_gui() -> None:
             )
             self.canvas.bind("<Configure>", self._on_files_canvas_configure)
 
-            options = ttk.LabelFrame(main, text="Opcoes", padding=10)
-            options.pack(fill="x", pady=(0, 10))
+            notebook = ttk.Notebook(main)
+            notebook.pack(fill="x", expand=False, pady=(12, 0))
 
-            ttk.Label(options, text="Pasta de saida (fixa no script):").grid(row=0, column=0, sticky="w")
-            ttk.Entry(options, textvariable=self.output_dir_var, width=70).grid(row=0, column=1, sticky="ew", padx=8)
-            ttk.Button(options, text="Selecionar...", command=self.choose_output_dir).grid(row=0, column=2, sticky="e")
+            prep_tab = ttk.Frame(notebook, padding=12)
+            enrich_tab = ttk.Frame(notebook, padding=12)
+            notebook.add(prep_tab, text="Preparacao")
+            notebook.add(enrich_tab, text="Enriquecimento")
 
-            ttk.Label(options, text="Limite em textoDecisao/textoEmenta (0 = sem truncamento):").grid(row=1, column=0, sticky="w", pady=(8, 0))
-            ttk.Entry(options, textvariable=self.max_texto_chars_var, width=12).grid(row=1, column=1, sticky="w", padx=8, pady=(8, 0))
+            self._build_preparation_tab(prep_tab)
+            self._build_enrichment_tab(enrich_tab)
 
-            ttk.Label(options, text="Nome do compilado (vazio = automatico):").grid(
-                row=2,
-                column=0,
-                sticky="w",
-                pady=(8, 0),
+            advanced = ttk.LabelFrame(main, text="Avancado (APIs)", padding=10)
+            advanced.pack(fill="x", pady=(12, 0))
+            self._build_advanced_panel(advanced)
+
+            log_box = ttk.LabelFrame(main, text="Log", padding=8)
+            log_box.pack(fill="both", expand=True, pady=(12, 0))
+            self.log_widget = tk.Text(log_box, height=14, wrap="word")
+            self.log_widget.pack(fill="both", expand=True)
+            self.log_widget.configure(state="disabled")
+
+            self.refresh_file_list()
+
+        def _build_preparation_tab(self, parent: ttk.Frame) -> None:
+            parent.columnconfigure(1, weight=1)
+
+            ttk.Label(parent, text="Pasta de saida do CSV final consolidado:").grid(
+                row=0, column=0, sticky="w"
             )
-            ttk.Entry(options, textvariable=self.combined_name_var, width=35).grid(
-                row=2,
-                column=1,
-                sticky="w",
-                padx=8,
-                pady=(8, 0),
+            ttk.Entry(parent, textvariable=self.output_dir_var, width=70).grid(
+                row=0, column=1, sticky="ew", padx=8
+            )
+            self._register_busy_widget(
+                ttk.Button(
+                    parent,
+                    text="Selecionar...",
+                    command=lambda: self.choose_directory(
+                        self.output_dir_var,
+                        "Selecione a pasta de saida da preparacao",
+                    ),
+                )
+            ).grid(row=0, column=2, sticky="e")
+
+            ttk.Label(parent, text="Limite textoDecisao/textoEmenta (0 = sem truncamento):").grid(
+                row=1, column=0, sticky="w", pady=(8, 0)
+            )
+            ttk.Entry(parent, textvariable=self.max_texto_chars_var, width=12).grid(
+                row=1, column=1, sticky="w", padx=8, pady=(8, 0)
+            )
+
+            ttk.Label(parent, text="Nome do compilado (vazio = automatico):").grid(
+                row=2, column=0, sticky="w", pady=(8, 0)
+            )
+            ttk.Entry(parent, textvariable=self.combined_name_var, width=28).grid(
+                row=2, column=1, sticky="w", padx=8, pady=(8, 0)
             )
 
             ttk.Checkbutton(
-                options,
-                text="Substituir quebras de linha/tabs por espaco",
+                parent,
+                text="Substituir quebras de linha e tabs por espaco",
                 variable=self.replace_newlines_var,
             ).grid(row=3, column=0, columnspan=3, sticky="w", pady=(10, 0))
 
-            ttk.Checkbutton(
-                options,
-                text="Buscar URLs com Perplexity (TSE/TRE/Gerais)",
-                variable=self.buscar_urls_var,
+            ttk.Label(
+                parent,
+                text="Padrao recomendado: gerar primeiro o consolidado final; intermediarios e artefatos vao para Artefatos.",
             ).grid(row=4, column=0, columnspan=3, sticky="w", pady=(10, 0))
 
             ttk.Checkbutton(
-                options,
-                text="Gerar tema/punchline com ChatGPT",
+                parent,
+                text="Gerar tema/punchline com OpenAI durante a preparacao",
                 variable=self.gerar_tema_punchline_var,
-            ).grid(row=5, column=0, columnspan=3, sticky="w", pady=(10, 0))
+            ).grid(row=5, column=0, columnspan=3, sticky="w", pady=(8, 0))
 
             ttk.Checkbutton(
-                options,
-                text="Enriquecer assuntos vazios com ChatGPT",
+                parent,
+                text="Enriquecer assuntos vazios com OpenAI durante a preparacao",
                 variable=self.enriquecer_assuntos_var,
-            ).grid(row=6, column=0, columnspan=3, sticky="w", pady=(8, 0))
+            ).grid(row=6, column=0, columnspan=3, sticky="w", pady=(2, 0))
 
-            assuntos_frame = ttk.Frame(options)
-            assuntos_frame.grid(row=7, column=0, columnspan=3, sticky="w", pady=(6, 0))
-            ttk.Label(assuntos_frame, text="Max assuntos/linha").grid(row=0, column=0, sticky="w")
-            ttk.Entry(assuntos_frame, textvariable=self.assuntos_max_itens_var, width=6).grid(
-                row=0,
-                column=1,
-                padx=(4, 14),
+            ttk.Checkbutton(
+                parent,
+                text="Buscar noticias com Perplexity durante a preparacao",
+                variable=self.buscar_urls_var,
+            ).grid(row=7, column=0, columnspan=3, sticky="w", pady=(2, 0))
+
+            prep_status = ttk.LabelFrame(parent, text="Resume detectado", padding=8)
+            prep_status.grid(row=8, column=0, columnspan=3, sticky="ew", pady=(12, 0))
+            prep_status.columnconfigure(0, weight=1)
+            ttk.Label(
+                prep_status,
+                textvariable=self.prep_resume_var,
+                justify="left",
+                wraplength=920,
+            ).grid(row=0, column=0, sticky="w")
+
+            self._register_busy_widget(
+                ttk.Button(parent, text="Rodar preparacao", command=self.process_preparation)
+            ).grid(row=9, column=0, sticky="w", pady=(12, 0))
+
+        def _build_enrichment_tab(self, parent: ttk.Frame) -> None:
+            parent.columnconfigure(1, weight=1)
+
+            ttk.Label(parent, text="Pasta de saida (vazio = pasta do CSV resolvido):").grid(
+                row=0, column=0, sticky="w"
             )
-            ttk.Label(assuntos_frame, text="Taxonomia").grid(row=0, column=2, sticky="w")
+            ttk.Entry(parent, textvariable=self.enrich_out_dir_var, width=70).grid(
+                row=0, column=1, sticky="ew", padx=8
+            )
+            self._register_busy_widget(
+                ttk.Button(
+                    parent,
+                    text="Selecionar...",
+                    command=lambda: self.choose_directory(
+                        self.enrich_out_dir_var,
+                        "Selecione a pasta de saida do enriquecimento",
+                    ),
+                )
+            ).grid(row=0, column=2, sticky="e")
+
+            ttk.Label(parent, text="Sufixo do arquivo final:").grid(row=1, column=0, sticky="w", pady=(8, 0))
+            ttk.Entry(parent, textvariable=self.enrich_suffix_var, width=18).grid(
+                row=1, column=1, sticky="w", padx=8, pady=(8, 0)
+            )
+
+            ttk.Checkbutton(
+                parent,
+                text="Sobrescrever o proprio CSV resolvido (--in-place)",
+                variable=self.enrich_in_place_var,
+            ).grid(row=2, column=0, columnspan=3, sticky="w", pady=(8, 0))
+
+            ttk.Checkbutton(
+                parent,
+                text="Nao criar backup quando o arquivo de saida ja existir",
+                variable=self.enrich_no_backup_var,
+            ).grid(row=3, column=0, columnspan=3, sticky="w", pady=(2, 0))
+
+            ttk.Label(
+                parent,
+                text=(
+                    "Se o item selecionado nao for *_notion.csv, a aba tenta usar o correspondente "
+                    "gerado na pasta da Preparacao."
+                ),
+            ).grid(row=4, column=0, columnspan=3, sticky="w", pady=(10, 0))
+
+            ttk.Checkbutton(
+                parent,
+                text="Preencher tema/punchline vazios com OpenAI",
+                variable=self.enrich_fill_tema_punchline_var,
+            ).grid(row=5, column=0, columnspan=3, sticky="w", pady=(8, 0))
+
+            ttk.Checkbutton(
+                parent,
+                text="Preencher assuntos vazios com OpenAI",
+                variable=self.enrich_fill_assuntos_var,
+            ).grid(row=6, column=0, columnspan=3, sticky="w", pady=(2, 0))
+
+            ttk.Checkbutton(
+                parent,
+                text="Preencher noticias vazias com Perplexity",
+                variable=self.enrich_fill_urls_var,
+            ).grid(row=7, column=0, columnspan=3, sticky="w", pady=(2, 0))
+
+            enrich_status = ttk.LabelFrame(parent, text="Resume detectado", padding=8)
+            enrich_status.grid(row=8, column=0, columnspan=3, sticky="ew", pady=(12, 0))
+            enrich_status.columnconfigure(0, weight=1)
+            ttk.Label(
+                enrich_status,
+                textvariable=self.enrich_resume_var,
+                justify="left",
+                wraplength=920,
+            ).grid(row=0, column=0, sticky="w")
+
+            estimate_box = ttk.LabelFrame(parent, text="Estimativa Perplexity", padding=8)
+            estimate_box.grid(row=9, column=0, columnspan=3, sticky="ew", pady=(10, 0))
+            estimate_box.columnconfigure(0, weight=1)
+            ttk.Label(
+                estimate_box,
+                textvariable=self.enrich_estimate_var,
+                justify="left",
+                wraplength=920,
+            ).grid(row=0, column=0, sticky="w")
+
+            self._register_busy_widget(
+                ttk.Button(parent, text="Rodar enriquecimento", command=self.process_enrichment)
+            ).grid(row=10, column=0, sticky="w", pady=(12, 0))
+
+        def _build_advanced_panel(self, parent: ttk.LabelFrame) -> None:
+            parent.columnconfigure(1, weight=1)
+
+            ttk.Label(parent, text="OpenAI API key:").grid(row=0, column=0, sticky="w")
+            ttk.Entry(parent, textvariable=self.openai_api_key_var, width=62, show="*").grid(
+                row=0, column=1, sticky="ew", padx=8
+            )
+
+            ttk.Label(parent, text="Arquivo da chave OpenAI:").grid(row=1, column=0, sticky="w", pady=(8, 0))
+            ttk.Entry(parent, textvariable=self.openai_key_file_var, width=62).grid(
+                row=1, column=1, sticky="ew", padx=8, pady=(8, 0)
+            )
+
+            openai_frame = ttk.Frame(parent)
+            openai_frame.grid(row=2, column=0, columnspan=2, sticky="w", pady=(8, 0))
+            ttk.Label(openai_frame, text="Modelo OpenAI").grid(row=0, column=0, sticky="w")
+            ttk.Entry(openai_frame, textvariable=self.openai_model_var, width=12).grid(
+                row=0, column=1, padx=(4, 14)
+            )
+            ttk.Label(openai_frame, text="Workers").grid(row=0, column=2, sticky="w")
+            ttk.Entry(openai_frame, textvariable=self.openai_workers_var, width=5).grid(
+                row=0, column=3, padx=(4, 14)
+            )
+            ttk.Label(openai_frame, text="Timeout(s)").grid(row=0, column=4, sticky="w")
+            ttk.Entry(openai_frame, textvariable=self.openai_timeout_var, width=6).grid(
+                row=0, column=5, padx=(4, 14)
+            )
+            ttk.Label(openai_frame, text="Batch").grid(row=0, column=6, sticky="w")
+            ttk.Entry(openai_frame, textvariable=self.openai_batch_size_var, width=6).grid(
+                row=0, column=7, padx=(4, 14)
+            )
+            ttk.Label(openai_frame, text="Delay(s)").grid(row=0, column=8, sticky="w")
+            ttk.Entry(openai_frame, textvariable=self.openai_delay_var, width=6).grid(
+                row=0, column=9, padx=(4, 14)
+            )
+            ttk.Label(openai_frame, text="Retries").grid(row=1, column=0, sticky="w", pady=(6, 0))
+            ttk.Entry(openai_frame, textvariable=self.openai_retries_var, width=6).grid(
+                row=1, column=1, padx=(4, 14), pady=(6, 0)
+            )
+            ttk.Label(openai_frame, text="Target RPM").grid(row=1, column=2, sticky="w", pady=(6, 0))
+            ttk.Entry(openai_frame, textvariable=self.openai_target_rpm_var, width=8).grid(
+                row=1, column=3, padx=(4, 14), pady=(6, 0)
+            )
+            ttk.Label(openai_frame, text="Assuntos max/linha").grid(row=1, column=4, sticky="w", pady=(6, 0))
+            ttk.Entry(openai_frame, textvariable=self.assuntos_max_itens_var, width=6).grid(
+                row=1, column=5, padx=(4, 14), pady=(6, 0)
+            )
+            ttk.Label(openai_frame, text="Taxonomia").grid(row=1, column=6, sticky="w", pady=(6, 0))
             ttk.Combobox(
-                assuntos_frame,
+                openai_frame,
                 textvariable=self.assuntos_taxonomy_mode_var,
                 values=list(ASSUNTOS_TAXONOMY_CHOICES),
                 state="readonly",
                 width=12,
-            ).grid(row=0, column=3, padx=(4, 0))
+            ).grid(row=1, column=7, padx=(4, 0), pady=(6, 0))
 
-            ttk.Label(options, text="OpenAI API key:").grid(row=8, column=0, sticky="w", pady=(8, 0))
-            ttk.Entry(options, textvariable=self.openai_api_key_var, width=70, show="*").grid(
-                row=8,
-                column=1,
-                sticky="ew",
-                padx=8,
-                pady=(8, 0),
+            ttk.Label(parent, text="Perplexity API key:").grid(row=3, column=0, sticky="w", pady=(10, 0))
+            ttk.Entry(parent, textvariable=self.perplexity_api_key_var, width=62, show="*").grid(
+                row=3, column=1, sticky="ew", padx=8, pady=(10, 0)
             )
 
-            ttk.Label(options, text="Arquivo da chave OpenAI:").grid(row=9, column=0, sticky="w", pady=(8, 0))
-            ttk.Entry(options, textvariable=self.openai_key_file_var, width=70).grid(
-                row=9,
-                column=1,
-                sticky="ew",
-                padx=8,
-                pady=(8, 0),
+            ttk.Label(parent, text="Arquivo da chave Perplexity:").grid(row=4, column=0, sticky="w", pady=(8, 0))
+            ttk.Entry(parent, textvariable=self.perplexity_key_file_var, width=62).grid(
+                row=4, column=1, sticky="ew", padx=8, pady=(8, 0)
             )
 
-            openai_frame = ttk.Frame(options)
-            openai_frame.grid(row=10, column=0, columnspan=3, sticky="w", pady=(8, 0))
-            ttk.Label(openai_frame, text="Modelo OpenAI").grid(row=0, column=0, sticky="w")
-            ttk.Entry(openai_frame, textvariable=self.openai_model_var, width=12).grid(row=0, column=1, padx=(4, 14))
-            ttk.Label(openai_frame, text="Workers").grid(row=0, column=2, sticky="w")
-            ttk.Entry(openai_frame, textvariable=self.openai_workers_var, width=5).grid(row=0, column=3, padx=(4, 14))
-            ttk.Label(openai_frame, text="Timeout(s)").grid(row=0, column=4, sticky="w")
-            ttk.Entry(openai_frame, textvariable=self.openai_timeout_var, width=6).grid(row=0, column=5, padx=(4, 14))
-            ttk.Label(openai_frame, text="Batch").grid(row=0, column=6, sticky="w")
-            ttk.Entry(openai_frame, textvariable=self.openai_batch_size_var, width=6).grid(row=0, column=7, padx=(4, 14))
-            ttk.Label(openai_frame, text="Delay(s)").grid(row=0, column=8, sticky="w")
-            ttk.Entry(openai_frame, textvariable=self.openai_delay_var, width=6).grid(row=0, column=9, padx=(4, 0))
-            ttk.Label(openai_frame, text="Retries").grid(row=1, column=0, sticky="w", pady=(6, 0))
-            ttk.Entry(openai_frame, textvariable=self.openai_retries_var, width=6).grid(row=1, column=1, padx=(4, 14), pady=(6, 0))
-            ttk.Label(openai_frame, text="Target RPM").grid(row=1, column=2, sticky="w", pady=(6, 0))
-            ttk.Entry(openai_frame, textvariable=self.openai_target_rpm_var, width=8).grid(row=1, column=3, padx=(4, 14), pady=(6, 0))
-
-            ttk.Label(options, text="Perplexity API key:").grid(row=11, column=0, sticky="w", pady=(8, 0))
-            ttk.Entry(options, textvariable=self.perplexity_api_key_var, width=70, show="*").grid(
-                row=11,
-                column=1,
-                sticky="ew",
-                padx=8,
-                pady=(8, 0),
-            )
-
-            ttk.Label(options, text="Arquivo da chave Perplexity:").grid(row=12, column=0, sticky="w", pady=(8, 0))
-            ttk.Entry(options, textvariable=self.perplexity_key_file_var, width=70).grid(
-                row=12,
-                column=1,
-                sticky="ew",
-                padx=8,
-                pady=(8, 0),
-            )
-
-            perf_frame = ttk.Frame(options)
-            perf_frame.grid(row=13, column=0, columnspan=3, sticky="w", pady=(8, 0))
+            perf_frame = ttk.Frame(parent)
+            perf_frame.grid(row=5, column=0, columnspan=2, sticky="w", pady=(8, 0))
             ttk.Label(perf_frame, text="Modelo Perplexity").grid(row=0, column=0, sticky="w")
-            ttk.Entry(perf_frame, textvariable=self.perplexity_model_var, width=10).grid(row=0, column=1, padx=(4, 14))
+            ttk.Entry(perf_frame, textvariable=self.perplexity_model_var, width=10).grid(
+                row=0, column=1, padx=(4, 14)
+            )
             ttk.Label(perf_frame, text="Workers").grid(row=0, column=2, sticky="w")
-            ttk.Entry(perf_frame, textvariable=self.perplexity_workers_var, width=5).grid(row=0, column=3, padx=(4, 14))
+            ttk.Entry(perf_frame, textvariable=self.perplexity_workers_var, width=5).grid(
+                row=0, column=3, padx=(4, 14)
+            )
             ttk.Label(perf_frame, text="Timeout(s)").grid(row=0, column=4, sticky="w")
-            ttk.Entry(perf_frame, textvariable=self.perplexity_timeout_var, width=6).grid(row=0, column=5, padx=(4, 14))
+            ttk.Entry(perf_frame, textvariable=self.perplexity_timeout_var, width=6).grid(
+                row=0, column=5, padx=(4, 14)
+            )
             ttk.Label(perf_frame, text="Batch").grid(row=0, column=6, sticky="w")
-            ttk.Entry(perf_frame, textvariable=self.perplexity_batch_size_var, width=6).grid(row=0, column=7, padx=(4, 14))
+            ttk.Entry(perf_frame, textvariable=self.perplexity_batch_size_var, width=6).grid(
+                row=0, column=7, padx=(4, 14)
+            )
             ttk.Label(perf_frame, text="Delay(s)").grid(row=0, column=8, sticky="w")
-            ttk.Entry(perf_frame, textvariable=self.perplexity_delay_var, width=6).grid(row=0, column=9, padx=(4, 0))
-
+            ttk.Entry(perf_frame, textvariable=self.perplexity_delay_var, width=6).grid(
+                row=0, column=9, padx=(4, 14)
+            )
             ttk.Checkbutton(
-                options,
-                text="Verbose no terminal (CLI/GUI)",
+                perf_frame,
+                text="Verbose no terminal",
                 variable=self.verbose_terminal_var,
-            ).grid(row=14, column=0, columnspan=3, sticky="w", pady=(8, 0))
+            ).grid(row=0, column=10, sticky="w")
 
-            options.columnconfigure(1, weight=1)
-
-            ttk.Button(main, text="Processar selecionados", command=self.process_selected).pack(anchor="w")
-
-            log_box = ttk.LabelFrame(main, text="Log", padding=8)
-            log_box.pack(fill="both", expand=True, pady=(10, 0))
-            self.log_widget = tk.Text(log_box, height=12, wrap="word")
-            self.log_widget.pack(fill="both", expand=True)
-            self.log_widget.configure(state="disabled")
-            self.refresh_file_list()
+        def _attach_hint_traces(self) -> None:
+            tracked = [
+                self.output_dir_var,
+                self.buscar_urls_var,
+                self.gerar_tema_punchline_var,
+                self.enriquecer_assuntos_var,
+                self.perplexity_model_var,
+                self.enrich_out_dir_var,
+                self.enrich_suffix_var,
+                self.enrich_in_place_var,
+                self.enrich_fill_urls_var,
+            ]
+            for variable in tracked:
+                variable.trace_add("write", lambda *_args: self.root.after_idle(self.refresh_runtime_hints))
 
         def _on_files_canvas_configure(self, event: tk.Event) -> None:
             self.canvas.itemconfigure(self.files_frame_window, width=event.width)
 
         def log(self, message: str) -> None:
-            self.log_widget.configure(state="normal")
-            self.log_widget.insert("end", f"{message}\n")
-            self.log_widget.see("end")
-            self.log_widget.configure(state="disabled")
+            def append() -> None:
+                self.log_widget.configure(state="normal")
+                self.log_widget.insert("end", f"{message}\n")
+                self.log_widget.see("end")
+                self.log_widget.configure(state="disabled")
+                self.root.update_idletasks()
+
             if self.verbose_terminal_var.get():
                 print(message, flush=True)
-            self.root.update_idletasks()
+            if threading.current_thread() is threading.main_thread():
+                append()
+            else:
+                self.root.after(0, append)
 
         def add_files(self) -> None:
             raw_selection = filedialog.askopenfilenames(
@@ -3030,14 +4099,15 @@ def launch_gui() -> None:
             try:
                 file_paths = list(self.root.tk.splitlist(raw_selection))
             except Exception:
-                if isinstance(raw_selection, (list, tuple)):
-                    file_paths = [str(item) for item in raw_selection]
-                else:
-                    file_paths = [str(raw_selection)]
+                file_paths = [str(item) for item in raw_selection] if isinstance(raw_selection, (list, tuple)) else []
             for raw_path in file_paths:
                 file_path = str(Path(raw_path).expanduser().resolve())
                 if file_path not in self.file_vars:
                     self.file_vars[file_path] = tk.BooleanVar(value=True)
+                    self.file_vars[file_path].trace_add(
+                        "write",
+                        lambda *_args: self.root.after_idle(self.refresh_runtime_hints),
+                    )
             self.refresh_file_list()
 
         def add_folder(self) -> None:
@@ -3048,6 +4118,10 @@ def launch_gui() -> None:
                 file_str = str(file_path.resolve())
                 if file_str not in self.file_vars:
                     self.file_vars[file_str] = tk.BooleanVar(value=True)
+                    self.file_vars[file_str].trace_add(
+                        "write",
+                        lambda *_args: self.root.after_idle(self.refresh_runtime_hints),
+                    )
             self.refresh_file_list()
 
         def clear_files(self) -> None:
@@ -3057,15 +4131,18 @@ def launch_gui() -> None:
         def check_all(self) -> None:
             for variable in self.file_vars.values():
                 variable.set(True)
+            self.refresh_runtime_hints()
 
         def uncheck_all(self) -> None:
             for variable in self.file_vars.values():
                 variable.set(False)
+            self.refresh_runtime_hints()
 
-        def choose_output_dir(self) -> None:
-            selected_dir = filedialog.askdirectory(title="Selecione a pasta de saida")
+        def choose_directory(self, variable: tk.StringVar, title: str) -> None:
+            selected_dir = filedialog.askdirectory(title=title)
             if selected_dir:
-                self.output_dir_var.set(selected_dir)
+                variable.set(selected_dir)
+                self.refresh_runtime_hints()
 
         def refresh_file_list(self) -> None:
             for child in self.files_frame.winfo_children():
@@ -3073,135 +4150,377 @@ def launch_gui() -> None:
 
             if not self.file_vars:
                 ttk.Label(self.files_frame, text="Nenhum CSV selecionado.").grid(
-                    row=0,
-                    column=0,
-                    sticky="w",
-                    padx=4,
-                    pady=2,
+                    row=0, column=0, sticky="w", padx=4, pady=2
                 )
+
             for row_index, file_path in enumerate(sorted(self.file_vars)):
-                label = Path(file_path).name
-                ttk.Checkbutton(self.files_frame, text=label, variable=self.file_vars[file_path]).grid(
-                    row=row_index,
-                    column=0,
-                    sticky="w",
-                    padx=4,
-                    pady=2,
-                )
+                ttk.Checkbutton(
+                    self.files_frame,
+                    text=Path(file_path).name,
+                    variable=self.file_vars[file_path],
+                ).grid(row=row_index, column=0, sticky="w", padx=4, pady=2)
+
             self.files_frame.update_idletasks()
             bbox = self.canvas.bbox("all")
             if bbox:
                 self.canvas.configure(scrollregion=bbox)
+            self.refresh_runtime_hints()
 
-        def process_selected(self) -> None:
-            selected_files = [path for path, var in self.file_vars.items() if var.get()]
+        def _selected_files(self) -> list[str]:
+            return [path for path, variable in sorted(self.file_vars.items()) if variable.get()]
+
+        def _selected_paths(self) -> list[Path]:
+            return [Path(path) for path in self._selected_files()]
+
+        def _resolve_preparation_output_dir(self) -> Path:
+            raw = self.output_dir_var.get().strip()
+            return Path(raw).expanduser().resolve() if raw else SCRIPT_DIR.resolve()
+
+        def _resolve_prep_output_path(self, input_path: Path) -> Path:
+            return resolve_intermediate_csv_dir() / f"{input_path.stem}_notion.csv"
+
+        def _resolve_prep_artifacts(self, input_path: Path) -> tuple[Path, Path, Path, Path]:
+            output_path = self._resolve_prep_output_path(input_path)
+            checkpoint_path = resolve_checkpoint_artifact_path(output_path)
+            report_path = resolve_report_artifact_path(output_path)
+            cache_path = resolve_web_lookup_cache_path(output_path.parent)
+            return output_path, checkpoint_path, report_path, cache_path
+
+        def _resolve_enrichment_input(self, selected_path: Path) -> Path:
+            if selected_path.name.lower().endswith("_notion.csv"):
+                return selected_path
+            candidate = self._resolve_prep_output_path(selected_path)
+            return candidate if candidate.exists() else selected_path
+
+        def _resolve_enrich_output_path(self, selected_path: Path) -> Path:
+            input_path = self._resolve_enrichment_input(selected_path)
+            if self.enrich_in_place_var.get():
+                return input_path
+            base_dir = (
+                Path(self.enrich_out_dir_var.get().strip()).expanduser().resolve()
+                if self.enrich_out_dir_var.get().strip()
+                else input_path.parent
+            )
+            suffix = self.enrich_suffix_var.get().strip() or "_APIenriched"
+            return base_dir / f"{input_path.stem}{suffix}{input_path.suffix}"
+
+        def _resolve_enrich_artifacts(self, selected_path: Path) -> tuple[Path, Path, Path, Path, Path]:
+            input_path = self._resolve_enrichment_input(selected_path)
+            output_path = self._resolve_enrich_output_path(selected_path)
+            checkpoint_path = resolve_checkpoint_artifact_path(output_path)
+            report_path = resolve_report_artifact_path(output_path)
+            cache_path = resolve_web_lookup_cache_path(output_path.parent)
+            return input_path, output_path, checkpoint_path, report_path, cache_path
+
+        def _load_rows_from_csv(self, path: Path) -> list[dict[str, str]]:
+            if not path.exists():
+                return []
+            encoding, delimiter = detect_csv_format(path)
+            with path.open("r", encoding=encoding, newline="") as handle:
+                reader = csv.DictReader(handle, delimiter=delimiter)
+                rows: list[dict[str, str]] = []
+                for raw in reader:
+                    if raw is None:
+                        continue
+                    rows.append({str(key or ""): str(value or "") for key, value in raw.items()})
+            return rows
+
+        def _restore_rows_for_estimate(self, input_path: Path, output_path: Path, checkpoint_path: Path) -> list[dict[str, str]]:
+            checkpoint = read_json_dict(checkpoint_path)
+            cp_rows = checkpoint.get("processed_rows", [])
+            if isinstance(cp_rows, list) and cp_rows and all(isinstance(row, dict) for row in cp_rows):
+                return [{str(key or ""): str(value or "") for key, value in row.items()} for row in cp_rows]
+
+            rows = self._load_rows_from_csv(input_path)
+            if rows and output_path.exists() and output_path.resolve() != input_path.resolve():
+                preserve_columns_from_reference_rows(
+                    target_rows=rows,
+                    reference_csv=output_path,
+                    columns=[*DEFAULT_PRESERVE_COLUMNS, "assuntos"],
+                )
+            return rows
+
+        def _summarize_row_progress(self, checkpoint: dict[str, object], report: dict[str, object]) -> str:
+            row_progress = checkpoint.get("row_progress", {})
+            if not isinstance(row_progress, dict) or not row_progress:
+                return ""
+            rows_total_raw = report.get("rows_total", checkpoint.get("rows_total", 0))
+            try:
+                rows_total = int(rows_total_raw or 0)
+            except Exception:
+                rows_total = 0
+            statuses = defaultdict(int)
+            for item in row_progress.values():
+                if isinstance(item, dict):
+                    statuses[str(item.get("news_status", "") or "unknown")] += 1
+            parts: list[str] = []
+            if statuses.get("pending", 0):
+                parts.append(f"pending={statuses['pending']}")
+            if statuses.get("error_retryable", 0):
+                parts.append(f"retryable={statuses['error_retryable']}")
+            if statuses.get("no_match", 0):
+                parts.append(f"no_match={statuses['no_match']}")
+            if statuses.get("filled", 0):
+                parts.append(f"filled={statuses['filled']}")
+            if statuses.get("skipped_existing", 0):
+                parts.append(f"skip_existing={statuses['skipped_existing']}")
+            if rows_total > len(row_progress):
+                parts.append(f"sem_progresso={rows_total - len(row_progress)}")
+            return ", ".join(parts)
+
+        def _describe_resume(self, file_label: str, output_path: Path, checkpoint_path: Path, report_path: Path) -> str:
+            checkpoint = read_json_dict(checkpoint_path)
+            report = read_json_dict(report_path)
+            if checkpoint or report:
+                status = str(checkpoint.get("status", report.get("status", "")) or "-")
+                stage = str(checkpoint.get("stage", report.get("stage", "")) or "-")
+                progress = self._summarize_row_progress(checkpoint, report)
+                suffix = f" | {progress}" if progress else ""
+                return f"{file_label}: status={status} | stage={stage}{suffix}"
+            if output_path.exists():
+                return f"{file_label}: saida existente em {output_path.name} (sem checkpoint)."
+            return ""
+
+        def _format_resume_lines(self, lines: list[str], *, empty_message: str) -> str:
+            cleaned = [line for line in lines if line]
+            if not cleaned:
+                return empty_message
+            limit = 3
+            if len(cleaned) > limit:
+                extra = len(cleaned) - limit
+                cleaned = cleaned[:limit] + [f"+{extra} arquivo(s) adicional(is) com resume ou saida existente."]
+            return "\n".join(cleaned)
+
+        def refresh_runtime_hints(self) -> None:
+            selected_paths = self._selected_paths()
+            if not selected_paths:
+                self.prep_resume_var.set(
+                    "Resume: selecione arquivos para ver checkpoints e saidas reaproveitaveis."
+                )
+                self.enrich_resume_var.set(
+                    "Resume: a aba de enriquecimento procura checkpoints e saidas existentes."
+                )
+                self.enrich_estimate_var.set(
+                    "Estimativa Perplexity: selecione arquivos e habilite noticias para calcular."
+                )
+                return
+
+            prep_lines: list[str] = []
+            for path in selected_paths:
+                output_path, checkpoint_path, report_path, _cache_path = self._resolve_prep_artifacts(path)
+                prep_lines.append(self._describe_resume(output_path.name, output_path, checkpoint_path, report_path))
+            self.prep_resume_var.set(
+                self._format_resume_lines(
+                    prep_lines,
+                    empty_message="Nenhum checkpoint da preparacao foi encontrado para os arquivos selecionados.",
+                )
+            )
+
+            enrich_lines: list[str] = []
+            estimated_api_calls = 0
+            estimated_cache_hits = 0
+            estimated_skipped_existing = 0
+            estimate_errors: list[str] = []
+            for path in selected_paths:
+                input_path, output_path, checkpoint_path, report_path, cache_path = self._resolve_enrich_artifacts(path)
+                enrich_lines.append(self._describe_resume(output_path.name, output_path, checkpoint_path, report_path))
+                if not self.enrich_fill_urls_var.get():
+                    continue
+                try:
+                    rows = self._restore_rows_for_estimate(input_path, output_path, checkpoint_path)
+                    lookup_payloads = [build_lookup_payload(row) for row in rows]
+                    estimate = estimate_news_api_calls(
+                        rows,
+                        lookup_payloads=lookup_payloads,
+                        model=self.perplexity_model_var.get().strip() or "sonar",
+                        cache_path=cache_path,
+                    )
+                    estimated_api_calls += int(estimate.get("estimated_api_calls", 0) or 0)
+                    estimated_cache_hits += int(estimate.get("estimated_cache_hits", 0) or 0)
+                    estimated_skipped_existing += int(estimate.get("estimated_skipped_existing", 0) or 0)
+                except Exception as exc:
+                    estimate_errors.append(f"{input_path.name}: {exc}")
+
+            self.enrich_resume_var.set(
+                self._format_resume_lines(
+                    enrich_lines,
+                    empty_message="Nenhum checkpoint do enriquecimento foi encontrado para os arquivos selecionados.",
+                )
+            )
+
+            if not self.enrich_fill_urls_var.get():
+                self.enrich_estimate_var.set(
+                    "Noticias desabilitadas nesta aba. Estimativa Perplexity = 0 chamadas."
+                )
+            else:
+                summary = (
+                    f"Chamadas previstas={estimated_api_calls} | "
+                    f"cache_terminal={estimated_cache_hits} | "
+                    f"ja_preenchidas={estimated_skipped_existing}"
+                )
+                if estimate_errors:
+                    summary += f"\nAvisos: {' | '.join(estimate_errors[:2])}"
+                    if len(estimate_errors) > 2:
+                        summary += f" | +{len(estimate_errors) - 2} arquivo(s)"
+                self.enrich_estimate_var.set(summary)
+
+        def _parse_int(self, value: str, label: str, *, allow_zero: bool = False) -> int:
+            try:
+                parsed = int(str(value).strip())
+            except ValueError as exc:
+                raise ValueError(f"{label} deve ser um numero inteiro.") from exc
+            min_value = 0 if allow_zero else 1
+            if parsed < min_value:
+                suffix = "nao pode ser negativo." if allow_zero else "deve ser maior que zero."
+                raise ValueError(f"{label} {suffix}")
+            return parsed
+
+        def _parse_float(self, value: str, label: str) -> float:
+            try:
+                parsed = float(str(value).strip())
+            except ValueError as exc:
+                raise ValueError(f"{label} deve ser numerico.") from exc
+            if parsed < 0:
+                raise ValueError(f"{label} nao pode ser negativo.")
+            return parsed
+
+        def _build_shared_settings(self) -> dict[str, object]:
+            assuntos_max_itens = self._parse_int(
+                self.assuntos_max_itens_var.get(),
+                "Assuntos: max itens por linha",
+            )
+            assuntos_taxonomy_mode = (self.assuntos_taxonomy_mode_var.get().strip() or "mixed").lower()
+            if assuntos_taxonomy_mode not in ASSUNTOS_TAXONOMY_CHOICES:
+                raise ValueError(
+                    f"Assuntos: taxonomia invalida. Use {', '.join(ASSUNTOS_TAXONOMY_CHOICES)}."
+                )
+            return {
+                "openai_workers": self._parse_int(self.openai_workers_var.get(), "OpenAI: workers"),
+                "openai_timeout": self._parse_int(self.openai_timeout_var.get(), "OpenAI: timeout"),
+                "openai_batch_size": self._parse_int(self.openai_batch_size_var.get(), "OpenAI: batch"),
+                "openai_delay": self._parse_float(self.openai_delay_var.get(), "OpenAI: delay"),
+                "openai_retries": self._parse_int(self.openai_retries_var.get(), "OpenAI: retries"),
+                "openai_target_rpm": self._parse_int(
+                    self.openai_target_rpm_var.get(),
+                    "OpenAI: target RPM",
+                    allow_zero=True,
+                ),
+                "assuntos_max_itens": assuntos_max_itens,
+                "assuntos_taxonomy_mode": assuntos_taxonomy_mode,
+                "perplexity_workers": self._parse_int(self.perplexity_workers_var.get(), "Perplexity: workers"),
+                "perplexity_timeout": self._parse_int(self.perplexity_timeout_var.get(), "Perplexity: timeout"),
+                "perplexity_batch_size": self._parse_int(
+                    self.perplexity_batch_size_var.get(),
+                    "Perplexity: batch",
+                ),
+                "perplexity_delay": self._parse_float(self.perplexity_delay_var.get(), "Perplexity: delay"),
+                "resolved_openai_api_key": resolve_openai_api_key(
+                    self.openai_api_key_var.get().strip(),
+                    self.openai_key_file_var.get().strip(),
+                ),
+                "resolved_perplexity_api_key": resolve_perplexity_api_key(
+                    self.perplexity_api_key_var.get().strip(),
+                    self.perplexity_key_file_var.get().strip(),
+                ),
+            }
+
+        def _run_background(
+            self,
+            *,
+            label: str,
+            worker: Callable[[], object],
+            on_success: Callable[[object], None],
+        ) -> None:
+            if self.busy:
+                messagebox.showwarning("Processamento em andamento", "Aguarde a operacao atual terminar.")
+                return
+
+            self._set_busy(True)
+            self.log(f"[GUI] Iniciando {label}...")
+
+            def _target() -> None:
+                try:
+                    result = worker()
+                except Exception as exc:  # pylint: disable=broad-except
+                    self.root.after(0, lambda: self._finish_background_error(label, exc))
+                    return
+                self.root.after(0, lambda: self._finish_background_success(label, result, on_success))
+
+            threading.Thread(target=_target, daemon=True).start()
+
+        def _finish_background_error(self, label: str, exc: Exception) -> None:
+            self._set_busy(False)
+            self.log(f"[GUI] {label} falhou: {exc}")
+            self.refresh_runtime_hints()
+            messagebox.showerror(f"Erro em {label}", str(exc))
+
+        def _finish_background_success(
+            self,
+            label: str,
+            result: object,
+            on_success: Callable[[object], None],
+        ) -> None:
+            self._set_busy(False)
+            self.log(f"[GUI] {label} concluido.")
+            self.refresh_runtime_hints()
+            on_success(result)
+
+        def process_preparation(self) -> None:
+            selected_files = self._selected_files()
             if not selected_files:
                 messagebox.showwarning("Aviso", "Selecione ao menos um arquivo CSV.")
                 return
-
             try:
-                max_texto_chars = int(self.max_texto_chars_var.get().strip())
-            except ValueError:
-                messagebox.showerror("Erro", "Limite em textoDecisao/textoEmenta deve ser um numero inteiro.")
-                return
-            if max_texto_chars < 0:
-                messagebox.showerror("Erro", "Limite em textoDecisao/textoEmenta nao pode ser negativo. Use 0 para sem truncamento.")
-                return
-
-            try:
-                openai_workers = int(self.openai_workers_var.get().strip())
-                openai_timeout = int(self.openai_timeout_var.get().strip())
-                openai_batch_size = int(self.openai_batch_size_var.get().strip())
-                openai_delay = float(self.openai_delay_var.get().strip())
-                openai_retries = int(self.openai_retries_var.get().strip())
-                openai_target_rpm = int(self.openai_target_rpm_var.get().strip())
-                assuntos_max_itens = int(self.assuntos_max_itens_var.get().strip())
-                perplexity_workers = int(self.perplexity_workers_var.get().strip())
-                perplexity_timeout = int(self.perplexity_timeout_var.get().strip())
-                perplexity_batch_size = int(self.perplexity_batch_size_var.get().strip())
-                perplexity_delay = float(self.perplexity_delay_var.get().strip())
-            except ValueError:
-                messagebox.showerror(
-                    "Erro",
-                    "Parametros invalidos (OpenAI/Perplexity em workers/timeout/batch/delay/retries/rpm).",
+                max_texto_chars = self._parse_int(
+                    self.max_texto_chars_var.get(),
+                    "Limite textoDecisao/textoEmenta",
+                    allow_zero=True,
                 )
-                return
-
-            if min(openai_workers, openai_timeout, openai_batch_size, openai_retries) <= 0:
-                messagebox.showerror("Erro", "OpenAI: workers, timeout, batch e retries precisam ser maiores que zero.")
-                return
-            if assuntos_max_itens <= 0:
-                messagebox.showerror("Erro", "Assuntos: max assuntos por linha deve ser maior que zero.")
-                return
-            assuntos_taxonomy_mode = (self.assuntos_taxonomy_mode_var.get().strip() or "mixed").lower()
-            if assuntos_taxonomy_mode not in ASSUNTOS_TAXONOMY_CHOICES:
-                messagebox.showerror(
-                    "Erro",
-                    f"Assuntos: taxonomia invalida. Use {', '.join(ASSUNTOS_TAXONOMY_CHOICES)}.",
-                )
-                return
-            if openai_target_rpm < 0:
-                messagebox.showerror("Erro", "OpenAI: target RPM nao pode ser negativo.")
-                return
-            if openai_delay < 0:
-                messagebox.showerror("Erro", "OpenAI: delay nao pode ser negativo.")
-                return
-            if min(perplexity_workers, perplexity_timeout, perplexity_batch_size) <= 0:
-                messagebox.showerror("Erro", "Workers, timeout e batch precisam ser maiores que zero.")
-                return
-            if perplexity_delay < 0:
-                messagebox.showerror("Erro", "Delay nao pode ser negativo.")
+                shared = self._build_shared_settings()
+            except ValueError as exc:
+                messagebox.showerror("Erro", str(exc))
                 return
 
             tema_punchline_config = TemaPunchlineConfig(
                 enabled=self.gerar_tema_punchline_var.get(),
-                api_key=resolve_openai_api_key(
-                    self.openai_api_key_var.get().strip(),
-                    self.openai_key_file_var.get().strip(),
-                ),
+                api_key=str(shared["resolved_openai_api_key"]),
                 model=self.openai_model_var.get().strip() or "gpt-5.1",
-                timeout_seconds=openai_timeout,
-                max_workers=openai_workers,
-                batch_size=openai_batch_size,
-                delay_between_batches=openai_delay,
-                retries=openai_retries,
-                target_rpm=openai_target_rpm,
+                timeout_seconds=int(shared["openai_timeout"]),
+                max_workers=int(shared["openai_workers"]),
+                batch_size=int(shared["openai_batch_size"]),
+                delay_between_batches=float(shared["openai_delay"]),
+                retries=int(shared["openai_retries"]),
+                target_rpm=int(shared["openai_target_rpm"]),
             )
             assuntos_enrichment_config = AssuntosEnrichmentConfig(
                 enabled=self.enriquecer_assuntos_var.get(),
-                api_key=resolve_openai_api_key(
-                    self.openai_api_key_var.get().strip(),
-                    self.openai_key_file_var.get().strip(),
-                ),
+                api_key=str(shared["resolved_openai_api_key"]),
                 model=self.openai_model_var.get().strip() or "gpt-5.1",
-                timeout_seconds=openai_timeout,
-                max_workers=openai_workers,
-                batch_size=openai_batch_size,
-                delay_between_batches=openai_delay,
-                retries=openai_retries,
-                target_rpm=openai_target_rpm,
-                max_items=assuntos_max_itens,
-                taxonomy_mode=assuntos_taxonomy_mode,
+                timeout_seconds=int(shared["openai_timeout"]),
+                max_workers=int(shared["openai_workers"]),
+                batch_size=int(shared["openai_batch_size"]),
+                delay_between_batches=float(shared["openai_delay"]),
+                retries=int(shared["openai_retries"]),
+                target_rpm=int(shared["openai_target_rpm"]),
+                max_items=int(shared["assuntos_max_itens"]),
+                taxonomy_mode=str(shared["assuntos_taxonomy_mode"]),
+            )
+            web_lookup_config = WebLookupConfig(
+                enabled=self.buscar_urls_var.get(),
+                api_key=str(shared["resolved_perplexity_api_key"]),
+                model=self.perplexity_model_var.get().strip() or "sonar",
+                timeout_seconds=int(shared["perplexity_timeout"]),
+                max_workers=int(shared["perplexity_workers"]),
+                batch_size=int(shared["perplexity_batch_size"]),
+                delay_between_batches=float(shared["perplexity_delay"]),
             )
             metadata_extraction_config = MetadataExtractionConfig(
                 include_institutional_entities=True,
                 header_max_chars=DEFAULT_METADATA_HEADER_MAX_CHARS,
             )
-            web_lookup_config = WebLookupConfig(
-                enabled=self.buscar_urls_var.get(),
-                api_key=resolve_perplexity_api_key(
-                    self.perplexity_api_key_var.get().strip(),
-                    self.perplexity_key_file_var.get().strip(),
-                ),
-                model=self.perplexity_model_var.get().strip() or "sonar",
-                timeout_seconds=perplexity_timeout,
-                max_workers=perplexity_workers,
-                batch_size=perplexity_batch_size,
-                delay_between_batches=perplexity_delay,
-            )
 
-            try:
-                summaries, combined_path, compiled_rows = run_batch(
+            def worker() -> object:
+                return run_batch(
                     files=selected_files,
                     out_dir=self.output_dir_var.get().strip(),
                     max_texto_chars=max_texto_chars,
@@ -3213,22 +4532,82 @@ def launch_gui() -> None:
                     metadata_extraction_config=metadata_extraction_config,
                     logger=self.log,
                 )
-            except Exception as exc:  # pylint: disable=broad-except
-                messagebox.showerror("Erro no processamento", str(exc))
+
+            def on_success(result: object) -> None:
+                summaries, combined_path, compiled_rows = result  # type: ignore[misc]
+                total_rows = sum(item.rows for item in summaries)
+                total_trunc = sum(item.truncated_cells for item in summaries)
+                messagebox.showinfo(
+                    "Preparacao concluida",
+                    (
+                        f"Arquivos processados: {len(summaries)}\n"
+                        f"Linhas processadas: {total_rows}\n"
+                        f"Celulas truncadas: {total_trunc}\n"
+                        f"Linhas no compilado: {compiled_rows}\n"
+                        f"Compilado: {combined_path}"
+                    ),
+                )
+
+            self._run_background(label="preparacao", worker=worker, on_success=on_success)
+
+        def process_enrichment(self) -> None:
+            import SJUR_csv_to_csv_APIenriching as api_enrich
+
+            selected_paths = self._selected_paths()
+            if not selected_paths:
+                messagebox.showwarning("Aviso", "Selecione ao menos um arquivo CSV.")
                 return
 
-            total_rows = sum(item.rows for item in summaries)
-            total_trunc = sum(item.truncated_cells for item in summaries)
-            messagebox.showinfo(
-                "Concluido",
-                (
-                    f"Arquivos processados: {len(summaries)}\n"
-                    f"Linhas processadas: {total_rows}\n"
-                    f"Celulas truncadas: {total_trunc}\n"
-                    f"Linhas no compilado: {compiled_rows}\n"
-                    f"Compilado: {combined_path}"
-                ),
+            try:
+                shared = self._build_shared_settings()
+            except ValueError as exc:
+                messagebox.showerror("Erro", str(exc))
+                return
+
+            resolved_files = [str(self._resolve_enrichment_input(path)) for path in selected_paths]
+            args = argparse.Namespace(
+                files=resolved_files,
+                out_dir=self.enrich_out_dir_var.get().strip(),
+                suffix=self.enrich_suffix_var.get().strip() or "_APIenriched",
+                in_place=self.enrich_in_place_var.get(),
+                no_backup=self.enrich_no_backup_var.get(),
+                skip_openai_tema_punchline=not self.enrich_fill_tema_punchline_var.get(),
+                enriquecer_assuntos_openai=self.enrich_fill_assuntos_var.get(),
+                skip_perplexity_urls=not self.enrich_fill_urls_var.get(),
+                openai_api_key=self.openai_api_key_var.get().strip(),
+                openai_key_file=self.openai_key_file_var.get().strip() or DEFAULT_OPENAI_KEY_FILE,
+                openai_model=self.openai_model_var.get().strip() or "gpt-5.1",
+                openai_max_workers=int(shared["openai_workers"]),
+                openai_timeout=int(shared["openai_timeout"]),
+                openai_batch_size=int(shared["openai_batch_size"]),
+                openai_delay=float(shared["openai_delay"]),
+                openai_retries=int(shared["openai_retries"]),
+                openai_target_rpm=int(shared["openai_target_rpm"]),
+                assuntos_max_itens=int(shared["assuntos_max_itens"]),
+                assuntos_taxonomy_mode=str(shared["assuntos_taxonomy_mode"]),
+                perplexity_api_key=self.perplexity_api_key_var.get().strip(),
+                perplexity_key_file=self.perplexity_key_file_var.get().strip() or DEFAULT_PERPLEXITY_KEY_FILE,
+                perplexity_model=self.perplexity_model_var.get().strip() or "sonar",
+                perplexity_max_workers=int(shared["perplexity_workers"]),
+                perplexity_timeout=int(shared["perplexity_timeout"]),
+                perplexity_batch_size=int(shared["perplexity_batch_size"]),
+                perplexity_delay=float(shared["perplexity_delay"]),
+                verbose=self.verbose_terminal_var.get(),
+                quiet=False,
+                debug=False,
+                log_file="",
+                no_gui=True,
             )
+
+            def worker() -> object:
+                return api_enrich.run_enrichment(args, logger=self.log)
+
+            def on_success(result: object) -> None:
+                results = result  # type: ignore[assignment]
+                summary_lines = api_enrich._summarize_results(results)  # pylint: disable=protected-access
+                messagebox.showinfo("Enriquecimento concluido", "\n".join(summary_lines))
+
+            self._run_background(label="enriquecimento", worker=worker, on_success=on_success)
 
     root = tk.Tk()
     App(root)
@@ -3246,8 +4625,8 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         "--out-dir",
-        default=str(SCRIPT_DIR),
-        help="Pasta de saida (fixa na pasta do script).",
+        default="",
+        help="Pasta de saida do CSV final consolidado. Intermediarios e artefatos vao para Artefatos/.",
     )
     parser.add_argument(
         "--max-texto-chars",

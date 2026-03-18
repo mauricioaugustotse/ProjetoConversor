@@ -13689,3 +13689,4 @@
 2026-03-15 17:58:55 | INFO | NOTION_relatoriodeIA_v2 | OpenAI síntese executiva em andamento... 30.0s decorrido.
 2026-03-15 17:59:05 | INFO | NOTION_relatoriodeIA_v2 | [Stage 5/5] Publicando relatório no Notion...
 2026-03-15 17:59:21 | INFO | NOTION_relatoriodeIA_v2 | Concluído | processos=57 | período=23/02/2026 a 27/02/2026 | dry_run=False
+2026-03-17 10:52:15 | INFO | NOTION_relatoriodeIA_v2 | Arquivo de log: C:\Users\mauri\ProjetoConversor\Artefatos\logs\run_producao_relatorio_v2.log

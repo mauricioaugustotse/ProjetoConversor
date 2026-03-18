@@ -15,13 +15,22 @@ import argparse
 import asyncio
 import csv
 import sys
+import time
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Callable, Sequence
 
 import SJUR_csv_to_csv_NOTIONfriendly as sjur
 from Artefatos.scripts.openai_log_utils import configure_standard_logging, install_print_logger_bridge
-from Artefatos.scripts.openai_progress_utils import make_backup, write_csv_atomic
+from Artefatos.scripts.openai_progress_utils import (
+    build_file_signature,
+    make_backup,
+    read_json_dict,
+    same_file_signature,
+    utc_now_iso,
+    write_csv_atomic,
+    write_json_atomic,
+)
 
 
 @dataclass
@@ -227,6 +236,19 @@ def enrich_one_file(
     logger: Callable[[str], None],
 ) -> FileEnrichmentResult:
     fieldnames, rows = _load_csv(input_path)
+    checkpoint_path = sjur.resolve_checkpoint_artifact_path(output_path)
+    report_path = sjur.resolve_report_artifact_path(output_path)
+    cache_path = sjur.resolve_web_lookup_cache_path(output_path.parent)
+    input_sig = build_file_signature(input_path)
+    started_at = time.time()
+    row_progress: dict[str, dict[str, object]] = {}
+    perplexity_metrics = {
+        "perplexity_api_calls": 0,
+        "perplexity_cache_hits": 0,
+        "perplexity_no_match": 0,
+        "perplexity_retryable_errors": 0,
+        "perplexity_skipped_existing": 0,
+    }
 
     needed_columns: list[str] = []
     if use_tema_punchline:
@@ -237,6 +259,56 @@ def enrich_one_file(
         needed_columns.extend(sjur.URL_COLUMNS)
     _ensure_columns(rows, fieldnames, needed_columns)
 
+    if backup_before_write and output_path.exists() and not checkpoint_path.exists():
+        backup_path = make_backup(
+            output_path,
+            backup_dir=sjur.resolve_backup_artifacts_dir(),
+            label="apienriched_backup",
+        )
+        if backup_path is not None:
+            logger(f"[{input_path.name}] [Backup] {backup_path.name}")
+
+    cp = read_json_dict(checkpoint_path)
+    cp_sig = cp.get("source_signature", {})
+    cp_rows = cp.get("processed_rows", [])
+    if (
+        int(cp.get("version", 0) or 0) in (1, sjur.CHECKPOINT_VERSION)
+        and same_file_signature(cp_sig, input_sig)
+        and isinstance(cp_rows, list)
+        and len(cp_rows) == len(rows)
+    ):
+        restored = 0
+        for idx, saved_row in enumerate(cp_rows):
+            if not isinstance(saved_row, dict):
+                continue
+            for col in fieldnames:
+                if col in saved_row:
+                    rows[idx][col] = str(saved_row.get(col, "") or "")
+            restored += 1
+        cp_row_progress = cp.get("row_progress", {})
+        if isinstance(cp_row_progress, dict):
+            for idx_key, saved_progress in cp_row_progress.items():
+                if not isinstance(saved_progress, dict):
+                    continue
+                row_progress[str(idx_key)] = {
+                    "stage": str(saved_progress.get("stage", "") or ""),
+                    "request_key": str(saved_progress.get("request_key", "") or ""),
+                    "news_status": str(saved_progress.get("news_status", "") or ""),
+                }
+        logger(f"[{input_path.name}] [resume] checkpoint aplicado: {restored}/{len(rows)} linhas.")
+    elif output_path.exists() and output_path.resolve() != input_path.resolve() and not checkpoint_path.exists():
+        preserved_stats = sjur.preserve_columns_from_reference_rows(
+            target_rows=rows,
+            reference_csv=output_path,
+            columns=[*sjur.DEFAULT_PRESERVE_COLUMNS, "assuntos"],
+        )
+        applied_total = int(preserved_stats.get("applied_total", 0) or 0)
+        if applied_total > 0:
+            logger(
+                f"[{input_path.name}] [resume] reaproveitado do CSV existente: "
+                f"{applied_total} celulas em {output_path.name}."
+            )
+
     before_tema = _count_filled(rows, "tema")
     before_punchline = _count_filled(rows, "punchline")
     before_assuntos = _count_filled(rows, "assuntos")
@@ -244,6 +316,73 @@ def enrich_one_file(
 
     lookup_payloads = [sjur.build_lookup_payload(row) for row in rows]
     log = lambda message: logger(f"[{input_path.name}] {message}")
+
+    def _refresh_lookup_payloads() -> None:
+        for idx, row in enumerate(rows):
+            lookup_payloads[idx]["assuntos"] = row.get("assuntos", "") or ""
+            lookup_payloads[idx]["partes"] = row.get("partes", "") or ""
+            lookup_payloads[idx]["advogados"] = row.get("advogados", "") or ""
+            lookup_payloads[idx]["tema"] = row.get("tema", "") or ""
+            lookup_payloads[idx]["punchline"] = row.get("punchline", "") or ""
+
+    def _save_state(status: str, stage: str, extra: dict[str, int] | None = None) -> None:
+        completed_at = utc_now_iso() if status == "completed" else ""
+        write_csv_atomic(output_path, fieldnames, rows)
+        source_signature = (
+            build_file_signature(output_path)
+            if output_path.exists() and output_path.resolve() == input_path.resolve()
+            else input_sig
+        )
+        write_json_atomic(
+            checkpoint_path,
+            {
+                "version": sjur.CHECKPOINT_VERSION,
+                "source_signature": source_signature,
+                "input_csv": str(input_path.resolve()),
+                "output_csv": str(output_path.resolve()),
+                "status": status,
+                "stage": stage,
+                "tema_enabled": bool(use_tema_punchline),
+                "assuntos_openai_enabled": bool(use_assuntos),
+                "perplexity_enabled": bool(use_urls),
+                "strategy_version": sjur.PERPLEXITY_NEWS_STRATEGY_VERSION,
+                "cache_file": str(cache_path.resolve()),
+                "row_progress": row_progress,
+                "processed_rows": rows,
+                "completed_at": completed_at,
+                "updated_at": utc_now_iso(),
+            },
+        )
+        write_json_atomic(
+            report_path,
+            {
+                "script": "SJUR_csv_to_csv_APIenriching.py",
+                "input_csv": str(input_path.resolve()),
+                "output_csv": str(output_path.resolve()),
+                "checkpoint_file": str(checkpoint_path.resolve()),
+                "cache_file": str(cache_path.resolve()),
+                "status": status,
+                "stage": stage,
+                "rows_total": len(rows),
+                "tema_filled": _count_filled(rows, "tema"),
+                "punchline_filled": _count_filled(rows, "punchline"),
+                "assuntos_filled": _count_filled(rows, "assuntos"),
+                "url_tse_filled": _count_filled(rows, "noticia_TSE"),
+                "url_tre_filled": _count_filled(rows, "noticia_TRE"),
+                "url_gerais_filled_total": sum(_count_filled(rows, col) for col in sjur.GENERAL_NEWS_COLUMNS),
+                "perplexity_api_calls": perplexity_metrics["perplexity_api_calls"],
+                "perplexity_cache_hits": perplexity_metrics["perplexity_cache_hits"],
+                "perplexity_no_match": perplexity_metrics["perplexity_no_match"],
+                "perplexity_retryable_errors": perplexity_metrics["perplexity_retryable_errors"],
+                "perplexity_skipped_existing": perplexity_metrics["perplexity_skipped_existing"],
+                "elapsed_seconds": round(max(0.0, time.time() - started_at), 2),
+                "completed_at": completed_at,
+                "batch_stats": extra or {},
+                "updated_at": utc_now_iso(),
+            },
+        )
+
+    _save_state("running", "prepared")
 
     if use_tema_punchline and tema_config is not None:
         idx_tema = [
@@ -261,8 +400,15 @@ def enrich_one_file(
                     log,
                     tema_config,
                     lookup_payloads=[lookup_payloads[idx] for idx in idx_tema],
+                    on_batch_done=lambda s, e, t, stats: _save_state(
+                        "running",
+                        f"openai_batch_{s + 1}_{e}_of_{t}",
+                        stats,
+                    ),
                 )
             )
+            _refresh_lookup_payloads()
+            _save_state("running", "after_openai")
 
     if use_assuntos and assuntos_config is not None:
         idx_assuntos = [idx for idx, row in enumerate(rows) if _is_blank(row.get("assuntos", ""))]
@@ -274,8 +420,15 @@ def enrich_one_file(
                     log,
                     assuntos_config,
                     lookup_payloads=[lookup_payloads[idx] for idx in idx_assuntos],
+                    on_batch_done=lambda s, e, t, stats: _save_state(
+                        "running",
+                        f"openai_assuntos_batch_{s + 1}_{e}_of_{t}",
+                        stats,
+                    ),
                 )
             )
+            _refresh_lookup_payloads()
+            _save_state("running", "after_openai_assuntos")
 
     if use_urls and web_config is not None:
         idx_urls = [
@@ -285,26 +438,53 @@ def enrich_one_file(
         ]
         log(f"[Perplexity] Linhas com noticias pendentes: {len(idx_urls)} de {len(rows)}.")
         if idx_urls:
-            asyncio.run(
+            log(
+                "[Perplexity] Politica balanceada: aceita confidence=high ou medium quando houver "
+                "matched_fields suficientes e validacao local de pagina noticiosa."
+            )
+            estimate = sjur.estimate_news_api_calls(
+                [rows[idx] for idx in idx_urls],
+                lookup_payloads=[lookup_payloads[idx] for idx in idx_urls],
+                model=web_config.model,
+                cache_path=cache_path,
+            )
+            log(
+                "[Perplexity] Estimativa antes do run: "
+                f"api={estimate['estimated_api_calls']} | "
+                f"cache_terminal={estimate['estimated_cache_hits']} | "
+                f"ja_preenchidas={estimate['estimated_skipped_existing']}"
+            )
+            perplexity_metrics = asyncio.run(
                 sjur.enriquecer_rows_com_urls_async(
                     [rows[idx] for idx in idx_urls],
                     log,
                     web_config,
                     lookup_payloads=[lookup_payloads[idx] for idx in idx_urls],
+                    on_batch_done=lambda s, e, t, stats: _save_state(
+                        "running",
+                        f"perplexity_batch_{s + 1}_{e}_of_{t}",
+                        stats,
+                    ),
+                    cache_path=cache_path,
+                    row_indices=idx_urls,
+                    row_progress=row_progress,
                 )
             )
+            _save_state("running", "after_perplexity")
 
     after_tema = _count_filled(rows, "tema")
     after_punchline = _count_filled(rows, "punchline")
     after_assuntos = _count_filled(rows, "assuntos")
     after_noticias = {col: _count_filled(rows, col) for col in sjur.URL_COLUMNS}
 
-    if backup_before_write and output_path.exists():
-        backup_path = make_backup(output_path, label="apienriched_backup")
-        if backup_path is not None:
-            log(f"[Backup] {backup_path.name}")
-
     write_csv_atomic(output_path, fieldnames, rows)
+    _save_state("completed", "final")
+    sjur.cleanup_processing_artifacts(
+        output_path=output_path,
+        checkpoint_path=checkpoint_path,
+        report_path=report_path,
+        logger=log,
+    )
     log(f"[Gravado] {output_path}")
 
     return FileEnrichmentResult(
@@ -380,7 +560,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--out-dir",
         default="",
-        help="Pasta de saida. Se vazio, usa a pasta do CSV de entrada.",
+        help="Pasta de saida do CSV final. Checkpoints/reports/cache/backups vao para Artefatos/.",
     )
     parser.add_argument(
         "--suffix",
