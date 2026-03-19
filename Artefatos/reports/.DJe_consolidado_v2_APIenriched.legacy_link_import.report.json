@@ -1,0 +1,176 @@
+{
+  "target_path": "/mnt/c/Users/mauri/ProjetoConversor/DJe_consolidado_v2_APIenriched.csv",
+  "backup_path": "/mnt/c/Users/mauri/ProjetoConversor/DJe_consolidado_v2_APIenriched.before_legacy_link_import_20260319.csv",
+  "legacy_paths": [
+    "/mnt/c/Users/mauri/OneDrive/Área de Trabalho/DJe_consolidado_APIenriched.csv",
+    "/mnt/c/Users/mauri/OneDrive/Área de Trabalho/DJe_consolidado.csv"
+  ],
+  "target_rows": 1560,
+  "legacy_rows": 1359,
+  "cleared_invalid_official_links_in_target": 0,
+  "exact_key_rows_seen": 1344,
+  "fallback_num_rows_seen": 0,
+  "rows_without_legacy_match": 216,
+  "recognized_candidates": 657,
+  "skipped_unknown_urls": 411,
+  "skipped_due_to_full_slots": 0,
+  "unique_urls_to_fetch": 383,
+  "invalid_page_summary": 119,
+  "rejected_by_gate": {
+    "missing_case_anchor": 185,
+    "missing_detail_anchor": 339,
+    "missing_general_specifics": 2,
+    "missing_official_specifics": 3
+  },
+  "accepted_candidates": {
+    "tse": 3,
+    "tre": 0,
+    "gerais": 6
+  },
+  "filled_columns": {
+    "noticia_TSE": 3,
+    "noticia_TRE": 0,
+    "noticia_geral_1": 6,
+    "noticia_geral_2": 0
+  },
+  "rows_updated": 9,
+  "sample_updates": [
+    {
+      "row_number": 267,
+      "numeroUnico": "0600285-71.2025.6.14.0000",
+      "category": "gerais",
+      "url": "https://www.migalhas.com.br/quentes/417625/tse-uso-de-documento-falso-para-fim-eleitoral-viola-bem-juridico",
+      "matched_fields": [
+        "nome_municipio",
+        "partes",
+        "relator",
+        "sigla_uf"
+      ],
+      "source_column": "noticia_geral_1",
+      "source_name": "DJe_consolidado_APIenriched.csv"
+    },
+    {
+      "row_number": 493,
+      "numeroUnico": "0600564-43.2024.6.26.0199",
+      "category": "tse",
+      "url": "https://www.tse.jus.br/comunicacao/noticias/2025/Dezembro/plenario-confirma-multa-a-prefeito-de-barueri-sp-por-propaganda-irregular-em-2024",
+      "matched_fields": [
+        "assuntos",
+        "descricao_classe",
+        "nome_municipio",
+        "nome_tipo_processo",
+        "numero_unico",
+        "partes",
+        "relator",
+        "sigla_uf",
+        "tribunal"
+      ],
+      "source_column": "noticia_TSE",
+      "source_name": "DJe_consolidado_APIenriched.csv"
+    },
+    {
+      "row_number": 609,
+      "numeroUnico": "0601068-53.2025.6.00.0000",
+      "category": "gerais",
+      "url": "https://g1.globo.com/mg/zona-da-mata/noticia/2025/11/07/flagrado-com-mais-de-r-90-mil-em-mala-prefeito-de-vieiras-mg-obtem-liminar-em-processo-de-cassacao-e-inelegibilidade.ghtml",
+      "matched_fields": [
+        "nome_municipio",
+        "partes",
+        "relator",
+        "sigla_uf"
+      ],
+      "source_column": "noticia_geral_1",
+      "source_name": "DJe_consolidado_APIenriched.csv"
+    },
+    {
+      "row_number": 704,
+      "numeroUnico": "0600136-55.2024.6.26.0298",
+      "category": "gerais",
+      "url": "https://g1.globo.com/sp/campinas-regiao/eleicoes/2024/noticia/2025/12/11/tse-nega-agravo-candidato-desiste-de-novo-recurso-e-tuiuti-tera-nova-eleicao-para-prefeito-entenda.ghtml",
+      "matched_fields": [
+        "nome_municipio",
+        "partes",
+        "relator",
+        "sigla_uf"
+      ],
+      "source_column": "noticia_geral_1",
+      "source_name": "DJe_consolidado.csv"
+    },
+    {
+      "row_number": 755,
+      "numeroUnico": "0600182-94.2023.6.19.0000",
+      "category": "tse",
+      "url": "https://www.tse.jus.br/comunicacao/noticias/2025/Novembro/tse-nega-trancamento-de-acao-penal-contra-ex-subsecretario-de-governo-de-campos-dos-goytacazes-rj",
+      "matched_fields": [
+        "descricao_classe",
+        "nome_municipio",
+        "numero_unico",
+        "partes",
+        "relator",
+        "sigla_uf",
+        "tribunal"
+      ],
+      "source_column": "noticia_TSE",
+      "source_name": "DJe_consolidado.csv"
+    },
+    {
+      "row_number": 973,
+      "numeroUnico": "0600126-87.2024.6.05.0106",
+      "category": "tse",
+      "url": "https://www.tse.jus.br/comunicacao/noticias/2025/Agosto/negado-registro-de-vereador-de-queimadas-ba-por-renunciar-apos-abertura-de-processo-por-quebra-de-decoro-1",
+      "matched_fields": [
+        "nome_municipio",
+        "numero_unico",
+        "partes",
+        "relator",
+        "sigla_uf",
+        "tribunal"
+      ],
+      "source_column": "noticia_TSE",
+      "source_name": "DJe_consolidado.csv"
+    },
+    {
+      "row_number": 1118,
+      "numeroUnico": "0600790-22.2020.6.21.0007",
+      "category": "gerais",
+      "url": "https://www.poder360.com.br/poder-justica/tse-derruba-multa-em-caso-eleitoral-que-citava-luciano-hang/",
+      "matched_fields": [
+        "nome_municipio",
+        "partes",
+        "relator",
+        "sigla_uf"
+      ],
+      "source_column": "noticia_geral_1",
+      "source_name": "DJe_consolidado.csv"
+    },
+    {
+      "row_number": 1228,
+      "numeroUnico": "0600061-71.2024.6.13.0332",
+      "category": "gerais",
+      "url": "https://g1.globo.com/mg/minas-gerais/eleicoes/2024/noticia/2024/08/13/justica-eleitoral-condena-tramonte-a-pagar-multa-e-a-retirar-video-em-que-critica-saude-em-bh.ghtml",
+      "matched_fields": [
+        "assuntos",
+        "nome_municipio",
+        "origem",
+        "partes",
+        "sigla_uf"
+      ],
+      "source_column": "noticia_geral_1",
+      "source_name": "DJe_consolidado_APIenriched.csv"
+    },
+    {
+      "row_number": 1369,
+      "numeroUnico": "0600409-84.2024.6.15.0057",
+      "category": "gerais",
+      "url": "https://g1.globo.com/pb/paraiba/noticia/2026/02/11/tse-nega-pedido-de-suspensao-da-cassacao-do-prefeito-de-cabedelo.ghtml",
+      "matched_fields": [
+        "nome_municipio",
+        "partes",
+        "relator",
+        "sigla_uf"
+      ],
+      "source_column": "noticia_geral_1",
+      "source_name": "DJe_consolidado_APIenriched.csv"
+    }
+  ]
+}

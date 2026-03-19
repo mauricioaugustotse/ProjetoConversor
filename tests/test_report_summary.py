@@ -96,3 +96,142 @@ def test_build_callout_block_preserves_full_long_text_across_rich_text_chunks():
     block = notion.build_callout_block(full_text)
 
     assert notion._plain_rich_text(block["callout"]["rich_text"]) == full_text
+
+
+def test_finalize_report_summary_replaces_generic_count_alerts_with_material_alerts():
+    case_1 = notion.CaseRecord(
+        case_id="case-1",
+        page_id="page-1",
+        source_url="https://www.notion.so/page-1",
+        data_decisao="2026-02-27",
+        numero_unico="0600001-00.2024.6.00.0000",
+        numero_processo="",
+        ano_eleicao="2024",
+        sigla_classe="AIJE",
+        descricao_classe="",
+        sigla_uf="MA",
+        nome_municipio="SAO LUIS",
+        descricao_tipo_decisao="acórdão",
+        assuntos=["cassação de diploma"],
+        partes=["Prefeito"],
+        partidos=["MDB"],
+        relator="Ministro 1",
+        advogados=["Banca Alfa"],
+        resultado=["deferido"],
+        tema="Cassação de diploma em eleição municipal",
+        punchline="Mantida decisão com impacto direto sobre o mandato.",
+        texto_decisao="Texto integral 1.",
+        noticias=[],
+    )
+    case_2 = notion.CaseRecord(
+        case_id="case-2",
+        page_id="page-2",
+        source_url="https://www.notion.so/page-2",
+        data_decisao="2026-02-28",
+        numero_unico="0600002-00.2024.6.00.0000",
+        numero_processo="",
+        ano_eleicao="2024",
+        sigla_classe="PCE",
+        descricao_classe="",
+        sigla_uf="MA",
+        nome_municipio="SAO LUIS",
+        descricao_tipo_decisao="acórdão",
+        assuntos=["uso irregular do FEFC"],
+        partes=["Diretório partidário"],
+        partidos=["MDB"],
+        relator="Ministro 2",
+        advogados=["Banca Alfa"],
+        resultado=["parcialmente deferido"],
+        tema="Uso irregular do FEFC em prestação de contas",
+        punchline="Persistiu risco de devolução ao erário.",
+        texto_decisao="Texto integral 2.",
+        noticias=[],
+    )
+    analysis_1 = notion.CaseAnalysis(
+        case_id="case-1",
+        page_id="page-1",
+        title="Cassação de diploma em eleição municipal",
+        relevance_score=9,
+        display_score=9,
+        risk_level="alto",
+        includes_public_figure=True,
+        includes_party=True,
+        public_figures=["Prefeito"],
+        parties=["MDB"],
+        lawyers_signal="Banca Alfa aparece em contencioso de mandato.",
+        what_happened="O Tribunal manteve decisão com impacto direto sobre o mandato.",
+        legal_grounds="Abuso de poder político e prova documental.",
+        consequence="Risco de vacância e de eleição suplementar.",
+        strategic_comment="Sinaliza endurecimento em litígios de mandato nas eleições de 2024.",
+        why_relevant="Afeta diretamente a permanência no cargo.",
+        source_notes=[],
+    )
+    analysis_2 = notion.CaseAnalysis(
+        case_id="case-2",
+        page_id="page-2",
+        title="Uso irregular do FEFC em prestação de contas",
+        relevance_score=8,
+        display_score=8,
+        risk_level="alto",
+        includes_public_figure=False,
+        includes_party=True,
+        public_figures=[],
+        parties=["MDB"],
+        lawyers_signal="Banca Alfa reaparece em tema sensível de contas.",
+        what_happened="O Tribunal cobrou lastro documental e manteve glosa relevante.",
+        legal_grounds="Uso irregular do FEFC e insuficiência documental.",
+        consequence="Pode gerar devolução ao erário e exposição institucional do diretório.",
+        strategic_comment="Reforça linha rigorosa em contas partidárias com impacto político imediato.",
+        why_relevant="Atinge financiamento e governança partidária.",
+        source_notes=[],
+    )
+    raw_summary = notion.ReportSummary(
+        overview_callout="Visão geral.",
+        executive_highlights=["Destaque curto."],
+        party_alerts=["MDB: citado em 2 processo(s) do período."],
+        lawyer_signals=["Banca Alfa: atua em 2 processo(s) no período."],
+        watchpoints=["Cassação de diploma em eleição municipal: prioridade 9/10."],
+        closing_note="Fechamento.",
+    )
+
+    final_summary = notion.finalize_report_summary(
+        raw_summary,
+        [case_1, case_2],
+        [analysis_1, analysis_2],
+        party_counter=Counter({"MDB": 2}),
+        lawyer_counter=Counter({"Banca Alfa": 2}),
+    )
+
+    assert final_summary.party_alerts
+    assert "citado em 2 processo(s)" not in final_summary.party_alerts[0]
+    assert final_summary.lawyer_signals
+    assert "atua em 2 processo(s)" not in final_summary.lawyer_signals[0]
+    assert final_summary.watchpoints
+    assert "prioridade 9/10" not in final_summary.watchpoints[0]
+    assert any("vacância" in item or "eleição suplementar" in item for item in final_summary.watchpoints)
+
+
+def test_build_strategic_alert_section_items_limits_combined_output():
+    summary = notion.ReportSummary(
+        overview_callout="Visão geral.",
+        executive_highlights=[],
+        party_alerts=[
+            "MDB reaparece em 2 casos reportáveis, com exposição institucional relevante.",
+            "PSD concentra litígios com risco de cassação municipal.",
+        ],
+        lawyer_signals=[
+            "Banca Alfa atua em 2 casos reportáveis, ambos com impacto sobre mandato.",
+            "Banca Beta reaparece em contas com risco de devolução ao erário.",
+        ],
+        watchpoints=[
+            "Cassação de diploma em eleição municipal: risco de vacância e de eleição suplementar.",
+            "Uso irregular do FEFC em prestação de contas: risco de devolução ao erário.",
+            "Abuso de poder com prefeito no polo passivo: exposição elevada para o mandato.",
+        ],
+        closing_note="Fechamento.",
+    )
+
+    items = notion.build_strategic_alert_section_items(summary)
+
+    assert len(items) == notion.MAX_STRATEGIC_ALERT_SECTION_ITEMS
+    assert items[:3] == summary.watchpoints[:3]

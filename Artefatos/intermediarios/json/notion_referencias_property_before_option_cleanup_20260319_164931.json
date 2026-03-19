@@ -1,0 +1,5500 @@
+{
+  "id": "pw%3CS",
+  "name": "referenciasLegislativas",
+  "description": null,
+  "type": "multi_select",
+  "multi_select": {
+    "options": [
+      {
+        "id": "eB;w",
+        "name": "Lei n° 9.504/97; Res. TSE n° 23.610/19",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "RLjK",
+        "name": "Lei n° 9.504/97",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "OCOR",
+        "name": "Lei n° 13.105/15; Lei n° 9.504/97; Res. TSE n° 23.610/19",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "QcDb",
+        "name": "Lei n° 9.504/97; CF/88; Res. TSE n° 23.609/19",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "skir",
+        "name": "CF/88; Res. TSE n° 23.604/19; EC n° 133/24",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "MTwZ",
+        "name": "Lei n° 9.504/97; Res. TSE n° 23.600/19",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "zAm\\",
+        "name": "Lei n° 13.105/15",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "~Bv;",
+        "name": "CF/88",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "yJOI",
+        "name": "Lei n° 13.105/15; Lei n° 4.737/65",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "RRJi",
+        "name": "EC n° 133/24",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "pTTV",
+        "name": "Res. TSE n° 23.553/17",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "A?Z\\",
+        "name": "CF/88; Lei n° 4.737/65; Res. TSE n° 23.517/17",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "ahll",
+        "name": "Res. TSE n° 23.478/16; Lei n° 13.105/15",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "mggM",
+        "name": "Res. TSE n° 23.604/19; Res. TSE n° 23.571/18",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "Jtnn",
+        "name": "Res. TSE n° 23.604/19",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "e<nR",
+        "name": "Res. TSE n° 23.607/19",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "|sfw",
+        "name": "Lei n° 9.504/97; LC n° 64/90; Lei n° 4.737/65",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "S^<f",
+        "name": "Decreto-Lei n° 2.848/40; Decreto-Lei n° 3.689/41; Lei n° 4.737/65",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "Hl`J",
+        "name": "Lei n° 9.504/97; Res. TSE n° 23.735/24",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "pgH}",
+        "name": "Res. TSE n° 23.385/12; CF/88; Lei n° 9.709/98",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "DCSh",
+        "name": "Lei n° 4.737/65",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "uq\\<",
+        "name": "CF/88; Lei n° 13.105/15; Lei n° 9.504/97; Res. TSE n° 23.709/22",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "gnf`",
+        "name": "Lei n° 9.096/95; Res. TSE n° 23.604/19; EC n° 117/22; art. 17",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "_u?[",
+        "name": "Lei n° 4.737/65; Res. TSE n° 23.517/17; CF/88",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "jAyO",
+        "name": "Decreto-Lei n° 3.689/41; Lei n° 9.504/97; Res. TSE n° 23.609/19; LC n° 64/90",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "MGRp",
+        "name": "Lei n° 9.504/97; CF/88; Lei n° 4.737/65",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "Sq<u",
+        "name": "Lei n° 13.105/15; Lei n° 9.504/97",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": ":Qgk",
+        "name": "Lei n° 9.504/97; LC n° 64/90",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "EzD|",
+        "name": "CF/88; LC n° 64/90; Lei n° 9.504/97; Lei n° 13.105/15",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "]{[D",
+        "name": "LC n° 64/90; Lei n° 9.504/97",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "Izz>",
+        "name": "LC n° 64/90; Lei n° 6.766/79",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "?_V^",
+        "name": "Lei n° 9.096/95; Res. TSE n° 23.604/19",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "\\Kvp",
+        "name": "Res. TSE n° 23.610/19; Lei n° 4.737/65; Lei n° 13.105/15; Lei n° 9.504/97",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "H\\^S",
+        "name": "Res. TSE n° 23.422/14",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "VHXw",
+        "name": "Lei n° 13.105/15; Lei n° 11.419/06; Res. TSE n° 23.709/22",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "M~Kk",
+        "name": "Lei n° 9.709/98; CF/88",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "]]kQ",
+        "name": "Res. TSE n° 23.607/19; Lei n° 9.096/95; Decreto-Lei n° 4.657/42; Res. TSE n° 23.604/19; CF/88",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "Em|X",
+        "name": "Res. TSE n° 23.735/24; Lei n° 9.504/97",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "yq@\\",
+        "name": "Decreto-Lei n° 3.689/41; Lei n° 13.105/15",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "BQzR",
+        "name": "EC n° 117/22; Lei n° 9.096/95; Res. TSE n° 23.604/19; art. 17",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "jOCy",
+        "name": "Lei n° 4.737/65; Lei n° 9.504/97",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "]W~N",
+        "name": "Lei n° 9.504/97; Lei n° 4.737/65",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "WJ;c",
+        "name": "Res. TSE n° 23.478/16",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "kql]",
+        "name": "LC n° 64/90",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "wz|^",
+        "name": "Res. TSE n° 23.432/14; Lei n° 4.737/65; CF/88; Lei n° 13.105/15",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "z>:E",
+        "name": "Decreto-Lei n° 2.848/40; Lei n° 4.737/65",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": ";ZEv",
+        "name": "Lei n° 9.096/95; Decreto-Lei n° 4.657/42",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "hDDT",
+        "name": "Res. TSE n° 23.517/17",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "TTH;",
+        "name": "Lei n° 13.105/15; Lei n° 4.737/65; Decreto-Lei n° 2.848/40",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "Y:tA",
+        "name": "Lei n° 8.112/90; Res. TSE n° 23.724/23; Lei n° 11.416/06",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "uDFN",
+        "name": "Lei n° 4.737/65; Lei n° 9.504/97; Res. TSE n° 23.608/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "n[gg",
+        "name": "EC n° 117/22; EC n° 133/24; art. 17",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "ju_P",
+        "name": "CF/88; Lei n° 9.504/97",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "Nn:a",
+        "name": "Decreto-Lei n° 3.689/41",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "tLU|",
+        "name": "Lei n° 9.504/97; Res. TSE n° 23.610/19; Lei n° 13.105/15",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "mwAm",
+        "name": "EC n° 133/24; Res. TSE n° 23.607/19; CF/88",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "oC[q",
+        "name": "CF/88; Lei n° 13.105/15",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "Vvxf",
+        "name": "CF/88; Lei n° 9.096/95; Res. TSE n° 23.670/21; Res. TSE n° 23.610/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "duV<",
+        "name": "Res. TSE n° 23.546/17; EC n° 133/24; Lei n° 9.096/95",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "MihP",
+        "name": "Lei n° 10.406/02; Res. TSE n° 23.398/13; Lei n° 4.737/65; Lei n° 9.504/97; Lei n° 13.105/15; Lei n° 9.873/99",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": ">Epw",
+        "name": "Lei n° 12.965/14; Lei n° 9.504/97; Res. TSE n° 23.610/19",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "f>{<",
+        "name": "Lei n° 9.096/95; Res. TSE n° 23.604/19; Decreto-Lei n° 4.657/42",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "vryd",
+        "name": "Lei n° 13.105/15; Lei n° 9.096/95; Res. TSE n° 23.546/17; EC n° 133/24; CF/88; EC n° 117/22; Res. TSE n° 23.709/22; art. 17",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "S\\JA",
+        "name": "Res. TSE n° 23.709/22; Lei n° 9.096/95; EC n° 117/22; Res. TSE n° 23.546/17; art. 17",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": ">{nB",
+        "name": "Res. TSE n° 23.546/17",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "Hoz>",
+        "name": "Lei n° 13.105/15; Lei n° 12.016/09",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "bd_;",
+        "name": "Decreto-Lei n° 3.689/41; Lei n° 4.737/65; Decreto-Lei n° 2.848/40",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "y{>;",
+        "name": "Res. TSE n° 22.610/07; Res. TSE n° 23.596/19",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "N:Gv",
+        "name": "Res. TSE n° 23.610/19",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "KdpY",
+        "name": "Res. TSE n° 23.610/19; Res. TSE n° 23.608/19; Lei n° 9.504/97",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "s{~B",
+        "name": "EC n° 133/24; Res. TSE n° 23.709/22",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "xzd{",
+        "name": "Lei n° 13.105/15; Res. TSE n° 23.607/19",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "h[PG",
+        "name": "Res. TSE n° 23.600/19; Lei n° 9.504/97",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "@h:{",
+        "name": "Res. TSE n° 23.608/19; Lei n° 9.504/97",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "CnFf",
+        "name": "Lei n° 4.737/65; Lei n° 13.105/15; EC n° 133/24",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "?qYV",
+        "name": "LC n° 64/90; Res. TSE n° 23.735/24",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "Ch?^",
+        "name": "Res. TSE n° 23.604/19; Lei n° 13.105/15; Lei n° 9.096/95",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": ">wQv",
+        "name": "Decreto-Lei n° 3.689/41; Decreto-Lei n° 2.848/40; Lei n° 9.613/98; Lei n° 12.850/13",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "Io[V",
+        "name": "LC n° 64/90; Lei n° 8.429/92; Res. TSE n° 23.609/19",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "^ZVN",
+        "name": "Res. TSE n° 23.604/19; Lei n° 9.096/95; EC n° 117/22; art. 17",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "=cPs",
+        "name": "Lei n° 4.737/65; Lei n° 13.105/15; LC n° 64/90; Lei n° 9.504/97",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "e899745f-a8ce-4daa-827a-d9a09f2d9e8a",
+        "name": "art. 44 V Lei n° 9.096/95",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "6d8732c9-6e79-480d-a985-c13553f51409",
+        "name": "art. 22 Res. TSE n° 23.604/19",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "ec258757-46ad-460d-9949-99957003708d",
+        "name": "art. 17 §§ 7º CF/88",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "9cfff73d-3d11-4397-9613-53c64a522dfb",
+        "name": "art. 8º L Lei n° 9.096/95",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "a4099278-7392-4595-851d-c4595f27be8a",
+        "name": "art. 9.096 Lei n° 9.096/95",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "ac1b1e6c-5881-4178-a3e0-dc22ace5d44c",
+        "name": "art. 1995 Lei n° 9.096/95",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "0f8a7966-2607-42f5-85d4-f932a38ffd60",
+        "name": "art. 5º Res. TSE n° 23.604/19",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "08d46218-9461-414d-a123-fd3924b49780",
+        "name": "art. 5º-A Res. TSE n° 23.604/19",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "703e6ea5-1ad6-474e-aa3e-bc2749f9bf0a",
+        "name": "art. 7º Res. TSE n° 23.604/19",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "f67ec7e3-53b6-4d05-8eca-4477e2629c7d",
+        "name": "art. 23.604 Res. TSE n° 23.604/19",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "5f3bd9e9-0c3b-4ba8-a499-7f0fc7700a7f",
+        "name": "art. 2019 Res. TSE n° 23.604/19",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "22da8d59-374b-4260-8669-92da101aa6a0",
+        "name": "art. 36 §7º Res. TSE n° 23.604/19",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "3f1b0636-a7dd-43c2-892e-c70766287c01",
+        "name": "art. 38 VI Res. TSE n° 23.709/22",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "68dc5613-c7c4-44cc-bbc2-1f2f39ee3919",
+        "name": "art. 48 Res. TSE n° 23.709/22",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "ca1fa443-e983-45cb-8521-a31364ce69e2",
+        "name": "art. 23.709 Res. TSE n° 23.709/22",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "bd03f5a2-919c-4718-921e-606009c72f74",
+        "name": "art. 2022 Res. TSE n° 23.709/22",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "d4dbd544-6674-4c28-b40e-84cf1ce1a9b9",
+        "name": "art. 32-A Res. TSE n° 23.709/22",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "323d62b7-c263-4da3-925f-12958f4f403b",
+        "name": "art. 33 Res. TSE n° 23.709/22",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "66ff0850-678b-4e17-83f8-dbf076387dad",
+        "name": "art. 45 Res. TSE n° 23.709/22",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "99b522c2-a171-4ca7-a5ad-5adc4daca477",
+        "name": "art. 0600264-94 Res. TSE n° 23.709/22",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "d20a97be-0080-4713-81f6-969531f3422d",
+        "name": "art. 276 I Lei n° 4.737/65",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "d1baf443-02a3-4dc8-8629-4d59faa8ae03",
+        "name": "art. 2º EC n° 117/22",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "7c36aca7-7096-4a6e-9b96-f7ac07ee3b28",
+        "name": "art. 3º EC n° 117/22",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "3aafab7c-33ff-4d7e-9b7c-5146ad546b58",
+        "name": "art. 33 Res. TSE n° 23.607/19",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "f2d43679-9fcf-4b1d-924b-a1d3241fe726",
+        "name": "art. 60 § 3º Res. TSE n° 23.607/19",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "9adcedb6-7046-47d3-8634-4f80f3fffc71",
+        "name": "art. 1.000 Lei n° 13.105/15",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "e8a98f2b-00b8-44cc-ae01-78299a0cbca3",
+        "name": "art. 275 Lei n° 4.737/65",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "19fd6e10-4865-484c-a49a-98d0ca939262",
+        "name": "art. 1.022 Lei n° 13.105/15",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "3866f5a4-92bb-4d8f-805b-bbd124cf4776",
+        "name": "art. 219 Lei n° 4.737/65",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "e25c7057-394f-481f-82dd-98825ab57243",
+        "name": "art. 22 LC n° 64/90",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "02b6ab4a-79e6-44e1-83ed-b75e7691680e",
+        "name": "art. 10 § 3º Lei n° 9.504/97",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "d8c4222d-f830-47ed-bd04-68581b94027f",
+        "name": "art. 22 VII LC n° 64/90",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "5bb2f704-9151-4dfe-bcf9-6e06e93c4333",
+        "name": "art. 355 I Lei n° 13.105/15",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "c59c79f9-8143-4e30-b94f-8a5c56cbead5",
+        "name": "art. 487 I Lei n° 13.105/15",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "0635fe8c-70a9-4903-82fe-85eb8a82afc3",
+        "name": "art. 80 II Lei n° 13.105/15",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "aa594f81-e4dc-472c-8937-cce8ea89cea9",
+        "name": "art. 51 Res. TSE n° 23.608/19",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "9a1857aa-d8be-4e37-a77d-72363787ae4f",
+        "name": "art. 35 § 6º Res. TSE n° 23.607/19",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "9f8ec817-6aef-4084-8c0b-750cdfd074cc",
+        "name": "art. 73 I Lei n° 9.504/97",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "f8309ed4-8775-4405-b2c6-ff2d170b928f",
+        "name": "art. 4º Lei n° 9.504/97",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "04ebd4b7-bddb-4b96-9cea-d55b1d5df367",
+        "name": "art. 8º Lei n° 9.504/97",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "19e52c45-c28e-4d7c-b482-1e15598edb67",
+        "name": "art. 41-A Lei n° 9.504/97",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "4e3eb3fa-0872-4b6e-bc56-619953bb95f6",
+        "name": "art. 121 § 4º i CF/88",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "a7676462-87ac-4430-b7ab-9429cc83770c",
+        "name": "art. 276 i CF/88",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "ae4c70ab-37c7-48c7-9e03-796b61797a0e",
+        "name": "art. 489 § 1º i Lei n° 9.504/97",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "15b3c74d-eeb9-4d93-b34a-aaa3e5781ed6",
+        "name": "art. 276 Lei n° 4.737/65",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "13ea0137-890c-40e4-a224-f734db2f3c88",
+        "name": "art. 489 § 1º i Lei n° 13.105/15",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "81905d12-02e2-4b5e-83c9-5ae8aab3840b",
+        "name": "art. 10 § 3º L Lei n° 9.504/97",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "e423f638-6038-453b-9e49-4e740eac1e24",
+        "name": "art. 9.504 Lei n° 9.504/97",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "fa8708fa-866b-4b20-a08c-317372c8855e",
+        "name": "art. 97 Lei n° 9.504/97",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "60a90950-6035-4ae1-84df-eb140e58c987",
+        "name": "art. 22 XIV LC n° 64/90",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "2b3083d2-31e9-4f4d-8ee9-2cbd05dbe27d",
+        "name": "art. 16-C Lei n° 9.504/97",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "23760f8f-b9a8-46ca-938c-fe02c08cafc5",
+        "name": "art. 17 Res. TSE n° 23.607/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "b12d768a-8c25-47d3-8c22-7f12c260ea83",
+        "name": "art. 19 Res. TSE n° 23.607/19",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "a2e82833-b41b-4b02-9589-de731fc49a4d",
+        "name": "art. 35 § 8º Res. TSE n° 23.607/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "59bf01af-a79f-4e72-8ef0-2e68fd254fd5",
+        "name": "art. 17 § 2º I CF/88",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "24002f0b-acbc-4868-a612-5b5331e0e84e",
+        "name": "art. 17 CF/88",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "a1c80695-b1ca-4a06-a436-f0cd7a3b7553",
+        "name": "art. 19 § 7° I Res. TSE n° 23.607/19",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "0d5e86ca-47de-4c25-a99c-c41414e432c6",
+        "name": "art. 17 §§ 1° CF/88",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "4e408efd-f824-4224-ae75-b79667a3780c",
+        "name": "art. 3° CF/88",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "37295d40-d195-4edc-b69d-b08a5be60d9d",
+        "name": "EC n° 97/17",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "bc7376d2-8129-410e-a0b1-977493a40979",
+        "name": "art. 79 Res. TSE n° 23.607/19",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "275a7290-24a4-45e5-a353-937e8c60d1d6",
+        "name": "art. 35 § 12 Res. TSE n° 23.607/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "71e81677-fb71-4451-ba75-6caaf6fb7176",
+        "name": "art. 60 § 1º I Res. TSE n° 23.607/19",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "e7375ab3-c0a3-4f2e-b34c-fdee350f9c35",
+        "name": "art. 5º LX CF/88",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "d8270f74-9d44-4189-864f-da5187da8a78",
+        "name": "art. 189 III Lei n° 13.105/15",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "e17abd02-0875-42f1-a3c9-5c7d3fe99fc4",
+        "name": "art. 269 § 1º Lei n° 4.737/65",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "39948d4c-6a3b-497e-a829-671986905a61",
+        "name": "Lei n° 13.709/18",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "3aa6e4cb-034c-4d2a-80ca-d9a2c330c381",
+        "name": "art. 23 LC n° 64/90",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "b3d1ab72-f104-4124-a4f7-d8c3084737ee",
+        "name": "art. 492 Lei n° 13.105/15",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "6417dc06-fab9-41db-beb1-faa81994c127",
+        "name": "art. 10 Lei n° 13.105/15",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "384081a1-e7f4-40b3-beac-c2af9bbc4313",
+        "name": "art. 5º LV Lei n° 13.105/15",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "1c300b63-088d-4ca9-a89f-572d637680d7",
+        "name": "art. 22 XVI LC n° 64/90",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "ddc42058-3978-454c-85f9-5667762d4130",
+        "name": "art. 121 § 4º CF/88",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "8235a2e3-8590-4546-b3a2-eda092d8b495",
+        "name": "art. 5º IV CF/88",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "3276202f-3a7a-4aca-8c41-1dd108391c96",
+        "name": "art. 220 CF/88",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "0f14e407-69a2-4203-b6bf-b0fc5d5c8654",
+        "name": "art. 36 Lei n° 9.504/97",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "8d340547-1f7e-43e0-a834-2384d76b638d",
+        "name": "art. 57-A Lei n° 9.504/97",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "4aec4039-56de-40bf-9631-10c42b988f25",
+        "name": "art. 57-D Lei n° 9.504/97",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "844f1d39-249f-48ec-9388-617974fd95fd",
+        "name": "art. 73 § 10 Lei n° 9.504/97",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "6db0bbb6-e420-4103-9bdf-46289e2cd0bb",
+        "name": "art. 17 Lei n° 8.987/16",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "f3697825-cfde-44f9-b7e7-8673f4473259",
+        "name": "art. 373 I Lei n° 13.105/15",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "2e0232e4-9429-4f14-bf51-f745d4a0b2ab",
+        "name": "art. 1.025 Lei n° 13.105/15",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "c20fa444-32c6-4128-a6f6-748caaba7574",
+        "name": "art. 73 Lei n° 9.504/97",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "2e4a4699-3472-4f61-9557-4e7e0ee8a50d",
+        "name": "art. 105 EC n° 125/22",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "6a516a33-8502-439c-a23e-fb8c39717e8f",
+        "name": "art. 275 Lei n° 13.105/15",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "222ec436-fbd8-450c-ab67-3e1584accf38",
+        "name": "art. 485 VI Lei n° 13.105/15",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "3798afab-9197-4086-8cca-e002e4766fa2",
+        "name": "art. 14 § 10 CF/88",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "bd26d386-2bca-4c2a-8192-a2ec71d86881",
+        "name": "art. 1º II LC n° 64/90",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "f948364b-0ad6-402f-9568-dd5f0b794739",
+        "name": "art. 3º LC n° 64/90",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "672889de-f6f5-4e36-9789-6510a74e812f",
+        "name": "art. 164491211 Lei n° 4.737/65",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "30862f83-1c67-45c4-8d55-a46f3d0e42b4",
+        "name": "art. 9º CF/88",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "ad5eb69f-a14a-4176-b7da-d64d11fa075c",
+        "name": "art. 10 CF/88",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "764f3687-43d2-453c-9b34-2f65697e8584",
+        "name": "art. 487 I CF/88",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "03cdca18-5f6a-4a7e-b99a-9098aa9f641b",
+        "name": "art. 489 § 1º IV Lei n° 13.105/15",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "80f2eadd-eb24-4fed-9f32-6fde509607dc",
+        "name": "art. 39 i Res. TSE n° 23.607/19",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "95c1f7ab-00e0-444b-9d9a-20019247d227",
+        "name": "art. 74 i Res. TSE n° 23.607/19",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "884fd822-5211-4aa7-8b2d-c593a278ee2d",
+        "name": "art. 79 §1º Res. TSE n° 23.607/19",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "fe6235ff-a01e-49c3-b7ec-e20d5f69d0ce",
+        "name": "art. 1.022 II Lei n° 13.105/15",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "a738f9c6-0f7f-4bbb-933f-a15564dfb038",
+        "name": "art. 93 IX CF/88",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "c97124b9-4a87-46f7-b621-21747efa15bb",
+        "name": "art. 489 § 1º III Lei n° 13.105/15",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "32fd3240-efa4-4810-8b8d-87676d2a7bf6",
+        "name": "art. 2º Res. TSE n° 23.600/19",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "1d2aaca1-dca6-4b88-9ad7-7c8686da50bc",
+        "name": "art. 33 Lei n° 9.504/97",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "4fb4853e-f0e7-42a7-a8fb-15303c4abe6e",
+        "name": "art. 17 Res. TSE n° 23.600/19",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "182cd572-a480-453f-b017-29863f66eb36",
+        "name": "art. 25 Res. TSE n° 23.600/19",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "01eaa7f5-421a-4d65-a6ce-99cc650aa246",
+        "name": "art. 2º §7º I Res. TSE n° 23.600/19",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "68fa7189-9afd-4c3c-81da-7c0958531114",
+        "name": "art. 73 §§ 4º Lei n° 9.504/97",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "afc124ad-3044-4e3e-994a-c887a372d331",
+        "name": "art. 5º Lei n° 9.504/97",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "f40a10ce-4e48-4864-812a-d053a891d80b",
+        "name": "art. 79 § 1º Res. TSE n° 23.607",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "8534b0c9-834e-4deb-a7bd-51d8f0911d69",
+        "name": "art. 42 II Res. TSE n° 23.607/19",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "e294410f-575c-457f-999a-3bf6e793c784",
+        "name": "art. 20 Lei n° 9.504/97",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "addea747-fc16-4661-a163-628e51baea3c",
+        "name": "art. 26 Lei n° 9.504/97",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "e9012c67-2b5a-404f-9dae-4e1794fdef04",
+        "name": "art. 26 §1º II Lei n° 9.504/97",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "9b5bf01c-2b03-46f0-9bc5-09a41e38cf3c",
+        "name": "art. 30 II Lei n° 9.504/97",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "63274eb0-ed3a-45de-8856-c14c9beddb50",
+        "name": "art. 30 II Res. TSE n° 23.607/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "dc17e049-6c69-41fc-9d35-19fbc5afb238",
+        "name": "art. 171 Lei n° 13.105/15",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "a452bead-4e54-4f68-ac48-ac5e538367be",
+        "name": "art. 994 Lei n° 13.105/15",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "262106ef-f913-4089-a8be-a766a69b4321",
+        "name": "art. 73 LC n° 64/90",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "3b32e4d9-61b7-4edd-ac4e-57b6cc92d9f3",
+        "name": "art. 77-Lei C LC n° 64/90",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "efed591f-4100-4ca1-88a3-41ff681c83a2",
+        "name": "art. 64 LC n° 64/90",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "e5de5d07-85fb-4e88-9b7e-21b4fda51022",
+        "name": "art. 90 LC n° 64/90",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "7ea0a050-3c81-40dd-843f-91c52851a237",
+        "name": "art. 22-C Lei n° 13.105/15",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "da0087c0-0b32-4dc0-9425-c1bf86b51ad8",
+        "name": "art. 288-Lei Lei n° 9.613/98",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "73668728-c3c2-4bce-b585-deb3ecb116ca",
+        "name": "art. 9.613 Lei n° 9.613/98",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "c26a3014-76f6-4ca9-8cb3-b3dd430283a8",
+        "name": "art. 98 Lei n° 9.613/98",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "cfb126c1-b635-4300-9d8f-679630f2b22f",
+        "name": "art. 1º-Lei Lei n° 4.737/65",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "39623fb5-fafd-43de-ad01-7eef0f721569",
+        "name": "art. 4.737 Lei n° 4.737/65",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "f5ca0401-def4-404e-ac5c-e8504d831fbd",
+        "name": "art. 65 Lei n° 4.737/65",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "7125caac-1c4b-4b05-b9da-98a321415826",
+        "name": "art. 299 Lei n° 4.737/65",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "83b85cb7-f0c2-4284-9089-b2315ab337f1",
+        "name": "art. 350 Res. TSE n° 23.457/15",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "ef1d878c-9150-4b75-bceb-62647cb1c6a1",
+        "name": "art. 350-Resolu Res. TSE n° 23.457/15",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "7eab83d7-1dc5-402a-ace5-c45b4a49460d",
+        "name": "art. 23.457 Res. TSE n° 23.457/15",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "e7a1f9ff-10b7-46f4-8ab2-a58c7455c450",
+        "name": "art. 2015 Res. TSE n° 23.457/15",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "a78beefe-5e9c-4c9e-b170-52ae38d1b298",
+        "name": "art. 75 VI Res. TSE n° 23.457/15",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "f7a9fb81-1034-4f24-8060-aca2fa7cc9b8",
+        "name": "art. 58 II Res. TSE n° 23.607/19",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "dbab9561-8b88-47ad-a829-3522a063d355",
+        "name": "art. 35 § 11 II Res. TSE n° 23.607/19",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "7f3ad378-3a4e-4b91-9342-91fc21f016c9",
+        "name": "art. 35 § 11 Res. TSE n° 23.607/19",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "d075cf8d-591e-40ad-a8ec-74b4326e622c",
+        "name": "art. 10 Lei n° 9.504/97",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "17f772ff-25dd-46a5-8327-8bd1a918722e",
+        "name": "art. 22 I LC n° 64/90",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "6827efa0-f7c0-4718-928b-c0125e3020e8",
+        "name": "art. 32 §1º VI Res. TSE n° 23.607/19",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "10ffaa8f-98ec-4396-a35e-a7e075ec2431",
+        "name": "art. 10 §3º Lei n° 9.504/97",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "4a72dbc6-e058-40db-99f6-f7a0851e4ef2",
+        "name": "art. 23 §2º Lei n° 9.504/97",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "1e477606-9d72-4090-96e0-8d0ad2a87804",
+        "name": "art. 8º § 4º Res. TSE n° 23.735/24",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "2ac6d139-a393-4c36-b338-b5541e3a4b7e",
+        "name": "Res. TSE n° 23.609/19",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "f79b7639-9486-46dc-b819-3c2c8a2ce777",
+        "name": "art. 32-A II Res. TSE n° 23.709/22",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "0002c80f-1fcc-46b9-a55a-016808c28c8c",
+        "name": "art. 45 IV Res. TSE n° 23.604/19",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "477f473e-81e9-49eb-a6e2-89fec8a03faf",
+        "name": "art. 29 §6º Res. TSE n° 23.604/19",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "859098e0-62e8-4645-9f04-461f218534b5",
+        "name": "art. 45 Res. TSE n° 23.604/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "d577827c-6311-416a-a65f-240515a58388",
+        "name": "art. 47 Res. TSE n° 23.604/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "ed987b62-1a30-4275-b8cd-b784988216d9",
+        "name": "art. 39 IV Res. TSE n° 23.709/22",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "38391217-e329-400d-b6df-b50f3720ce33",
+        "name": "art. 74 IV Res. TSE n° 23.607/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "c5814154-46ba-482e-8581-38908f0e69bb",
+        "name": "art. 39 IV Res. TSE n° 23.571/18",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "0656dc92-9c61-4d80-8e06-1d28e3ea6678",
+        "name": "art. 23.571 Res. TSE n° 23.571/18",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "cc7f8082-c756-4fd8-b55e-12e6adc1ce22",
+        "name": "art. 2018 Res. TSE n° 23.571/18",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "6b9a06fe-db20-4ea6-8554-3640f8b3fafe",
+        "name": "art. 54-N Res. TSE n° 23.571/18",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "6586931f-7b1f-4460-8b24-f91892279ee3",
+        "name": "art. 0600021-19 Res. TSE n° 23.571/18",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "60f991c1-d5da-4ebe-847f-155370adfc77",
+        "name": "art. 3º Lei n° 9.096/95",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "c2db61be-320a-443a-a5b1-8ff652874b0b",
+        "name": "art. 15-A Lei n° 9.096/95",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "79464e0e-c0cd-4e1c-afd2-703a084f719c",
+        "name": "art. 28 §§ 3º Lei n° 9.096/95",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "f14cb9a2-3462-4683-aa19-f6bff8ff438b",
+        "name": "art. 5º Lei n° 9.096/95",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "f86bfa72-27e6-4ae3-9d77-90db8869b9cb",
+        "name": "art. 24 i Lei n° 9.504/97",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "3ffaedd4-05fb-41c0-8c21-4f727068991d",
+        "name": "art. 31 §5º Res. TSE n° 23.607/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "79b55c1e-4057-4b27-8c01-5a4c71d56d06",
+        "name": "art. 50-A Lei n° 9.096/95",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "a3ff9cc1-6eda-48ff-a150-f213827cf04d",
+        "name": "art. 50-B Lei n° 9.096/95",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "87e0107c-9543-45e0-818b-66c2d9b5690d",
+        "name": "art. 14 I Lei n° 9.096/95",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "ac6978ab-8d97-4d47-88b9-8f5fd1ab705c",
+        "name": "art. 50-A c Lei n° 9.096/95",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "4135cad0-82ec-4a34-943d-1d1bd50b8a85",
+        "name": "art. 8º Lei n° 9.096/95",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "4a0829ad-7650-4fb8-b28c-84af7651f362",
+        "name": "art. 50-A § 11 I Lei n° 9.096/95",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "8114acec-fc40-4c86-8176-54d95a6d52f1",
+        "name": "art. 50-A § 11 II Lei n° 9.096/95",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "7f867ac6-a6b3-4b7d-a3f6-ac4c0d82c97b",
+        "name": "art. 50-A §§ 8º Lei n° 9.096/95",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "72f6098e-1cf4-483b-918c-c0e942b67860",
+        "name": "art. 9º Lei n° 9.096/95",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "447f0f48-95f8-4c28-97e0-5afc001db262",
+        "name": "art. 50-A § 9º I Lei n° 9.096/95",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "fbef3f9e-18bd-40f0-bba9-05b00d79576b",
+        "name": "art. 50-A § 9º II Lei n° 9.096/95",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "2c3d8cf9-4cf1-40c2-888b-3b19f325acb2",
+        "name": "art. 50-A § 9º III Lei n° 9.096/95",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "46e72183-b0c4-4862-bf12-248a5769d0b9",
+        "name": "art. 50-A § 10 Lei n° 9.096/95",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "2c8c2869-f079-4b46-b022-fa48cc58f263",
+        "name": "art. 50-B § 3º Lei n° 9.096/95",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "d450b6e7-cd21-4b17-965b-d2446e0cc745",
+        "name": "art. 30 Lei n° 9.096/95",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "0ec0241b-2daf-4b2e-8de8-025165d36cf6",
+        "name": "art. 37 Lei n° 9.096/95",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "a714558d-f220-489c-97e4-b9192055610f",
+        "name": "art. 41 Lei n° 9.096/95",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "5d99b65b-4fe2-400b-9378-5bf15e9f219e",
+        "name": "art. 4º IV Res. TSE n° 23.604/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "d5062fe9-7d64-4846-b547-3018421fff58",
+        "name": "art. 25 Res. TSE n° 23.604/19",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "1fe388dc-b594-4065-81ff-5c8c5a2dbabb",
+        "name": "art. 37 § 12 Res. TSE n° 23.604/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "1b5d0c4b-f5e5-4530-9d21-43988a55138c",
+        "name": "art. 41 Res. TSE n° 23.604/19",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "34a8f7f3-4ef4-4697-a1c8-125deeb3fcb3",
+        "name": "art. 45 III Res. TSE n° 23.604/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "7a519612-5c43-4937-9e2a-7d304e7712a2",
+        "name": "art. 44 VIII Lei n° 9.096/95",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "6b7c0180-8f16-4cb7-b174-4749c98b6ecd",
+        "name": "art. 44-A Lei n° 9.096/95",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "3b5d321d-8342-49a7-bf4c-d12216b7aada",
+        "name": "art. 5º II CF/88",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "64151912-04e4-4a7e-b998-5ab4d1263000",
+        "name": "art. 489 II Lei n° 13.105/15",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "f597890c-967d-4fa8-8c5f-3c98308d2f72",
+        "name": "art. 73 VI Lei n° 9.504/97",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "591de6eb-7171-422f-97a3-9db43009ad37",
+        "name": "art. 54 Lei n° 9.504/97",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "43861f05-446f-41be-9be1-df072107c250",
+        "name": "art. 33 § 3º Lei n° 9.504/97",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "6fa94209-b334-4a69-aa92-0c11780e77cf",
+        "name": "art. 23 § 1º Res. TSE n° 23.600/19",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "3901d140-e204-42a9-9406-512c5025522f",
+        "name": "art. 7 Res. TSE n° 23.600/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "168e5313-1e9e-4cd1-9463-2b4f2cc21932",
+        "name": "art. 18 Res. TSE n° 23.600/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "24c7f220-c6bd-41bf-8943-5479ff464db2",
+        "name": "art. 23 Res. TSE n° 23.600/19",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "cebc32f5-7f96-4cd2-bb89-2b0dfdc82733",
+        "name": "art. 422 § 1º Lei n° 13.105/15",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "17f27831-c357-4ef5-9f22-ab8ef08ad458",
+        "name": "art. 17 § 1º Res. TSE n° 23.607/19",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "c7c3f628-99a6-464c-a49d-9cba10c41806",
+        "name": "art. 74 II Res. TSE n° 23.607/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "4bbc195f-a4b9-4929-a99a-4b0eebc60a9a",
+        "name": "art. 17 §1º Res. TSE n° 23.607/19",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "5528ce14-9849-4e8f-80a1-e3c205bb487f",
+        "name": "art. 9º i Res. TSE n° 23.604/19",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "f465d976-0f77-4951-b931-821b7a2895aa",
+        "name": "art. 32 Lei n° 9.096/95",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "d1c1fc81-8545-44b7-922e-a80786e15eeb",
+        "name": "art. 926 Lei n° 13.105/15",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "be9a0e90-4d74-491e-b54e-b23e00458cc7",
+        "name": "Lei n° 9.100/95",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "35066c1c-b526-463d-921e-d6adb1cede0e",
+        "name": "art. 17 § 2º I Res. TSE n° 23.607/19",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "5ccd1019-fc0e-4837-9c0b-552ef77c897d",
+        "name": "art. 21 II Res. TSE n° 23.607/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "43fb7b0b-18f4-440b-9ce5-9faf6e8a2c21",
+        "name": "art. 44 Res. TSE n° 23.607/19",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "228d351f-60a6-4f76-8eb3-7b2d7f23f3c4",
+        "name": "art. 60 Res. TSE n° 23.607/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "2e8ed68a-4ca8-448f-8384-320b1015883a",
+        "name": "art. 69 §1º Res. TSE n° 23.607/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "429689af-7268-42fe-88cd-6d08244b7558",
+        "name": "art. 79 §§ 1º Res. TSE n° 23.607/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "f11a7bd3-38be-4ae8-8677-868d0997b054",
+        "name": "art. 2º Res. TSE n° 23.607/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "d4840a71-195c-4fff-8669-cfe4b3dc88c6",
+        "name": "art. 16-C § 2º Lei n° 9.504/97",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "4b154503-bd5c-4f18-ae14-ad1be107740e",
+        "name": "art. 146 Lei n° 13.105/15",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "3829c9b7-5830-4e2d-838c-3ee66b45c2cb",
+        "name": "art. 145 Lei n° 13.105/15",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "41f76bf2-b9cc-429d-b449-6e82c1953254",
+        "name": "art. 25.8.2025 Lei n° 13.105/15",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "1cc56db1-8602-4991-880f-ac98969585ee",
+        "name": "art. 0600735-94 Lei n° 13.105/15",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "06474b15-b6cf-4114-870f-4625c3187115",
+        "name": "art. 18 Res. TSE n° 23.604/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "7e24af25-01a6-4fba-a70f-e314d69630b6",
+        "name": "art. 48 Res. TSE n° 23.604/19",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "fe0dc5f6-8df6-4f2e-8660-44ab59c879b8",
+        "name": "art. 29 §2º V Res. TSE n° 23.604/19",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "3f2f6916-ef96-4dde-8f8d-a8282321310b",
+        "name": "art. 48 §2º Res. TSE n° 23.709/22",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "f1f29eee-e4b1-4457-9eff-8d9e3d2386c6",
+        "name": "art. 4º Res. TSE n° 23.709/22",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "38bfd32c-a5af-4b41-b5fc-0f79c17abfc0",
+        "name": "art. 32 c Lei n° 9.096/95",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "3df428e0-c754-4fca-b594-ca0b075c6efd",
+        "name": "art. 37 § 3º Lei n° 9.096/95",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "73a73423-8a27-4550-bc0b-73ada7f32649",
+        "name": "art. 5º CF/88",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "13feb870-7358-4ccf-8be2-67d17a0907d5",
+        "name": "art. 55 § 3º Lei n° 13.105/15",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "3a173df2-d2b8-4007-a5f7-6826e2e866c0",
+        "name": "art. 927 Lei n° 13.105/15",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "0493e084-97d7-4498-b648-53d8bdc5e32d",
+        "name": "art. 11 Lei n° 9.096/95",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "d3dd638a-0c45-482c-aee7-95a81e4e156d",
+        "name": "art. 47 CF/88",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "f99334a6-4e13-4949-80ef-8d5e7bf12d79",
+        "name": "art. 7º § 1º Lei n° 9.096/95",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "57abbf99-87cf-48ec-bdf3-ed203cc3ed8b",
+        "name": "art. 31-A Res. TSE n° 23.571/18",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "869c010b-94dd-4fbd-bebd-a03d040516e2",
+        "name": "art. 31-A III Res. TSE n° 23.571/18",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "0e2939a8-2bf1-41cc-8086-82a8274e8625",
+        "name": "art. 31-B c Res. TSE n° 23.571/18",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "7f3f216d-ce2e-4bb8-a60d-2255887eed82",
+        "name": "art. 31-B § 3º Res. TSE n° 23.571/18",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "11c79db3-6ab5-47e2-b747-185aedf9311a",
+        "name": "art. 7º § 1º Lei n° 9.096/96",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "320c2c34-2dab-4171-8272-509c8f6854e4",
+        "name": "art. 7º Lei n° 9.096/96",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "3020b986-446a-4102-9d4a-9b28927db2e1",
+        "name": "art. 31-B § 4º I Res. TSE n° 23.571/18",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "e9ae5500-0a1e-4518-b5a0-044cefd23568",
+        "name": "art. 7º Lei n° 9.096/95",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "8c28851b-13b5-4d4a-9fbb-b7dbeb0d543b",
+        "name": "art. 32 Res. TSE n° 23.571/18",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "e7092c57-3a00-48a2-8556-865f70ae5a13",
+        "name": "art. 34 Res. TSE n° 23.571/18",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "863eedc9-a6da-4dd9-8543-99838dfa97d9",
+        "name": "art. 489 § 1º Lei n° 9.504/97",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "f439ec27-e8c5-413b-afb8-a276222ffb9c",
+        "name": "art. 4.1 Lei n° 13.105/15",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "0d8cef54-42c3-440e-bae7-98b3b46fb19d",
+        "name": "art. 1.029 § 5º Lei n° 13.105/15",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "932a7bfd-996f-4a25-9a17-6514b17cb8bb",
+        "name": "art. 8º § 2º Res. TSE n° 23.735/24",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "09f93db7-e588-4624-a618-a797522f799e",
+        "name": "art. 114 Lei n° 13.105/15",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "6151ce94-1062-47b6-834a-cfb8bb2ff602",
+        "name": "art. 115 Lei n° 13.105/15",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "1706a6d4-0dc9-4bb4-b4a6-79718695306b",
+        "name": "art. 489 § 1º Lei n° 13.105/15",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "49f45072-9637-4775-8d82-0419e9442843",
+        "name": "art. 1.029 § 5º III Lei n° 13.105/15",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "d829a28f-8fda-42f0-bb6c-1156e9716be0",
+        "name": "art. 300 Lei n° 13.105/15",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "1c367775-7340-4313-b998-40fb9b0b7809",
+        "name": "art. 30-A Lei n° 9.504/97",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "0b389368-48b9-48c6-93a4-a6fd1c9a28f4",
+        "name": "art. 998 Lei n° 13.105/15",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "7960b0e2-4100-42f9-937b-85d01d9c957d",
+        "name": "art. 92 § 6º Res. TSE n° 23.607/19",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "e7fcd6d7-6615-4936-b714-bd19a437440d",
+        "name": "art. 17 § 3º Res. TSE n° 23.607/19",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "26e527ad-9581-49fa-bf9a-8894e1cd4c10",
+        "name": "art. 50 § 5º Res. TSE n° 23.607/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "d855e793-ac34-47be-bd6e-5c920411ccd3",
+        "name": "art. 87 Res. TSE n° 23.607/19",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "1460a909-36ba-4a79-9734-aeafb10a9d45",
+        "name": "art. 932 III Lei n° 13.105/15",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "a9849250-17c3-4668-ac8c-995e577bf5be",
+        "name": "art. 35 §§ 3º Res. TSE n° 23.607/19",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "0db0b13e-fba5-42e6-8619-f72b601493a5",
+        "name": "art. 9º Res. TSE n° 23.607/19",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "d6f1d3a8-f83a-47c6-a86a-6727a46e463b",
+        "name": "art. 26 §4º Lei n° 9.504/97",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "9c9f697d-fe97-4188-8d12-f3cd01892812",
+        "name": "art. 3º I EC n° 111/21",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "2fc5e4f5-3cb8-4703-b36b-de7be0c73107",
+        "name": "art. 111 EC n° 111/21",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "c3c5a777-c8f1-4870-b1b8-2de1379e58b5",
+        "name": "art. 2021 EC n° 111/21",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "bd08156f-00aa-41af-a18a-6ef7b182e50c",
+        "name": "art. 50 Res. TSE n° 23.604/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "1f3ce27f-f813-4318-adfe-4c248bd4e98b",
+        "name": "art. 62 Res. TSE n° 23.604/19",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "70ac9e5d-02f7-4527-9d90-e992b6dc22da",
+        "name": "art. 132 EC n° 111/21",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "f60cbe30-1a36-44f1-b23a-2dd1afcf4785",
+        "name": "art. 3 EC n° 111/21",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "606f8b4c-6021-46c8-b392-833e25c4ab6e",
+        "name": "art. 435 Lei n° 13.105/15",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "d4dd491d-50e5-460b-9ca6-6c240f3a2797",
+        "name": "art. 279 Lei n° 4.737/65",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "9fc1600a-041a-460c-a7f4-3a815954d9aa",
+        "name": "art. 35 §11 Res. TSE n° 23.604/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "32295a5f-5276-4eca-80ad-773d90d3b612",
+        "name": "art. 22 §1º Res. TSE n° 23.604/19",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "1ba2f800-9d96-4dbc-b2d8-d28582ce43a6",
+        "name": "art. 29 §2º IV Res. TSE n° 23.604/19",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "db0ea686-eea9-4ef7-85bb-7245d12eb138",
+        "name": "art. 44 V Res. TSE n° 23.604/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "e36aaf5c-94d8-47ee-9b99-d9a7bc68982b",
+        "name": "art. 13 §1º I Res. TSE n° 23.604/19",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "1c60e961-4f28-4ebb-b1ad-869c2a416b6c",
+        "name": "art. 37 § 11 Lei n° 9.096/95",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "91d8281e-981e-4cae-90e2-d04aa24faf3b",
+        "name": "art. 188 Lei n° 13.105/15",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "c0e5972e-a159-4114-9c38-d7074082b5ab",
+        "name": "art. 277 Lei n° 13.105/15",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "ced5c591-7fb5-454c-8114-72c7f7a894ea",
+        "name": "art. 57-B IV Lei n° 9.504/97",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "4fcf3799-8256-4d82-bbef-92e5efd9d02a",
+        "name": "art. 1º Lei n° 9.504/97",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "4f62558c-3f1d-4a92-aafd-be234f7403fe",
+        "name": "art. 28 § 1º Res. TSE n° 23.610/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "5739f40c-c6e5-4233-b8d3-3e2721e96a32",
+        "name": "art. 57-B §5º Lei n° 9.504/97",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "ec3a55b6-9817-45ee-bfba-4f90fa219f4f",
+        "name": "art. 57-B §1º Lei n° 9.504/97",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "e88f6e0f-9e28-4f40-95bf-7a2bdcb5d645",
+        "name": "art. 57-B Lei n° 9.504/97",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "9fc1a1d0-3c69-4747-9ea1-dfb905e44a7a",
+        "name": "art. 275 c Lei n° 4.737/65",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "c3580c91-78a4-4318-9de7-598cb9df2e25",
+        "name": "art. 1º Lei n° 4.737/65",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "baee1ee1-1245-4e87-b136-687dbeab0df0",
+        "name": "art. 57-B § 5º Lei n° 9.504/97",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "7d50bec6-8d11-42cc-a79a-f0730c0b8825",
+        "name": "art. 1º Lei n° 13.105/15",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "8943ff57-1518-41b9-871c-b27ee60c6b6c",
+        "name": "art. 374 IV Lei n° 13.105/15",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "bfad596e-81b7-4aaf-bfe5-a6f636888a1d",
+        "name": "art. 5º LIV CF/88",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "2ebbb430-2afd-420a-bca8-d0cba53048fe",
+        "name": "art. 21 Res. TSE n° 23.609/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "09ac54b4-dba5-4c28-b037-ce9b047d3fde",
+        "name": "art. 6º § 3º II Lei n° 9.504/97",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "17158ad9-ac03-4ede-b8ac-6130d99332c6",
+        "name": "art. 57-B § 5º Res. TSE n° 23.610/19",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "6faa032e-f400-4e3d-b1d9-8189cdb6e2ae",
+        "name": "art. 77 LC n° 64/90",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "f4b8df38-2900-4d71-954d-2410fa744492",
+        "name": "art. 57-C § 3º Lei n° 9.504/97",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "5ff46373-b93c-4096-a08b-19cbd7d1311c",
+        "name": "art. 57-C § 2º Lei n° 9.504/97",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "142f2e87-8b25-46ce-a2fc-a7e9669552ba",
+        "name": "art. 57-D § 2º Lei n° 9.504/97",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "10cfca02-17eb-42ee-b8ef-bc77c4181491",
+        "name": "art. 57-C Lei n° 9.504/97",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "fb94259c-3336-449d-a1fc-ae1f743a145c",
+        "name": "art. 57-C Res. TSE n° 23.610/19",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "f579eabe-5f94-490d-bd01-d4e24e3b7ff2",
+        "name": "art. 4º § 5º Res. TSE n° 23.607/19",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "890e9e32-1c73-4273-b96d-5743f01efb0d",
+        "name": "art. 26 § 4º Lei n° 9.504/97",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "e2ead4e5-7323-4686-a6f9-f42a82dfa0b2",
+        "name": "art. 35 § 3º Res. TSE n° 23.607/19",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "fa0abd9e-c6d0-4729-8ac1-dc3aa5a1e1fa",
+        "name": "art. 35 Res. TSE n° 23.607/19",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "5ce68a13-950b-447d-9c4a-44fbe5d611b1",
+        "name": "art. 22 Lei n° 9.504/97",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "2edc89c9-7a64-4af2-a307-754ecd1baaa2",
+        "name": "art. 8º § 1º Res. TSE n° 23.607/19",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "f61390d0-6ded-4ef6-91a4-1c6bbafcbf99",
+        "name": "art. 30 i Lei n° 9.504/97",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "94ff38d2-fd20-4c52-91aa-ab12726e58f0",
+        "name": "art. 8º § 2º Res. TSE n° 23.607/19",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "c3077285-255e-4d69-8a85-63ce56789490",
+        "name": "art. 8º §§ 2º Res. TSE n° 23.607/19",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "4fb87ccb-16d3-4c6d-a726-7524738f3b60",
+        "name": "art. 4º Res. TSE n° 23.607/19",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "277ec5a1-d671-4a8c-953c-d48749fb200d",
+        "name": "art. 55-D Lei n° 9.096/95",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "b443ccda-9119-4532-bffa-b10fd9ea993b",
+        "name": "art. 31 II Lei n° 9.096/95",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "cd9c1456-eceb-4410-b384-488986a98ba3",
+        "name": "art. 36 II Lei n° 9.096/95",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "3844c283-693c-43ce-81a3-45f8379a939a",
+        "name": "Lei n° 13.488/17",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "3841723a-b42d-4bab-a731-299a299a679d",
+        "name": "Lei n° 13.831/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "048e0503-311e-47d3-a40c-7bb318a74ed3",
+        "name": "Res. TSE n° 23.456/17",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "789aa409-6dac-4ee4-a123-81f7a33e2383",
+        "name": "art. 22 c LC n° 64/90",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "6490a83a-5078-465c-a4ee-d71145b78fc1",
+        "name": "art. 27 § 1º Res. TSE n° 23.610/19",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "a4c34947-692e-46e8-a8de-e1a31cc674d1",
+        "name": "art. 38 Res. TSE n° 23.610/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "517abe34-2dec-46f6-a643-31a7b5d808e4",
+        "name": "art. 57-C C Lei n° 9.504/97",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "03db5092-3666-4479-bfbd-5bfb5e45f258",
+        "name": "art. 59 Res. TSE n° 23.607/19",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "5d74537b-86ff-4af1-96fa-b65454ae2873",
+        "name": "art. 92 §6º Res. TSE n° 23.607/19",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "f1a496ea-8e48-4f34-ac2a-04491f0a36f8",
+        "name": "art. 53 I Res. TSE n° 23.607/19",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "4cd13f40-e60b-458a-819e-6be3d2aa859b",
+        "name": "art. 30 §§ 2º Lei n° 9.504/97",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "daf4f501-c28e-4c8a-8165-173ff7a3523f",
+        "name": "art. 2º-A Lei n° 9.504/97",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "58836487-1b57-4c92-a609-b54543f3b7d3",
+        "name": "art. 932 Lei n° 13.105/15",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "2dfafc61-198b-48cd-9378-866f1636c644",
+        "name": "art. 2º Res. TSE n° 23.598",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "1d60d21a-ff8e-440a-ae19-a500de8f0ca7",
+        "name": "art. 6º § 4º Lei n° 9.504/97",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "b8e2f4b6-5119-4cf2-b01d-0f671cb33211",
+        "name": "art. 96 Lei n° 9.504/97",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "b6bd94e7-33e4-4ad6-9824-75cbf4a8f553",
+        "name": "art. 22 Res. TSE n° 23.610/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "b0c7d543-1fdc-43ac-ba2b-066df7134954",
+        "name": "art. 57-D §2º Lei n° 9.504/97",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "7e4f3c32-f4e2-43ea-9fcd-8dda7d1ba367",
+        "name": "art. 57-C §2º Lei n° 9.504/97",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "fb3c059e-8488-4cee-bbc0-66f8c2b691da",
+        "name": "art. 27 §1º Res. TSE n° 23.610/19",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "e48677a0-371d-400d-966b-e825b64ce1eb",
+        "name": "art. 29 §3º Res. TSE n° 23.610/19",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "57b1f14a-a089-4218-b7d3-908887f24482",
+        "name": "art. 18 Lei n° 13.105/15",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "7903e597-3f92-4ab4-bd6a-d896ecddbfdb",
+        "name": "art. 93 IX Lei n° 13.105/15",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "88981783-3643-4dec-adb5-321d89a5863c",
+        "name": "art. 88 Lei n° 13.105/15",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "aa8308ce-860d-461b-aa94-0296b56b3484",
+        "name": "art. 57-D § 2º Lei n° 4.737/65",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "4b9ac3cc-9d5a-4499-9760-a22fc28b8248",
+        "name": "art. 243 i Lei n° 4.737/65",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "6426daca-97d6-425a-879c-b42bb6af64de",
+        "name": "art. 1.029 §1º Lei n° 13.105/15",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "c7c609bd-d0df-4f85-bedb-870cc86cd930",
+        "name": "art. 9º-C Res. TSE n° 23.732/24",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "5d03f506-c457-445e-aa27-091daaa71afe",
+        "name": "art. 9º-C §1º Res. TSE n° 23.610/19",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "f779863d-6bc2-4378-868d-6244435de4f3",
+        "name": "art. 9º-C § 1º Res. TSE n° 23.610/19",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "aa8e0ea9-6fa7-43e5-98e0-954562d06757",
+        "name": "art. 57-D §2º Res. TSE n° 23.610/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "11bcb060-6a85-42f1-971a-cc92d4185f2b",
+        "name": "art. 23.610 Res. TSE n° 23.610/19",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "f53ed8bf-cd6a-4890-b26f-bdb2fcf0a898",
+        "name": "art. 2019 Res. TSE n° 23.610/19",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "2ac1823c-b3da-43a1-8c2f-c18abee327b4",
+        "name": "art. 19.12.2022 Res. TSE n° 23.610/19",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "689ca08a-2269-4c93-9297-3ba2a5b814d9",
+        "name": "art. 060092739 Res. TSE n° 23.610/19",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "cd0eb10d-50c4-4fd7-9cb5-d8528410bd1c",
+        "name": "art. 3º I Lei n° 12.965/14",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "e22b3072-299b-490d-a0fd-bed896808708",
+        "name": "art. 4º II Lei n° 12.965/14",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "3fba020c-7744-4bbd-8983-cb1453ecca8b",
+        "name": "art. 9º-C Res. TSE n° 23.610/19",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "39e4bc4f-faf0-4191-b181-4d6c88651448",
+        "name": "art. 9º-H Res. TSE n° 23.610/19",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "2ddfad94-4a07-4266-b39d-b70c0537c979",
+        "name": "art. 9º-C c Res. TSE n° 23.610/19",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "c73f0d9e-feb7-4430-a27b-e691f0722b71",
+        "name": "art. 9º Lei n° 9.504/97",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "d7c5dc1c-c277-4563-80de-547fbe39b66b",
+        "name": "art. 9º-C Lei n° 9.504/97",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "c30dfc28-b772-4c96-8ff0-a98e06b72fe4",
+        "name": "art. 22 Lei n° 12.965/14",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "c2e4fcd6-bd7a-46fc-b1f2-d34f9c597905",
+        "name": "art. 324 Lei n° 4.737/65",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "6ce33d23-b1c0-4ab8-87ac-231b9d1368d7",
+        "name": "art. 325 Lei n° 4.737/65",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "5857884d-89d6-4916-9518-5e3a83bd2fe4",
+        "name": "art. 323 Lei n° 4.737/65",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "ebb19547-dfae-4308-b8d5-6ebe66676c6f",
+        "name": "art. 288 Lei n° 4.737/65",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "6468ef36-e0df-422e-a356-60e78ae7b280",
+        "name": "art. 9504 Lei n° 9.504/97",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "fd0814a2-1d2d-4157-ab7d-9f0d6ca7836e",
+        "name": "art. 73 § 4º Lei n° 9.504/97",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "3a22a773-c6ef-4a95-b9a6-e0432894bdb3",
+        "name": "art. 17 § 1º CF/88",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "4269f440-0725-4581-bd09-15d485f87b04",
+        "name": "art. 17 §§ 2º Res. TSE n° 23.607/19",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "57d824fc-5601-4196-9a95-59fc95acfc93",
+        "name": "art. 2º-A Res. TSE n° 23.607/19",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "e4a3729f-e495-47d7-b29c-6f85a2258014",
+        "name": "art. 321 Res. TSE n° 23.607/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "a3957ad3-013a-41ec-b8af-6f1a52eb73b9",
+        "name": "art. 32 §1º Res. TSE n° 23.607/19",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "7d95adba-8519-4a4a-8222-ea4566c6b74b",
+        "name": "art. 74 III Res. TSE n° 23.607/19",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "15ab9089-d4e4-421b-b028-27d7413abd11",
+        "name": "art. 32 Res. TSE n° 23.607/19",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "c29d870e-b8d5-4cd6-9037-55d56b333237",
+        "name": "art. 5º LV CF/88",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "eba12793-3272-4cd7-9680-c319cec1b618",
+        "name": "art. 243 IX Lei n° 4.737/65",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "524782bb-ba3e-4a49-9901-1653b761988c",
+        "name": "art. 27 Res. TSE n° 23.610/19",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "cdad9364-33e5-404d-bcc5-a82b97497244",
+        "name": "art. 30 Res. TSE n° 23.610/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "4e843d03-a33d-473c-8502-6281702f6604",
+        "name": "art. 5º IX CF/88",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "beded0dd-715c-4d6f-8402-d3cad0fecb41",
+        "name": "art. 5º i CF/88",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "b17ea5e4-e5c6-4983-9b27-c5c2a69fd9dd",
+        "name": "art. 55 Lei n° 13.105/15",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "13173b5c-c30a-4dd2-a320-42d7d699a70a",
+        "name": "art. 2015 Lei n° 13.105/15",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "b4ea35ad-870c-4a17-ba7c-f6932abe0f3f",
+        "name": "art. 241 Lei n° 4.737/65",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "0bfbaa1d-5056-4494-92f0-b3829cb95eb4",
+        "name": "art. 57-B I Lei n° 9.504/97",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "c53f8379-6be7-4041-9e33-51df219c4e7f",
+        "name": "art. 131 Lei n° 13.105/15",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "f175a617-cf60-4794-ba6d-69aaeb6a1b20",
+        "name": "art. 1 Lei n° 9.504/97",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "7950d2ee-39fe-44f2-b1de-3d92c42aff93",
+        "name": "art. 121 § 4º I Lei n° 4.737/65",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "35336bc8-572c-4f89-9b75-018b9dc3d3ff",
+        "name": "art. 57-B c Lei n° 9.504/97",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "43bd5967-248d-46fa-a87b-a42f11cfd4a0",
+        "name": "art. 373 § 1º Lei n° 13.105/15",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "caea15c3-54bf-4dd9-abf9-e75a3e7add95",
+        "name": "art. 373 Lei n° 13.105/15",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "ed94cfdf-d0a3-4506-94c6-5061b7e4d15f",
+        "name": "art. 163698287 Lei n° 13.105/15",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "5fb5575b-4216-4268-94e0-f1a30d58484b",
+        "name": "art. 260 Lei n° 4.737/65",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "a4706df2-719e-4d26-a993-00a1bfc1a631",
+        "name": "art. 28 §5º Res. TSE n° 23.610/19",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "d8de057b-1a8c-461c-9853-b511c1b240ad",
+        "name": "art. 28 §1º Res. TSE n° 23.610/19",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "c48cd816-eda4-46d4-8451-5fea5cdcdc95",
+        "name": "art. 374 I Lei n° 13.105/15",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "706a9e8f-7823-4609-b9b0-a3fd31f4d05e",
+        "name": "art. 1022 Lei n° 13.105/15",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "29cca026-45c7-411f-882a-01e651e1babc",
+        "name": "art. 28 Lei n° 9.504/97",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "e2fede1a-a61a-4a8c-a292-1475120c378a",
+        "name": "art. 5 Lei n° 9.504/97",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "cf639896-9490-43a3-99ea-da082e9672dd",
+        "name": "art. 1 Lei n° 13.105/15",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "35bae1ea-e04c-40b5-b969-95197f6f81c9",
+        "name": "art. 5 CF/88",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "4bc7406f-5af6-4aad-94ac-86ee82c59929",
+        "name": "art. 63 Res. TSE n° 23.607/19",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "b697fdc3-60ab-4618-b2e9-0144ce7094e2",
+        "name": "art. 437 Lei n° 13.105/15",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "4b51acaf-ff11-4534-9961-144d9fee7026",
+        "name": "art. 2 Lei n° 13.105/15",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "26b72f64-086a-4c07-b1df-dffb35fcc902",
+        "name": "art. 30 §§ 5º Lei n° 9.504/97",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "b6ad33e3-89a8-4a02-96f0-afad8d89a652",
+        "name": "art. 6º Lei n° 9.504/97",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "9849301d-96e9-4306-aa4e-660cccbc3917",
+        "name": "art. 121 CF/88",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "673c722c-213d-484c-89d0-db7c7c13fa9d",
+        "name": "art. 87 Lei n° 4.737/65",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "c1ede109-9e39-4247-bb3a-ac5491740d1e",
+        "name": "art. 80 II Res. TSE n° 23.607/19",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "345c6eac-a6e7-495e-9ca5-def45175e73e",
+        "name": "art. 49 IV Res. TSE n° 23.607/19",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "e55ac26f-9a27-4dcc-90e7-4c0593867bd5",
+        "name": "art. 6º Res. TSE n° 23.607/19",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "182681bc-1350-4bb0-905b-303a5b0e4bc6",
+        "name": "art. 239 § 1º Lei n° 13.105/15",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "446deee7-51bb-4fce-91bf-197b4deaeb8d",
+        "name": "art. 4 Lei n° 13.105/15",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "a268df19-ccde-43b3-805c-ea52a12923a5",
+        "name": "art. 45 Res. TSE n° 23.607/19",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "2ef0e0b0-13db-4590-8d6f-9be12ede8455",
+        "name": "art. 69 § 1º Res. TSE n° 23.607/19",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "efec29a9-245b-4256-abbd-89144e5e4361",
+        "name": "art. 28 §9° Lei n° 9.504/97",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "fd3ad2aa-adc2-47e0-9b83-19af6452a1fb",
+        "name": "art. 57 Lei n° 9.504/97",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "0a187be8-f238-4fb3-8e3b-852a69e2c4d0",
+        "name": "art. 45 § 8° Res. TSE n° 23.607/19",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "e170dea1-94d5-4696-b5f2-dfb6733b7814",
+        "name": "art. 17 § 2º Res. TSE n° 23.607/19",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "6e964638-dab7-46cc-9d35-440f9efc0646",
+        "name": "art. 17 § 9º Res. TSE n° 23.607/19",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "4435a88c-ed98-4dc8-9979-20423298b6b2",
+        "name": "art. 79 § 1º Res. TSE n° 23.607/19",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "a20a20d9-008b-48d3-9c7b-a91b0401b42b",
+        "name": "art. 5º XXXVI CF/88",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "e7b5e7a6-9261-4963-9a6d-52fa013bfdf5",
+        "name": "art. 16 CF/88",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "6dd387ab-c8ff-4814-a8e3-9550a3032aa3",
+        "name": "art. 30 III Lei n° 9.504/97",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "a7bd0f13-fdda-45ec-bdd3-c376e12f7c36",
+        "name": "art. 32 I Res. TSE n° 23.607/19",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "50e52f65-309a-4eb4-b2f6-79fe68c471b8",
+        "name": "art. 3º Res. TSE n° 23.607/19",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "c61ca238-e40b-4765-92fe-ab96165089b3",
+        "name": "art. 19 Res. TSE n° 23.478/16",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "07d77085-e2bd-4360-b575-e5608ea856f4",
+        "name": "art. 5º XXXV CF/88",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "61004d8c-ec08-4c76-bebb-038427914d6c",
+        "name": "art. 1.021 Lei n° 13.105/15",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "30c4accb-0bad-4b64-8c30-bab342414b99",
+        "name": "art. 73 §10 Lei n° 9.504/97",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "0a5c72f6-73f0-4f40-945b-e4754aa4afa7",
+        "name": "Lei n° 414/24",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "7f311844-4a1f-49ca-8959-845a7e26b163",
+        "name": "art. 10 Res. TSE n° 23.600/19",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "8e693156-44b0-455a-a407-f5d14a2f6e6d",
+        "name": "art. 21 Res. TSE n° 23.600/19",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "442235a4-4d82-4c67-adb1-13dc37da967a",
+        "name": "art. 13 § 3º I Lei n° 9.504/97",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "06d7ee95-8fd5-402f-8cd2-65ad4b10b252",
+        "name": "art. 17 § 2º Res. TSE n° 23.604/19",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "6f624b93-d470-4072-a226-61de87060f07",
+        "name": "art. 4º § 1º EC n° 133/24",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "1d0cdd2e-76ed-4172-8c4a-c84d7af2f3dd",
+        "name": "art. 6º EC n° 133/24",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "7d624359-43ce-4a55-8974-9b3d24502537",
+        "name": "art. 7º EC n° 133/24",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "1d5eed6c-dd66-4e40-9113-f86f679d7f59",
+        "name": "art. 133 EC n° 133/24",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "18e9b8cb-edf5-4f61-b3c0-49df3d4beda5",
+        "name": "art. 2024 EC n° 133/24",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "26ef99a8-4350-4598-9faf-8412941fe9e6",
+        "name": "art. 4º EC n° 133/24",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "d7950cd6-e8fb-4802-a097-7facf8cfc10f",
+        "name": "art. 24 EC n° 133/24",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "4c8713ed-1562-4777-8e23-3760152b510e",
+        "name": "art. 2.3 EC n° 133/24",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "9cd82386-a86c-464b-b6af-1c7d3b1037b9",
+        "name": "art. 3.1.1 EC n° 133/24",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "71291952-9b1f-4a8d-b418-01e16e31519b",
+        "name": "art. 3.1.3 EC n° 133/24",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "3f325cd2-8402-4b6d-9425-d803bda7abfb",
+        "name": "art. 31 I Res. TSE n° 23.607/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "7844a2d5-b43b-483e-b3a3-46071867c97b",
+        "name": "art. 31 V Lei n° 9.096/95",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "1d92ed9d-6732-44a8-8918-a69fb8a453bf",
+        "name": "art. 150 i CF/88",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "6c525156-8d39-40f6-b933-4105a1fa4fe7",
+        "name": "art. 31 i Lei n° 9.096/95",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "f03a151e-699c-492b-8f37-46c32329924f",
+        "name": "Lei n° 13.877/19",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "a64e7218-5420-4f8f-aea6-a93c15d10a39",
+        "name": "art. 3º-A Res. TSE n° 23.610/19",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "775b9159-aa49-4fac-aa23-205e816b8fd5",
+        "name": "art. 36 § 3º Lei n° 9.504/97",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "3e24c2e9-67d4-4472-956e-cc3f9b570dbc",
+        "name": "art. 36-A III Lei n° 9.504/97",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "31e9289d-7102-4c30-9e2c-2784a9f30481",
+        "name": "art. 2º Lei n° 9.504/97",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "624d22af-59bd-4e02-ab4a-943afc8621fc",
+        "name": "art. 36-A Lei n° 9.504/97",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "4fec9da9-4848-4f54-8c20-20f6f937e5ba",
+        "name": "Res. TSE n° 23.732/24",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "f069b8af-a86a-4cdd-9a39-870c0a821cea",
+        "name": "art. 17 § 9º Res. TSE n° 23.609",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "5af655da-9b9f-417a-bbde-e16a8ae9b7cf",
+        "name": "art. 17 § 9º Res. TSE n° 23.607",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "1bff27de-d5e5-4ddb-ac1e-202ed136e54a",
+        "name": "art. 17 §§2º Res. TSE n° 23.607/19",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "dbd7a81e-8eba-4b7d-ae48-2f22af22edf2",
+        "name": "art. 17 §2º Res. TSE n° 23.607/19",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "d572d00a-9fa7-4884-be30-cf3bcc09cb49",
+        "name": "art. 72 v Res. TSE n° 23.607/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "6aa26f4c-0031-41d8-975e-c6bfbefd6fb8",
+        "name": "art. 11 Res. TSE n° 23.607/19",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "5fac3706-de49-49e1-9d3c-e17cc15d90f8",
+        "name": "art. 30 §5º Lei n° 9.504/97",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "8e4828e9-f894-4f47-b31d-2713cfa211b9",
+        "name": "art. 224 Lei n° 13.105/15",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "c580ab34-b5fc-4366-ba19-dd480d4e14d2",
+        "name": "art. 72 Res. TSE n° 23.607/19",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "29e0963f-3f9f-4ca4-9715-818d5adf722f",
+        "name": "art. 49 § 5º IV Res. TSE n° 23.607/19",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "dba0be43-a5b2-4267-994b-e2d5dcc00747",
+        "name": "art. 80 I Res. TSE n° 23.607/19",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "fb6c6d44-b3aa-4eb7-83ab-77da8827431e",
+        "name": "art. 1º I Res. TSE n° 23.607/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "fed8ca75-5d39-419d-8e44-044810b91659",
+        "name": "art. 29 III Lei n° 9.504/97",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "a26c19a7-91ac-465c-b994-e8dc58966b3d",
+        "name": "art. 49 Res. TSE n° 23.607/19",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "8d8058af-4e0c-4559-abbc-951fbc666bf3",
+        "name": "art. 98 Res. TSE n° 23.607/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "f3b9f99d-9090-444a-b333-bb08d5a5b994",
+        "name": "art. 23.607 Lei n° 9.504/97",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "c1301614-9f91-43d0-a226-1b920f3e37e2",
+        "name": "art. 2019 Lei n° 9.504/97",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "5ee7e02f-4dd6-496c-b0d0-8781b0c8ca0a",
+        "name": "art. 49 c Lei n° 9.504/97",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "639adb72-e0dc-40f4-be9f-917333c6ad1e",
+        "name": "art. 5º IV Lei n° 9.504/97",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "aadff919-807f-4166-90d7-3cb903dccd75",
+        "name": "art. 30 IV Lei n° 9.504/97",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "5655e36e-14e8-4a3e-a440-eeb9f982d707",
+        "name": "art. 45 III Lei n° 9.504/97",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "5a1b4d39-4a3b-4ccc-bf79-0b79db7a8836",
+        "name": "art. 45 Lei n° 9.504/97",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "04300fc9-a96c-4548-9dc2-15d16826e925",
+        "name": "art. 45 IV Lei n° 9.504/97",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "d4d8f35d-ede5-44f8-ab46-7c1c222ded8f",
+        "name": "art. 45 § 2º Lei n° 9.504/97",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "006978f5-770f-4c1f-83ac-8a53b359289f",
+        "name": "art. 28 § 1º i Res. TSE n° 23.610/19",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "3236fd61-2eee-4cac-8fba-310df78726ee",
+        "name": "art. 20 Decreto-Lei n° 4.657/42",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "f6d679e2-b635-4218-ba88-b7ea0477f2bf",
+        "name": "Lei n° 4.657/42",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "a4995d29-baab-4b3f-9ac3-b3e93dce5a12",
+        "name": "art. 11-A § 3º I Lei n° 9.096/95",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "54dd740b-d1d7-4a9c-b700-9bf595f8f6d2",
+        "name": "art. 11-A Lei n° 9.096/95",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "ed684bcb-08e6-4410-b446-fd0ba0452471",
+        "name": "art. 62 IV Lei n° 5.010/66",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "a0eb9396-74b4-4ff1-9424-f2dc3e61a850",
+        "name": "art. 16 Res. TSE n° 23.607/19",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "4d8ce802-2961-4098-aed8-893d86a14ab8",
+        "name": "art. 61 Res. TSE n° 23.607/19",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "40a9f218-232d-4d38-b916-2a3a3c0e978f",
+        "name": "art. 35 § 2º Res. TSE n° 23.607/19",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "60089108-05ec-4f7d-ba80-07506f4f24d6",
+        "name": "art. 26 §§ 3º Res. TSE n° 23.608/19",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "fc706ba5-346d-4ca4-bbe8-cb6238a023be",
+        "name": "art. 4º Res. TSE n° 23.608/19",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "f92dced9-0f21-4338-9837-904c87232504",
+        "name": "art. 22-A III Lei n° 9.096/95",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "657d1d58-cca1-4cf4-b01c-5f63676fd1a0",
+        "name": "art. 22-A Lei n° 9.096/95",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "d6750bf7-fdc0-4ce7-9006-d0938a9f9806",
+        "name": "art. 17 § 6º CF/88",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "41afa7b0-b347-43fe-8809-d5346a5e2327",
+        "name": "art. 5º LXIX CF/88",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "42cb0cd7-18a0-43d2-bfe3-a58453653d85",
+        "name": "art. 17 §6º CF/88",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "926b01f6-ca26-4595-bf67-bff5b569d393",
+        "name": "Lei n° 12.016/09",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "87943b2a-8745-4fa1-abc8-0aa632fc0794",
+        "name": "art. 242 Lei n° 4.737/65",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "9634e2eb-3fba-464d-b765-c22ac2eaa061",
+        "name": "art. 57-D c Lei n° 9.504/97",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "b82973d5-143f-44e9-9513-337649820d80",
+        "name": "art. 17 §2º I Res. TSE n° 23.607/19",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "f82534c0-007a-4854-9002-21776d1f6efd",
+        "name": "art. 9º EC n° 97/17",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "43eb5167-75ae-4b55-92bf-9be244b5cd5c",
+        "name": "art. 23 § 2º Lei n° 9.504/97",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "7c387e18-5fc5-4e61-bed3-d2320407386a",
+        "name": "art. 27 §§ 1º Res. TSE n° 23.607/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "70697ec7-85bc-4174-a1b2-d876637a595a",
+        "name": "art. 27 §1º Res. TSE n° 23.607/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "46a4e216-a948-479b-a19d-d7ca43ca2b35",
+        "name": "art. 27 § 4º Res. TSE n° 23.607/19",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "97511e3b-b44f-4959-8947-2902d6805cfe",
+        "name": "art. 27 § 1º Res. TSE n° 23.607/19",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "ed82da58-9fd5-4519-81d6-0c73a6f67a66",
+        "name": "art. 27 Res. TSE n° 23.607/19",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "4f9966fc-3068-41f1-88a4-47e5b97ab30b",
+        "name": "art. 23 § 3º Lei n° 9.504/97",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "caa79bda-c53c-4de2-9165-5ad18b92397f",
+        "name": "art. 1.022 I Lei n° 13.105/15",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "92c5a240-77a2-41ea-ae07-8811b9b7a22e",
+        "name": "art. 6º §4º Lei n° 9.504/97",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "44cb226f-bdf9-468e-a3b6-4e9169263055",
+        "name": "art. 6º §4º LC n° 64/90",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "2ba74a66-4795-47bb-834a-683104fd82d0",
+        "name": "art. 73 § 12 Lei n° 9.504/97",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "98f4fdcc-9fb0-4c46-b7d6-e1dd876f95d6",
+        "name": "art. 20 II Res. TSE n° 23.735/24",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "ccf2b3bc-08c8-4ca6-a0f8-8d954d498493",
+        "name": "art. 36 C Lei n° 9.504/97",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "246e0117-7ae8-4503-91f1-3d9d717a0489",
+        "name": "art. 3º Lei n° 9.504/97",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "b7feeece-ebf5-4b4d-a009-0cd2ee648c20",
+        "name": "art. 37 Lei n° 9.504/97",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "b913cda1-074a-49f1-9bd9-1f7e185739f8",
+        "name": "art. 36 §3º Lei n° 9.504/97",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "5602f44b-f637-46ab-929c-f64ee05c5465",
+        "name": "art. 141 Lei n° 13.105/15",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "f9eda7ee-707b-4ac4-b641-c07938f24be6",
+        "name": "art. 222 Lei n° 4.737/65",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "cee7b238-90fc-47eb-80a7-3bf0502c9559",
+        "name": "art. 144 Lei n° 13.105/15",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "42e13308-8478-45aa-a920-7f21b18e17bb",
+        "name": "art. 81 Lei n° 13.105/15",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "b8e90ebd-7849-40de-8b2e-7a3b3bf7498f",
+        "name": "art. 14 § 11 CF/88",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "85c2e45e-3596-4572-82ba-e17ed27fc6fc",
+        "name": "Res. TSE n° 23.553",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "45284a86-0aa2-4a99-b4ba-eac1ea8011f4",
+        "name": "art. 29 § 2º Res. TSE n° 23.610/19",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "22bffcdd-8245-4307-a537-494b27998ea2",
+        "name": "art. 50-B I Lei n° 9.096/95",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "ac1f821d-a09f-4eec-b31b-125594809666",
+        "name": "art. 4º III Lei n° 9.096/95",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "716d2297-a4c2-4a27-969f-c69273b2839a",
+        "name": "Res. TSE n° 23.600/19",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "8f063d46-82e1-4c33-baeb-18aa3ac5ced6",
+        "name": "art. 2º § 7º Res. TSE n° 23.600/19",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "73dc39ef-7b28-4658-8b25-e758118c3126",
+        "name": "art. 2º § 7º IV Lei n° 9.504/97",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "acf6c7db-f657-4d08-a470-ed5bb1ac4fb1",
+        "name": "art. 33 IV Lei n° 9.504/97",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "c19ded9e-8783-46e3-9eff-59531efb8c4e",
+        "name": "art. 5º EC n° 133/24",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "eff76451-0d55-4740-93bd-489f0957c696",
+        "name": "art. 1 EC n° 133/24",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "5c1796da-ba3e-4135-8905-9a84adaa7584",
+        "name": "art. 2024.3 EC n° 133/24",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "c0b621dd-8236-488b-990e-3ccc6c44c430",
+        "name": "art. 4 EC n° 133/24",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "5622729f-3d57-44b6-9c72-1a39c9d1d986",
+        "name": "art. 5 EC n° 133/24",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "ce61e1b2-342c-40ac-a9f1-4f4e002561ba",
+        "name": "art. 1030 Lei n° 13.105/15",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "0ee9699b-0a22-45dd-9a12-4d917f6172b5",
+        "name": "art. 1.030 Lei n° 13.105/15",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "8f7154ee-0f9e-4ff7-8f98-f442a22358c3",
+        "name": "art. 93 CF/88",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "3d2dbb36-ecd3-4487-87dc-502d1ff1ebdc",
+        "name": "art. 18 § 1º Res. TSE n° 23.604/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "9c48fb87-8318-4879-8388-8bcfca34152d",
+        "name": "art. 36 § 2º Res. TSE n° 23.604/19",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "e34d4468-dc7a-4c27-8394-afd22909c722",
+        "name": "art. 150 VI CF/88",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "7b5dfe7a-e64f-4e6c-beac-48b98c87a82a",
+        "name": "art. 150 VI EC n° 133/24",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "69a90953-94d9-4a11-b0b7-121d94259ffc",
+        "name": "art. 1º EC n° 133/24",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "97fb4c37-496f-419a-b0e8-8ec62f56964c",
+        "name": "Res. TSE n° 23.604",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "bef64e01-b943-48a4-af9b-f9ffdb46285a",
+        "name": "art. 29 § 5º Lei n° 9.504/97",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "d62ae52a-a242-4fcc-a500-4fed37889c0f",
+        "name": "art. 29 c Lei n° 9.504/97",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "7d4b0fda-61b7-468a-beed-82df8e33dfda",
+        "name": "art. 57-B §§ 1º Lei n° 9.504/97",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "f19deb5e-4b37-491a-82d9-509f8ebdfaf7",
+        "name": "art. 57-C §§ 1º Lei n° 9.504/97",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "232b72e2-725a-42cc-a30e-f1d1e8ca08e7",
+        "name": "art. 73 V Lei n° 9.504/97",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "de2f3f5d-f9a5-4c2f-88e4-58ab1a49b86d",
+        "name": "art. 10 LC n° 64/90",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "2efb9c46-4c50-4678-9b39-4a651eb82982",
+        "name": "art. 1990 LC n° 64/90",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "d56c1a14-3660-4480-9608-8cff7ce74325",
+        "name": "art. 22 XIV Lei n° 4.737/65",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "5b06a59b-0f54-476b-be00-ff28cac65f67",
+        "name": "art. 17 §§ 2º Res. TSE n° 23.607",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "8c59ab7b-8ef2-4107-a391-bc0a27ce779f",
+        "name": "art. 2º-A Res. TSE n° 23.607",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "5b99ca31-1bda-43a5-babb-5d9a7b65656d",
+        "name": "art. 17 § 2º I Lei n° 9.504/97",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "81515314-70da-4876-bd8e-86d3efab1d07",
+        "name": "art. 19 § 7º I Lei n° 9.504/97",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "97387a9c-b7d7-426a-bdac-7e8dea3a53f1",
+        "name": "art. 26 § 5º Lei n° 9.504/97",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "0fd81d62-8ff8-4176-af62-80490fbad28e",
+        "name": "art. 30 Lei n° 9.504/97",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "65ffff22-a446-4528-bac6-defda8a82afa",
+        "name": "art. 17 § 7º Res. TSE n° 23.607",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "e8932307-904f-4b82-8922-54421db6d45f",
+        "name": "art. 76 Res. TSE n° 23.607",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "67ecf1bf-504f-496e-b165-8e6a1a19e35c",
+        "name": "art. 19 §§ 7º Res. TSE n° 23.607",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "622cbc16-2ab7-429e-ab3a-29bbce7c44bc",
+        "name": "art. 9º Res. TSE n° 23.607",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "6c7f2dd2-8596-4fb7-b4ef-4b4c6a27d11b",
+        "name": "art. 23 IX Lei n° 4.737/65",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "c814d577-850d-41f1-899b-90fe2d895e8b",
+        "name": "art. 105 Lei n° 9.504/97",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "fd6b0fd5-b462-4204-b4a9-89d07df9ac91",
+        "name": "art. 19 § 9º Res. TSE n° 23.607",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "e22c4187-ceb0-4452-bdb4-9ce214f64722",
+        "name": "art. 44 Lei n° 9.906/96",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "eea8287e-6e81-4fc1-b2f1-b5f11e63d39d",
+        "name": "art. 9º Lei n° 13.165/15",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "907d668a-f81e-4291-9bee-b9224f831093",
+        "name": "art. 272 § 5º Lei n° 13.105/15",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "99fff64a-212b-4e40-a351-c8835d3d99b1",
+        "name": "art. 69 §1º Res. TSE n° 23.607",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "76d28de0-bc2b-4520-aa0f-f6ed3b680c4e",
+        "name": "art. 74 III Res. TSE n° 23.607",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "af144446-5e6e-433d-ba20-5cea5559f7e2",
+        "name": "art. 223 Lei n° 13.105/15",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "6d144fe7-4318-4dc4-804a-bd732928fd57",
+        "name": "art. 219 Lei n° 13.105/15",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "b7b69b4b-a9ae-4f7d-8fbc-753c737308c2",
+        "name": "art. 2º Lei n° 13.105/15",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "5f911369-5c48-4e27-bcdf-8eb9a7c5091d",
+        "name": "art. 3º Lei n° 13.105/15",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "23513f6f-c9d7-406e-8b0e-9116d79af085",
+        "name": "art. 7º Res. TSE n° 23.478",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "95523462-f95c-4739-b294-b8e8f01d9fc0",
+        "name": "art. 189 Lei n° 13.105/15",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "c532e949-7eab-4dad-b2e9-9f7cf5175ea9",
+        "name": "art. 1.042 Lei n° 13.105/15",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "48645f50-cdd8-4910-89e6-d7bd223cfa6b",
+        "name": "art. 998 c Lei n° 13.105/15",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "d99a408e-0263-4dd1-aaef-0a60a930bac4",
+        "name": "art. 105 Lei n° 13.105/15",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "2b98b283-bddb-450b-80a1-8a2203af45a5",
+        "name": "art. 40-B Lei n° 9.504/97",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "7edaeaa5-f760-474b-a471-7d67280c9f55",
+        "name": "Res. TSE n° 23.746/25",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "deb85243-7f34-4c7c-958d-57712705d531",
+        "name": "art. 18 Res. TSE n° 23.604",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "ec571a2f-e5df-4c54-b168-4b2b69b19b49",
+        "name": "art. 80 IV Lei n° 13.105/15",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "a0819199-bc4f-467e-b4c2-b0a5a5d42949",
+        "name": "Lei n° 14.523/23",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "e8a18906-99e8-4e17-8f8c-2a2a443b0ceb",
+        "name": "art. 3 Lei n° 13.105/15",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "70732365-129d-4342-92f2-a15af2a3c5b0",
+        "name": "art. 48 § 3º Res. TSE n° 23.604/19",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "e5392ad3-4cd3-4fb5-bc59-bf26ca9ab650",
+        "name": "art. 44 Lei n° 9.096/95",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "45e3d40a-4ad7-40d5-adef-cf7d836dbc30",
+        "name": "art. 489 Lei n° 13.105/15",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "cff8950d-da89-40e8-90a6-ad91896b140b",
+        "name": "art. 57-C §§ 2º Lei n° 9.504/97",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "6ebbf316-1c25-4446-b5e4-648fb3005e7a",
+        "name": "art. 9º Res. TSE n° 23.610/19",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "929f04e2-9ac7-4ea2-8e7c-f55b51b88ccb",
+        "name": "art. 29 § 3º Res. TSE n° 23.610/19",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "fb50f320-f01b-4961-a03b-5eefc59578d9",
+        "name": "art. 35 § 11 Res. TSE n° 23.607",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "f5a95a64-a972-4f53-8ea2-1b2364cda867",
+        "name": "art. 53 II Res. TSE n° 23.607",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "ede71c59-cfad-42cb-b3db-5dbea0ed90dc",
+        "name": "art. 60 Res. TSE n° 23.607",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "2bd47ae5-ef3c-4dbd-ad80-ee684f2ac278",
+        "name": "art. 35 Res. TSE n° 23.607",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "6e087dcc-c45c-4b7a-984a-7f8837871c8c",
+        "name": "art. 17 § 2º I Res. TSE n° 23.607",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "9d7eee1c-d00a-4700-87c4-d41419b670cd",
+        "name": "art. 38 § 2º Lei n° 9.504/97",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "b6053a98-791c-4450-883e-6ab07b75ebce",
+        "name": "art. 17 § 2º Res. TSE n° 23.607",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "e24e8ec8-a251-4a34-8bab-8064a29f39c0",
+        "name": "art. 17 §§ 1º Res. TSE n° 23.607",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "a19607b0-9371-4dab-b851-009cf5b75265",
+        "name": "art. 2º Res. TSE n° 23.607",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "e1d30d89-da4e-4f23-8924-0b74f509a3eb",
+        "name": "art. 73 IV Lei n° 9.504/97",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "25066b40-d8b9-428c-9fa1-5ad28f519972",
+        "name": "art. 485 i Lei n° 13.105/15",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "2f82492e-377e-4848-958f-43630d860e97",
+        "name": "art. 27 Lei n° 9.504/97",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "382ac0b5-4a24-4ac1-82fa-faef9ec09212",
+        "name": "art. 100 Lei n° 9.504/97",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "a08f7948-3c4c-4b0c-b42c-648d41c18c92",
+        "name": "art. 100-A Lei n° 9.504/97",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "5e22f524-3c66-40de-a925-a5df65407eed",
+        "name": "art. 371 Lei n° 13.105/15",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "ce118ef7-e5f7-43bd-83ad-53318deb565c",
+        "name": "art. 60 § 3º Res. TSE n° 23.607",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "5f913170-58af-4c45-a66a-665191d452da",
+        "name": "art. 1.022 Lei n° 4.737/65",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "2876440c-0aa0-48ce-8182-8d61e7c59faf",
+        "name": "art. 457 §1º Lei n° 13.105/15",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "23d88c8b-f937-40ab-a6fb-034d947daae6",
+        "name": "art. 2º § 1º Res. TSE n° 23.609/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "55e00a40-e350-4665-894f-f3b820386f05",
+        "name": "Res. TSE n° 23.571/18",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "884d5f61-08a1-4a44-a305-1f48630636fb",
+        "name": "art. 14 Res. TSE n° 23.604/19",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "66f5b742-45c9-400a-9bdb-52ee794d25c3",
+        "name": "art. 54-C Res. TSE n° 23.571/13",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "84c02182-5223-4872-8fb1-290561f2e9c4",
+        "name": "art. 29 Res. TSE n° 23.604/19",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "ec4955be-8d3b-4f73-8cd0-f988bb954044",
+        "name": "art. 36 § 4º Lei n° 9.504/97",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "7942b40b-465c-4149-8465-ffcaabec3176",
+        "name": "art. 36 §§ 3º Lei n° 9.504/97",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "15973e69-4c25-4737-92e4-962d3a1ae66b",
+        "name": "art. 930 Lei n° 13.105/15",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "279d07cb-af6f-44d9-96a9-1af78b26971f",
+        "name": "art. 36 §§ 8º Lei n° 13.105/15",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "801551ce-17f2-4482-abd9-a2da38d91df9",
+        "name": "art. 9º Lei n° 13.105/15",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "db882bb3-cfd3-4ea4-bc6d-63015c5ecc3e",
+        "name": "art. 1.022 II Lei n° 4.737/65",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "49632299-983f-4c3c-aac6-9f494f892a3a",
+        "name": "art. 347 Lei n° 9.096/95",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "8b0ce1a0-6cf6-4316-8830-6bcc053a23fd",
+        "name": "art. 1º Lei n° 9.096/95",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "a05069f5-4afa-42ad-af66-c4e8255f9279",
+        "name": "art. 21 § 1º Res. TSE n° 23.607/19",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "2500d6ec-24a6-41d0-af5f-e0a3ef44ef08",
+        "name": "art. 32 § 1º IV Res. TSE n° 23.607/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "576f9646-9ede-4488-bf3f-b099ba5c676f",
+        "name": "art. 251-04 Res. TSE n° 23.607/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "badcf812-d30d-4f99-bdd8-d315746102e0",
+        "name": "art. 76 Res. TSE n° 23.607/19",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "1e3e4d2c-fad6-43bb-aa65-23362f8466c4",
+        "name": "art. 23 § 1º Lei n° 9.504/97",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "99fc7e6c-c142-4d8e-babe-013f22913464",
+        "name": "art. 27 §9º Res. TSE n° 23.607/19",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "96fc9611-018b-4bd7-a87d-9ef0fcbed98a",
+        "name": "art. 27 §5º Res. TSE n° 23.607/19",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "9b208e9b-d704-40fc-bc57-17be64e7f0a0",
+        "name": "art. 23 Lei n° 9.504/97",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "f485984f-c6e7-4616-a72e-8bc23df7c6ba",
+        "name": "art. 23 §§ 1º Lei n° 9.504/97",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "10d51f4b-9976-4096-86b8-c048c5d179dc",
+        "name": "art. 279 § 2º Lei n° 13.105/15",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "7d3ed86f-3ac9-4165-b3cd-067c9b601887",
+        "name": "art. 36 § 2º Lei n° 13.105/15",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "79d37a4c-3c4f-4ecc-b728-cd9fb66bbd93",
+        "name": "art. 69 § 7º Res. TSE n° 23.607/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "8053ffec-cbf1-4f99-9108-7ef800660bd8",
+        "name": "art. 8º §§ 1º Res. TSE n° 23.607/19",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "6f46f4ba-d6fe-4e76-b130-67b57ab26e4e",
+        "name": "art. 22 c Lei n° 9.504/97",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "87499121-def9-438e-beec-212d3d7ae28b",
+        "name": "art. 7º § 2º Res. TSE n° 23.463/15",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "8982a88b-2245-4b11-9e27-65466daa5a9c",
+        "name": "art. 38 I Res. TSE n° 23.607/19",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "ec9c9eb9-f7e7-43a2-a5e5-3217e0c9483d",
+        "name": "art. 14 Res. TSE n° 23.607/19",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "5e88fe97-7dd7-4858-ac43-fd293ed34d36",
+        "name": "art. 32 § 1º VI Res. TSE n° 23.607/19",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "d3a11b38-60d2-420f-b6ad-170685177412",
+        "name": "art. 26 § 4º Res. TSE n° 23.607/19",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "bd838a10-2023-437b-a884-4df7476f19c4",
+        "name": "art. 23.607 Res. TSE n° 23.607/19",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "7d9f93f8-e55d-49b6-9f68-bd5ccbea146c",
+        "name": "art. 2019 Res. TSE n° 23.607/19",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "026daf28-79ca-4a63-9bed-85bb750f5194",
+        "name": "art. 53 II Res. TSE n° 23.607/19",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "dab0efa4-eb8d-405c-9ba3-f01cc71588cb",
+        "name": "art. 060090898 Res. TSE n° 23.607/19",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "ddf6187b-10b3-46d7-94c9-84bd7152acde",
+        "name": "art. 23 § 10 Lei n° 9.504/97",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "b3d7f451-9661-47eb-8329-5a0fe157cf3a",
+        "name": "art. 25 § 1º Lei n° 9.504/97",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "29eda634-f88f-42eb-ae7a-ef0e05328fc2",
+        "name": "art. 35 § 9º Res. TSE n° 23.607/19",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "497c578f-16cb-4d66-8685-b7ded343460a",
+        "name": "art. 31 § 3º Res. TSE n° 23.607/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "4fc6030f-15fe-4211-ae29-c348ce31579f",
+        "name": "art. 10 § 3 Lei n° 9.504/97",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "fe62c2f1-50a8-4077-893a-6b2fc6233bc4",
+        "name": "art. 485 IV Lei n° 13.105/15",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "20eea4de-b85e-4aaf-b9da-f641cdc01153",
+        "name": "art. 434 Lei n° 4.737/65",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "367e8b76-5282-4029-a5ce-603c3deb3a12",
+        "name": "art. 435 Lei n° 4.737/65",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "29147daf-d7af-41d9-a3c3-0ea635bbebe3",
+        "name": "art. 22 LC n° 94/90",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "a93debee-6a47-45f4-9713-d4c73a31f977",
+        "name": "art. 17 § 2º Res. TSE n° 23.608/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "624a11a0-51d9-4afb-965f-4f5a420527cc",
+        "name": "art. 279 Lei n° 13.105/15",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "31e80ea2-f168-4505-8753-46c11f43ab60",
+        "name": "art. 1.402 Lei n° 13.105/15",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "7c192f56-d65a-44e9-a034-e1f92b9e8064",
+        "name": "art. 164793332 Lei n° 13.105/15",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "0031c220-f19b-4f82-98ee-69f3b7347eee",
+        "name": "art. 275 c Lei n° 13.105/15",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "7603ce81-ae4f-4600-a832-acac9af0d837",
+        "name": "art. 63 Res. TSE n° 23.553/17",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "c2c2d3ad-9782-4d7f-b87c-a674e8a02560",
+        "name": "art. 77 II Res. TSE n° 23.553/17",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "bbbce35e-a452-4c80-aadd-d5eccff972cb",
+        "name": "art. 69 § 1º Lei n° 13.105/15",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "3df23d03-6f54-4174-893b-8913a4ba4d6c",
+        "name": "art. 47 §§ 6º Res. TSE n° 23.607/19",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "563db012-04c7-4d2d-8728-0eb7bd5ea20d",
+        "name": "art. 7º Res. TSE n° 23.607/19",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "6a234da7-7001-444b-b76f-e8f6797a7784",
+        "name": "art. 47 Res. TSE n° 23.607/19",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "7fffdf0d-5bf1-4c7d-92e5-977e2832f4e5",
+        "name": "Lei n° 12.034/09",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "7dfb6702-7b06-40ce-848e-137915bc4a8a",
+        "name": "art. 30 § 2º Lei n° 9.504/97",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "6fb7d18f-688a-406c-8890-384ba6e001de",
+        "name": "art. 35 Lei n° 9.504/97",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "00ce496f-f3e2-4e1a-8327-1ab4ba895963",
+        "name": "art. 41-A LC n° 64/90",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "0254591e-4273-46aa-95c6-63e95f64a3bc",
+        "name": "art. 22 Lei n° 13.105/15",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "a7861130-41c1-4add-98af-72537d853461",
+        "name": "art. 45 § 3º Res. TSE n° 23.607/19",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "46a39b7f-4a0e-4e40-93e2-1d13c4082505",
+        "name": "art. 14 § 7º CF/88",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "e70b0316-9d06-497f-81f6-c2da2e37823d",
+        "name": "art. 422 Lei n° 13.105/15",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "382454af-4724-488d-900f-dd069cc7a5c3",
+        "name": "art. 8 Lei n° 13.105/15",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "3bbfafc9-abcb-4992-8496-d1dd1fb10652",
+        "name": "art. 14 §§ 5º CF/88",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "2636ca28-27b4-4a45-afe7-2a416623f4fc",
+        "name": "art. 7º CF/88",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "5dce24c3-df4a-4069-b970-dc7c5813abdc",
+        "name": "art. 39 § 8º Lei n° 9.504/97",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "34a0b774-01a7-43bf-a904-ad0957163c7b",
+        "name": "art. 14 Res. TSE n° 23.610/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "8945a5e2-650e-4bdd-8e75-fdfb5fa9fb01",
+        "name": "art. 26 Res. TSE n° 23.610/19",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "3f0ab104-89da-4b46-ac5c-7ff40fce1706",
+        "name": "art. 26 § 2º Res. TSE n° 23.610/19",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "1889bc2f-f4b8-4448-b0bb-fdc91c37b8ff",
+        "name": "art. 80 Lei n° 13.105/15",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "25072e24-3b0f-498b-b6c1-a63aa8e76c50",
+        "name": "art. 10.000 Lei n° 13.105/15",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "ec03d358-2f81-43d2-9aeb-194ea6294903",
+        "name": "art. 00 Lei n° 13.105/15",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "516f5460-9354-469d-b5d7-9e6ac6123edf",
+        "name": "art. 276 I Lei n° 9.504/97",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "2ec62f9b-09f6-4037-b855-ec2b53efe12b",
+        "name": "art. 39 §8º Lei n° 9.504/97",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "2eeb1dfd-c1ab-4a3e-bf6b-15546ac97cdc",
+        "name": "art. 37 § 1º Lei n° 9.504/97",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "6cbd050d-0885-45ed-9d37-8159ed8ac1b3",
+        "name": "art. 40-B L Lei n° 9.504/97",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "221f4191-4d29-4abe-95ae-ccbab09a9da6",
+        "name": "art. 18-B Lei n° 9.504/97",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "afacb8b2-0732-4f51-bd39-7806e2ae065c",
+        "name": "art. 26 § 1º Lei n° 9.504/97",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "cb371db1-5860-44dd-a425-c58040b31449",
+        "name": "art. 27 Lei n° 13.105/15",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "faf7d406-6871-49dc-9fdd-85f69f1ce5cf",
+        "name": "art. 45 § 8º Res. TSE n° 23.607/19",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "54000c25-f9db-423a-884b-40fd98989e94",
+        "name": "art. 21 § 1º Res. TSE n° 26.607/19",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "3bd27cf1-3d28-4954-a099-b3fe7c33a982",
+        "name": "art. 21 §1º Res. TSE n° 23.607/19",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "cc31b00c-202f-4d9c-8bb1-380c987cac7f",
+        "name": "art. 21 §§ 1º Res. TSE n° 23.607/19",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "a01e2e34-1770-4754-b4ae-fdb4cd1c8fd7",
+        "name": "art. 21 §4º Res. TSE n° 23.607/19",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "cab1ef94-5524-4fc3-93dd-f98876bc8988",
+        "name": "art. 21 Res. TSE n° 23.607/19",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "9d1883b5-9a7f-49f3-9149-9b668fd566a7",
+        "name": "art. 1º Res. TSE n° 23.607/19",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "ae61e050-1ff4-4f39-96e9-bf7390cf14c0",
+        "name": "art. 165119480 Res. TSE n° 23.607/19",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "094ef858-9099-4a33-95a1-50dfc7d56d0e",
+        "name": "art. 23 § 4º Lei n° 9.504/97",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "33fa3961-5000-4054-aa36-85db65f880b1",
+        "name": "art. 26 Lei n° 13.105/15",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "a6338c6b-a23b-4635-b974-9b67a99e33dd",
+        "name": "art. 2015 i Lei n° 13.105/15",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "9b0e9086-37c0-40ee-9726-043a8b3bd3a7",
+        "name": "art. 37 §1º CF/88",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "4a374991-7a59-464e-a217-343539364925",
+        "name": "art. 73 §4º Lei n° 9.504/97",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "711892da-f66a-4dc7-a2a5-db5245ff2c96",
+        "name": "art. 164738768 Lei n° 9.504/97",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "30f634e8-6399-4f7c-9eee-d777b99c2134",
+        "name": "art. 22 LC LC n° 64/90",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "ac77ad74-5768-4b90-9a43-aca634cb4904",
+        "name": "art. 30-A L Lei n° 9.504/97",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "80e0f6c4-0e11-4075-9bfc-d51dbc112701",
+        "name": "art. 1997 Lei n° 9.504/97",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "ebb9d9cb-cb21-44ef-8791-9687b47862f4",
+        "name": "art. 487 II Lei n° 13.105/15",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "ef42e70e-52fe-4e6a-a8eb-b044a01b5f1d",
+        "name": "art. 224 §1º Lei n° 13.105/15",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "c58c17dd-76ac-469f-974d-513487133676",
+        "name": "art. 62 I Lei n° 13.105/15",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "68b86578-a34c-42bb-a3f3-7e889be4eedd",
+        "name": "art. 62 I Lei n° 5.010/66",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "2612b3ae-8a20-49c1-9b78-a9d53166999a",
+        "name": "art. 30-A c Lei n° 9.504/97",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "6f8e764d-71f6-4753-b562-427589640c12",
+        "name": "art. 57-C § 1º I Lei n° 9.504/97",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "f39976a0-fd31-42ba-8a14-482cd89e4ab5",
+        "name": "art. 29 § 1º I Res. TSE n° 23.610/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "5f02e8d1-a247-419c-bd34-44de3549c05f",
+        "name": "art. 40-B Res. TSE n° 23.610/19",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "4cad57a4-d838-49c5-8d83-ddcbabbeb1fd",
+        "name": "art. 57-C §1º I Lei n° 9.504/97",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "57198ff1-7fbb-46bb-8a89-f6989e64496a",
+        "name": "art. 22 V LC n° 64/90",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "ad93689e-1d93-473d-8195-a9cd44444df8",
+        "name": "art. 370 Lei n° 13.105/15",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "ace313b2-82bb-4d8e-adef-02545422f55d",
+        "name": "art. 455 § 5º Lei n° 13.105/15",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "f1d17a76-10e0-4a73-84f8-6b5795e9738d",
+        "name": "art. 216 Res. TSE n° 23.611/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "25db7217-7f32-4374-b9b2-b6eb0b00b143",
+        "name": "art. 60 § 8º Res. TSE n° 23.607/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "f0f96feb-7ac7-4c66-803d-4b339ae34f9a",
+        "name": "art. 24 § 7º Res. TSE n° 23.608/19",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "58f8911c-78a7-4f5d-bade-529ee1f1a60a",
+        "name": "art. 275 § 1º Lei n° 4.737/65",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "ed9ff406-476f-4652-9046-89639d25fa51",
+        "name": "art. 1º I LC n° 64/90",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "c54fd655-0653-40ad-bb23-4cdf82099abe",
+        "name": "art. 489 §1º IV Lei n° 13.105/15",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "751d0ed7-b9dd-4124-a0fb-b35889aaa0e8",
+        "name": "art. 26 §2º Res. TSE n° 23.610/19",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "cdcc6e6e-423c-47b0-8a93-b8f2bc4b0e6a",
+        "name": "art. 17 §§ 6º Res. TSE n° 23.607/19",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "f9688d7b-0da6-453a-a38b-a9f4e3b0dcde",
+        "name": "art. 17 § 7º Res. TSE n° 23.607/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "ab1c8e34-1b23-4bbc-bc73-0c0a45a5f9f5",
+        "name": "art. 8º c Res. TSE n° 23.607/19",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "ae03a939-9639-4f69-8026-96d7b2f24975",
+        "name": "art. 22 Res. TSE n° 23.607/19",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "1dcc0993-2fd3-44e3-b9ca-3893202ca106",
+        "name": "art. 53 Res. TSE n° 23.607/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "c85f0ae1-917e-40c2-9360-182234544fdd",
+        "name": "art. 10 § 2º Res. TSE n° 23.553/17",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "6bead75b-e47b-40af-96f0-2b3db486e202",
+        "name": "art. 490 Lei n° 13.105/15",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "7abf2f0c-652a-4f38-aba5-4fbbd5455c32",
+        "name": "art. 492 C Lei n° 13.105/15",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "5a2043ca-6c3b-4fbf-a852-21543540c8e7",
+        "name": "art. 15 I Res. TSE n° 23.735/24",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "703d85e0-4402-4885-9eb9-ce0ca393d086",
+        "name": "art. 37 §4º Lei n° 9.504/97",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "20929727-ee93-4e58-a5db-d4312f9c4a8a",
+        "name": "art. 276 I alínea b Lei n° 4.737/65",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "e4b4e0f8-2a55-4925-bdb1-9afee9371065",
+        "name": "art. 47 i Res. TSE n° 23.607/19",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "b3106ecb-0b1b-4821-896d-1324dcd93347",
+        "name": "art. 321 Lei n° 13.105/15",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "370d15fd-5d7f-4832-927a-d451a9e0baa3",
+        "name": "art. 1.013 § 3º I Lei n° 13.105/15",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "928995ab-1651-4ce9-8111-1b2dc02b4cf0",
+        "name": "art. 1.013 Lei n° 13.105/15",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "180dcb15-90d6-4f02-9c34-205dd07eb1c2",
+        "name": "art. 9 Lei n° 13.105/15",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "6b022dc3-a06c-470e-a644-f89628c8fd47",
+        "name": "art. 489 § 1º IV CF/88",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "b2586394-2b3f-4210-a08b-6905e96291d3",
+        "name": "art. 66 Lei n° 9.504/97",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "5703a9e4-6824-4d6c-8e33-84dff85cabe3",
+        "name": "art. 221 II Lei n° 4.737/65",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "d364b541-311c-4007-84a5-cff0a4626c7e",
+        "name": "art. 93 Lei n° 4.737/65",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "c1c11b10-6fdc-49bf-81bf-102fc718dcda",
+        "name": "art. 94 Lei n° 4.737/65",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "308b4fbd-09f6-4d05-b2ae-4ef66296e0cd",
+        "name": "art. 98 Lei n° 4.737/65",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "5f4759b5-8cc6-44ed-b442-9cf176bf3579",
+        "name": "art. 132 Res. TSE n° 23.736/24",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "10e32153-a0c3-483f-86e2-a33e3c2f2e51",
+        "name": "art. 135 Res. TSE n° 23.736/24",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "d44743b4-e4e5-4fd3-8d17-cbc637b25dee",
+        "name": "art. 194 Res. TSE n° 23.736/24",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "747e1e23-aa5c-42c1-9be1-c94382374c5e",
+        "name": "art. 221 Res. TSE n° 23.736/24",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "70f45b3e-a9db-4d2f-aafd-602d7ed7a5a0",
+        "name": "art. 94 Res. TSE n° 23.736/24",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "d35629db-71b6-4b25-be97-b65b3d095ac0",
+        "name": "art. 19 §§ 3º Res. TSE n° 23.607/19",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "fa3d889a-a261-4d81-8915-385f0af05e48",
+        "name": "art. 4º-A Res. TSE n° 23.607/19",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "1869ac4d-2ae5-423c-b79d-7b04996f0beb",
+        "name": "art. 19 § 9º Res. TSE n° 23.607/19",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "00aad5ca-bfaf-410f-878e-1c934a2aa08d",
+        "name": "art. 74 §§ 5º Res. TSE n° 23.607/19",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "c758a1d3-09f7-4035-afb8-059bc0055a61",
+        "name": "art. 10 Res. TSE n° 23.607/19",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "695c6502-1081-46c5-8ac6-51bec3deba5d",
+        "name": "art. 19 § 4º Res. TSE n° 23.607/19",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "532a50da-9e5c-49de-b83d-0e4ca60074cf",
+        "name": "art. 932 i Lei n° 13.105/15",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "dfb6d59f-3e4b-4c48-8285-5cd3dda39947",
+        "name": "art. 19 § 7º I Res. TSE n° 23.607/19",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "7a73d6ed-4685-4935-b9bc-10c3b7b90504",
+        "name": "art. 58 § 8º Lei n° 9.504/97",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "57f7c0fa-7362-4e71-8fb8-74f6b75ee9bd",
+        "name": "art. 58 Lei n° 9.504/97",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "96b20066-63ec-4027-841b-c23369af8003",
+        "name": "art. 37 CF/88",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "a95cd63b-f8ed-40c9-8d6f-0e7b1eb9ca1c",
+        "name": "art. 75 Lei n° 9.504/97",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "ca123e93-86a9-4951-a661-fd30039f9282",
+        "name": "LC n° 135/10",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "dcada21f-987c-4d33-95de-38bf6eaaba0c",
+        "name": "art. 60 § 1º Res. TSE n° 23.607/19",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "d1c46823-1d21-4a19-81de-1671a92731b6",
+        "name": "art. 32 VI Res. TSE n° 23.607/19",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "a8c79138-7f71-48e1-9f6a-c75ee154bcef",
+        "name": "art. 60 § 1º III Res. TSE n° 23.607/19",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "010bb767-62b8-423c-a667-5643d5d1a4e7",
+        "name": "art. 38 Res. TSE n° 23.607/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "fa1dfb78-2d5f-41de-9c15-cc3010dfeb33",
+        "name": "art. 9º § 2º Res. TSE n° 23.607/19",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "7d2497f0-a046-45ae-b210-ae1e1891976d",
+        "name": "art. 73 VII Lei n° 9.504/97",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "53e7b5f1-6f7c-444e-90e8-e1b08ee542ff",
+        "name": "art. 9-C § 1º Res. TSE n° 23.610/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "cf619c47-305b-4745-9f87-8f430c74ba8f",
+        "name": "art. 9º-B Res. TSE n° 23.610/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "835c87bb-ddbf-4e9b-a487-5c37188621a9",
+        "name": "art. 10 Res. TSE n° 23.610/19",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "f66192cd-af1f-4b5c-b3af-4ad2cabd2ddb",
+        "name": "art. 65 Res. TSE n° 23.607/19",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "7f452286-0c24-4c1a-8ac8-739c4cdacdb7",
+        "name": "art. 5º c CF/88",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "51f2d67f-9ae7-44f5-83c3-b9b4e81b7e14",
+        "name": "art. 62 Res. TSE n° 23.607/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "3ec97362-2541-45e5-831a-9e3c35add28a",
+        "name": "art. 30 c Lei n° 9.504/97",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "9906a4ca-731a-4064-8f24-6e81b9803fe0",
+        "name": "art. 74 I Lei n° 9.504/97",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "d27415a3-c11c-4779-998b-cfa54e9aa34c",
+        "name": "art. 35 §§ 11 I Res. TSE n° 23.607/19",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "b72f9736-5cc7-40e8-b511-87fc5f831797",
+        "name": "art. 11-A Res. TSE n° 23.607/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "f135166d-7f18-4a30-9592-a9388565f953",
+        "name": "art. 35 § 11 I Res. TSE n° 23.607/19",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "64e4d08d-25f3-43e4-b63c-ba64fadb002a",
+        "name": "art. 275 § 6º Lei n° 4.737/65",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "96021ace-d59c-4232-a239-3b4a06709fc5",
+        "name": "art. 224 Lei n° 4.737/65",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "25b7cbac-2577-4413-b31f-f1fc84485cf0",
+        "name": "art. 93 IX Lei n° 4.737/65",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "1686217e-9609-4ca9-9ad4-9218d03ee8b2",
+        "name": "art. 219 LC n° 64/90",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "b7c11f3c-7c7d-46f2-8503-1277bf9a8054",
+        "name": "art. 11 LC n° 64/90",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "e68261f1-e05a-472b-bba2-a1fa7b3fb6ec",
+        "name": "art. 1º LC n° 64/90",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "e7b95648-c0ff-42f5-8207-03a215470fd6",
+        "name": "art. 2º LC n° 64/90",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "9eb91b20-778f-4de2-8ae4-528d18c0188a",
+        "name": "art. 5º Lei n° 11.419/06",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "e25dcd86-82e9-42ca-a4fd-87438001268b",
+        "name": "art. 5º Lei n° 9.784/99",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "3211d3d6-64dd-4683-99b0-1adb3fe7a9a9",
+        "name": "art. 2º Lei n° 9.784/99",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "212b69ca-d5fa-4d19-8b8b-fbb4cffe9b4a",
+        "name": "art. 5º Lei n° 13.105/15",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "8558b0a9-800e-4622-86ea-521781199cbb",
+        "name": "art. 7º Lei n° 13.105/15",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "d8575913-a394-419b-9031-2b7de488f88f",
+        "name": "art. 8º Lei n° 13.105/15",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "8d75d40f-62a9-4f85-8eb0-6a9bdc07c4e8",
+        "name": "art. 17 §§ 1º Res. TSE n° 23.607/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "f6116a2a-8042-455c-807a-34d0c2415f9e",
+        "name": "Res. TSE n° 22.610/07",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "5f0d9135-ef15-46ed-a936-3836a810c3b1",
+        "name": "Res. TSE n° 23.596/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "92901ed4-f88b-42ab-84e1-4376531dfb67",
+        "name": "art. 7º § 2º Res. TSE n° 23.598/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "3e281215-36d1-4e54-8724-1d2004ea9da4",
+        "name": "art. 1º § 2º Res. TSE n° 22.610/07",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "5d4115fc-6a41-4d08-9535-aebc595ccf3f",
+        "name": "art. 25-B § 1º Res. TSE n° 23.596/18",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "1d40eb40-4f59-4ab0-871a-276644766c41",
+        "name": "art. 2º-A v Res. TSE n° 23.607/19",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "cc095f56-aef0-4d35-aba2-d6e000a1f6d4",
+        "name": "art. 7214 Res. TSE n° 23.607/19",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "3e6d8d92-4de0-44cc-af53-8c9752a9a9e2",
+        "name": "art. 17 § 2° I Res. TSE n° 23.607/19",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "414fd996-56e5-4fcc-836e-661bc6d33138",
+        "name": "art. 23 Res. TSE n° 23.659/21",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "9c61fdb0-08e5-4f57-9338-557ab7bc6d21",
+        "name": "art. 11 Lei n° 9.504/97",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "5a46623a-5ef6-499c-9c42-84e23919e48e",
+        "name": "art. 53 Res. TSE n° 23.659/21",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "167a15d2-358e-4252-a39e-1224e6374abe",
+        "name": "art. 119 Res. TSE n° 23.659/21",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "8b53f79d-376b-4814-8219-5e07b4e6e7e0",
+        "name": "art. 17 §§ 2° Res. TSE n° 23.607/19",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "74c98496-9416-4a91-9d57-e6a20616028d",
+        "name": "art. 17 §9º Res. TSE n° 23.607/19",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "fc01cc67-a495-4b1d-988d-57b964d88e42",
+        "name": "art. 988 II Lei n° 13.105/15",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "4a2197a5-055f-4bb1-a6c1-1ae6a6b56aea",
+        "name": "art. 353 Lei n° 4.737/65",
+        "color": "green",
+        "description": null
+      },
+      {
+        "id": "907bd914-0b37-40a3-b2f9-02e96005c6d9",
+        "name": "art. 988 Lei n° 13.105/15",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "4195de25-2f30-4fe5-88cf-aa62030c497f",
+        "name": "art. 1.010 III Lei n° 13.105/15",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "0daa047b-7b1a-46f2-94f9-72693c6935e1",
+        "name": "art. 33 § 5º Lei n° 9.504/97",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "a06244d4-bf95-404e-93c4-1385ce1fe46a",
+        "name": "art. 537 c Lei n° 13.105/15",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "2b6829e3-265b-4493-83e5-be1924acfe52",
+        "name": "art. 537 §§ 1º Lei n° 13.105/15",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "b7728409-afb4-41df-b7d7-16a7a239d411",
+        "name": "art. 4º Lei n° 13.105/15",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "b07d251a-3b86-4cdd-9991-53cb80313a3c",
+        "name": "art. 23 § 1º Res. TSE n° 23.600/21",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "4234f481-4ca1-4bd4-8713-0914b7fb9f4b",
+        "name": "art. 435 C Lei n° 13.105/15",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "472c689a-05b6-454d-97f6-c3a12da90378",
+        "name": "art. 6 Lei n° 13.105/15",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "0eaa0ee6-1a2c-4ecf-957b-067a9b5ff6dc",
+        "name": "art. 68 § 3º Res. TSE n° 23.607/19",
+        "color": "pink",
+        "description": null
+      },
+      {
+        "id": "a0060282-c224-4898-ac39-7ae7373db4e5",
+        "name": "art. 76 § 1º I Lei n° 13.105/15",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "c590be51-32ae-4de7-b114-7a826513e7b0",
+        "name": "art. 69 Res. TSE n° 23.607/19",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "a8f9e609-6c5f-458d-aab7-eaa3395cf730",
+        "name": "art. 26 § 1º Res. TSE n° 23.610/19",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "1989225d-45ff-4858-be60-457d50f61b3b",
+        "name": "art. 39 §8º L Lei n° 9.504/97",
+        "color": "purple",
+        "description": null
+      },
+      {
+        "id": "7f29cd6e-2152-4313-8a36-1fe11c4a27a8",
+        "name": "art. 6 Lei n° 9.504/97",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "f7a4fb66-dcff-4749-bcd1-2a93222e5542",
+        "name": "art. 64 §5º Res. TSE n° 23.607/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "25c94212-acaa-4815-b581-02bbfda3d56f",
+        "name": "art. 79 §1º c Res. TSE n° 23.607/19",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "4efa6c45-262b-43cf-b1eb-6fdf692eb0e6",
+        "name": "art. 80 §3º Res. TSE n° 23.607/19",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "1d3a1996-4e1c-4756-98f7-be7fd1c75d79",
+        "name": "art. 37 § 5º Lei n° 9.096/95",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "41b7d3c5-5ddb-4a18-ad1f-dfc0e1f422fb",
+        "name": "art. 17 § 2º Res. TSE n° 23.064/19",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "92c47e96-0205-4d8f-ba52-3c34a386e55e",
+        "name": "art. 8º § 2º Res. TSE n° 23.604/19",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "c2b60957-7269-44e9-984c-3bed198f9144",
+        "name": "art. 13 Res. TSE n° 23.604/19",
+        "color": "brown",
+        "description": null
+      },
+      {
+        "id": "e2241f04-dfe0-413e-9cb0-dd4b3b6f46dc",
+        "name": "art. 164654073 LC n° 64/90",
+        "color": "yellow",
+        "description": null
+      },
+      {
+        "id": "2f70aea0-e028-46e7-a3ac-aa18a1b1a32a",
+        "name": "art. 69 §§ 1º Res. TSE n° 23.607/19",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "54461b78-82a7-47d7-ad93-ee525a14cfa7",
+        "name": "Res. TSE n° 23.463/15",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "de7ebeb3-b920-4a05-b3c2-65ce65b29c8f",
+        "name": "Res. TSE n° 22.549",
+        "color": "default",
+        "description": null
+      },
+      {
+        "id": "940632fd-fb03-49ff-8047-1184668931e9",
+        "name": "art. 10 Res. TSE n° 23.607/14",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "5ef12e48-7a37-4839-8e2b-65cdb341883c",
+        "name": "art. 10 Res. TSE n° 23.417/14",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "18d96c6d-3683-4861-8474-3b9f6e3d2863",
+        "name": "art. 10 Lei n° 11.419/06",
+        "color": "red",
+        "description": null
+      },
+      {
+        "id": "517fd066-f22d-4aef-8e5c-e9e16f462006",
+        "name": "art. 11 Res. TSE n° 23.417/14",
+        "color": "orange",
+        "description": null
+      },
+      {
+        "id": "0f10fc94-0d0d-4d5b-aef4-e634e0830478",
+        "name": "art. 5º § 3º Lei n° 11.419/06",
+        "color": "blue",
+        "description": null
+      },
+      {
+        "id": "bfd2540b-3456-4d8c-b5ff-440ba0fd6a77",
+        "name": "art. 77 § 2º Lei n° 13.105/15",
+        "color": "gray",
+        "description": null
+      },
+      {
+        "id": "5ad7077c-685c-4eb4-8439-ec58ce186d86",
+        "name": "art. 94-A I Lei n° 9.504/97",
+        "color": "green",
+        "description": null
+      }
+    ]
+  }
+}

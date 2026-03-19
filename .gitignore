@@ -13,3 +13,7 @@ Chave_Notion.txt
 *notion*key*.txt
 __pycache__/
 .vscode/
+.venv/
+.venv*/
+venv/
+env/

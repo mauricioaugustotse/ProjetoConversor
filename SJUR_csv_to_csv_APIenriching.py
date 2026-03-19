@@ -20,7 +20,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Callable, Sequence
 
-import SJUR_csv_to_csv_NOTIONfriendly as sjur
+import Artefatos.legado.SJUR_csv_to_csv_NOTIONfriendly as sjur
 from Artefatos.scripts.openai_log_utils import configure_standard_logging, install_print_logger_bridge
 from Artefatos.scripts.openai_progress_utils import (
     build_file_signature,
@@ -259,6 +259,16 @@ def enrich_one_file(
         needed_columns.extend(sjur.URL_COLUMNS)
     _ensure_columns(rows, fieldnames, needed_columns)
 
+    def _sanitize_official_news(stage: str) -> None:
+        cleared = sjur.sanitize_official_news_columns(rows)
+        if cleared:
+            logger(
+                f"[{input_path.name}] [sanitize] {stage}: removidos {cleared} valores genericos/inuteis "
+                "em noticia_TSE/noticia_TRE."
+            )
+
+    _sanitize_official_news("entrada")
+
     if backup_before_write and output_path.exists() and not checkpoint_path.exists():
         backup_path = make_backup(
             output_path,
@@ -295,6 +305,7 @@ def enrich_one_file(
                     "request_key": str(saved_progress.get("request_key", "") or ""),
                     "news_status": str(saved_progress.get("news_status", "") or ""),
                 }
+        _sanitize_official_news("checkpoint")
         logger(f"[{input_path.name}] [resume] checkpoint aplicado: {restored}/{len(rows)} linhas.")
     elif output_path.exists() and output_path.resolve() != input_path.resolve() and not checkpoint_path.exists():
         preserved_stats = sjur.preserve_columns_from_reference_rows(
@@ -302,6 +313,7 @@ def enrich_one_file(
             reference_csv=output_path,
             columns=[*sjur.DEFAULT_PRESERVE_COLUMNS, "assuntos"],
         )
+        _sanitize_official_news("csv_existente")
         applied_total = int(preserved_stats.get("applied_total", 0) or 0)
         if applied_total > 0:
             logger(
@@ -706,9 +718,27 @@ def launch_gui() -> None:
         def __init__(self, root: tk.Tk) -> None:
             self.root = root
             self.root.title("SJUR API Enriched (Lote)")
-            self.root.geometry("920x760")
+            self._configure_window()
+
+            self.style = ttk.Style(self.root)
+            self.style.configure("GuiTitle.TLabel", font=("Segoe UI", 12, "bold"))
+            self.style.configure("Hint.TLabel", foreground="#555555")
 
             self.file_vars: dict[str, tk.BooleanVar] = {}
+            self.managed_widget_states: dict[tk.Widget, str] = {}
+            self.feature_groups: dict[str, list[tk.Widget]] = {
+                "openai": [],
+                "perplexity": [],
+                "assuntos": [],
+                "output": [],
+            }
+            self.secret_entries: list[tk.Widget] = []
+
+            self.files_summary_var = tk.StringVar(value="Nenhum CSV selecionado.")
+            self.run_summary_var = tk.StringVar(value="Selecione arquivos e ajuste o fluxo.")
+            self.openai_status_var = tk.StringVar(value="")
+            self.perplexity_status_var = tk.StringVar(value="")
+            self.show_secrets_var = tk.BooleanVar(value=False)
             self.output_dir_var = tk.StringVar(value="")
             self.suffix_var = tk.StringVar(value="_APIenriched")
             self.in_place_var = tk.BooleanVar(value=False)
@@ -752,29 +782,127 @@ def launch_gui() -> None:
             self.perplexity_delay_var = tk.StringVar(value="0.3")
             self.verbose_terminal_var = tk.BooleanVar(value=True)
             self._build_ui()
+            self._attach_state_traces()
+            self._update_secret_visibility()
+            self._sync_feature_state()
+
+        def _configure_window(self) -> None:
+            self.root.update_idletasks()
+            screen_width = max(1024, int(self.root.winfo_screenwidth()))
+            screen_height = max(720, int(self.root.winfo_screenheight()))
+            width = min(1080, screen_width - 80)
+            height = min(820, screen_height - 120)
+            width = max(880, width)
+            height = max(620, height)
+            pos_x = max(20, (screen_width - width) // 2)
+            pos_y = max(20, (screen_height - height) // 5)
+            self.root.geometry(f"{width}x{height}+{pos_x}+{pos_y}")
+            self.root.minsize(860, 620)
+
+        def _register_managed_widget(
+            self,
+            widget: tk.Widget,
+            *,
+            group: str | None = None,
+            enabled_state: str = "normal",
+        ) -> tk.Widget:
+            self.managed_widget_states[widget] = enabled_state
+            if group is not None:
+                self.feature_groups[group].append(widget)
+            return widget
+
+        def _register_secret_entry(self, widget: tk.Widget) -> tk.Widget:
+            self.secret_entries.append(widget)
+            return widget
+
+        def _set_widgets_state(self, group: str, enabled: bool) -> None:
+            for widget in self.feature_groups.get(group, []):
+                try:
+                    state = self.managed_widget_states.get(widget, "normal") if enabled else "disabled"
+                    widget.configure(state=state)
+                except Exception:
+                    continue
 
         def _build_ui(self) -> None:
+            self.root.columnconfigure(0, weight=1)
+            self.root.rowconfigure(0, weight=1)
+
             main = ttk.Frame(self.root, padding=12)
-            main.pack(fill="both", expand=True)
+            main.grid(row=0, column=0, sticky="nsew")
+            main.columnconfigure(0, weight=1)
+            main.rowconfigure(2, weight=1)
 
-            top_controls = ttk.Frame(main)
-            top_controls.pack(fill="x")
-            ttk.Button(top_controls, text="Processar selecionados", command=self.process_selected).pack(
-                side="right", padx=(8, 0)
+            header = ttk.Frame(main)
+            header.grid(row=0, column=0, sticky="ew")
+            header.columnconfigure(0, weight=1)
+            ttk.Label(header, text="SJUR API Enriched", style="GuiTitle.TLabel").grid(row=0, column=0, sticky="w")
+            ttk.Label(
+                header,
+                text="Selecione os CSVs, defina o fluxo e execute o enriquecimento por lote.",
+                style="Hint.TLabel",
+            ).grid(row=1, column=0, sticky="w", pady=(2, 0))
+            ttk.Label(header, textvariable=self.files_summary_var).grid(row=0, column=1, rowspan=2, sticky="e")
+
+            self._build_files_box(main)
+
+            notebook = ttk.Notebook(main)
+            notebook.grid(row=2, column=0, sticky="nsew", pady=(12, 0))
+
+            flow_tab = ttk.Frame(notebook, padding=12)
+            openai_tab = ttk.Frame(notebook, padding=12)
+            perplexity_tab = ttk.Frame(notebook, padding=12)
+            log_tab = ttk.Frame(notebook, padding=12)
+            notebook.add(flow_tab, text="Fluxo")
+            notebook.add(openai_tab, text="OpenAI")
+            notebook.add(perplexity_tab, text="Perplexity")
+            notebook.add(log_tab, text="Log")
+
+            self._build_flow_tab(flow_tab)
+            self._build_openai_tab(openai_tab)
+            self._build_perplexity_tab(perplexity_tab)
+            self._build_log_tab(log_tab)
+
+            footer = ttk.Frame(main)
+            footer.grid(row=3, column=0, sticky="ew", pady=(12, 0))
+            footer.columnconfigure(0, weight=1)
+            ttk.Label(footer, textvariable=self.run_summary_var, style="Hint.TLabel").grid(
+                row=0, column=0, sticky="w"
             )
-            ttk.Button(top_controls, text="Selecionar CSVs", command=self.add_files).pack(side="left", padx=(0, 8))
-            ttk.Button(top_controls, text="Adicionar pasta", command=self.add_folder).pack(side="left", padx=(0, 8))
-            ttk.Button(top_controls, text="Marcar todos", command=self.check_all).pack(side="left", padx=(0, 8))
-            ttk.Button(top_controls, text="Desmarcar todos", command=self.uncheck_all).pack(side="left", padx=(0, 8))
-            ttk.Button(top_controls, text="Limpar lista", command=self.clear_files).pack(side="left")
+            ttk.Button(footer, text="Processar selecionados", command=self.process_selected).grid(
+                row=0, column=1, sticky="e", padx=(12, 0)
+            )
 
-            list_box = ttk.LabelFrame(main, text="Arquivos selecionados (checkbox)", padding=8)
-            list_box.pack(fill="both", expand=False, pady=(10, 10))
-            self.canvas = tk.Canvas(list_box, height=220)
-            scrollbar = ttk.Scrollbar(list_box, orient="vertical", command=self.canvas.yview)
+            self.root.bind("<Control-Return>", lambda _event: self.process_selected())
+            self.refresh_file_list()
+
+        def _build_files_box(self, parent: tk.Widget) -> None:
+            files_box = ttk.LabelFrame(parent, text="Arquivos selecionados", padding=8)
+            files_box.grid(row=1, column=0, sticky="ew", pady=(12, 0))
+            files_box.columnconfigure(0, weight=1)
+            files_box.rowconfigure(1, weight=1)
+
+            controls = ttk.Frame(files_box)
+            controls.grid(row=0, column=0, sticky="ew")
+            controls.columnconfigure(6, weight=1)
+            ttk.Button(controls, text="Selecionar CSVs", command=self.add_files).grid(row=0, column=0, padx=(0, 8))
+            ttk.Button(controls, text="Adicionar pasta", command=self.add_folder).grid(row=0, column=1, padx=(0, 8))
+            ttk.Button(controls, text="Marcar todos", command=self.check_all).grid(row=0, column=2, padx=(0, 8))
+            ttk.Button(controls, text="Desmarcar todos", command=self.uncheck_all).grid(row=0, column=3, padx=(0, 8))
+            ttk.Button(controls, text="Limpar lista", command=self.clear_files).grid(row=0, column=4, padx=(0, 8))
+            ttk.Label(
+                controls,
+                text="Use as caixas para incluir/excluir arquivos da execução.",
+                style="Hint.TLabel",
+            ).grid(row=0, column=6, sticky="e")
+
+            canvas_wrap = ttk.Frame(files_box)
+            canvas_wrap.grid(row=1, column=0, sticky="ew", pady=(8, 0))
+            canvas_wrap.columnconfigure(0, weight=1)
+            self.canvas = tk.Canvas(canvas_wrap, height=160, highlightthickness=0)
+            scrollbar = ttk.Scrollbar(canvas_wrap, orient="vertical", command=self.canvas.yview)
             self.canvas.configure(yscrollcommand=scrollbar.set)
-            self.canvas.pack(side="left", fill="both", expand=True)
-            scrollbar.pack(side="right", fill="y")
+            self.canvas.grid(row=0, column=0, sticky="ew")
+            scrollbar.grid(row=0, column=1, sticky="ns")
             self.files_frame = ttk.Frame(self.canvas)
             self.files_frame_window = self.canvas.create_window((0, 0), window=self.files_frame, anchor="nw")
             self.files_frame.bind(
@@ -783,121 +911,328 @@ def launch_gui() -> None:
             )
             self.canvas.bind("<Configure>", self._on_files_canvas_configure)
 
-            options = ttk.LabelFrame(main, text="Opcoes", padding=10)
-            options.pack(fill="x", pady=(0, 10))
+        def _build_flow_tab(self, parent: ttk.Frame) -> None:
+            parent.columnconfigure(0, weight=1)
 
-            ttk.Label(options, text="Pasta de saida (vazio = pasta do CSV):").grid(row=0, column=0, sticky="w")
-            ttk.Entry(options, textvariable=self.output_dir_var, width=70).grid(row=0, column=1, sticky="ew", padx=8)
-            ttk.Button(options, text="Selecionar...", command=self.choose_output_dir).grid(row=0, column=2, sticky="e")
-
-            ttk.Label(options, text="Sufixo de saida:").grid(row=1, column=0, sticky="w", pady=(8, 0))
-            ttk.Entry(options, textvariable=self.suffix_var, width=25).grid(row=1, column=1, sticky="w", padx=8, pady=(8, 0))
-            ttk.Checkbutton(options, text="Sobrescrever arquivo de entrada (--in-place)", variable=self.in_place_var).grid(
-                row=2, column=0, columnspan=3, sticky="w", pady=(8, 0)
+            output_box = ttk.LabelFrame(parent, text="Saida", padding=10)
+            output_box.grid(row=0, column=0, sticky="ew")
+            output_box.columnconfigure(1, weight=1)
+            ttk.Label(output_box, text="Pasta de saida (vazio = pasta do CSV):").grid(row=0, column=0, sticky="w")
+            self.output_dir_entry = self._register_managed_widget(
+                ttk.Entry(output_box, textvariable=self.output_dir_var),
+                group="output",
             )
-            ttk.Checkbutton(options, text="Sem backup (--no-backup)", variable=self.no_backup_var).grid(
-                row=3, column=0, columnspan=3, sticky="w", pady=(2, 0)
+            self.output_dir_entry.grid(row=0, column=1, sticky="ew", padx=(8, 8))
+            self.output_dir_button = self._register_managed_widget(
+                ttk.Button(output_box, text="Selecionar...", command=self.choose_output_dir),
+                group="output",
             )
-
+            self.output_dir_button.grid(row=0, column=2, sticky="e")
+            ttk.Label(output_box, text="Sufixo de saida:").grid(row=1, column=0, sticky="w", pady=(10, 0))
+            self.suffix_entry = self._register_managed_widget(
+                ttk.Entry(output_box, textvariable=self.suffix_var, width=24),
+                group="output",
+            )
+            self.suffix_entry.grid(row=1, column=1, sticky="w", padx=(8, 0), pady=(10, 0))
             ttk.Checkbutton(
-                options,
-                text="PREENCHER tema/punchline vazios (OpenAI)",
+                output_box,
+                text="Sobrescrever o proprio CSV (--in-place)",
+                variable=self.in_place_var,
+            ).grid(row=2, column=0, columnspan=3, sticky="w", pady=(10, 0))
+            ttk.Checkbutton(
+                output_box,
+                text="Nao criar backup quando houver arquivo de saida (--no-backup)",
+                variable=self.no_backup_var,
+            ).grid(row=3, column=0, columnspan=3, sticky="w", pady=(4, 0))
+
+            fill_box = ttk.LabelFrame(parent, text="O que preencher", padding=10)
+            fill_box.grid(row=1, column=0, sticky="ew", pady=(12, 0))
+            fill_box.columnconfigure(0, weight=1)
+            ttk.Checkbutton(
+                fill_box,
+                text="Tema e punchline vazios (OpenAI)",
                 variable=self.skip_openai_tema_punchline_var,
                 onvalue=False,
                 offvalue=True,
-            ).grid(row=4, column=0, columnspan=3, sticky="w", pady=(10, 0))
+            ).grid(row=0, column=0, sticky="w")
             ttk.Checkbutton(
-                options,
-                text="PREENCHER assuntos vazios (OpenAI)",
+                fill_box,
+                text="Assuntos vazios (OpenAI)",
                 variable=self.enriquecer_assuntos_var,
-            ).grid(row=5, column=0, columnspan=3, sticky="w", pady=(2, 0))
+            ).grid(row=1, column=0, sticky="w", pady=(4, 0))
             ttk.Checkbutton(
-                options,
-                text="PREENCHER noticias vazias (Perplexity)",
+                fill_box,
+                text="Noticias vazias (Perplexity)",
                 variable=self.skip_perplexity_urls_var,
                 onvalue=False,
                 offvalue=True,
-            ).grid(row=6, column=0, columnspan=3, sticky="w", pady=(2, 0))
+            ).grid(row=2, column=0, sticky="w", pady=(4, 0))
+            ttk.Label(
+                fill_box,
+                text=(
+                    "As abas OpenAI e Perplexity abaixo guardam as chaves e parametros. "
+                    "Campos irrelevantes ficam desativados automaticamente."
+                ),
+                style="Hint.TLabel",
+                wraplength=760,
+                justify="left",
+            ).grid(row=3, column=0, sticky="w", pady=(8, 0))
 
-            assuntos_frame = ttk.Frame(options)
-            assuntos_frame.grid(row=7, column=0, columnspan=3, sticky="w", pady=(6, 0))
-            ttk.Label(assuntos_frame, text="Max assuntos/linha").grid(row=0, column=0, sticky="w")
-            ttk.Entry(assuntos_frame, textvariable=self.assuntos_max_itens_var, width=6).grid(row=0, column=1, padx=(4, 14))
-            ttk.Label(assuntos_frame, text="Taxonomia").grid(row=0, column=2, sticky="w")
-            ttk.Combobox(
-                assuntos_frame,
-                textvariable=self.assuntos_taxonomy_mode_var,
-                values=list(sjur.ASSUNTOS_TAXONOMY_CHOICES),
-                state="readonly",
-                width=12,
-            ).grid(row=0, column=3, padx=(4, 0))
-
-            ttk.Label(options, text="OpenAI API key:").grid(row=8, column=0, sticky="w", pady=(8, 0))
-            ttk.Entry(options, textvariable=self.openai_api_key_var, width=70, show="*").grid(
-                row=8, column=1, sticky="ew", padx=8, pady=(8, 0)
+            assuntos_box = ttk.LabelFrame(parent, text="Detalhes de assuntos", padding=10)
+            assuntos_box.grid(row=2, column=0, sticky="ew", pady=(12, 0))
+            ttk.Label(assuntos_box, text="Maximo por linha").grid(row=0, column=0, sticky="w")
+            self.assuntos_max_entry = self._register_managed_widget(
+                ttk.Entry(assuntos_box, textvariable=self.assuntos_max_itens_var, width=6),
+                group="assuntos",
             )
-            ttk.Label(options, text="Arquivo da chave OpenAI:").grid(row=9, column=0, sticky="w", pady=(8, 0))
-            ttk.Entry(options, textvariable=self.openai_key_file_var, width=70).grid(
-                row=9, column=1, sticky="ew", padx=8, pady=(8, 0)
+            self.assuntos_max_entry.grid(row=0, column=1, sticky="w", padx=(8, 20))
+            ttk.Label(assuntos_box, text="Taxonomia").grid(row=0, column=2, sticky="w")
+            self.assuntos_taxonomy_combo = self._register_managed_widget(
+                ttk.Combobox(
+                    assuntos_box,
+                    textvariable=self.assuntos_taxonomy_mode_var,
+                    values=list(sjur.ASSUNTOS_TAXONOMY_CHOICES),
+                    state="readonly",
+                    width=12,
+                ),
+                group="assuntos",
+                enabled_state="readonly",
+            )
+            self.assuntos_taxonomy_combo.grid(row=0, column=3, sticky="w", padx=(8, 0))
+            ttk.Label(
+                assuntos_box,
+                text="Use somente quando “Assuntos vazios” estiver marcado.",
+                style="Hint.TLabel",
+            ).grid(row=1, column=0, columnspan=4, sticky="w", pady=(8, 0))
+
+        def _build_openai_tab(self, parent: ttk.Frame) -> None:
+            parent.columnconfigure(0, weight=1)
+            ttk.Label(parent, textvariable=self.openai_status_var, style="Hint.TLabel").grid(
+                row=0, column=0, sticky="w"
             )
 
-            openai_frame = ttk.Frame(options)
-            openai_frame.grid(row=10, column=0, columnspan=3, sticky="w", pady=(8, 0))
-            ttk.Label(openai_frame, text="Modelo OpenAI").grid(row=0, column=0, sticky="w")
-            ttk.Entry(openai_frame, textvariable=self.openai_model_var, width=12).grid(row=0, column=1, padx=(4, 14))
-            ttk.Label(openai_frame, text="Workers").grid(row=0, column=2, sticky="w")
-            ttk.Entry(openai_frame, textvariable=self.openai_workers_var, width=5).grid(row=0, column=3, padx=(4, 14))
-            ttk.Label(openai_frame, text="Timeout(s)").grid(row=0, column=4, sticky="w")
-            ttk.Entry(openai_frame, textvariable=self.openai_timeout_var, width=6).grid(row=0, column=5, padx=(4, 14))
-            ttk.Label(openai_frame, text="Batch").grid(row=0, column=6, sticky="w")
-            ttk.Entry(openai_frame, textvariable=self.openai_batch_size_var, width=6).grid(row=0, column=7, padx=(4, 14))
-            ttk.Label(openai_frame, text="Delay(s)").grid(row=0, column=8, sticky="w")
-            ttk.Entry(openai_frame, textvariable=self.openai_delay_var, width=6).grid(row=0, column=9, padx=(4, 0))
-            ttk.Label(openai_frame, text="Retries").grid(row=1, column=0, sticky="w", pady=(6, 0))
-            ttk.Entry(openai_frame, textvariable=self.openai_retries_var, width=6).grid(row=1, column=1, padx=(4, 14), pady=(6, 0))
-            ttk.Label(openai_frame, text="Target RPM").grid(row=1, column=2, sticky="w", pady=(6, 0))
-            ttk.Entry(openai_frame, textvariable=self.openai_target_rpm_var, width=8).grid(row=1, column=3, padx=(4, 14), pady=(6, 0))
-
-            ttk.Label(options, text="Perplexity API key:").grid(row=11, column=0, sticky="w", pady=(8, 0))
-            ttk.Entry(options, textvariable=self.perplexity_api_key_var, width=70, show="*").grid(
-                row=11, column=1, sticky="ew", padx=8, pady=(8, 0)
-            )
-            ttk.Label(options, text="Arquivo da chave Perplexity:").grid(row=12, column=0, sticky="w", pady=(8, 0))
-            ttk.Entry(options, textvariable=self.perplexity_key_file_var, width=70).grid(
-                row=12, column=1, sticky="ew", padx=8, pady=(8, 0)
-            )
-            perf_frame = ttk.Frame(options)
-            perf_frame.grid(row=13, column=0, columnspan=3, sticky="w", pady=(8, 0))
-            ttk.Label(perf_frame, text="Modelo Perplexity").grid(row=0, column=0, sticky="w")
-            ttk.Entry(perf_frame, textvariable=self.perplexity_model_var, width=10).grid(row=0, column=1, padx=(4, 14))
-            ttk.Label(perf_frame, text="Workers").grid(row=0, column=2, sticky="w")
-            ttk.Entry(perf_frame, textvariable=self.perplexity_workers_var, width=5).grid(row=0, column=3, padx=(4, 14))
-            ttk.Label(perf_frame, text="Timeout(s)").grid(row=0, column=4, sticky="w")
-            ttk.Entry(perf_frame, textvariable=self.perplexity_timeout_var, width=6).grid(row=0, column=5, padx=(4, 14))
-            ttk.Label(perf_frame, text="Batch").grid(row=0, column=6, sticky="w")
-            ttk.Entry(perf_frame, textvariable=self.perplexity_batch_size_var, width=6).grid(row=0, column=7, padx=(4, 14))
-            ttk.Label(perf_frame, text="Delay(s)").grid(row=0, column=8, sticky="w")
-            ttk.Entry(perf_frame, textvariable=self.perplexity_delay_var, width=6).grid(row=0, column=9, padx=(4, 0))
-
+            credentials_box = ttk.LabelFrame(parent, text="Chaves OpenAI", padding=10)
+            credentials_box.grid(row=1, column=0, sticky="ew", pady=(10, 0))
+            credentials_box.columnconfigure(1, weight=1)
             ttk.Checkbutton(
-                options,
-                text="Verbose no terminal",
+                credentials_box,
+                text="Mostrar chaves na tela",
+                variable=self.show_secrets_var,
+            ).grid(row=0, column=0, columnspan=3, sticky="w")
+            ttk.Label(credentials_box, text="API key").grid(row=1, column=0, sticky="w", pady=(10, 0))
+            self.openai_key_entry = self._register_secret_entry(
+                self._register_managed_widget(
+                    ttk.Entry(credentials_box, textvariable=self.openai_api_key_var),
+                    group="openai",
+                )
+            )
+            self.openai_key_entry.grid(row=1, column=1, sticky="ew", padx=(8, 8), pady=(10, 0))
+            ttk.Label(credentials_box, text="Arquivo da chave").grid(row=2, column=0, sticky="w", pady=(8, 0))
+            self.openai_key_file_entry = self._register_managed_widget(
+                ttk.Entry(credentials_box, textvariable=self.openai_key_file_var),
+                group="openai",
+            )
+            self.openai_key_file_entry.grid(row=2, column=1, sticky="ew", padx=(8, 8), pady=(8, 0))
+            self.openai_key_file_button = self._register_managed_widget(
+                ttk.Button(credentials_box, text="Selecionar...", command=self.choose_openai_key_file),
+                group="openai",
+            )
+            self.openai_key_file_button.grid(row=2, column=2, sticky="e", pady=(8, 0))
+
+            tuning_box = ttk.LabelFrame(parent, text="Parametros OpenAI", padding=10)
+            tuning_box.grid(row=2, column=0, sticky="ew", pady=(12, 0))
+            ttk.Label(tuning_box, text="Modelo").grid(row=0, column=0, sticky="w")
+            self.openai_model_entry = self._register_managed_widget(
+                ttk.Entry(tuning_box, textvariable=self.openai_model_var, width=12),
+                group="openai",
+            )
+            self.openai_model_entry.grid(row=0, column=1, padx=(8, 18), sticky="w")
+            ttk.Label(tuning_box, text="Workers").grid(row=0, column=2, sticky="w")
+            self.openai_workers_entry = self._register_managed_widget(
+                ttk.Entry(tuning_box, textvariable=self.openai_workers_var, width=6),
+                group="openai",
+            )
+            self.openai_workers_entry.grid(row=0, column=3, padx=(8, 18), sticky="w")
+            ttk.Label(tuning_box, text="Timeout(s)").grid(row=0, column=4, sticky="w")
+            self.openai_timeout_entry = self._register_managed_widget(
+                ttk.Entry(tuning_box, textvariable=self.openai_timeout_var, width=7),
+                group="openai",
+            )
+            self.openai_timeout_entry.grid(row=0, column=5, padx=(8, 18), sticky="w")
+            ttk.Label(tuning_box, text="Batch").grid(row=0, column=6, sticky="w")
+            self.openai_batch_entry = self._register_managed_widget(
+                ttk.Entry(tuning_box, textvariable=self.openai_batch_size_var, width=7),
+                group="openai",
+            )
+            self.openai_batch_entry.grid(row=0, column=7, padx=(8, 0), sticky="w")
+            ttk.Label(tuning_box, text="Delay(s)").grid(row=1, column=0, sticky="w", pady=(8, 0))
+            self.openai_delay_entry = self._register_managed_widget(
+                ttk.Entry(tuning_box, textvariable=self.openai_delay_var, width=7),
+                group="openai",
+            )
+            self.openai_delay_entry.grid(row=1, column=1, padx=(8, 18), pady=(8, 0), sticky="w")
+            ttk.Label(tuning_box, text="Retries").grid(row=1, column=2, sticky="w", pady=(8, 0))
+            self.openai_retries_entry = self._register_managed_widget(
+                ttk.Entry(tuning_box, textvariable=self.openai_retries_var, width=7),
+                group="openai",
+            )
+            self.openai_retries_entry.grid(row=1, column=3, padx=(8, 18), pady=(8, 0), sticky="w")
+            ttk.Label(tuning_box, text="Target RPM").grid(row=1, column=4, sticky="w", pady=(8, 0))
+            self.openai_rpm_entry = self._register_managed_widget(
+                ttk.Entry(tuning_box, textvariable=self.openai_target_rpm_var, width=8),
+                group="openai",
+            )
+            self.openai_rpm_entry.grid(row=1, column=5, padx=(8, 0), pady=(8, 0), sticky="w")
+
+        def _build_perplexity_tab(self, parent: ttk.Frame) -> None:
+            parent.columnconfigure(0, weight=1)
+            ttk.Label(parent, textvariable=self.perplexity_status_var, style="Hint.TLabel").grid(
+                row=0, column=0, sticky="w"
+            )
+
+            credentials_box = ttk.LabelFrame(parent, text="Chaves Perplexity", padding=10)
+            credentials_box.grid(row=1, column=0, sticky="ew", pady=(10, 0))
+            credentials_box.columnconfigure(1, weight=1)
+            ttk.Label(credentials_box, text="API key").grid(row=0, column=0, sticky="w")
+            self.perplexity_key_entry = self._register_secret_entry(
+                self._register_managed_widget(
+                    ttk.Entry(credentials_box, textvariable=self.perplexity_api_key_var),
+                    group="perplexity",
+                )
+            )
+            self.perplexity_key_entry.grid(row=0, column=1, sticky="ew", padx=(8, 8))
+            ttk.Label(credentials_box, text="Arquivo da chave").grid(row=1, column=0, sticky="w", pady=(8, 0))
+            self.perplexity_key_file_entry = self._register_managed_widget(
+                ttk.Entry(credentials_box, textvariable=self.perplexity_key_file_var),
+                group="perplexity",
+            )
+            self.perplexity_key_file_entry.grid(row=1, column=1, sticky="ew", padx=(8, 8), pady=(8, 0))
+            self.perplexity_key_file_button = self._register_managed_widget(
+                ttk.Button(credentials_box, text="Selecionar...", command=self.choose_perplexity_key_file),
+                group="perplexity",
+            )
+            self.perplexity_key_file_button.grid(row=1, column=2, sticky="e", pady=(8, 0))
+
+            tuning_box = ttk.LabelFrame(parent, text="Parametros Perplexity", padding=10)
+            tuning_box.grid(row=2, column=0, sticky="ew", pady=(12, 0))
+            ttk.Label(tuning_box, text="Modelo").grid(row=0, column=0, sticky="w")
+            self.perplexity_model_entry = self._register_managed_widget(
+                ttk.Entry(tuning_box, textvariable=self.perplexity_model_var, width=12),
+                group="perplexity",
+            )
+            self.perplexity_model_entry.grid(row=0, column=1, padx=(8, 18), sticky="w")
+            ttk.Label(tuning_box, text="Workers").grid(row=0, column=2, sticky="w")
+            self.perplexity_workers_entry = self._register_managed_widget(
+                ttk.Entry(tuning_box, textvariable=self.perplexity_workers_var, width=6),
+                group="perplexity",
+            )
+            self.perplexity_workers_entry.grid(row=0, column=3, padx=(8, 18), sticky="w")
+            ttk.Label(tuning_box, text="Timeout(s)").grid(row=0, column=4, sticky="w")
+            self.perplexity_timeout_entry = self._register_managed_widget(
+                ttk.Entry(tuning_box, textvariable=self.perplexity_timeout_var, width=7),
+                group="perplexity",
+            )
+            self.perplexity_timeout_entry.grid(row=0, column=5, padx=(8, 18), sticky="w")
+            ttk.Label(tuning_box, text="Batch").grid(row=0, column=6, sticky="w")
+            self.perplexity_batch_entry = self._register_managed_widget(
+                ttk.Entry(tuning_box, textvariable=self.perplexity_batch_size_var, width=7),
+                group="perplexity",
+            )
+            self.perplexity_batch_entry.grid(row=0, column=7, padx=(8, 0), sticky="w")
+            ttk.Label(tuning_box, text="Delay(s)").grid(row=1, column=0, sticky="w", pady=(8, 0))
+            self.perplexity_delay_entry = self._register_managed_widget(
+                ttk.Entry(tuning_box, textvariable=self.perplexity_delay_var, width=7),
+                group="perplexity",
+            )
+            self.perplexity_delay_entry.grid(row=1, column=1, padx=(8, 0), pady=(8, 0), sticky="w")
+            ttk.Label(
+                tuning_box,
+                text="Usado apenas para a busca de noticias TSE/TRE/gerais.",
+                style="Hint.TLabel",
+            ).grid(row=2, column=0, columnspan=8, sticky="w", pady=(10, 0))
+
+        def _build_log_tab(self, parent: ttk.Frame) -> None:
+            parent.columnconfigure(0, weight=1)
+            parent.rowconfigure(1, weight=1)
+
+            controls = ttk.Frame(parent)
+            controls.grid(row=0, column=0, sticky="ew")
+            controls.columnconfigure(0, weight=1)
+            ttk.Checkbutton(
+                controls,
+                text="Espelhar log no terminal",
                 variable=self.verbose_terminal_var,
-            ).grid(row=14, column=0, columnspan=3, sticky="w", pady=(8, 0))
+            ).grid(row=0, column=0, sticky="w")
+            ttk.Button(controls, text="Limpar log", command=self.clear_log).grid(row=0, column=1, sticky="e")
 
-            options.columnconfigure(1, weight=1)
-
-            ttk.Button(main, text="Processar selecionados", command=self.process_selected).pack(anchor="w")
-
-            log_box = ttk.LabelFrame(main, text="Log", padding=8)
-            log_box.pack(fill="both", expand=True, pady=(10, 0))
-            self.log_widget = tk.Text(log_box, height=12, wrap="word")
-            self.log_widget.pack(fill="both", expand=True)
-            self.log_widget.configure(state="disabled")
-            self.refresh_file_list()
+            log_box = ttk.Frame(parent)
+            log_box.grid(row=1, column=0, sticky="nsew", pady=(10, 0))
+            log_box.columnconfigure(0, weight=1)
+            log_box.rowconfigure(0, weight=1)
+            self.log_widget = tk.Text(log_box, height=14, wrap="word")
+            self.log_widget.grid(row=0, column=0, sticky="nsew")
+            log_scrollbar = ttk.Scrollbar(log_box, orient="vertical", command=self.log_widget.yview)
+            log_scrollbar.grid(row=0, column=1, sticky="ns")
+            self.log_widget.configure(yscrollcommand=log_scrollbar.set, state="disabled")
 
         def _on_files_canvas_configure(self, event: tk.Event) -> None:
             self.canvas.itemconfigure(self.files_frame_window, width=event.width)
+
+        def _attach_state_traces(self) -> None:
+            for var in (
+                self.show_secrets_var,
+                self.in_place_var,
+                self.skip_openai_tema_punchline_var,
+                self.enriquecer_assuntos_var,
+                self.skip_perplexity_urls_var,
+            ):
+                var.trace_add("write", lambda *_args: self._sync_feature_state())
+
+        def _update_secret_visibility(self) -> None:
+            mask = "" if self.show_secrets_var.get() else "*"
+            for entry in self.secret_entries:
+                try:
+                    entry.configure(show=mask)
+                except Exception:
+                    continue
+
+        def _sync_feature_state(self) -> None:
+            self._update_secret_visibility()
+            in_place = bool(self.in_place_var.get())
+            openai_enabled = (not self.skip_openai_tema_punchline_var.get()) or self.enriquecer_assuntos_var.get()
+            perplexity_enabled = not self.skip_perplexity_urls_var.get()
+            assuntos_enabled = bool(self.enriquecer_assuntos_var.get())
+
+            self._set_widgets_state("output", not in_place)
+            self._set_widgets_state("openai", openai_enabled)
+            self._set_widgets_state("perplexity", perplexity_enabled)
+            self._set_widgets_state("assuntos", assuntos_enabled)
+
+            if in_place:
+                self.run_summary_var.set(
+                    "Saida: sobrescrevendo os arquivos de entrada. Sufixo e pasta de saida ficam desativados."
+                )
+            else:
+                parts: list[str] = []
+                if not self.skip_openai_tema_punchline_var.get():
+                    parts.append("tema/punchline")
+                if assuntos_enabled:
+                    parts.append("assuntos")
+                if perplexity_enabled:
+                    parts.append("noticias")
+                summary = ", ".join(parts) if parts else "nada selecionado"
+                self.run_summary_var.set(f"Fluxo ativo: {summary}.")
+
+            self.openai_status_var.set(
+                "OpenAI ativo para os campos marcados no fluxo."
+                if openai_enabled
+                else "OpenAI desativado. Marque tema/punchline e/ou assuntos na aba Fluxo."
+            )
+            self.perplexity_status_var.set(
+                "Perplexity ativa para preenchimento de noticias."
+                if perplexity_enabled
+                else "Perplexity desativada. Marque noticias na aba Fluxo."
+            )
 
         def log(self, message: str) -> None:
             self.log_widget.configure(state="normal")
@@ -907,6 +1242,35 @@ def launch_gui() -> None:
             if self.verbose_terminal_var.get():
                 print(message, flush=True)
             self.root.update_idletasks()
+
+        def clear_log(self) -> None:
+            self.log_widget.configure(state="normal")
+            self.log_widget.delete("1.0", "end")
+            self.log_widget.configure(state="disabled")
+
+        def choose_openai_key_file(self) -> None:
+            selected_path = filedialog.askopenfilename(
+                title="Selecione o arquivo da chave OpenAI",
+                filetypes=[("TXT", "*.txt"), ("Todos os arquivos", "*.*")],
+            )
+            if selected_path:
+                self.openai_key_file_var.set(selected_path)
+
+        def choose_perplexity_key_file(self) -> None:
+            selected_path = filedialog.askopenfilename(
+                title="Selecione o arquivo da chave Perplexity",
+                filetypes=[("TXT", "*.txt"), ("Todos os arquivos", "*.*")],
+            )
+            if selected_path:
+                self.perplexity_key_file_var.set(selected_path)
+
+        def _add_file_path(self, raw_path: str) -> None:
+            file_path = str(Path(raw_path).expanduser().resolve())
+            if file_path in self.file_vars:
+                return
+            variable = tk.BooleanVar(value=True)
+            variable.trace_add("write", lambda *_args: self._update_file_summary())
+            self.file_vars[file_path] = variable
 
         def add_files(self) -> None:
             raw_selection = filedialog.askopenfilenames(
@@ -920,9 +1284,7 @@ def launch_gui() -> None:
             except Exception:
                 file_paths = list(raw_selection) if isinstance(raw_selection, (list, tuple)) else [str(raw_selection)]
             for raw_path in file_paths:
-                file_path = str(Path(raw_path).expanduser().resolve())
-                if file_path not in self.file_vars:
-                    self.file_vars[file_path] = tk.BooleanVar(value=True)
+                self._add_file_path(str(raw_path))
             self.refresh_file_list()
 
         def add_folder(self) -> None:
@@ -930,9 +1292,7 @@ def launch_gui() -> None:
             if not folder:
                 return
             for file_path in sorted(Path(folder).expanduser().rglob("*.csv")):
-                file_str = str(file_path.resolve())
-                if file_str not in self.file_vars:
-                    self.file_vars[file_str] = tk.BooleanVar(value=True)
+                self._add_file_path(str(file_path))
             self.refresh_file_list()
 
         def clear_files(self) -> None:
@@ -952,6 +1312,19 @@ def launch_gui() -> None:
             if selected_dir:
                 self.output_dir_var.set(selected_dir)
 
+        def _update_file_summary(self) -> None:
+            total = len(self.file_vars)
+            selected = sum(1 for variable in self.file_vars.values() if variable.get())
+            if total == 0:
+                self.files_summary_var.set("Nenhum CSV selecionado.")
+            else:
+                self.files_summary_var.set(f"{selected} de {total} arquivo(s) marcados.")
+
+        def _format_file_caption(self, file_path: str) -> tuple[str, str]:
+            path = Path(file_path)
+            parent_label = path.parent.name or str(path.parent)
+            return f"{path.name}  [{parent_label}]", str(path.parent)
+
         def refresh_file_list(self) -> None:
             for child in self.files_frame.winfo_children():
                 child.destroy()
@@ -963,19 +1336,28 @@ def launch_gui() -> None:
                     padx=4,
                     pady=2,
                 )
-            for row_index, file_path in enumerate(sorted(self.file_vars)):
-                label = Path(file_path).name
-                ttk.Checkbutton(self.files_frame, text=label, variable=self.file_vars[file_path]).grid(
-                    row=row_index,
-                    column=0,
-                    sticky="w",
-                    padx=4,
-                    pady=2,
-                )
+            else:
+                for row_index, file_path in enumerate(sorted(self.file_vars)):
+                    row = ttk.Frame(self.files_frame)
+                    row.grid(row=row_index, column=0, sticky="ew", padx=4, pady=3)
+                    row.columnconfigure(0, weight=1)
+                    title, subtitle = self._format_file_caption(file_path)
+                    ttk.Checkbutton(row, text=title, variable=self.file_vars[file_path]).grid(
+                        row=0,
+                        column=0,
+                        sticky="w",
+                    )
+                    ttk.Label(row, text=subtitle, style="Hint.TLabel").grid(
+                        row=1,
+                        column=0,
+                        sticky="w",
+                        padx=(26, 0),
+                    )
             self.files_frame.update_idletasks()
             bbox = self.canvas.bbox("all")
             if bbox:
                 self.canvas.configure(scrollregion=bbox)
+            self._update_file_summary()
 
         def process_selected(self) -> None:
             selected_files = [path for path, var in self.file_vars.items() if var.get()]

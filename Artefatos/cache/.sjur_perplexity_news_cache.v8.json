@@ -1,0 +1,1281 @@
+{
+  "version": 1,
+  "strategy_version": 8,
+  "updated_at": "2026-03-19T17:14:59.132025+00:00",
+  "entries": {
+    "8fcaf74887efa8c073363b40220a193478dc271d": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:03:18.152707+00:00"
+    },
+    "0df840dce41f47a6c63c87c473a1139b6df7030a": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:03:18.152740+00:00"
+    },
+    "d7de4a17ddde4370dc748f93078350b81a09689e": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:03:18.152749+00:00"
+    },
+    "d347e9672d21ed6d3d02704cbe1f651723ec252e": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:03:18.152756+00:00"
+    },
+    "9c66fea0717dd99fe4c3ae00f46b533ee7974cb4": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:03:18.152762+00:00"
+    },
+    "aef131f514357873878b47ac15ab0e9c0122c090": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:03:18.152766+00:00"
+    },
+    "c8aa84d5ea1c734e4e728cb5af1e061d62f96506": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:03:18.152771+00:00"
+    },
+    "a59e97b42674b02c0779632c5feb8a5339315cc0": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:03:18.152775+00:00"
+    },
+    "dea9adbcb0fc78a3e569ee4c1887434fa32128a6": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:03:18.152780+00:00"
+    },
+    "ca08ab83d62f6eed27982885e3ace93b8551baa2": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:03:18.152785+00:00"
+    },
+    "4fbe66c75c46f2d2eff26c4727b2d534cc1a252f": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:03:18.152789+00:00"
+    },
+    "797e5ea791dc562066fef3b0012aea9229d88aa5": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:03:18.152794+00:00"
+    },
+    "6b017343344a4893b65a031febd69cb47be49a88": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:03:18.152799+00:00"
+    },
+    "ab38e2401486a2c41ced84bbfd6fdc04fd60dd07": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:03:18.152803+00:00"
+    },
+    "df83ea59246b5dfbee1788535ed4653925c08f74": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:03:18.152807+00:00"
+    },
+    "a76591fbfcd5893a9f6c137b408a71abe57d8e58": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:03:18.152812+00:00"
+    },
+    "ea39c75673f460ed3be0e2705471d0310a426d9d": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:03:18.152816+00:00"
+    },
+    "1c947ea455199ee94cde2412d448ac6e41645c0d": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:03:18.152820+00:00"
+    },
+    "e575f8a739bc2d0b88e3441935e7e9b1834bd6e2": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:03:18.152825+00:00"
+    },
+    "f417487fc8c9d199a5cd9be66d229cdef0a33da1": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:03:18.152829+00:00"
+    },
+    "b91befb9e11e3b52e1955c475a6dbae276614bc5": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:06.338446+00:00"
+    },
+    "4d120ac8fc80dd948f5d00ff37a597de5fbc5fd0": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:06.338493+00:00"
+    },
+    "94b6f67af6f48a0608ab976bc15fa4977ab934c3": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:06.338581+00:00"
+    },
+    "e5d124a15a185445fa57c81e292d3d764f07751a": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:06.338610+00:00"
+    },
+    "22833010ed4d0877fc709b2d05bfc7b29ceef254": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:06.338620+00:00"
+    },
+    "e447436b13c83aa2143b6b3c21290b5510fa9f4c": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:06.338629+00:00"
+    },
+    "a0f5ae4352334eaed06d897ed0a6db3835363857": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:06.338637+00:00"
+    },
+    "cdc7ed525c98019a88d08aa21b3a979d6cd94e64": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:06.338644+00:00"
+    },
+    "558115a45c75d4806aee68b8e8ea884e06fd321f": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:06.338651+00:00"
+    },
+    "bb99d696987da36c53a7adfd78c7ad278d9b0be0": {
+      "status": "error_retryable",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:14:47.084513+00:00"
+    },
+    "503153868466b7872fb79b00f645f188a23021b1": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:06.338754+00:00"
+    },
+    "8107d707d12561f6778082c3d4b1e501aa7487aa": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:06.338763+00:00"
+    },
+    "081442b13c31bda530aa2661bbf99979e4cd434b": {
+      "status": "error_retryable",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:14:47.084536+00:00"
+    },
+    "3376a886c41d74676653b0167c13edd70e164314": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:06.338825+00:00"
+    },
+    "81e36f90a1a345b2247b38b4bd205b46250c1e61": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:06.338833+00:00"
+    },
+    "7a70380056ece667297f7811ec57db5e1b766572": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:06.338841+00:00"
+    },
+    "e2dbfc23fe843c5926b538c0a64846c3b2555efe": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:06.338848+00:00"
+    },
+    "7ee8a4a95e45b74d67fc5cdf24122aef0a10db41": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:06.338854+00:00"
+    },
+    "fe38c4d890d7931e0e9d0850bf9d9322be9a93a0": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:06.338861+00:00"
+    },
+    "dd1c16ab36fcd636839b54f896cbed000acf2385": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:06.338867+00:00"
+    },
+    "447aaa9799bf81c82a3fd6cd60090b983a903a34": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:55.490693+00:00"
+    },
+    "f88902939c8f52373268f82a95209a832b60c0fb": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:55.490731+00:00"
+    },
+    "ad184301c216305624b8d2e6eb42b668a3114352": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:55.490742+00:00"
+    },
+    "b8f9ff856d356f3ff64ec739619fd8f03c8d153a": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:55.490757+00:00"
+    },
+    "d81694456e1876b0d8dbe4fb9575691da872b7a1": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:55.490764+00:00"
+    },
+    "2bab03cae9c5d67dbefec898766a1d1b83fea16b": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:55.490771+00:00"
+    },
+    "4167a58d0ffc349924c2d608b9ca02a592093a6b": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:55.490778+00:00"
+    },
+    "60232fd939195d885f23be4ce9dce6aa1e976c0f": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:55.490785+00:00"
+    },
+    "f1710ee159a5d9ed90e37fa3fbe8db5ec0c575c0": {
+      "status": "error_retryable",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:14:54.222294+00:00"
+    },
+    "005a84f56a949f937d76f76834955cd721d61e43": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:55.490810+00:00"
+    },
+    "cfdf3f73a367510c6c083a4e433c010911d97bab": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:55.490817+00:00"
+    },
+    "e94e249aafa5de20fe3bd3ceb856a9f020799143": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:55.490824+00:00"
+    },
+    "73a76058b0688a2d71617344a7f8124b6b3f1686": {
+      "status": "error_retryable",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:14:54.222358+00:00"
+    },
+    "e942b43bbda02e0a309efac9c7109faffb25504e": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:55.490943+00:00"
+    },
+    "262f2df3bb933e19ce88ace12e485db95fcc8603": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:55.490951+00:00"
+    },
+    "d1a3da1b020b5f64ccab1cd63d53b3a8732a9c24": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:55.490960+00:00"
+    },
+    "19e45012b3401d046e1aa4134bb3eb6a5cb3428e": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:55.490967+00:00"
+    },
+    "406cf4f593bf9a755371d022e50701bc032889a5": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:55.490976+00:00"
+    },
+    "57c242b1dcec35c73b8d17c68b85c6032a705d92": {
+      "status": "error_retryable",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:14:54.222413+00:00"
+    },
+    "c7f771324b76c4fa282707b283454023bc41c165": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:04:55.490993+00:00"
+    },
+    "e50209457b24dc6180432393382223cf48a3547b": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:05:43.634695+00:00"
+    },
+    "3187c4dff3c5227784271d545ad27a7a28f37447": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:05:43.634744+00:00"
+    },
+    "78eaad30eeacb24b56697fe06834aa7efc6c2752": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:05:43.634762+00:00"
+    },
+    "8cb1cf3685fb018a2bcab5732971f89c99f11786": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:05:43.634776+00:00"
+    },
+    "a35c20eb6cf34e7a541666d417b48ba5f59d2ea6": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:05:43.634789+00:00"
+    },
+    "43431c98f72e2c2963ccef55c87bcf0011d60cb5": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:05:43.634801+00:00"
+    },
+    "1f8911838a2dc474f4df6a8f117784368841ce7a": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:05:43.634814+00:00"
+    },
+    "0f885fb3bcb51a296da5985ce97048817bb206d5": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:05:43.634827+00:00"
+    },
+    "c1489f69c1ae026067f669e829ab1b7126d2e109": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:05:43.634839+00:00"
+    },
+    "28a375d3a3925cc402e06c29e22580bd718f886d": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:05:43.634854+00:00"
+    },
+    "ac0924ef95bfde1364c4f9b791784fec99346187": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:05:43.634873+00:00"
+    },
+    "db20f5a875e7458204deb651147cd4f2366f7e02": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:05:43.634891+00:00"
+    },
+    "fabdbbb0795b36bf157429cc9a1d0cf44661ad92": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:05:43.634909+00:00"
+    },
+    "58e7e4a25851639ff84a67107d8f62fb46c00812": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:05:43.634923+00:00"
+    },
+    "2794be73a8f40c2565860659881d076f654dd303": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:05:43.634935+00:00"
+    },
+    "45d95480da3f35ad5b3800f1742604d7b51e54b5": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:05:43.634947+00:00"
+    },
+    "febee7d01bf33ef2e1ff4f83a2c3106d80457144": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:05:43.634958+00:00"
+    },
+    "42313a8786db2651476b210f112d9028c67e44f6": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:05:43.634969+00:00"
+    },
+    "87dfd77730df6887b7c366d6b366f3ac13e879fe": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:05:43.634980+00:00"
+    },
+    "3fee695dcababc7c2d64c7ae77d2f4ce60375554": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:05:43.634991+00:00"
+    },
+    "bb8504ce5b382de77ed854d16003d95f53bcbee7": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:06:31.599373+00:00"
+    },
+    "8107bd33a5f37e6ee7d051233a21b7428dfce209": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:06:31.599397+00:00"
+    },
+    "c5d4e84128dd9c568b150f6f032226b55aed7c5f": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:06:31.599405+00:00"
+    },
+    "176b86e9bbb9e773a907cf0689a4aaea1284540f": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:06:31.599412+00:00"
+    },
+    "b3fd86c70890818ff244f8062dff75326e15e4b2": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:06:31.599418+00:00"
+    },
+    "136c53857ed25ec3f408515dcd5457da2cd51746": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:06:31.599423+00:00"
+    },
+    "6916ac7a2fe3253a7ef3431df9e0de3fc9ffb217": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:06:31.599432+00:00"
+    },
+    "f5394d9c4141f2f596e9fcf117a9ab3ac7e8746b": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:06:31.599438+00:00"
+    },
+    "69cd0ca336db6eb21d67cd082354b96c5b0d5047": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:06:31.599444+00:00"
+    },
+    "35b4b59dc00e0951449d36cf2fabb3e7f295e49f": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:06:31.599449+00:00"
+    },
+    "efed08c2ab7a34c95fac1472ff641b0f228147c6": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:06:31.599455+00:00"
+    },
+    "bd8e07fe42124098666fad616b65c076c0e83337": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:06:31.599460+00:00"
+    },
+    "d814728a465cefd02694e178aa71cbd22cc38ba9": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:06:31.599466+00:00"
+    },
+    "e95506a0af222991697fd82242e8a02c37ab8498": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:06:31.599472+00:00"
+    },
+    "d1c97192f3fba04f19e18b72791c93e97a3ffa1e": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:06:31.599477+00:00"
+    },
+    "a550da7d6a42802fe63c27a86102496beca1e4d1": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:06:31.599483+00:00"
+    },
+    "e0ad5d3b6e3dfd59ad7c84b0741ae9ae9522d2b5": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:06:31.599488+00:00"
+    },
+    "586ba74fb91f4c9315d6402047c03633a028f084": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:06:31.599494+00:00"
+    },
+    "850e4b9472f8b49a997f93aa23b0f6ddc7f5a47a": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:06:31.599500+00:00"
+    },
+    "17b0a72ae89622a4ce9d0bdea4bad82677f3c6d6": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:06:31.599505+00:00"
+    },
+    "f1ad54783941f65d808cbc7bae985fdad9c6a512": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:07:18.653735+00:00"
+    },
+    "1418daceed883e2e0311c654dac41e369c792906": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:07:18.653757+00:00"
+    },
+    "015a6c8bbc308eb20b324c6162dc9d8759a267d6": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:07:18.653764+00:00"
+    },
+    "4be2e15956a98a3fff1f4809501b1d465059cedc": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:07:18.653769+00:00"
+    },
+    "55bb96731ee95c670f11776c132f5e1b3d92909d": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:07:18.653775+00:00"
+    },
+    "34e7d417b1a6dbc5125c0571a0978ac241b7414b": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:07:18.653779+00:00"
+    },
+    "2016b38575b971e213d43a6ea71df0222b119428": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:07:18.653784+00:00"
+    },
+    "ea19b70dcbbc3e3d32750f3e7e3ab11530b102ee": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:07:18.653789+00:00"
+    },
+    "03fc15219148a46e46f41c269dd05fbf32dbde6a": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:07:18.653794+00:00"
+    },
+    "c548c0944eda92ccbad88b2b2ef8162aa3e6ccc6": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:07:18.653800+00:00"
+    },
+    "705b26921b4e2a7dac861f82e1b588c8be9d90f7": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:07:18.653804+00:00"
+    },
+    "4615f8c2fbe1e887d7746cc5abc7e97813a5dc36": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:07:18.653809+00:00"
+    },
+    "d334086df99871806baadfa33fc809b75f09095b": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:07:18.653814+00:00"
+    },
+    "74eb9bc98af605a34bc659ef89bafc07ba1bf582": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:07:18.653819+00:00"
+    },
+    "a8b786974a17bc474081a2e6b498ac12264981bb": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:07:18.653824+00:00"
+    },
+    "0c7f98ed98f2bc2e375d016e83e261324be17b22": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:07:18.653828+00:00"
+    },
+    "8247e30f4ceb3397d29db4d0684f905716cc491b": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:07:18.653833+00:00"
+    },
+    "a3c0ccdab950a87fc4196d7186acee9fdd527814": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:07:18.653838+00:00"
+    },
+    "b2342f47d18b2579d3c12dff8723882583b65ef1": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:07:18.653842+00:00"
+    },
+    "01016d1462ced8a1c21f99d930558869ada798af": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:07:18.653847+00:00"
+    },
+    "6bfdd69c4414ee3ccdf683d9698ec00bd4630df1": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:06.331244+00:00"
+    },
+    "7e6e7304e68142ae467d7cfff7db40ab4c9d0e0c": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:06.331268+00:00"
+    },
+    "dd27fa5e96f2be230c6a5b0122fa75ee61bd44f0": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:06.331275+00:00"
+    },
+    "706eb0fc3966b25b33451ec35aad007f5be26cdb": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:06.331282+00:00"
+    },
+    "f99be2a8bf2cf0ce8583d45e8f938f5b8bd116f6": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:06.331287+00:00"
+    },
+    "b7c39ed73cf32d04debe2f2e96eaa41bf5a7faac": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:06.331293+00:00"
+    },
+    "1c2bcb46bf9dabb05a13c807bef55dfea3606136": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:06.331298+00:00"
+    },
+    "2ff7abaa5ebab35d5f5c1ede63e708ebbcf33e66": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:06.331303+00:00"
+    },
+    "1a3b96614980dea90fde49fb95b43fb76ce269fa": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:06.331308+00:00"
+    },
+    "80038a8a5a752228d779ff9104a7846aa9d67cdf": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:06.331314+00:00"
+    },
+    "04dec2407d9f21b5f741de51577f27ce1a182ec5": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:06.331320+00:00"
+    },
+    "0dc76db33e39ffe05a93b96642362d3ef327ad73": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:06.331325+00:00"
+    },
+    "0b00f80fe546f264b97086e540f0a1cc0c747c75": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:06.331331+00:00"
+    },
+    "e6cb0d4dca65ca5887b714995ae696a6e026bdc5": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:06.331336+00:00"
+    },
+    "6cfc0ed07ee3601c53d94640dff41483fb69894d": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:06.331341+00:00"
+    },
+    "81a0ee1feeca164bf733029f82ec15ad61963384": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:06.331346+00:00"
+    },
+    "3f002e427e013cbee7b72df3610080e162a90ed7": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:06.331351+00:00"
+    },
+    "8ee9cbc189bcb4c6e7b28c3e9144d51ab2a4028e": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:06.331356+00:00"
+    },
+    "21652aba8b7f1acfd01c38c59141289db61d7b6d": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:06.331361+00:00"
+    },
+    "c02035e0aefe63c3146452cc312c8b922341b929": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:06.331366+00:00"
+    },
+    "80acbdecb8a51fb8e93de6f05d993bb9907af13f": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:55.229598+00:00"
+    },
+    "f3020771c512cd8c04715630f59b81ef5b95ccc6": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:55.229637+00:00"
+    },
+    "d25c878c3bd54d3e009901f93226d9c103449a0a": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:55.229658+00:00"
+    },
+    "f88c681f7e74a92db02de9520a8de6ea796fae55": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:55.229668+00:00"
+    },
+    "4fde481e6eeaa1fad40e9668d9e94a857d3d3546": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:55.229677+00:00"
+    },
+    "6449cb7fedaa132086cf6a403988457614e62540": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:55.229685+00:00"
+    },
+    "9ced93936785f5848e46352baf19d1459011dba8": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:55.229693+00:00"
+    },
+    "831de3aec9b4b931d155d82bbfb97c70defbe58f": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:55.229701+00:00"
+    },
+    "f1d178a4fee9e2a26ebbfddcddbf610f86240a99": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:55.229708+00:00"
+    },
+    "edf2327fcb209f72dc72c6587855c84a37c5ed2d": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:55.229716+00:00"
+    },
+    "95ac14a6cb14c961c275d4db40ef64673ddfbaec": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:55.229724+00:00"
+    },
+    "4a80b1e38d2e15337d067511e9c4ab5d4c2f8165": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:55.229732+00:00"
+    },
+    "d4973fe933301e4d06b06477228957b13dc3265c": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:55.229760+00:00"
+    },
+    "2c0dd1c6d3a672fda2d0dc46e661c401dea0e0bf": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:55.229773+00:00"
+    },
+    "d94df9cfa20419b366f09bcb052e96747f022719": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:55.229787+00:00"
+    },
+    "47c6407d4cfab077655fc2731bb0e4127ecbbe26": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:55.229794+00:00"
+    },
+    "be77a08ddf4df663f3a6d191bed9ab04bf6b64f6": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:55.229802+00:00"
+    },
+    "2c529dc48d73895b875fe5be6c18b71d52b75331": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:55.229810+00:00"
+    },
+    "e6e771fc50de79f17d084b771fbd92ee839c519d": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:55.229818+00:00"
+    },
+    "28c90f9c89ddccc8271d602eee865850e9b304ce": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:08:55.229825+00:00"
+    },
+    "b6f5320c72a676a98e44ffd8fb022639cfdf15e3": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:09:43.435678+00:00"
+    },
+    "c1770f5e789f1d0c4f01ddaf1ff9d6b0efc0c22f": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:09:43.435722+00:00"
+    },
+    "7e6d612f5527af8ef8db96c1eed5a77752080eb3": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:09:43.435737+00:00"
+    },
+    "59a412c34363500acea703870c30c5b9b48ffabb": {
+      "status": "error_retryable",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:14:59.131951+00:00"
+    },
+    "985ca206120d606e9f81b8d32c85180bc85dfb6b": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:09:43.435768+00:00"
+    },
+    "101d768925cf82b482c31dad0c04b6401fcf4d64": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:09:43.435779+00:00"
+    },
+    "aae7f81d1401344b4e2f5a42cb86cc99cffd37ca": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:09:43.435789+00:00"
+    },
+    "b282f82ecbd2cce0969a2d8bc3b943fc8f34d9f2": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:09:43.435799+00:00"
+    },
+    "0030f62dd80c1cf042d84f787ce269cab0b9fbed": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:09:43.435810+00:00"
+    },
+    "c0a1c7df77b81063860442ee8c92115be1e7ac35": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:09:43.435819+00:00"
+    },
+    "996dcd0daee123da897e633b7979603820e2e19d": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:09:43.435829+00:00"
+    },
+    "8b2bd66239baabeb95399e64b9e52d5bd6a40b43": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:09:43.435844+00:00"
+    },
+    "dc8efd69125d7e8192acdbaf4fb5e77f43b70d61": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:09:43.435853+00:00"
+    },
+    "fec32fd36a7503f5a812b9214567e7c21ccebb3f": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:09:43.435863+00:00"
+    },
+    "342c6bd0067c1368101e4cfa7f8efdad074ac277": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:09:43.435873+00:00"
+    },
+    "f9f26851081437a2e5534c23ef4eae1566f1d4ca": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:09:43.435882+00:00"
+    },
+    "4045c81fa90e465d93c68da603479411c77b5933": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:09:43.435895+00:00"
+    },
+    "e4f5c165d57f5d58b7e88fc35da73f89ec62ad1b": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:09:43.435904+00:00"
+    },
+    "ebee7ac3678f8762a30dee5318b6ed6cf1207176": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:09:43.435913+00:00"
+    },
+    "15ffa7903c2419974337088c3d513bf96129d22a": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:09:43.435922+00:00"
+    },
+    "5fe5a194da3096feffd25b51de7b28a49515163f": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:09:51.805526+00:00"
+    },
+    "5cdf3ff6f9e96b04b8f8389f0ef31cefb664b0e9": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-03-19T17:09:51.805545+00:00"
+    }
+  }
+}

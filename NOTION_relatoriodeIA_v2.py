@@ -57,7 +57,7 @@ REPORT_FILE = default_report_path(SCRIPT_STEM)
 CHECKPOINT_FILE = default_checkpoint_path(SCRIPT_STEM)
 DEFAULT_LOG_FILE = named_log_path("run_producao_relatorio_v2.log")
 
-DEFAULT_SOURCE_DATABASE_URL = "https://www.notion.so/317721955c6480d3b642cc296d6074c7?v=6dde3c179e6b400ab0309cd7eac7d61d"
+DEFAULT_SOURCE_DATABASE_URL = "https://www.notion.so/328721955c648020988af0654c3554a2?v=cfbaf74128e14ad1a210db1be8fc68c1"
 DEFAULT_NOTION_VERSION = "2025-09-03"
 DEFAULT_OPENAI_MODEL = "gpt-5.4"
 DEFAULT_MAX_CASES_PER_BATCH = 1
@@ -72,6 +72,13 @@ MAX_NOTION_TOGGLES_PER_APPEND = 10
 MAX_NOTION_RICH_TEXT_CHARS = 2000
 MAX_CASE_TEXT_CHARS = 1400
 MAX_SUMMARY_CASES = 25
+MAX_EXECUTIVE_HIGHLIGHTS = 6
+MAX_PARTY_ALERTS = 2
+MAX_LAWYER_SIGNALS = 2
+MAX_WATCHPOINTS = 3
+MAX_STRATEGIC_ALERT_SECTION_ITEMS = 4
+MAX_ALERT_TEXT_CHARS = 220
+MIN_RECURRING_ALERT_CASES = 2
 HEADING_SUMMARY_MAX_CHARS = 130
 HEADING_SUMMARY_TARGET_MIN = 90
 HEADING_SUMMARY_TARGET_MAX = 120
@@ -205,6 +212,17 @@ HIGH_IMPACT_ELECTORAL_RE = re.compile(
     flags=re.IGNORECASE,
 )
 HIGH_IMPACT_ACCOUNTS_RE = re.compile(r"\b(fundo partid[aá]rio|FEFC|presta[cç][aã]o de contas)\b", flags=re.IGNORECASE)
+GENERIC_ALERT_START_RE = re.compile(r"^(?:sem|nenhum|nenhuma|n/a|não há|nao ha)\b", flags=re.IGNORECASE)
+GENERIC_COUNT_ONLY_ALERT_RE = re.compile(
+    r"^[^:]{1,90}:\s*(?:citado(?:a|s)?|atua(?:m)?|aparece(?:m)?|reaparece(?:m)?|recorre(?:m)?|figura(?:m)?)\s+em\s+\d+\s+processo",
+    flags=re.IGNORECASE,
+)
+GENERIC_PRIORITY_ONLY_ALERT_RE = re.compile(r":\s*prioridade\s*\d+\s*/\s*10\.?$", flags=re.IGNORECASE)
+ALERT_MATERIALITY_RE = re.compile(
+    r"\b(risco|impacto|mandato|cass[a-zçãõ]+|ineleg[a-zçãõ]+|vac[aâ]ncia|suplementar|contas|fefc|devolu[cç][aã]o|"
+    r"abuso|san[cç][aã]o|nulidade|controle|precedente|tese|exposi[cç][aã]o|er[aá]rio|mandato)\b",
+    flags=re.IGNORECASE,
+)
 ELLIPSIS_TRAILING_RE = re.compile(r"(?:\.{3,}|…)\s*$")
 TEMPORAL_HEADING_CLAUSE_RE = re.compile(
     r"^(?:"
@@ -1800,6 +1818,288 @@ def build_publishable_case_pairs(
     return pairs
 
 
+def _normalize_summary_bullets(
+    values: Iterable[str],
+    *,
+    max_items: int,
+    max_chars: int = MAX_ALERT_TEXT_CHARS,
+) -> List[str]:
+    out: List[str] = []
+    for raw in values:
+        value = truncate_text(raw, max_chars, suffix="")
+        value = _normalize_ws(value).strip(" ;,:")
+        if value:
+            out.append(value)
+    return _unique_preserve_order(out)[:max_items]
+
+
+def _first_meaningful_clause(text: Any, *, max_chars: int = 120) -> str:
+    source = _normalize_ws(text).strip(" .;,:")
+    if not source:
+        return ""
+    for part in re.split(r"(?<=[.!?])\s+|\s*\|\s*|;\s+", source):
+        candidate = _normalize_ws(part).strip(" .;,:")
+        if len(candidate) >= 20:
+            return truncate_text(candidate, max_chars, suffix="")
+    return truncate_text(source, max_chars, suffix="")
+
+
+def _lowercase_initial_fragment(text: Any) -> str:
+    value = _normalize_ws(text)
+    if len(value) >= 2 and value[:1].isupper() and value[1:2].islower():
+        return value[:1].lower() + value[1:]
+    return value
+
+
+def _is_material_alert_text(text: Any) -> bool:
+    source = _normalize_ws(text)
+    if not source or len(source) < 30:
+        return False
+    if GENERIC_ALERT_START_RE.match(source):
+        return False
+    if GENERIC_PRIORITY_ONLY_ALERT_RE.search(source):
+        return False
+    if GENERIC_COUNT_ONLY_ALERT_RE.match(source) and not ALERT_MATERIALITY_RE.search(source):
+        return False
+    if len(source) < 55 and not ALERT_MATERIALITY_RE.search(source):
+        return False
+    return True
+
+
+def _reportable_case_analysis_pairs(
+    cases: Sequence[CaseRecord],
+    analyses: Sequence[CaseAnalysis],
+) -> List[tuple[CaseRecord, CaseAnalysis]]:
+    case_map = {case_resume_key(case): case for case in cases}
+    pairs: List[tuple[CaseRecord, CaseAnalysis]] = []
+    for analysis in analyses:
+        if not is_reportable_analysis(analysis):
+            continue
+        case = case_map.get(analysis_resume_key(analysis))
+        if case is None:
+            continue
+        pairs.append((case, analysis))
+    pairs.sort(key=lambda item: publication_sort_key(item[0], item[1]))
+    return pairs
+
+
+def _is_material_alert_pair(case: CaseRecord, analysis: CaseAnalysis) -> bool:
+    return bool(
+        is_publishable_analysis(analysis)
+        or analysis_display_score(analysis) >= 8
+        or compute_high_impact_signal_score(case, analysis) >= 20
+        or compute_political_prominence_score(case, analysis) >= 45
+    )
+
+
+def _build_material_watchpoints(
+    cases: Sequence[CaseRecord],
+    analyses: Sequence[CaseAnalysis],
+    *,
+    limit: int = MAX_WATCHPOINTS,
+) -> List[str]:
+    alerts: List[str] = []
+    pairs = _reportable_case_analysis_pairs(cases, analyses)
+    if not pairs:
+        return alerts
+    for idx, (case, analysis) in enumerate(pairs):
+        if idx > 0 and not _is_material_alert_pair(case, analysis):
+            continue
+        title = truncate_heading_text(analysis.title or case.tema or case.process_label(), 96)
+        consequence = _first_meaningful_clause(analysis.consequence or analysis.what_happened, max_chars=120).rstrip(".")
+        strategic = _lowercase_initial_fragment(
+            _first_meaningful_clause(analysis.strategic_comment or analysis.why_relevant, max_chars=120)
+        ).rstrip(".")
+        details = _unique_preserve_order([consequence, strategic])
+        if not details:
+            fallback_detail = _first_meaningful_clause(case.punchline or analysis.why_relevant or case.tema, max_chars=140).rstrip(".")
+            if fallback_detail:
+                details = [fallback_detail]
+        candidate = truncate_text(f"{title}: {'; '.join(details)}.", MAX_ALERT_TEXT_CHARS, suffix="")
+        if not _is_material_alert_text(candidate):
+            continue
+        alerts.append(candidate)
+        if len(alerts) >= limit:
+            break
+    return _unique_preserve_order(alerts)[:limit]
+
+
+def _build_material_party_alerts(
+    cases: Sequence[CaseRecord],
+    analyses: Sequence[CaseAnalysis],
+    party_counter: Counter[str],
+    *,
+    limit: int = MAX_PARTY_ALERTS,
+) -> List[str]:
+    pairs = _reportable_case_analysis_pairs(cases, analyses)
+    grouped: Dict[str, Dict[str, Any]] = {}
+    for case, analysis in pairs:
+        for party in _unique_preserve_order(list(analysis.parties) + list(case.partidos)):
+            key = _normalize_ws(party).casefold()
+            if not key:
+                continue
+            entry = grouped.setdefault(key, {"label": _normalize_ws(party), "pairs": []})
+            entry["pairs"].append((case, analysis))
+
+    alerts: List[str] = []
+    for party, _count in party_counter.most_common(10):
+        key = _normalize_ws(party).casefold()
+        entry = grouped.get(key)
+        if not entry:
+            continue
+        related_pairs = list(entry["pairs"])
+        if len(related_pairs) < MIN_RECURRING_ALERT_CASES:
+            continue
+        material_pairs = [item for item in related_pairs if _is_material_alert_pair(item[0], item[1])]
+        if not material_pairs:
+            continue
+        best_case, best_analysis = material_pairs[0]
+        detail = _lowercase_initial_fragment(
+            _first_meaningful_clause(
+                best_analysis.consequence or best_analysis.strategic_comment or best_analysis.why_relevant,
+                max_chars=110,
+            )
+        ).rstrip(".")
+        title = truncate_heading_text(best_analysis.title or best_case.tema or best_case.process_label(), 74)
+        candidate = f"{entry['label']} reaparece em {len(related_pairs)} casos reportáveis, com destaque para {title}"
+        if detail:
+            candidate += f"; {detail}"
+        candidate = truncate_text(candidate.rstrip(".") + ".", MAX_ALERT_TEXT_CHARS, suffix="")
+        if not _is_material_alert_text(candidate):
+            continue
+        alerts.append(candidate)
+        if len(alerts) >= limit:
+            break
+    return _unique_preserve_order(alerts)[:limit]
+
+
+def _build_material_lawyer_signals(
+    cases: Sequence[CaseRecord],
+    analyses: Sequence[CaseAnalysis],
+    lawyer_counter: Counter[str],
+    *,
+    limit: int = MAX_LAWYER_SIGNALS,
+) -> List[str]:
+    pairs = _reportable_case_analysis_pairs(cases, analyses)
+    grouped: Dict[str, Dict[str, Any]] = {}
+    for case, analysis in pairs:
+        for lawyer in _unique_preserve_order(case.advogados):
+            key = _normalize_ws(lawyer).casefold()
+            if not key:
+                continue
+            entry = grouped.setdefault(key, {"label": _normalize_ws(lawyer), "pairs": []})
+            entry["pairs"].append((case, analysis))
+
+    alerts: List[str] = []
+    for lawyer, _count in lawyer_counter.most_common(10):
+        key = _normalize_ws(lawyer).casefold()
+        entry = grouped.get(key)
+        if not entry:
+            continue
+        related_pairs = list(entry["pairs"])
+        if len(related_pairs) < MIN_RECURRING_ALERT_CASES:
+            continue
+        material_pairs = [item for item in related_pairs if _is_material_alert_pair(item[0], item[1])]
+        if not material_pairs:
+            continue
+        best_case, best_analysis = material_pairs[0]
+        detail = _lowercase_initial_fragment(
+            _first_meaningful_clause(
+                best_analysis.strategic_comment or best_analysis.consequence or best_analysis.why_relevant,
+                max_chars=108,
+            )
+        ).rstrip(".")
+        title = truncate_heading_text(best_analysis.title or best_case.tema or best_case.process_label(), 70)
+        candidate = f"{entry['label']} atua em {len(related_pairs)} casos reportáveis, incluindo {title}"
+        if detail:
+            candidate += f"; {detail}"
+        candidate = truncate_text(candidate.rstrip(".") + ".", MAX_ALERT_TEXT_CHARS, suffix="")
+        if not _is_material_alert_text(candidate):
+            continue
+        alerts.append(candidate)
+        if len(alerts) >= limit:
+            break
+    return _unique_preserve_order(alerts)[:limit]
+
+
+def _select_material_alert_items(
+    primary: Iterable[str],
+    *,
+    fallback: Iterable[str],
+    limit: int,
+) -> List[str]:
+    selected: List[str] = []
+    seen: set[str] = set()
+    for raw in list(primary) + list(fallback):
+        value = truncate_text(raw, MAX_ALERT_TEXT_CHARS, suffix="")
+        value = _normalize_ws(value).strip(" ;,:")
+        if not _is_material_alert_text(value):
+            continue
+        marker = value.casefold()
+        if marker in seen:
+            continue
+        seen.add(marker)
+        selected.append(value)
+        if len(selected) >= limit:
+            break
+    return selected
+
+
+def finalize_report_summary(
+    summary: ReportSummary,
+    cases: Sequence[CaseRecord],
+    analyses: Sequence[CaseAnalysis],
+    *,
+    party_counter: Counter[str],
+    lawyer_counter: Counter[str],
+) -> ReportSummary:
+    fallback_party_alerts = _build_material_party_alerts(cases, analyses, party_counter)
+    fallback_lawyer_signals = _build_material_lawyer_signals(cases, analyses, lawyer_counter)
+    fallback_watchpoints = _build_material_watchpoints(cases, analyses)
+    executive_highlights = _normalize_summary_bullets(summary.executive_highlights, max_items=MAX_EXECUTIVE_HIGHLIGHTS)
+    if not executive_highlights and fallback_watchpoints:
+        executive_highlights = fallback_watchpoints[:1]
+    return ReportSummary(
+        overview_callout=_normalize_ws(summary.overview_callout),
+        executive_highlights=executive_highlights,
+        party_alerts=_select_material_alert_items(
+            summary.party_alerts,
+            fallback=fallback_party_alerts,
+            limit=MAX_PARTY_ALERTS,
+        ),
+        lawyer_signals=_select_material_alert_items(
+            summary.lawyer_signals,
+            fallback=fallback_lawyer_signals,
+            limit=MAX_LAWYER_SIGNALS,
+        ),
+        watchpoints=_select_material_alert_items(
+            summary.watchpoints,
+            fallback=fallback_watchpoints,
+            limit=MAX_WATCHPOINTS,
+        ),
+        closing_note=truncate_text(summary.closing_note, 220, suffix=""),
+    )
+
+
+def build_strategic_alert_section_items(summary: ReportSummary) -> List[str]:
+    items: List[str] = []
+    seen: set[str] = set()
+    for group in (summary.watchpoints, summary.party_alerts, summary.lawyer_signals):
+        for raw in group:
+            value = truncate_text(raw, MAX_ALERT_TEXT_CHARS, suffix="")
+            value = _normalize_ws(value).strip(" ;,:")
+            if not _is_material_alert_text(value):
+                continue
+            marker = value.casefold()
+            if marker in seen:
+                continue
+            seen.add(marker)
+            items.append(value)
+            if len(items) >= MAX_STRATEGIC_ALERT_SECTION_ITEMS:
+                return items
+    return items
+
+
 def analysis_has_visible_ellipsis(item: CaseAnalysis) -> bool:
     if not is_reportable_analysis(item):
         return False
@@ -2319,18 +2619,9 @@ def fallback_report_summary(
         f"Partidos mais citados: {_safe_join([f'{party} ({count})' for party, count in party_counter.most_common(5)], sep='; ') or 'nenhum partido explícito na base'}.",
         f"Advogados recorrentes: {_safe_join([f'{name} ({count})' for name, count in lawyer_counter.most_common(5)], sep='; ') or 'sem recorrência material'}.",
     ]
-    party_alerts = [
-        f"{party}: citado em {count} processo(s) do período."
-        for party, count in party_counter.most_common(5)
-    ]
-    lawyer_signals = [
-        f"{name}: atua em {count} processo(s) no período."
-        for name, count in lawyer_counter.most_common(5)
-    ]
-    watchpoints = [
-        f"{item.title}: prioridade {item.relevance_score}/10."
-        for item in sorted(analyses, key=analysis_sort_key)[:5]
-    ]
+    party_alerts = _build_material_party_alerts(cases, analyses, party_counter)
+    lawyer_signals = _build_material_lawyer_signals(cases, analyses, lawyer_counter)
+    watchpoints = _build_material_watchpoints(cases, analyses)
     return ReportSummary(
         overview_callout=overview,
         executive_highlights=highlights,
@@ -2363,7 +2654,13 @@ def summarize_report(
         )
 
     if OPENAI_CFG is None or OPENAI_SESSION is None:
-        return fallback_report_summary(cases, analyses, party_counter, lawyer_counter, start_iso, end_iso)
+        return finalize_report_summary(
+            fallback_report_summary(cases, analyses, party_counter, lawyer_counter, start_iso, end_iso),
+            cases,
+            analyses,
+            party_counter=party_counter,
+            lawyer_counter=lawyer_counter,
+        )
 
     ranked = sorted(analyses, key=analysis_sort_key)
     payload = {
@@ -2382,9 +2679,12 @@ def summarize_report(
                 "risk_level": item.risk_level,
                 "parties": item.parties,
                 "public_figures": item.public_figures,
+                "lawyers_signal": truncate_text(item.lawyers_signal, 140),
                 "what_happened": truncate_text(item.what_happened, 220),
+                "legal_grounds": truncate_text(item.legal_grounds, 160),
                 "consequence": truncate_text(item.consequence, 180),
                 "strategic_comment": truncate_text(item.strategic_comment, 180),
+                "why_relevant": truncate_text(item.why_relevant, 160),
             }
             for item in ranked[:MAX_SUMMARY_CASES]
         ],
@@ -2393,6 +2693,12 @@ def summarize_report(
         "Você é um analista jurídico-eleitoral metódico e conciso. "
         "Produza uma leitura estratégica do período exato informado. "
         "Priorize impactos para partidos, figuras públicas, bancas recorrentes e riscos jurídico-eleitorais. "
+        "Reduza ruído: prefira poucos alertas materiais a listas longas. "
+        "Só gere party_alerts ou lawyer_signals quando a recorrência vier acompanhada de consequência concreta, tese sensível ou exposição institucional. "
+        "Não transforme frequência bruta em alerta. "
+        "Cada bullet deve trazer fato + risco/efeito + implicação estratégica em uma única frase curta. "
+        "Limites rígidos: até 4 executive_highlights, 2 party_alerts, 2 lawyer_signals e 3 watchpoints. "
+        "Se não houver alerta material em uma categoria, devolva lista vazia. "
         "Não invente fatos. Use linguagem executiva, densa e objetiva. "
         "Quando usar expressão indispensável em inglês, marque-a em itálico Markdown com asteriscos simples."
     )
@@ -2402,19 +2708,31 @@ def summarize_report(
             payload,
             schema=SUMMARY_SCHEMA,
             request_label="OpenAI síntese executiva",
-            max_completion_tokens=2800,
+            max_completion_tokens=2200,
         )
-        return ReportSummary(
-            overview_callout=_normalize_ws(response.get("overview_callout")),
-            executive_highlights=_unique_preserve_order(response.get("executive_highlights") or []),
-            party_alerts=_unique_preserve_order(response.get("party_alerts") or []),
-            lawyer_signals=_unique_preserve_order(response.get("lawyer_signals") or []),
-            watchpoints=_unique_preserve_order(response.get("watchpoints") or []),
-            closing_note=truncate_text(response.get("closing_note"), 220, suffix=""),
+        return finalize_report_summary(
+            ReportSummary(
+                overview_callout=_normalize_ws(response.get("overview_callout")),
+                executive_highlights=_unique_preserve_order(response.get("executive_highlights") or []),
+                party_alerts=_unique_preserve_order(response.get("party_alerts") or []),
+                lawyer_signals=_unique_preserve_order(response.get("lawyer_signals") or []),
+                watchpoints=_unique_preserve_order(response.get("watchpoints") or []),
+                closing_note=truncate_text(response.get("closing_note"), 220, suffix=""),
+            ),
+            cases,
+            analyses,
+            party_counter=party_counter,
+            lawyer_counter=lawyer_counter,
         )
     except Exception as exc:
         LOGGER.warning("Falha na síntese executiva via OpenAI: %s. Usando fallback heurístico.", exc)
-        return fallback_report_summary(cases, analyses, party_counter, lawyer_counter, start_iso, end_iso)
+        return finalize_report_summary(
+            fallback_report_summary(cases, analyses, party_counter, lawyer_counter, start_iso, end_iso),
+            cases,
+            analyses,
+            party_counter=party_counter,
+            lawyer_counter=lawyer_counter,
+        )
 
 
 def _chunk_text_for_notion(text: str, max_chars: int = MAX_NOTION_RICH_TEXT_CHARS) -> List[str]:
@@ -3748,7 +4066,7 @@ def render_report_page(
         build_divider_block(),
         build_heading_2_block("1. Leitura executiva"),
     ]
-    blocks.extend(build_bulleted_block(text) for text in summary.executive_highlights[:8])
+    blocks.extend(build_bulleted_block(text) for text in summary.executive_highlights[:MAX_EXECUTIVE_HIGHLIGHTS])
 
     blocks.extend(
         [
@@ -3789,10 +4107,12 @@ def render_report_page(
     ]
     create_table(page_id, ["Eixo", "Ocorrências", "Leitura rápida"], signal_rows)
 
+    strategic_alerts = build_strategic_alert_section_items(summary)
     more_blocks: List[Dict[str, Any]] = [build_heading_2_block("3. Alertas estratégicos")]
-    more_blocks.extend(build_bulleted_block(text) for text in summary.party_alerts[:6])
-    more_blocks.extend(build_bulleted_block(text) for text in summary.lawyer_signals[:6])
-    more_blocks.extend(build_bulleted_block(text) for text in summary.watchpoints[:6])
+    if strategic_alerts:
+        more_blocks.extend(build_bulleted_block(text) for text in strategic_alerts)
+    else:
+        more_blocks.append(build_bulleted_block("Sem alertas materiais adicionais além dos casos já priorizados."))
     append_block_children(page_id, more_blocks)
     published_stats = append_published_sections(page_id, cases, analyses)
     created_toggles = int(published_stats.get("toggle_blocks_created", 0))
