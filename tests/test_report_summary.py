@@ -90,6 +90,42 @@ def test_summarize_report_preserves_full_overview_callout_from_openai(monkeypatc
     assert summary.overview_callout.endswith("afastar devolução ao erário.")
 
 
+def test_summarize_report_does_not_truncate_long_openai_executive_highlight(monkeypatch):
+    long_highlight = (
+        "O TSE consolidou linha rigorosa em registros de candidatura e inelegibilidades, com ênfase na exigência de "
+        "suspensão judicial específica para afastar efeitos de condenações por improbidade e AIJE, o que aumenta a "
+        "relevância estratégica do contencioso preventivo antes da fase final do registro e reduz a utilidade de "
+        "medidas reativas apresentadas apenas às vésperas da diplomação."
+    )
+
+    monkeypatch.setattr(notion, "OPENAI_CFG", object())
+    monkeypatch.setattr(notion, "OPENAI_SESSION", object())
+    monkeypatch.setattr(
+        notion,
+        "openai_json_call",
+        lambda *args, **kwargs: {
+            "overview_callout": "Visão geral.",
+            "executive_highlights": [long_highlight],
+            "party_alerts": [],
+            "lawyer_signals": [],
+            "watchpoints": [],
+            "closing_note": "Fechamento.",
+        },
+    )
+
+    summary = notion.summarize_report(
+        [_make_case()],
+        [_make_analysis()],
+        party_counter=Counter({"MDB": 1}),
+        lawyer_counter=Counter(),
+        start_iso="2026-02-23",
+        end_iso="2026-02-27",
+    )
+
+    assert len(long_highlight) > notion.MAX_ALERT_TEXT_CHARS
+    assert summary.executive_highlights[0] == notion._normalize_ws(long_highlight)
+
+
 def test_build_callout_block_preserves_full_long_text_across_rich_text_chunks():
     full_text = " ".join(f"trecho-{idx:04d}" for idx in range(600))
 
@@ -209,6 +245,68 @@ def test_finalize_report_summary_replaces_generic_count_alerts_with_material_ale
     assert final_summary.watchpoints
     assert "prioridade 9/10" not in final_summary.watchpoints[0]
     assert any("vacância" in item or "eleição suplementar" in item for item in final_summary.watchpoints)
+
+
+def test_finalize_report_summary_trims_incomplete_summary_tails_from_saved_openai_output():
+    raw_summary = notion.ReportSummary(
+        overview_callout="Visão geral.",
+        executive_highlights=[
+            (
+                "O TSE manteve indeferimentos de registros de prefeito por improbidade com dano ao erário e "
+                "enriquecimento ilícito e por condenação colegiada em AIJE, elevando o risco de candidaturas "
+                "sub judice sem suspensão eficaz e"
+            ),
+            (
+                "Nas contas do Cidadania, o TSE manteve irregularidades e devolução ao erário por prova insuficiente "
+                "de gastos do Fundo Partidário, reforçando padrão estrito de comprovação documental em rubricas "
+                "sensíveis como"
+            ),
+        ],
+        party_alerts=[
+            (
+                "MDB/TO aparece em precedente de AIJE por fraude à cota de gênero que superou tese de decadência, "
+                "aumentando o risco contencioso de legendas e chapas em casos análogos e exigindo prevenção "
+                "probatória e revisão de"
+            )
+        ],
+        lawyer_signals=[],
+        watchpoints=[
+            (
+                "O conjunto dos julgados sugere maior valor estratégico de prevenção documental e processual "
+                "pré-registro do que de litigância corretiva após indeferimento, sobretudo em majoritárias "
+                "municipais e contas partidárias e"
+            )
+        ],
+        closing_note="Fechamento.",
+    )
+
+    final_summary = notion.finalize_report_summary(
+        raw_summary,
+        [_make_case()],
+        [_make_analysis()],
+        party_counter=Counter({"MDB": 1}),
+        lawyer_counter=Counter(),
+    )
+
+    assert final_summary.executive_highlights[0].endswith("sem suspensão eficaz")
+    assert final_summary.executive_highlights[1].endswith("rubricas sensíveis")
+    assert final_summary.party_alerts[0].endswith("prevenção probatória e revisão")
+    assert final_summary.watchpoints[0].endswith("contas partidárias")
+    assert not final_summary.executive_highlights[0].endswith(" e")
+    assert not final_summary.executive_highlights[1].endswith(" como")
+
+
+def test_report_summary_has_incomplete_items_flags_broken_saved_summary():
+    summary = notion.ReportSummary(
+        overview_callout="Visão geral.",
+        executive_highlights=["Alerta material com fechamento inadequado e"],
+        party_alerts=[],
+        lawyer_signals=[],
+        watchpoints=[],
+        closing_note="Fechamento.",
+    )
+
+    assert notion.report_summary_has_incomplete_items(summary) is True
 
 
 def test_build_strategic_alert_section_items_limits_combined_output():

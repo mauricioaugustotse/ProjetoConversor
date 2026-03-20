@@ -77,7 +77,7 @@ MAX_PARTY_ALERTS = 2
 MAX_LAWYER_SIGNALS = 2
 MAX_WATCHPOINTS = 3
 MAX_STRATEGIC_ALERT_SECTION_ITEMS = 4
-MAX_ALERT_TEXT_CHARS = 220
+MAX_ALERT_TEXT_CHARS = 320
 MIN_RECURRING_ALERT_CASES = 2
 HEADING_SUMMARY_MAX_CHARS = 130
 HEADING_SUMMARY_TARGET_MIN = 90
@@ -259,8 +259,13 @@ HEADING_TRAILING_STOPWORDS = {
     "sem",
     "sob",
 }
+SUMMARY_TRAILING_STOPWORDS = HEADING_TRAILING_STOPWORDS | {"ao", "aos", "como", "que"}
 HEADING_SUSPICIOUS_END_RE = re.compile(
     r"(?:\b(?:a|as|à|às|com|da|das|de|do|dos|e|em|na|nas|no|nos|ou|para|pela|pelas|pelo|pelos|por|sem|sob)\s*$|[,;:/\-–(]\s*$)",
+    flags=re.IGNORECASE,
+)
+SUMMARY_SUSPICIOUS_END_RE = re.compile(
+    r"(?:\b(?:a|as|à|às|ao|aos|com|como|da|das|de|do|dos|e|em|na|nas|no|nos|ou|para|pela|pelas|pelo|pelos|por|que|sem|sob)\s*$|[,;:/\-–(]\s*$)",
     flags=re.IGNORECASE,
 )
 HEADING_INCOMPLETE_ART_RE = re.compile(
@@ -877,6 +882,63 @@ def _trim_suspicious_heading_tail(text: str) -> str:
             break
         summary = summary[:cut].rstrip(" ,;:/-–(")
     return summary
+
+
+def summary_text_looks_incomplete(text: Any) -> bool:
+    summary = _normalize_ws(text)
+    if not summary:
+        return False
+    return bool(
+        SUMMARY_SUSPICIOUS_END_RE.search(summary)
+        or HEADING_INCOMPLETE_ART_RE.search(summary)
+        or HEADING_INCOMPLETE_LEI_RE.search(summary)
+        or HEADING_INCOMPLETE_RES_RE.search(summary)
+        or HEADING_OPEN_PAREN_RE.search(summary)
+    )
+
+
+def _trim_suspicious_summary_tail(text: str) -> str:
+    summary = _normalize_ws(text).strip(" ;,:")
+    if not summary:
+        return ""
+    while summary_text_looks_incomplete(summary):
+        words = summary.split()
+        tail = ""
+        if words:
+            tail = re.sub(r"^[^\wÀ-ÿ]+|[^\wÀ-ÿ]+$", "", words[-1], flags=re.UNICODE).casefold()
+        if len(words) > 4 and tail in SUMMARY_TRAILING_STOPWORDS:
+            summary = " ".join(words[:-1]).rstrip(" ,;:/-–(")
+            continue
+
+        cut_positions = [
+            summary.rfind(". "),
+            summary.rfind("! "),
+            summary.rfind("? "),
+            summary.rfind("; "),
+            summary.rfind(";"),
+            summary.rfind(": "),
+            summary.rfind(":"),
+            summary.rfind(", "),
+            summary.rfind(","),
+            summary.rfind(" - "),
+            summary.rfind(" – "),
+            summary.rfind(" ("),
+            summary.rfind("("),
+        ]
+        cut = max(cut_positions)
+        if cut >= int(len(summary) * 0.6):
+            summary = summary[:cut].rstrip(" .,;:/-–(")
+            continue
+        break
+    return summary
+
+
+def normalize_summary_snippet(text: Any, *, max_chars: Optional[int] = None) -> str:
+    source = _normalize_ws(text)
+    if max_chars is not None and max_chars > 0:
+        source = truncate_text(source, max_chars, suffix="")
+    cleaned = _trim_suspicious_summary_tail(source)
+    return _normalize_ws(cleaned or source).strip(" ;,:")
 
 
 def truncate_heading_text(text: Any, max_chars: int) -> str:
@@ -1822,12 +1884,11 @@ def _normalize_summary_bullets(
     values: Iterable[str],
     *,
     max_items: int,
-    max_chars: int = MAX_ALERT_TEXT_CHARS,
+    max_chars: Optional[int] = None,
 ) -> List[str]:
     out: List[str] = []
     for raw in values:
-        value = truncate_text(raw, max_chars, suffix="")
-        value = _normalize_ws(value).strip(" ;,:")
+        value = normalize_summary_snippet(raw, max_chars=max_chars)
         if value:
             out.append(value)
     return _unique_preserve_order(out)[:max_items]
@@ -2031,8 +2092,7 @@ def _select_material_alert_items(
     selected: List[str] = []
     seen: set[str] = set()
     for raw in list(primary) + list(fallback):
-        value = truncate_text(raw, MAX_ALERT_TEXT_CHARS, suffix="")
-        value = _normalize_ws(value).strip(" ;,:")
+        value = normalize_summary_snippet(raw)
         if not _is_material_alert_text(value):
             continue
         marker = value.casefold()
@@ -2081,13 +2141,26 @@ def finalize_report_summary(
     )
 
 
+def report_summary_has_incomplete_items(summary: ReportSummary) -> bool:
+    groups = (
+        summary.executive_highlights,
+        summary.party_alerts,
+        summary.lawyer_signals,
+        summary.watchpoints,
+    )
+    return any(
+        summary_text_looks_incomplete(item) or has_terminal_ellipsis(item)
+        for group in groups
+        for item in group
+    )
+
+
 def build_strategic_alert_section_items(summary: ReportSummary) -> List[str]:
     items: List[str] = []
     seen: set[str] = set()
     for group in (summary.watchpoints, summary.party_alerts, summary.lawyer_signals):
         for raw in group:
-            value = truncate_text(raw, MAX_ALERT_TEXT_CHARS, suffix="")
-            value = _normalize_ws(value).strip(" ;,:")
+            value = normalize_summary_snippet(raw)
             if not _is_material_alert_text(value):
                 continue
             marker = value.casefold()
@@ -4741,8 +4814,20 @@ def main() -> int:
         and not bool(args.refresh_analysis)
         and not bool(args.refresh_ellipsis_only and ellipsis_refresh_count > 0)
     ):
-        summary = report_summary_from_dict(checkpoint.get("summary", {}))
-        LOGGER.info("Reaproveitando síntese executiva do checkpoint.")
+        cached_summary = report_summary_from_dict(checkpoint.get("summary", {}))
+        if report_summary_has_incomplete_items(cached_summary):
+            LOGGER.info("Síntese executiva do checkpoint contém itens incompletos. Regerando via API.")
+            summary = summarize_report(
+                reportable_cases,
+                reportable_analyses,
+                party_counter=reportable_party_counter,
+                lawyer_counter=reportable_lawyer_counter,
+                start_iso=inputs.start_date_iso,
+                end_iso=inputs.end_date_iso,
+            )
+        else:
+            summary = cached_summary
+            LOGGER.info("Reaproveitando síntese executiva do checkpoint.")
     else:
         summary = summarize_report(
             reportable_cases,
@@ -4752,6 +4837,13 @@ def main() -> int:
             start_iso=inputs.start_date_iso,
             end_iso=inputs.end_date_iso,
         )
+    summary = finalize_report_summary(
+        summary,
+        reportable_cases,
+        reportable_analyses,
+        party_counter=reportable_party_counter,
+        lawyer_counter=reportable_lawyer_counter,
+    )
     payload_report["summary"] = asdict(summary)
     save_checkpoint(
         run_key,
