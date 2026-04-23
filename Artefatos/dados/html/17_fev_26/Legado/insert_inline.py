@@ -1,5 +1,5 @@
 ﻿from pathlib import Path
-path = Path('LEGISLACAO_md_to_csv_converter.py')
+path = Path('LEGISLACAO_csv_converter.py')
 lines = path.read_text(encoding='utf-8').splitlines()
 for idx,line in enumerate(lines):
     if line.strip().startswith('header_search_pattern = re.compile'):

@@ -1,6 +1,6 @@
 ﻿# -*- coding: utf-8 -*-
 """
-Converte legislação (Markdown, PDF ou DOCX) em CSV para importação no Notion.
+Converte legislação (Markdown, HTML, PDF ou DOCX) em CSV para importação no Notion.
 
 Fluxo de trabalho:
 1. Localiza o arquivo de entrada automaticamente (ou por seleção manual).
@@ -15,12 +15,16 @@ import re
 import os
 import glob
 import argparse
+from html.parser import HTMLParser
 from pathlib import Path
 
 from gui_intuitiva import open_file_panel
 
-SUPPORTED_EXTENSIONS = (".md", ".pdf", ".docx")
+SUPPORTED_EXTENSIONS = (".md", ".html", ".htm", ".pdf", ".docx")
 SCRIPT_DIR = Path(__file__).resolve().parent
+ARTICLE_HEADING_PATTERN = (
+    r'Art\.\s*\d+(?:\.\d+)*(?:[.\s]*(?:\u00ba|\u00aa))?(?:-[A-Z]+)?(?:\.\s*|\s+)?'
+)
 
 
 def normalize_ordinals(text):
@@ -73,6 +77,23 @@ def fix_article_number_spacing(text):
     return article_sequence_pattern.sub(repl, text)
 
 
+def normalize_article_heading_punctuation(text):
+    """Corrige pontuação ausente em cabeçalhos de artigo mal formatados."""
+    if not text:
+        return text
+    text = re.sub(
+        r'^(Art\.\s*\d+(?:\.\d+)*(?:\u00ba|\u00aa)?(?:-[A-Z]+)?)\.(?=[A-Z\u00C0-\u024F])',
+        r'\1. ',
+        text,
+    )
+    text = re.sub(
+        r'^(Art\.\s*\d+(?:\.\d+)*(?:\u00ba|\u00aa)?(?:-[A-Z]+)?)(?=\s+[A-Z\u00C0-\u024F])',
+        r'\1.',
+        text,
+    )
+    return text
+
+
 def clean_title(raw_title):
     """Funcao centralizada para limpar os titulos dos dispositivos."""
     cleaned = normalize_space_characters(raw_title)
@@ -119,6 +140,69 @@ def collapse_duplicate_text(text):
     return f"{prefix}{core_stripped}{suffix}"
 
 
+class ParagraphHTMLExtractor(HTMLParser):
+    """Extrai blocos textuais relevantes de HTML normativo sem bibliotecas externas."""
+
+    block_tags = {"p", "li"}
+    skip_tags = {"script", "style"}
+
+    def __init__(self):
+        super().__init__()
+        self.capture_depth = 0
+        self.skip_depth = 0
+        self.current_parts = []
+        self.lines = []
+
+    def handle_starttag(self, tag, attrs):
+        tag = tag.lower()
+        if tag in self.skip_tags:
+            self.skip_depth += 1
+            return
+        if self.skip_depth:
+            return
+        if tag in self.block_tags:
+            if self.capture_depth == 0:
+                self.current_parts = []
+            self.capture_depth += 1
+        elif self.capture_depth and tag == "br":
+            self.current_parts.append("\n")
+
+    def handle_endtag(self, tag):
+        tag = tag.lower()
+        if tag in self.skip_tags and self.skip_depth:
+            self.skip_depth -= 1
+            return
+        if self.skip_depth:
+            return
+        if tag in self.block_tags and self.capture_depth:
+            self.capture_depth -= 1
+            if self.capture_depth == 0:
+                self._flush_current_parts()
+
+    def handle_data(self, data):
+        if self.skip_depth or not self.capture_depth:
+            return
+        self.current_parts.append(data)
+
+    def _flush_current_parts(self):
+        text = normalize_space_characters("".join(self.current_parts)).replace("\r", "")
+        candidate = re.sub(r'\s+', ' ', text).strip()
+        if candidate:
+            self.lines.append(candidate)
+        self.current_parts = []
+
+
+def detect_html_encoding(raw_bytes):
+    """Tenta descobrir a codificação declarada no HTML."""
+    meta_match = re.search(br'charset\s*=\s*["\']?([\w.\-]+)', raw_bytes[:8192], re.IGNORECASE)
+    if not meta_match:
+        return None
+    try:
+        return meta_match.group(1).decode("ascii", errors="ignore")
+    except Exception:
+        return None
+
+
 
 def save_current_item(rows, title, text_lines):
     """Funcao auxiliar para salvar o item (artigo, paragrafo, etc.) processado.
@@ -152,6 +236,7 @@ def save_current_item(rows, title, text_lines):
 
                 candidate = candidate.replace('_', '')
                 candidate = normalize_ordinals(candidate)
+                candidate = normalize_article_heading_punctuation(candidate)
                 candidate = re.sub(r'(?i)\bArt\.\s*(?=\d)', 'Art. ', candidate)
                 candidate = re.sub(r'\u00a7\s+', '\u00a7', candidate)
                 candidate = re.sub(
@@ -204,13 +289,14 @@ def select_input_and_output_via_gui(default_output_name="legislacao.csv"):
         title="Legislacao para CSV (Notion)",
         subtitle="Selecione arquivo de legislacao e configure a saida.",
         filetypes=[
-            ("Arquivos suportados", "*.md *.pdf *.docx"),
+            ("Arquivos suportados", "*.md *.html *.htm *.pdf *.docx"),
             ("Markdown", "*.md"),
+            ("HTML", "*.html *.htm"),
             ("PDF", "*.pdf"),
             ("Word", "*.docx"),
             ("Todos os arquivos", "*.*"),
         ],
-        extensions=[".md", ".pdf", ".docx"],
+        extensions=[".md", ".html", ".htm", ".pdf", ".docx"],
         initial_files=[],
         allow_add_dir=True,
         recursive_dir=True,
@@ -243,8 +329,8 @@ def force_output_path(path_value: str) -> str:
     return str((SCRIPT_DIR / name).resolve())
 
 def find_local_input_file():
-    """Procura arquivo .md/.pdf/.docx na pasta do script."""
-    print("\n[INFO] Nenhum arquivo selecionado. Procurando por arquivo .md, .pdf ou .docx na pasta do script...")
+    """Procura arquivo suportado na pasta do script."""
+    print("\n[INFO] Nenhum arquivo selecionado. Procurando por arquivo suportado na pasta do script...")
     candidates = []
     for name in glob.glob(str(SCRIPT_DIR / "*")):
         if not os.path.isfile(name):
@@ -254,7 +340,7 @@ def find_local_input_file():
     candidates = sorted(set(candidates))
 
     if not candidates:
-        print("\n[ERRO] Nenhum arquivo .md, .pdf ou .docx foi encontrado. Coloque o arquivo de legislação na mesma pasta.")
+        print("\n[ERRO] Nenhum arquivo suportado foi encontrado. Coloque o arquivo de legislação na mesma pasta.")
         return None
 
     if len(candidates) > 1:
@@ -269,6 +355,35 @@ def read_markdown_content(file_path):
             return md_file.read()
     except Exception as exc:
         print(f"\n[ERRO] Não foi possível ler o arquivo Markdown: {exc}")
+        return None
+
+
+def read_html_content(file_path):
+    try:
+        raw_bytes = Path(file_path).read_bytes()
+        encodings_to_try = []
+        detected_encoding = detect_html_encoding(raw_bytes)
+        if detected_encoding:
+            encodings_to_try.append(detected_encoding)
+        encodings_to_try.extend(["utf-8", "latin-1", "cp1252"])
+
+        decoded_html = None
+        for encoding in dict.fromkeys(encodings_to_try):
+            try:
+                decoded_html = raw_bytes.decode(encoding)
+                break
+            except (LookupError, UnicodeDecodeError):
+                continue
+
+        if decoded_html is None:
+            decoded_html = raw_bytes.decode("utf-8", errors="replace")
+
+        parser = ParagraphHTMLExtractor()
+        parser.feed(decoded_html)
+        parser.close()
+        return "\n".join(parser.lines)
+    except Exception as exc:
+        print(f"\n[ERRO] Não foi possível ler o arquivo HTML: {exc}")
         return None
 
 def read_pdf_content(file_path):
@@ -313,18 +428,20 @@ def load_input_content(file_path):
     ext = os.path.splitext(file_path)[1].lower()
     if ext == ".md":
         return read_markdown_content(file_path)
+    if ext in {".html", ".htm"}:
+        return read_html_content(file_path)
     if ext == ".pdf":
         return read_pdf_content(file_path)
     if ext == ".docx":
         return read_docx_content(file_path)
-    print("\n[ERRO] Formato não suportado. Use .md, .pdf ou .docx.")
+    print("\n[ERRO] Formato não suportado. Use .md, .html, .htm, .pdf ou .docx.")
     return None
 
 def find_and_convert_markdown_to_csv(input_filename="", output_filename="", use_gui=True):
     """
     Função principal que localiza o arquivo, processa a estrutura e gera o .csv.
     """
-    print("--- Conversor Estruturado de Leis (MD/PDF/DOCX) para CSV (Notion) ---")
+    print("--- Conversor Estruturado de Leis (MD/HTML/PDF/DOCX) para CSV (Notion) ---")
 
     input_filename = str(input_filename or "").strip()
     output_filename = str(output_filename or "").strip()
@@ -341,7 +458,7 @@ def find_and_convert_markdown_to_csv(input_filename="", output_filename="", use_
         input_filename = resolve_input_path(input_filename)
         print(f"[INFO] Arquivo selecionado: '{input_filename}'")
         if os.path.splitext(input_filename)[1].lower() not in SUPPORTED_EXTENSIONS:
-            print("\n[ERRO] O arquivo selecionado não possui extensão suportada (.md, .pdf, .docx).")
+            print("\n[ERRO] O arquivo selecionado não possui extensão suportada (.md, .html, .htm, .pdf, .docx).")
             return
     else:
         input_filename = find_local_input_file()
@@ -358,7 +475,7 @@ def find_and_convert_markdown_to_csv(input_filename="", output_filename="", use_
     print(f"\nIniciando a conversão estruturada para '{output_filename}'...")
 
     # Expressoes Regulares - correcao aplicada aqui
-    art_pattern = re.compile(r'^(Art\.\s*\d+(?:\.\d+)*(?:[.\s]*(?:\u00ba|\u00aa|o))?(?:-[A-Z]+)?(?:\.\s*)?)(.*)')
+    art_pattern = re.compile(fr'^({ARTICLE_HEADING_PATTERN})(.*)')
     par_pattern = re.compile(
         r'^('
         r'\u00a7\s*\d+(?:-[A-Z]+)?[\w.]*\u00ba?'
@@ -369,13 +486,16 @@ def find_and_convert_markdown_to_csv(input_filename="", output_filename="", use_
     )
     inc_pattern = re.compile(r'^([IVXLCDM]+)\s*[-\u2013\u2014]\s*(.*)')
     ali_pattern = re.compile(r'^([a-z])\)(.*)')
-    num_pattern = re.compile(r'^(\d+)[\.\)\-]\s*(.*)')
-    header_pattern = re.compile(r'^\s*(PARTE|LIVRO|T\u00cdTULO|CAP\u00cdTULO|Se\u00e7\u00e3o|Subse\u00e7\u00e3o|ANEXO)\s', re.IGNORECASE)
-    header_search_pattern = re.compile(r'\s*(PARTE|LIVRO|T\u00cdTULO|CAP\u00cdTULO|Se\u00e7\u00e3o|Subse\u00e7\u00e3o|ANEXO)\s', re.IGNORECASE)
-    inline_art_pattern = re.compile(r'Art\.\s*\d+(?:\.\d+)*(?:[.\s]*(?:\u00ba|\u00aa|o))?(?:-[A-Z]+)?(?:\.\s*)?')
+    num_pattern = re.compile(r'^(\d+)\s*[\.\)\-]\s*(.*)')
+    header_pattern = re.compile(r'^\s*(PARTE|LIVRO|T\u00cdTULO|CAP\u00cdTULO|Se\u00e7\u00e3o|Subse\u00e7\u00e3o|ANEXO|DISPOSI\u00c7\u00d5ES|DISPOSICOES)\s', re.IGNORECASE)
+    header_search_pattern = re.compile(r'\s*(PARTE|LIVRO|T\u00cdTULO|CAP\u00cdTULO|Se\u00e7\u00e3o|Subse\u00e7\u00e3o|ANEXO|DISPOSI\u00c7\u00d5ES|DISPOSICOES)\s', re.IGNORECASE)
+    inline_art_pattern = re.compile(ARTICLE_HEADING_PATTERN)
     inline_paragraph_split_pattern = re.compile(
         r'(?=(?:\u00a7\s*\d+(?:-[A-Z]+)?[\w.]*\u00ba?|Par\u00e1grafo \u00fanico)(?:\s*[-–—:]\s*|\s+))',
         re.IGNORECASE,
+    )
+    footer_start_pattern = re.compile(
+        r'^[A-Z\u00C0-\u024F][A-Za-z\u00C0-\u024F]+(?:\s+(?:[a-z\u00C0-\u024F]{1,6}|[A-Z\u00C0-\u024F][A-Za-z\u00C0-\u024F]+)){0,6},\s+\d{1,2}\s+de\s+[A-Za-z\u00C0-\u024F]+\s+de\s+\d{4}',
     )
 
     content = load_input_content(input_filename)
@@ -401,6 +521,7 @@ def find_and_convert_markdown_to_csv(input_filename="", output_filename="", use_
     hierarchy_text = {"art": "", "par": "", "inc": "", "ali": "", "num": ""}
     current_level = None
     last_line_was_header_desc = False
+    stop_processing = False
 
     def get_parent_text(*levels):
         """Retorna o texto herdado mais específico disponível para os níveis informados."""
@@ -424,7 +545,7 @@ def find_and_convert_markdown_to_csv(input_filename="", output_filename="", use_
             continue
 
         expanded_line = original_line
-        expanded_line = re.sub(r';\s*(?=[IVXLCDM]+\s*[---])', ';\n', expanded_line)
+        expanded_line = re.sub(r';\s*(?=[IVXLCDM]+\s*[-–—])', ';\n', expanded_line)
         expanded_line = re.sub(r';\s*(?=[a-z]\))', ';\n', expanded_line)
         expanded_line = re.sub(r';\s*(?=\d+[\.\)\-])', ';\n', expanded_line)
 
@@ -445,6 +566,7 @@ def find_and_convert_markdown_to_csv(input_filename="", output_filename="", use_
             line_stripped = re.sub(r'\(\s*[\w\u00C0-\u024F./#%-]*\.html?[^)]*\)', '', line_stripped, flags=re.IGNORECASE)
             line_stripped = re.sub(r'https?://\S+', '', line_stripped)
             line_stripped = normalize_ordinals(line_stripped)
+            line_stripped = normalize_article_heading_punctuation(line_stripped)
             line_stripped = re.sub(r'\u00a7\s+', '\u00a7', line_stripped)
             line_stripped = re.sub(
                 r'(\u00a7)([1-9])(?!\u00ba|\d)',
@@ -463,6 +585,10 @@ def find_and_convert_markdown_to_csv(input_filename="", output_filename="", use_
                 line_stripped = re.sub(r'\s*>\s*', ' ', line_stripped)
 
             line_stripped = line_stripped.strip()
+            if footer_start_pattern.match(line_stripped):
+                print(f"[VERBOSE] Ignorando rodapé normativo: '{line_stripped}'")
+                stop_processing = True
+                break
 
             if line_stripped:
                 search_pos = 1
@@ -659,6 +785,8 @@ def find_and_convert_markdown_to_csv(input_filename="", output_filename="", use_
                         last_line_was_header_desc = False
                 else:
                     last_line_was_header_desc = False
+        if stop_processing:
+            break
     _, _, cleaned_parent = save_current_item(all_rows, current_title, current_text_lines)
     if cleaned_parent and current_level:
         hierarchy_text[current_level] = cleaned_parent
@@ -696,8 +824,8 @@ def find_and_convert_markdown_to_csv(input_filename="", output_filename="", use_
 
 
 def build_arg_parser():
-    parser = argparse.ArgumentParser(description="Conversor estruturado de legislacao (MD/PDF/DOCX) para CSV.")
-    parser.add_argument("--input-file", default="", help="Arquivo de entrada (.md, .pdf, .docx).")
+    parser = argparse.ArgumentParser(description="Conversor estruturado de legislacao (MD/HTML/PDF/DOCX) para CSV.")
+    parser.add_argument("--input-file", default="", help="Arquivo de entrada (.md, .html, .htm, .pdf, .docx).")
     parser.add_argument("--output-csv", default="", help="Arquivo CSV de saida.")
     parser.add_argument("--no-gui", action="store_true", help="Desativa painel GUI e usa apenas CLI.")
     return parser

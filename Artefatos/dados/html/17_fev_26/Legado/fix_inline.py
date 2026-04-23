@@ -1,5 +1,5 @@
 ﻿from pathlib import Path
-path = Path('LEGISLACAO_md_to_csv_converter.py')
+path = Path('LEGISLACAO_csv_converter.py')
 lines = path.read_text(encoding='utf-8').splitlines()
 lines = [line for line in lines if 'inline_art_pattern =' not in line]
 for idx, line in enumerate(lines):
