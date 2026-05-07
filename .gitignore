@@ -11,6 +11,8 @@ Chave_Notion.txt
 [Cc][Hh][Aa][Vv][Ee]*[Aa][Pp][Ii]*[Oo]pen[Aa][Ii]*.txt
 [Cc][Hh][Aa][Vv][Ee]*[Nn]otion*.txt
 *notion*key*.txt
+# Dump bruto do Notion pode conter URLs S3 pre-assinadas com credenciais temporarias
+**/notion_page/page_blocks.json
 __pycache__/
 .vscode/
 .venv/

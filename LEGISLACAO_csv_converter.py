@@ -15,6 +15,7 @@ import re
 import os
 import glob
 import argparse
+import unicodedata
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -23,8 +24,31 @@ from gui_intuitiva import open_file_panel
 SUPPORTED_EXTENSIONS = (".md", ".html", ".htm", ".pdf", ".docx")
 SCRIPT_DIR = Path(__file__).resolve().parent
 ARTICLE_HEADING_PATTERN = (
-    r'Art\.\s*\d+(?:\.\d+)*(?:[.\s]*(?:\u00ba|\u00aa))?(?:-[A-Z]+)?(?:\.\s*|\s+)?'
+    r'Arts?\.\s*\d+(?:\s+a\s*\d+)?(?:\.\d+)*(?:[.\s]*(?:\u00ba|\u00aa))?(?:-[A-Z]+)?(?:\.\s*|\s+)?'
 )
+REGIMENTO_DOCUMENT = "Regimento Interno da Câmara dos Deputados"
+CODIGO_ETICA_DOCUMENT = "Código de Ética e Decoro Parlamentar da Câmara dos Deputados"
+STRUCTURE_LEVELS = ("documento", "parte", "livro", "titulo", "capitulo", "secao", "subsecao", "anexo")
+STRUCTURAL_HEADER_PATTERN = re.compile(
+    r'^(PARTE|LIVRO|T[ÍI]TULO|CAP[ÍI]TULO|SE[ÇC][ÃA]O|SUBSE[ÇC][ÃA]O|ANEXO)\b(?:\s+(.*))?$',
+    re.IGNORECASE,
+)
+HEADING_KIND_TO_KEY = {
+    "PARTE": "parte",
+    "LIVRO": "livro",
+    "TITULO": "titulo",
+    "CAPITULO": "capitulo",
+    "SECAO": "secao",
+    "SUBSECAO": "subsecao",
+    "ANEXO": "anexo",
+}
+HEADING_IDENTIFIER_WORDS = {
+    "UNICO", "UNICA", "GERAL",
+    "PRIMEIRO", "PRIMEIRA", "SEGUNDO", "SEGUNDA", "TERCEIRO", "TERCEIRA",
+    "QUARTO", "QUARTA", "QUINTO", "QUINTA", "SEXTO", "SEXTA",
+    "SETIMO", "SETIMA", "OITAVO", "OITAVA", "NONO", "NONA",
+    "DECIMO", "DECIMA",
+}
 
 
 def normalize_ordinals(text):
@@ -53,6 +77,152 @@ def normalize_space_characters(text):
     text = re.sub(r'[\u00a0\u1680\u2000-\u200a\u202f\u205f\u3000]', ' ', text)
     text = re.sub(r'[\u200b\u200c\u200d\u2060]', '', text)
     return text
+
+
+def normalize_for_matching(text):
+    """Remove acentos e padroniza caixa para comparações estruturais."""
+    text = normalize_space_characters(text or "")
+    normalized = unicodedata.normalize("NFKD", text)
+    without_accents = "".join(ch for ch in normalized if not unicodedata.combining(ch))
+    return re.sub(r'\s+', ' ', without_accents).strip().upper()
+
+
+def get_document_heading(text):
+    """Detecta cabeçalhos de documentos embutidos no HTML do Regimento."""
+    normalized = normalize_for_matching(text)
+    if normalized == "CODIGO DE ETICA E DECORO PARLAMENTAR DA CAMARA DOS DEPUTADOS":
+        return CODIGO_ETICA_DOCUMENT
+    if normalized == "REGIMENTO INTERNO DA CAMARA DOS DEPUTADOS":
+        return REGIMENTO_DOCUMENT
+    return ""
+
+
+def is_resolution_heading(text):
+    """Identifica resoluções intermediárias que não devem virar itens do Regimento."""
+    normalized = normalize_for_matching(text)
+    return bool(re.match(r'^RESOLUCAO\s+N[ºO.]?\s*\d+', normalized))
+
+
+def heading_kind_key(kind):
+    normalized = normalize_for_matching(kind)
+    return HEADING_KIND_TO_KEY.get(normalized, "")
+
+
+def is_heading_identifier(value):
+    normalized = normalize_for_matching(value).rstrip(".")
+    if normalized in HEADING_IDENTIFIER_WORDS:
+        return True
+    return bool(re.match(r'^(?:[IVXLCDM]+(?:-[A-Z]+)?|\d+(?:-[A-Z]+)?|\d+[ºª](?:-[A-Z]+)?)$', normalized))
+
+
+def parse_structural_header(text):
+    """Retorna (nivel, cabecalho, pendente_descricao) para títulos normativos."""
+    match = STRUCTURAL_HEADER_PATTERN.match(text)
+    if not match:
+        return None
+
+    kind, rest = match.groups()
+    key = heading_kind_key(kind)
+    if not key:
+        return None
+
+    kind_display = normalize_space_characters(kind).strip().upper()
+    rest = normalize_space_characters(rest or "").strip()
+    if not rest:
+        return key, kind_display, True
+
+    first, sep, remainder = rest.partition(" ")
+    if is_heading_identifier(first):
+        base = f"{kind_display} {first}".strip()
+        if remainder.strip():
+            return key, f"{base} - {remainder.strip()}", False
+        return key, base, True
+
+    return key, f"{kind_display} {rest}".strip(), False
+
+
+def is_heading_description(text):
+    """Reconhece descrições curtas que completam TÍTULO/CAPÍTULO/SEÇÃO."""
+    text = normalize_space_characters(text or "").strip()
+    if not text or text.startswith("("):
+        return False
+    if len(text) > 180 or text.endswith((".", ";", ":")):
+        return False
+    if re.match(fr'^(?:{ARTICLE_HEADING_PATTERN})', text):
+        return False
+    if re.match(r'^(?:\u00a7\s*\d+|Par\u00e1grafo \u00fanico|[IVXLCDM]+\s*[-\u2013\u2014]|[a-z]\)|\d+[\.\)\-])', text):
+        return False
+
+    letters = [ch for ch in text if ch.isalpha()]
+    if not letters:
+        return False
+    return True
+
+
+def heading_description_continues(text):
+    """Indica que o cabeçalho provavelmente continua na próxima linha."""
+    normalized = normalize_for_matching(text).rstrip()
+    if not normalized:
+        return False
+    if normalized.endswith(","):
+        return True
+    last_word = normalized.rsplit(" ", 1)[-1]
+    return last_word in {"DE", "DO", "DA", "DOS", "DAS", "E"}
+
+
+def apply_structure_heading(structure_context, key, heading):
+    """Atualiza o contexto hierárquico e limpa níveis inferiores."""
+    if key not in STRUCTURE_LEVELS:
+        return
+    structure_context[key] = heading
+    start = STRUCTURE_LEVELS.index(key) + 1
+    for lower_key in STRUCTURE_LEVELS[start:]:
+        structure_context[lower_key] = ""
+
+
+def append_structure_description(structure_context, key, description):
+    if not key or key not in STRUCTURE_LEVELS or not description:
+        return
+    current = structure_context.get(key, "")
+    if not current:
+        structure_context[key] = description
+        return
+    if description in current:
+        return
+    if " - " in current:
+        structure_context[key] = f"{current} {description}"
+    else:
+        structure_context[key] = f"{current} - {description}"
+
+
+def build_metadata_lines(structure_context, item_title):
+    lines = []
+    document = structure_context.get("documento", "")
+    if document:
+        lines.append(f"Documento: {document}")
+    hierarchy = " > ".join(
+        structure_context.get(level, "")
+        for level in STRUCTURE_LEVELS
+        if level != "documento" and structure_context.get(level)
+    )
+    if hierarchy:
+        lines.append(f"Hierarquia: {hierarchy}")
+    if item_title:
+        lines.append(f"Dispositivo: {item_title}")
+    return lines
+
+
+def content_from_best_start(content):
+    """Para páginas consolidadas, inicia no Regimento anexo, não na resolução introdutória."""
+    lines = content.splitlines()
+    for index, line in enumerate(lines):
+        if get_document_heading(line) == REGIMENTO_DOCUMENT:
+            return "\n".join(lines[index:])
+
+    match = re.search(r"Art\.\s*1", content, re.IGNORECASE)
+    if not match:
+        return ""
+    return content[match.start():]
 
 
 article_sequence_pattern = re.compile(
@@ -143,7 +313,7 @@ def collapse_duplicate_text(text):
 class ParagraphHTMLExtractor(HTMLParser):
     """Extrai blocos textuais relevantes de HTML normativo sem bibliotecas externas."""
 
-    block_tags = {"p", "li"}
+    block_tags = {"p", "li", "h1", "h2", "h3", "h4", "h5", "h6"}
     skip_tags = {"script", "style"}
 
     def __init__(self):
@@ -204,10 +374,11 @@ def detect_html_encoding(raw_bytes):
 
 
 
-def save_current_item(rows, title, text_lines):
+def save_current_item(rows, title, text_lines, metadata_lines=None):
     """Funcao auxiliar para salvar o item (artigo, paragrafo, etc.) processado.
     Agrupa as linhas de texto, remove anotacoes/links/lixo e adiciona a lista de resultados."""
     cleaned_text = None
+    cleaned_body = None
     title_normalized = clean_title(title) if title else title
     if title and text_lines:
         link_pattern = re.compile(r'\[([^\]]+)\]\s*\([^)]*\)')
@@ -278,10 +449,20 @@ def save_current_item(rows, title, text_lines):
             normalized_lines.append(title_normalized.strip())
 
         if normalized_lines:
-            cleaned_text = "\n".join(normalized_lines)
+            cleaned_body = "\n".join(normalized_lines)
+            metadata = []
+            for metadata_line in metadata_lines or []:
+                metadata_line = normalize_space_characters(metadata_line).strip()
+                if metadata_line:
+                    metadata.append(metadata_line)
+
+            if metadata:
+                cleaned_text = "\n".join(metadata + ["", cleaned_body])
+            else:
+                cleaned_text = cleaned_body
             rows.append({"title": title_normalized or title, "text": cleaned_text})
             print(f"[VERBOSE] Item '{title_normalized or title}' extraido e limpo.")
-    return [], "", cleaned_text
+    return [], "", cleaned_body
 
 def select_input_and_output_via_gui(default_output_name="legislacao.csv"):
     """Abre painel GUI completo para selecionar entrada e saida."""
@@ -478,7 +659,7 @@ def find_and_convert_markdown_to_csv(input_filename="", output_filename="", use_
     art_pattern = re.compile(fr'^({ARTICLE_HEADING_PATTERN})(.*)')
     par_pattern = re.compile(
         r'^('
-        r'\u00a7\s*\d+(?:-[A-Z]+)?[\w.]*\u00ba?'
+        r'\u00a7\s*\d+(?:\.\d+)?(?:\s*(?:\u00ba|\u00aa))?(?:-[A-Z]+)?\.?'
         r'|Par\u00e1grafo \u00fanico'
         r')'
         r'(?:\s*[-–—:]\s*|\.\s*)?'
@@ -487,8 +668,7 @@ def find_and_convert_markdown_to_csv(input_filename="", output_filename="", use_
     inc_pattern = re.compile(r'^([IVXLCDM]+)\s*[-\u2013\u2014]\s*(.*)')
     ali_pattern = re.compile(r'^([a-z])\)(.*)')
     num_pattern = re.compile(r'^(\d+)\s*[\.\)\-]\s*(.*)')
-    header_pattern = re.compile(r'^\s*(PARTE|LIVRO|T\u00cdTULO|CAP\u00cdTULO|Se\u00e7\u00e3o|Subse\u00e7\u00e3o|ANEXO|DISPOSI\u00c7\u00d5ES|DISPOSICOES)\s', re.IGNORECASE)
-    header_search_pattern = re.compile(r'\s*(PARTE|LIVRO|T\u00cdTULO|CAP\u00cdTULO|Se\u00e7\u00e3o|Subse\u00e7\u00e3o|ANEXO|DISPOSI\u00c7\u00d5ES|DISPOSICOES)\s', re.IGNORECASE)
+    header_search_pattern = re.compile(r'\s*(PARTE|LIVRO|T\u00cdTULO|CAP\u00cdTULO|Se\u00e7\u00e3o|Subse\u00e7\u00e3o|ANEXO)\s', re.IGNORECASE)
     inline_art_pattern = re.compile(ARTICLE_HEADING_PATTERN)
     inline_paragraph_split_pattern = re.compile(
         r'(?=(?:\u00a7\s*\d+(?:-[A-Z]+)?[\w.]*\u00ba?|Par\u00e1grafo \u00fanico)(?:\s*[-–—:]\s*|\s+))',
@@ -503,25 +683,47 @@ def find_and_convert_markdown_to_csv(input_filename="", output_filename="", use_
         print("\n[ERRO] Não foi possível carregar o conteúdo do arquivo de entrada.")
         return
 
-    start_index = -1
-    match = re.search(r"Art\.\s*1", content, re.IGNORECASE)
-    if match:
-        start_index = match.start()
-    
-    if start_index == -1:
+    content_from_articles = content_from_best_start(content)
+    if not content_from_articles:
         print("\n[ERRO] 'Art. 1.º' não foi encontrado no arquivo.")
         return
-    
-    content_from_articles = content[start_index:]
 
     all_rows = []
     current_text_lines = []
     current_title = ""
+    current_metadata_lines = []
     context = {"art": "", "par": "", "inc": "", "ali": "", "num": ""}
     hierarchy_text = {"art": "", "par": "", "inc": "", "ali": "", "num": ""}
     current_level = None
-    last_line_was_header_desc = False
+    structure_context = {level: "" for level in STRUCTURE_LEVELS}
+    pending_structure_key = ""
+    skip_until_document_heading = False
     stop_processing = False
+
+    def decorated_title(title):
+        document = normalize_for_matching(structure_context.get("documento", ""))
+        if "CODIGO DE ETICA" in document and title:
+            return f"Código de Ética, {title}"
+        return title
+
+    def reset_current_item():
+        nonlocal current_title, current_text_lines, current_level, current_metadata_lines
+        current_title, current_text_lines = "", []
+        current_level = None
+        current_metadata_lines = []
+
+    def save_open_item():
+        nonlocal current_title, current_text_lines, current_level, current_metadata_lines
+        current_text_lines, current_title, cleaned_parent = save_current_item(
+            all_rows,
+            current_title,
+            current_text_lines,
+            current_metadata_lines,
+        )
+        if cleaned_parent and current_level:
+            hierarchy_text[current_level] = cleaned_parent
+        current_metadata_lines = []
+        return cleaned_parent
 
     def get_parent_text(*levels):
         """Retorna o texto herdado mais específico disponível para os níveis informados."""
@@ -585,10 +787,51 @@ def find_and_convert_markdown_to_csv(input_filename="", output_filename="", use_
                 line_stripped = re.sub(r'\s*>\s*', ' ', line_stripped)
 
             line_stripped = line_stripped.strip()
+            document_heading = get_document_heading(line_stripped)
+            if document_heading:
+                save_open_item()
+                apply_structure_heading(structure_context, "documento", document_heading)
+                context = {"art": "", "par": "", "inc": "", "ali": "", "num": ""}
+                hierarchy_text = {"art": "", "par": "", "inc": "", "ali": "", "num": ""}
+                pending_structure_key = ""
+                skip_until_document_heading = False
+                reset_current_item()
+                print(f"[VERBOSE] Contexto de documento: '{document_heading}'")
+                continue
+
+            if skip_until_document_heading:
+                continue
+
+            if is_resolution_heading(line_stripped) and structure_context.get("documento") == REGIMENTO_DOCUMENT:
+                save_open_item()
+                skip_until_document_heading = True
+                pending_structure_key = ""
+                reset_current_item()
+                print(f"[VERBOSE] Ignorando resolução intermediária: '{line_stripped}'")
+                continue
+
             if footer_start_pattern.match(line_stripped):
                 print(f"[VERBOSE] Ignorando rodapé normativo: '{line_stripped}'")
                 stop_processing = True
                 break
+
+            structural_header = parse_structural_header(line_stripped)
+            if structural_header:
+                save_open_item()
+                key, heading, waits_description = structural_header
+                apply_structure_heading(structure_context, key, heading)
+                pending_structure_key = key if waits_description or heading_description_continues(heading) else ""
+                reset_current_item()
+                print(f"[VERBOSE] Contexto hierárquico: '{heading}'")
+                continue
+
+            if pending_structure_key and is_heading_description(line_stripped):
+                append_structure_description(structure_context, pending_structure_key, line_stripped)
+                print(f"[VERBOSE] Complemento de cabeçalho: '{line_stripped}'")
+                pending_structure_key = pending_structure_key if heading_description_continues(line_stripped) else ""
+                continue
+            elif pending_structure_key:
+                pending_structure_key = ""
 
             if line_stripped:
                 search_pos = 1
@@ -638,30 +881,23 @@ def find_and_convert_markdown_to_csv(input_filename="", output_filename="", use_
             inc_match = inc_pattern.match(line_stripped)
             ali_match = ali_pattern.match(line_stripped)
             num_match = num_pattern.match(line_stripped)
-            header_match = header_pattern.match(line_stripped)
-            
-            is_all_caps_desc = line_stripped.isupper() and len(line_stripped.split()) < 10
 
             if art_match:
-                current_text_lines, current_title, cleaned_parent = save_current_item(all_rows, current_title, current_text_lines)
-                if cleaned_parent and current_level:
-                    hierarchy_text[current_level] = cleaned_parent
+                save_open_item()
                 art_title = clean_title(art_match.group(1))
                 context = {"art": art_title, "par": "", "inc": "", "ali": "", "num": ""}
                 current_level = "art"
-                current_title = context["art"]
+                current_title = decorated_title(context["art"])
+                current_metadata_lines = build_metadata_lines(structure_context, current_title)
                 current_text_lines = [line_stripped]
                 hierarchy_text["art"] = ""
                 hierarchy_text["par"] = ""
                 hierarchy_text["inc"] = ""
                 hierarchy_text["ali"] = ""
                 hierarchy_text["num"] = ""
-                last_line_was_header_desc = False
             
             elif par_match:
-                current_text_lines, current_title, cleaned_parent = save_current_item(all_rows, current_title, current_text_lines)
-                if cleaned_parent and current_level:
-                    hierarchy_text[current_level] = cleaned_parent
+                save_open_item()
                 par_title = clean_title(par_match.group(1))
                 context["par"] = par_title
                 context["inc"] = ""
@@ -669,7 +905,8 @@ def find_and_convert_markdown_to_csv(input_filename="", output_filename="", use_
                 context["num"] = ""
                 current_level = "par"
 
-                current_title = f'{context["art"]}, {context["par"]}'
+                current_title = decorated_title(f'{context["art"]}, {context["par"]}')
+                current_metadata_lines = build_metadata_lines(structure_context, current_title)
                 parent_text = get_parent_text("art")
                 current_text_lines = []
                 if parent_text:
@@ -678,12 +915,9 @@ def find_and_convert_markdown_to_csv(input_filename="", output_filename="", use_
                 hierarchy_text["inc"] = ""
                 hierarchy_text["ali"] = ""
                 hierarchy_text["num"] = ""
-                last_line_was_header_desc = False
 
             elif inc_match:
-                current_text_lines, current_title, cleaned_parent = save_current_item(all_rows, current_title, current_text_lines)
-                if cleaned_parent and current_level:
-                    hierarchy_text[current_level] = cleaned_parent
+                save_open_item()
                 context["inc"] = inc_match.group(1).strip()
                 context["ali"] = ""
                 context["num"] = ""
@@ -692,7 +926,8 @@ def find_and_convert_markdown_to_csv(input_filename="", output_filename="", use_
                 if context["par"]:
                     title_parts.append(context["par"])
                 title_parts.append(context["inc"])
-                current_title = ", ".join(title_parts)
+                current_title = decorated_title(", ".join(title_parts))
+                current_metadata_lines = build_metadata_lines(structure_context, current_title)
                 parent_text = get_parent_text("par", "art")
                 current_text_lines = []
                 if parent_text:
@@ -700,12 +935,9 @@ def find_and_convert_markdown_to_csv(input_filename="", output_filename="", use_
                 current_text_lines.append(f"\n{line_stripped}")
                 hierarchy_text["ali"] = ""
                 hierarchy_text["num"] = ""
-                last_line_was_header_desc = False
 
             elif ali_match:
-                current_text_lines, current_title, cleaned_parent = save_current_item(all_rows, current_title, current_text_lines)
-                if cleaned_parent and current_level:
-                    hierarchy_text[current_level] = cleaned_parent
+                save_open_item()
                 alinea = ali_match.group(1).strip() + ")"
                 context["ali"] = alinea
                 context["num"] = ""
@@ -716,19 +948,17 @@ def find_and_convert_markdown_to_csv(input_filename="", output_filename="", use_
                 if context["inc"]:
                     title_parts.append(context["inc"])
                 title_parts.append(alinea)
-                current_title = ", ".join(title_parts)
+                current_title = decorated_title(", ".join(title_parts))
+                current_metadata_lines = build_metadata_lines(structure_context, current_title)
                 parent_text = get_parent_text("inc", "par", "art")
                 current_text_lines = []
                 if parent_text:
                     current_text_lines.append(parent_text)
                 current_text_lines.append(f"\n{line_stripped}")
                 hierarchy_text["num"] = ""
-                last_line_was_header_desc = False
 
             elif num_match:
-                current_text_lines, current_title, cleaned_parent = save_current_item(all_rows, current_title, current_text_lines)
-                if cleaned_parent and current_level:
-                    hierarchy_text[current_level] = cleaned_parent
+                save_open_item()
                 numero = num_match.group(1).strip()
                 context["num"] = numero
                 current_level = "num"
@@ -740,22 +970,13 @@ def find_and_convert_markdown_to_csv(input_filename="", output_filename="", use_
                 if context["ali"]:
                     title_parts.append(context["ali"])
                 title_parts.append(numero)
-                current_title = ", ".join(title_parts)
+                current_title = decorated_title(", ".join(title_parts))
+                current_metadata_lines = build_metadata_lines(structure_context, current_title)
                 parent_text = get_parent_text("ali", "inc", "par", "art")
                 current_text_lines = []
                 if parent_text:
                     current_text_lines.append(parent_text)
                 current_text_lines.append(f"\n{line_stripped}")
-                last_line_was_header_desc = False
-                
-            elif header_match or (last_line_was_header_desc and is_all_caps_desc):
-                current_text_lines, current_title, cleaned_parent = save_current_item(all_rows, current_title, current_text_lines)
-                if cleaned_parent and current_level:
-                    hierarchy_text[current_level] = cleaned_parent
-                print(f"[VERBOSE] Ignorando cabeçalho: '{line_stripped}'")
-                last_line_was_header_desc = True
-                current_title, current_text_lines = "", []
-                current_level = None
 
             else:
                 if current_title:
@@ -769,27 +990,18 @@ def find_and_convert_markdown_to_csv(input_filename="", output_filename="", use_
                         if text_before_header:
                             current_text_lines.append(text_before_header)
                         
-                        current_text_lines, current_title, cleaned_parent = save_current_item(all_rows, current_title, current_text_lines)
-                        if cleaned_parent and current_level:
-                            hierarchy_text[current_level] = cleaned_parent
+                        save_open_item()
                         
                         print(f"[VERBOSE] Ignorando cabeçalho no meio da linha: '{line_stripped[header_in_line_match.start():]}'")
-                        last_line_was_header_desc = True
-                        current_title, current_text_lines = "", []
-                        current_level = None
+                        reset_current_item()
                     else:
                         if current_text_lines:
                             current_text_lines[-1] = f"{current_text_lines[-1]} {line_stripped}"
                         else:
                             current_text_lines.append(line_stripped)
-                        last_line_was_header_desc = False
-                else:
-                    last_line_was_header_desc = False
         if stop_processing:
             break
-    _, _, cleaned_parent = save_current_item(all_rows, current_title, current_text_lines)
-    if cleaned_parent and current_level:
-        hierarchy_text[current_level] = cleaned_parent
+    save_open_item()
 
     footer_pattern = re.compile(
         r'(\b[A-Za-z?-?][^,\n\d]+,\s+\d{1,2}\s+de\s+[A-Za-z?-?]+\s+de\s+\d{4}.*$)',
