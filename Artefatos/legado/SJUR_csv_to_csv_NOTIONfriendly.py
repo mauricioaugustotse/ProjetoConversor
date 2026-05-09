@@ -5,7 +5,7 @@ Fluxo de trabalho:
 1. Lê o CSV de entrada e normaliza encoding, delimitador, cabeçalhos e células.
 2. Aplica padronizações jurídicas por coluna (CNJ, partes, composição e resultado).
 3. Remove colunas descartadas e alinha o esquema final para importação no Notion.
-4. Opcionalmente preenche `tema`/`punchline` (OpenAI) e URLs de notícia (Perplexity).
+4. Opcionalmente preenche `tema`/`punchline` (OpenAI) e URLs de notícia (Gemini/Perplexity).
 5. Gera CSVs de saída por arquivo e um consolidado, com checkpoint e backup.
 """
 
@@ -65,6 +65,7 @@ THEME_COLUMNS = ["tema", "punchline"]
 DEFAULT_PRESERVE_COLUMNS = [*THEME_COLUMNS, *URL_COLUMNS]
 ROW_PROGRESS_EVERY = 100
 DEFAULT_PERPLEXITY_KEY_FILE = "Chave_secreta_Perplexity.txt"
+DEFAULT_GEMINI_KEY_FILE = "Chave_Gemini.txt"
 DEFAULT_OPENAI_KEY_FILE = "CHAVE_SECRETA_API_Mauricio_local.txt"
 OPENAI_KEY_FALLBACK_FILES = (
     "Chave Secreta API_Mauricio_local.txt",
@@ -76,6 +77,15 @@ PERPLEXITY_KEY_FALLBACK_FILES = (
     "Chave secreta Perplexity.txt",
     "chave_secreta_perplexity.txt",
 )
+GEMINI_KEY_FALLBACK_FILES = (
+    "Chave_Gemini.txt",
+    "Chave_Google_API.txt",
+    "chave_gemini.txt",
+    "chave_google_api.txt",
+    "../JULES-IA/Chave_Gemini.txt",
+    "../JULES-IA/Chave_Google_API.txt",
+    "../OneDrive/Documentos/API Key Gemini GitHub.txt",
+)
 OPENAI_DEFAULT_MAX_WORKERS = 10
 OPENAI_DEFAULT_TIMEOUT = 45
 OPENAI_DEFAULT_BATCH_SIZE = 40
@@ -83,13 +93,22 @@ OPENAI_DEFAULT_DELAY = 0.05
 OPENAI_DEFAULT_RETRIES = 3
 OPENAI_DEFAULT_TARGET_RPM = 180
 DEFAULT_COMBINED_MULTI = "DJe_consolidado.csv"
-CHECKPOINT_VERSION = 2
+CHECKPOINT_VERSION = 3
 PERPLEXITY_NEWS_STRATEGY_VERSION = 10
 PERPLEXITY_DEFAULT_MAX_TOKENS = 180
 PERPLEXITY_EMENTA_CONTEXT_MAX_CHARS = 700
 PERPLEXITY_DECISAO_CONTEXT_MAX_CHARS = 900
 PERPLEXITY_DEFAULT_TARGET_RPM = 240
 PERPLEXITY_DEFAULT_RETRIES = 3
+DEFAULT_GEMINI_NEWS_MODEL = os.getenv("GEMINI_NEWS_MODEL") or "gemini-3.1-flash-lite"
+GEMINI_DEFAULT_TIMEOUT = 25
+GEMINI_DEFAULT_MAX_WORKERS = 2
+GEMINI_DEFAULT_BATCH_SIZE = 10
+GEMINI_DEFAULT_DELAY = 0.2
+GEMINI_DEFAULT_MAX_OUTPUT_TOKENS = 900
+GEMINI_DEFAULT_TARGET_RPM = 40
+GEMINI_DEFAULT_RETRIES = 1
+GEMINI_REST_BASE_URL = "https://generativelanguage.googleapis.com/v1beta"
 PERPLEXITY_SEARCH_MAX_RESULTS = 5
 PERPLEXITY_SEARCH_MAX_TOKENS_PER_PAGE = 256
 PERPLEXITY_PAGE_FETCH_TIMEOUT = 12
@@ -253,6 +272,20 @@ NEWS_GENERIC_TITLE_MARKERS = (
     "regras da eleição",
     "ano judiciario",
     "ano judiciário",
+)
+NEWS_WEAK_EDITORIAL_URL_MARKERS = (
+    "pauta da sessao",
+    "pauta de sessao",
+    "pauta da sessao plenaria",
+    "pauta da sessao de julgamento",
+    "pauta de julgamento",
+    "pautas de julgamento",
+    "confira a pauta",
+    "sessao plenaria do dia",
+    "sessao de julgamento do dia",
+    "calendario eleitoral",
+    "diario da justica",
+    "ano judiciario",
 )
 HEADER_END_RE = re.compile(r"(?i)\b(?:decis[aã]o|ac[oó]rd[aã]o|ementa|voto)\b")
 HEADER_LABEL_RE = re.compile(
@@ -592,6 +625,7 @@ class ProcessSummary:
 @dataclass
 class WebLookupConfig:
     enabled: bool = False
+    provider: str = "perplexity"
     api_key: str = ""
     model: str = "sonar"
     timeout_seconds: int = 15
@@ -612,6 +646,11 @@ class TemaPunchlineConfig:
     delay_between_batches: float = OPENAI_DEFAULT_DELAY
     retries: int = OPENAI_DEFAULT_RETRIES
     target_rpm: int = OPENAI_DEFAULT_TARGET_RPM
+
+
+@dataclass
+class LocalTemaPunchlineConfig:
+    enabled: bool = False
 
 
 @dataclass
@@ -830,6 +869,20 @@ def resolve_perplexity_api_key(cli_value: str, key_file_path: str) -> str:
     return ""
 
 
+def resolve_gemini_api_key(cli_value: str, key_file_path: str) -> str:
+    if cli_value and cli_value.strip():
+        return cli_value.strip()
+    for env_name in ("GEMINI_API_KEY", "GOOGLE_API_KEY"):
+        env_value = os.getenv(env_name, "").strip()
+        if env_value:
+            return env_value
+    resolved_path = _resolve_existing_key_file_path(key_file_path, GEMINI_KEY_FALLBACK_FILES)
+    file_value = read_secret_from_file(resolved_path)
+    if file_value:
+        return file_value
+    return ""
+
+
 def resolve_openai_api_key(cli_value: str, key_file_path: str) -> str:
     if cli_value and cli_value.strip():
         return cli_value.strip()
@@ -872,18 +925,18 @@ class GerenciadorRequisicoes:
         max_workers: int = 4,
         retries: int = PERPLEXITY_DEFAULT_RETRIES,
         target_rpm: int = PERPLEXITY_DEFAULT_TARGET_RPM,
+        provider: str = "perplexity",
     ) -> None:
+        self.provider = str(provider or "perplexity").strip().lower()
+        self.api_key = api_key
         self.model = model
         self.retries = max(1, int(retries))
         self.pacer = RequestPacer(target_rpm)
         self.executor = ThreadPoolExecutor(max_workers=max_workers)
         self.api_session = requests.Session()
-        self.api_session.headers.update(
-            {
-                "Authorization": f"Bearer {api_key}",
-                "Content-Type": "application/json",
-            }
-        )
+        self.api_session.headers.update({"Content-Type": "application/json"})
+        if self.provider == "perplexity":
+            self.api_session.headers.update({"Authorization": f"Bearer {api_key}"})
         self.page_session = requests.Session()
         self.page_session.headers.update(
             {
@@ -910,6 +963,38 @@ class GerenciadorRequisicoes:
                         chunks.append(text)
             return "".join(chunks).strip()
         return str(content_obj or "").strip()
+
+    @staticmethod
+    def _extract_gemini_text(result: dict[str, object]) -> str:
+        chunks: list[str] = []
+        for candidate in result.get("candidates") or []:
+            if not isinstance(candidate, dict):
+                continue
+            content = candidate.get("content") or {}
+            parts = content.get("parts") if isinstance(content, dict) else []
+            for part in parts or []:
+                if isinstance(part, dict) and isinstance(part.get("text"), str):
+                    chunks.append(part["text"])
+        return "\n".join(chunks).strip()
+
+    @staticmethod
+    def _extract_json_object(text: str) -> dict[str, object]:
+        source = str(text or "").strip()
+        source = re.sub(r"^```json\s*", "", source, flags=re.IGNORECASE | re.MULTILINE)
+        source = re.sub(r"^```\s*", "", source, flags=re.MULTILINE)
+        source = re.sub(r"\s*```$", "", source).strip()
+        try:
+            payload = json.loads(source)
+            return payload if isinstance(payload, dict) else {}
+        except Exception:
+            match = re.search(r"\{.*\}", source, flags=re.DOTALL)
+            if match:
+                try:
+                    payload = json.loads(match.group(0))
+                    return payload if isinstance(payload, dict) else {}
+                except Exception:
+                    return {}
+        return {}
 
     def _post_json_with_retries(
         self,
@@ -1040,6 +1125,46 @@ class GerenciadorRequisicoes:
         max_tokens: int,
         max_general_urls: int,
     ) -> Optional[dict[str, object]]:
+        if self.provider == "gemini":
+            thinking_config = (
+                {"thinkingLevel": "minimal"}
+                if str(self.model or "").startswith("gemini-3")
+                else {"thinkingBudget": 0}
+            )
+            payload = {
+                "contents": [{"parts": [{"text": prompt}]}],
+                "generationConfig": {
+                    "temperature": 0,
+                    "maxOutputTokens": max(128, int(max_tokens)),
+                    "responseMimeType": "application/json",
+                    "thinkingConfig": thinking_config,
+                },
+                "tools": [{"googleSearch": {}}],
+            }
+            loop = asyncio.get_event_loop()
+            result = await loop.run_in_executor(
+                self.executor,
+                lambda: self._post_json_with_retries(
+                    endpoint=f"{GEMINI_REST_BASE_URL}/models/{self.model}:generateContent?key={self.api_key}",
+                    payload=payload,
+                    timeout=timeout,
+                ),
+            )
+            if not isinstance(result, dict):
+                return None
+            parsed = self._extract_json_object(self._extract_gemini_text(result))
+            if not parsed:
+                return None
+            tse = parsed.get("tse", {})
+            tre = parsed.get("tre", {})
+            raw_gerais = parsed.get("gerais", [])
+            gerais: list[dict[str, object]] = []
+            if isinstance(raw_gerais, list):
+                for item in raw_gerais[: max(1, int(max_general_urls))]:
+                    if isinstance(item, dict):
+                        gerais.append(dict(item))
+            return {"tse": tse, "tre": tre, "gerais": gerais, "citations": []}
+
         payload = {
             "model": self.model,
             "messages": [
@@ -1431,6 +1556,20 @@ def _clean_slug(segment: str) -> str:
     return re.sub(r"\.(?:html?|ghtml|shtml)$", "", str(segment or "").strip().lower())
 
 
+def _news_url_marker_text(url: str) -> str:
+    segments = [_clean_slug(segment).replace("-", " ").replace("_", " ") for segment in _path_segments(url)]
+    return normalize_for_match(" ".join(segments))
+
+
+def is_editorially_weak_news_url(url: str) -> bool:
+    marker_text = _news_url_marker_text(url)
+    if not marker_text:
+        return True
+    if any(marker in marker_text for marker in NEWS_WEAK_EDITORIAL_URL_MARKERS):
+        return True
+    return False
+
+
 def _looks_like_article_terminal(segment: str) -> bool:
     slug = _clean_slug(segment)
     if not slug or slug in NEWS_GENERIC_LAST_SEGMENTS:
@@ -1452,6 +1591,8 @@ def _is_probably_article_url(
     min_segments: int,
     required_sequence: Optional[Sequence[str]] = None,
 ) -> bool:
+    if is_editorially_weak_news_url(url):
+        return False
     segments = _path_segments(url)
     if len(segments) < min_segments:
         return False
@@ -2077,6 +2218,105 @@ def _is_valid_news_page_summary(summary: Optional[dict[str, object]]) -> bool:
     return True
 
 
+async def _validate_official_news_url_live(
+    gerenciador: "GerenciadorRequisicoes",
+    url: str,
+    *,
+    category: str,
+    timeout: int = PERPLEXITY_PAGE_FETCH_TIMEOUT,
+) -> Optional[str]:
+    normalized = _limpar_url_bruta(str(url or ""))
+    if category == "tse":
+        normalized = _normalize_tse_news_url(normalized) or ""
+    elif category == "tre":
+        normalized = _normalize_tre_news_url(normalized) or ""
+    else:
+        return None
+    if not normalized:
+        return None
+
+    summary = await gerenciador.fetch_page_summary(normalized, timeout=timeout)
+    if not _is_valid_news_page_summary(summary):
+        return None
+
+    final_url = _limpar_url_bruta(str((summary or {}).get("url") or normalized))
+    if category == "tse":
+        return _normalize_tse_news_url(final_url) or normalized
+    if category == "tre":
+        return _normalize_tre_news_url(final_url) or normalized
+    return normalized
+
+
+_OFFICIAL_NEWS_LIVE_CACHE: dict[str, Optional[bool]] = {}
+_OFFICIAL_NEWS_LIVE_CACHE_LOCK = threading.Lock()
+_OFFICIAL_NEWS_LIVE_SESSION: Optional[requests.Session] = None
+_OFFICIAL_NEWS_LIVE_SESSION_LOCK = threading.Lock()
+
+
+def _get_official_news_live_session() -> requests.Session:
+    global _OFFICIAL_NEWS_LIVE_SESSION
+    with _OFFICIAL_NEWS_LIVE_SESSION_LOCK:
+        if _OFFICIAL_NEWS_LIVE_SESSION is None:
+            session = requests.Session()
+            session.headers.update(
+                {
+                    "User-Agent": (
+                        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                        "AppleWebKit/537.36 (KHTML, like Gecko) "
+                        "Chrome/124.0 Safari/537.36"
+                    ),
+                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                }
+            )
+            _OFFICIAL_NEWS_LIVE_SESSION = session
+        return _OFFICIAL_NEWS_LIVE_SESSION
+
+
+def official_news_url_live_status(
+    url: str,
+    *,
+    timeout: int = PERPLEXITY_PAGE_FETCH_TIMEOUT,
+) -> Optional[bool]:
+    normalized = _limpar_url_bruta(str(url or ""))
+    if _is_tse_news_url(normalized):
+        normalized = _normalize_tse_news_url(normalized) or ""
+    elif _is_tre_news_url(normalized):
+        normalized = _normalize_tre_news_url(normalized) or ""
+    else:
+        return None
+    if not normalized:
+        return False
+
+    with _OFFICIAL_NEWS_LIVE_CACHE_LOCK:
+        if normalized in _OFFICIAL_NEWS_LIVE_CACHE:
+            return _OFFICIAL_NEWS_LIVE_CACHE[normalized]
+
+    try:
+        response = _get_official_news_live_session().get(
+            normalized,
+            timeout=timeout,
+            allow_redirects=True,
+        )
+        content_type = str(response.headers.get("Content-Type", "") or "").lower()
+        raw_html = response.text if "html" in content_type or not content_type else ""
+        summary: Optional[dict[str, object]] = {
+            "url": _limpar_url_bruta(str(response.url or "")) or normalized,
+            "status_code": int(response.status_code),
+            "title": _extract_html_title(raw_html),
+            "text": _extract_html_text(raw_html, max_chars=PERPLEXITY_PAGE_TEXT_MAX_CHARS),
+            "content_type": content_type,
+        }
+        status: Optional[bool] = _is_valid_news_page_summary(summary)
+    except requests.exceptions.Timeout:
+        status = None
+    except Exception:
+        status = None
+
+    with _OFFICIAL_NEWS_LIVE_CACHE_LOCK:
+        _OFFICIAL_NEWS_LIVE_CACHE[normalized] = status
+    return status
+
+
 def _news_category_from_url(url: str) -> str:
     if _is_tse_news_url(url):
         return "tse"
@@ -2380,6 +2620,7 @@ def build_news_lookup_request(
     page_data: dict[str, str],
     *,
     model: str,
+    provider: str = "perplexity",
     precisa_tse: bool = True,
     precisa_tre: bool = True,
     needed_general_count: int = 0,
@@ -2401,6 +2642,7 @@ def build_news_lookup_request(
             )
     return {
         "strategy_version": PERPLEXITY_NEWS_STRATEGY_VERSION,
+        "provider": _normalize_lookup_text(provider),
         "model": _normalize_lookup_text(model),
         "needs_tse": bool(precisa_tse),
         "needs_tre": bool(precisa_tre),
@@ -2440,7 +2682,7 @@ def _normalize_general_news_urls(urls: object) -> list[str]:
         urls_iter = []
     for item in urls_iter:
         url = _limpar_url_bruta(str(item or ""))
-        if not url or url in vistos:
+        if not url or url in vistos or is_editorially_weak_news_url(url):
             continue
         vistos.add(url)
         out.append(url)
@@ -2476,11 +2718,14 @@ def _cache_entry_can_skip_lookup(
     precisa_tre: bool,
     precisa_gerais: bool,
     needed_general_count: int,
+    treat_retryable_as_terminal: bool = False,
 ) -> bool:
     if not isinstance(cache_entry, dict):
         return False
     status = _normalize_lookup_text(cache_entry.get("status", "")).lower()
     if status == "no_match":
+        return True
+    if status == "error_retryable" and treat_retryable_as_terminal:
         return True
     if status != "filled":
         return False
@@ -2536,6 +2781,7 @@ def estimate_news_api_calls(
     *,
     lookup_payloads: Optional[Sequence[dict[str, str]]] = None,
     model: str = "sonar",
+    provider: str = "perplexity",
     cache_path: Optional[Path] = None,
 ) -> dict[str, int]:
     if lookup_payloads is not None and len(lookup_payloads) != len(rows):
@@ -2569,6 +2815,7 @@ def estimate_news_api_calls(
             build_news_lookup_request(
                 lookup_payload,
                 model=model,
+                provider=provider,
                 precisa_tse=precisa_tse,
                 precisa_tre=precisa_tre,
                 needed_general_count=required_general_count,
@@ -2581,6 +2828,7 @@ def estimate_news_api_calls(
             precisa_tre=precisa_tre,
             precisa_gerais=precisa_gerais,
             needed_general_count=required_general_count,
+            treat_retryable_as_terminal=(provider == "gemini"),
         ):
             terminal_cache_hits += 1
             continue
@@ -2592,14 +2840,35 @@ def estimate_news_api_calls(
     }
 
 
+TEMA_PUNCHLINE_PROMPT_EMENTA_CHARS = 3200
+TEMA_PUNCHLINE_PROMPT_HEAD_CHARS = 2800
+TEMA_PUNCHLINE_PROMPT_TAIL_CHARS = 2200
+
+
+def _tema_punchline_prompt_contexts(page_data: dict[str, str]) -> tuple[str, str]:
+    texto_decisao = _normalize_lookup_text(page_data.get("texto_decisao", ""))
+    texto_ementa = _normalize_lookup_text(page_data.get("texto_ementa", ""))
+    if not texto_ementa and texto_decisao:
+        try:
+            texto_ementa = _local_ementa_source(texto_decisao, "")
+        except Exception:
+            texto_ementa = ""
+    texto_ementa = _truncate_lookup_text(texto_ementa, TEMA_PUNCHLINE_PROMPT_EMENTA_CHARS)
+
+    if len(texto_decisao) <= TEMA_PUNCHLINE_PROMPT_HEAD_CHARS + TEMA_PUNCHLINE_PROMPT_TAIL_CHARS + 500:
+        return texto_ementa, texto_decisao
+    head = texto_decisao[:TEMA_PUNCHLINE_PROMPT_HEAD_CHARS].rstrip()
+    tail = texto_decisao[-TEMA_PUNCHLINE_PROMPT_TAIL_CHARS:].lstrip()
+    return texto_ementa, f"{head}\n\n[trecho intermediario omitido para economia]\n\n{tail}"
+
+
 def gerar_prompt_tema_punchline(page_data: dict[str, str]) -> str:
     numero_unico = page_data.get("numero_unico", "")
     data_decisao = page_data.get("data_decisao", "")
     assuntos = page_data.get("assuntos", "")
     partes = page_data.get("partes", "")
     relator = page_data.get("relator", "")
-    texto_ementa = page_data.get("texto_ementa", "")
-    texto_decisao = page_data.get("texto_decisao", "")
+    texto_ementa, texto_decisao = _tema_punchline_prompt_contexts(page_data)
     sigla_uf = page_data.get("sigla_uf", "")
     nome_municipio = page_data.get("nome_municipio", "")
     tribunal = page_data.get("tribunal", "")
@@ -2621,12 +2890,194 @@ textoEmenta: {texto_ementa}
 textoDecisao: {texto_decisao}
 
 Instrucoes de saida:
-- "tema": sintetize o tema de direito tratado no julgamento, com base principal na ementa.
-- "punchline": descreva a tese principal adotada no julgamento, destacando ratio decidendi e consequencia pratica.
-- Use portugues claro e objetivo.
+- "tema": produza uma descricao contextual de 110 a 220 caracteres, em uma unica frase nominal, com o instituto eleitoral, o cargo/eleicao quando houver, o ponto juridico central e o efeito pratico relevante. Evite lista de palavras soltas.
+- "punchline": em 1 ou 2 frases, descreva a ratio decidendi e a consequencia pratica do julgamento. Priorize o que o TSE decidiu, por que decidiu e o que foi mantido, afastado ou determinado.
+- Use portugues juridico claro e objetivo, sem caixa alta excessiva.
 - Nao invente fatos fora do texto fornecido.
+- Se a decisao for monocratica ou de nao conhecimento/desprovimento, preserve essa informacao quando relevante.
 - Retorne somente JSON valido no formato:
 {{"tema":"...","punchline":"..."}}"""
+
+
+LOCAL_SECTION_STOP_RE = re.compile(
+    r"(?i)\b(?:relat[oó]rio|voto|[eé]\s+o\s+relat[oó]rio|decido|ante\s+o\s+exposto|publique-?se|intimem-?se)\b"
+)
+LOCAL_SENTENCE_SPLIT_RE = re.compile(r"(?<=[.!?])\s+|;\s+")
+LOCAL_HEADER_PREFIX_RE = re.compile(
+    r"(?is)^.*?\b(?:relator(?:a)?|agravante|agravado|recorrente|recorrido|requerente|requerido|"
+    r"embargante|embargado|impetrante|impetrado|advogad[oa]s?)\s*:"
+)
+LOCAL_CONCLUSION_RE = re.compile(
+    r"(?is)\b(?:ante\s+o\s+exposto|diante\s+do\s+exposto|por\s+essas\s+raz[oõ]es|"
+    r"por\s+tais\s+fundamentos|assim)\b.{0,1400}?(?:publique-?se|intimem-?se|comunique-?se|$)"
+)
+LOCAL_DECISION_MARKER_RE = re.compile(r"(?i)\b(?:decis[aã]o|ac[oó]rd[aã]o|despacho)\b")
+LOCAL_TRAILING_STOPWORDS = {
+    "a",
+    "as",
+    "com",
+    "da",
+    "das",
+    "de",
+    "do",
+    "dos",
+    "e",
+    "em",
+    "na",
+    "nas",
+    "no",
+    "nos",
+    "o",
+    "os",
+    "para",
+    "por",
+    "que",
+}
+
+
+def _local_compact_text(value: object) -> str:
+    return SPACE_RE.sub(" ", str(value or "")).strip(" \t\r\n")
+
+
+def _local_sentence_case(value: str) -> str:
+    text = _local_compact_text(value).strip(" .;,:")
+    if not text:
+        return ""
+    letters = [ch for ch in text if ch.isalpha()]
+    if letters:
+        upper_ratio = sum(1 for ch in letters if ch.isupper()) / max(1, len(letters))
+        if upper_ratio > 0.78:
+            text = text.lower()
+            return text[:1].upper() + text[1:]
+    return text[:1].upper() + text[1:]
+
+
+def _local_trim_at_boundary(value: str, max_chars: int) -> str:
+    text = _local_compact_text(value).strip(" .;,:")
+    if max_chars <= 0 or len(text) <= max_chars:
+        return text
+    for patterns in ((r"\.\s+", r";\s+"), (r",\s+",), (r"\s+",)):
+        candidates: list[int] = []
+        for pattern in patterns:
+            for match in re.finditer(pattern, text):
+                if int(max_chars * 0.55) <= match.start() <= max_chars:
+                    candidates.append(match.start())
+        if candidates:
+            cut = max(candidates)
+            trimmed = text[:cut].rstrip(" .;,:")
+            break
+    else:
+        trimmed = text[:max_chars].rstrip(" .;,:")
+    while True:
+        words = trimmed.split()
+        if not words or words[-1].casefold().strip(".,;:") not in LOCAL_TRAILING_STOPWORDS:
+            return trimmed
+        next_trimmed = " ".join(words[:-1]).rstrip(" .;,:")
+        if len(next_trimmed) < int(max_chars * 0.45):
+            return trimmed
+        trimmed = next_trimmed
+
+
+def _local_ementa_source(texto_decisao: str, texto_ementa: str) -> str:
+    ementa = _local_compact_text(texto_ementa)
+    if ementa:
+        return ementa
+
+    text = _local_compact_text(texto_decisao)
+    if not text:
+        return ""
+    for pattern in (r"(?i)\bementa\b\s*[:\-]?\s*", r"(?i)\b(?:assim\s+)?ementad[oa]\s*:\s*"):
+        match = re.search(pattern, text)
+        if not match:
+            continue
+        candidate = text[match.end() :]
+        stop = LOCAL_SECTION_STOP_RE.search(candidate)
+        if stop and stop.start() >= 80:
+            candidate = candidate[: stop.start()]
+        if len(candidate) >= 60:
+            return candidate
+
+    marker = LOCAL_DECISION_MARKER_RE.search(text)
+    if marker and marker.start() < 1800:
+        candidate = text[marker.end() :]
+        candidate = LOCAL_HEADER_PREFIX_RE.sub("", candidate).strip()
+        if len(candidate) >= 60:
+            return candidate
+    return text[:3000]
+
+
+def _local_units(value: str, *, max_units: int = 6) -> list[str]:
+    source = _local_compact_text(value)
+    if not source:
+        return []
+    raw_units = LOCAL_SENTENCE_SPLIT_RE.split(source)
+    units: list[str] = []
+    for raw in raw_units:
+        unit = _local_sentence_case(re.sub(r"^\d+\s*[.)-]\s*", "", raw))
+        if len(unit) < 14:
+            continue
+        if re.search(r"(?i)^(tribunal|relator|agravante|agravado|recorrente|recorrido|advogad)", unit):
+            continue
+        units.append(unit)
+        if len(units) >= max_units:
+            break
+    return units
+
+
+def gerar_tema_punchline_local(page_data: dict[str, str]) -> dict[str, str]:
+    texto_decisao = page_data.get("texto_decisao", "")
+    texto_ementa = page_data.get("texto_ementa", "")
+    descricao_classe = _local_sentence_case(page_data.get("descricao_classe", ""))
+    nome_tipo = _local_sentence_case(page_data.get("nome_tipo_processo", ""))
+    assuntos = [_local_sentence_case(item) for item in split_multiselect_values(page_data.get("assuntos", ""))]
+    resultado = _local_sentence_case(page_data.get("resultado", ""))
+
+    source = _local_ementa_source(texto_decisao, texto_ementa)
+    units = _local_units(source, max_units=8)
+    if units:
+        tema_source = "; ".join(units[:5])
+    else:
+        fallback_parts = [item for item in [assuntos[0] if assuntos else "", descricao_classe or nome_tipo] if item]
+        tema_source = " - ".join(fallback_parts)
+
+    tema = _local_trim_at_boundary(tema_source, 185)
+    if not tema:
+        numero = page_data.get("numero_unico", "") or "processo sem numero"
+        tema = _local_sentence_case(" - ".join(item for item in [descricao_classe or nome_tipo, numero] if item))
+
+    tail = _local_compact_text(texto_decisao)[-4500:]
+    conclusion_match = None
+    for match in LOCAL_CONCLUSION_RE.finditer(tail):
+        conclusion_match = match
+    if conclusion_match:
+        punchline_source = conclusion_match.group(0)
+    elif len(units) > 1:
+        punchline_source = ". ".join(units[1:5])
+    else:
+        punchline_source = tema
+    punchline = _local_trim_at_boundary(_local_sentence_case(punchline_source), 620)
+    if resultado and resultado.casefold() not in punchline.casefold():
+        candidate = f"{punchline}. Resultado: {resultado}"
+        punchline = _local_trim_at_boundary(candidate, 700)
+    return {"tema": tema, "punchline": punchline}
+
+
+def preencher_rows_com_tema_punchline_local(
+    rows: list[dict[str, str]],
+    lookup_payloads: Sequence[dict[str, str]],
+) -> dict[str, int]:
+    stats = {"tema_preenchidos": 0, "punchline_preenchidos": 0}
+    for idx, row in enumerate(rows):
+        payload = dict(lookup_payloads[idx]) if idx < len(lookup_payloads) else build_lookup_payload(row)
+        payload["resultado"] = row.get("resultado", "")
+        generated = gerar_tema_punchline_local(payload)
+        if generated.get("tema") and not (row.get("tema") or "").strip():
+            row["tema"] = generated["tema"]
+            stats["tema_preenchidos"] += 1
+        if generated.get("punchline") and not (row.get("punchline") or "").strip():
+            row["punchline"] = generated["punchline"]
+            stats["punchline_preenchidos"] += 1
+    return stats
 
 
 def gerar_prompt_assuntos(
@@ -2833,6 +3284,41 @@ async def buscar_todas_noticias_async(
             precisa_tre=precisa_tre,
             missing_general_count=len(GENERAL_NEWS_COLUMNS),
         )
+    if getattr(gerenciador, "provider", "perplexity") == "gemini":
+        response = await gerenciador.call_news_lookup(
+            prompt=gerar_prompt_noticias(page_data, max_general_urls=max(1, required_general_count or 1)),
+            timeout=timeout_seconds,
+            max_tokens=max(GEMINI_DEFAULT_MAX_OUTPUT_TOKENS, int(max_tokens or 0)),
+            max_general_urls=max(1, required_general_count or 1),
+        )
+        if response is None:
+            return {"status": "ok", "tse": None, "tre": None, "gerais": None}
+        tse_url, tre_url, gerais_urls = _normalize_news_lookup_response(
+            response,
+            precisa_tse=precisa_tse,
+            precisa_tre=precisa_tre,
+            precisa_gerais=precisa_gerais,
+        )
+        if tse_url:
+            tse_url = await _validate_official_news_url_live(
+                gerenciador,
+                tse_url,
+                category="tse",
+                timeout=timeout_seconds,
+            )
+        if tre_url:
+            tre_url = await _validate_official_news_url_live(
+                gerenciador,
+                tre_url,
+                category="tre",
+                timeout=timeout_seconds,
+            )
+        return {
+            "status": "ok",
+            "tse": tse_url,
+            "tre": tre_url,
+            "gerais": gerais_urls,
+        }
     search_queries = build_news_search_queries(
         page_data,
         precisa_tse=precisa_tse,
@@ -2957,7 +3443,7 @@ def _aplicar_urls_no_row(row: dict[str, str], url_tse: Optional[str], url_tre: O
     }
     for raw_url in urls_gerais or []:
         url = _limpar_url_bruta(str(raw_url or ""))
-        if not url or url in vistos_gerais:
+        if not url or url in vistos_gerais or is_editorially_weak_news_url(url):
             continue
         vistos_gerais.add(url)
         gerais_normalizadas.append(url)
@@ -2999,6 +3485,7 @@ async def enriquecer_rows_com_urls_async(
     gerenciador: Optional[GerenciadorRequisicoes] = None
     sanitize_official_news_columns(rows)
     news_cache = read_news_cache(cache_path) if cache_path is not None else {}
+    provider_label = "Gemini" if config.provider == "gemini" else "Perplexity"
     metrics = {
         "perplexity_api_calls": 0,
         "perplexity_cache_hits": 0,
@@ -3016,8 +3503,8 @@ async def enriquecer_rows_com_urls_async(
                 if lookup_payloads is not None
                 else [build_lookup_payload(row) for row in lote]
             )
-            logger(f"[Perplexity] Processando lote {start + 1}-{end} de {total}")
-            batch_stage = f"perplexity_batch_{start + 1}_{end}_of_{total}"
+            logger(f"[{provider_label}] Processando lote {start + 1}-{end} de {total}")
+            batch_stage = f"{config.provider}_batch_{start + 1}_{end}_of_{total}"
             planos: list[dict[str, object]] = []
             tarefas_por_chave: dict[str, asyncio.Task] = {}
             for offset, (row, lookup_data) in enumerate(zip(lote, lote_payloads)):
@@ -3052,6 +3539,7 @@ async def enriquecer_rows_com_urls_async(
                 request_payload = build_news_lookup_request(
                     lookup_data,
                     model=config.model,
+                    provider=config.provider,
                     precisa_tse=precisa_tse,
                     precisa_tre=precisa_tre,
                     needed_general_count=required_general_count,
@@ -3064,6 +3552,7 @@ async def enriquecer_rows_com_urls_async(
                     precisa_tre=precisa_tre,
                     precisa_gerais=precisa_gerais,
                     needed_general_count=required_general_count,
+                    treat_retryable_as_terminal=(config.provider == "gemini"),
                 ):
                     planos.append(
                         {
@@ -3086,6 +3575,9 @@ async def enriquecer_rows_com_urls_async(
                         api_key=config.api_key,
                         model=config.model,
                         max_workers=config.max_workers,
+                        retries=GEMINI_DEFAULT_RETRIES if config.provider == "gemini" else PERPLEXITY_DEFAULT_RETRIES,
+                        target_rpm=GEMINI_DEFAULT_TARGET_RPM if config.provider == "gemini" else PERPLEXITY_DEFAULT_TARGET_RPM,
+                        provider=config.provider,
                     )
                 planos.append(
                     {
@@ -3149,7 +3641,7 @@ async def enriquecer_rows_com_urls_async(
                         or now - last_progress_log >= PERPLEXITY_PROGRESS_LOG_INTERVAL_SECONDS
                     ):
                         logger(
-                            "[Perplexity] Lote "
+                            f"[{provider_label}] Lote "
                             f"{start + 1}-{end} progresso | consultas={completed_api}/{total_api}"
                         )
                         last_progress_log = now
@@ -3242,7 +3734,7 @@ async def enriquecer_rows_com_urls_async(
             if cache_dirty and cache_path is not None:
                 write_news_cache(cache_path, news_cache)
             logger(
-                "[Perplexity] Lote "
+                f"[{provider_label}] Lote "
                 f"{start + 1}-{end} concluido | novos_tse={batch_tse} | "
                 f"novos_tre={batch_tre} | novas_gerais={batch_gerais} | "
                 f"api={batch_api_calls} | cache={batch_cache_hits} | "
@@ -3488,7 +3980,7 @@ def format_partes_as_multiselect(value: str) -> str:
     if not value:
         return ""
 
-    return ",".join(split_multiselect_values(value))
+    return ", ".join(split_multiselect_values(value))
 
 
 def clean_relator_prefix(value: str) -> str:
@@ -3557,7 +4049,7 @@ def merge_multiselect_values(*values: str) -> str:
     for value in values:
         merged.extend(split_multiselect_values(value))
     merged = dedupe_preserve(merged, key_func=normalize_for_match)
-    return ",".join(merged)
+    return ", ".join(merged)
 
 
 def format_br_number(number: str) -> str:
@@ -3955,7 +4447,7 @@ def sanitize_advogados_multiselect(value: str, config: MetadataExtractionConfig)
             continue
         cleaned_items.append(candidate)
     cleaned_items = dedupe_preserve(cleaned_items, key_func=normalize_for_match)
-    return ",".join(cleaned_items)
+    return ", ".join(cleaned_items)
 
 
 def extract_header_metadata(
@@ -4000,12 +4492,12 @@ def extract_header_metadata(
 
 def extract_partes_multiselect(*texts: str, config: Optional[MetadataExtractionConfig] = None) -> str:
     metadata = extract_header_metadata(*texts, config=config)
-    return ",".join(metadata.get("partes", []))
+    return ", ".join(metadata.get("partes", []))
 
 
 def extract_advogados_multiselect(*texts: str, config: Optional[MetadataExtractionConfig] = None) -> str:
     metadata = extract_header_metadata(*texts, config=config)
-    return ",".join(metadata.get("advogados", []))
+    return ", ".join(metadata.get("advogados", []))
 
 
 def _canonical_assuntos_map() -> dict[str, str]:
@@ -4114,11 +4606,18 @@ def process_one_csv(
     max_texto_chars: int,
     replace_newlines: bool,
     web_lookup_config: WebLookupConfig,
-    tema_punchline_config: TemaPunchlineConfig,
-    assuntos_enrichment_config: AssuntosEnrichmentConfig,
-    metadata_extraction_config: MetadataExtractionConfig,
-    logger: Callable[[str], None],
+    local_tema_punchline_config: Optional[LocalTemaPunchlineConfig] = None,
+    tema_punchline_config: Optional[TemaPunchlineConfig] = None,
+    assuntos_enrichment_config: Optional[AssuntosEnrichmentConfig] = None,
+    metadata_extraction_config: Optional[MetadataExtractionConfig] = None,
+    logger: Optional[Callable[[str], None]] = None,
 ) -> ProcessSummary:
+    local_tema_punchline_config = local_tema_punchline_config or LocalTemaPunchlineConfig(enabled=False)
+    tema_punchline_config = tema_punchline_config or TemaPunchlineConfig(enabled=False, api_key="")
+    assuntos_enrichment_config = assuntos_enrichment_config or AssuntosEnrichmentConfig(enabled=False, api_key="")
+    metadata_extraction_config = metadata_extraction_config or MetadataExtractionConfig()
+    logger = logger or (lambda _message: None)
+
     encoding, delimiter = detect_csv_format(input_path)
     logger(f"[Lendo] {input_path.name} (encoding={encoding}, delimiter='{delimiter}')")
 
@@ -4291,8 +4790,8 @@ def process_one_csv(
                 texto_ementa_full,
                 config=metadata_extraction_config,
             )
-            partes_extraidas = ",".join(metadata.get("partes", []))
-            advogados_extraidos = ",".join(metadata.get("advogados", []))
+            partes_extraidas = ", ".join(metadata.get("partes", []))
+            advogados_extraidos = ", ".join(metadata.get("advogados", []))
             partes_merged = merge_multiselect_values(partes_full, partes_extraidas)
             advogados_merged = merge_multiselect_values(advogados_full, advogados_extraidos)
             assuntos_deterministic = extract_assuntos_deterministic(
@@ -4424,6 +4923,7 @@ def process_one_csv(
                     "tema_enabled": bool(tema_punchline_config.enabled),
                     "assuntos_openai_enabled": bool(assuntos_enrichment_config.enabled),
                     "perplexity_enabled": bool(web_lookup_config.enabled),
+                    "web_lookup_provider": web_lookup_config.provider,
                     "strategy_version": PERPLEXITY_NEWS_STRATEGY_VERSION,
                     "cache_file": str(cache_path.resolve()),
                     "row_progress": row_progress,
@@ -4443,6 +4943,7 @@ def process_one_csv(
                     "status": status,
                     "stage": stage,
                     "strategy_version": PERPLEXITY_NEWS_STRATEGY_VERSION,
+                    "web_lookup_provider": web_lookup_config.provider,
                     "rows_total": len(processed_rows),
                     "tema_filled": _count_filled("tema"),
                     "punchline_filled": _count_filled("punchline"),
@@ -4471,7 +4972,7 @@ def process_one_csv(
         cp_sig = cp.get("source_signature", {})
         cp_rows = cp.get("processed_rows", [])
         if (
-            int(cp.get("version", 0) or 0) in (1, CHECKPOINT_VERSION)
+            int(cp.get("version", 0) or 0) == CHECKPOINT_VERSION
             and same_file_signature(cp_sig, source_sig)
             and isinstance(cp_rows, list)
             and len(cp_rows) == len(processed_rows)
@@ -4517,6 +5018,17 @@ def process_one_csv(
                 )
 
         _refresh_lookup_payloads_from_rows()
+
+        if local_tema_punchline_config.enabled:
+            local_stats = preencher_rows_com_tema_punchline_local(processed_rows, lookup_payloads)
+            if local_stats["tema_preenchidos"] or local_stats["punchline_preenchidos"]:
+                logger(
+                    "[Tema/local] preenchimento heuristico concluido | "
+                    f"tema_preenchidos={local_stats['tema_preenchidos']} | "
+                    f"punchline_preenchidos={local_stats['punchline_preenchidos']}"
+                )
+            _refresh_lookup_payloads_from_rows()
+
         _save_state("running", "prepared")
 
         if assuntos_enrichment_config.enabled:
@@ -4576,25 +5088,32 @@ def process_one_csv(
             _save_state("running", "after_openai")
 
         if web_lookup_config.enabled:
+            provider_label = "Gemini" if web_lookup_config.provider == "gemini" else "Perplexity"
             estimate = estimate_news_api_calls(
                 processed_rows,
                 lookup_payloads=lookup_payloads,
                 model=web_lookup_config.model,
+                provider=web_lookup_config.provider,
                 cache_path=cache_path,
             )
-            logger(f"[Perplexity] Iniciando busca de URLs para {len(processed_rows)} linhas...")
+            logger(f"[{provider_label}] Iniciando busca de URLs para {len(processed_rows)} linhas...")
+            if web_lookup_config.provider == "gemini":
+                logger(
+                    "[Gemini] Modo econômico: uma chamada grounded por caso pendente, com cache local e validação de confiança."
+                )
+            else:
+                logger(
+                    "[Perplexity] Politica balanceada: aceita confidence=high ou medium quando houver "
+                    "matched_fields suficientes e validacao local de pagina noticiosa."
+                )
             logger(
-                "[Perplexity] Politica balanceada: aceita confidence=high ou medium quando houver "
-                "matched_fields suficientes e validacao local de pagina noticiosa."
-            )
-            logger(
-                "[Perplexity] Config: "
+                f"[{provider_label}] Config: "
                 f"model={web_lookup_config.model}, workers={web_lookup_config.max_workers}, "
                 f"batch={web_lookup_config.batch_size}, timeout={web_lookup_config.timeout_seconds}s, "
                 f"delay={web_lookup_config.delay_between_batches}s"
             )
             logger(
-                "[Perplexity] Estimativa antes do run: "
+                f"[{provider_label}] Estimativa antes do run: "
                 f"api={estimate['estimated_api_calls']} | "
                 f"cache_terminal={estimate['estimated_cache_hits']} | "
                 f"ja_preenchidas={estimate['estimated_skipped_existing']}"
@@ -4607,14 +5126,14 @@ def process_one_csv(
                     lookup_payloads=lookup_payloads,
                     on_batch_done=lambda s, e, t, stats: _save_state(
                         "running",
-                        f"perplexity_batch_{s + 1}_{e}_of_{t}",
+                        f"{web_lookup_config.provider}_batch_{s + 1}_{e}_of_{t}",
                         stats,
                     ),
                     cache_path=cache_path,
                     row_progress=row_progress,
                 )
             )
-            _save_state("running", "after_perplexity")
+            _save_state("running", f"after_{web_lookup_config.provider}")
 
         write_csv_atomic(output_path, output_fields, processed_rows)
         _save_state("completed", "final")
@@ -4948,19 +5467,33 @@ def run_batch(
     combined_name: str,
     replace_newlines: bool,
     web_lookup_config: WebLookupConfig,
-    tema_punchline_config: TemaPunchlineConfig,
-    assuntos_enrichment_config: AssuntosEnrichmentConfig,
-    metadata_extraction_config: MetadataExtractionConfig,
-    logger: Callable[[str], None],
+    local_tema_punchline_config: Optional[LocalTemaPunchlineConfig] = None,
+    tema_punchline_config: Optional[TemaPunchlineConfig] = None,
+    assuntos_enrichment_config: Optional[AssuntosEnrichmentConfig] = None,
+    metadata_extraction_config: Optional[MetadataExtractionConfig] = None,
+    logger: Optional[Callable[[str], None]] = None,
     preserve_from_csv: str = "",
     preserve_columns: Sequence[str] = (),
 ) -> tuple[list[ProcessSummary], Path, int]:
+    local_tema_punchline_config = local_tema_punchline_config or LocalTemaPunchlineConfig(enabled=False)
+    tema_punchline_config = tema_punchline_config or TemaPunchlineConfig(enabled=False, api_key="")
+    assuntos_enrichment_config = assuntos_enrichment_config or AssuntosEnrichmentConfig(enabled=False, api_key="")
+    metadata_extraction_config = metadata_extraction_config or MetadataExtractionConfig()
+    logger = logger or (lambda _message: None)
+
     if not files:
         raise ValueError("Nenhum CSV informado para processamento.")
 
     if max_texto_chars < 0:
         raise ValueError("max_texto_chars nao pode ser negativo. Use 0 para sem truncamento.")
+    web_lookup_config.provider = str(web_lookup_config.provider or "perplexity").strip().lower()
     if web_lookup_config.enabled and not web_lookup_config.api_key:
+        if web_lookup_config.provider == "gemini":
+            raise ValueError(
+                "Busca de URLs ativada, mas sem API key do Gemini. "
+                "Use --gemini-api-key, a variavel de ambiente GEMINI_API_KEY/GOOGLE_API_KEY "
+                f"ou o arquivo {DEFAULT_GEMINI_KEY_FILE}."
+            )
         raise ValueError(
             "Busca de URLs ativada, mas sem API key da Perplexity. "
             "Use --perplexity-api-key, a variavel de ambiente PERPLEXITY_API_KEY "
@@ -5001,6 +5534,7 @@ def run_batch(
             max_texto_chars=max_texto_chars,
             replace_newlines=replace_newlines,
             web_lookup_config=web_lookup_config,
+            local_tema_punchline_config=local_tema_punchline_config,
             tema_punchline_config=tema_punchline_config,
             assuntos_enrichment_config=assuntos_enrichment_config,
             metadata_extraction_config=metadata_extraction_config,
@@ -5905,6 +6439,7 @@ def launch_gui() -> None:
                 include_institutional_entities=True,
                 header_max_chars=DEFAULT_METADATA_HEADER_MAX_CHARS,
             )
+            local_tema_punchline_config = LocalTemaPunchlineConfig(enabled=False)
 
             def worker() -> object:
                 return run_batch(
@@ -5914,6 +6449,7 @@ def launch_gui() -> None:
                     combined_name=self.combined_name_var.get().strip(),
                     replace_newlines=self.replace_newlines_var.get(),
                     web_lookup_config=web_lookup_config,
+                    local_tema_punchline_config=local_tema_punchline_config,
                     tema_punchline_config=tema_punchline_config,
                     assuntos_enrichment_config=assuntos_enrichment_config,
                     metadata_extraction_config=metadata_extraction_config,
@@ -6052,9 +6588,19 @@ def build_parser() -> argparse.ArgumentParser:
         help="Ativa busca de URLs (TSE/TRE/Gerais) por linha via API da Perplexity.",
     )
     parser.add_argument(
+        "--buscar-urls-gemini",
+        action="store_true",
+        help="Ativa busca economica de URLs (TSE/TRE/Gerais) por linha via Gemini com Google Search.",
+    )
+    parser.add_argument(
         "--gerar-tema-punchline-chatgpt",
         action="store_true",
         help="Ativa geracao de tema e punchline por linha via OpenAI (padrao: gpt-5.1).",
+    )
+    parser.add_argument(
+        "--gerar-tema-punchline-local",
+        action="store_true",
+        help="Preenche tema e punchline por heuristica local, sem chamadas OpenAI.",
     )
     parser.add_argument(
         "--enriquecer-assuntos-openai",
@@ -6114,6 +6660,48 @@ def build_parser() -> argparse.ArgumentParser:
         type=float,
         default=0.3,
         help="Pausa (segundos) entre lotes de consultas Perplexity.",
+    )
+    parser.add_argument(
+        "--gemini-api-key",
+        default="",
+        help="API key do Gemini/Google AI Studio (precedencia maior; evita depender de arquivo/env).",
+    )
+    parser.add_argument(
+        "--gemini-key-file",
+        default=DEFAULT_GEMINI_KEY_FILE,
+        help=(
+            "Arquivo local com a chave do Gemini (padrao: "
+            f"{DEFAULT_GEMINI_KEY_FILE}; usado quando --gemini-api-key/env nao forem informados)."
+        ),
+    )
+    parser.add_argument(
+        "--gemini-model",
+        default=DEFAULT_GEMINI_NEWS_MODEL,
+        help=f"Modelo Gemini para busca de noticias (padrao: {DEFAULT_GEMINI_NEWS_MODEL}).",
+    )
+    parser.add_argument(
+        "--gemini-max-workers",
+        type=int,
+        default=GEMINI_DEFAULT_MAX_WORKERS,
+        help="Numero maximo de workers para chamadas HTTP do Gemini.",
+    )
+    parser.add_argument(
+        "--gemini-timeout",
+        type=int,
+        default=GEMINI_DEFAULT_TIMEOUT,
+        help="Timeout (segundos) de cada chamada Gemini.",
+    )
+    parser.add_argument(
+        "--gemini-batch-size",
+        type=int,
+        default=GEMINI_DEFAULT_BATCH_SIZE,
+        help="Quantidade de linhas por lote de consultas Gemini.",
+    )
+    parser.add_argument(
+        "--gemini-delay",
+        type=float,
+        default=GEMINI_DEFAULT_DELAY,
+        help="Pausa (segundos) entre lotes de consultas Gemini.",
     )
     parser.add_argument(
         "--openai-api-key",
@@ -6229,6 +6817,8 @@ def main() -> int:
     if run_cli:
         if not args.files:
             parser.error("No modo --no-gui, informe ao menos um arquivo CSV.")
+        if args.buscar_urls_gemini and args.buscar_urls_perplexity:
+            parser.error("Use apenas um mecanismo de busca: --buscar-urls-gemini ou --buscar-urls-perplexity.")
         if args.perplexity_max_workers <= 0:
             parser.error("--perplexity-max-workers deve ser maior que zero.")
         if args.perplexity_timeout <= 0:
@@ -6237,6 +6827,14 @@ def main() -> int:
             parser.error("--perplexity-batch-size deve ser maior que zero.")
         if args.perplexity_delay < 0:
             parser.error("--perplexity-delay nao pode ser negativo.")
+        if args.gemini_max_workers <= 0:
+            parser.error("--gemini-max-workers deve ser maior que zero.")
+        if args.gemini_timeout <= 0:
+            parser.error("--gemini-timeout deve ser maior que zero.")
+        if args.gemini_batch_size <= 0:
+            parser.error("--gemini-batch-size deve ser maior que zero.")
+        if args.gemini_delay < 0:
+            parser.error("--gemini-delay nao pode ser negativo.")
         if args.openai_max_workers <= 0:
             parser.error("--openai-max-workers deve ser maior que zero.")
         if args.openai_timeout <= 0:
@@ -6284,16 +6882,33 @@ def main() -> int:
             include_institutional_entities=True,
             header_max_chars=DEFAULT_METADATA_HEADER_MAX_CHARS,
         )
-        web_lookup_config = WebLookupConfig(
-            enabled=args.buscar_urls_perplexity,
-            api_key=resolve_perplexity_api_key(args.perplexity_api_key.strip(), args.perplexity_key_file),
-            model=args.perplexity_model.strip() or "sonar",
-            timeout_seconds=args.perplexity_timeout,
-            max_workers=args.perplexity_max_workers,
-            batch_size=args.perplexity_batch_size,
-            delay_between_batches=args.perplexity_delay,
-        )
+        web_lookup_provider = "gemini" if args.buscar_urls_gemini else "perplexity"
+        if web_lookup_provider == "gemini":
+            web_lookup_config = WebLookupConfig(
+                enabled=args.buscar_urls_gemini,
+                provider="gemini",
+                api_key=resolve_gemini_api_key(args.gemini_api_key.strip(), args.gemini_key_file),
+                model=args.gemini_model.strip() or DEFAULT_GEMINI_NEWS_MODEL,
+                timeout_seconds=args.gemini_timeout,
+                max_workers=args.gemini_max_workers,
+                batch_size=args.gemini_batch_size,
+                delay_between_batches=args.gemini_delay,
+                max_tokens=GEMINI_DEFAULT_MAX_OUTPUT_TOKENS,
+            )
+        else:
+            web_lookup_config = WebLookupConfig(
+                enabled=args.buscar_urls_perplexity,
+                provider="perplexity",
+                api_key=resolve_perplexity_api_key(args.perplexity_api_key.strip(), args.perplexity_key_file),
+                model=args.perplexity_model.strip() or "sonar",
+                timeout_seconds=args.perplexity_timeout,
+                max_workers=args.perplexity_max_workers,
+                batch_size=args.perplexity_batch_size,
+                delay_between_batches=args.perplexity_delay,
+                max_tokens=PERPLEXITY_DEFAULT_MAX_TOKENS,
+            )
         preserve_columns = parse_columns_arg(args.preserve_columns, DEFAULT_PRESERVE_COLUMNS)
+        local_tema_punchline_config = LocalTemaPunchlineConfig(enabled=args.gerar_tema_punchline_local)
 
         try:
             summaries, combined_path, compiled_rows = run_batch(
@@ -6303,6 +6918,7 @@ def main() -> int:
                 combined_name=args.combined_name,
                 replace_newlines=not args.keep_newlines,
                 web_lookup_config=web_lookup_config,
+                local_tema_punchline_config=local_tema_punchline_config,
                 tema_punchline_config=tema_punchline_config,
                 assuntos_enrichment_config=assuntos_enrichment_config,
                 metadata_extraction_config=metadata_extraction_config,

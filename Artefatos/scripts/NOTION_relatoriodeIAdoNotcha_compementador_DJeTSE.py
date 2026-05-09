@@ -6,7 +6,7 @@ Fluxo:
 1. Sempre abre uma GUI para confirmar a URL da pagina alvo.
 2. Le blocos da pagina no Notion e identifica blocos textuais.
 3. Monta contexto usando links Notion do proprio relatorio e fallback via data source.
-4. Reescreve blocos textuais com OpenAI (gpt-5.1), incluindo destaque de partidos.
+4. Reescreve blocos textuais com OpenAI (gpt-5.5), incluindo destaque de partidos.
 5. Atualiza os blocos no Notion preservando blocos nao textuais.
 6. Gera relatorio local em .<nome_do_script>.report.json.
 """
@@ -59,6 +59,7 @@ DEFAULT_SOURCE_DATABASE_URL = (
 NOTION_BASE_URL = "https://api.notion.com"
 OPENAI_BASE_URL = "https://api.openai.com"
 DEFAULT_NOTION_VERSION = "2025-09-03"
+DEFAULT_OPENAI_MODEL = "gpt-5.5"
 
 SUPPORTED_TEXT_BLOCK_TYPES = {
     "paragraph",
@@ -153,7 +154,13 @@ AUTO_TABLE_MARKER_PREFIX = "[[AUTO_CASES::"
 AUTO_LAWYERS_MARKER = "[[AUTO_ADVOGADOS]]"
 AUTO_MARKER_PREFIXES = (AUTO_TABLE_MARKER_PREFIX, AUTO_LAWYERS_MARKER)
 LAWYER_FREQ_MIN_CASES = 2
-LAWYER_FREQ_MAX_ITEMS = 25
+LAWYER_FREQ_MAX_ITEMS = 8
+TABLE_COMPANION_MAX_CASES = 8
+AUTO_GENERATED_ROOT_TITLE_KEYS = {
+    "casos detalhados por processo",
+    "advogados recorrentes nos casos detalhados",
+    "lista por frequencia",
+}
 
 
 LOGGER = logging.getLogger(SCRIPT_STEM)
@@ -183,7 +190,7 @@ class NotionConfig:
 @dataclass
 class OpenAIConfig:
     api_key: str
-    model: str = "gpt-5.1"
+    model: str = DEFAULT_OPENAI_MODEL
     timeout_s: int = 75
     retries: int = 3
     target_rpm: int = DEFAULT_OPENAI_TARGET_RPM
@@ -198,6 +205,7 @@ class RunConfig:
     debug: bool = False
     log_file: str = ""
     openai_batch_size: int = DEFAULT_OPENAI_BATCH_SIZE
+    openai_model: str = DEFAULT_OPENAI_MODEL
     openai_max_workers: int = DEFAULT_OPENAI_MAX_WORKERS
     openai_target_rpm: int = DEFAULT_OPENAI_TARGET_RPM
     openai_timeout_s: int = 75
@@ -835,11 +843,62 @@ def _block_plain_text_any(block: Dict[str, Any]) -> str:
     return _table_row_plain_text(block)
 
 
+def _section_heading_key(value: Any) -> str:
+    raw = _normalize_ws(value).casefold()
+    nfkd = unicodedata.normalize("NFKD", raw)
+    stripped = "".join(ch for ch in nfkd if not unicodedata.combining(ch))
+    return re.sub(r"[^a-z0-9]+", " ", stripped).strip()
+
+
+OMITTED_STANDARD_SECTION_KEYS = {
+    "2 quadro consolidado",
+    "2 painel filtrado",
+}
+
+
+def _delete_omitted_standard_sections(page_blocks: Sequence[Dict[str, Any]]) -> int:
+    root_blocks = [block for block in page_blocks if int(block.get("_depth", 0) or 0) == 0]
+    deleted = 0
+    idx = 0
+    while idx < len(root_blocks):
+        block = root_blocks[idx]
+        if str(block.get("type", "") or "") != "heading_2":
+            idx += 1
+            continue
+        title_key = _section_heading_key(_block_plain_text(block))
+        if title_key not in OMITTED_STANDARD_SECTION_KEYS:
+            idx += 1
+            continue
+
+        end_idx = idx + 1
+        while end_idx < len(root_blocks) and str(root_blocks[end_idx].get("type", "") or "") != "heading_2":
+            end_idx += 1
+        section_blocks = root_blocks[idx:end_idx]
+        LOGGER.info(
+            "Removendo secao omitida do formato padrao: %s | blocos_raiz=%d",
+            _block_plain_text(block),
+            len(section_blocks),
+        )
+        for section_block in section_blocks:
+            block_id = _normalize_ws(section_block.get("id", ""))
+            if not block_id:
+                continue
+            try:
+                delete_block(block_id)
+                deleted += 1
+            except Exception as exc:
+                LOGGER.warning("Falha ao remover bloco da secao omitida %s: %s", block_id, exc)
+        idx = end_idx
+    return deleted
+
+
 def _contains_auto_marker(text: Any) -> bool:
     value = str(text or "")
     if not value:
         return False
-    return any(marker in value for marker in AUTO_MARKER_PREFIXES)
+    if any(marker in value for marker in AUTO_MARKER_PREFIXES):
+        return True
+    return _section_heading_key(value) in AUTO_GENERATED_ROOT_TITLE_KEYS
 
 
 def _block_contains_auto_marker(block: Dict[str, Any]) -> bool:
@@ -2258,6 +2317,10 @@ def _build_openai_prompt_payload(
             "Nao use contexto de um bloco para escrever outro bloco.",
             "Se contexto_casos_bloco vier vazio, reescreva com cautela usando apenas texto_original e links_referencia.",
             "Priorize os campos estruturados do contexto_casos_bloco quando presentes (numero_unico, data_decisao, sigla_classe, nome_municipio, sigla_uf, relator, partes, advogados, punchline, texto_decisao, tema, partidos, fundamentos, resultado).",
+            "Melhore densidade analitica e precisao juridica sem adornar o texto nem ampliar conclusoes alem do suporte documental.",
+            "Separe fato processual, ratio decidendi e efeito concreto; nao misture consequencia aplicada com impacto politico hipotetico.",
+            "Evite superlativos, alarmismo e formulas genericas de relevancia quando o contexto nao trouxer consequencia concreta.",
+            "Preserve identificadores essenciais do caso quando existirem: processo CNJ, cidade/UF, partido, cargo, resultado e relator.",
             "Para item_kind=table_companion, trate a unidade de analise como um processo judicial e use o contexto estruturado como fonte principal dos fatos.",
             "Para item_kind=patch_text_block, reescreva o proprio bloco preservando o foco tematico da secao onde ele esta inserido.",
             "Preencha obrigatoriamente headline, o_que_ocorreu, fundamentos_juridicos e consequencia_aplicada.",
@@ -3701,7 +3764,12 @@ def _split_structured_names(value: Any) -> List[str]:
         text = _normalize_ws(part)
         if not text:
             continue
-        text = re.sub(r"\s*-\s*OAB.*$", "", text, flags=re.IGNORECASE)
+        text = re.sub(r"\s*\([^)]*\bOAB\b[^)]*\)", "", text, flags=re.IGNORECASE)
+        text = re.sub(r"\s*[-–—]\s*\bOAB\b.*$", "", text, flags=re.IGNORECASE)
+        text = re.sub(r"\bOAB\b.*$", "", text, flags=re.IGNORECASE)
+        text = text.strip(" ;,.-")
+        if not text:
+            continue
         key = text.casefold()
         if key in seen:
             continue
@@ -3729,15 +3797,12 @@ def _compute_lawyer_frequency_lines(
 
     ranked = sorted(freq.items(), key=lambda item: (-item[1], item[0].casefold()))
     filtered = [(name, count) for name, count in ranked if count >= LAWYER_FREQ_MIN_CASES]
-    if not filtered:
-        filtered = ranked[:LAWYER_FREQ_MAX_ITEMS]
-    else:
-        filtered = filtered[:LAWYER_FREQ_MAX_ITEMS]
+    filtered = filtered[:LAWYER_FREQ_MAX_ITEMS]
 
     out: List[str] = []
     for name, count in filtered:
         suffix = "caso" if count == 1 else "casos"
-        out.append(f"{name} — {count} {suffix}")
+        out.append(f"{name}: {count} {suffix}")
     return out
 
 
@@ -3840,7 +3905,7 @@ def _build_table_companion_plans(
     plans: List[TableCompanionPlan] = []
     for target in targets:
         process_texts: List[str] = []
-        for page_id in target.source_linked_page_ids:
+        for page_id in target.source_linked_page_ids[:TABLE_COMPANION_MAX_CASES]:
             item_id = f"{target.table_id}:{page_id}"
             text = _normalize_multiline_ws(item_texts_by_id.get(item_id, ""))
             if text:
@@ -3852,7 +3917,7 @@ def _build_table_companion_plans(
                 table_id=target.table_id,
                 parent_id=target.parent_id,
                 marker=target.marker,
-                title=f"{target.marker} Casos detalhados por processo",
+                title="Casos detalhados por processo",
                 process_texts=process_texts,
             )
         )
@@ -3877,18 +3942,15 @@ def _apply_table_companion_plan(plan: TableCompanionPlan) -> str:
 
 
 def _apply_lawyer_section(page_id: str, lines: Sequence[str]) -> List[str]:
+    if not lines:
+        return []
     blocks: List[Dict[str, Any]] = [
-        _build_heading_2_block(f"13. Advogados recorrentes nos casos detalhados {AUTO_LAWYERS_MARKER}"),
+        _build_heading_2_block("Advogados recorrentes nos casos detalhados"),
     ]
-    if lines:
-        blocks.append(_build_toggle_block(f"{AUTO_LAWYERS_MARKER} Lista por frequencia"))
-    else:
-        blocks.append(_build_paragraph_block(f"{AUTO_LAWYERS_MARKER} Nenhum advogado recorrente foi identificado."))
+    blocks.extend(_build_bulleted_block(line) for line in lines)
 
     created = append_block_children(page_id, blocks)
     created_ids = [_normalize_ws(item.get("id", "")) for item in created if _normalize_ws(item.get("id", ""))]
-    if lines and len(created_ids) >= 2:
-        append_block_children(created_ids[1], [_build_bulleted_block(line) for line in lines])
     return created_ids
 
 
@@ -4037,6 +4099,7 @@ def _build_clients(config: RunConfig) -> None:
     )
     OPENAI_CFG = OpenAIConfig(
         api_key=openai_key,
+        model=_normalize_ws(config.openai_model) or DEFAULT_OPENAI_MODEL,
         timeout_s=max(10, int(config.openai_timeout_s)),
         retries=max(1, int(config.openai_retries)),
         target_rpm=max(0, int(config.openai_target_rpm)),
@@ -4065,7 +4128,8 @@ def _build_clients(config: RunConfig) -> None:
         OPENAI_SCHEMA_TEMP_DISABLED = False
         OPENAI_TIMEOUT_STREAK = 0
     LOGGER.info(
-        "Perf config: openai_batch=%d | openai_workers=%d | openai_rpm=%d | openai_timeout=%ss | notion_interval=%.2fs",
+        "Perf config: openai_model=%s | openai_batch=%d | openai_workers=%d | openai_rpm=%d | openai_timeout=%ss | notion_interval=%.2fs",
+        OPENAI_CFG.model,
         int(config.openai_batch_size),
         int(config.openai_max_workers),
         int(OPENAI_CFG.target_rpm),
@@ -4092,6 +4156,7 @@ def run_agent(config: RunConfig) -> int:
         "status": "running",
         "page_url": config.page_url,
         "source_database_url": config.source_database_url,
+        "openai_model": _normalize_ws(config.openai_model) or DEFAULT_OPENAI_MODEL,
         "stats": {},
     }
 
@@ -4108,6 +4173,9 @@ def run_agent(config: RunConfig) -> int:
 
         LOGGER.info("[Stage 2/6] Lendo blocos da pagina de relatorio...")
         page_blocks = retrieve_all_block_children_recursive(page_id)
+        omitted_sections_deleted = _delete_omitted_standard_sections(page_blocks)
+        if omitted_sections_deleted:
+            page_blocks = retrieve_all_block_children_recursive(page_id)
         global BLOCK_INDEX
         BLOCK_INDEX = {str(block.get("id", "")): block for block in page_blocks if block.get("id")}
         auto_root_ids = _collect_auto_root_block_ids(page_blocks)
@@ -4161,6 +4229,7 @@ def run_agent(config: RunConfig) -> int:
                     "updated_at": utc_now_iso(),
                     "stats": {
                         "blocks_total": len(page_blocks),
+                        "omitted_standard_section_blocks_deleted": omitted_sections_deleted,
                         "text_blocks_total": len(textual_blocks),
                         "text_blocks_targeted": 0,
                         "text_blocks_not_targeted": len(textual_blocks),
@@ -4384,6 +4453,7 @@ def run_agent(config: RunConfig) -> int:
                 "updated_at": utc_now_iso(),
                 "stats": {
                     "blocks_total": len(page_blocks),
+                    "omitted_standard_section_blocks_deleted": omitted_sections_deleted,
                     "text_blocks_total": len(textual_blocks),
                     "text_blocks_targeted": len(target_text_blocks),
                     "text_blocks_not_targeted": untouched_non_target,
@@ -4476,6 +4546,11 @@ def build_parser() -> argparse.ArgumentParser:
         help=f"Tamanho do lote de blocos para OpenAI (padrao: {DEFAULT_OPENAI_BATCH_SIZE}).",
     )
     parser.add_argument(
+        "--model",
+        default=DEFAULT_OPENAI_MODEL,
+        help=f"Modelo OpenAI (padrao: {DEFAULT_OPENAI_MODEL}).",
+    )
+    parser.add_argument(
         "--openai-max-workers",
         type=int,
         default=DEFAULT_OPENAI_MAX_WORKERS,
@@ -4555,6 +4630,7 @@ def main() -> int:
         debug=bool(args.debug),
         log_file=str(args.log_file or ""),
         openai_batch_size=max(1, int(args.openai_batch_size)),
+        openai_model=_normalize_ws(args.model) or DEFAULT_OPENAI_MODEL,
         openai_max_workers=max(1, int(args.openai_max_workers)),
         openai_target_rpm=max(0, int(args.openai_target_rpm)),
         openai_timeout_s=max(10, int(args.openai_timeout)),

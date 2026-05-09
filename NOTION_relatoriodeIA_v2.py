@@ -14,6 +14,8 @@ Fluxo:
 from __future__ import annotations
 
 import argparse
+import asyncio
+import hashlib
 import json
 import logging
 import os
@@ -27,7 +29,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import asdict, dataclass, field
 from datetime import date, datetime
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Optional, Sequence
+from typing import Any, Dict, Iterable, List, Mapping, Optional, Sequence
 from urllib.parse import parse_qs, urlparse
 
 import requests
@@ -56,14 +58,17 @@ SCRIPT_STEM = Path(__file__).stem
 REPORT_FILE = default_report_path(SCRIPT_STEM)
 CHECKPOINT_FILE = default_checkpoint_path(SCRIPT_STEM)
 DEFAULT_LOG_FILE = named_log_path("run_producao_relatorio_v2.log")
+ANALYSIS_CACHE_FILE = SCRIPT_DIR / "Artefatos" / "cache" / "notion_relatorio_case_analysis_cache.json"
 
 DEFAULT_SOURCE_DATABASE_URL = "https://www.notion.so/328721955c648020988af0654c3554a2?v=cfbaf74128e14ad1a210db1be8fc68c1"
 DEFAULT_NOTION_VERSION = "2025-09-03"
-DEFAULT_OPENAI_MODEL = "gpt-5.4"
+DEFAULT_OPENAI_MODEL = "gpt-5.5"
 DEFAULT_MAX_CASES_PER_BATCH = 1
 DEFAULT_OPENAI_MAX_WORKERS = 12
 DEFAULT_OPENAI_TARGET_RPM = 360
 DEFAULT_OPENAI_BATCH_CHAR_BUDGET = 14000
+DEFAULT_MAX_OPENAI_CASES = 20
+DEFAULT_OPENAI_TRIAGE_THRESHOLD = 45
 MAX_OPENAI_LIGHT_BATCH_WORKERS = 12
 MAX_OPENAI_HEAVY_BATCH_WORKERS = 2
 DEFAULT_HTTP_POOL_SIZE = 32
@@ -71,13 +76,26 @@ MAX_NOTION_APPEND_CHILDREN = 100
 MAX_NOTION_TOGGLES_PER_APPEND = 10
 MAX_NOTION_RICH_TEXT_CHARS = 2000
 MAX_CASE_TEXT_CHARS = 1400
-MAX_SUMMARY_CASES = 25
-MAX_EXECUTIVE_HIGHLIGHTS = 6
+MAX_SUMMARY_CASES = 16
+MAX_EXECUTIVE_HIGHLIGHTS = 3
+MAX_EXECUTIVE_ALERT_ITEMS = 4
+MAX_EXECUTIVE_BULLET_CHARS = 260
+MAX_OVERVIEW_CALLOUT_CHARS = 320
 MAX_PARTY_ALERTS = 2
-MAX_LAWYER_SIGNALS = 2
-MAX_WATCHPOINTS = 3
-MAX_STRATEGIC_ALERT_SECTION_ITEMS = 4
-MAX_ALERT_TEXT_CHARS = 320
+MAX_LAWYER_SIGNALS = 1
+MAX_WATCHPOINTS = 2
+MAX_STRATEGIC_ALERT_SECTION_ITEMS = 3
+MAX_ALERT_TEXT_CHARS = 260
+MAX_PUBLISHED_CASES = 8
+MAX_TABLE_WHAT_HAPPENED_CHARS = 240
+MAX_TABLE_CONSEQUENCE_CHARS = 200
+MAX_TOGGLE_WHY_RELEVANT_CHARS = 360
+MAX_TOGGLE_FACTS_CHARS = 430
+MAX_TOGGLE_LEGAL_CHARS = 420
+MAX_TOGGLE_CONSEQUENCE_CHARS = 320
+MAX_TOGGLE_STRATEGIC_CHARS = 360
+MAX_RECURRING_LAWYERS_SECTION_ITEMS = 8
+FEDERAL_INTEREST_MIN_SCORE = 35
 MIN_RECURRING_ALERT_CASES = 2
 HEADING_SUMMARY_MAX_CHARS = 130
 HEADING_SUMMARY_TARGET_MIN = 90
@@ -86,6 +104,31 @@ HEADING_ACCEPTABLE_SCORE = 60
 TOP_BAND_RECLASSIFY_BATCH_SIZE = 20
 DEFAULT_HEARTBEAT_INTERVAL_S = 15.0
 VERBOSE_HEARTBEAT_INTERVAL_S = 5.0
+
+SECTION_EXECUTIVE_TITLE = "1. Leitura executiva e alertas"
+SECTION_CASES_TITLE = "2. Casos prioritários"
+SECTION_NOTES_TITLE = "3. Casos detalhados"
+SECTION_LAWYERS_TITLE = "4. Advogados recorrentes nos casos detalhados"
+SECTION_METHODOLOGY_TITLE = "5. Metodologia"
+SECTION_METHODOLOGY_WITHOUT_LAWYERS_TITLE = "4. Metodologia"
+CASE_SECTION_TITLES = (
+    SECTION_CASES_TITLE,
+    "2. Casos selecionados",
+    "4. Casos selecionados",
+    "4. Tabela-síntese dos processos",
+)
+NOTES_SECTION_TITLES = (
+    SECTION_NOTES_TITLE,
+    "3. Notas por processo",
+    "3. Comentários por processo",
+    "5. Notas por processo",
+    "5. Comentários por processo",
+)
+METHODOLOGY_SECTION_TITLES = (
+    SECTION_METHODOLOGY_TITLE,
+    SECTION_METHODOLOGY_WITHOUT_LAWYERS_TITLE,
+    "6. Metodologia",
+)
 
 NOTION_BASE_URL = "https://api.notion.com"
 OPENAI_BASE_URL = "https://api.openai.com"
@@ -212,6 +255,34 @@ HIGH_IMPACT_ELECTORAL_RE = re.compile(
     flags=re.IGNORECASE,
 )
 HIGH_IMPACT_ACCOUNTS_RE = re.compile(r"\b(fundo partid[aá]rio|FEFC|presta[cç][aã]o de contas)\b", flags=re.IGNORECASE)
+FEDERAL_HIGH_OFFICE_RE = re.compile(
+    r"\b("
+    r"presidente(?:\s+da\s+rep[uú]blica)?|vice-presidente(?:\s+da\s+rep[uú]blica)?|"
+    r"senador(?:a)?(?:\s+da\s+rep[uú]blica)?|governador(?:a)?|deputad[oa]\s+federal|"
+    r"ministro(?:a)?\s+de\s+estado"
+    r")\b",
+    flags=re.IGNORECASE,
+)
+LOWER_LOCAL_OFFICE_RE = re.compile(r"\b(prefeit[oa]|vice-prefeit[oa]|vereador(?:a)?)\b", flags=re.IGNORECASE)
+NATIONAL_PARTY_SCOPE_RE = re.compile(
+    r"\b(nacional|dire[cç][aã]o\s+nacional|diret[oó]rio\s+nacional|executiva\s+nacional|"
+    r"[oó]rg[aã]o\s+nacional|funda[cç][aã]o\s+partid[aá]ria|registro\s+de\s+partido|"
+    r"incorpora[cç][aã]o|fus[aã]o|federa[cç][aã]o\s+partid[aá]ria)\b",
+    flags=re.IGNORECASE,
+)
+PARTY_INSTITUTIONAL_RE = re.compile(
+    r"\b(partido\s+pol[ií]tico|diret[oó]rio|comiss[aã]o\s+provis[oó]ria|"
+    r"presta[cç][aã]o\s+de\s+contas\s+anual|contas\s+partid[aá]rias|"
+    r"fidelidade\s+partid[aá]ria|janela\s+partid[aá]ria|desfilia[cç][aã]o|"
+    r"propaganda\s+partid[aá]ria|estatuto\s+partid[aá]rio)\b",
+    flags=re.IGNORECASE,
+)
+PARTY_FINANCE_SYSTEMIC_RE = re.compile(
+    r"\b(fundo\s+partid[aá]rio|FEFC|cota\s+de\s+g[eê]nero|cota\s+racial|"
+    r"participa[cç][aã]o\s+pol[ií]tica\s+das\s+mulheres|ADPF\s*738|EC\s*n?[ºo]?\s*117|"
+    r"EC\s*n?[ºo]?\s*133|devolu[cç][aã]o\s+ao\s+tesouro|suspens[aã]o\s+de\s+cotas)\b",
+    flags=re.IGNORECASE,
+)
 GENERIC_ALERT_START_RE = re.compile(r"^(?:sem|nenhum|nenhuma|n/a|não há|nao ha)\b", flags=re.IGNORECASE)
 GENERIC_COUNT_ONLY_ALERT_RE = re.compile(
     r"^[^:]{1,90}:\s*(?:citado(?:a|s)?|atua(?:m)?|aparece(?:m)?|reaparece(?:m)?|recorre(?:m)?|figura(?:m)?)\s+em\s+\d+\s+processo",
@@ -259,7 +330,41 @@ HEADING_TRAILING_STOPWORDS = {
     "sem",
     "sob",
 }
-SUMMARY_TRAILING_STOPWORDS = HEADING_TRAILING_STOPWORDS | {"ao", "aos", "como", "que"}
+SUMMARY_TRAILING_STOPWORDS = HEADING_TRAILING_STOPWORDS | {"ao", "aos", "como", "o", "os", "que", "um", "uma", "uns", "umas"}
+INCOMPLETE_WORD_FRAGMENT_RE = re.compile(
+    r"\b(?:"
+    r"determi|determina[cç]|"
+    r"repercu|"
+    r"desaprova[cç]|"
+    r"impugna[cç]|"
+    r"retotaliza[cç]|"
+    r"cassa[cç]|"
+    r"anula[cç]|"
+    r"aplica[cç]|"
+    r"participa[cç]|"
+    r"obriga[cç]|"
+    r"comprova[cç]|"
+    r"fiscaliza[cç]|"
+    r"inelegibilid|"
+    r"plausibilid|"
+    r"admissibilid|"
+    r"regularid|"
+    r"irregularid|"
+    r"confiabilid|"
+    r"continuid|"
+    r"conformid"
+    r")\s*$",
+    flags=re.IGNORECASE,
+)
+UNFINISHED_PREDICATE_RE = re.compile(
+    r"(?:"
+    r"\b(?:com\s+isso|com\s+efeitos?|para\s+reduzir)\s*$|"
+    r"\b(?:permaneceram|permaneceu|ficaram|ficou|mantiveram|manteve|determinou|reconheceu|gerou|gera|geram)\s*$|"
+    r"\b(?:gerou|gera|geram)\s+perda\s*$|"
+    r"\b(?:perda|risco|impacto|obrigação|dever)\s+de\s+[\wÀ-ÿ-]+\s*$"
+    r")",
+    flags=re.IGNORECASE,
+)
 HEADING_SUSPICIOUS_END_RE = re.compile(
     r"(?:\b(?:a|as|à|às|com|da|das|de|do|dos|e|em|na|nas|no|nos|ou|para|pela|pelas|pelo|pelos|por|sem|sob)\s*$|[,;:/\-–(]\s*$)",
     flags=re.IGNORECASE,
@@ -555,7 +660,8 @@ def _unique_preserve_order(values: Iterable[str]) -> List[str]:
         value = _normalize_ws(raw)
         if not value:
             continue
-        marker = value.casefold()
+        marker = unicodedata.normalize("NFKD", value.casefold())
+        marker = "".join(ch for ch in marker if not unicodedata.combining(ch))
         if marker in seen:
             continue
         seen.add(marker)
@@ -853,6 +959,8 @@ def heading_summary_looks_incomplete(text: Any) -> bool:
         return False
     return bool(
         HEADING_SUSPICIOUS_END_RE.search(summary)
+        or INCOMPLETE_WORD_FRAGMENT_RE.search(summary)
+        or UNFINISHED_PREDICATE_RE.search(summary)
         or HEADING_INCOMPLETE_ART_RE.search(summary)
         or HEADING_INCOMPLETE_LEI_RE.search(summary)
         or HEADING_INCOMPLETE_RES_RE.search(summary)
@@ -865,7 +973,18 @@ def _trim_suspicious_heading_tail(text: str) -> str:
     if not summary:
         return ""
     while heading_summary_looks_incomplete(summary):
+        words = summary.split()
+        tail = ""
+        if words:
+            tail = re.sub(r"^[^\wÀ-ÿ]+|[^\wÀ-ÿ]+$", "", words[-1], flags=re.UNICODE).casefold()
+        if len(words) > 4 and (tail in HEADING_TRAILING_STOPWORDS or INCOMPLETE_WORD_FRAGMENT_RE.search(tail)):
+            summary = " ".join(words[:-1]).rstrip(" ,;:/-–(")
+            continue
+
         cut_positions = [
+            summary.rfind(". "),
+            summary.rfind("! "),
+            summary.rfind("? "),
             summary.rfind(", "),
             summary.rfind(","),
             summary.rfind("; "),
@@ -890,6 +1009,8 @@ def summary_text_looks_incomplete(text: Any) -> bool:
         return False
     return bool(
         SUMMARY_SUSPICIOUS_END_RE.search(summary)
+        or INCOMPLETE_WORD_FRAGMENT_RE.search(summary)
+        or UNFINISHED_PREDICATE_RE.search(summary)
         or HEADING_INCOMPLETE_ART_RE.search(summary)
         or HEADING_INCOMPLETE_LEI_RE.search(summary)
         or HEADING_INCOMPLETE_RES_RE.search(summary)
@@ -906,7 +1027,10 @@ def _trim_suspicious_summary_tail(text: str) -> str:
         tail = ""
         if words:
             tail = re.sub(r"^[^\wÀ-ÿ]+|[^\wÀ-ÿ]+$", "", words[-1], flags=re.UNICODE).casefold()
-        if len(words) > 4 and tail in SUMMARY_TRAILING_STOPWORDS:
+        if len(words) > 4 and (
+            tail in SUMMARY_TRAILING_STOPWORDS
+            or INCOMPLETE_WORD_FRAGMENT_RE.search(tail)
+        ):
             summary = " ".join(words[:-1]).rstrip(" ,;:/-–(")
             continue
 
@@ -933,10 +1057,79 @@ def _trim_suspicious_summary_tail(text: str) -> str:
     return summary
 
 
+def _truncate_summary_snippet(text: Any, max_chars: int) -> str:
+    source = _normalize_ws(text)
+    if max_chars <= 0 or len(source) <= max_chars:
+        return source
+    strong_boundaries: List[int] = []
+    for pattern in (r"\.\s+", r"!\s+", r"\?\s+", r";\s+"):
+        for match in re.finditer(pattern, source):
+            if match.end() <= max_chars:
+                strong_boundaries.append(match.start())
+    if strong_boundaries:
+        cut = max(strong_boundaries)
+        if cut >= int(max_chars * 0.55):
+            return source[:cut].rstrip(" ;,:") + "."
+    return truncate_text(source, max_chars, suffix="")
+
+
+SENTENCE_BOUNDARY_RE = re.compile(r"(?<=[.!?])\s+|;\s+")
+BOUNDARY_ABBREVIATION_RE = re.compile(r"\b(?:art|arts|inc|incs|n|no|nº|min|rel|res|dr|dra)\.$", flags=re.IGNORECASE)
+
+
+def _sentence_boundary_offsets(text: str) -> List[int]:
+    source = str(text or "")
+    offsets: List[int] = []
+    for match in SENTENCE_BOUNDARY_RE.finditer(source):
+        cut = match.start()
+        prefix = source[max(0, cut - 24) : cut]
+        if BOUNDARY_ABBREVIATION_RE.search(prefix):
+            continue
+        offsets.append(cut)
+    if source.endswith((".", "!", "?", ";")):
+        offsets.append(len(source))
+    return sorted(set(offsets))
+
+
+def _finish_report_fragment(text: str) -> str:
+    cleaned = _normalize_ws(text).rstrip(" ;,:")
+    if cleaned and not cleaned.endswith((".", "!", "?")):
+        cleaned += "."
+    return cleaned
+
+
+def _compact_report_field_text(
+    text: Any,
+    max_chars: int,
+    *,
+    overflow_chars: int = 180,
+) -> str:
+    source = _normalize_ws(text)
+    if max_chars <= 0 or len(source) <= max_chars:
+        cleaned = _trim_suspicious_summary_tail(source) or source
+        return _finish_report_fragment(cleaned)
+
+    min_safe = max(48, int(max_chars * 0.45))
+    offsets = _sentence_boundary_offsets(source)
+    before = [offset for offset in offsets if min_safe <= offset <= max_chars]
+    if before:
+        return _finish_report_fragment(source[: max(before)])
+
+    after_limit = max_chars + max(80, int(overflow_chars))
+    after = [offset for offset in offsets if max_chars < offset <= after_limit]
+    if after:
+        return _finish_report_fragment(source[: min(after)])
+
+    fallback = truncate_text(source, max_chars, suffix="")
+    fallback = _trim_suspicious_summary_tail(fallback) or fallback
+    fallback = fallback.rstrip(" .;,:")
+    return f"{fallback}..." if fallback else ""
+
+
 def normalize_summary_snippet(text: Any, *, max_chars: Optional[int] = None) -> str:
     source = _normalize_ws(text)
     if max_chars is not None and max_chars > 0:
-        source = truncate_text(source, max_chars, suffix="")
+        source = _truncate_summary_snippet(source, max_chars)
     cleaned = _trim_suspicious_summary_tail(source)
     return _normalize_ws(cleaned or source).strip(" ;,:")
 
@@ -1318,13 +1511,22 @@ def format_period_br(start_iso: str, end_iso: str) -> str:
     return start_br if start_iso == end_iso else f"{start_br} a {end_br}"
 
 
-def build_run_key(inputs: RunInputs, *, model: str, max_cases_per_batch: int) -> str:
+def build_run_key(
+    inputs: RunInputs,
+    *,
+    model: str,
+    max_cases_per_batch: int,
+    max_openai_cases: int = DEFAULT_MAX_OPENAI_CASES,
+    openai_triage_threshold: int = DEFAULT_OPENAI_TRIAGE_THRESHOLD,
+) -> str:
     material = {
         "source_database_url": _normalize_ws(inputs.source_database_url),
         "start_date_iso": _normalize_ws(inputs.start_date_iso),
         "end_date_iso": _normalize_ws(inputs.end_date_iso),
         "model": _normalize_ws(model),
         "max_cases_per_batch": int(max_cases_per_batch),
+        "max_openai_cases": int(max_openai_cases),
+        "openai_triage_threshold": int(openai_triage_threshold),
     }
     return json.dumps(material, ensure_ascii=False, sort_keys=True)
 
@@ -1376,10 +1578,161 @@ def case_record_from_dict(payload: Dict[str, Any]) -> CaseRecord:
 
 
 def case_analysis_from_dict(payload: Dict[str, Any]) -> CaseAnalysis:
-    data = dict(payload)
+    allowed_fields = set(CaseAnalysis.__dataclass_fields__.keys())
+    data = {key: value for key, value in dict(payload).items() if key in allowed_fields}
+    data.setdefault("case_id", "")
+    data.setdefault("title", "")
+    data.setdefault("relevance_score", 1)
+    data.setdefault("risk_level", "baixo")
+    data.setdefault("includes_public_figure", False)
+    data.setdefault("includes_party", False)
+    data.setdefault("public_figures", [])
+    data.setdefault("parties", [])
+    data.setdefault("lawyers_signal", "")
+    data.setdefault("what_happened", "")
+    data.setdefault("legal_grounds", "")
+    data.setdefault("consequence", "")
+    data.setdefault("strategic_comment", "")
+    data.setdefault("why_relevant", "")
+    data.setdefault("source_notes", [])
+    data.setdefault("page_id", "")
     if not data.get("display_score"):
         data["display_score"] = data.get("relevance_score", 0)
+    data.setdefault("ranking_reason", "")
+    for field_name in ("public_figures", "parties", "source_notes"):
+        value = data.get(field_name)
+        if isinstance(value, str):
+            data[field_name] = _unique_preserve_order(re.split(r"\s*[,;]\s*", value))
+        elif isinstance(value, Iterable):
+            data[field_name] = _unique_preserve_order(str(item or "") for item in value)
+        else:
+            data[field_name] = []
+    for field_name in ("relevance_score", "display_score"):
+        try:
+            data[field_name] = max(1, min(10, int(data.get(field_name) or 1)))
+        except Exception:
+            data[field_name] = 1
+    data["includes_public_figure"] = bool(data.get("includes_public_figure"))
+    data["includes_party"] = bool(data.get("includes_party"))
+    data["title"] = truncate_heading_text(data.get("title") or "", HEADING_SUMMARY_MAX_CHARS)
+    for field_name in ("what_happened", "legal_grounds", "consequence", "strategic_comment", "why_relevant", "lawyers_signal"):
+        data[field_name] = _normalize_ws(data.get(field_name))
     return CaseAnalysis(**data)
+
+
+def case_analysis_content_hash(case: CaseRecord) -> str:
+    material = {
+        "processo": _normalize_ws(case.numero_unico or case.numero_processo),
+        "data_decisao": _normalize_ws(case.data_decisao),
+        "classe": _normalize_ws(case.sigla_classe or case.descricao_classe),
+        "uf": _normalize_ws(case.sigla_uf),
+        "municipio": _normalize_ws(case.nome_municipio),
+        "assuntos": [_normalize_ws(item) for item in case.assuntos],
+        "partes": [_normalize_ws(item) for item in case.partes],
+        "partidos": [_normalize_ws(item) for item in case.partidos],
+        "resultado": [_normalize_ws(item) for item in case.resultado],
+        "tema": _normalize_ws(case.tema),
+        "punchline": _normalize_ws(case.punchline),
+        "texto_decisao": _normalize_ws(case.texto_decisao)[:12000],
+    }
+    raw = json.dumps(material, ensure_ascii=False, sort_keys=True)
+    return hashlib.sha256(raw.encode("utf-8")).hexdigest()
+
+
+def case_analysis_cache_keys(case: CaseRecord) -> List[str]:
+    keys: List[str] = []
+    for prefix, value in (
+        ("numero_unico", case.numero_unico),
+        ("numero_processo", case.numero_processo),
+        ("page_id", case.page_id),
+        ("case_id", case.case_id),
+    ):
+        text = _normalize_ws(value)
+        if text:
+            keys.append(f"{prefix}:{text.casefold()}")
+    keys.append(f"content_hash:{case_analysis_content_hash(case)}")
+    return _unique_preserve_order(keys)
+
+
+def load_case_analysis_cache(*, enabled: bool) -> Dict[str, Any]:
+    if not enabled:
+        return {"version": 1, "items": {}}
+    payload = read_json_dict(ANALYSIS_CACHE_FILE)
+    if not isinstance(payload.get("items"), dict):
+        payload["items"] = {}
+    payload.setdefault("version", 1)
+    return payload
+
+
+def save_case_analysis_cache(cache_payload: Dict[str, Any]) -> None:
+    cache_payload["updated_at_utc"] = utc_now_iso()
+    write_json_atomic(ANALYSIS_CACHE_FILE, cache_payload)
+
+
+def cached_case_analysis_for_case(
+    case: CaseRecord,
+    cache_payload: Dict[str, Any],
+    *,
+    model: str,
+) -> Optional[CaseAnalysis]:
+    items = cache_payload.get("items")
+    if not isinstance(items, dict):
+        return None
+    current_hash = case_analysis_content_hash(case)
+    current_model = _normalize_ws(model)
+    for key in case_analysis_cache_keys(case):
+        entry = items.get(key)
+        if not isinstance(entry, dict):
+            continue
+        cached_hash = _normalize_ws(entry.get("content_hash"))
+        if cached_hash and cached_hash != current_hash:
+            continue
+        cached_model = _normalize_ws(entry.get("model"))
+        if cached_model and current_model and cached_model != current_model:
+            continue
+        analysis_payload = entry.get("analysis") if isinstance(entry.get("analysis"), dict) else entry
+        if not isinstance(analysis_payload, dict):
+            continue
+        try:
+            analysis = case_analysis_from_dict(analysis_payload)
+        except Exception as exc:
+            LOGGER.debug("Ignorando cache de análise inválido para %s: %s", case.process_label(), exc)
+            continue
+        analysis.case_id = case.case_id
+        analysis.page_id = case.page_id
+        return analysis
+    return None
+
+
+def store_case_analysis_cache_entries(
+    cache_payload: Dict[str, Any],
+    analyses: Sequence[CaseAnalysis],
+    case_by_analysis_key: Mapping[str, CaseRecord],
+    *,
+    model: str,
+) -> int:
+    items = cache_payload.setdefault("items", {})
+    if not isinstance(items, dict):
+        items = {}
+        cache_payload["items"] = items
+    stored = 0
+    for analysis in analyses:
+        case = case_by_analysis_key.get(analysis_resume_key(analysis)) or case_by_analysis_key.get(_normalize_ws(analysis.case_id))
+        if case is None:
+            continue
+        entry = {
+            "model": _normalize_ws(model),
+            "case_id": case.case_id,
+            "page_id": case.page_id,
+            "processo": case.process_label(),
+            "content_hash": case_analysis_content_hash(case),
+            "cached_at_utc": utc_now_iso(),
+            "analysis": asdict(analysis),
+        }
+        for key in case_analysis_cache_keys(case):
+            items[key] = entry
+        stored += 1
+    return stored
 
 
 def report_summary_from_dict(payload: Dict[str, Any]) -> ReportSummary:
@@ -1573,8 +1926,54 @@ def _property_multi_select(prop: Dict[str, Any]) -> List[str]:
     return out
 
 
+def _split_text_list_property(value: str) -> List[str]:
+    raw = _normalize_ws(value)
+    if not raw:
+        return []
+    try:
+        import SJUR_csv_to_csv_NOTIONfriendly_v2 as sjur
+
+        return [_normalize_ws(item) for item in sjur.split_multiselect_values(raw) if _normalize_ws(item)]
+    except Exception:
+        return [_normalize_ws(item) for item in re.split(r"\s*[,;]\s*", raw) if _normalize_ws(item)]
+
+
+def _property_multi_select_or_text_list(prop: Dict[str, Any]) -> List[str]:
+    return _unique_preserve_order(
+        [
+            *_property_multi_select(prop),
+            *_split_text_list_property(_property_rich_text(prop)),
+        ]
+    )
+
+
 def _property_url(prop: Dict[str, Any]) -> str:
     return _normalize_ws(prop.get("url"))
+
+
+NEWS_URL_COLUMNS = ("noticia_TSE", "noticia_TRE", "noticia_geral_1", "noticia_geral_2")
+
+
+def _header_metadata_from_case_texts(*texts: str) -> Dict[str, List[str]]:
+    source_texts = [text for text in texts if _normalize_ws(text)]
+    if not source_texts:
+        return {"partes": [], "advogados": []}
+    try:
+        import SJUR_csv_to_csv_NOTIONfriendly_v2 as sjur
+
+        config = sjur.MetadataExtractionConfig(
+            include_institutional_entities=True,
+            header_max_chars=getattr(sjur, "DEFAULT_METADATA_HEADER_MAX_CHARS", 1200),
+        )
+        metadata = sjur.extract_header_metadata(*source_texts, config=config)
+    except Exception:
+        return {"partes": [], "advogados": []}
+    if not isinstance(metadata, dict):
+        return {"partes": [], "advogados": []}
+    return {
+        "partes": [_normalize_ws(item) for item in metadata.get("partes", []) if _normalize_ws(item)],
+        "advogados": [_normalize_ws(item) for item in metadata.get("advogados", []) if _normalize_ws(item)],
+    }
 
 
 def _property_date_start(prop: Dict[str, Any]) -> str:
@@ -1627,8 +2026,24 @@ def infer_parties_from_entries(entries: Sequence[str], case_uf: str) -> List[str
 def build_case_record(page_obj: Dict[str, Any]) -> CaseRecord:
     props = page_obj.get("properties") or {}
     page_id = _normalize_notion_id(str(page_obj.get("id", "")))
-    partes = _property_multi_select(props.get("partes", {}))
+    partes = _unique_preserve_order(
+        [
+            *_property_multi_select_or_text_list(props.get("partes", {})),
+            *_split_text_list_property(_property_rich_text(props.get("partes_texto", {}))),
+        ]
+    )
     sigla_uf = _property_select(props.get("siglaUF", {}))
+    texto_decisao = _property_rich_text(props.get("textoDecisao", {}))
+    texto_ementa = _property_rich_text(props.get("textoEmenta", {}))
+    parsed_header_metadata = _header_metadata_from_case_texts(texto_decisao, texto_ementa)
+    partes = _unique_preserve_order([*partes, *parsed_header_metadata.get("partes", [])])
+    advogados = _unique_preserve_order(
+        [
+            *_property_multi_select_or_text_list(props.get("advogados", {})),
+            *_split_text_list_property(_property_rich_text(props.get("advogados_texto", {}))),
+            *parsed_header_metadata.get("advogados", []),
+        ]
+    )
     noticias = _unique_preserve_order(
         [
             _property_url(props.get("noticia_TSE", {})),
@@ -1657,11 +2072,11 @@ def build_case_record(page_obj: Dict[str, Any]) -> CaseRecord:
         partes=partes,
         partidos=infer_parties_from_entries(partes, sigla_uf),
         relator=_property_select(props.get("relator", {})),
-        advogados=_property_multi_select(props.get("advogados", {})),
+        advogados=advogados,
         resultado=_property_multi_select(props.get("resultado", {})),
         tema=_property_title(props.get("tema", {})),
         punchline=_property_rich_text(props.get("punchline", {})),
-        texto_decisao=_property_rich_text(props.get("textoDecisao", {})),
+        texto_decisao=texto_decisao,
         noticias=noticias,
     )
 
@@ -1802,6 +2217,23 @@ def _publication_signal_text(case: CaseRecord, analysis: CaseAnalysis) -> str:
     )
 
 
+def _strategic_focus_signal_text(case: CaseRecord, analysis: CaseAnalysis) -> str:
+    return _safe_join(
+        [
+            _publication_signal_text(case, analysis),
+            case.ano_eleicao,
+            case.sigla_classe,
+            case.descricao_classe,
+            case.descricao_tipo_decisao,
+            _safe_join(case.assuntos),
+            analysis.legal_grounds,
+            analysis.strategic_comment,
+            analysis.why_relevant,
+        ],
+        sep=" | ",
+    )
+
+
 def compute_political_prominence_score(case: CaseRecord, analysis: CaseAnalysis) -> int:
     score = 0
     signal_text = _publication_signal_text(case, analysis)
@@ -1819,6 +2251,33 @@ def compute_political_prominence_score(case: CaseRecord, analysis: CaseAnalysis)
     if (analysis.includes_public_figure or bool(analysis.public_figures)) and (analysis.includes_party or bool(parties)):
         score += 8
     return score
+
+
+def compute_federal_interest_score(case: CaseRecord, analysis: CaseAnalysis) -> int:
+    signal_text = _strategic_focus_signal_text(case, analysis)
+    parties = _unique_preserve_order(list(analysis.parties) + list(case.partidos))
+    score = 0
+    if FEDERAL_HIGH_OFFICE_RE.search(signal_text):
+        score += 45
+    if NATIONAL_PARTY_SCOPE_RE.search(signal_text) or any(_normalize_ws(party).casefold().endswith("/nacional") for party in parties):
+        score += 45
+    if PARTY_INSTITUTIONAL_RE.search(signal_text):
+        score += 28
+    if PARTY_FINANCE_SYSTEMIC_RE.search(signal_text):
+        score += 24
+    if parties:
+        score += 12
+    if _normalize_ws(case.ano_eleicao) in {"2018", "2022", "2026"}:
+        score += 8
+    if HIGH_IMPACT_ELECTORAL_RE.search(signal_text) and (parties or FEDERAL_HIGH_OFFICE_RE.search(signal_text)):
+        score += 8
+    if LOWER_LOCAL_OFFICE_RE.search(signal_text) and score < FEDERAL_INTEREST_MIN_SCORE:
+        score -= 12
+    return max(0, score)
+
+
+def is_federal_strategic_interest(case: CaseRecord, analysis: CaseAnalysis) -> bool:
+    return compute_federal_interest_score(case, analysis) >= FEDERAL_INTEREST_MIN_SCORE
 
 
 def compute_institutional_party_scope_score(case: CaseRecord, analysis: CaseAnalysis) -> int:
@@ -1855,6 +2314,7 @@ def publication_sort_key(case: CaseRecord, analysis: CaseAnalysis) -> tuple[int,
     return (
         RISK_SORT_ORDER.get(risk, 99),
         -analysis_display_score(analysis),
+        -compute_federal_interest_score(case, analysis),
         -compute_political_prominence_score(case, analysis),
         -compute_institutional_party_scope_score(case, analysis),
         -compute_high_impact_signal_score(case, analysis),
@@ -1875,9 +2335,175 @@ def build_publishable_case_pairs(
         case = case_map.get(analysis_resume_key(analysis))
         if case is None:
             continue
+        if not is_federal_strategic_interest(case, analysis):
+            continue
+        pairs.append((case, analysis))
+    pairs.sort(key=lambda item: publication_sort_key(item[0], item[1]))
+    return pairs[:MAX_PUBLISHED_CASES]
+
+
+def build_focused_reportable_case_pairs(
+    cases: Sequence[CaseRecord],
+    analyses: Sequence[CaseAnalysis],
+) -> List[tuple[CaseRecord, CaseAnalysis]]:
+    case_map = {case_resume_key(case): case for case in cases}
+    pairs: List[tuple[CaseRecord, CaseAnalysis]] = []
+    for analysis in analyses:
+        if not is_reportable_analysis(analysis):
+            continue
+        case = case_map.get(analysis_resume_key(analysis))
+        if case is None:
+            continue
+        if not is_federal_strategic_interest(case, analysis):
+            continue
         pairs.append((case, analysis))
     pairs.sort(key=lambda item: publication_sort_key(item[0], item[1]))
     return pairs
+
+
+def _news_url_row_from_case(case: CaseRecord) -> Dict[str, str]:
+    try:
+        import SJUR_csv_to_csv_NOTIONfriendly_v2 as sjur
+    except Exception:
+        sjur = None
+
+    row = {column: "" for column in NEWS_URL_COLUMNS}
+    general_idx = 1
+    for raw_url in extract_http_urls(case.noticias):
+        url = _normalize_ws(raw_url)
+        if not url:
+            continue
+        if sjur is not None and sjur.is_editorially_weak_news_url(url):
+            continue
+        if sjur is not None:
+            tse_url = sjur._normalize_tse_news_url(url)
+            tre_url = sjur._normalize_tre_news_url(url)
+        else:
+            tse_url = url if "tse.jus.br" in url.casefold() else ""
+            tre_url = url if "tre-" in url.casefold() and ".jus.br" in url.casefold() else ""
+        if tse_url and not row["noticia_TSE"]:
+            row["noticia_TSE"] = tse_url
+            continue
+        if tre_url and not row["noticia_TRE"]:
+            row["noticia_TRE"] = tre_url
+            continue
+        if general_idx <= 2:
+            row[f"noticia_geral_{general_idx}"] = url
+            general_idx += 1
+    return row
+
+
+def _news_lookup_payload_from_case(case: CaseRecord) -> Dict[str, str]:
+    return {
+        "numero_unico": case.numero_unico or case.numero_processo or case.case_id,
+        "data_decisao": case.data_decisao,
+        "assuntos": _safe_join(case.assuntos, sep=", "),
+        "partes": _safe_join(case.partes, sep=", "),
+        "advogados": _safe_join(case.advogados, sep=", "),
+        "relator": case.relator,
+        "descricao_classe": case.descricao_classe or case.sigla_classe,
+        "nome_tipo_processo": case.descricao_classe or case.sigla_classe,
+        "texto_decisao": truncate_text(case.texto_decisao, 900, suffix=""),
+        "texto_ementa": "",
+        "sigla_uf": case.sigla_uf,
+        "nome_municipio": case.nome_municipio,
+        "tribunal": "TSE",
+        "origem": _safe_join([case.sigla_uf, case.nome_municipio], sep=" "),
+        "tema": case.tema,
+        "punchline": case.punchline,
+    }
+
+
+def _patch_case_news_urls(case: CaseRecord, row: Mapping[str, str]) -> int:
+    if not case.page_id:
+        return 0
+    properties: Dict[str, Any] = {}
+    for column in NEWS_URL_COLUMNS:
+        url = _normalize_ws(row.get(column))
+        if url:
+            properties[column] = {"url": url}
+    if not properties:
+        return 0
+    notion_request("PATCH", f"/v1/pages/{case.page_id}", json_body={"properties": properties})
+    return len(properties)
+
+
+def enrich_report_cases_with_gemini_news(
+    cases: Sequence[CaseRecord],
+    args: argparse.Namespace,
+    *,
+    dry_run: bool,
+) -> Dict[str, Any]:
+    selected_cases = [case for case in cases if case.page_id]
+    if not selected_cases:
+        return {"enabled": False, "reason": "no_cases"}
+    if dry_run:
+        return {"enabled": False, "reason": "dry_run"}
+
+    try:
+        import SJUR_csv_to_csv_NOTIONfriendly_v2 as sjur
+    except Exception as exc:
+        LOGGER.warning("Busca Gemini de notícias ignorada: falha ao carregar conversor SJUR (%s).", exc)
+        return {"enabled": False, "reason": "sjur_import_error"}
+
+    api_key = sjur.resolve_gemini_api_key(
+        _normalize_ws(getattr(args, "gemini_api_key", "")),
+        _normalize_ws(getattr(args, "gemini_key_file", "")) or sjur.DEFAULT_GEMINI_KEY_FILE,
+    )
+    if not api_key:
+        LOGGER.warning("Busca Gemini de notícias ignorada: chave Gemini não encontrada.")
+        return {"enabled": False, "reason": "missing_api_key", "cases": len(selected_cases)}
+
+    rows = [_news_url_row_from_case(case) for case in selected_cases]
+    original_rows = [dict(row) for row in rows]
+    lookup_payloads = [_news_lookup_payload_from_case(case) for case in selected_cases]
+    config = sjur.WebLookupConfig(
+        enabled=True,
+        provider="gemini",
+        api_key=api_key,
+        model=_normalize_ws(getattr(args, "gemini_model", "")) or sjur.DEFAULT_GEMINI_NEWS_MODEL,
+        timeout_seconds=max(1, int(getattr(args, "gemini_timeout", sjur.GEMINI_DEFAULT_TIMEOUT) or sjur.GEMINI_DEFAULT_TIMEOUT)),
+        max_workers=max(1, int(getattr(args, "gemini_max_workers", sjur.GEMINI_DEFAULT_MAX_WORKERS) or sjur.GEMINI_DEFAULT_MAX_WORKERS)),
+        batch_size=max(1, int(getattr(args, "gemini_batch_size", sjur.GEMINI_DEFAULT_BATCH_SIZE) or sjur.GEMINI_DEFAULT_BATCH_SIZE)),
+        delay_between_batches=max(0.0, float(getattr(args, "gemini_delay", sjur.GEMINI_DEFAULT_DELAY) or sjur.GEMINI_DEFAULT_DELAY)),
+        max_tokens=sjur.GEMINI_DEFAULT_MAX_OUTPUT_TOKENS,
+    )
+    LOGGER.info(
+        "[Gemini] Busca seletiva de notícias: apenas %d caso(s) publicado(s) no relatório.",
+        len(selected_cases),
+    )
+    metrics = asyncio.run(
+        sjur.enriquecer_rows_com_urls_async(
+            rows,
+            lambda message: LOGGER.info(message),
+            config,
+            lookup_payloads=lookup_payloads,
+            cache_path=sjur.resolve_web_lookup_cache_path(),
+        )
+    )
+    patched_pages = 0
+    patched_properties = 0
+    for case, original_row, row in zip(selected_cases, original_rows, rows):
+        urls = _unique_preserve_order(
+            [
+                *case.noticias,
+                *[_normalize_ws(row.get(column)) for column in NEWS_URL_COLUMNS if _normalize_ws(row.get(column))],
+            ]
+        )
+        case.noticias = urls
+        row_changed = any(_normalize_ws(row.get(column)) != _normalize_ws(original_row.get(column)) for column in NEWS_URL_COLUMNS)
+        if row_changed and any(_normalize_ws(row.get(column)) for column in NEWS_URL_COLUMNS):
+            patched = _patch_case_news_urls(case, row)
+            if patched:
+                patched_pages += 1
+                patched_properties += patched
+    return {
+        "enabled": True,
+        "cases": len(selected_cases),
+        "patched_pages": patched_pages,
+        "patched_properties": patched_properties,
+        **metrics,
+    }
 
 
 def _normalize_summary_bullets(
@@ -2116,11 +2742,18 @@ def finalize_report_summary(
     fallback_party_alerts = _build_material_party_alerts(cases, analyses, party_counter)
     fallback_lawyer_signals = _build_material_lawyer_signals(cases, analyses, lawyer_counter)
     fallback_watchpoints = _build_material_watchpoints(cases, analyses)
-    executive_highlights = _normalize_summary_bullets(summary.executive_highlights, max_items=MAX_EXECUTIVE_HIGHLIGHTS)
+    executive_highlights = _normalize_summary_bullets(
+        summary.executive_highlights,
+        max_items=MAX_EXECUTIVE_HIGHLIGHTS,
+        max_chars=MAX_EXECUTIVE_BULLET_CHARS,
+    )
     if not executive_highlights and fallback_watchpoints:
         executive_highlights = fallback_watchpoints[:1]
     return ReportSummary(
-        overview_callout=_normalize_ws(summary.overview_callout),
+        overview_callout=normalize_summary_snippet(
+            summary.overview_callout,
+            max_chars=MAX_OVERVIEW_CALLOUT_CHARS,
+        ),
         executive_highlights=executive_highlights,
         party_alerts=_select_material_alert_items(
             summary.party_alerts,
@@ -2173,10 +2806,142 @@ def build_strategic_alert_section_items(summary: ReportSummary) -> List[str]:
     return items
 
 
+def build_executive_alert_items(summary: ReportSummary) -> List[str]:
+    items: List[str] = []
+    seen: set[str] = set()
+    for raw in list(summary.executive_highlights) + build_strategic_alert_section_items(summary):
+        value = normalize_summary_snippet(raw, max_chars=MAX_EXECUTIVE_BULLET_CHARS)
+        if not value:
+            continue
+        marker = value.casefold()
+        if marker in seen:
+            continue
+        seen.add(marker)
+        items.append(value)
+        if len(items) >= MAX_EXECUTIVE_ALERT_ITEMS:
+            break
+    if not items and _normalize_ws(summary.closing_note):
+        items.append(normalize_summary_snippet(summary.closing_note, max_chars=MAX_EXECUTIVE_BULLET_CHARS))
+    return items
+
+
+def _clean_lawyer_display_name(value: Any) -> str:
+    text = _normalize_ws(value)
+    if not text:
+        return ""
+    text = re.sub(r"\s*\([^)]*\bOAB\b[^)]*\)", "", text, flags=re.IGNORECASE)
+    text = re.sub(r"\s*[-–—]\s*\bOAB\b.*$", "", text, flags=re.IGNORECASE)
+    text = re.sub(r"\bOAB\b.*$", "", text, flags=re.IGNORECASE)
+    text = re.sub(r"\s+", " ", text)
+    return text.strip(" ;,.-")
+
+
+def build_recurring_lawyer_lines(
+    cases: Sequence[CaseRecord],
+    analyses: Sequence[CaseAnalysis],
+) -> List[str]:
+    freq: Counter[str] = Counter()
+    labels: Dict[str, str] = {}
+    item_refs: Dict[str, List[str]] = {}
+    for idx, (case, _analysis) in enumerate(build_publishable_case_pairs(cases, analyses), start=1):
+        seen_in_case: set[str] = set()
+        for raw_name in case.advogados:
+            name = _clean_lawyer_display_name(raw_name)
+            if not name:
+                continue
+            key = name.casefold()
+            if key in seen_in_case:
+                continue
+            seen_in_case.add(key)
+            labels.setdefault(key, name)
+            freq[key] += 1
+            item_refs.setdefault(key, []).append(str(idx))
+
+    ranked = [
+        (labels[key], count, item_refs.get(key, []))
+        for key, count in freq.items()
+        if count >= MIN_RECURRING_ALERT_CASES
+    ]
+    ranked.sort(key=lambda item: (-item[1], item[0].casefold()))
+    lines: List[str] = []
+    for name, count, refs in ranked[:MAX_RECURRING_LAWYERS_SECTION_ITEMS]:
+        suffix = "caso" if count == 1 else "casos"
+        refs_label = ", ".join(refs[:6])
+        if len(refs) > 6:
+            refs_label += ", ..."
+        lines.append(f"**{name}:** {count} {suffix} nos itens {refs_label}.")
+    return lines
+
+
+def build_recurring_lawyer_section_blocks(
+    cases: Sequence[CaseRecord],
+    analyses: Sequence[CaseAnalysis],
+) -> List[Dict[str, Any]]:
+    lines = build_recurring_lawyer_lines(cases, analyses)
+    if not lines:
+        return []
+    blocks: List[Dict[str, Any]] = [build_heading_2_block(SECTION_LAWYERS_TITLE)]
+    blocks.extend(build_bulleted_block(line) for line in lines)
+    return blocks
+
+
 def analysis_has_visible_ellipsis(item: CaseAnalysis) -> bool:
     if not is_reportable_analysis(item):
         return False
     return any(has_terminal_ellipsis(getattr(item, field, "")) for field in ELLIPSIS_ANALYSIS_FIELDS)
+
+
+def case_triage_signal_text(case: CaseRecord) -> str:
+    return _safe_join(
+        [
+            case.tema,
+            case.punchline,
+            case.texto_decisao,
+            case.descricao_classe,
+            case.descricao_tipo_decisao,
+            case.ano_eleicao,
+            _safe_join(case.assuntos),
+            _safe_join(case.partes),
+            _safe_join(case.partidos),
+            _safe_join(case.resultado),
+        ],
+        sep=" | ",
+    )
+
+
+def local_openai_triage_score(
+    case: CaseRecord,
+    *,
+    party_counter: Counter[str],
+    lawyer_counter: Counter[str],
+) -> int:
+    signal_text = case_triage_signal_text(case)
+    score = 0
+    if case.partidos:
+        score += 22
+    if any(party_counter.get(party, 0) > 1 for party in case.partidos):
+        score += 8
+    if any(lawyer_counter.get(name, 0) > 1 for name in case.advogados):
+        score += 6
+    if FEDERAL_HIGH_OFFICE_RE.search(signal_text):
+        score += 32
+    elif PUBLIC_FIGURE_HINT_RE.search(signal_text):
+        score += 20
+    if NATIONAL_PARTY_SCOPE_RE.search(signal_text):
+        score += 26
+    if PARTY_INSTITUTIONAL_RE.search(signal_text):
+        score += 20
+    if PARTY_FINANCE_SYSTEMIC_RE.search(signal_text) or ACCOUNTS_HINT_RE.search(signal_text):
+        score += 18
+    if HIGH_IMPACT_ELECTORAL_RE.search(signal_text):
+        score += 18
+    elif HIGH_IMPACT_HINT_RE.search(signal_text):
+        score += 14
+    if _normalize_ws(case.ano_eleicao) in {"2018", "2022", "2026"}:
+        score += 5
+    if LOWER_LOCAL_OFFICE_RE.search(signal_text) and score < DEFAULT_OPENAI_TRIAGE_THRESHOLD:
+        score -= 10
+    return max(0, min(100, score))
 
 
 def should_skip_openai_for_low_priority(
@@ -2184,29 +2949,9 @@ def should_skip_openai_for_low_priority(
     *,
     party_counter: Counter[str],
     lawyer_counter: Counter[str],
+    triage_threshold: int = DEFAULT_OPENAI_TRIAGE_THRESHOLD,
 ) -> bool:
-    base_text = " ".join(
-        [
-            case.tema,
-            case.punchline,
-            case.texto_decisao,
-            _safe_join(case.assuntos),
-            _safe_join(case.partes),
-        ]
-    )
-    if case.partidos:
-        return False
-    if any(lawyer_counter.get(name, 0) > 1 for name in case.advogados):
-        return False
-    if PUBLIC_FIGURE_HINT_RE.search(base_text):
-        return False
-    if ACCOUNTS_HINT_RE.search(base_text):
-        return False
-    if HIGH_IMPACT_HINT_RE.search(base_text):
-        return False
-    if any(party_counter.get(party, 0) > 1 for party in case.partidos):
-        return False
-    return True
+    return local_openai_triage_score(case, party_counter=party_counter, lawyer_counter=lawyer_counter) < int(triage_threshold)
 
 
 def fallback_case_analysis(case: CaseRecord, lawyer_counter: Counter[str]) -> CaseAnalysis:
@@ -2225,7 +2970,7 @@ def fallback_case_analysis(case: CaseRecord, lawyer_counter: Counter[str]) -> Ca
     recurring_lawyers = [name for name in case.advogados if lawyer_counter.get(name, 0) > 1]
     consequence = _safe_join(case.resultado, sep=", ")
     if case.punchline:
-        consequence = truncate_text(f"{consequence}. {case.punchline}" if consequence else case.punchline, 320, suffix="")
+        consequence = f"{consequence}. {case.punchline}" if consequence else case.punchline
     return CaseAnalysis(
         case_id=case.case_id,
         title=truncate_heading_text(case.tema or case.punchline or case.process_label(), HEADING_SUMMARY_MAX_CHARS),
@@ -2241,23 +2986,20 @@ def fallback_case_analysis(case: CaseRecord, lawyer_counter: Counter[str]) -> Ca
             if recurring_lawyers
             else "Sem sinal claro de banca recorrente apenas com os dados do período."
         ),
-        what_happened=truncate_text(case.punchline or case.tema or case.texto_decisao, 420, suffix=""),
-        legal_grounds=truncate_text(
+        what_happened=_compact_report_field_text(case.punchline or case.tema or case.texto_decisao, MAX_TOGGLE_FACTS_CHARS),
+        legal_grounds=_compact_report_field_text(
             _safe_join([_safe_join(case.assuntos, sep=", "), case.tema], sep=" | "),
-            420,
-            suffix="",
+            MAX_TOGGLE_LEGAL_CHARS,
         ),
-        consequence=truncate_text(consequence or case.tema or "Resultado não detalhado na base.", 320, suffix=""),
-        strategic_comment=truncate_text(
+        consequence=_compact_report_field_text(consequence or case.tema or "Resultado não detalhado na base.", MAX_TOGGLE_CONSEQUENCE_CHARS),
+        strategic_comment=_compact_report_field_text(
             f"Caso em {case.local_label()} relatado por {case.relator or 'relator não informado'}. "
             f"Partidos citados: {_safe_join(case.partidos, sep='; ') or 'nenhum explícito'}.",
-            340,
-            suffix="",
+            MAX_TOGGLE_STRATEGIC_CHARS,
         ),
-        why_relevant=truncate_text(
+        why_relevant=_compact_report_field_text(
             "Relevante para monitoramento político-eleitoral pela combinação de tema, partes envolvidas e efeito prático indicado na base.",
-            220,
-            suffix="",
+            MAX_TOGGLE_WHY_RELEVANT_CHARS,
         ),
         source_notes=_unique_preserve_order(case.noticias + [case.source_url]),
         page_id=case.page_id,
@@ -2268,13 +3010,19 @@ def build_case_analysis_prompt(start_iso: str, end_iso: str) -> str:
     period_text = format_period_br(start_iso, end_iso)
     return (
         "Você é um analista jurídico-eleitoral metódico. "
+        "O destinatário é consultor legislativo da Câmara dos Deputados, com foco em Direito Eleitoral e impacto federal. "
         "Priorize precisão, raciocínio lógico, voz ativa e economia verbal. "
         f"Analise processos do período exato {period_text}. "
         "Use apenas os dados fornecidos. Não invente fatos, partidos, cargos ou consequências. "
         "Identifique partidos de modo conservador. Se não estiver explícito, diga menos. "
         "A unidade de análise é o processo judicial. Para cada processo, explique o que ocorreu, "
         "os fundamentos jurídicos adotados, a consequência aplicada e a relevância político-eleitoral. "
-        "Considere como sinais de relevância: figuras públicas, partidos políticos, temas de contas e bancas relevantes. "
+        "Considere como sinais máximos de relevância: Presidente da República, Vice-Presidente, governadores, senadores, "
+        "deputados federais, candidatos a esses cargos, diretórios nacionais/estaduais, fundações partidárias, "
+        "registro/incorporação/fidelidade partidária e temas de FEFC, Fundo Partidário, cotas e contas partidárias. "
+        "Casos municipais rotineiros de prefeito, vice-prefeito ou vereador só devem receber nota alta se trouxerem tese replicável "
+        "para partidos políticos ou efeito institucional claro além do município. "
+        "Reserve notas 8 a 10 para casos com interesse federal/partidário material; temas locais sem esse vetor devem ficar em baixo ou médio. "
         "No campo 'title', escreva um microtítulo temático curto e intuitivo do caso, em estilo nominal, idealmente entre 90 e 120 caracteres e no máximo com 130 caracteres. "
         "Evite narrativa processual. Não comece com expressões como 'em decisão monocrática', 'o pedido de', "
         "'interposto contra acórdão', 'deu provimento', 'negou seguimento' ou fórmulas semelhantes. "
@@ -2450,32 +3198,72 @@ def analyze_cases(
     lawyer_counter: Counter[str],
     max_cases_per_batch: int = DEFAULT_MAX_CASES_PER_BATCH,
     openai_max_workers: int = DEFAULT_OPENAI_MAX_WORKERS,
+    max_openai_cases: int = DEFAULT_MAX_OPENAI_CASES,
+    openai_triage_threshold: int = DEFAULT_OPENAI_TRIAGE_THRESHOLD,
+    analysis_cache_enabled: bool = True,
     resume_analysis_map: Optional[Dict[str, CaseAnalysis]] = None,
     progress_callback: Optional[Any] = None,
 ) -> List[CaseAnalysis]:
     analysis_by_case_id: Dict[str, CaseAnalysis] = dict(resume_analysis_map or {})
     pending_cases = [case for case in cases if case_resume_key(case) not in analysis_by_case_id]
+    model_name = OPENAI_CFG.model if OPENAI_CFG is not None else DEFAULT_OPENAI_MODEL
+    cache_payload = load_case_analysis_cache(enabled=analysis_cache_enabled)
 
+    cached_cases = 0
     locally_skipped_cases: List[CaseRecord] = []
-    openai_pending_cases: List[CaseRecord] = []
+    openai_candidates: List[tuple[int, CaseRecord]] = []
     for case in pending_cases:
-        if should_skip_openai_for_low_priority(case, party_counter=party_counter, lawyer_counter=lawyer_counter):
+        cached_analysis = cached_case_analysis_for_case(case, cache_payload, model=model_name)
+        if cached_analysis is not None:
+            analysis_by_case_id[case_resume_key(case)] = cached_analysis
+            cached_cases += 1
+            continue
+        triage_score = local_openai_triage_score(case, party_counter=party_counter, lawyer_counter=lawyer_counter)
+        if triage_score < int(openai_triage_threshold):
             locally_skipped_cases.append(case)
             analysis_by_case_id[case_resume_key(case)] = fallback_case_analysis(case, lawyer_counter)
         else:
-            openai_pending_cases.append(case)
+            openai_candidates.append((triage_score, case))
+
+    openai_candidates.sort(
+        key=lambda item: (
+            -item[0],
+            -(1 if item[1].partidos else 0),
+            item[1].data_decisao,
+            item[1].process_label(),
+        )
+    )
+    max_openai = max(0, int(max_openai_cases))
+    if max_openai:
+        selected_candidates = openai_candidates[:max_openai]
+        capped_cases = [case for _score, case in openai_candidates[max_openai:]]
+    else:
+        selected_candidates = []
+        capped_cases = [case for _score, case in openai_candidates]
+    openai_pending_cases = [case for _score, case in selected_candidates]
+    for case in capped_cases:
+        analysis_by_case_id[case_resume_key(case)] = fallback_case_analysis(case, lawyer_counter)
 
     if analysis_by_case_id:
         LOGGER.info(
-            "[OpenAI] checkpoint reaproveitado | análises_prontas=%d/%d | pendentes=%d",
+            "[OpenAI] pré-processamento | análises_prontas=%d/%d | candidatos_gpt=%d",
             len(analysis_by_case_id),
             len(cases),
             len(openai_pending_cases),
         )
+    if cached_cases:
+        LOGGER.info("[OpenAI] cache local reaproveitou %d análise(s) sem nova chamada.", cached_cases)
     if locally_skipped_cases:
         LOGGER.info(
-            "[OpenAI] pré-filtro local marcou %d processo(s) como BAIXO e evitou chamada à API.",
+            "[OpenAI] triagem local evitou %d chamada(s) por score abaixo de %d.",
             len(locally_skipped_cases),
+            int(openai_triage_threshold),
+        )
+    if capped_cases:
+        LOGGER.info(
+            "[OpenAI] teto econômico evitou %d chamada(s); limite=%d caso(s) enviados ao GPT.",
+            len(capped_cases),
+            max_openai,
         )
 
     if OPENAI_CFG is None or OPENAI_SESSION is None:
@@ -2491,7 +3279,7 @@ def analyze_cases(
     def _coerce_analysis(case: CaseRecord, raw_item: Dict[str, Any]) -> CaseAnalysis:
         return CaseAnalysis(
             case_id=case.case_id,
-            title=_normalize_ws(raw_item.get("title") or case.tema or case.process_label()),
+            title=truncate_heading_text(raw_item.get("title") or case.tema or case.process_label(), HEADING_SUMMARY_MAX_CHARS),
             relevance_score=max(1, min(10, int(raw_item.get("relevance_score", 5)))),
             display_score=max(1, min(10, int(raw_item.get("display_score") or raw_item.get("relevance_score", 5)))),
             risk_level=_normalize_ws(raw_item.get("risk_level")) or "medio",
@@ -2510,7 +3298,7 @@ def analyze_cases(
             ranking_reason=_normalize_ws(raw_item.get("ranking_reason")),
         )
 
-    def _analyze_batch(batch: Sequence[CaseRecord], *, label: str) -> List[CaseAnalysis]:
+    def _analyze_batch(batch: Sequence[CaseRecord], *, label: str) -> tuple[List[CaseAnalysis], bool]:
         payload = {
             "periodo": {"inicio": start_iso, "fim": end_iso},
             "estatisticas_periodo": {
@@ -2535,17 +3323,20 @@ def analyze_cases(
                 if isinstance(item, dict) and _normalize_ws(item.get("case_id"))
             }
             out: List[CaseAnalysis] = []
+            cacheable = True
             for case in batch:
                 raw_item = item_map.get(case.page_id or case.case_id)
                 if not raw_item:
                     out.append(fallback_case_analysis(case, lawyer_counter))
+                    cacheable = False
                     continue
                 try:
                     out.append(_coerce_analysis(case, raw_item))
                 except Exception as exc:
                     LOGGER.warning("Falha ao normalizar output da OpenAI para %s: %s", case.case_id, exc)
                     out.append(fallback_case_analysis(case, lawyer_counter))
-            return out
+                    cacheable = False
+            return out, cacheable
         except Exception as exc:
             message = _normalize_ws(exc).casefold()
             if len(batch) > 1 and ("finish_reason=length" in message or " length" in message or "resposta vazia" in message):
@@ -2558,9 +3349,9 @@ def analyze_cases(
                 )
                 left = _analyze_batch(batch[:split_at], label=f"{label} | parte 1")
                 right = _analyze_batch(batch[split_at:], label=f"{label} | parte 2")
-                return left + right
+                return left[0] + right[0], bool(left[1] and right[1])
             LOGGER.warning("%s falhou: %s. Usando fallback heurístico no lote.", label, exc)
-            return [fallback_case_analysis(case, lawyer_counter) for case in batch]
+            return [fallback_case_analysis(case, lawyer_counter) for case in batch], False
 
     batches = chunk_cases_for_openai(
         openai_pending_cases,
@@ -2615,7 +3406,7 @@ def analyze_cases(
         effective_workers,
     )
 
-    def _submit_payload(batch_idx_zero: int, batch: Sequence[CaseRecord]) -> tuple[int, List[CaseAnalysis]]:
+    def _submit_payload(batch_idx_zero: int, batch: Sequence[CaseRecord]) -> tuple[int, List[CaseAnalysis], bool]:
         first_case = batch[0] if batch else None
         last_case = batch[-1] if batch else None
         batch_label = (
@@ -2628,13 +3419,28 @@ def analyze_cases(
             total_batches,
             len(batch),
         )
-        return batch_idx_zero, _analyze_batch(batch, label=batch_label)
+        batch_results, cacheable = _analyze_batch(batch, label=batch_label)
+        return batch_idx_zero, batch_results, cacheable
+
+    case_by_analysis_key: Dict[str, CaseRecord] = {}
+    for case in openai_pending_cases:
+        case_by_analysis_key[case_resume_key(case)] = case
+        case_by_analysis_key[_normalize_ws(case.case_id)] = case
+
+    def _store_cache_if_safe(batch_results: Sequence[CaseAnalysis], *, cacheable: bool) -> None:
+        if not cacheable or not analysis_cache_enabled:
+            return
+        stored = store_case_analysis_cache_entries(cache_payload, batch_results, case_by_analysis_key, model=model_name)
+        if stored:
+            save_case_analysis_cache(cache_payload)
+            LOGGER.info("[OpenAI] cache local atualizado com %d análise(s).", stored)
 
     if effective_workers <= 1:
         for batch_idx, batch in enumerate(batches, start=1):
-            _, batch_results = _submit_payload(batch_idx - 1, batch)
+            _, batch_results, cacheable = _submit_payload(batch_idx - 1, batch)
             for item in batch_results:
                 analysis_by_case_id[analysis_resume_key(item)] = item
+            _store_cache_if_safe(batch_results, cacheable=cacheable)
             LOGGER.info(
                 "[OpenAI] lote %d/%d concluido | concluidos_agora=%d/%d",
                 batch_idx,
@@ -2654,12 +3460,14 @@ def analyze_cases(
             for future in as_completed(future_map):
                 idx = future_map[future]
                 try:
-                    _, batch_results = future.result()
+                    _, batch_results, cacheable = future.result()
                 except Exception as exc:
                     LOGGER.warning("[OpenAI] lote %d/%d falhou no worker: %s", idx + 1, total_batches, exc)
                     batch_results = [fallback_case_analysis(case, lawyer_counter) for case in batches[idx]]
+                    cacheable = False
                 for item in batch_results:
                     analysis_by_case_id[analysis_resume_key(item)] = item
+                _store_cache_if_safe(batch_results, cacheable=cacheable)
                 completed_batches += 1
                 LOGGER.info(
                     "[OpenAI] lote %d/%d concluido | concluidos_agora=%d/%d",
@@ -2684,13 +3492,12 @@ def fallback_report_summary(
     high_priority = [item for item in analyses if item.relevance_score >= 7]
     uf_counter = Counter(case.sigla_uf for case in cases if case.sigla_uf)
     overview = (
-        f"Foram mapeados {len(cases)} processos no período {format_period_br(start_iso, end_iso)}. "
-        f"{len(high_priority)} deles concentram maior risco político-eleitoral imediato."
+        f"Foram mapeados {len(cases)} processos com foco federal/partidário no período {format_period_br(start_iso, end_iso)}. "
+        f"{len(high_priority)} deles concentram risco político-eleitoral imediato."
     )
     highlights = [
-        f"UFs mais recorrentes: {_safe_join([f'{uf} ({count})' for uf, count in uf_counter.most_common(5)], sep='; ') or 'sem concentração relevante'}.",
         f"Partidos mais citados: {_safe_join([f'{party} ({count})' for party, count in party_counter.most_common(5)], sep='; ') or 'nenhum partido explícito na base'}.",
-        f"Advogados recorrentes: {_safe_join([f'{name} ({count})' for name, count in lawyer_counter.most_common(5)], sep='; ') or 'sem recorrência material'}.",
+        f"UFs mais recorrentes dentro do filtro: {_safe_join([f'{uf} ({count})' for uf, count in uf_counter.most_common(5)], sep='; ') or 'sem concentração relevante'}.",
     ]
     party_alerts = _build_material_party_alerts(cases, analyses, party_counter)
     lawyer_signals = _build_material_lawyer_signals(cases, analyses, lawyer_counter)
@@ -2717,13 +3524,13 @@ def summarize_report(
     if not analyses:
         return ReportSummary(
             overview_callout=(
-                f"No período {format_period_br(start_iso, end_iso)}, não houve caso com prioridade mínima MÉDIA para publicação no relatório estratégico."
+                f"No período {format_period_br(start_iso, end_iso)}, não houve caso com interesse federal/partidário material no limiar mínimo de publicação."
             ),
-            executive_highlights=["Os processos consultados ficaram abaixo do limiar de publicação definido para o relatório."],
+            executive_highlights=["Os processos consultados ficaram fora do filtro seletivo de altos cargos e partidos políticos."],
             party_alerts=[],
             lawyer_signals=[],
             watchpoints=[],
-            closing_note="Os casos classificados como BAIXO foram excluídos da publicação para reduzir ruído analítico.",
+            closing_note="Casos locais sem efeito federal ou partidário claro foram excluídos para reduzir ruído analítico.",
         )
 
     if OPENAI_CFG is None or OPENAI_SESSION is None:
@@ -2764,13 +3571,17 @@ def summarize_report(
     }
     system_prompt = (
         "Você é um analista jurídico-eleitoral metódico e conciso. "
-        "Produza uma leitura estratégica do período exato informado. "
-        "Priorize impactos para partidos, figuras públicas, bancas recorrentes e riscos jurídico-eleitorais. "
+        "Produza uma leitura estratégica seletiva do período exato informado para consultoria legislativa federal. "
+        "Priorize impactos para altos cargos da República, partidos políticos, direção partidária, fundos públicos de campanha, contas partidárias e teses com efeito nacional ou estadual. "
+        "Não trate caso municipal rotineiro como destaque se ele não trouxer consequência replicável para partidos ou cargos de alta relevância. "
         "Reduza ruído: prefira poucos alertas materiais a listas longas. "
         "Só gere party_alerts ou lawyer_signals quando a recorrência vier acompanhada de consequência concreta, tese sensível ou exposição institucional. "
         "Não transforme frequência bruta em alerta. "
         "Cada bullet deve trazer fato + risco/efeito + implicação estratégica em uma única frase curta. "
-        "Limites rígidos: até 4 executive_highlights, 2 party_alerts, 2 lawyer_signals e 3 watchpoints. "
+        "A leitura executiva sera fundida aos alertas, portanto evite repeticao entre executive_highlights, party_alerts, lawyer_signals e watchpoints. "
+        "overview_callout deve ter no maximo duas frases curtas e nao pode resumir caso a caso. "
+        "Cada bullet deve ter ate 260 caracteres, com verbo concreto e consequencia operacional clara. "
+        "Limites rígidos: até 3 executive_highlights, 2 party_alerts, 1 lawyer_signal e 2 watchpoints. "
         "Se não houver alerta material em uma categoria, devolva lista vazia. "
         "Não invente fatos. Use linguagem executiva, densa e objetiva. "
         "Quando usar expressão indispensável em inglês, marque-a em itálico Markdown com asteriscos simples."
@@ -3424,7 +4235,6 @@ def build_case_toggle_children(case: CaseRecord, analysis: CaseAnalysis) -> List
     )
     parties_line = _safe_join(analysis.parties or case.partidos, sep="; ") or "Sem partido explícito na base."
     parts_line = _safe_join(case.partes, sep="; ") or "-"
-    lawyers_line = _safe_join(case.advogados, sep="; ") or "-"
     notion_case_url = _normalize_ws(case.source_url)
     external_references = [
         url
@@ -3435,15 +4245,35 @@ def build_case_toggle_children(case: CaseRecord, analysis: CaseAnalysis) -> List
     refs_line = " | ".join(f"[fonte {idx}]({url})" for idx, url in enumerate(references, start=1))
 
     blocks: List[Dict[str, Any]] = [
-        build_callout_block(analysis.why_relevant or "Sem observação adicional.", icon="⚠️", color=callout_color_for_risk(analysis.risk_level)),
+        build_callout_block(
+            _compact_report_field_text(
+                analysis.why_relevant or "Sem observação adicional.",
+                MAX_TOGGLE_WHY_RELEVANT_CHARS,
+            ),
+            icon="⚠️",
+            color=callout_color_for_risk(analysis.risk_level),
+        ),
         build_paragraph_block(meta_line),
-        build_paragraph_block(f"**Partes e partidos:** {parts_line} | **Partidos identificados:** {parties_line}"),
-        build_paragraph_block(f"**O que ocorreu:** {analysis.what_happened}"),
-        build_paragraph_block(f"**Fundamentos jurídicos:** {analysis.legal_grounds}"),
-        build_paragraph_block(f"**Consequência aplicada:** {analysis.consequence}"),
-        build_paragraph_block(f"**Leitura estratégica:** {analysis.strategic_comment}"),
-        build_paragraph_block(f"**Banca e sinalização:** {analysis.lawyers_signal or ('Advogados do caso: ' + lawyers_line)}"),
+        build_paragraph_block(
+            f"**Partes/partidos:** {truncate_text(parts_line, 150, suffix='').rstrip(' ;,')} | "
+            f"**Partidos identificados:** {truncate_text(parties_line, 90, suffix='').rstrip(' ;,')}"
+        ),
+        build_paragraph_block(
+            f"**Decisão:** {_compact_report_field_text(analysis.what_happened, MAX_TOGGLE_FACTS_CHARS)}"
+        ),
+        build_paragraph_block(
+            f"**Fundamento:** {_compact_report_field_text(analysis.legal_grounds, MAX_TOGGLE_LEGAL_CHARS)}"
+        ),
+        build_paragraph_block(
+            f"**Efeito:** {_compact_report_field_text(analysis.consequence, MAX_TOGGLE_CONSEQUENCE_CHARS)}"
+        ),
     ]
+    if _is_material_alert_text(analysis.strategic_comment):
+        blocks.append(
+            build_paragraph_block(
+                f"**Leitura estratégica:** {_compact_report_field_text(analysis.strategic_comment, MAX_TOGGLE_STRATEGIC_CHARS)}"
+            )
+        )
     if refs_line:
         blocks.append(build_paragraph_block(f"**Referências:** {refs_line}"))
     return blocks
@@ -3462,9 +4292,8 @@ def build_published_summary_rows(
                 score_label(analysis_display_score(analysis), analysis.risk_level),
                 f"{case.process_label()} | {case.local_label()}",
                 f"[Abrir]({case.source_url})" if case.source_url else "-",
-                analysis.what_happened or case.tema,
-                analysis.consequence,
-                subjects,
+                _compact_report_field_text(analysis.what_happened or case.tema, MAX_TABLE_WHAT_HAPPENED_CHARS),
+                _compact_report_field_text(analysis.consequence or subjects, MAX_TABLE_CONSEQUENCE_CHARS),
             ]
         )
     return rows
@@ -3489,10 +4318,9 @@ def append_published_sections(
     after_block_id: str = "",
 ) -> Dict[str, Any]:
     intro_blocks = [
-        build_heading_2_block("4. Tabela-síntese dos processos"),
+        build_heading_2_block(SECTION_CASES_TITLE),
         build_paragraph_block(
-            "Abaixo, aparecem apenas os casos **CRÍTICO** e **ALTO**, ordenados por prioridade "
-            "e numerados para espelhar a seção de comentários por processo."
+            f"Recorte dos {MAX_PUBLISHED_CASES} casos com maior interesse federal ou partidário material, ordenados por prioridade."
         ),
     ]
     created_intro = append_block_children(page_id, intro_blocks, after_block_id=after_block_id)
@@ -3501,12 +4329,12 @@ def append_published_sections(
     summary_rows = build_published_summary_rows(cases, analyses)
     table_id = create_table(
         page_id,
-        ["#", "Prioridade", "Processo / local", "Link", "O que ocorreu", "Consequência", "Partidos / figuras"],
+        ["#", "Prioridade", "Processo / local", "Link", "Ponto crítico", "Efeito"],
         summary_rows,
         after_block_id=last_after_id,
     )
 
-    heading5_blocks = append_block_children(page_id, [build_heading_2_block("5. Comentários por processo")], after_block_id=table_id)
+    heading5_blocks = append_block_children(page_id, [build_heading_2_block(SECTION_NOTES_TITLE)], after_block_id=table_id)
     heading5_id = _normalize_ws(heading5_blocks[-1].get("id")) if heading5_blocks else table_id
     toggle_blocks = build_published_toggle_blocks(cases, analyses)
     append_block_children(
@@ -3522,13 +4350,14 @@ def append_published_sections(
     }
 
 
-def build_methodology_blocks() -> List[Dict[str, Any]]:
+def build_methodology_blocks(title: str = SECTION_METHODOLOGY_TITLE) -> List[Dict[str, Any]]:
     return [
-        build_heading_2_block("6. Metodologia"),
+        build_heading_2_block(title),
         build_callout_block(
             "Relatório gerado a partir da base DJe consolidada no Notion, filtrada por dataDecisao no período exato solicitado. "
-            "A unidade de análise é o processo judicial. A IA produziu a leitura estratégica com foco em relevância político-eleitoral, "
-            "situação jurídica de partidos, figuras públicas e sinais de bancas recorrentes. Quando a base não trazia elemento explícito, "
+            "A unidade de análise é o processo judicial. A IA produziu a leitura estratégica com filtro editorial de interesse federal: "
+            "altos cargos da República, partidos políticos, direção partidária, financiamento público, contas partidárias e teses com efeito replicável. "
+            "Casos municipais rotineiros foram rebaixados ou excluídos quando não havia esse vetor material. Quando a base não trazia elemento explícito, "
             "o texto manteve linguagem conservadora.",
             icon="💡",
             color="yellow_background",
@@ -3775,12 +4604,12 @@ def _table_cell_links(cell: Any) -> List[str]:
 
 def load_cases_from_published_summary_table(page_id: str) -> List[CaseRecord]:
     blocks = list_block_children(page_id)
-    idx4 = _find_heading_2_index(blocks, "4. Tabela-síntese dos processos")
-    idx5 = _find_heading_2_index(blocks, "5. Comentários por processo")
-    if idx4 < 0:
+    idx_cases = _find_heading_2_index_any(blocks, CASE_SECTION_TITLES)
+    idx_notes = _find_heading_2_index_any(blocks, NOTES_SECTION_TITLES)
+    if idx_cases < 0:
         return []
-    end_idx = idx5 if idx5 > idx4 else len(blocks)
-    table_blocks = [block for block in blocks[idx4 + 1 : end_idx] if _normalize_ws(block.get("type")) == "table"]
+    end_idx = idx_notes if idx_notes > idx_cases else len(blocks)
+    table_blocks = [block for block in blocks[idx_cases + 1 : end_idx] if _normalize_ws(block.get("type")) == "table"]
     if not table_blocks:
         return []
 
@@ -3865,13 +4694,13 @@ def _build_case_record_from_heading_and_details(
 
 def load_cases_and_analyses_from_published_page(page_id: str) -> Dict[str, Any]:
     blocks = list_block_children(page_id)
-    idx5 = _find_heading_2_index(blocks, "5. Comentários por processo")
-    idx6 = _find_heading_2_index(blocks, "6. Metodologia")
-    if idx5 < 0:
+    idx_notes = _find_heading_2_index_any(blocks, NOTES_SECTION_TITLES)
+    idx_methodology = _find_heading_2_index_any(blocks, METHODOLOGY_SECTION_TITLES)
+    if idx_notes < 0:
         return {"cases": load_cases_from_published_summary_table(page_id), "analyses": []}
 
-    end_idx = idx6 if idx6 > idx5 else len(blocks)
-    toggle_blocks = [block for block in blocks[idx5 + 1 : end_idx] if _normalize_ws(block.get("type")) == "toggle"]
+    end_idx = idx_methodology if idx_methodology > idx_notes else len(blocks)
+    toggle_blocks = [block for block in blocks[idx_notes + 1 : end_idx] if _normalize_ws(block.get("type")) == "toggle"]
     if not toggle_blocks:
         return {"cases": load_cases_from_published_summary_table(page_id), "analyses": []}
     cases: List[CaseRecord] = []
@@ -4059,6 +4888,12 @@ def _find_heading_2_index(blocks: Sequence[Dict[str, Any]], title: str) -> int:
     return -1
 
 
+def _find_heading_2_index_any(blocks: Sequence[Dict[str, Any]], titles: Sequence[str]) -> int:
+    indexes = [_find_heading_2_index(blocks, title) for title in titles]
+    found = [idx for idx in indexes if idx >= 0]
+    return min(found) if found else -1
+
+
 def repair_published_sections(
     page_id: str,
     cases: Sequence[CaseRecord],
@@ -4067,23 +4902,25 @@ def repair_published_sections(
     dry_run: bool = False,
 ) -> Dict[str, Any]:
     blocks = list_block_children(page_id)
-    idx4 = _find_heading_2_index(blocks, "4. Tabela-síntese dos processos")
-    idx5 = _find_heading_2_index(blocks, "5. Comentários por processo")
-    idx6 = _find_heading_2_index(blocks, "6. Metodologia")
-    if min(idx4, idx5, idx6) < 0:
-        raise RuntimeError("Não foi possível localizar as seções 4, 5 e 6 na página para reparo focal.")
+    idx_cases = _find_heading_2_index_any(blocks, CASE_SECTION_TITLES)
+    idx_methodology = _find_heading_2_index_any(blocks, METHODOLOGY_SECTION_TITLES)
+    if idx_cases < 0 or idx_methodology < 0:
+        raise RuntimeError("Não foi possível localizar as seções publicadas na página para reparo focal.")
 
-    to_delete = list(blocks[idx4:])
-    previous_block_id = _normalize_ws(blocks[idx4 - 1].get("id")) if idx4 > 0 else ""
+    to_delete = list(blocks[idx_cases:])
+    previous_block_id = _normalize_ws(blocks[idx_cases - 1].get("id")) if idx_cases > 0 else ""
     summary_rows = build_published_summary_rows(cases, analyses)
     toggle_blocks = build_published_toggle_blocks(cases, analyses)
-    methodology_blocks = build_methodology_blocks()
+    lawyer_blocks = build_recurring_lawyer_section_blocks(cases, analyses)
+    methodology_title = SECTION_METHODOLOGY_TITLE if lawyer_blocks else SECTION_METHODOLOGY_WITHOUT_LAWYERS_TITLE
+    methodology_blocks = build_methodology_blocks(methodology_title)
 
     if dry_run:
         return {
             "deleted_blocks": len(to_delete),
             "case_rows_created": len(summary_rows),
             "toggle_blocks_created": len(toggle_blocks),
+            "lawyer_blocks_created": len(lawyer_blocks),
             "dry_run": True,
         }
 
@@ -4093,11 +4930,14 @@ def repair_published_sections(
             delete_block(block_id)
 
     created_stats = append_published_sections(page_id, cases, analyses, after_block_id=previous_block_id)
+    if lawyer_blocks:
+        append_block_children(page_id, lawyer_blocks)
     append_block_children(page_id, methodology_blocks)
     return {
         "deleted_blocks": len(to_delete),
         "case_rows_created": int(created_stats.get("case_rows_created", 0)),
         "toggle_blocks_created": int(created_stats.get("toggle_blocks_created", 0)),
+        "lawyer_blocks_created": len(lawyer_blocks),
         "dry_run": False,
     }
 
@@ -4114,9 +4954,9 @@ def render_report_page(
     party_counter: Counter[str],
     lawyer_counter: Counter[str],
 ) -> Dict[str, Any]:
-    ranked = sorted((item for item in analyses if is_reportable_analysis(item)), key=analysis_sort_key)
-    ranked_case_ids = {analysis_resume_key(item) for item in ranked}
-    reported_cases = [case for case in cases if case_resume_key(case) in ranked_case_ids]
+    focused_pairs = build_focused_reportable_case_pairs(cases, analyses)
+    ranked = [analysis for _case, analysis in focused_pairs]
+    reported_cases = [case for case, _analysis in focused_pairs]
     published_pairs = build_publishable_case_pairs(cases, analyses)
     high_priority_count = sum(1 for item in ranked if item.relevance_score >= 7)
     public_figure_count = sum(1 for item in ranked if item.includes_public_figure)
@@ -4125,75 +4965,38 @@ def render_report_page(
         1
         for item in reported_cases
         if ACCOUNTS_HINT_RE.search(" ".join([item.tema, item.punchline, _safe_join(item.assuntos)]))
+        or PARTY_FINANCE_SYSTEMIC_RE.search(" ".join([item.tema, item.punchline, _safe_join(item.assuntos)]))
     )
     uf_counter = Counter(case.sigla_uf for case in reported_cases if case.sigla_uf)
-    relator_counter = Counter(case.relator for case in reported_cases if case.relator)
 
     blocks: List[Dict[str, Any]] = [
-        build_heading_1_block(f"Relatório estratégico do DJe | {format_period_br(start_iso, end_iso)}"),
+        build_heading_1_block(f"Relatório seletivo do DJe/TSE | {format_period_br(start_iso, end_iso)}"),
         build_paragraph_block(
             f"Base consultada: [DJe consolidado no Notion]({source_database_url}). "
-            f"Período exato analisado: **{format_period_br(start_iso, end_iso)}**."
+            f"Período exato analisado: **{format_period_br(start_iso, end_iso)}**. "
+            "Filtro editorial: interesse federal, altos cargos e partidos políticos."
         ),
         build_callout_block(summary.overview_callout, icon="💡", color="blue_background"),
         build_divider_block(),
-        build_heading_2_block("1. Leitura executiva"),
+        build_heading_2_block(SECTION_EXECUTIVE_TITLE),
     ]
-    blocks.extend(build_bulleted_block(text) for text in summary.executive_highlights[:MAX_EXECUTIVE_HIGHLIGHTS])
-
-    blocks.extend(
-        [
-            build_heading_2_block("2. Quadro consolidado"),
-        ]
-    )
+    executive_alerts = build_executive_alert_items(summary)
+    blocks.extend(build_bulleted_block(text) for text in executive_alerts)
     append_block_children(page_id, blocks)
 
-    metric_rows = [
-        ["Processos analisados", str(len(cases))],
-        ["Casos na leitura executiva (>= MÉDIO)", str(len(ranked))],
-        ["Casos publicados na tabela/comentários (CRÍTICO/ALTO)", str(len(published_pairs))],
-        ["Casos de prioridade alta (>=7)", str(high_priority_count)],
-        ["Casos com partido explícito", str(with_party_count)],
-        ["Casos com sinal de figura pública", str(public_figure_count)],
-        ["Casos com tema de contas", str(accounts_count)],
-        ["UFs cobertas", _safe_join([f"{uf} ({count})" for uf, count in uf_counter.most_common(8)], sep="; ") or "-"],
-        ["Relatores mais recorrentes", _safe_join([f"{name} ({count})" for name, count in relator_counter.most_common(6)], sep="; ") or "-"],
-    ]
-    create_table(page_id, ["Metrica", "Valor"], metric_rows)
-
-    signal_rows = [
-        [
-            "Partidos mais citados",
-            _safe_join([f"{party} ({count})" for party, count in party_counter.most_common(8)], sep="; ") or "-",
-            summary.party_alerts[0] if summary.party_alerts else "Sem alerta adicional.",
-        ],
-        [
-            "Advogados recorrentes",
-            _safe_join([f"{name} ({count})" for name, count in lawyer_counter.most_common(8)], sep="; ") or "-",
-            summary.lawyer_signals[0] if summary.lawyer_signals else "Sem alerta adicional.",
-        ],
-        [
-            "Pontos de atenção",
-            _safe_join(summary.watchpoints[:3], sep="; ") or "-",
-            summary.closing_note or "-",
-        ],
-    ]
-    create_table(page_id, ["Eixo", "Ocorrências", "Leitura rápida"], signal_rows)
-
-    strategic_alerts = build_strategic_alert_section_items(summary)
-    more_blocks: List[Dict[str, Any]] = [build_heading_2_block("3. Alertas estratégicos")]
-    if strategic_alerts:
-        more_blocks.extend(build_bulleted_block(text) for text in strategic_alerts)
-    else:
-        more_blocks.append(build_bulleted_block("Sem alertas materiais adicionais além dos casos já priorizados."))
-    append_block_children(page_id, more_blocks)
     published_stats = append_published_sections(page_id, cases, analyses)
     created_toggles = int(published_stats.get("toggle_blocks_created", 0))
 
-    append_block_children(page_id, build_methodology_blocks())
+    lawyer_blocks = build_recurring_lawyer_section_blocks(cases, analyses)
+    if lawyer_blocks:
+        append_block_children(page_id, lawyer_blocks)
+    methodology_title = SECTION_METHODOLOGY_TITLE if lawyer_blocks else SECTION_METHODOLOGY_WITHOUT_LAWYERS_TITLE
+    append_block_children(page_id, build_methodology_blocks(methodology_title))
     return {
         "toggle_blocks_created": created_toggles,
         "case_rows_created": int(published_stats.get("case_rows_created", 0)),
+        "executive_alert_count": len(executive_alerts),
+        "lawyer_blocks_created": len(lawyer_blocks),
         "metrics": {
             "processos_total": len(cases),
             "processos_alta_prioridade": high_priority_count,
@@ -4228,7 +5031,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
         "--repair-published-sections",
         choices=["table_comments"],
         default="",
-        help="Reescreve apenas as seções 4 e 5 da página informada.",
+        help="Reescreve apenas as seções publicadas de casos, advogados e metodologia da página informada.",
     )
     parser.add_argument("--no-resume", action="store_true", help="Ignora checkpoint anterior e recomputa tudo.")
     parser.add_argument(
@@ -4242,6 +5045,11 @@ def build_arg_parser() -> argparse.ArgumentParser:
         help="Reprocessa apenas análises publicáveis ainda afetadas por reticências, reaproveitando o restante.",
     )
     parser.add_argument("--model", default=DEFAULT_OPENAI_MODEL, help=f"Modelo OpenAI (padrao: {DEFAULT_OPENAI_MODEL}).")
+    parser.add_argument(
+        "--force-openai-fallback",
+        action="store_true",
+        help="Gera o relatório com heurística local, sem chamar a OpenAI.",
+    )
     parser.add_argument(
         "--max-cases-per-batch",
         "--openai-batch-size",
@@ -4263,10 +5071,39 @@ def build_arg_parser() -> argparse.ArgumentParser:
         help=f"Limite alvo de requests/min para OpenAI (padrao: {DEFAULT_OPENAI_TARGET_RPM}).",
     )
     parser.add_argument(
+        "--max-openai-cases",
+        type=int,
+        default=DEFAULT_MAX_OPENAI_CASES,
+        help=f"Maximo de processos analisados pela OpenAI por relatorio (padrao: {DEFAULT_MAX_OPENAI_CASES}; 0 desativa chamadas OpenAI no relatorio).",
+    )
+    parser.add_argument(
+        "--openai-triage-threshold",
+        type=int,
+        default=DEFAULT_OPENAI_TRIAGE_THRESHOLD,
+        help=f"Score minimo da triagem local para enviar processo ao GPT (padrao: {DEFAULT_OPENAI_TRIAGE_THRESHOLD}).",
+    )
+    parser.add_argument(
+        "--disable-analysis-cache",
+        action="store_true",
+        help="Ignora o cache local de analises por processo.",
+    )
+    parser.add_argument(
         "--reclassify-top-band-with-openai",
         action="store_true",
         help="Opcional: recalibra apenas a diferença entre 9/10 e 10/10 para casos publicados, usando payload mínimo.",
     )
+    parser.add_argument(
+        "--enrich-news-gemini",
+        action="store_true",
+        help="Busca notícias via Gemini apenas para os casos publicados no relatório semanal.",
+    )
+    parser.add_argument("--gemini-api-key", default="", help="API key do Gemini/Google AI Studio para busca seletiva de notícias.")
+    parser.add_argument("--gemini-key-file", default="Chave_Gemini.txt", help="Arquivo local com a chave do Gemini.")
+    parser.add_argument("--gemini-model", default="", help="Modelo Gemini para busca seletiva de notícias.")
+    parser.add_argument("--gemini-max-workers", type=int, default=2, help="Workers paralelos para busca Gemini seletiva.")
+    parser.add_argument("--gemini-timeout", type=int, default=25, help="Timeout por chamada Gemini na busca seletiva.")
+    parser.add_argument("--gemini-batch-size", type=int, default=8, help="Quantidade de casos por lote Gemini na busca seletiva.")
+    parser.add_argument("--gemini-delay", type=float, default=0.2, help="Pausa entre lotes Gemini na busca seletiva.")
     parser.add_argument("--log-file", default=str(DEFAULT_LOG_FILE), help="Arquivo de log.")
     parser.add_argument("--quiet", action="store_true", help="Reduce logs.")
     parser.add_argument("--verbose", action="store_true", help="Aumenta o detalhamento dos logs.")
@@ -4329,7 +5166,7 @@ def initialize_clients(args: argparse.Namespace) -> Dict[str, Any]:
     notion_key = resolve_notion_key()
     if not notion_key:
         raise RuntimeError("Chave do Notion não encontrada.")
-    pool_size = max(DEFAULT_HTTP_POOL_SIZE, int(args.openai_max_workers or DEFAULT_OPENAI_MAX_WORKERS) + 4)
+    pool_size = max(DEFAULT_HTTP_POOL_SIZE, int(getattr(args, "openai_max_workers", DEFAULT_OPENAI_MAX_WORKERS) or DEFAULT_OPENAI_MAX_WORKERS) + 4)
     NOTION_CFG = NotionConfig(token=notion_key)
     NOTION_SESSION = requests.Session()
     notion_adapter = HTTPAdapter(pool_connections=pool_size, pool_maxsize=pool_size)
@@ -4343,12 +5180,17 @@ def initialize_clients(args: argparse.Namespace) -> Dict[str, Any]:
         }
     )
 
-    openai_key = resolve_openai_key()
+    force_openai_fallback = bool(getattr(args, "force_openai_fallback", False))
+    if force_openai_fallback:
+        openai_key = ""
+        LOGGER.warning("Modo fallback OpenAI forçado. O relatório será gerado sem chamadas à OpenAI.")
+    else:
+        openai_key = resolve_openai_key()
     if openai_key:
         OPENAI_CFG = OpenAIConfig(
             api_key=openai_key,
-            model=_normalize_ws(args.model) or DEFAULT_OPENAI_MODEL,
-            target_rpm=max(0, int(args.openai_target_rpm or DEFAULT_OPENAI_TARGET_RPM)),
+            model=_normalize_ws(getattr(args, "model", "")) or DEFAULT_OPENAI_MODEL,
+            target_rpm=max(0, int(getattr(args, "openai_target_rpm", DEFAULT_OPENAI_TARGET_RPM) or DEFAULT_OPENAI_TARGET_RPM)),
         )
         OPENAI_SESSION = requests.Session()
         openai_adapter = HTTPAdapter(pool_connections=pool_size, pool_maxsize=pool_size)
@@ -4367,10 +5209,13 @@ def initialize_clients(args: argparse.Namespace) -> Dict[str, Any]:
         OPENAI_PACER = None
         LOGGER.warning("Chave OpenAI não encontrada. O script usará fallback heurístico.")
     LOGGER.info(
-        "Perf config: openai_batch=%d | openai_workers=%d | openai_rpm=%d | openai_timeout=%ss",
-        int(args.max_cases_per_batch or DEFAULT_MAX_CASES_PER_BATCH),
-        int(args.openai_max_workers or DEFAULT_OPENAI_MAX_WORKERS),
-        int(args.openai_target_rpm or DEFAULT_OPENAI_TARGET_RPM),
+        "Perf config: openai_batch=%d | openai_workers=%d | openai_rpm=%d | max_openai_cases=%d | triage_threshold=%d | analysis_cache=%s | openai_timeout=%ss",
+        int(getattr(args, "max_cases_per_batch", DEFAULT_MAX_CASES_PER_BATCH) or DEFAULT_MAX_CASES_PER_BATCH),
+        int(getattr(args, "openai_max_workers", DEFAULT_OPENAI_MAX_WORKERS) or DEFAULT_OPENAI_MAX_WORKERS),
+        int(getattr(args, "openai_target_rpm", DEFAULT_OPENAI_TARGET_RPM) or DEFAULT_OPENAI_TARGET_RPM),
+        max(0, int(getattr(args, "max_openai_cases", DEFAULT_MAX_OPENAI_CASES))),
+        int(getattr(args, "openai_triage_threshold", DEFAULT_OPENAI_TRIAGE_THRESHOLD)),
+        not bool(getattr(args, "disable_analysis_cache", False)),
         int(OPENAI_CFG.timeout_s) if OPENAI_CFG is not None else 0,
     )
     return {"openai_enabled": OPENAI_CFG is not None}
@@ -4387,6 +5232,8 @@ def load_cases_and_analyses_for_inputs(
         inputs,
         model=_normalize_ws(args.model) or DEFAULT_OPENAI_MODEL,
         max_cases_per_batch=max(1, int(args.max_cases_per_batch or DEFAULT_MAX_CASES_PER_BATCH)),
+        max_openai_cases=max(0, int(getattr(args, "max_openai_cases", DEFAULT_MAX_OPENAI_CASES))),
+        openai_triage_threshold=int(getattr(args, "openai_triage_threshold", DEFAULT_OPENAI_TRIAGE_THRESHOLD)),
     )
     checkpoint = load_matching_checkpoint(run_key, enabled=not bool(args.no_resume))
     report_payload_resume = load_matching_report_payload(inputs, enabled=not bool(args.no_resume))
@@ -4448,6 +5295,9 @@ def load_cases_and_analyses_for_inputs(
                 lawyer_counter=lawyer_counter,
                 max_cases_per_batch=max(1, int(args.max_cases_per_batch or DEFAULT_MAX_CASES_PER_BATCH)),
                 openai_max_workers=max(1, int(args.openai_max_workers or DEFAULT_OPENAI_MAX_WORKERS)),
+                max_openai_cases=max(0, int(getattr(args, "max_openai_cases", DEFAULT_MAX_OPENAI_CASES))),
+                openai_triage_threshold=int(getattr(args, "openai_triage_threshold", DEFAULT_OPENAI_TRIAGE_THRESHOLD)),
+                analysis_cache_enabled=not bool(getattr(args, "disable_analysis_cache", False) or getattr(args, "refresh_analysis", False)),
                 resume_analysis_map={},
             )
             if allow_reclassify_top_band and analyses:
@@ -4499,6 +5349,9 @@ def load_cases_and_analyses_for_inputs(
             lawyer_counter=lawyer_counter,
             max_cases_per_batch=max(1, int(args.max_cases_per_batch or DEFAULT_MAX_CASES_PER_BATCH)),
             openai_max_workers=max(1, int(args.openai_max_workers or DEFAULT_OPENAI_MAX_WORKERS)),
+            max_openai_cases=max(0, int(getattr(args, "max_openai_cases", DEFAULT_MAX_OPENAI_CASES))),
+            openai_triage_threshold=int(getattr(args, "openai_triage_threshold", DEFAULT_OPENAI_TRIAGE_THRESHOLD)),
+            analysis_cache_enabled=not bool(getattr(args, "disable_analysis_cache", False) or getattr(args, "refresh_analysis", False)),
             resume_analysis_map=resume_analysis_map,
         )
 
@@ -4540,6 +5393,18 @@ def main() -> int:
         parser.error("--openai-max-workers deve ser maior que zero.")
     if int(args.openai_target_rpm) < 0:
         parser.error("--openai-target-rpm não pode ser negativo.")
+    if int(args.max_openai_cases) < 0:
+        parser.error("--max-openai-cases não pode ser negativo.")
+    if not 0 <= int(args.openai_triage_threshold) <= 100:
+        parser.error("--openai-triage-threshold deve ficar entre 0 e 100.")
+    if int(args.gemini_max_workers) <= 0:
+        parser.error("--gemini-max-workers deve ser maior que zero.")
+    if int(args.gemini_timeout) <= 0:
+        parser.error("--gemini-timeout deve ser maior que zero.")
+    if int(args.gemini_batch_size) <= 0:
+        parser.error("--gemini-batch-size deve ser maior que zero.")
+    if float(args.gemini_delay) < 0:
+        parser.error("--gemini-delay não pode ser negativo.")
 
     logger = configure_standard_logging(
         SCRIPT_STEM,
@@ -4549,6 +5414,9 @@ def main() -> int:
         log_file=str(args.log_file or DEFAULT_LOG_FILE),
     )
     install_print_logger_bridge(globals(), logger)
+    if int(args.max_openai_cases) == 0:
+        args.force_openai_fallback = True
+        LOGGER.info("--max-openai-cases=0: chamadas OpenAI desativadas para este relatório.")
 
     special_mode_count = sum(
         [
@@ -4632,6 +5500,8 @@ def main() -> int:
         inputs,
         model=_normalize_ws(args.model) or DEFAULT_OPENAI_MODEL,
         max_cases_per_batch=max(1, int(args.max_cases_per_batch or DEFAULT_MAX_CASES_PER_BATCH)),
+        max_openai_cases=max(0, int(args.max_openai_cases)),
+        openai_triage_threshold=int(args.openai_triage_threshold),
     )
     checkpoint = load_matching_checkpoint(run_key, enabled=not bool(args.no_resume))
     if checkpoint:
@@ -4652,6 +5522,7 @@ def main() -> int:
         "started_at_utc": utc_now_iso(),
         "last_inputs": asdict(inputs),
         "checkpoint_file": str(CHECKPOINT_FILE),
+        "openai_model": _normalize_ws(args.model) or DEFAULT_OPENAI_MODEL,
     }
 
     page_id = ""
@@ -4762,6 +5633,9 @@ def main() -> int:
         lawyer_counter=lawyer_counter,
         max_cases_per_batch=max(1, int(args.max_cases_per_batch or DEFAULT_MAX_CASES_PER_BATCH)),
         openai_max_workers=max(1, int(args.openai_max_workers or DEFAULT_OPENAI_MAX_WORKERS)),
+        max_openai_cases=max(0, int(args.max_openai_cases)),
+        openai_triage_threshold=int(args.openai_triage_threshold),
+        analysis_cache_enabled=not bool(args.disable_analysis_cache or args.refresh_analysis),
         resume_analysis_map=resume_analysis_map,
         progress_callback=_save_analysis_checkpoint,
     )
@@ -4779,10 +5653,17 @@ def main() -> int:
             cached_map=top_band_cache,
         )
     payload_report["analyses"] = _serialize_analysis_list(analyses)
-    reportable_analyses = [item for item in analyses if is_reportable_analysis(item)]
-    publishable_analyses = [item for item in analyses if is_publishable_analysis(item)]
-    reportable_case_ids = {analysis_resume_key(item) for item in reportable_analyses}
-    reportable_cases = [case for case in cases if case_resume_key(case) in reportable_case_ids]
+    focused_reportable_pairs = build_focused_reportable_case_pairs(cases, analyses)
+    reportable_cases = [case for case, _analysis in focused_reportable_pairs]
+    reportable_analyses = [analysis for _case, analysis in focused_reportable_pairs]
+    publishable_pairs = build_publishable_case_pairs(cases, analyses)
+    publishable_analyses = [analysis for _case, analysis in publishable_pairs]
+    if bool(getattr(args, "enrich_news_gemini", False)):
+        payload_report["news_enrichment"] = enrich_report_cases_with_gemini_news(
+            [case for case, _analysis in publishable_pairs],
+            args,
+            dry_run=inputs.dry_run,
+        )
     reportable_party_counter: Counter[str] = Counter()
     reportable_lawyer_counter: Counter[str] = Counter()
     for case in reportable_cases:
@@ -4790,6 +5671,7 @@ def main() -> int:
         reportable_lawyer_counter.update(case.advogados)
     payload_report["reportable_case_count"] = len(reportable_analyses)
     payload_report["published_case_count"] = len(publishable_analyses)
+    payload_report["filtered_out_of_focus_case_count"] = max(0, len([item for item in analyses if is_reportable_analysis(item)]) - len(reportable_analyses))
     payload_report["filtered_low_case_count"] = sum(1 for item in analyses if _normalize_ws(item.risk_level).casefold() == "baixo")
     payload_report["filtered_medium_case_count"] = sum(1 for item in analyses if _normalize_ws(item.risk_level).casefold() == "medio")
     payload_report["top_band_reclassifications_by_cache_key"] = top_band_cache

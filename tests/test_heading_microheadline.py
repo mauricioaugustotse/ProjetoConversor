@@ -87,6 +87,13 @@ def test_build_semantic_microheadline_converts_temporal_marker_to_parentheses():
     assert headline == "Fraude à cota de gênero (Eleições 2024), AIJE"
 
 
+def test_build_semantic_microheadline_removes_interrupted_word_tail():
+    text = "Embargos de declaração em prestação de contas partidárias do MDB nas eleições 2020, com efeitos na determi"
+    headline = build_semantic_microheadline(text)
+    assert headline == "Embargos de declaração em prestação de contas partidárias do MDB nas eleições 2020"
+    assert not heading_summary_looks_incomplete(headline)
+
+
 def test_build_semantic_microheadline_preserves_essential_legal_reference():
     text = "Captação ilícita de sufrágio em AIJE (art. 41-A da Lei 9.504/1997)"
     headline = build_semantic_microheadline(text)

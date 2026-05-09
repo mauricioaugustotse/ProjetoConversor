@@ -6,6 +6,7 @@ from pathlib import Path
 import pytest
 
 import Artefatos.legado.SJUR_csv_to_csv_NOTIONfriendly as sjur
+import NOTION_DJE_csv_to_notion as notion_dje_import
 import SJUR_csv_to_csv_APIenriching as api_enrich
 import SJUR_csv_to_csv_NOTIONfriendly_v2 as sjur_v2
 
@@ -204,6 +205,42 @@ def test_clean_referencias_legislativas_splits_semicolon_compound_labels():
     assert sjur.clean_referencias_legislativas(texto) == (
         "CF/88, Lei n° 13.105/15, Lei n° 9.504/97, Res. TSE n° 23.709/22"
     )
+
+
+def test_notion_dje_import_preserves_long_tema_title():
+    tema = (
+        "No recurso especial eleitoral sobre AIJE nas Eleições 2024 em Baraúna/RN, discute-se a manutenção "
+        "de sigilo documental por conter dados fiscais, com mitigação da publicidade processual e garantia "
+        "do devido controle."
+    )
+
+    title = notion_dje_import._title_property(tema)["title"]
+    plain = "".join(item["text"]["content"] for item in title)
+
+    assert plain == tema
+    assert plain.endswith("devido controle.")
+
+
+def test_party_and_lawyer_lists_are_displayed_with_space_after_comma():
+    raw = "Francisco Fábio de Moura Júnior,Erick Wilson Pereira"
+
+    assert notion_dje_import._normalize_list_display_text(raw) == (
+        "Francisco Fábio de Moura Júnior, Erick Wilson Pereira"
+    )
+    assert sjur_v2.merge_multiselect_values(raw) == "Francisco Fábio de Moura Júnior, Erick Wilson Pereira"
+
+
+def test_generic_agenda_news_urls_are_rejected():
+    weak_url = "https://www.tre-rn.jus.br/comunicacao/noticias/2026/marco/pauta-da-sessao-plenaria-do-dia-12-03-2026"
+    specific_url = (
+        "https://noticias.uol.com.br/politica/ultimas-noticias/2025/07/03/"
+        "tre-sp-rejeita-acao-que-suspendia-perda-de-mandato-de-simao-pedro-pt.htm"
+    )
+
+    assert sjur.is_editorially_weak_news_url(weak_url)
+    assert sjur._normalize_tre_news_url(weak_url) is None
+    assert notion_dje_import._url_property(weak_url, property_name="noticia_TRE") == {"url": None}
+    assert not sjur.is_editorially_weak_news_url(specific_url)
 
 
 def test_news_lookup_uses_one_call_per_pending_row(tmp_path, monkeypatch):
@@ -651,8 +688,8 @@ def test_process_one_csv_rebuilds_referencias_legislativas_from_decision_text(tm
 
     rows = _read_csv_rows(summary.output_path)
     assert rows[0]["referenciasLegislativas"] == (
-        "art. 73 § 10 Lei n° 9.504/97,"
-        "art. 22 XIV LC n° 64/90,"
+        "art. 73 § 10 Lei n° 9.504/97, "
+        "art. 22 XIV LC n° 64/90, "
         "art. 1.022 Lei n° 13.105/15"
     )
 
@@ -1519,6 +1556,6 @@ def test_v2_process_one_csv_merges_header_partes_and_attorneys(tmp_path):
 
     rows = _read_csv_rows(summary.output_path)
 
-    assert rows[0]["partes"] == "MINISTÉRIO PÚBLICO ELEITORAL,ALAN AQUINO GUEDES DE MENDONÇA"
+    assert rows[0]["partes"] == "MINISTÉRIO PÚBLICO ELEITORAL, ALAN AQUINO GUEDES DE MENDONÇA"
     assert rows[0]["advogados"] == "OSCAR HENRIQUE PERES DE SOUZA KRUGER"
     assert "(" not in rows[0]["advogados"]

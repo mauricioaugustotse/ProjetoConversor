@@ -1,4 +1,5 @@
 from collections import Counter
+from dataclasses import replace
 
 import NOTION_relatoriodeIA_v2 as notion
 
@@ -52,7 +53,7 @@ def _make_analysis() -> notion.CaseAnalysis:
     )
 
 
-def test_summarize_report_preserves_full_overview_callout_from_openai(monkeypatch):
+def test_summarize_report_compacts_long_overview_callout_from_openai(monkeypatch):
     full_text = (
         "No intervalo de 23/02/2026 a 27/02/2026, o contencioso eleitoral monitorado mostrou dois vetores dominantes: "
         "(i) forte incidência de litígios cassatórios e cautelares em eleições municipais de 2024, com impacto direto "
@@ -86,11 +87,12 @@ def test_summarize_report_preserves_full_overview_callout_from_openai(monkeypatc
     )
 
     assert len(full_text) > 420
-    assert summary.overview_callout == notion._normalize_ws(full_text)
-    assert summary.overview_callout.endswith("afastar devolução ao erário.")
+    assert len(summary.overview_callout) <= notion.MAX_OVERVIEW_CALLOUT_CHARS
+    assert not notion.summary_text_looks_incomplete(summary.overview_callout)
+    assert summary.overview_callout.endswith(".")
 
 
-def test_summarize_report_does_not_truncate_long_openai_executive_highlight(monkeypatch):
+def test_summarize_report_compacts_long_openai_executive_highlight(monkeypatch):
     long_highlight = (
         "O TSE consolidou linha rigorosa em registros de candidatura e inelegibilidades, com ênfase na exigência de "
         "suspensão judicial específica para afastar efeitos de condenações por improbidade e AIJE, o que aumenta a "
@@ -122,8 +124,9 @@ def test_summarize_report_does_not_truncate_long_openai_executive_highlight(monk
         end_iso="2026-02-27",
     )
 
-    assert len(long_highlight) > notion.MAX_ALERT_TEXT_CHARS
-    assert summary.executive_highlights[0] == notion._normalize_ws(long_highlight)
+    assert len(long_highlight) > notion.MAX_EXECUTIVE_BULLET_CHARS
+    assert len(summary.executive_highlights[0]) <= notion.MAX_EXECUTIVE_BULLET_CHARS
+    assert not notion.summary_text_looks_incomplete(summary.executive_highlights[0])
 
 
 def test_build_callout_block_preserves_full_long_text_across_rich_text_chunks():
@@ -132,6 +135,42 @@ def test_build_callout_block_preserves_full_long_text_across_rich_text_chunks():
     block = notion.build_callout_block(full_text)
 
     assert notion._plain_rich_text(block["callout"]["rich_text"]) == full_text
+
+
+def test_compact_report_field_text_avoids_abrupt_fragments():
+    relevance = (
+        "A relevância é elevada por envolver ação relativa ao Senado Federal e por reafirmar uma regra processual "
+        "com efeito institucional sobre julgamentos eleitorais cassatórios. A decisão orienta TREs a não desempatarem, "
+        "por voto de qualidade, ações capazes de gerar cassação de mandato."
+    )
+    facts = (
+        "O TSE examinou embargos de declaração contra decisão que reconhecera erro de procedimento no TRE/PA. "
+        "O vício decorreu do uso de voto de qualidade pelo presidente da Corte Regional, após empate em embargos "
+        "de declaração em ações com potencial de cassação. A Corte manteve a nulidade do julgamento regional."
+    )
+
+    compact_relevance = notion._compact_report_field_text(relevance, 180)
+    compact_facts = notion._compact_report_field_text(facts, 240)
+
+    assert compact_relevance.endswith("cassatórios.")
+    assert compact_facts.endswith("cassação.")
+    assert not compact_relevance.endswith((" A", " a", " após", " com"))
+    assert not compact_facts.endswith((" A", " a", " após", " com"))
+
+
+def test_compact_report_field_text_removes_interrupted_effect_tail():
+    effect = (
+        "monocrática. O Ministro relator indeferiu o pedido de atribuição de efeito suspensivo ao agravo em "
+        "recurso especial por ausência de plausibilidade recursal, ante a falta de impugnação específica dos "
+        "fundamentos e a incidência de óbices sumulares do TSE, vedado o reexame de fatos e provas. "
+        "Com isso, permaneceram"
+    )
+
+    compact_effect = notion._compact_report_field_text(effect, notion.MAX_TOGGLE_CONSEQUENCE_CHARS)
+
+    assert compact_effect.endswith("reexame de fatos e provas.")
+    assert "permaneceram" not in compact_effect
+    assert not notion.summary_text_looks_incomplete(compact_effect)
 
 
 def test_finalize_report_summary_replaces_generic_count_alerts_with_material_alerts():
@@ -333,3 +372,111 @@ def test_build_strategic_alert_section_items_limits_combined_output():
 
     assert len(items) == notion.MAX_STRATEGIC_ALERT_SECTION_ITEMS
     assert items[:3] == summary.watchpoints[:3]
+
+
+def test_build_publishable_case_pairs_keeps_national_party_and_filters_local_noise():
+    local_case = replace(
+        _make_case(),
+        case_id="local-case",
+        page_id="local-page",
+        source_url="https://www.notion.so/local-page",
+        sigla_uf="SP",
+        nome_municipio="CIDADE LOCAL",
+        partes=["Prefeito", "Vereador"],
+        partidos=[],
+        ano_eleicao="2024",
+        tema="Cassação municipal por abuso de poder",
+        punchline="Disputa local sem partido ou tese federal explícita.",
+    )
+    local_analysis = replace(
+        _make_analysis(),
+        case_id="local-case",
+        page_id="local-page",
+        relevance_score=9,
+        display_score=9,
+        risk_level="alto",
+        includes_public_figure=True,
+        includes_party=False,
+        public_figures=["Prefeito"],
+        parties=[],
+        legal_grounds="AIJE municipal por abuso de poder.",
+        consequence="Impacto restrito ao mandato local.",
+        strategic_comment="Caso municipal sem repercussão institucional para partido ou alto cargo.",
+        why_relevant="Relevante apenas para a disputa local.",
+    )
+    national_case = replace(
+        _make_case(),
+        case_id="national-case",
+        page_id="national-page",
+        source_url="https://www.notion.so/national-page",
+        sigla_uf="DF",
+        nome_municipio="BRASÍLIA",
+        partes=["PARTIDO LIBERAL (PL) - NACIONAL"],
+        partidos=["PL/Nacional"],
+        ano_eleicao="2022",
+        tema="Prestação de contas anual do diretório nacional",
+        punchline="Discussão sobre Fundo Partidário e consequência para direção nacional.",
+    )
+    national_analysis = replace(
+        _make_analysis(),
+        case_id="national-case",
+        page_id="national-page",
+        relevance_score=9,
+        display_score=9,
+        risk_level="alto",
+        includes_public_figure=False,
+        includes_party=True,
+        public_figures=[],
+        parties=["PL/Nacional"],
+        legal_grounds="Prestação de contas anual, Fundo Partidário e direção nacional.",
+        consequence="Mantida sanção financeira com impacto sobre cotas futuras.",
+        strategic_comment="Interessa diretamente a partido nacional e à governança de recursos públicos.",
+        why_relevant="Afeta diretório nacional e financiamento partidário.",
+    )
+
+    pairs = notion.build_publishable_case_pairs(
+        [local_case, national_case],
+        [local_analysis, national_analysis],
+    )
+
+    assert pairs == [(national_case, national_analysis)]
+    assert notion.is_federal_strategic_interest(national_case, national_analysis)
+    assert not notion.is_federal_strategic_interest(local_case, local_analysis)
+
+
+def test_build_publishable_case_pairs_limits_focused_cases():
+    cases = []
+    analyses = []
+    for idx in range(notion.MAX_PUBLISHED_CASES + 3):
+        case = replace(
+            _make_case(),
+            case_id=f"case-{idx}",
+            page_id=f"page-{idx}",
+            source_url=f"https://www.notion.so/page-{idx}",
+            sigla_uf="DF",
+            nome_municipio="BRASÍLIA",
+            partes=[f"PARTIDO TESTE {idx} - NACIONAL"],
+            partidos=[f"PT{idx}/Nacional"],
+            tema="Prestação de contas anual de partido nacional",
+        )
+        analysis = replace(
+            _make_analysis(),
+            case_id=f"case-{idx}",
+            page_id=f"page-{idx}",
+            relevance_score=9,
+            display_score=9,
+            risk_level="alto",
+            includes_public_figure=False,
+            includes_party=True,
+            public_figures=[],
+            parties=[f"PT{idx}/Nacional"],
+            legal_grounds="Fundo Partidário e contas anuais de direção nacional.",
+            strategic_comment="Tema material para governança partidária nacional.",
+            why_relevant="Afeta partido nacional.",
+        )
+        cases.append(case)
+        analyses.append(analysis)
+
+    pairs = notion.build_publishable_case_pairs(cases, analyses)
+
+    assert len(pairs) == notion.MAX_PUBLISHED_CASES

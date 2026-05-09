@@ -362,7 +362,7 @@ def sanitize_advogados_multiselect(value: str, config: MetadataExtractionConfig)
                 continue
             fallback_items.append(candidate)
         cleaned_items = _semantic_dedupe_entities(fallback_items, prefer_longer=True)
-    return ",".join(cleaned_items)
+    return ", ".join(cleaned_items)
 
 
 def extract_header_metadata(
@@ -391,12 +391,12 @@ def extract_header_metadata(
 
 def extract_partes_multiselect(*texts: str, config: Optional[MetadataExtractionConfig] = None) -> str:
     metadata = extract_header_metadata(*texts, config=config)
-    return ",".join(metadata.get("partes", []))
+    return ", ".join(metadata.get("partes", []))
 
 
 def extract_advogados_multiselect(*texts: str, config: Optional[MetadataExtractionConfig] = None) -> str:
     metadata = extract_header_metadata(*texts, config=config)
-    return ",".join(metadata.get("advogados", []))
+    return ", ".join(metadata.get("advogados", []))
 
 
 def merge_multiselect_values(*values: str) -> str:
@@ -412,7 +412,35 @@ def merge_multiselect_values(*values: str) -> str:
             ):
                 continue
             merged.append(candidate)
-    return ",".join(merged)
+    return ", ".join(merged)
+
+
+def is_editorially_weak_news_url(url: str) -> bool:
+    return _base.is_editorially_weak_news_url(url)
+
+
+def official_news_url_live_status(url: str, *, timeout: int = 12) -> bool | None:
+    return _base.official_news_url_live_status(url, timeout=timeout)
+
+
+def _normalize_tse_news_url(value: object) -> str | None:
+    return _base._normalize_tse_news_url(value)
+
+
+def _normalize_tre_news_url(value: object) -> str | None:
+    return _base._normalize_tre_news_url(value)
+
+
+def _is_tse_news_url(url: str) -> bool:
+    return _base._is_tse_news_url(url)
+
+
+def _is_tre_news_url(url: str) -> bool:
+    return _base._is_tre_news_url(url)
+
+
+def _is_general_media_url(url: str) -> bool:
+    return _base._is_general_media_url(url)
 
 
 def resolve_artifacts_dir(*parts: str) -> Path:

@@ -1,0 +1,1007 @@
+{
+  "periodo_relatorio": "2026-05-04 a 2026-05-08",
+  "periodo_novos_registros_checado": "2026-05-07 a 2026-05-08",
+  "report_page_id": "35a72195-5c64-8109-8e05-c0a43c8e5e63",
+  "report_url": "https://www.notion.so/35a721955c6481098e05c0a43c8e5e63",
+  "week_case_count": 160,
+  "newday_case_count": 31,
+  "published_case_count": 8,
+  "newday_already_published_count": 0,
+  "newday_not_published_count": 31,
+  "recommendation_counts": {
+    "incluir": 4,
+    "considerar": 3,
+    "não incluir": 24
+  },
+  "recommended_to_add": [
+    {
+      "data_decisao": "2026-05-08",
+      "numero": "0601009-70.2022.6.00.0000",
+      "page_id": "35b72195-5c64-810f-ba95-d13620ed0b74",
+      "source_url": "https://www.notion.so/35b721955c64810fba95d13620ed0b74",
+      "classe": "PCE",
+      "local": "BRASÍLIA/DF",
+      "partidos": [
+        "PSTU/Nacional"
+      ],
+      "partes": [
+        "JOSE MARIA DE ALMEIDA",
+        "LUIS ANTONIO GENOVA",
+        "PARTIDO SOCIALISTA DOS TRABALHADORES UNIFICADO (PSTU) - NACIONAL"
+      ],
+      "resultado": [
+        "monocrática"
+      ],
+      "relator": "Min. André Mendonça",
+      "tema": "Prestação de contas partidárias das Eleições 2022 (PSTU) no TSE: anistia da EC 133/2024 sobre cota racial no FEFC, com aferição de irregularidade e efeito na aprovação.",
+      "punchline": "O TSE aprovou as contas do PSTU porque, embora haja diferença no emprego do FEFC para candidaturas de homens negros (R$ 365.980,77), a EC 133/2024 torna a falha anistiada, desde que o valor seja reaplicado nas quatro eleições subsequentes a partir de 2026. Assim, a diferença foi decotada das irregularidades para fins de percentual de falhas, com determinação de reaplicação do montante, sem prejuízo do percentual adicional de raça da respectiva eleição.",
+      "heuristic_risk": "medio",
+      "heuristic_score": 6,
+      "federal_score": 117,
+      "political_score": 20,
+      "party_scope_score": 12,
+      "high_impact_score": 8,
+      "reportable_by_heuristic": true,
+      "publishable_by_heuristic": false,
+      "recommendation": "incluir",
+      "recommendation_reason": "prestação de contas de partido nacional, com regra financeira/FEFC/Fundo Partidário relevante"
+    },
+    {
+      "data_decisao": "2026-05-07",
+      "numero": "0600204-82.2023.6.18.0000",
+      "page_id": "35b72195-5c64-8147-9e4f-e0341dabbc44",
+      "source_url": "https://www.notion.so/35b721955c6481479e4fe0341dabbc44",
+      "classe": "AREspEl",
+      "local": "TERESINA/PI",
+      "partidos": [
+        "PL/PI"
+      ],
+      "partes": [
+        "PARTIDO LIBERAL (PL) - ESTADUAL"
+      ],
+      "resultado": [
+        "monocrática"
+      ],
+      "relator": "Min. Antonio Carlos Ferreira",
+      "tema": "Prestação de contas anual do Diretório Estadual do Partido Liberal (PL) de 2022: doação de pessoa jurídica como fonte vedada e aplicação irregular de recursos, com desaprovação.",
+      "punchline": "O TSE negou seguimento ao agravo em recurso especial por ausência de dissídio e por inexistirem critérios para aprovação com ressalvas, pois a doação de pessoa jurídica é vedação peremptória e as irregularidades superaram 36% do total, tornando inaplicáveis proporcionalidade e razoabilidade. Mantidas a desaprovação e as determinações de recolhimento ao Tesouro Nacional e depósito do valor mínimo de incentivos à participação política das mulheres.",
+      "heuristic_risk": "medio",
+      "heuristic_score": 6,
+      "federal_score": 109,
+      "political_score": 20,
+      "party_scope_score": 8,
+      "high_impact_score": 8,
+      "reportable_by_heuristic": true,
+      "publishable_by_heuristic": false,
+      "recommendation": "incluir",
+      "recommendation_reason": "prestação de contas partidárias estadual com fonte vedada ou recursos públicos e alta aderência ao filtro federal/partidário"
+    },
+    {
+      "data_decisao": "2026-05-08",
+      "numero": "0600422-14.2023.6.00.0000",
+      "page_id": "35b72195-5c64-811d-ac3f-d060ffb6e997",
+      "source_url": "https://www.notion.so/35b721955c64811dac3fd060ffb6e997",
+      "classe": "PC-PP",
+      "local": "BRASÍLIA/DF",
+      "partidos": [
+        "DC/Nacional"
+      ],
+      "partes": [
+        "DEMOCRACIA CRISTÃ (DC) - NACIONAL",
+        "JOSE MARIA EYMAEL",
+        "RENATO DA SILVA"
+      ],
+      "resultado": [
+        "monocrática"
+      ],
+      "relator": "Min. André Mendonça",
+      "tema": "Prestação de contas anual do partido, exercício financeiro de 2022, com foco na extensão de irregularidades da fundação partidária e no julgamento das contas com desmembramento",
+      "punchline": "O TSE aprovou as contas do Democracia Cristã (DC) – Nacional porque o único apontamento do MPE (pagamento de juros e multa pela Fundação Democrata Cristã com Fundo Partidário) refere-se à contabilidade do ente fundacional, a ser apreciada em autos próprios. Assim, a irregularidade não afeta o ajuste contábil do partido, afastando qualquer ressalva ou sanção nestes autos e determinando a cisão do exame para processo específico.",
+      "heuristic_risk": "medio",
+      "heuristic_score": 6,
+      "federal_score": 109,
+      "political_score": 20,
+      "party_scope_score": 12,
+      "high_impact_score": 8,
+      "reportable_by_heuristic": true,
+      "publishable_by_heuristic": false,
+      "recommendation": "incluir",
+      "recommendation_reason": "prestação de contas de partido nacional, com regra financeira/FEFC/Fundo Partidário relevante"
+    },
+    {
+      "data_decisao": "2026-05-07",
+      "numero": "0600374-50.2026.6.00.0000",
+      "page_id": "35b72195-5c64-81c6-9610-cb16027670d7",
+      "source_url": "https://www.notion.so/35b721955c6481c69610cb16027670d7",
+      "classe": "MSCiv",
+      "local": "BRASÍLIA/DF",
+      "partidos": [
+        "REDE/Nacional"
+      ],
+      "partes": [
+        "GIOVANNI VILLIUS RIGHETTO MOCKUS",
+        "MARINA MEDEIROS HELOU",
+        "PAULO ROBERTO LAMAC JUNIOR",
+        "REDE SUSTENTABILIDADE (REDE) - NACIONAL"
+      ],
+      "resultado": [
+        "monocrática"
+      ],
+      "relator": "Min. Estela Aranha",
+      "tema": "Embargos de declaração em mandado de segurança contra resolução partidária no âmbito nacional: inadequação do controle abstrato e ausência de ato concreto, com repercussão na janela de desfiliação.",
+      "punchline": "O TSE rejeitou os embargos, por inexistir omissão ou contradição: a resolução partidária foi reputada controvérsia abstrata, sem demonstração de aplicação concreta, afastando o cabimento do mandado de segurança (inclusive preventivo) como sucedâneo de controle abstrato de validade. Mantida a decisão que negou seguimento ao mandado de segurança, ressalvada a impugnação em via própria caso surja ato concreto com repercussão direta na esfera jurídica dos impetrantes.",
+      "heuristic_risk": "medio",
+      "heuristic_score": 5,
+      "federal_score": 85,
+      "political_score": 20,
+      "party_scope_score": 12,
+      "high_impact_score": 0,
+      "reportable_by_heuristic": true,
+      "publishable_by_heuristic": false,
+      "recommendation": "incluir",
+      "recommendation_reason": "partido nacional e controvérsia institucional sobre resolução partidária/janela de desfiliação"
+    }
+  ],
+  "consider": [
+    {
+      "data_decisao": "2026-05-08",
+      "numero": "0600240-90.2024.6.15.0027",
+      "page_id": "35b72195-5c64-81f8-ae35-ecf1b3b71fc2",
+      "source_url": "https://www.notion.so/35b721955c6481f8ae35ecf1b3b71fc2",
+      "classe": "AREspEl",
+      "local": "TAPEROÁ/PB",
+      "partidos": [],
+      "partes": [
+        "ARIANO BATISTA TRAJANO",
+        "JURANDI GOUVEIA FARIAS"
+      ],
+      "resultado": [
+        "monocrática"
+      ],
+      "relator": "Min. André Mendonça",
+      "tema": "TSE, prestação de contas de campanha 2024 para prefeito e vice em Taperoá-PB: vedação de FEFC entre partidos distintos e presunção de RONI por notas fiscais ativas, com devolução ao erário.",
+      "punchline": "O TSE negou seguimento ao agravo por entender que o acórdão regional alinhou-se à jurisprudência: é vedada a transferência de recursos do FEFC entre partidos distintos, e a divergência/nota fiscal ativa não contestada nem cancelada presume RONI. Assim, manteve-se a determinação de recolhimento de R$ 15.685,00 ao Tesouro Nacional.",
+      "heuristic_risk": "medio",
+      "heuristic_score": 6,
+      "federal_score": 69,
+      "political_score": 65,
+      "party_scope_score": 0,
+      "high_impact_score": 8,
+      "reportable_by_heuristic": true,
+      "publishable_by_heuristic": false,
+      "recommendation": "considerar",
+      "recommendation_reason": "passa no filtro reportável, mas tem interesse mais local/procedimental ou impacto material menor"
+    },
+    {
+      "data_decisao": "2026-05-08",
+      "numero": "0600791-03.2026.6.00.0000",
+      "page_id": "35b72195-5c64-8191-abc7-ddcf96e1fc6a",
+      "source_url": "https://www.notion.so/35b721955c648191abc7ddcf96e1fc6a",
+      "classe": "Rcl",
+      "local": "MACAPÁ/AP",
+      "partidos": [],
+      "partes": [
+        "SILVIA NOBRE LOPES",
+        "TRIBUNAL REGIONAL ELEITORAL DO AMAPA"
+      ],
+      "resultado": [
+        "monocrática"
+      ],
+      "relator": "Min. André Mendonça",
+      "tema": "Reclamação no TSE nas Eleições 2022 (deputada federal), sobre participação de magistradas impedidas; inadmissibilidade como sucedâneo recursal e preservação da autoridade de decisão.",
+      "punchline": "O TSE indeferiu liminarmente a reclamação por não servir como sucedâneo recursal, pois a decisão apontada como afrontada não trata do caso concreto. Manteve-se, assim, a rejeição do pedido, sem determinar novo julgamento ou nulidade do acórdão regional.",
+      "heuristic_risk": "medio",
+      "heuristic_score": 5,
+      "federal_score": 53,
+      "political_score": 55,
+      "party_scope_score": 0,
+      "high_impact_score": 0,
+      "reportable_by_heuristic": true,
+      "publishable_by_heuristic": false,
+      "recommendation": "considerar",
+      "recommendation_reason": "passa no filtro reportável, mas tem interesse mais local/procedimental ou impacto material menor"
+    },
+    {
+      "data_decisao": "2026-05-07",
+      "numero": "0600492-33.2024.6.05.0137",
+      "page_id": "35b72195-5c64-814a-acd7-c05d3ed9f490",
+      "source_url": "https://www.notion.so/35b721955c64814aacd7c05d3ed9f490",
+      "classe": "AREspEl",
+      "local": "FIRMINO ALVES/BA",
+      "partidos": [
+        "PSD/BA"
+      ],
+      "partes": [
+        "ADALBERTO ANDRE DOS SANTOS",
+        "ANA ANGELICA LIMA DOS SANTOS",
+        "ANDRE LUIZ RICARDO MOREIRA",
+        "ISAAC BARRETO DOS SANTOS FILHO",
+        "JORGE DE SOUSA GALVAO",
+        "JOSE ANTONIO DE SANTANA NETO",
+        "LUCIANA DE JESUS SAMPAIO",
+        "LUIS CARLOS CARDOSO DE SOUSA",
+        "MARIA ALBENE JESUS DE OLIVEIRA",
+        "PARTIDO SOCIAL DEMOCRÁTICO (PSD) - MUNICIPAL",
+        "PATRICIA BARBOSA MATOS",
+        "RAFHAEL MARTINS ALVES PEREIRA",
+        "VALDINEA DE JESUS SANTOS",
+        "WELLITON DA SILVA NOVAIS"
+      ],
+      "resultado": [
+        "monocrática"
+      ],
+      "relator": "Min. Antonio Carlos Ferreira",
+      "tema": "Agravo em recurso especial eleitoral sobre AIJE por suposta fraude na cota de gênero, com determinação de sigilo e regularização de representação para posterior parecer do MPE.",
+      "punchline": "O TSE determinou o levantamento do sigilo apenas dos documentos cuja restrição não tinha fundamento legal e manteve o sigilo nos demais por conterem dados pessoais/sensíveis, além de intimar os agravantes para regularizarem a representação processual. Após a adoção dessas providências, determinou a abertura de vista à Procuradoria-Geral Eleitoral para emissão de parecer, com reservas de estilo, prosseguindo-se no exame do recurso.",
+      "heuristic_risk": "medio",
+      "heuristic_score": 5,
+      "federal_score": 44,
+      "political_score": 20,
+      "party_scope_score": 8,
+      "high_impact_score": 12,
+      "reportable_by_heuristic": true,
+      "publishable_by_heuristic": false,
+      "recommendation": "considerar",
+      "recommendation_reason": "passa no filtro reportável, mas tem interesse mais local/procedimental ou impacto material menor"
+    }
+  ],
+  "not_recommended": [
+    {
+      "data_decisao": "2026-05-07",
+      "numero": "0600578-06.2024.6.14.0023",
+      "page_id": "35b72195-5c64-81cb-a8a0-de606a964a11",
+      "source_url": "https://www.notion.so/35b721955c6481cba8a0de606a964a11",
+      "classe": "REspEl",
+      "local": "MARABÁ/PA",
+      "partidos": [],
+      "partes": [
+        "GILMARA DA SILVA BRITO",
+        "MARCOS PAULO ELERES PEREIRA",
+        "ORLANDO DA SILVA ELIAS"
+      ],
+      "resultado": [
+        "monocrática"
+      ],
+      "relator": "Min. André Mendonça",
+      "tema": "Ação de investigação judicial eleitoral por fraude à cota de gênero nas eleições 2024, com revaloração jurídica na instância especial, quanto à suficiência probatória e autoria imputável ao partido.",
+      "punchline": "O TSE deu provimento ao recurso especial para reformar o acórdão regional, afastando o reconhecimento da fraude à cota de gênero por ausência de provas seguras da dissimulação atribuível ao diretório municipal, julgando improcedentes os pedidos da AIJE e ficando prejudicado o agravo interno.",
+      "heuristic_risk": "baixo",
+      "heuristic_score": 4,
+      "federal_score": 52,
+      "political_score": 0,
+      "party_scope_score": 0,
+      "high_impact_score": 12,
+      "reportable_by_heuristic": false,
+      "publishable_by_heuristic": false,
+      "recommendation": "não incluir",
+      "recommendation_reason": "não passa no filtro de interesse federal/partidário material do relatório"
+    },
+    {
+      "data_decisao": "2026-05-07",
+      "numero": "0600706-17.2026.6.00.0000",
+      "page_id": "35b72195-5c64-816e-99ef-e80f10502c6a",
+      "source_url": "https://www.notion.so/35b721955c64816e99efe80f10502c6a",
+      "classe": "MSCiv",
+      "local": "SÃO JOSÉ DO RIO PRETO/SP",
+      "partidos": [],
+      "partes": [
+        "DESEMBARGADOR ROBERTO MAIA",
+        "THIAGO APARECIDO DA SILVA"
+      ],
+      "resultado": [
+        "monocrática"
+      ],
+      "relator": "Min. Estela Aranha",
+      "tema": "Mandado de segurança contra decisão de indeferimento de tutela em pedido de retificação do cadastro eleitoral para voto facultativo de nacional espanhol, com inadequação da via e Súmula 22/TSE",
+      "punchline": "O TSE negou seguimento ao mandado de segurança por não ser cabível contra decisão judicial, ausente manifesta ilegalidade ou teratologia, e por não se evidenciar direito líquido e certo demonstrado de plano na via estreita. Mantida a extinção sem resolução de mérito determinada no TRE/SP, ficando prejudicada a análise do pedido liminar.",
+      "heuristic_risk": "baixo",
+      "heuristic_score": 4,
+      "federal_score": 45,
+      "political_score": 0,
+      "party_scope_score": 0,
+      "high_impact_score": 0,
+      "reportable_by_heuristic": false,
+      "publishable_by_heuristic": false,
+      "recommendation": "não incluir",
+      "recommendation_reason": "não passa no filtro de interesse federal/partidário material do relatório"
+    },
+    {
+      "data_decisao": "2026-05-07",
+      "numero": "0600747-81.2026.6.00.0000",
+      "page_id": "35b72195-5c64-811c-83a3-d5453d04d945",
+      "source_url": "https://www.notion.so/35b721955c64811c83a3d5453d04d945",
+      "classe": "TutCautAnt",
+      "local": "ITACAMBIRA/MG",
+      "partidos": [],
+      "partes": [
+        "APARECIDA CARDOSO SANTOS",
+        "GEOVANY AUGUSTO GARBUIO PEREIRA",
+        "IVAN BICALHO DO AMARAL",
+        "JOSE VALDEMI SANTOS",
+        "LEANDRO NORONHA NEVES",
+        "MARIA DAS GRACAS BICALHO CARDOSO",
+        "Ministério Público Eleitoral",
+        "PABLO CESAR DA SILVA FERREIRA",
+        "SILVANO GONCALVES DE SOUZA",
+        "SIRLEI DE FATIMA FERREIRA"
+      ],
+      "resultado": [
+        "monocrática",
+        "não conhecido"
+      ],
+      "relator": "Min. Antonio Carlos Ferreira",
+      "tema": "Tutela cautelar antecedente no contexto da AIJE por fraude à cota de gênero nas eleições 2024, com pedido de efeito suspensivo, por ausência de plausibilidade recursal.",
+      "punchline": "O TSE negou seguimento à tutela provisória por não demonstrada a plausibilidade do agravo em recurso especial, diante da consonância do acórdão regional com a jurisprudência (votação pífia, contas zeradas e ausência de atos de campanha) e da vedação de reexame fático-probatório na via estreita. Com isso, fica prejudicado o exame do pedido liminar e não se agrega efeito suspensivo à decisão de inadmissão do recurso especial.",
+      "heuristic_risk": "medio",
+      "heuristic_score": 5,
+      "federal_score": 24,
+      "political_score": 0,
+      "party_scope_score": 0,
+      "high_impact_score": 12,
+      "reportable_by_heuristic": false,
+      "publishable_by_heuristic": false,
+      "recommendation": "não incluir",
+      "recommendation_reason": "não passa no filtro de interesse federal/partidário material do relatório"
+    },
+    {
+      "data_decisao": "2026-05-08",
+      "numero": "0601050-36.2024.6.26.0358",
+      "page_id": "35b72195-5c64-8121-8aa9-c69404e8bd3c",
+      "source_url": "https://www.notion.so/35b721955c6481218aa9c69404e8bd3c",
+      "classe": "AREspEl",
+      "local": "MONTE MOR/SP",
+      "partidos": [],
+      "partes": [
+        "ADRIEL DE OLIVEIRA NASCIMENTO",
+        "CAMILLA HELLEN DE SOUZA SOARES",
+        "Ministério Público Eleitoral"
+      ],
+      "resultado": [
+        "monocrática",
+        "não conhecido"
+      ],
+      "relator": "Min. André Mendonça",
+      "tema": "Eleições 2024, AIJE por fraude à cota de gênero em Monte Mor/SP: legitimidade recursal do assistente simples/terceiro prejudicado e interesse jurídico para recálculo de votos e quocientes.",
+      "punchline": "O TSE não conheceu dos agravos do assistente simples e negou seguimento ao agravo da terceira prejudicada, por ilegitimidade recursal e ausência de interesse jurídico. Mantém-se, assim, o acórdão regional alinhado à jurisprudência, sem modulação de efeitos e sem reabrir a recontagem como pretendido.",
+      "heuristic_risk": "baixo",
+      "heuristic_score": 4,
+      "federal_score": 24,
+      "political_score": 0,
+      "party_scope_score": 0,
+      "high_impact_score": 12,
+      "reportable_by_heuristic": false,
+      "publishable_by_heuristic": false,
+      "recommendation": "não incluir",
+      "recommendation_reason": "não passa no filtro de interesse federal/partidário material do relatório"
+    },
+    {
+      "data_decisao": "2026-05-08",
+      "numero": "0600282-98.2024.6.13.0188",
+      "page_id": "35b72195-5c64-8145-afe3-e1a7a98404d1",
+      "source_url": "https://www.notion.so/35b721955c648145afe3e1a7a98404d1",
+      "classe": "AREspEl",
+      "local": "MUTUM/MG",
+      "partidos": [],
+      "partes": [
+        "ALINE DE JESUS GOMES",
+        "ANTONIO MARCOS FARIA DE OLIVEIRA",
+        "DENAIR PEREIRA VERISSIMO DE MELO",
+        "DEVAIR HORACIO COELHO",
+        "ELIZEU RODRIGUES VIEIRA",
+        "ITAUANNA APARECIDA BATISTA DE OLIVEIRA",
+        "JADSON GUILHERME RODRIGUES",
+        "JOANA DARC ALMEIDA DE JESUS SOUZA",
+        "JOSÉ COSTA SILVA",
+        "JULIO CESAR DE OLIVEIRA",
+        "MARCOS REIS MORAIS",
+        "MARTIELI VALERIA MARTINS DA SILVA",
+        "REINALDO LUIZ DA SILVA"
+      ],
+      "resultado": [
+        "monocrática"
+      ],
+      "relator": "Min. André Mendonça",
+      "tema": "Investigação judicial eleitoral por fraude à cota de gênero nas eleições 2024 para o cargo de vereador em Mutum/MG; aferição de candidaturas femininas fictícias e burla ao FEFC.",
+      "punchline": "O relator, em decisão monocrática, não conheceu da petição e negou seguimento ao agravo, por entender que o TRE/MG aplicou corretamente a Súmula 73 do TSE e que a prova indicou inexistência de atos de campanha e desvio finalístico. Com isso, manteve-se o reconhecimento de fraude à cota de gênero e os consectários definidos na origem.",
+      "heuristic_risk": "medio",
+      "heuristic_score": 6,
+      "federal_score": 12,
+      "political_score": 55,
+      "party_scope_score": 0,
+      "high_impact_score": 8,
+      "reportable_by_heuristic": false,
+      "publishable_by_heuristic": false,
+      "recommendation": "não incluir",
+      "recommendation_reason": "não passa no filtro de interesse federal/partidário material do relatório"
+    },
+    {
+      "data_decisao": "2026-05-07",
+      "numero": "0600865-93.2024.6.11.0041",
+      "page_id": "35b72195-5c64-81c5-b97d-d6d0780a749c",
+      "source_url": "https://www.notion.so/35b721955c6481c5b97dd6d0780a749c",
+      "classe": "REspEl",
+      "local": "JAURU/MT",
+      "partidos": [
+        "PL/MT"
+      ],
+      "partes": [
+        "CARLOS DOMINGOS DA COSTA",
+        "COLIGAÇÃO POR UM JAURU MELHOR",
+        "ENERCIA MONTEIRO DOS SANTOS",
+        "JOAO DO CARMO DE SOUZA",
+        "JOSE CICERO DA SILVA",
+        "NELSINA FERREIRA DE OLIVEIRA GOMES",
+        "PARTIDO LIBERAL (PL) - MUNICIPAL",
+        "RONSON KENEDES DE SOUZA",
+        "VALDECI JOSE DE SOUZA",
+        "WALDIR LUIS GARCIA DE MOURA"
+      ],
+      "resultado": [
+        "monocrática"
+      ],
+      "relator": "Min. Antonio Carlos Ferreira",
+      "tema": "Recurso especial em AIJE por captação ilícita de sufrágio e abuso de poder nas eleições 2024 para prefeito e vice-prefeito em Jauru/MT, com controvérsia sobre sigilo e regularidade processual.",
+      "punchline": "O TSE determinou a manutenção do sigilo dos documentos bancários e fiscais, nos termos da Res.-TSE 23.326/2010 e art. 5º, X, da CF, e determinou a abertura de vista à Procuradoria-Geral Eleitoral para emissão de parecer, após regularização da representação do PL com base em procuração válida. Não adentrou o mérito recursal na decisão apresentada.",
+      "heuristic_risk": "alto",
+      "heuristic_score": 8,
+      "federal_score": 8,
+      "political_score": 93,
+      "party_scope_score": 8,
+      "high_impact_score": 12,
+      "reportable_by_heuristic": false,
+      "publishable_by_heuristic": false,
+      "recommendation": "não incluir",
+      "recommendation_reason": "não passa no filtro de interesse federal/partidário material do relatório"
+    },
+    {
+      "data_decisao": "2026-05-08",
+      "numero": "0601311-90.2024.6.05.0000",
+      "page_id": "35b72195-5c64-81b7-b45e-fd8ffcb1ffa2",
+      "source_url": "https://www.notion.so/35b721955c6481b7b45efd8ffcb1ffa2",
+      "classe": "AREspEl",
+      "local": "VALENTE/BA",
+      "partidos": [],
+      "partes": [
+        "COLIGAÇÃO A FORÇA QUE VEM DO POVO",
+        "IDAILDO ARAUJO OLIVEIRA",
+        "MARCOS ADRIANO DE OLIVEIRA ARAUJO",
+        "UBALDINO AMARAL DE OLIVEIRA"
+      ],
+      "resultado": [
+        "monocrática"
+      ],
+      "relator": "Min. André Mendonça",
+      "tema": "Eleições 2024, RCED para prefeito e vice: inelegibilidade superveniente por rejeição de contas (LC 64/90, art. 1º, I, g) e exigência de decisão irrecorrível antes do pleito.",
+      "punchline": "O TSE negou provimento ao agravo em recurso especial ao entender que o acórdão do TCU que rejeitou as contas foi publicado após a eleição, faltando requisito essencial de irrecorribilidade em momento juridicamente relevante. Assim, não se reconheceu inelegibilidade superveniente apta a ser apurada em RCED e prevaleceu a improcedência do pedido de cassação do diploma.",
+      "heuristic_risk": "alto",
+      "heuristic_score": 8,
+      "federal_score": 0,
+      "political_score": 65,
+      "party_scope_score": 0,
+      "high_impact_score": 32,
+      "reportable_by_heuristic": false,
+      "publishable_by_heuristic": false,
+      "recommendation": "não incluir",
+      "recommendation_reason": "não passa no filtro de interesse federal/partidário material do relatório"
+    },
+    {
+      "data_decisao": "2026-05-07",
+      "numero": "0600220-72.2024.6.06.0020",
+      "page_id": "35b72195-5c64-8144-a5ff-fa1de0b8f6c6",
+      "source_url": "https://www.notion.so/35b721955c648144a5fffa1de0b8f6c6",
+      "classe": "AREspEl",
+      "local": "CRATEÚS/CE",
+      "partidos": [],
+      "partes": [
+        "CAMILO SOBREIRA DE SANTANA",
+        "COLIGAÇÃO PARA CRATÉUS CONTINUAR CRESCENDO",
+        "ELMANO DE FREITAS DA COSTA",
+        "FRANCISCO JOSE BEZERRA",
+        "JANAINA CARLA FARIAS"
+      ],
+      "resultado": [
+        "monocrática"
+      ],
+      "relator": "Min. Estela Aranha",
+      "tema": "AIJE nas Eleições 2024 em Crateús/CE: abuso de poder político e econômico e conduta vedada, com foco em prova robusta e desvio de finalidade para cassação e inelegibilidade.",
+      "punchline": "O TSE negou seguimento ao agravo em recurso especial por exigir reexame do conjunto fático-probatório, incidindo as Súmulas 24 e 30. Manteve-se o entendimento do TRE/CE de que não houve prova robusta de desvio de finalidade ou repercussão eleitoral nem caracterização de uso indevido da máquina pública ou de estrutura do Senado, preservando-se a improcedência da AIJE.",
+      "heuristic_risk": "alto",
+      "heuristic_score": 7,
+      "federal_score": 0,
+      "political_score": 40,
+      "party_scope_score": 0,
+      "high_impact_score": 32,
+      "reportable_by_heuristic": false,
+      "publishable_by_heuristic": false,
+      "recommendation": "não incluir",
+      "recommendation_reason": "não passa no filtro de interesse federal/partidário material do relatório"
+    },
+    {
+      "data_decisao": "2026-05-07",
+      "numero": "0600498-10.2024.6.20.0012",
+      "page_id": "35b72195-5c64-81e8-bb36-d187db98959d",
+      "source_url": "https://www.notion.so/35b721955c6481e8bb36d187db98959d",
+      "classe": "REspEl",
+      "local": "MONTANHAS/RN",
+      "partidos": [],
+      "partes": [
+        "ALGACIR ANTONIO DE LIMA JANUARIO",
+        "ANTONIO MARCOLINO NETO",
+        "COLIGAÇÃO POVO UNIDO",
+        "MONTANHAS FORTE",
+        "RONALDO PEREIRA FERREIRA DE FARIAS"
+      ],
+      "resultado": [
+        "monocrática"
+      ],
+      "relator": "Min. Antonio Carlos Ferreira",
+      "tema": "AIJE nas eleições 2024 para prefeito e vice-prefeito: ausência de prova robusta de captação ilícita de sufrágio e de abuso, com reexame probatório vedado e manutenção da improcedência.",
+      "punchline": "O TSE negou seguimento ao recurso especial por entender que o TRE/RN constatou inexistência de prova robusta e conclusiva, com testemunho singular sem isenção e falta de elementos de gravidade ou vantagem indevida. Como a revisão dependeria de reexame do conjunto fático-probatório, aplicaram-se os Enunciados 24 e 30 da Súmula do TSE, mantendo-se a improcedência.",
+      "heuristic_risk": "alto",
+      "heuristic_score": 7,
+      "federal_score": 0,
+      "political_score": 65,
+      "party_scope_score": 0,
+      "high_impact_score": 12,
+      "reportable_by_heuristic": false,
+      "publishable_by_heuristic": false,
+      "recommendation": "não incluir",
+      "recommendation_reason": "não passa no filtro de interesse federal/partidário material do relatório"
+    },
+    {
+      "data_decisao": "2026-05-07",
+      "numero": "0600777-19.2026.6.00.0000",
+      "page_id": "35b72195-5c64-817d-83b6-ef0af0f3d364",
+      "source_url": "https://www.notion.so/35b721955c64817d83b6ef0af0f3d364",
+      "classe": "TutCautAnt",
+      "local": "MAURILÂNDIA/GO",
+      "partidos": [],
+      "partes": [
+        "JUNIOR MIGUEL DOS SANTOS",
+        "WEIDER VIEIRA DE JESUS"
+      ],
+      "resultado": [
+        "monocrática"
+      ],
+      "relator": "Min. Estela Aranha",
+      "tema": "Tutela cautelar antecedente no recurso especial por captação ilícita de sufrágio, com cassação de diploma e retotalização para o cargo de vereador, em Maurilândia/GO.",
+      "punchline": "A Ministra Relatora deferiu liminar para atribuir efeito suspensivo ao recurso especial por plausibilidade da tese de insuficiência do conjunto probatório (prova oral preponderante sem corroboração objetiva) e risco de efeitos institucionais irreversíveis. Determinou-se a suspensão dos efeitos do acórdão do TRE/GO, evitando-se a produção de consequências como reprocessamento da totalização e diplomação/posse até o pronunciamento do TSE.",
+      "heuristic_risk": "alto",
+      "heuristic_score": 7,
+      "federal_score": 0,
+      "political_score": 55,
+      "party_scope_score": 0,
+      "high_impact_score": 32,
+      "reportable_by_heuristic": false,
+      "publishable_by_heuristic": false,
+      "recommendation": "não incluir",
+      "recommendation_reason": "não passa no filtro de interesse federal/partidário material do relatório"
+    },
+    {
+      "data_decisao": "2026-05-08",
+      "numero": "0600909-46.2024.6.13.0142",
+      "page_id": "35b72195-5c64-81df-b1a0-f418de58013a",
+      "source_url": "https://www.notion.so/35b721955c6481dfb1a0f418de58013a",
+      "classe": "AREspEl",
+      "local": "LIMEIRA DO OESTE/MG",
+      "partidos": [],
+      "partes": [
+        "COLIGAÇÃO DIAS MELHORES",
+        "ENEDINO PEREIRA FILHO",
+        "LEANDRO DE SOUZA CARVALHO",
+        "UANDERLEI JOSE DAME"
+      ],
+      "resultado": [
+        "monocrática"
+      ],
+      "relator": "Min. André Mendonça",
+      "tema": "AIJE nas eleições 2024 em Limeira do Oeste/MG: conduta vedada (art. 73, IV, Lei 9.504/1997) por distribuição gratuita de uniformes e evento festivo, com reconhecimento de abuso de poder e consequente inelegibilidade.",
+      "punchline": "O TSE, em agravo em recurso especial, negou seguimento por exigir reexame do acervo fático-probatório (Súmula 24) e por ausência de dissídio útil conforme a jurisprudência (Súmula 30), mantendo o acórdão regional que confirmou multa e inelegibilidade por 8 anos.",
+      "heuristic_risk": "alto",
+      "heuristic_score": 7,
+      "federal_score": 0,
+      "political_score": 40,
+      "party_scope_score": 0,
+      "high_impact_score": 32,
+      "reportable_by_heuristic": false,
+      "publishable_by_heuristic": false,
+      "recommendation": "não incluir",
+      "recommendation_reason": "não passa no filtro de interesse federal/partidário material do relatório"
+    },
+    {
+      "data_decisao": "2026-05-07",
+      "numero": "0600397-13.2024.6.23.0004",
+      "page_id": "35b72195-5c64-81b1-a377-d6ad6b38303c",
+      "source_url": "https://www.notion.so/35b721955c6481b1a377d6ad6b38303c",
+      "classe": "REspEl",
+      "local": "SÃO LUIZ/RR",
+      "partidos": [],
+      "partes": [
+        "FAGNER DE MATOS GOMES",
+        "ROBERTO DA ROCHA SILVA"
+      ],
+      "resultado": [
+        "monocrática"
+      ],
+      "relator": "Min. Antonio Carlos Ferreira",
+      "tema": "Recurso especial eleitoral em AIJE por captação ilícita de sufrágio e abuso do poder econômico: manutenção de sigilo de documento e regularização de parecer do MPE no TSE.",
+      "punchline": "O relator determinou a manutenção do sigilo do documento vinculado a inquérito policial, por incidência de segredo de justiça, para preservar o acesso restrito. Em seguida, determinou a abertura de vista à Procuradoria-Geral Eleitoral para emissão do parecer, com as reservas de estilo, diante da ausência de manifestação ministerial na tramitação inicial.",
+      "heuristic_risk": "medio",
+      "heuristic_score": 6,
+      "federal_score": 0,
+      "political_score": 0,
+      "party_scope_score": 0,
+      "high_impact_score": 12,
+      "reportable_by_heuristic": false,
+      "publishable_by_heuristic": false,
+      "recommendation": "não incluir",
+      "recommendation_reason": "não passa no filtro de interesse federal/partidário material do relatório"
+    },
+    {
+      "data_decisao": "2026-05-07",
+      "numero": "0600536-45.2026.6.00.0000",
+      "page_id": "35b72195-5c64-816b-ba79-d9c88c215586",
+      "source_url": "https://www.notion.so/35b721955c64816bba79d9c88c215586",
+      "classe": "MSCiv",
+      "local": "SÃO PAULO/SP",
+      "partidos": [],
+      "partes": [
+        "JORGE MARCOS PEREIRA SOARES",
+        "TRIBUNAL REGIONAL ELEITORAL DE SAO PAULO"
+      ],
+      "resultado": [
+        "monocrática"
+      ],
+      "relator": "Min. Estela Aranha",
+      "tema": "Mandado de segurança em candidatura a deputado estadual nas Eleições 2010: restrição no cadastro por contas julgadas não prestadas, por falta de indicação de ato coator e via inadequada para regularização.",
+      "punchline": "O TSE negou seguimento por não caracterização do ato coator e da autoridade responsável, exigidos pelo art. 6º da Lei 12.016/2009. Assentou ainda que o mandado não pode substituir o procedimento próprio de regularização previsto no art. 80, §1º, da Res.-TSE 23.607/2019, deixando prejudicado o exame da liminar e preservando a necessidade de utilização da via adequada.",
+      "heuristic_risk": "medio",
+      "heuristic_score": 6,
+      "federal_score": 0,
+      "political_score": 55,
+      "party_scope_score": 0,
+      "high_impact_score": 0,
+      "reportable_by_heuristic": false,
+      "publishable_by_heuristic": false,
+      "recommendation": "não incluir",
+      "recommendation_reason": "não passa no filtro de interesse federal/partidário material do relatório"
+    },
+    {
+      "data_decisao": "2026-05-07",
+      "numero": "0600611-47.2024.6.02.0017",
+      "page_id": "35b72195-5c64-8187-98d1-ffab36e56b64",
+      "source_url": "https://www.notion.so/35b721955c64818798d1ffab36e56b64",
+      "classe": "REspEl",
+      "local": "SÃO LUÍS DO QUITUNDE/AL",
+      "partidos": [],
+      "partes": [
+        "CICERO CAVALCANTI DE ARAUJO",
+        "COLIGAÇÃO SÃO LUÍS DE TODOS NÓS",
+        "CRISTOPHANES JACQUES UCHOA DE LIMA",
+        "FERNANDA MARIA SILVA CAVALCANTI DE OLIVEIRA",
+        "MARCIA RAFAELA BARROS DE VASCONCELOS"
+      ],
+      "resultado": [
+        "monocrática"
+      ],
+      "relator": "Min. Antonio Carlos Ferreira",
+      "tema": "Recurso especial eleitoral na AIJE por abuso de poder e conduta vedada nas Eleições 2024, envolvendo distribuição de bens e serviços e eventos com possível conotação eleitoral no município de São Luís do Quitunde/AL.",
+      "punchline": "O TSE negou seguimento ao recurso especial por exigir reexame do conjunto fático-probatório, incidindo as Súmulas 24 e 30. Mantida a improcedência da AIJE, pois ausentes provas robustas e foi reconhecida conformidade do acórdão regional quanto à inexistência de desvio eleitoral e de emprego indevido de programa social com amparo legal e execução anterior.",
+      "heuristic_risk": "medio",
+      "heuristic_score": 6,
+      "federal_score": 0,
+      "political_score": 0,
+      "party_scope_score": 0,
+      "high_impact_score": 12,
+      "reportable_by_heuristic": false,
+      "publishable_by_heuristic": false,
+      "recommendation": "não incluir",
+      "recommendation_reason": "não passa no filtro de interesse federal/partidário material do relatório"
+    },
+    {
+      "data_decisao": "2026-05-08",
+      "numero": "0600015-76.2025.6.20.0001",
+      "page_id": "35b72195-5c64-81f4-b256-c46851a4d910",
+      "source_url": "https://www.notion.so/35b721955c6481f4b256c46851a4d910",
+      "classe": "AREspEl",
+      "local": "NATAL/RN",
+      "partidos": [],
+      "partes": [
+        "EDUARDO COSENTINO DA CUNHA",
+        "Ministério Público Eleitoral"
+      ],
+      "resultado": [
+        "monocrática"
+      ],
+      "relator": "Min. André Mendonça",
+      "tema": "Competência penal eleitoral e prerrogativa de foro em ação por corrupção passiva e lavagem por suposto uso do mandato parlamentar, com remessa ao STF",
+      "punchline": "O TSE negou seguimento aos agravos por falta de dialeticidade e por exigir reexame do conjunto fático, mantendo a remessa dos autos ao Supremo Tribunal Federal conforme o HC 232.627/DF. As teses defensivas sobre nulidade/justa causa devem ser apreciadas pelo juízo natural constitucionalmente competente.",
+      "heuristic_risk": "medio",
+      "heuristic_score": 5,
+      "federal_score": 0,
+      "political_score": 40,
+      "party_scope_score": 0,
+      "high_impact_score": 0,
+      "reportable_by_heuristic": false,
+      "publishable_by_heuristic": false,
+      "recommendation": "não incluir",
+      "recommendation_reason": "não passa no filtro de interesse federal/partidário material do relatório"
+    },
+    {
+      "data_decisao": "2026-05-08",
+      "numero": "0600016-61.2025.6.20.0001",
+      "page_id": "35b72195-5c64-8156-81d1-d3d46facc7a3",
+      "source_url": "https://www.notion.so/35b721955c64815681d1d3d46facc7a3",
+      "classe": "AREspEl",
+      "local": "NATAL/RN",
+      "partidos": [],
+      "partes": [
+        "EDUARDO COSENTINO DA CUNHA",
+        "Ministério Público Eleitoral"
+      ],
+      "resultado": [
+        "monocrática"
+      ],
+      "relator": "Min. André Mendonça",
+      "tema": "No agravo em recurso especial eleitoral, envolvendo ação penal por corrupção passiva e lavagem vinculadas a mandato parlamentar, define-se a competência penal e o alcance do HC 232.627/DF.",
+      "punchline": "O TSE negou seguimento aos agravos por falta de dialeticidade e por demandarem reexame do conjunto fático-probatório, mantendo o entendimento de que nulidade, justa causa e demais teses devem ser apreciadas pelo STF como juízo natural (HC 232.627/DF), sem atuação de mérito pela Justiça Eleitoral.",
+      "heuristic_risk": "medio",
+      "heuristic_score": 5,
+      "federal_score": 0,
+      "political_score": 40,
+      "party_scope_score": 0,
+      "high_impact_score": 0,
+      "reportable_by_heuristic": false,
+      "publishable_by_heuristic": false,
+      "recommendation": "não incluir",
+      "recommendation_reason": "não passa no filtro de interesse federal/partidário material do relatório"
+    },
+    {
+      "data_decisao": "2026-05-08",
+      "numero": "0600019-16.2025.6.20.0001",
+      "page_id": "35b72195-5c64-81b3-81dd-f6393ec9048b",
+      "source_url": "https://www.notion.so/35b721955c6481b381ddf6393ec9048b",
+      "classe": "AREspEl",
+      "local": "NATAL/RN",
+      "partidos": [],
+      "partes": [
+        "EDUARDO COSENTINO DA CUNHA",
+        "Ministério Público Eleitoral"
+      ],
+      "resultado": [
+        "monocrática"
+      ],
+      "relator": "Min. André Mendonça",
+      "tema": "Agravo em recurso especial eleitoral em ação penal por corrupção passiva e lavagem vinculadas a mandato parlamentar, com definição de competência e foro por prerrogativa; declínio ao STF.",
+      "punchline": "O TSE negou seguimento ao agravo por ausência de impugnação específica e por demandar reexame do fático-probatório, aplicando as Súmulas 26 e 24. Mantida a remessa dos autos ao Supremo Tribunal Federal, por serem as teses defensivas relativas a nulidade e justa causa matéria do juízo natural competente, conforme HC 232.627/DF.",
+      "heuristic_risk": "medio",
+      "heuristic_score": 5,
+      "federal_score": 0,
+      "political_score": 40,
+      "party_scope_score": 0,
+      "high_impact_score": 0,
+      "reportable_by_heuristic": false,
+      "publishable_by_heuristic": false,
+      "recommendation": "não incluir",
+      "recommendation_reason": "não passa no filtro de interesse federal/partidário material do relatório"
+    },
+    {
+      "data_decisao": "2026-05-07",
+      "numero": "0600507-70.2024.6.26.0087",
+      "page_id": "35b72195-5c64-810f-9b0c-d60f3a5ef426",
+      "source_url": "https://www.notion.so/35b721955c64810f9b0cd60f3a5ef426",
+      "classe": "AREspEl",
+      "local": "PENÁPOLIS/SP",
+      "partidos": [],
+      "partes": [
+        "BENONE SOARES DE QUEIROZ JUNIOR",
+        "COLIGAÇÃO SIMPLICIDADE E TRABALHO QUE TRANSFOMAM",
+        "FABIO ANDRE CAPUTO FERRACINI",
+        "RODOLFO VALADAO AMBROSIO"
+      ],
+      "resultado": [
+        "monocrática"
+      ],
+      "relator": "Min. Antonio Carlos Ferreira",
+      "tema": "AIJE nas eleições 2024 para vereador em Penápolis/SP: levantamento de sigilo por ausência de justificativa e manutenção do sigilo de dados pessoais na LGPD, com vista à PGE.",
+      "punchline": "O TSE determinou o levantamento do sigilo do documento erroneamente marcado (juntada da petição inicial em documento diverso) e manteve o sigilo do documento contendo identidade profissional com dados pessoais protegidos pela LGPD. Em seguida, abriu vista à Procuradoria-Geral Eleitoral para parecer, com ressalvas de estilo, sem alterar o mérito do acórdão recorrido.",
+      "heuristic_risk": "medio",
+      "heuristic_score": 5,
+      "federal_score": 0,
+      "political_score": 55,
+      "party_scope_score": 0,
+      "high_impact_score": 12,
+      "reportable_by_heuristic": false,
+      "publishable_by_heuristic": false,
+      "recommendation": "não incluir",
+      "recommendation_reason": "não passa no filtro de interesse federal/partidário material do relatório"
+    },
+    {
+      "data_decisao": "2026-05-08",
+      "numero": "0600014-91.2025.6.20.0001",
+      "page_id": "35b72195-5c64-81ab-b823-fc3141f6dd6a",
+      "source_url": "https://www.notion.so/35b721955c6481abb823fc3141f6dd6a",
+      "classe": "AREspEl",
+      "local": "NATAL/RN",
+      "partidos": [],
+      "partes": [
+        "EDUARDO COSENTINO DA CUNHA",
+        "Ministério Público Eleitoral"
+      ],
+      "resultado": [
+        "monocrática"
+      ],
+      "relator": "Min. André Mendonça",
+      "tema": "Agravo em recurso especial eleitoral envolvendo crimes de corrupção passiva e lavagem de dinheiro (Operação Cui Bono?), com controvérsia de competência penal por prerrogativa de função e juiz natural, mantendo a remessa ao STF.",
+      "punchline": "O TSE negou seguimento ao agravo por falta de dialeticidade e por exigir reexame do conjunto fático-probatório, aplicando as Súmulas 26 e 24. Reconheceu que nulidades e ausência de justa causa devem ser apreciadas pelo juízo natural constitucionalmente competente, razão pela qual manteve a remessa ao Supremo Tribunal Federal nos termos do HC 232.627/DF.",
+      "heuristic_risk": "baixo",
+      "heuristic_score": 4,
+      "federal_score": 0,
+      "political_score": 0,
+      "party_scope_score": 0,
+      "high_impact_score": 0,
+      "reportable_by_heuristic": false,
+      "publishable_by_heuristic": false,
+      "recommendation": "não incluir",
+      "recommendation_reason": "não passa no filtro de interesse federal/partidário material do relatório"
+    },
+    {
+      "data_decisao": "2026-05-07",
+      "numero": "0600245-14.2025.6.06.0000",
+      "page_id": "35b72195-5c64-81f7-83f0-e913825adfbc",
+      "source_url": "https://www.notion.so/35b721955c6481f783f0e913825adfbc",
+      "classe": "RHC",
+      "local": "FORTALEZA/CE",
+      "partidos": [],
+      "partes": [
+        "FRANCISCO CARLOS CAMILO BARBOSA",
+        "Ministério Público Eleitoral"
+      ],
+      "resultado": [
+        "monocrática"
+      ],
+      "relator": "Min. Estela Aranha",
+      "tema": "Recurso ordinário em habeas corpus no TSE sobre medidas cautelares diversas da prisão na investigação eleitoral de fraudes no sistema público de saúde, mantendo proibições ligadas ao FASTMEDIC.",
+      "punchline": "O TSE negou seguimento ao recurso por entender que a proibição de acesso a unidades de saúde e ao FASTMEDIC permanece necessária e adequada para evitar reiteração delitiva e proteger a instrução penal, com fundamentação idônea. Também afastou a alegação de constrangimento ilegal e de prejuízo econômico relevante, por se tratar de cautelar autônoma e alternativa à prisão, sem acolher modulação territorial.",
+      "heuristic_risk": "baixo",
+      "heuristic_score": 4,
+      "federal_score": 0,
+      "political_score": 0,
+      "party_scope_score": 0,
+      "high_impact_score": 0,
+      "reportable_by_heuristic": false,
+      "publishable_by_heuristic": false,
+      "recommendation": "não incluir",
+      "recommendation_reason": "não passa no filtro de interesse federal/partidário material do relatório"
+    },
+    {
+      "data_decisao": "2026-05-08",
+      "numero": "0600290-49.2026.6.00.0000",
+      "page_id": "35b72195-5c64-81b6-8ace-fa38e37464e7",
+      "source_url": "https://www.notion.so/35b721955c6481b68acefa38e37464e7",
+      "classe": "REspEl",
+      "local": "ALTO TAQUARI/MT",
+      "partidos": [],
+      "partes": [
+        "MICHEL LUCAS ROCHA SOUZA",
+        "CAIO BENEDITO FREITAS DE ALMEIDA - MT24739/O"
+      ],
+      "resultado": [
+        "monocrática",
+        "não conhecido"
+      ],
+      "relator": "Min. André Mendonça",
+      "tema": "Recurso especial eleitoral em per saltum ao TSE: erro grosseiro e preclusão por trânsito em julgado, com advertência de multa por litigância de má-fé.",
+      "punchline": "O TSE não conheceu monocraticamente do recurso especial, por ter sido interposto diretamente no Tribunal Superior Eleitoral, o que configura erro grosseiro e impede a admissibilidade. Ainda, verificou-se que a decisão de origem já estava acobertada pelo trânsito em julgado, sem cabimento a insistência recursal, com advertência de possível multa por litigância de má-fé.",
+      "heuristic_risk": "baixo",
+      "heuristic_score": 4,
+      "federal_score": 0,
+      "political_score": 0,
+      "party_scope_score": 0,
+      "high_impact_score": 0,
+      "reportable_by_heuristic": false,
+      "publishable_by_heuristic": false,
+      "recommendation": "não incluir",
+      "recommendation_reason": "não passa no filtro de interesse federal/partidário material do relatório"
+    },
+    {
+      "data_decisao": "2026-05-08",
+      "numero": "0600311-79.2024.6.19.0254",
+      "page_id": "35b72195-5c64-8198-87f2-fe25ab477781",
+      "source_url": "https://www.notion.so/35b721955c64819887f2fe25ab477781",
+      "classe": "AREspEl",
+      "local": "MACAÉ/RJ",
+      "partidos": [],
+      "partes": [
+        "DAVID DUARTE DE REZENDE",
+        "FELICIO LATERCA DE ALMEIDA"
+      ],
+      "resultado": [
+        "monocrática"
+      ],
+      "relator": "Min. André Mendonça",
+      "tema": "Eleições 2024, representação por propaganda eleitoral negativa: compartilhamento de notícia com juízo crítico, sem fato sabidamente inverídico, e ausência de violação à honra, com improcedência mantida.",
+      "punchline": "O TSE negou seguimento ao agravo em recurso especial por deficiência e incidência dos Enunciados 26 e 30 da Súmula do TSE, entendendo que a postagem não extrapolou o direito de crítica nem configurou fato sabidamente inverídico. Com isso, foi mantida a decisão regional que julgou improcedente a representação e desproveu o recurso.",
+      "heuristic_risk": "baixo",
+      "heuristic_score": 4,
+      "federal_score": 0,
+      "political_score": 0,
+      "party_scope_score": 0,
+      "high_impact_score": 0,
+      "reportable_by_heuristic": false,
+      "publishable_by_heuristic": false,
+      "recommendation": "não incluir",
+      "recommendation_reason": "não passa no filtro de interesse federal/partidário material do relatório"
+    },
+    {
+      "data_decisao": "2026-05-07",
+      "numero": "0600530-27.2024.6.06.0037",
+      "page_id": "35b72195-5c64-811a-b3fe-cd66c0b8ead3",
+      "source_url": "https://www.notion.so/35b721955c64811ab3fecd66c0b8ead3",
+      "classe": "AREspEl",
+      "local": "CAUCAIA/CE",
+      "partidos": [],
+      "partes": [
+        "COLIGAÇÃO AMAR E CUIDAR DE CAUCAIA",
+        "INSTITUTO PARANA DE PESQUISAS E ANALISE DE CONSUMIDOR LTDA - EPP",
+        "Instituto Paraná de Pesquisas e Análise de Consumidor Ltda. EPP"
+      ],
+      "resultado": [
+        "monocrática"
+      ],
+      "relator": "Min. Antonio Carlos Ferreira",
+      "tema": "Eleições 2024 em Caucaia/CE: pesquisa eleitoral sem dados obrigatórios e falta de complementação do registro, com repercussão na multa do art. 33, § 3º, da Lei 9.504/97.",
+      "punchline": "O TSE manteve a decisão que considerou a pesquisa como não registrada por descumprimento dos requisitos legais e regulamentares de registro, aplicando a multa. Assentou que, embora alegada nulidade por extra petita, houve pedido expresso de imposição da sanção e, para infirmar a conclusão regional, seria necessário reexame do conjunto fático-probatório, vedado na instância especial, razão pela qual o agravo em recurso especial não foi conhecido.",
+      "heuristic_risk": "baixo",
+      "heuristic_score": 4,
+      "federal_score": 0,
+      "political_score": 0,
+      "party_scope_score": 0,
+      "high_impact_score": 0,
+      "reportable_by_heuristic": false,
+      "publishable_by_heuristic": false,
+      "recommendation": "não incluir",
+      "recommendation_reason": "não passa no filtro de interesse federal/partidário material do relatório"
+    },
+    {
+      "data_decisao": "2026-05-08",
+      "numero": "0600779-15.2024.6.23.0001",
+      "page_id": "35b72195-5c64-81c6-a3f2-f3807dc9e799",
+      "source_url": "https://www.notion.so/35b721955c6481c6a3f2f3807dc9e799",
+      "classe": "AREspEl",
+      "local": "BOA VISTA/RR",
+      "partidos": [],
+      "partes": [
+        "Ministério Público Eleitoral",
+        "ZENILDA MARIA PORTELLA"
+      ],
+      "resultado": [
+        "monocrática"
+      ],
+      "relator": "Min. André Mendonça",
+      "tema": "Eleições 2024, agravo em recurso especial: restituição de valores apreendidos em inquérito eleitoral; ponto central é a ausência de impugnação específica e o reexame de fatos; efeito é o não conhecimento/negação.",
+      "punchline": "O TSE não conheceu do agravo por violação à unirrecorribilidade (preclusão consumativa) e, quanto ao segundo, manteve o óbice de ausência de impugnação específica, aplicando a Súmula 26. No mérito, destacou a persistência de indícios de destinação ilícita e o interesse investigativo, afastando a restituição porque a revisão das premissas exigiria reexame fático-probatório, vedado pelas Súmulas 24 e 30, mantendo-se a negativa de restituição dos R$ 500.000,00.",
+      "heuristic_risk": "baixo",
+      "heuristic_score": 4,
+      "federal_score": 0,
+      "political_score": 0,
+      "party_scope_score": 0,
+      "high_impact_score": 0,
+      "reportable_by_heuristic": false,
+      "publishable_by_heuristic": false,
+      "recommendation": "não incluir",
+      "recommendation_reason": "não passa no filtro de interesse federal/partidário material do relatório"
+    }
+  ],
+  "published_processes": [
+    "0602212-13.2022.6.02.0000",
+    "0601660-73.2020.6.00.0000",
+    "0601078-05.2022.6.00.0000",
+    "0607274-65.2022.6.26.0000",
+    "0600319-74.2024.6.25.0000",
+    "0600315-03.2022.6.18.0000",
+    "0600169-08.2024.6.03.0000",
+    "0600168-11.2024.6.25.0000"
+  ],
+  "report_path": "Artefatos/reports/dje_report_delta_20260507_20260508_20260509_124235.json"
+}
