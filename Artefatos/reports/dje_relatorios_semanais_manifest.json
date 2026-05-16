@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-05-09T15:22:09.978821+00:00",
+  "updated_at_utc": "2026-05-15T23:33:19.861627+00:00",
   "processed_files": {
     "/mnt/c/Users/mauri/ProjetoConversor/DJE/jurisprudencia (1).csv": {
       "path": "/mnt/c/Users/mauri/ProjetoConversor/DJE/jurisprudencia (1).csv",
@@ -191,6 +191,40 @@
       "combined_csv": "C:\\Users\\mauri\\ProjetoConversor\\Artefatos\\dados\\csv\\DJE_gui_20260509_122143_consolidado.csv",
       "periods": [
         "DJe do TSE - 04/05/2026 a 08/05/2026"
+      ]
+    },
+    "C:\\Users\\mauri\\ProjetoConversor\\DJE\\jurisprudencia (12).csv": {
+      "path": "C:\\Users\\mauri\\ProjetoConversor\\DJE\\jurisprudencia (12).csv",
+      "sha256": "72fbe591122d5febbb14a70ec2c54f14afed6b5eaa58dad569bd14ae2a1c3bb5",
+      "size": 1376754,
+      "mtime": 1778887533.5138614,
+      "processed_at_utc": "2026-05-15T23:33:19.860286+00:00",
+      "combined_csv": "C:\\Users\\mauri\\ProjetoConversor\\Artefatos\\dados\\csv\\DJE_gui_20260515_202649_consolidado.csv",
+      "periods": [
+        "DJe do TSE - 16/03/2026 a 20/03/2026",
+        "DJe do TSE - 23/03/2026 a 27/03/2026",
+        "DJe do TSE - 06/04/2026 a 10/04/2026",
+        "DJe do TSE - 13/04/2026 a 17/04/2026",
+        "DJe do TSE - 27/04/2026 a 01/05/2026",
+        "DJe do TSE - 04/05/2026 a 08/05/2026",
+        "DJe do TSE - 11/05/2026 a 15/05/2026"
+      ]
+    },
+    "C:\\Users\\mauri\\ProjetoConversor\\DJE\\jurisprudencia (13).csv": {
+      "path": "C:\\Users\\mauri\\ProjetoConversor\\DJE\\jurisprudencia (13).csv",
+      "sha256": "66295bd82964174b314b38bfe1f6abeec4feefdeab9e60d1e9d4939b6549f1ac",
+      "size": 259973,
+      "mtime": 1778887589.8918607,
+      "processed_at_utc": "2026-05-15T23:33:19.861320+00:00",
+      "combined_csv": "C:\\Users\\mauri\\ProjetoConversor\\Artefatos\\dados\\csv\\DJE_gui_20260515_202649_consolidado.csv",
+      "periods": [
+        "DJe do TSE - 16/03/2026 a 20/03/2026",
+        "DJe do TSE - 23/03/2026 a 27/03/2026",
+        "DJe do TSE - 06/04/2026 a 10/04/2026",
+        "DJe do TSE - 13/04/2026 a 17/04/2026",
+        "DJe do TSE - 27/04/2026 a 01/05/2026",
+        "DJe do TSE - 04/05/2026 a 08/05/2026",
+        "DJe do TSE - 11/05/2026 a 15/05/2026"
       ]
     }
   },
@@ -385,6 +419,40 @@
       "combined_csv": "C:\\Users\\mauri\\ProjetoConversor\\Artefatos\\dados\\csv\\DJE_gui_20260509_122143_consolidado.csv",
       "periods": [
         "DJe do TSE - 04/05/2026 a 08/05/2026"
+      ]
+    },
+    "72fbe591122d5febbb14a70ec2c54f14afed6b5eaa58dad569bd14ae2a1c3bb5": {
+      "path": "C:\\Users\\mauri\\ProjetoConversor\\DJE\\jurisprudencia (12).csv",
+      "sha256": "72fbe591122d5febbb14a70ec2c54f14afed6b5eaa58dad569bd14ae2a1c3bb5",
+      "size": 1376754,
+      "mtime": 1778887533.5138614,
+      "processed_at_utc": "2026-05-15T23:33:19.860286+00:00",
+      "combined_csv": "C:\\Users\\mauri\\ProjetoConversor\\Artefatos\\dados\\csv\\DJE_gui_20260515_202649_consolidado.csv",
+      "periods": [
+        "DJe do TSE - 16/03/2026 a 20/03/2026",
+        "DJe do TSE - 23/03/2026 a 27/03/2026",
+        "DJe do TSE - 06/04/2026 a 10/04/2026",
+        "DJe do TSE - 13/04/2026 a 17/04/2026",
+        "DJe do TSE - 27/04/2026 a 01/05/2026",
+        "DJe do TSE - 04/05/2026 a 08/05/2026",
+        "DJe do TSE - 11/05/2026 a 15/05/2026"
+      ]
+    },
+    "66295bd82964174b314b38bfe1f6abeec4feefdeab9e60d1e9d4939b6549f1ac": {
+      "path": "C:\\Users\\mauri\\ProjetoConversor\\DJE\\jurisprudencia (13).csv",
+      "sha256": "66295bd82964174b314b38bfe1f6abeec4feefdeab9e60d1e9d4939b6549f1ac",
+      "size": 259973,
+      "mtime": 1778887589.8918607,
+      "processed_at_utc": "2026-05-15T23:33:19.861320+00:00",
+      "combined_csv": "C:\\Users\\mauri\\ProjetoConversor\\Artefatos\\dados\\csv\\DJE_gui_20260515_202649_consolidado.csv",
+      "periods": [
+        "DJe do TSE - 16/03/2026 a 20/03/2026",
+        "DJe do TSE - 23/03/2026 a 27/03/2026",
+        "DJe do TSE - 06/04/2026 a 10/04/2026",
+        "DJe do TSE - 13/04/2026 a 17/04/2026",
+        "DJe do TSE - 27/04/2026 a 01/05/2026",
+        "DJe do TSE - 04/05/2026 a 08/05/2026",
+        "DJe do TSE - 11/05/2026 a 15/05/2026"
       ]
     }
   }

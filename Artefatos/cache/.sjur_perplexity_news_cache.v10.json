@@ -1,7 +1,7 @@
 {
   "version": 1,
   "strategy_version": 10,
-  "updated_at": "2026-05-08T13:43:33.639528+00:00",
+  "updated_at": "2026-05-15T23:32:51.509638+00:00",
   "entries": {
     "8e982b4ad42597f84c533228e5c858bc278bfc0d": {
       "status": "no_match",
@@ -1241,13 +1241,6 @@
       "gerais": [],
       "updated_at": "2026-05-08T13:13:03.812148+00:00"
     },
-    "e956315ae8473b7870b1b69d42e2a331849d3a56": {
-      "status": "filled",
-      "tse": "",
-      "tre": "https://www.tre-pe.jus.br/comunicacao/noticias/2026/Janeiro/confira-a-pauta-de-julgamentos-desta-quarta-feira-21",
-      "gerais": [],
-      "updated_at": "2026-05-08T13:13:03.812192+00:00"
-    },
     "ae0fe728238267fd4df653337aa2831dcddc7649": {
       "status": "error_retryable",
       "tse": "",
@@ -2275,13 +2268,6 @@
       "gerais": [],
       "updated_at": "2026-05-08T13:17:55.048290+00:00"
     },
-    "ad0992317742a3466d23dd50caedc99beb099b2e": {
-      "status": "filled",
-      "tse": "https://www.tse.jus.br/comunicacao/noticias/2025/Maio/confira-a-pauta-de-julgamentos-do-tse-desta-terca-feira-20",
-      "tre": "",
-      "gerais": [],
-      "updated_at": "2026-05-08T13:17:55.048323+00:00"
-    },
     "6855cbd3c3a24f79c1faa47e7e82de3f1773fe3e": {
       "status": "no_match",
       "tse": "",
@@ -2381,13 +2367,6 @@
       "tre": "",
       "gerais": [],
       "updated_at": "2026-05-08T13:18:42.883615+00:00"
-    },
-    "1651dfab66dacae0c739e73f8efc9f75cb686180": {
-      "status": "filled",
-      "tse": "https://www.tse.jus.br/comunicacao/noticias/2024/Junho/confira-a-pauta-de-julgamentos-do-tse-desta-quinta-feira-6",
-      "tre": "",
-      "gerais": [],
-      "updated_at": "2026-05-08T13:18:42.883684+00:00"
     },
     "11edc29b1fbee24e8ef55f15ba21f9b2f5194e7b": {
       "status": "no_match",
@@ -2847,7 +2826,7 @@
     "5eca8eb236fa94ada76a7142e286f800b61ab99a": {
       "status": "filled",
       "tse": "",
-      "tre": "https://www.tre-rn.jus.br/comunicacao/noticias/2025/Dezembro/pauta-da-sessao-plenaria-do-dia-18-12-2025",
+      "tre": "",
       "gerais": [
         "https://g1.globo.com/rn/rio-grande-do-norte/noticia/2025/04/07/justica-eleitoral-cassa-prefeito-e-vice-prefeito-de-lajes-por-abuso-de-poder-politico-em-2024.ghtml"
       ],
@@ -2873,13 +2852,6 @@
       "tre": "",
       "gerais": [],
       "updated_at": "2026-05-08T13:21:11.941895+00:00"
-    },
-    "23b43b1b690e5d3e4dd8f8d9dd10232ed1ca3c7e": {
-      "status": "filled",
-      "tse": "https://www.tse.jus.br/comunicacao/noticias/2024/Setembro/confira-a-pauta-de-julgamentos-do-tse-desta-quinta-feira-19",
-      "tre": "",
-      "gerais": [],
-      "updated_at": "2026-05-08T13:21:11.941966+00:00"
     },
     "93b3f039901f2d961e8ca8f9c44db3394ea74831": {
       "status": "filled",
@@ -3133,7 +3105,7 @@
     "c96ac7abc667ad0a510f940ebb2d9ddf3506d932": {
       "status": "filled",
       "tse": "https://www.tse.jus.br/comunicacao/noticias/2026/Abril/tse-mantem-desaprovacao-de-contas-de-prefeito-e-vice-de-teotonio-vilela-al",
-      "tre": "https://www.tre-al.jus.br/comunicacao/noticias/2025/Janeiro/pauta-de-julgamentos-do-tre-al",
+      "tre": "",
       "gerais": [],
       "updated_at": "2026-05-08T13:22:13.908582+00:00"
     },
@@ -3704,13 +3676,6 @@
       "gerais": [],
       "updated_at": "2026-05-08T13:25:10.451516+00:00"
     },
-    "672c3a610e9f19f4835d55e5fed40fb0025a631d": {
-      "status": "filled",
-      "tse": "https://www.tse.jus.br/comunicacao/noticias/2024/Outubro/confira-a-pauta-de-julgamentos-do-tse-desta-quinta-feira-24",
-      "tre": "",
-      "gerais": [],
-      "updated_at": "2026-05-08T13:25:28.957529+00:00"
-    },
     "39f933cb3ff49bdbca063b9e2831c93228eff497": {
       "status": "error_retryable",
       "tse": "",
@@ -4047,13 +4012,6 @@
       "gerais": [],
       "updated_at": "2026-05-08T13:26:55.790845+00:00"
     },
-    "f5066bae8df1e796c8e70707be4583b5d9c62fd0": {
-      "status": "filled",
-      "tse": "https://www.tse.jus.br/comunicacao/noticias/2026/Abril/confira-a-pauta-de-julgamentos-do-tse-desta-quinta-feira-9",
-      "tre": "",
-      "gerais": [],
-      "updated_at": "2026-05-08T13:26:55.790887+00:00"
-    },
     "7391fba52039506933dc3811c9cb5a36fbe14370": {
       "status": "filled",
       "tse": "https://www.tse.jus.br/comunicacao/noticias/2026/Abril/tse-mantem-condenacao-de-deputado-de-roraima-por-compra-de-votos",
@@ -4153,13 +4111,6 @@
       "tre": "",
       "gerais": [],
       "updated_at": "2026-05-08T13:27:37.519410+00:00"
-    },
-    "03fe3e66718e809d87feffd87787a5a0adf1e85f": {
-      "status": "filled",
-      "tse": "",
-      "tre": "https://www.tre-rn.jus.br/comunicacao/noticias/2026/Janeiro/pauta-da-sessao-plenaria-do-dia-22-01-2026",
-      "gerais": [],
-      "updated_at": "2026-05-08T13:27:37.519474+00:00"
     },
     "3771c3871a86b69de95cfc3ac6dd5fd1a81bbed9": {
       "status": "error_retryable",
@@ -4765,13 +4716,6 @@
       "gerais": [],
       "updated_at": "2026-05-08T13:31:20.462399+00:00"
     },
-    "43977624794c79ea653108425cd41a1cd8b64dad": {
-      "status": "filled",
-      "tse": "",
-      "tre": "https://www.tre-ba.jus.br/comunicacao/noticias/2024/Abril/tre-ba-divulga-pauta-de-julgamentos-do-dia-10-de-abril",
-      "gerais": [],
-      "updated_at": "2026-05-08T13:31:20.462495+00:00"
-    },
     "7b30ef952c892f5f8d6d0020d9ed0848e2b60614": {
       "status": "error_retryable",
       "tse": "",
@@ -4803,7 +4747,7 @@
     "a10526660059d6354215aa0d6365283615ae6481": {
       "status": "filled",
       "tse": "https://www.tse.jus.br/comunicacao/noticias/2026/Fevereiro/tse-segue-mp-eleitoral-e-mantem-multa-ao-prefeito-de-jacarei-sp-por-propaganda-eleitoral-irregular-em-2024",
-      "tre": "https://www.tre-sp.jus.br/comunicacao/noticias/2025/Dezembro/pauta-da-sessao-virtual-de-15-de-dezembro-de-2025",
+      "tre": "",
       "gerais": [],
       "updated_at": "2026-05-08T13:31:20.462660+00:00"
     },
@@ -4985,13 +4929,6 @@
       "tre": "",
       "gerais": [],
       "updated_at": "2026-05-08T13:32:35.399147+00:00"
-    },
-    "84e7831505ba2180dd78e857a14fe320abe60f09": {
-      "status": "filled",
-      "tse": "",
-      "tre": "https://www.tre-rn.jus.br/comunicacao/noticias/2025/Julho/confira-a-pauta-dos-julgamentos-processuais-desta-quinta-feira-31",
-      "gerais": [],
-      "updated_at": "2026-05-08T13:32:35.399246+00:00"
     },
     "45bef094cd4d5d6a721350c8740094bce82315bb": {
       "status": "no_match",
@@ -5786,7 +5723,7 @@
     },
     "bbcc4635a2b6a5135977e870af920d6cb4073e00": {
       "status": "filled",
-      "tse": "https://www.tse.jus.br/comunicacao/noticias/2026/Marco/confira-a-pauta-de-julgamentos-do-tse-desta-quinta-26",
+      "tse": "",
       "tre": "https://www.tre-ap.jus.br/comunicacao/noticias/2025/Outubro/tre-ap-mantem-cassacao-de-prefeito-e-vice-de-oiapoque-no-ap",
       "gerais": [
         "https://g1.globo.com/ap/amapa/noticia/2025/10/23/tre-ap-mantem-cassacao-de-prefeito-e-vice-de-oiapoque-no-ap.ghtml",
@@ -6587,13 +6524,6 @@
       "gerais": [],
       "updated_at": "2026-05-08T13:41:12.586863+00:00"
     },
-    "978d0e43513acf73dc0d015762da33e81e508d8e": {
-      "status": "filled",
-      "tse": "",
-      "tre": "https://www.tre-ap.jus.br/comunicacao/noticias/2026/Janeiro/tre-ap-abre-o-ano-judiciario-nesta-quarta-feira-21-de-janeiro",
-      "gerais": [],
-      "updated_at": "2026-05-08T13:41:12.586913+00:00"
-    },
     "f4f1a7c396e73ce3072de7c6a80c2a412d4a3e28": {
       "status": "error_retryable",
       "tse": "",
@@ -6705,13 +6635,6 @@
       "tre": "",
       "gerais": [],
       "updated_at": "2026-05-08T13:41:34.636617+00:00"
-    },
-    "c47425d7203a8a5a8e33c343e6829475976d8e86": {
-      "status": "filled",
-      "tse": "",
-      "tre": "https://www.tre-rn.jus.br/comunicacao/noticias/2026/marco/pauta-da-sessao-plenaria-do-dia-12-03-2026",
-      "gerais": [],
-      "updated_at": "2026-05-08T13:41:34.636678+00:00"
     },
     "e3c7042ba5d40fe00a397044566c7066c9d395a2": {
       "status": "error_retryable",
@@ -7082,6 +7005,20 @@
       "tre": "",
       "gerais": [],
       "updated_at": "2026-05-08T13:43:33.639491+00:00"
+    },
+    "9f4d1d38fb3bd32371f6c499b1d48d7937afe41a": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-05-15T23:32:51.509546+00:00"
+    },
+    "5b26652ecdbfb9ea722064f8f22736437d412216": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-05-15T23:32:51.509615+00:00"
     }
   }
 }

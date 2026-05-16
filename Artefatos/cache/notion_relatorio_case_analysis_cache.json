@@ -13354,8 +13354,1968 @@
         "display_score": 5,
         "ranking_reason": ""
       }
+    },
+    "numero_unico:0601726-87.2022.6.07.0000": {
+      "model": "gpt-5.5",
+      "case_id": "0601726-87.2022.6.07.0000",
+      "page_id": "36172195-5c64-8179-b393-f60fdc55c407",
+      "processo": "0601726-87.2022.6.07.0000",
+      "content_hash": "5083af58ceb37847735c68edebe41c317e60cf70e41f657b485cd95e4e591ad4",
+      "cached_at_utc": "2026-05-15T23:32:34.494272+00:00",
+      "analysis": {
+        "case_id": "0601726-87.2022.6.07.0000",
+        "title": "Prestação de contas de candidata distrital com FEFC, ressalvas e devolução ao Tesouro Nacional",
+        "relevance_score": 6,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "Vanessa Guimarães de Salles Pereira"
+        ],
+        "parties": [],
+        "lawyers_signal": "A advogada Bruna de Freitas do Amaral aparece apenas neste caso entre os dados fornecidos, sem sinal de recorrência no período informado.",
+        "what_happened": "Vanessa Guimarães de Salles Pereira, candidata a deputado distrital em 2022, interpôs recurso especial eleitoral contra acórdão do TRE/DF que aprovou suas contas com ressalvas e determinou recolhimento ao Tesouro Nacional. O TSE negou seguimento ao recurso, mantendo o entendimento regional.",
+        "legal_grounds": "O TSE aplicou a jurisprudência sobre prestação de contas eleitorais com recursos do FEFC: erro material na identificação de fornecedor, quando esclarecido por documentação, pode ser tratado como falha irrelevante; documentação insuficiente de despesas com FEFC justifica ressalva e devolução ao erário. O recurso também esbarrou na impossibilidade de reexame de provas e na conformidade do acórdão regional com a jurisprudência do TSE, com incidência das Súmulas 24 e 30/TSE.",
+        "consequence": "O recurso especial eleitoral não foi conhecido, preservando-se a aprovação das contas com ressalvas e a determinação de recolhimento de valores ao Tesouro Nacional.",
+        "strategic_comment": "O caso tem utilidade para monitoramento legislativo por consolidar tratamento operacional de falhas em contas de campanha financiadas com FEFC. A decisão não cria tese nova, mas reforça linha restritiva quanto ao reexame probatório no TSE e confirma que a origem pública do recurso impõe devolução quando a comprovação é insuficiente.",
+        "why_relevant": "A relevância é média porque o processo envolve FEFC e prestação de contas de campanha, tema com impacto sistêmico para candidaturas e partidos. O interesse federal é limitado porque a candidatura era distrital, não houve partido identificado nos dados fornecidos e a decisão aplicou jurisprudência já consolidada.",
+        "source_notes": [
+          "Processo REspEl nº 0601726-87.2022.6.07.0000, decisão de 14/05/2026, relatoria do Min. André Mendonça.",
+          "Candidata ao cargo de deputado distrital nas Eleições 2022.",
+          "Tema informado: omissão e irregularidade em despesas com FEFC, erro material formal, proporcionalidade, ressalva e devolução ao erário."
+        ],
+        "page_id": "36172195-5c64-8179-b393-f60fdc55c407",
+        "display_score": 6,
+        "ranking_reason": ""
+      }
+    },
+    "numero_processo:60172687": {
+      "model": "gpt-5.5",
+      "case_id": "0601726-87.2022.6.07.0000",
+      "page_id": "36172195-5c64-8179-b393-f60fdc55c407",
+      "processo": "0601726-87.2022.6.07.0000",
+      "content_hash": "5083af58ceb37847735c68edebe41c317e60cf70e41f657b485cd95e4e591ad4",
+      "cached_at_utc": "2026-05-15T23:32:34.494272+00:00",
+      "analysis": {
+        "case_id": "0601726-87.2022.6.07.0000",
+        "title": "Prestação de contas de candidata distrital com FEFC, ressalvas e devolução ao Tesouro Nacional",
+        "relevance_score": 6,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "Vanessa Guimarães de Salles Pereira"
+        ],
+        "parties": [],
+        "lawyers_signal": "A advogada Bruna de Freitas do Amaral aparece apenas neste caso entre os dados fornecidos, sem sinal de recorrência no período informado.",
+        "what_happened": "Vanessa Guimarães de Salles Pereira, candidata a deputado distrital em 2022, interpôs recurso especial eleitoral contra acórdão do TRE/DF que aprovou suas contas com ressalvas e determinou recolhimento ao Tesouro Nacional. O TSE negou seguimento ao recurso, mantendo o entendimento regional.",
+        "legal_grounds": "O TSE aplicou a jurisprudência sobre prestação de contas eleitorais com recursos do FEFC: erro material na identificação de fornecedor, quando esclarecido por documentação, pode ser tratado como falha irrelevante; documentação insuficiente de despesas com FEFC justifica ressalva e devolução ao erário. O recurso também esbarrou na impossibilidade de reexame de provas e na conformidade do acórdão regional com a jurisprudência do TSE, com incidência das Súmulas 24 e 30/TSE.",
+        "consequence": "O recurso especial eleitoral não foi conhecido, preservando-se a aprovação das contas com ressalvas e a determinação de recolhimento de valores ao Tesouro Nacional.",
+        "strategic_comment": "O caso tem utilidade para monitoramento legislativo por consolidar tratamento operacional de falhas em contas de campanha financiadas com FEFC. A decisão não cria tese nova, mas reforça linha restritiva quanto ao reexame probatório no TSE e confirma que a origem pública do recurso impõe devolução quando a comprovação é insuficiente.",
+        "why_relevant": "A relevância é média porque o processo envolve FEFC e prestação de contas de campanha, tema com impacto sistêmico para candidaturas e partidos. O interesse federal é limitado porque a candidatura era distrital, não houve partido identificado nos dados fornecidos e a decisão aplicou jurisprudência já consolidada.",
+        "source_notes": [
+          "Processo REspEl nº 0601726-87.2022.6.07.0000, decisão de 14/05/2026, relatoria do Min. André Mendonça.",
+          "Candidata ao cargo de deputado distrital nas Eleições 2022.",
+          "Tema informado: omissão e irregularidade em despesas com FEFC, erro material formal, proporcionalidade, ressalva e devolução ao erário."
+        ],
+        "page_id": "36172195-5c64-8179-b393-f60fdc55c407",
+        "display_score": 6,
+        "ranking_reason": ""
+      }
+    },
+    "page_id:36172195-5c64-8179-b393-f60fdc55c407": {
+      "model": "gpt-5.5",
+      "case_id": "0601726-87.2022.6.07.0000",
+      "page_id": "36172195-5c64-8179-b393-f60fdc55c407",
+      "processo": "0601726-87.2022.6.07.0000",
+      "content_hash": "5083af58ceb37847735c68edebe41c317e60cf70e41f657b485cd95e4e591ad4",
+      "cached_at_utc": "2026-05-15T23:32:34.494272+00:00",
+      "analysis": {
+        "case_id": "0601726-87.2022.6.07.0000",
+        "title": "Prestação de contas de candidata distrital com FEFC, ressalvas e devolução ao Tesouro Nacional",
+        "relevance_score": 6,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "Vanessa Guimarães de Salles Pereira"
+        ],
+        "parties": [],
+        "lawyers_signal": "A advogada Bruna de Freitas do Amaral aparece apenas neste caso entre os dados fornecidos, sem sinal de recorrência no período informado.",
+        "what_happened": "Vanessa Guimarães de Salles Pereira, candidata a deputado distrital em 2022, interpôs recurso especial eleitoral contra acórdão do TRE/DF que aprovou suas contas com ressalvas e determinou recolhimento ao Tesouro Nacional. O TSE negou seguimento ao recurso, mantendo o entendimento regional.",
+        "legal_grounds": "O TSE aplicou a jurisprudência sobre prestação de contas eleitorais com recursos do FEFC: erro material na identificação de fornecedor, quando esclarecido por documentação, pode ser tratado como falha irrelevante; documentação insuficiente de despesas com FEFC justifica ressalva e devolução ao erário. O recurso também esbarrou na impossibilidade de reexame de provas e na conformidade do acórdão regional com a jurisprudência do TSE, com incidência das Súmulas 24 e 30/TSE.",
+        "consequence": "O recurso especial eleitoral não foi conhecido, preservando-se a aprovação das contas com ressalvas e a determinação de recolhimento de valores ao Tesouro Nacional.",
+        "strategic_comment": "O caso tem utilidade para monitoramento legislativo por consolidar tratamento operacional de falhas em contas de campanha financiadas com FEFC. A decisão não cria tese nova, mas reforça linha restritiva quanto ao reexame probatório no TSE e confirma que a origem pública do recurso impõe devolução quando a comprovação é insuficiente.",
+        "why_relevant": "A relevância é média porque o processo envolve FEFC e prestação de contas de campanha, tema com impacto sistêmico para candidaturas e partidos. O interesse federal é limitado porque a candidatura era distrital, não houve partido identificado nos dados fornecidos e a decisão aplicou jurisprudência já consolidada.",
+        "source_notes": [
+          "Processo REspEl nº 0601726-87.2022.6.07.0000, decisão de 14/05/2026, relatoria do Min. André Mendonça.",
+          "Candidata ao cargo de deputado distrital nas Eleições 2022.",
+          "Tema informado: omissão e irregularidade em despesas com FEFC, erro material formal, proporcionalidade, ressalva e devolução ao erário."
+        ],
+        "page_id": "36172195-5c64-8179-b393-f60fdc55c407",
+        "display_score": 6,
+        "ranking_reason": ""
+      }
+    },
+    "case_id:0601726-87.2022.6.07.0000": {
+      "model": "gpt-5.5",
+      "case_id": "0601726-87.2022.6.07.0000",
+      "page_id": "36172195-5c64-8179-b393-f60fdc55c407",
+      "processo": "0601726-87.2022.6.07.0000",
+      "content_hash": "5083af58ceb37847735c68edebe41c317e60cf70e41f657b485cd95e4e591ad4",
+      "cached_at_utc": "2026-05-15T23:32:34.494272+00:00",
+      "analysis": {
+        "case_id": "0601726-87.2022.6.07.0000",
+        "title": "Prestação de contas de candidata distrital com FEFC, ressalvas e devolução ao Tesouro Nacional",
+        "relevance_score": 6,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "Vanessa Guimarães de Salles Pereira"
+        ],
+        "parties": [],
+        "lawyers_signal": "A advogada Bruna de Freitas do Amaral aparece apenas neste caso entre os dados fornecidos, sem sinal de recorrência no período informado.",
+        "what_happened": "Vanessa Guimarães de Salles Pereira, candidata a deputado distrital em 2022, interpôs recurso especial eleitoral contra acórdão do TRE/DF que aprovou suas contas com ressalvas e determinou recolhimento ao Tesouro Nacional. O TSE negou seguimento ao recurso, mantendo o entendimento regional.",
+        "legal_grounds": "O TSE aplicou a jurisprudência sobre prestação de contas eleitorais com recursos do FEFC: erro material na identificação de fornecedor, quando esclarecido por documentação, pode ser tratado como falha irrelevante; documentação insuficiente de despesas com FEFC justifica ressalva e devolução ao erário. O recurso também esbarrou na impossibilidade de reexame de provas e na conformidade do acórdão regional com a jurisprudência do TSE, com incidência das Súmulas 24 e 30/TSE.",
+        "consequence": "O recurso especial eleitoral não foi conhecido, preservando-se a aprovação das contas com ressalvas e a determinação de recolhimento de valores ao Tesouro Nacional.",
+        "strategic_comment": "O caso tem utilidade para monitoramento legislativo por consolidar tratamento operacional de falhas em contas de campanha financiadas com FEFC. A decisão não cria tese nova, mas reforça linha restritiva quanto ao reexame probatório no TSE e confirma que a origem pública do recurso impõe devolução quando a comprovação é insuficiente.",
+        "why_relevant": "A relevância é média porque o processo envolve FEFC e prestação de contas de campanha, tema com impacto sistêmico para candidaturas e partidos. O interesse federal é limitado porque a candidatura era distrital, não houve partido identificado nos dados fornecidos e a decisão aplicou jurisprudência já consolidada.",
+        "source_notes": [
+          "Processo REspEl nº 0601726-87.2022.6.07.0000, decisão de 14/05/2026, relatoria do Min. André Mendonça.",
+          "Candidata ao cargo de deputado distrital nas Eleições 2022.",
+          "Tema informado: omissão e irregularidade em despesas com FEFC, erro material formal, proporcionalidade, ressalva e devolução ao erário."
+        ],
+        "page_id": "36172195-5c64-8179-b393-f60fdc55c407",
+        "display_score": 6,
+        "ranking_reason": ""
+      }
+    },
+    "content_hash:5083af58ceb37847735c68edebe41c317e60cf70e41f657b485cd95e4e591ad4": {
+      "model": "gpt-5.5",
+      "case_id": "0601726-87.2022.6.07.0000",
+      "page_id": "36172195-5c64-8179-b393-f60fdc55c407",
+      "processo": "0601726-87.2022.6.07.0000",
+      "content_hash": "5083af58ceb37847735c68edebe41c317e60cf70e41f657b485cd95e4e591ad4",
+      "cached_at_utc": "2026-05-15T23:32:34.494272+00:00",
+      "analysis": {
+        "case_id": "0601726-87.2022.6.07.0000",
+        "title": "Prestação de contas de candidata distrital com FEFC, ressalvas e devolução ao Tesouro Nacional",
+        "relevance_score": 6,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "Vanessa Guimarães de Salles Pereira"
+        ],
+        "parties": [],
+        "lawyers_signal": "A advogada Bruna de Freitas do Amaral aparece apenas neste caso entre os dados fornecidos, sem sinal de recorrência no período informado.",
+        "what_happened": "Vanessa Guimarães de Salles Pereira, candidata a deputado distrital em 2022, interpôs recurso especial eleitoral contra acórdão do TRE/DF que aprovou suas contas com ressalvas e determinou recolhimento ao Tesouro Nacional. O TSE negou seguimento ao recurso, mantendo o entendimento regional.",
+        "legal_grounds": "O TSE aplicou a jurisprudência sobre prestação de contas eleitorais com recursos do FEFC: erro material na identificação de fornecedor, quando esclarecido por documentação, pode ser tratado como falha irrelevante; documentação insuficiente de despesas com FEFC justifica ressalva e devolução ao erário. O recurso também esbarrou na impossibilidade de reexame de provas e na conformidade do acórdão regional com a jurisprudência do TSE, com incidência das Súmulas 24 e 30/TSE.",
+        "consequence": "O recurso especial eleitoral não foi conhecido, preservando-se a aprovação das contas com ressalvas e a determinação de recolhimento de valores ao Tesouro Nacional.",
+        "strategic_comment": "O caso tem utilidade para monitoramento legislativo por consolidar tratamento operacional de falhas em contas de campanha financiadas com FEFC. A decisão não cria tese nova, mas reforça linha restritiva quanto ao reexame probatório no TSE e confirma que a origem pública do recurso impõe devolução quando a comprovação é insuficiente.",
+        "why_relevant": "A relevância é média porque o processo envolve FEFC e prestação de contas de campanha, tema com impacto sistêmico para candidaturas e partidos. O interesse federal é limitado porque a candidatura era distrital, não houve partido identificado nos dados fornecidos e a decisão aplicou jurisprudência já consolidada.",
+        "source_notes": [
+          "Processo REspEl nº 0601726-87.2022.6.07.0000, decisão de 14/05/2026, relatoria do Min. André Mendonça.",
+          "Candidata ao cargo de deputado distrital nas Eleições 2022.",
+          "Tema informado: omissão e irregularidade em despesas com FEFC, erro material formal, proporcionalidade, ressalva e devolução ao erário."
+        ],
+        "page_id": "36172195-5c64-8179-b393-f60fdc55c407",
+        "display_score": 6,
+        "ranking_reason": ""
+      }
+    },
+    "numero_unico:0600075-11.2024.6.20.0025": {
+      "model": "gpt-5.5",
+      "case_id": "0600075-11.2024.6.20.0025",
+      "page_id": "36172195-5c64-81bb-bcbc-f1e7761fc73d",
+      "processo": "0600075-11.2024.6.20.0025",
+      "content_hash": "74f5b279bbe8984db7103d01c3bddbde3e3981b517669a7273b58694ae3d0136",
+      "cached_at_utc": "2026-05-15T23:32:37.059150+00:00",
+      "analysis": {
+        "case_id": "0600075-11.2024.6.20.0025",
+        "title": "Conduta vedada por vídeo em obra pública e multa a prefeito pré-candidato à reeleição em Caicó",
+        "relevance_score": 4,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Judas Tadeu Alves dos Santos, prefeito de Caicó/RN e então pré-candidato à reeleição"
+        ],
+        "parties": [
+          "SOLIDARIEDADE/RN"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados deste processo no período informado.",
+        "what_happened": "A representação especial apontou que o prefeito de Caicó/RN, então pré-candidato à reeleição, teria usado obra pública para gravar e divulgar vídeo em perfil pessoal de rede social, com encenação. A instância ordinária reconheceu a conduta vedada e aplicou multa. No TSE, o recurso especial não avançou.",
+        "legal_grounds": "O fundamento central foi o art. 73, I, da Lei nº 9.504/1997, relativo à conduta vedada a agente público. O relator aplicou a Súmula 30 do TSE porque o acórdão regional estava alinhado à jurisprudência do Tribunal Superior, e a Súmula 24 do TSE porque a alteração da conclusão exigiria reexame de fatos e provas.",
+        "consequence": "O TSE negou seguimento ao recurso especial. Ficou mantida a condenação ao pagamento de multa imposta na instância ordinária.",
+        "strategic_comment": "O caso tem utilidade como precedente operacional sobre propaganda em rede social com uso de obra pública, mas permanece centrado em disputa municipal. A relevância federal é limitada, pois não envolve cargo federal, órgão partidário nacional ou estadual, Fundo Partidário, FEFC, cotas, contas partidárias ou registro partidário.",
+        "why_relevant": "A decisão reforça a leitura de que o uso de bem ou obra pública em conteúdo eleitoral ou pré-eleitoral pode configurar conduta vedada, inclusive quando divulgado em rede social pessoal. Para a agenda legislativa federal, o interesse é mais normativo do que institucional, por indicar parâmetro de aplicação do art. 73, I, da Lei das Eleições em comunicação digital de agentes públicos.",
+        "source_notes": [
+          "Processo decidido em 14/05/2026, dentro do período de 11/05/2026 a 15/05/2026.",
+          "A base enviada informa 13 processos no período, mas forneceu dados analíticos de apenas este processo.",
+          "Partido identificado nos dados: SOLIDARIEDADE/RN."
+        ],
+        "page_id": "36172195-5c64-81bb-bcbc-f1e7761fc73d",
+        "display_score": 4,
+        "ranking_reason": ""
+      }
+    },
+    "numero_processo:60007511": {
+      "model": "gpt-5.5",
+      "case_id": "0600075-11.2024.6.20.0025",
+      "page_id": "36172195-5c64-81bb-bcbc-f1e7761fc73d",
+      "processo": "0600075-11.2024.6.20.0025",
+      "content_hash": "74f5b279bbe8984db7103d01c3bddbde3e3981b517669a7273b58694ae3d0136",
+      "cached_at_utc": "2026-05-15T23:32:37.059150+00:00",
+      "analysis": {
+        "case_id": "0600075-11.2024.6.20.0025",
+        "title": "Conduta vedada por vídeo em obra pública e multa a prefeito pré-candidato à reeleição em Caicó",
+        "relevance_score": 4,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Judas Tadeu Alves dos Santos, prefeito de Caicó/RN e então pré-candidato à reeleição"
+        ],
+        "parties": [
+          "SOLIDARIEDADE/RN"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados deste processo no período informado.",
+        "what_happened": "A representação especial apontou que o prefeito de Caicó/RN, então pré-candidato à reeleição, teria usado obra pública para gravar e divulgar vídeo em perfil pessoal de rede social, com encenação. A instância ordinária reconheceu a conduta vedada e aplicou multa. No TSE, o recurso especial não avançou.",
+        "legal_grounds": "O fundamento central foi o art. 73, I, da Lei nº 9.504/1997, relativo à conduta vedada a agente público. O relator aplicou a Súmula 30 do TSE porque o acórdão regional estava alinhado à jurisprudência do Tribunal Superior, e a Súmula 24 do TSE porque a alteração da conclusão exigiria reexame de fatos e provas.",
+        "consequence": "O TSE negou seguimento ao recurso especial. Ficou mantida a condenação ao pagamento de multa imposta na instância ordinária.",
+        "strategic_comment": "O caso tem utilidade como precedente operacional sobre propaganda em rede social com uso de obra pública, mas permanece centrado em disputa municipal. A relevância federal é limitada, pois não envolve cargo federal, órgão partidário nacional ou estadual, Fundo Partidário, FEFC, cotas, contas partidárias ou registro partidário.",
+        "why_relevant": "A decisão reforça a leitura de que o uso de bem ou obra pública em conteúdo eleitoral ou pré-eleitoral pode configurar conduta vedada, inclusive quando divulgado em rede social pessoal. Para a agenda legislativa federal, o interesse é mais normativo do que institucional, por indicar parâmetro de aplicação do art. 73, I, da Lei das Eleições em comunicação digital de agentes públicos.",
+        "source_notes": [
+          "Processo decidido em 14/05/2026, dentro do período de 11/05/2026 a 15/05/2026.",
+          "A base enviada informa 13 processos no período, mas forneceu dados analíticos de apenas este processo.",
+          "Partido identificado nos dados: SOLIDARIEDADE/RN."
+        ],
+        "page_id": "36172195-5c64-81bb-bcbc-f1e7761fc73d",
+        "display_score": 4,
+        "ranking_reason": ""
+      }
+    },
+    "page_id:36172195-5c64-81bb-bcbc-f1e7761fc73d": {
+      "model": "gpt-5.5",
+      "case_id": "0600075-11.2024.6.20.0025",
+      "page_id": "36172195-5c64-81bb-bcbc-f1e7761fc73d",
+      "processo": "0600075-11.2024.6.20.0025",
+      "content_hash": "74f5b279bbe8984db7103d01c3bddbde3e3981b517669a7273b58694ae3d0136",
+      "cached_at_utc": "2026-05-15T23:32:37.059150+00:00",
+      "analysis": {
+        "case_id": "0600075-11.2024.6.20.0025",
+        "title": "Conduta vedada por vídeo em obra pública e multa a prefeito pré-candidato à reeleição em Caicó",
+        "relevance_score": 4,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Judas Tadeu Alves dos Santos, prefeito de Caicó/RN e então pré-candidato à reeleição"
+        ],
+        "parties": [
+          "SOLIDARIEDADE/RN"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados deste processo no período informado.",
+        "what_happened": "A representação especial apontou que o prefeito de Caicó/RN, então pré-candidato à reeleição, teria usado obra pública para gravar e divulgar vídeo em perfil pessoal de rede social, com encenação. A instância ordinária reconheceu a conduta vedada e aplicou multa. No TSE, o recurso especial não avançou.",
+        "legal_grounds": "O fundamento central foi o art. 73, I, da Lei nº 9.504/1997, relativo à conduta vedada a agente público. O relator aplicou a Súmula 30 do TSE porque o acórdão regional estava alinhado à jurisprudência do Tribunal Superior, e a Súmula 24 do TSE porque a alteração da conclusão exigiria reexame de fatos e provas.",
+        "consequence": "O TSE negou seguimento ao recurso especial. Ficou mantida a condenação ao pagamento de multa imposta na instância ordinária.",
+        "strategic_comment": "O caso tem utilidade como precedente operacional sobre propaganda em rede social com uso de obra pública, mas permanece centrado em disputa municipal. A relevância federal é limitada, pois não envolve cargo federal, órgão partidário nacional ou estadual, Fundo Partidário, FEFC, cotas, contas partidárias ou registro partidário.",
+        "why_relevant": "A decisão reforça a leitura de que o uso de bem ou obra pública em conteúdo eleitoral ou pré-eleitoral pode configurar conduta vedada, inclusive quando divulgado em rede social pessoal. Para a agenda legislativa federal, o interesse é mais normativo do que institucional, por indicar parâmetro de aplicação do art. 73, I, da Lei das Eleições em comunicação digital de agentes públicos.",
+        "source_notes": [
+          "Processo decidido em 14/05/2026, dentro do período de 11/05/2026 a 15/05/2026.",
+          "A base enviada informa 13 processos no período, mas forneceu dados analíticos de apenas este processo.",
+          "Partido identificado nos dados: SOLIDARIEDADE/RN."
+        ],
+        "page_id": "36172195-5c64-81bb-bcbc-f1e7761fc73d",
+        "display_score": 4,
+        "ranking_reason": ""
+      }
+    },
+    "case_id:0600075-11.2024.6.20.0025": {
+      "model": "gpt-5.5",
+      "case_id": "0600075-11.2024.6.20.0025",
+      "page_id": "36172195-5c64-81bb-bcbc-f1e7761fc73d",
+      "processo": "0600075-11.2024.6.20.0025",
+      "content_hash": "74f5b279bbe8984db7103d01c3bddbde3e3981b517669a7273b58694ae3d0136",
+      "cached_at_utc": "2026-05-15T23:32:37.059150+00:00",
+      "analysis": {
+        "case_id": "0600075-11.2024.6.20.0025",
+        "title": "Conduta vedada por vídeo em obra pública e multa a prefeito pré-candidato à reeleição em Caicó",
+        "relevance_score": 4,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Judas Tadeu Alves dos Santos, prefeito de Caicó/RN e então pré-candidato à reeleição"
+        ],
+        "parties": [
+          "SOLIDARIEDADE/RN"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados deste processo no período informado.",
+        "what_happened": "A representação especial apontou que o prefeito de Caicó/RN, então pré-candidato à reeleição, teria usado obra pública para gravar e divulgar vídeo em perfil pessoal de rede social, com encenação. A instância ordinária reconheceu a conduta vedada e aplicou multa. No TSE, o recurso especial não avançou.",
+        "legal_grounds": "O fundamento central foi o art. 73, I, da Lei nº 9.504/1997, relativo à conduta vedada a agente público. O relator aplicou a Súmula 30 do TSE porque o acórdão regional estava alinhado à jurisprudência do Tribunal Superior, e a Súmula 24 do TSE porque a alteração da conclusão exigiria reexame de fatos e provas.",
+        "consequence": "O TSE negou seguimento ao recurso especial. Ficou mantida a condenação ao pagamento de multa imposta na instância ordinária.",
+        "strategic_comment": "O caso tem utilidade como precedente operacional sobre propaganda em rede social com uso de obra pública, mas permanece centrado em disputa municipal. A relevância federal é limitada, pois não envolve cargo federal, órgão partidário nacional ou estadual, Fundo Partidário, FEFC, cotas, contas partidárias ou registro partidário.",
+        "why_relevant": "A decisão reforça a leitura de que o uso de bem ou obra pública em conteúdo eleitoral ou pré-eleitoral pode configurar conduta vedada, inclusive quando divulgado em rede social pessoal. Para a agenda legislativa federal, o interesse é mais normativo do que institucional, por indicar parâmetro de aplicação do art. 73, I, da Lei das Eleições em comunicação digital de agentes públicos.",
+        "source_notes": [
+          "Processo decidido em 14/05/2026, dentro do período de 11/05/2026 a 15/05/2026.",
+          "A base enviada informa 13 processos no período, mas forneceu dados analíticos de apenas este processo.",
+          "Partido identificado nos dados: SOLIDARIEDADE/RN."
+        ],
+        "page_id": "36172195-5c64-81bb-bcbc-f1e7761fc73d",
+        "display_score": 4,
+        "ranking_reason": ""
+      }
+    },
+    "content_hash:74f5b279bbe8984db7103d01c3bddbde3e3981b517669a7273b58694ae3d0136": {
+      "model": "gpt-5.5",
+      "case_id": "0600075-11.2024.6.20.0025",
+      "page_id": "36172195-5c64-81bb-bcbc-f1e7761fc73d",
+      "processo": "0600075-11.2024.6.20.0025",
+      "content_hash": "74f5b279bbe8984db7103d01c3bddbde3e3981b517669a7273b58694ae3d0136",
+      "cached_at_utc": "2026-05-15T23:32:37.059150+00:00",
+      "analysis": {
+        "case_id": "0600075-11.2024.6.20.0025",
+        "title": "Conduta vedada por vídeo em obra pública e multa a prefeito pré-candidato à reeleição em Caicó",
+        "relevance_score": 4,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Judas Tadeu Alves dos Santos, prefeito de Caicó/RN e então pré-candidato à reeleição"
+        ],
+        "parties": [
+          "SOLIDARIEDADE/RN"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados deste processo no período informado.",
+        "what_happened": "A representação especial apontou que o prefeito de Caicó/RN, então pré-candidato à reeleição, teria usado obra pública para gravar e divulgar vídeo em perfil pessoal de rede social, com encenação. A instância ordinária reconheceu a conduta vedada e aplicou multa. No TSE, o recurso especial não avançou.",
+        "legal_grounds": "O fundamento central foi o art. 73, I, da Lei nº 9.504/1997, relativo à conduta vedada a agente público. O relator aplicou a Súmula 30 do TSE porque o acórdão regional estava alinhado à jurisprudência do Tribunal Superior, e a Súmula 24 do TSE porque a alteração da conclusão exigiria reexame de fatos e provas.",
+        "consequence": "O TSE negou seguimento ao recurso especial. Ficou mantida a condenação ao pagamento de multa imposta na instância ordinária.",
+        "strategic_comment": "O caso tem utilidade como precedente operacional sobre propaganda em rede social com uso de obra pública, mas permanece centrado em disputa municipal. A relevância federal é limitada, pois não envolve cargo federal, órgão partidário nacional ou estadual, Fundo Partidário, FEFC, cotas, contas partidárias ou registro partidário.",
+        "why_relevant": "A decisão reforça a leitura de que o uso de bem ou obra pública em conteúdo eleitoral ou pré-eleitoral pode configurar conduta vedada, inclusive quando divulgado em rede social pessoal. Para a agenda legislativa federal, o interesse é mais normativo do que institucional, por indicar parâmetro de aplicação do art. 73, I, da Lei das Eleições em comunicação digital de agentes públicos.",
+        "source_notes": [
+          "Processo decidido em 14/05/2026, dentro do período de 11/05/2026 a 15/05/2026.",
+          "A base enviada informa 13 processos no período, mas forneceu dados analíticos de apenas este processo.",
+          "Partido identificado nos dados: SOLIDARIEDADE/RN."
+        ],
+        "page_id": "36172195-5c64-81bb-bcbc-f1e7761fc73d",
+        "display_score": 4,
+        "ranking_reason": ""
+      }
+    },
+    "numero_unico:0600493-95.2024.6.19.0050": {
+      "model": "gpt-5.5",
+      "case_id": "0600493-95.2024.6.19.0050",
+      "page_id": "36172195-5c64-8126-9702-fa6049df8dd3",
+      "processo": "0600493-95.2024.6.19.0050",
+      "content_hash": "36dbd00f016924b928dafb942300c8ef20e166b20c0fd07c35554de444890208",
+      "cached_at_utc": "2026-05-15T23:32:40.948306+00:00",
+      "analysis": {
+        "case_id": "0600493-95.2024.6.19.0050",
+        "title": "Captação ilícita de sufrágio de vereador e barreiras recursais",
+        "relevance_score": 3,
+        "risk_level": "baixo",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "Pedro Ygor Gadelha Mota dos Santos"
+        ],
+        "parties": [],
+        "lawyers_signal": "Não há advogado recorrente no período indicado para este processo. Os patronos informados foram Clara Lima Gonçalves e Rafael Benicio Jesus de Lima.",
+        "what_happened": "Pedro Ygor Gadelha Mota dos Santos agravou contra decisão que inadmitiu recurso especial eleitoral. O TSE concluiu que o agravo não superou os óbices processuais apontados e manteve o resultado regional, sem reexaminar o conjunto fático-probatório.",
+        "legal_grounds": "A decisão aplicou o art. 41-A da Lei nº 9.504/1997 quanto à captação ilícita de sufrágio. No plano recursal, adotou a Súmula nº 26 do TSE, por ausência de impugnação específica, e a Súmula nº 24 do TSE, pela impossibilidade de reexame de fatos e provas em recurso especial eleitoral.",
+        "consequence": "O TSE negou seguimento ao agravo. Permaneceu o acórdão do TRE/RJ que manteve a condenação por captação ilícita de sufrágio, com cassação do diploma do candidato a vereador e multa de 5.000 UFIR.",
+        "strategic_comment": "O caso tem baixa projeção federal. A utilidade estratégica está na reafirmação de filtros processuais do TSE em matéria de art. 41-A: deficiência de impugnação e pretensão de reexame probatório impedem a abertura da instância especial. Não há, nos dados fornecidos, partido identificado nem tese nova sobre financiamento, cotas, contas partidárias, fidelidade, federações ou estrutura partidária.",
+        "why_relevant": "A relevância político-eleitoral é limitada e local, pois envolve candidato a vereador em município específico. Ainda assim, o processo confirma a estabilidade da jurisprudência do TSE sobre a dificuldade de rediscutir, em instância especial, condenações por captação ilícita de sufrágio quando a controvérsia depende de fatos e provas.",
+        "source_notes": [
+          "Data da decisão: 14/05/2026, dentro do período de 11/05/2026 a 15/05/2026.",
+          "Processo de origem municipal, referente às Eleições 2024 em Casimiro de Abreu/RJ, para o cargo de vereador.",
+          "As estatísticas do período mencionam 13 processos, mas os dados detalhados fornecidos abrangem apenas este caso."
+        ],
+        "page_id": "36172195-5c64-8126-9702-fa6049df8dd3",
+        "display_score": 3,
+        "ranking_reason": ""
+      }
+    },
+    "numero_processo:60049395": {
+      "model": "gpt-5.5",
+      "case_id": "0600493-95.2024.6.19.0050",
+      "page_id": "36172195-5c64-8126-9702-fa6049df8dd3",
+      "processo": "0600493-95.2024.6.19.0050",
+      "content_hash": "36dbd00f016924b928dafb942300c8ef20e166b20c0fd07c35554de444890208",
+      "cached_at_utc": "2026-05-15T23:32:40.948306+00:00",
+      "analysis": {
+        "case_id": "0600493-95.2024.6.19.0050",
+        "title": "Captação ilícita de sufrágio de vereador e barreiras recursais",
+        "relevance_score": 3,
+        "risk_level": "baixo",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "Pedro Ygor Gadelha Mota dos Santos"
+        ],
+        "parties": [],
+        "lawyers_signal": "Não há advogado recorrente no período indicado para este processo. Os patronos informados foram Clara Lima Gonçalves e Rafael Benicio Jesus de Lima.",
+        "what_happened": "Pedro Ygor Gadelha Mota dos Santos agravou contra decisão que inadmitiu recurso especial eleitoral. O TSE concluiu que o agravo não superou os óbices processuais apontados e manteve o resultado regional, sem reexaminar o conjunto fático-probatório.",
+        "legal_grounds": "A decisão aplicou o art. 41-A da Lei nº 9.504/1997 quanto à captação ilícita de sufrágio. No plano recursal, adotou a Súmula nº 26 do TSE, por ausência de impugnação específica, e a Súmula nº 24 do TSE, pela impossibilidade de reexame de fatos e provas em recurso especial eleitoral.",
+        "consequence": "O TSE negou seguimento ao agravo. Permaneceu o acórdão do TRE/RJ que manteve a condenação por captação ilícita de sufrágio, com cassação do diploma do candidato a vereador e multa de 5.000 UFIR.",
+        "strategic_comment": "O caso tem baixa projeção federal. A utilidade estratégica está na reafirmação de filtros processuais do TSE em matéria de art. 41-A: deficiência de impugnação e pretensão de reexame probatório impedem a abertura da instância especial. Não há, nos dados fornecidos, partido identificado nem tese nova sobre financiamento, cotas, contas partidárias, fidelidade, federações ou estrutura partidária.",
+        "why_relevant": "A relevância político-eleitoral é limitada e local, pois envolve candidato a vereador em município específico. Ainda assim, o processo confirma a estabilidade da jurisprudência do TSE sobre a dificuldade de rediscutir, em instância especial, condenações por captação ilícita de sufrágio quando a controvérsia depende de fatos e provas.",
+        "source_notes": [
+          "Data da decisão: 14/05/2026, dentro do período de 11/05/2026 a 15/05/2026.",
+          "Processo de origem municipal, referente às Eleições 2024 em Casimiro de Abreu/RJ, para o cargo de vereador.",
+          "As estatísticas do período mencionam 13 processos, mas os dados detalhados fornecidos abrangem apenas este caso."
+        ],
+        "page_id": "36172195-5c64-8126-9702-fa6049df8dd3",
+        "display_score": 3,
+        "ranking_reason": ""
+      }
+    },
+    "page_id:36172195-5c64-8126-9702-fa6049df8dd3": {
+      "model": "gpt-5.5",
+      "case_id": "0600493-95.2024.6.19.0050",
+      "page_id": "36172195-5c64-8126-9702-fa6049df8dd3",
+      "processo": "0600493-95.2024.6.19.0050",
+      "content_hash": "36dbd00f016924b928dafb942300c8ef20e166b20c0fd07c35554de444890208",
+      "cached_at_utc": "2026-05-15T23:32:40.948306+00:00",
+      "analysis": {
+        "case_id": "0600493-95.2024.6.19.0050",
+        "title": "Captação ilícita de sufrágio de vereador e barreiras recursais",
+        "relevance_score": 3,
+        "risk_level": "baixo",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "Pedro Ygor Gadelha Mota dos Santos"
+        ],
+        "parties": [],
+        "lawyers_signal": "Não há advogado recorrente no período indicado para este processo. Os patronos informados foram Clara Lima Gonçalves e Rafael Benicio Jesus de Lima.",
+        "what_happened": "Pedro Ygor Gadelha Mota dos Santos agravou contra decisão que inadmitiu recurso especial eleitoral. O TSE concluiu que o agravo não superou os óbices processuais apontados e manteve o resultado regional, sem reexaminar o conjunto fático-probatório.",
+        "legal_grounds": "A decisão aplicou o art. 41-A da Lei nº 9.504/1997 quanto à captação ilícita de sufrágio. No plano recursal, adotou a Súmula nº 26 do TSE, por ausência de impugnação específica, e a Súmula nº 24 do TSE, pela impossibilidade de reexame de fatos e provas em recurso especial eleitoral.",
+        "consequence": "O TSE negou seguimento ao agravo. Permaneceu o acórdão do TRE/RJ que manteve a condenação por captação ilícita de sufrágio, com cassação do diploma do candidato a vereador e multa de 5.000 UFIR.",
+        "strategic_comment": "O caso tem baixa projeção federal. A utilidade estratégica está na reafirmação de filtros processuais do TSE em matéria de art. 41-A: deficiência de impugnação e pretensão de reexame probatório impedem a abertura da instância especial. Não há, nos dados fornecidos, partido identificado nem tese nova sobre financiamento, cotas, contas partidárias, fidelidade, federações ou estrutura partidária.",
+        "why_relevant": "A relevância político-eleitoral é limitada e local, pois envolve candidato a vereador em município específico. Ainda assim, o processo confirma a estabilidade da jurisprudência do TSE sobre a dificuldade de rediscutir, em instância especial, condenações por captação ilícita de sufrágio quando a controvérsia depende de fatos e provas.",
+        "source_notes": [
+          "Data da decisão: 14/05/2026, dentro do período de 11/05/2026 a 15/05/2026.",
+          "Processo de origem municipal, referente às Eleições 2024 em Casimiro de Abreu/RJ, para o cargo de vereador.",
+          "As estatísticas do período mencionam 13 processos, mas os dados detalhados fornecidos abrangem apenas este caso."
+        ],
+        "page_id": "36172195-5c64-8126-9702-fa6049df8dd3",
+        "display_score": 3,
+        "ranking_reason": ""
+      }
+    },
+    "case_id:0600493-95.2024.6.19.0050": {
+      "model": "gpt-5.5",
+      "case_id": "0600493-95.2024.6.19.0050",
+      "page_id": "36172195-5c64-8126-9702-fa6049df8dd3",
+      "processo": "0600493-95.2024.6.19.0050",
+      "content_hash": "36dbd00f016924b928dafb942300c8ef20e166b20c0fd07c35554de444890208",
+      "cached_at_utc": "2026-05-15T23:32:40.948306+00:00",
+      "analysis": {
+        "case_id": "0600493-95.2024.6.19.0050",
+        "title": "Captação ilícita de sufrágio de vereador e barreiras recursais",
+        "relevance_score": 3,
+        "risk_level": "baixo",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "Pedro Ygor Gadelha Mota dos Santos"
+        ],
+        "parties": [],
+        "lawyers_signal": "Não há advogado recorrente no período indicado para este processo. Os patronos informados foram Clara Lima Gonçalves e Rafael Benicio Jesus de Lima.",
+        "what_happened": "Pedro Ygor Gadelha Mota dos Santos agravou contra decisão que inadmitiu recurso especial eleitoral. O TSE concluiu que o agravo não superou os óbices processuais apontados e manteve o resultado regional, sem reexaminar o conjunto fático-probatório.",
+        "legal_grounds": "A decisão aplicou o art. 41-A da Lei nº 9.504/1997 quanto à captação ilícita de sufrágio. No plano recursal, adotou a Súmula nº 26 do TSE, por ausência de impugnação específica, e a Súmula nº 24 do TSE, pela impossibilidade de reexame de fatos e provas em recurso especial eleitoral.",
+        "consequence": "O TSE negou seguimento ao agravo. Permaneceu o acórdão do TRE/RJ que manteve a condenação por captação ilícita de sufrágio, com cassação do diploma do candidato a vereador e multa de 5.000 UFIR.",
+        "strategic_comment": "O caso tem baixa projeção federal. A utilidade estratégica está na reafirmação de filtros processuais do TSE em matéria de art. 41-A: deficiência de impugnação e pretensão de reexame probatório impedem a abertura da instância especial. Não há, nos dados fornecidos, partido identificado nem tese nova sobre financiamento, cotas, contas partidárias, fidelidade, federações ou estrutura partidária.",
+        "why_relevant": "A relevância político-eleitoral é limitada e local, pois envolve candidato a vereador em município específico. Ainda assim, o processo confirma a estabilidade da jurisprudência do TSE sobre a dificuldade de rediscutir, em instância especial, condenações por captação ilícita de sufrágio quando a controvérsia depende de fatos e provas.",
+        "source_notes": [
+          "Data da decisão: 14/05/2026, dentro do período de 11/05/2026 a 15/05/2026.",
+          "Processo de origem municipal, referente às Eleições 2024 em Casimiro de Abreu/RJ, para o cargo de vereador.",
+          "As estatísticas do período mencionam 13 processos, mas os dados detalhados fornecidos abrangem apenas este caso."
+        ],
+        "page_id": "36172195-5c64-8126-9702-fa6049df8dd3",
+        "display_score": 3,
+        "ranking_reason": ""
+      }
+    },
+    "content_hash:36dbd00f016924b928dafb942300c8ef20e166b20c0fd07c35554de444890208": {
+      "model": "gpt-5.5",
+      "case_id": "0600493-95.2024.6.19.0050",
+      "page_id": "36172195-5c64-8126-9702-fa6049df8dd3",
+      "processo": "0600493-95.2024.6.19.0050",
+      "content_hash": "36dbd00f016924b928dafb942300c8ef20e166b20c0fd07c35554de444890208",
+      "cached_at_utc": "2026-05-15T23:32:40.948306+00:00",
+      "analysis": {
+        "case_id": "0600493-95.2024.6.19.0050",
+        "title": "Captação ilícita de sufrágio de vereador e barreiras recursais",
+        "relevance_score": 3,
+        "risk_level": "baixo",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "Pedro Ygor Gadelha Mota dos Santos"
+        ],
+        "parties": [],
+        "lawyers_signal": "Não há advogado recorrente no período indicado para este processo. Os patronos informados foram Clara Lima Gonçalves e Rafael Benicio Jesus de Lima.",
+        "what_happened": "Pedro Ygor Gadelha Mota dos Santos agravou contra decisão que inadmitiu recurso especial eleitoral. O TSE concluiu que o agravo não superou os óbices processuais apontados e manteve o resultado regional, sem reexaminar o conjunto fático-probatório.",
+        "legal_grounds": "A decisão aplicou o art. 41-A da Lei nº 9.504/1997 quanto à captação ilícita de sufrágio. No plano recursal, adotou a Súmula nº 26 do TSE, por ausência de impugnação específica, e a Súmula nº 24 do TSE, pela impossibilidade de reexame de fatos e provas em recurso especial eleitoral.",
+        "consequence": "O TSE negou seguimento ao agravo. Permaneceu o acórdão do TRE/RJ que manteve a condenação por captação ilícita de sufrágio, com cassação do diploma do candidato a vereador e multa de 5.000 UFIR.",
+        "strategic_comment": "O caso tem baixa projeção federal. A utilidade estratégica está na reafirmação de filtros processuais do TSE em matéria de art. 41-A: deficiência de impugnação e pretensão de reexame probatório impedem a abertura da instância especial. Não há, nos dados fornecidos, partido identificado nem tese nova sobre financiamento, cotas, contas partidárias, fidelidade, federações ou estrutura partidária.",
+        "why_relevant": "A relevância político-eleitoral é limitada e local, pois envolve candidato a vereador em município específico. Ainda assim, o processo confirma a estabilidade da jurisprudência do TSE sobre a dificuldade de rediscutir, em instância especial, condenações por captação ilícita de sufrágio quando a controvérsia depende de fatos e provas.",
+        "source_notes": [
+          "Data da decisão: 14/05/2026, dentro do período de 11/05/2026 a 15/05/2026.",
+          "Processo de origem municipal, referente às Eleições 2024 em Casimiro de Abreu/RJ, para o cargo de vereador.",
+          "As estatísticas do período mencionam 13 processos, mas os dados detalhados fornecidos abrangem apenas este caso."
+        ],
+        "page_id": "36172195-5c64-8126-9702-fa6049df8dd3",
+        "display_score": 3,
+        "ranking_reason": ""
+      }
+    },
+    "numero_unico:0600330-40.2024.6.19.0172": {
+      "model": "gpt-5.5",
+      "case_id": "0600330-40.2024.6.19.0172",
+      "page_id": "36172195-5c64-818a-a001-e0164535b5e7",
+      "processo": "0600330-40.2024.6.19.0172",
+      "content_hash": "a30a6d0a7d770a15d8a02b0a391fff4e6c6da915c59966dd2207e9929ecc03f2",
+      "cached_at_utc": "2026-05-15T23:32:41.364110+00:00",
+      "analysis": {
+        "case_id": "0600330-40.2024.6.19.0172",
+        "title": "Comprovação insuficiente de militância paga com FEFC e devolução integral em contas de vereador",
+        "relevance_score": 7,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "Jair Souza Guimarães Neto"
+        ],
+        "parties": [],
+        "lawyers_signal": "Atuaram Sandra de Fatima Cardoso de Figueiredo e Caio Fernandes Gioia Enne Aded. Não há indicação de recorrência desses advogados no período informado para este processo.",
+        "what_happened": "Jair Souza Guimarães Neto agravou contra a inadmissão de recurso especial eleitoral em prestação de contas de campanha. O TRE/RJ havia mantido a desaprovação das contas por despesas de pessoal custeadas com FEFC sem comprovação idônea. O TSE manteve esse entendimento, destacando que os contratos eram genéricos e não permitiam o controle efetivo do gasto, além de haver contratação familiar com valor superior aos demais contratos sem demonstração de diferença nas atribuições.",
+        "legal_grounds": "A decisão aplicou o art. 35, § 12, da Resolução TSE nº 23.607/2019, por ausência de comprovação idônea de serviços de militância pagos com FEFC. O TSE também afastou proporcionalidade e razoabilidade porque a irregularidade atingiu 100% dos recursos do FEFC examinados. O dissídio jurisprudencial foi recusado por ausência de cotejo analítico e de similitude fática. Incidiram as Súmulas TSE nº 24, 28 e 30, inclusive pela impossibilidade de reexame de provas e pela conformidade do acórdão regional com a jurisprudência do TSE.",
+        "consequence": "O TSE negou seguimento ao agravo em recurso especial eleitoral. Ficaram mantidas a desaprovação das contas de campanha de 2024 e a determinação de recolhimento integral de R$ 14.000,00 ao Tesouro Nacional.",
+        "strategic_comment": "O caso é municipal, mas tem interesse eleitoral replicável porque reforça o padrão probatório exigido para despesas de pessoal custeadas com FEFC. A decisão sinaliza que contratos genéricos não bastam para demonstrar a efetiva prestação do serviço e que a utilização irregular da totalidade dos recursos públicos examinados impede a aplicação de proporcionalidade ou razoabilidade.",
+        "why_relevant": "A relevância decorre do uso de FEFC e da fixação de parâmetro de controle para despesas de militância em campanhas. Embora envolva candidatura municipal a vereador, a tese interessa a partidos, candidatos e órgãos de controle porque afeta a comprovação de gastos com recursos públicos e a possibilidade de devolução integral ao erário quando a irregularidade alcança todo o montante analisado.",
+        "source_notes": [
+          "Processo nº 0600330-40.2024.6.19.0172, AREspEl, decisão monocrática de 13/05/2026.",
+          "Relator: Min. André Mendonça.",
+          "Origem: Armação dos Búzios/RJ.",
+          "Eleição de 2024; prestação de contas de campanha de candidato ao cargo de vereador.",
+          "Valor do FEFC mencionado: R$ 14.000,00."
+        ],
+        "page_id": "36172195-5c64-818a-a001-e0164535b5e7",
+        "display_score": 7,
+        "ranking_reason": ""
+      }
+    },
+    "numero_processo:60033040": {
+      "model": "gpt-5.5",
+      "case_id": "0600330-40.2024.6.19.0172",
+      "page_id": "36172195-5c64-818a-a001-e0164535b5e7",
+      "processo": "0600330-40.2024.6.19.0172",
+      "content_hash": "a30a6d0a7d770a15d8a02b0a391fff4e6c6da915c59966dd2207e9929ecc03f2",
+      "cached_at_utc": "2026-05-15T23:32:41.364110+00:00",
+      "analysis": {
+        "case_id": "0600330-40.2024.6.19.0172",
+        "title": "Comprovação insuficiente de militância paga com FEFC e devolução integral em contas de vereador",
+        "relevance_score": 7,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "Jair Souza Guimarães Neto"
+        ],
+        "parties": [],
+        "lawyers_signal": "Atuaram Sandra de Fatima Cardoso de Figueiredo e Caio Fernandes Gioia Enne Aded. Não há indicação de recorrência desses advogados no período informado para este processo.",
+        "what_happened": "Jair Souza Guimarães Neto agravou contra a inadmissão de recurso especial eleitoral em prestação de contas de campanha. O TRE/RJ havia mantido a desaprovação das contas por despesas de pessoal custeadas com FEFC sem comprovação idônea. O TSE manteve esse entendimento, destacando que os contratos eram genéricos e não permitiam o controle efetivo do gasto, além de haver contratação familiar com valor superior aos demais contratos sem demonstração de diferença nas atribuições.",
+        "legal_grounds": "A decisão aplicou o art. 35, § 12, da Resolução TSE nº 23.607/2019, por ausência de comprovação idônea de serviços de militância pagos com FEFC. O TSE também afastou proporcionalidade e razoabilidade porque a irregularidade atingiu 100% dos recursos do FEFC examinados. O dissídio jurisprudencial foi recusado por ausência de cotejo analítico e de similitude fática. Incidiram as Súmulas TSE nº 24, 28 e 30, inclusive pela impossibilidade de reexame de provas e pela conformidade do acórdão regional com a jurisprudência do TSE.",
+        "consequence": "O TSE negou seguimento ao agravo em recurso especial eleitoral. Ficaram mantidas a desaprovação das contas de campanha de 2024 e a determinação de recolhimento integral de R$ 14.000,00 ao Tesouro Nacional.",
+        "strategic_comment": "O caso é municipal, mas tem interesse eleitoral replicável porque reforça o padrão probatório exigido para despesas de pessoal custeadas com FEFC. A decisão sinaliza que contratos genéricos não bastam para demonstrar a efetiva prestação do serviço e que a utilização irregular da totalidade dos recursos públicos examinados impede a aplicação de proporcionalidade ou razoabilidade.",
+        "why_relevant": "A relevância decorre do uso de FEFC e da fixação de parâmetro de controle para despesas de militância em campanhas. Embora envolva candidatura municipal a vereador, a tese interessa a partidos, candidatos e órgãos de controle porque afeta a comprovação de gastos com recursos públicos e a possibilidade de devolução integral ao erário quando a irregularidade alcança todo o montante analisado.",
+        "source_notes": [
+          "Processo nº 0600330-40.2024.6.19.0172, AREspEl, decisão monocrática de 13/05/2026.",
+          "Relator: Min. André Mendonça.",
+          "Origem: Armação dos Búzios/RJ.",
+          "Eleição de 2024; prestação de contas de campanha de candidato ao cargo de vereador.",
+          "Valor do FEFC mencionado: R$ 14.000,00."
+        ],
+        "page_id": "36172195-5c64-818a-a001-e0164535b5e7",
+        "display_score": 7,
+        "ranking_reason": ""
+      }
+    },
+    "page_id:36172195-5c64-818a-a001-e0164535b5e7": {
+      "model": "gpt-5.5",
+      "case_id": "0600330-40.2024.6.19.0172",
+      "page_id": "36172195-5c64-818a-a001-e0164535b5e7",
+      "processo": "0600330-40.2024.6.19.0172",
+      "content_hash": "a30a6d0a7d770a15d8a02b0a391fff4e6c6da915c59966dd2207e9929ecc03f2",
+      "cached_at_utc": "2026-05-15T23:32:41.364110+00:00",
+      "analysis": {
+        "case_id": "0600330-40.2024.6.19.0172",
+        "title": "Comprovação insuficiente de militância paga com FEFC e devolução integral em contas de vereador",
+        "relevance_score": 7,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "Jair Souza Guimarães Neto"
+        ],
+        "parties": [],
+        "lawyers_signal": "Atuaram Sandra de Fatima Cardoso de Figueiredo e Caio Fernandes Gioia Enne Aded. Não há indicação de recorrência desses advogados no período informado para este processo.",
+        "what_happened": "Jair Souza Guimarães Neto agravou contra a inadmissão de recurso especial eleitoral em prestação de contas de campanha. O TRE/RJ havia mantido a desaprovação das contas por despesas de pessoal custeadas com FEFC sem comprovação idônea. O TSE manteve esse entendimento, destacando que os contratos eram genéricos e não permitiam o controle efetivo do gasto, além de haver contratação familiar com valor superior aos demais contratos sem demonstração de diferença nas atribuições.",
+        "legal_grounds": "A decisão aplicou o art. 35, § 12, da Resolução TSE nº 23.607/2019, por ausência de comprovação idônea de serviços de militância pagos com FEFC. O TSE também afastou proporcionalidade e razoabilidade porque a irregularidade atingiu 100% dos recursos do FEFC examinados. O dissídio jurisprudencial foi recusado por ausência de cotejo analítico e de similitude fática. Incidiram as Súmulas TSE nº 24, 28 e 30, inclusive pela impossibilidade de reexame de provas e pela conformidade do acórdão regional com a jurisprudência do TSE.",
+        "consequence": "O TSE negou seguimento ao agravo em recurso especial eleitoral. Ficaram mantidas a desaprovação das contas de campanha de 2024 e a determinação de recolhimento integral de R$ 14.000,00 ao Tesouro Nacional.",
+        "strategic_comment": "O caso é municipal, mas tem interesse eleitoral replicável porque reforça o padrão probatório exigido para despesas de pessoal custeadas com FEFC. A decisão sinaliza que contratos genéricos não bastam para demonstrar a efetiva prestação do serviço e que a utilização irregular da totalidade dos recursos públicos examinados impede a aplicação de proporcionalidade ou razoabilidade.",
+        "why_relevant": "A relevância decorre do uso de FEFC e da fixação de parâmetro de controle para despesas de militância em campanhas. Embora envolva candidatura municipal a vereador, a tese interessa a partidos, candidatos e órgãos de controle porque afeta a comprovação de gastos com recursos públicos e a possibilidade de devolução integral ao erário quando a irregularidade alcança todo o montante analisado.",
+        "source_notes": [
+          "Processo nº 0600330-40.2024.6.19.0172, AREspEl, decisão monocrática de 13/05/2026.",
+          "Relator: Min. André Mendonça.",
+          "Origem: Armação dos Búzios/RJ.",
+          "Eleição de 2024; prestação de contas de campanha de candidato ao cargo de vereador.",
+          "Valor do FEFC mencionado: R$ 14.000,00."
+        ],
+        "page_id": "36172195-5c64-818a-a001-e0164535b5e7",
+        "display_score": 7,
+        "ranking_reason": ""
+      }
+    },
+    "case_id:0600330-40.2024.6.19.0172": {
+      "model": "gpt-5.5",
+      "case_id": "0600330-40.2024.6.19.0172",
+      "page_id": "36172195-5c64-818a-a001-e0164535b5e7",
+      "processo": "0600330-40.2024.6.19.0172",
+      "content_hash": "a30a6d0a7d770a15d8a02b0a391fff4e6c6da915c59966dd2207e9929ecc03f2",
+      "cached_at_utc": "2026-05-15T23:32:41.364110+00:00",
+      "analysis": {
+        "case_id": "0600330-40.2024.6.19.0172",
+        "title": "Comprovação insuficiente de militância paga com FEFC e devolução integral em contas de vereador",
+        "relevance_score": 7,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "Jair Souza Guimarães Neto"
+        ],
+        "parties": [],
+        "lawyers_signal": "Atuaram Sandra de Fatima Cardoso de Figueiredo e Caio Fernandes Gioia Enne Aded. Não há indicação de recorrência desses advogados no período informado para este processo.",
+        "what_happened": "Jair Souza Guimarães Neto agravou contra a inadmissão de recurso especial eleitoral em prestação de contas de campanha. O TRE/RJ havia mantido a desaprovação das contas por despesas de pessoal custeadas com FEFC sem comprovação idônea. O TSE manteve esse entendimento, destacando que os contratos eram genéricos e não permitiam o controle efetivo do gasto, além de haver contratação familiar com valor superior aos demais contratos sem demonstração de diferença nas atribuições.",
+        "legal_grounds": "A decisão aplicou o art. 35, § 12, da Resolução TSE nº 23.607/2019, por ausência de comprovação idônea de serviços de militância pagos com FEFC. O TSE também afastou proporcionalidade e razoabilidade porque a irregularidade atingiu 100% dos recursos do FEFC examinados. O dissídio jurisprudencial foi recusado por ausência de cotejo analítico e de similitude fática. Incidiram as Súmulas TSE nº 24, 28 e 30, inclusive pela impossibilidade de reexame de provas e pela conformidade do acórdão regional com a jurisprudência do TSE.",
+        "consequence": "O TSE negou seguimento ao agravo em recurso especial eleitoral. Ficaram mantidas a desaprovação das contas de campanha de 2024 e a determinação de recolhimento integral de R$ 14.000,00 ao Tesouro Nacional.",
+        "strategic_comment": "O caso é municipal, mas tem interesse eleitoral replicável porque reforça o padrão probatório exigido para despesas de pessoal custeadas com FEFC. A decisão sinaliza que contratos genéricos não bastam para demonstrar a efetiva prestação do serviço e que a utilização irregular da totalidade dos recursos públicos examinados impede a aplicação de proporcionalidade ou razoabilidade.",
+        "why_relevant": "A relevância decorre do uso de FEFC e da fixação de parâmetro de controle para despesas de militância em campanhas. Embora envolva candidatura municipal a vereador, a tese interessa a partidos, candidatos e órgãos de controle porque afeta a comprovação de gastos com recursos públicos e a possibilidade de devolução integral ao erário quando a irregularidade alcança todo o montante analisado.",
+        "source_notes": [
+          "Processo nº 0600330-40.2024.6.19.0172, AREspEl, decisão monocrática de 13/05/2026.",
+          "Relator: Min. André Mendonça.",
+          "Origem: Armação dos Búzios/RJ.",
+          "Eleição de 2024; prestação de contas de campanha de candidato ao cargo de vereador.",
+          "Valor do FEFC mencionado: R$ 14.000,00."
+        ],
+        "page_id": "36172195-5c64-818a-a001-e0164535b5e7",
+        "display_score": 7,
+        "ranking_reason": ""
+      }
+    },
+    "content_hash:a30a6d0a7d770a15d8a02b0a391fff4e6c6da915c59966dd2207e9929ecc03f2": {
+      "model": "gpt-5.5",
+      "case_id": "0600330-40.2024.6.19.0172",
+      "page_id": "36172195-5c64-818a-a001-e0164535b5e7",
+      "processo": "0600330-40.2024.6.19.0172",
+      "content_hash": "a30a6d0a7d770a15d8a02b0a391fff4e6c6da915c59966dd2207e9929ecc03f2",
+      "cached_at_utc": "2026-05-15T23:32:41.364110+00:00",
+      "analysis": {
+        "case_id": "0600330-40.2024.6.19.0172",
+        "title": "Comprovação insuficiente de militância paga com FEFC e devolução integral em contas de vereador",
+        "relevance_score": 7,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "Jair Souza Guimarães Neto"
+        ],
+        "parties": [],
+        "lawyers_signal": "Atuaram Sandra de Fatima Cardoso de Figueiredo e Caio Fernandes Gioia Enne Aded. Não há indicação de recorrência desses advogados no período informado para este processo.",
+        "what_happened": "Jair Souza Guimarães Neto agravou contra a inadmissão de recurso especial eleitoral em prestação de contas de campanha. O TRE/RJ havia mantido a desaprovação das contas por despesas de pessoal custeadas com FEFC sem comprovação idônea. O TSE manteve esse entendimento, destacando que os contratos eram genéricos e não permitiam o controle efetivo do gasto, além de haver contratação familiar com valor superior aos demais contratos sem demonstração de diferença nas atribuições.",
+        "legal_grounds": "A decisão aplicou o art. 35, § 12, da Resolução TSE nº 23.607/2019, por ausência de comprovação idônea de serviços de militância pagos com FEFC. O TSE também afastou proporcionalidade e razoabilidade porque a irregularidade atingiu 100% dos recursos do FEFC examinados. O dissídio jurisprudencial foi recusado por ausência de cotejo analítico e de similitude fática. Incidiram as Súmulas TSE nº 24, 28 e 30, inclusive pela impossibilidade de reexame de provas e pela conformidade do acórdão regional com a jurisprudência do TSE.",
+        "consequence": "O TSE negou seguimento ao agravo em recurso especial eleitoral. Ficaram mantidas a desaprovação das contas de campanha de 2024 e a determinação de recolhimento integral de R$ 14.000,00 ao Tesouro Nacional.",
+        "strategic_comment": "O caso é municipal, mas tem interesse eleitoral replicável porque reforça o padrão probatório exigido para despesas de pessoal custeadas com FEFC. A decisão sinaliza que contratos genéricos não bastam para demonstrar a efetiva prestação do serviço e que a utilização irregular da totalidade dos recursos públicos examinados impede a aplicação de proporcionalidade ou razoabilidade.",
+        "why_relevant": "A relevância decorre do uso de FEFC e da fixação de parâmetro de controle para despesas de militância em campanhas. Embora envolva candidatura municipal a vereador, a tese interessa a partidos, candidatos e órgãos de controle porque afeta a comprovação de gastos com recursos públicos e a possibilidade de devolução integral ao erário quando a irregularidade alcança todo o montante analisado.",
+        "source_notes": [
+          "Processo nº 0600330-40.2024.6.19.0172, AREspEl, decisão monocrática de 13/05/2026.",
+          "Relator: Min. André Mendonça.",
+          "Origem: Armação dos Búzios/RJ.",
+          "Eleição de 2024; prestação de contas de campanha de candidato ao cargo de vereador.",
+          "Valor do FEFC mencionado: R$ 14.000,00."
+        ],
+        "page_id": "36172195-5c64-818a-a001-e0164535b5e7",
+        "display_score": 7,
+        "ranking_reason": ""
+      }
+    },
+    "numero_unico:0600012-15.2025.6.05.0042": {
+      "model": "gpt-5.5",
+      "case_id": "0600012-15.2025.6.05.0042",
+      "page_id": "36172195-5c64-81bb-87cc-e692313f073d",
+      "processo": "0600012-15.2025.6.05.0042",
+      "content_hash": "61ac2a54799fd2b71af6e6c225948d5921383c3f4e00e0270d009b3b40252dc9",
+      "cached_at_utc": "2026-05-15T23:32:43.058439+00:00",
+      "analysis": {
+        "case_id": "0600012-15.2025.6.05.0042",
+        "title": "Procuração posterior e inexistência de recurso especial em execução provisória de multa em AIME municipal",
+        "relevance_score": 4,
+        "risk_level": "baixo",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "PSDB/BA",
+          "PT/BA"
+        ],
+        "lawyers_signal": "Sinal relevante para advocacia eleitoral: em instância especial, a procuração deve existir antes do protocolo do recurso e conter poderes adequados. Procuração posterior não sana o vício, salvo hipótese excepcional justificada nos termos do CPC.",
+        "what_happened": "O Diretório Municipal do PSDB de Boa Vista do Tupim/BA interpôs agravo em recurso especial eleitoral. A advogada signatária não tinha procuração com poderes específicos antes da interposição do recurso especial e do agravo. Após intimação para regularização, foi apresentada nova procuração assinada em data posterior aos recursos.",
+        "legal_grounds": "A decisão aplicou o art. 36, § 6º, do RITSE, a Súmula 115/STJ e os arts. 103 e 104 do CPC. O fundamento central foi a inexistência de recurso interposto por advogada sem procuração prévia nos autos. Também se assentou que instrumento de mandato existente em processo conexo ou incidental não apensado não supre a deficiência no feito examinado.",
+        "consequence": "O TSE negou seguimento ao agravo em recurso especial eleitoral. Com isso, não houve exame do mérito da controvérsia sobre execução provisória de multa fixada em AIME, prevalecendo o óbice formal de representação processual.",
+        "strategic_comment": "O caso é municipal e não envolve mandato federal, direção partidária nacional ou estadual, FEFC, Fundo Partidário, cotas ou contas partidárias. A utilidade estratégica está na reafirmação de filtro processual rígido no TSE, com impacto prático para partidos que recorrem em instância especial.",
+        "why_relevant": "A relevância político-eleitoral é limitada, pois o litígio decorre de eleição municipal de 2020. Ainda assim, a decisão interessa a partidos e bancadas pela tese processual replicável: vício de representação em recurso especial eleitoral pode impedir o acesso ao TSE, mesmo quando a parte tenta regularizar posteriormente.",
+        "source_notes": [
+          "Decisão de 14/05/2026, dentro do período analisado.",
+          "Processo AREspEl nº 0600012-15.2025.6.05.0042, Boa Vista do Tupim/BA, eleições de 2020.",
+          "Relator: Min. Antonio Carlos Ferreira.",
+          "Partidos identificados nos dados: PSDB/BA e PT/BA, ambos em âmbito municipal.",
+          "Tema informado: representação processual em instância especial sem procuração prévia ao protocolo."
+        ],
+        "page_id": "36172195-5c64-81bb-87cc-e692313f073d",
+        "display_score": 4,
+        "ranking_reason": ""
+      }
+    },
+    "numero_processo:60001215": {
+      "model": "gpt-5.5",
+      "case_id": "0600012-15.2025.6.05.0042",
+      "page_id": "36172195-5c64-81bb-87cc-e692313f073d",
+      "processo": "0600012-15.2025.6.05.0042",
+      "content_hash": "61ac2a54799fd2b71af6e6c225948d5921383c3f4e00e0270d009b3b40252dc9",
+      "cached_at_utc": "2026-05-15T23:32:43.058439+00:00",
+      "analysis": {
+        "case_id": "0600012-15.2025.6.05.0042",
+        "title": "Procuração posterior e inexistência de recurso especial em execução provisória de multa em AIME municipal",
+        "relevance_score": 4,
+        "risk_level": "baixo",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "PSDB/BA",
+          "PT/BA"
+        ],
+        "lawyers_signal": "Sinal relevante para advocacia eleitoral: em instância especial, a procuração deve existir antes do protocolo do recurso e conter poderes adequados. Procuração posterior não sana o vício, salvo hipótese excepcional justificada nos termos do CPC.",
+        "what_happened": "O Diretório Municipal do PSDB de Boa Vista do Tupim/BA interpôs agravo em recurso especial eleitoral. A advogada signatária não tinha procuração com poderes específicos antes da interposição do recurso especial e do agravo. Após intimação para regularização, foi apresentada nova procuração assinada em data posterior aos recursos.",
+        "legal_grounds": "A decisão aplicou o art. 36, § 6º, do RITSE, a Súmula 115/STJ e os arts. 103 e 104 do CPC. O fundamento central foi a inexistência de recurso interposto por advogada sem procuração prévia nos autos. Também se assentou que instrumento de mandato existente em processo conexo ou incidental não apensado não supre a deficiência no feito examinado.",
+        "consequence": "O TSE negou seguimento ao agravo em recurso especial eleitoral. Com isso, não houve exame do mérito da controvérsia sobre execução provisória de multa fixada em AIME, prevalecendo o óbice formal de representação processual.",
+        "strategic_comment": "O caso é municipal e não envolve mandato federal, direção partidária nacional ou estadual, FEFC, Fundo Partidário, cotas ou contas partidárias. A utilidade estratégica está na reafirmação de filtro processual rígido no TSE, com impacto prático para partidos que recorrem em instância especial.",
+        "why_relevant": "A relevância político-eleitoral é limitada, pois o litígio decorre de eleição municipal de 2020. Ainda assim, a decisão interessa a partidos e bancadas pela tese processual replicável: vício de representação em recurso especial eleitoral pode impedir o acesso ao TSE, mesmo quando a parte tenta regularizar posteriormente.",
+        "source_notes": [
+          "Decisão de 14/05/2026, dentro do período analisado.",
+          "Processo AREspEl nº 0600012-15.2025.6.05.0042, Boa Vista do Tupim/BA, eleições de 2020.",
+          "Relator: Min. Antonio Carlos Ferreira.",
+          "Partidos identificados nos dados: PSDB/BA e PT/BA, ambos em âmbito municipal.",
+          "Tema informado: representação processual em instância especial sem procuração prévia ao protocolo."
+        ],
+        "page_id": "36172195-5c64-81bb-87cc-e692313f073d",
+        "display_score": 4,
+        "ranking_reason": ""
+      }
+    },
+    "page_id:36172195-5c64-81bb-87cc-e692313f073d": {
+      "model": "gpt-5.5",
+      "case_id": "0600012-15.2025.6.05.0042",
+      "page_id": "36172195-5c64-81bb-87cc-e692313f073d",
+      "processo": "0600012-15.2025.6.05.0042",
+      "content_hash": "61ac2a54799fd2b71af6e6c225948d5921383c3f4e00e0270d009b3b40252dc9",
+      "cached_at_utc": "2026-05-15T23:32:43.058439+00:00",
+      "analysis": {
+        "case_id": "0600012-15.2025.6.05.0042",
+        "title": "Procuração posterior e inexistência de recurso especial em execução provisória de multa em AIME municipal",
+        "relevance_score": 4,
+        "risk_level": "baixo",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "PSDB/BA",
+          "PT/BA"
+        ],
+        "lawyers_signal": "Sinal relevante para advocacia eleitoral: em instância especial, a procuração deve existir antes do protocolo do recurso e conter poderes adequados. Procuração posterior não sana o vício, salvo hipótese excepcional justificada nos termos do CPC.",
+        "what_happened": "O Diretório Municipal do PSDB de Boa Vista do Tupim/BA interpôs agravo em recurso especial eleitoral. A advogada signatária não tinha procuração com poderes específicos antes da interposição do recurso especial e do agravo. Após intimação para regularização, foi apresentada nova procuração assinada em data posterior aos recursos.",
+        "legal_grounds": "A decisão aplicou o art. 36, § 6º, do RITSE, a Súmula 115/STJ e os arts. 103 e 104 do CPC. O fundamento central foi a inexistência de recurso interposto por advogada sem procuração prévia nos autos. Também se assentou que instrumento de mandato existente em processo conexo ou incidental não apensado não supre a deficiência no feito examinado.",
+        "consequence": "O TSE negou seguimento ao agravo em recurso especial eleitoral. Com isso, não houve exame do mérito da controvérsia sobre execução provisória de multa fixada em AIME, prevalecendo o óbice formal de representação processual.",
+        "strategic_comment": "O caso é municipal e não envolve mandato federal, direção partidária nacional ou estadual, FEFC, Fundo Partidário, cotas ou contas partidárias. A utilidade estratégica está na reafirmação de filtro processual rígido no TSE, com impacto prático para partidos que recorrem em instância especial.",
+        "why_relevant": "A relevância político-eleitoral é limitada, pois o litígio decorre de eleição municipal de 2020. Ainda assim, a decisão interessa a partidos e bancadas pela tese processual replicável: vício de representação em recurso especial eleitoral pode impedir o acesso ao TSE, mesmo quando a parte tenta regularizar posteriormente.",
+        "source_notes": [
+          "Decisão de 14/05/2026, dentro do período analisado.",
+          "Processo AREspEl nº 0600012-15.2025.6.05.0042, Boa Vista do Tupim/BA, eleições de 2020.",
+          "Relator: Min. Antonio Carlos Ferreira.",
+          "Partidos identificados nos dados: PSDB/BA e PT/BA, ambos em âmbito municipal.",
+          "Tema informado: representação processual em instância especial sem procuração prévia ao protocolo."
+        ],
+        "page_id": "36172195-5c64-81bb-87cc-e692313f073d",
+        "display_score": 4,
+        "ranking_reason": ""
+      }
+    },
+    "case_id:0600012-15.2025.6.05.0042": {
+      "model": "gpt-5.5",
+      "case_id": "0600012-15.2025.6.05.0042",
+      "page_id": "36172195-5c64-81bb-87cc-e692313f073d",
+      "processo": "0600012-15.2025.6.05.0042",
+      "content_hash": "61ac2a54799fd2b71af6e6c225948d5921383c3f4e00e0270d009b3b40252dc9",
+      "cached_at_utc": "2026-05-15T23:32:43.058439+00:00",
+      "analysis": {
+        "case_id": "0600012-15.2025.6.05.0042",
+        "title": "Procuração posterior e inexistência de recurso especial em execução provisória de multa em AIME municipal",
+        "relevance_score": 4,
+        "risk_level": "baixo",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "PSDB/BA",
+          "PT/BA"
+        ],
+        "lawyers_signal": "Sinal relevante para advocacia eleitoral: em instância especial, a procuração deve existir antes do protocolo do recurso e conter poderes adequados. Procuração posterior não sana o vício, salvo hipótese excepcional justificada nos termos do CPC.",
+        "what_happened": "O Diretório Municipal do PSDB de Boa Vista do Tupim/BA interpôs agravo em recurso especial eleitoral. A advogada signatária não tinha procuração com poderes específicos antes da interposição do recurso especial e do agravo. Após intimação para regularização, foi apresentada nova procuração assinada em data posterior aos recursos.",
+        "legal_grounds": "A decisão aplicou o art. 36, § 6º, do RITSE, a Súmula 115/STJ e os arts. 103 e 104 do CPC. O fundamento central foi a inexistência de recurso interposto por advogada sem procuração prévia nos autos. Também se assentou que instrumento de mandato existente em processo conexo ou incidental não apensado não supre a deficiência no feito examinado.",
+        "consequence": "O TSE negou seguimento ao agravo em recurso especial eleitoral. Com isso, não houve exame do mérito da controvérsia sobre execução provisória de multa fixada em AIME, prevalecendo o óbice formal de representação processual.",
+        "strategic_comment": "O caso é municipal e não envolve mandato federal, direção partidária nacional ou estadual, FEFC, Fundo Partidário, cotas ou contas partidárias. A utilidade estratégica está na reafirmação de filtro processual rígido no TSE, com impacto prático para partidos que recorrem em instância especial.",
+        "why_relevant": "A relevância político-eleitoral é limitada, pois o litígio decorre de eleição municipal de 2020. Ainda assim, a decisão interessa a partidos e bancadas pela tese processual replicável: vício de representação em recurso especial eleitoral pode impedir o acesso ao TSE, mesmo quando a parte tenta regularizar posteriormente.",
+        "source_notes": [
+          "Decisão de 14/05/2026, dentro do período analisado.",
+          "Processo AREspEl nº 0600012-15.2025.6.05.0042, Boa Vista do Tupim/BA, eleições de 2020.",
+          "Relator: Min. Antonio Carlos Ferreira.",
+          "Partidos identificados nos dados: PSDB/BA e PT/BA, ambos em âmbito municipal.",
+          "Tema informado: representação processual em instância especial sem procuração prévia ao protocolo."
+        ],
+        "page_id": "36172195-5c64-81bb-87cc-e692313f073d",
+        "display_score": 4,
+        "ranking_reason": ""
+      }
+    },
+    "content_hash:61ac2a54799fd2b71af6e6c225948d5921383c3f4e00e0270d009b3b40252dc9": {
+      "model": "gpt-5.5",
+      "case_id": "0600012-15.2025.6.05.0042",
+      "page_id": "36172195-5c64-81bb-87cc-e692313f073d",
+      "processo": "0600012-15.2025.6.05.0042",
+      "content_hash": "61ac2a54799fd2b71af6e6c225948d5921383c3f4e00e0270d009b3b40252dc9",
+      "cached_at_utc": "2026-05-15T23:32:43.058439+00:00",
+      "analysis": {
+        "case_id": "0600012-15.2025.6.05.0042",
+        "title": "Procuração posterior e inexistência de recurso especial em execução provisória de multa em AIME municipal",
+        "relevance_score": 4,
+        "risk_level": "baixo",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "PSDB/BA",
+          "PT/BA"
+        ],
+        "lawyers_signal": "Sinal relevante para advocacia eleitoral: em instância especial, a procuração deve existir antes do protocolo do recurso e conter poderes adequados. Procuração posterior não sana o vício, salvo hipótese excepcional justificada nos termos do CPC.",
+        "what_happened": "O Diretório Municipal do PSDB de Boa Vista do Tupim/BA interpôs agravo em recurso especial eleitoral. A advogada signatária não tinha procuração com poderes específicos antes da interposição do recurso especial e do agravo. Após intimação para regularização, foi apresentada nova procuração assinada em data posterior aos recursos.",
+        "legal_grounds": "A decisão aplicou o art. 36, § 6º, do RITSE, a Súmula 115/STJ e os arts. 103 e 104 do CPC. O fundamento central foi a inexistência de recurso interposto por advogada sem procuração prévia nos autos. Também se assentou que instrumento de mandato existente em processo conexo ou incidental não apensado não supre a deficiência no feito examinado.",
+        "consequence": "O TSE negou seguimento ao agravo em recurso especial eleitoral. Com isso, não houve exame do mérito da controvérsia sobre execução provisória de multa fixada em AIME, prevalecendo o óbice formal de representação processual.",
+        "strategic_comment": "O caso é municipal e não envolve mandato federal, direção partidária nacional ou estadual, FEFC, Fundo Partidário, cotas ou contas partidárias. A utilidade estratégica está na reafirmação de filtro processual rígido no TSE, com impacto prático para partidos que recorrem em instância especial.",
+        "why_relevant": "A relevância político-eleitoral é limitada, pois o litígio decorre de eleição municipal de 2020. Ainda assim, a decisão interessa a partidos e bancadas pela tese processual replicável: vício de representação em recurso especial eleitoral pode impedir o acesso ao TSE, mesmo quando a parte tenta regularizar posteriormente.",
+        "source_notes": [
+          "Decisão de 14/05/2026, dentro do período analisado.",
+          "Processo AREspEl nº 0600012-15.2025.6.05.0042, Boa Vista do Tupim/BA, eleições de 2020.",
+          "Relator: Min. Antonio Carlos Ferreira.",
+          "Partidos identificados nos dados: PSDB/BA e PT/BA, ambos em âmbito municipal.",
+          "Tema informado: representação processual em instância especial sem procuração prévia ao protocolo."
+        ],
+        "page_id": "36172195-5c64-81bb-87cc-e692313f073d",
+        "display_score": 4,
+        "ranking_reason": ""
+      }
+    },
+    "numero_unico:0600833-52.2026.6.00.0000": {
+      "model": "gpt-5.5",
+      "case_id": "0600833-52.2026.6.00.0000",
+      "page_id": "36172195-5c64-81dc-a04d-cc283b502959",
+      "processo": "0600833-52.2026.6.00.0000",
+      "content_hash": "4400a27e4befb38bdf5fdc3fee91dfee4bea748f1ea6021b2b260c354efbf0f4",
+      "cached_at_utc": "2026-05-15T23:32:43.927596+00:00",
+      "analysis": {
+        "case_id": "0600833-52.2026.6.00.0000",
+        "title": "Fraude à cota de gênero por inércia partidária após indeferimento de candidatura feminina",
+        "relevance_score": 7,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Alexandro Ferreira de Assis Nascimento",
+          "Fernanda Daguia Alves Vieira"
+        ],
+        "parties": [
+          "PT/PI"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados neste período, segundo os dados fornecidos.",
+        "what_happened": "Requerentes vinculados ao PT municipal buscaram tutela cautelar antecedente no TSE em contexto de recurso especial eleitoral contra decisão em AIME sobre fraude à cota de gênero nas eleições de 2024. O relator, Ministro André Mendonça, negou seguimento à cautelar por ausência de pressuposto processual ligado ao recurso especial e por falta de plausibilidade jurídica do direito invocado.",
+        "legal_grounds": "A decisão adotou dois fundamentos centrais. Primeiro, afirmou que a competência do TSE ainda não estava inaugurada porque não havia juízo de admissibilidade do recurso especial eleitoral. Segundo, em obiter dictum, registrou ausência de plausibilidade jurídica: a candidatura feminina tinha óbice considerado evidente e intransponível, por falta de quitação eleitoral decorrente de contas de campanha pretérita julgadas não prestadas, com referência à Súmula 42 do TSE. A inércia da agremiação em substituir a candidatura ou ajustar o número de candidaturas masculinas foi tratada como burla à cota de gênero, em linha com jurisprudência do TSE aplicada às eleições de 2024.",
+        "consequence": "O relator negou seguimento à tutela cautelar antecedente. Na prática, não houve tutela provisória para afastar os efeitos do acórdão regional no ponto informado; determinou-se o encaminhamento ao processo principal e o arquivamento da cautelar.",
+        "strategic_comment": "O caso interessa ao acompanhamento legislativo por consolidar, em contexto municipal, uma leitura rigorosa da cota de gênero: partido que lança candidatura feminina com impedimento objetivo e não corrige a chapa assume risco de caracterização de fraude. Embora o processo seja local, a tese é replicável e afeta diretamente a estratégia de formação de chapas proporcionais pelos partidos.",
+        "why_relevant": "A decisão tem relevância político-eleitoral porque reforça dever operacional dos partidos de acompanhar a viabilidade jurídica de candidaturas femininas usadas para cumprimento da cota. A mensagem institucional é que a inércia após indeferimento por falta de quitação eleitoral pode caracterizar burla à cota, com potencial de impactar chapas proporcionais em outros municípios e eleições.",
+        "source_notes": [
+          "Processo 0600833-52.2026.6.00.0000, Tutela Cautelar Antecedente, decisão monocrática de 14/05/2026.",
+          "Município de São João da Varjota/PI, eleições de 2024.",
+          "Partes informadas: Alexandro Ferreira de Assis Nascimento, Fernanda Daguia Alves Vieira e Partido dos Trabalhadores (PT) - Municipal.",
+          "Tema informado: AIME por fraude à cota de gênero em razão de inércia partidária após indeferimento de candidatura feminina por falta de quitação eleitoral."
+        ],
+        "page_id": "36172195-5c64-81dc-a04d-cc283b502959",
+        "display_score": 7,
+        "ranking_reason": ""
+      }
+    },
+    "numero_processo:60083352": {
+      "model": "gpt-5.5",
+      "case_id": "0600833-52.2026.6.00.0000",
+      "page_id": "36172195-5c64-81dc-a04d-cc283b502959",
+      "processo": "0600833-52.2026.6.00.0000",
+      "content_hash": "4400a27e4befb38bdf5fdc3fee91dfee4bea748f1ea6021b2b260c354efbf0f4",
+      "cached_at_utc": "2026-05-15T23:32:43.927596+00:00",
+      "analysis": {
+        "case_id": "0600833-52.2026.6.00.0000",
+        "title": "Fraude à cota de gênero por inércia partidária após indeferimento de candidatura feminina",
+        "relevance_score": 7,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Alexandro Ferreira de Assis Nascimento",
+          "Fernanda Daguia Alves Vieira"
+        ],
+        "parties": [
+          "PT/PI"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados neste período, segundo os dados fornecidos.",
+        "what_happened": "Requerentes vinculados ao PT municipal buscaram tutela cautelar antecedente no TSE em contexto de recurso especial eleitoral contra decisão em AIME sobre fraude à cota de gênero nas eleições de 2024. O relator, Ministro André Mendonça, negou seguimento à cautelar por ausência de pressuposto processual ligado ao recurso especial e por falta de plausibilidade jurídica do direito invocado.",
+        "legal_grounds": "A decisão adotou dois fundamentos centrais. Primeiro, afirmou que a competência do TSE ainda não estava inaugurada porque não havia juízo de admissibilidade do recurso especial eleitoral. Segundo, em obiter dictum, registrou ausência de plausibilidade jurídica: a candidatura feminina tinha óbice considerado evidente e intransponível, por falta de quitação eleitoral decorrente de contas de campanha pretérita julgadas não prestadas, com referência à Súmula 42 do TSE. A inércia da agremiação em substituir a candidatura ou ajustar o número de candidaturas masculinas foi tratada como burla à cota de gênero, em linha com jurisprudência do TSE aplicada às eleições de 2024.",
+        "consequence": "O relator negou seguimento à tutela cautelar antecedente. Na prática, não houve tutela provisória para afastar os efeitos do acórdão regional no ponto informado; determinou-se o encaminhamento ao processo principal e o arquivamento da cautelar.",
+        "strategic_comment": "O caso interessa ao acompanhamento legislativo por consolidar, em contexto municipal, uma leitura rigorosa da cota de gênero: partido que lança candidatura feminina com impedimento objetivo e não corrige a chapa assume risco de caracterização de fraude. Embora o processo seja local, a tese é replicável e afeta diretamente a estratégia de formação de chapas proporcionais pelos partidos.",
+        "why_relevant": "A decisão tem relevância político-eleitoral porque reforça dever operacional dos partidos de acompanhar a viabilidade jurídica de candidaturas femininas usadas para cumprimento da cota. A mensagem institucional é que a inércia após indeferimento por falta de quitação eleitoral pode caracterizar burla à cota, com potencial de impactar chapas proporcionais em outros municípios e eleições.",
+        "source_notes": [
+          "Processo 0600833-52.2026.6.00.0000, Tutela Cautelar Antecedente, decisão monocrática de 14/05/2026.",
+          "Município de São João da Varjota/PI, eleições de 2024.",
+          "Partes informadas: Alexandro Ferreira de Assis Nascimento, Fernanda Daguia Alves Vieira e Partido dos Trabalhadores (PT) - Municipal.",
+          "Tema informado: AIME por fraude à cota de gênero em razão de inércia partidária após indeferimento de candidatura feminina por falta de quitação eleitoral."
+        ],
+        "page_id": "36172195-5c64-81dc-a04d-cc283b502959",
+        "display_score": 7,
+        "ranking_reason": ""
+      }
+    },
+    "page_id:36172195-5c64-81dc-a04d-cc283b502959": {
+      "model": "gpt-5.5",
+      "case_id": "0600833-52.2026.6.00.0000",
+      "page_id": "36172195-5c64-81dc-a04d-cc283b502959",
+      "processo": "0600833-52.2026.6.00.0000",
+      "content_hash": "4400a27e4befb38bdf5fdc3fee91dfee4bea748f1ea6021b2b260c354efbf0f4",
+      "cached_at_utc": "2026-05-15T23:32:43.927596+00:00",
+      "analysis": {
+        "case_id": "0600833-52.2026.6.00.0000",
+        "title": "Fraude à cota de gênero por inércia partidária após indeferimento de candidatura feminina",
+        "relevance_score": 7,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Alexandro Ferreira de Assis Nascimento",
+          "Fernanda Daguia Alves Vieira"
+        ],
+        "parties": [
+          "PT/PI"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados neste período, segundo os dados fornecidos.",
+        "what_happened": "Requerentes vinculados ao PT municipal buscaram tutela cautelar antecedente no TSE em contexto de recurso especial eleitoral contra decisão em AIME sobre fraude à cota de gênero nas eleições de 2024. O relator, Ministro André Mendonça, negou seguimento à cautelar por ausência de pressuposto processual ligado ao recurso especial e por falta de plausibilidade jurídica do direito invocado.",
+        "legal_grounds": "A decisão adotou dois fundamentos centrais. Primeiro, afirmou que a competência do TSE ainda não estava inaugurada porque não havia juízo de admissibilidade do recurso especial eleitoral. Segundo, em obiter dictum, registrou ausência de plausibilidade jurídica: a candidatura feminina tinha óbice considerado evidente e intransponível, por falta de quitação eleitoral decorrente de contas de campanha pretérita julgadas não prestadas, com referência à Súmula 42 do TSE. A inércia da agremiação em substituir a candidatura ou ajustar o número de candidaturas masculinas foi tratada como burla à cota de gênero, em linha com jurisprudência do TSE aplicada às eleições de 2024.",
+        "consequence": "O relator negou seguimento à tutela cautelar antecedente. Na prática, não houve tutela provisória para afastar os efeitos do acórdão regional no ponto informado; determinou-se o encaminhamento ao processo principal e o arquivamento da cautelar.",
+        "strategic_comment": "O caso interessa ao acompanhamento legislativo por consolidar, em contexto municipal, uma leitura rigorosa da cota de gênero: partido que lança candidatura feminina com impedimento objetivo e não corrige a chapa assume risco de caracterização de fraude. Embora o processo seja local, a tese é replicável e afeta diretamente a estratégia de formação de chapas proporcionais pelos partidos.",
+        "why_relevant": "A decisão tem relevância político-eleitoral porque reforça dever operacional dos partidos de acompanhar a viabilidade jurídica de candidaturas femininas usadas para cumprimento da cota. A mensagem institucional é que a inércia após indeferimento por falta de quitação eleitoral pode caracterizar burla à cota, com potencial de impactar chapas proporcionais em outros municípios e eleições.",
+        "source_notes": [
+          "Processo 0600833-52.2026.6.00.0000, Tutela Cautelar Antecedente, decisão monocrática de 14/05/2026.",
+          "Município de São João da Varjota/PI, eleições de 2024.",
+          "Partes informadas: Alexandro Ferreira de Assis Nascimento, Fernanda Daguia Alves Vieira e Partido dos Trabalhadores (PT) - Municipal.",
+          "Tema informado: AIME por fraude à cota de gênero em razão de inércia partidária após indeferimento de candidatura feminina por falta de quitação eleitoral."
+        ],
+        "page_id": "36172195-5c64-81dc-a04d-cc283b502959",
+        "display_score": 7,
+        "ranking_reason": ""
+      }
+    },
+    "case_id:0600833-52.2026.6.00.0000": {
+      "model": "gpt-5.5",
+      "case_id": "0600833-52.2026.6.00.0000",
+      "page_id": "36172195-5c64-81dc-a04d-cc283b502959",
+      "processo": "0600833-52.2026.6.00.0000",
+      "content_hash": "4400a27e4befb38bdf5fdc3fee91dfee4bea748f1ea6021b2b260c354efbf0f4",
+      "cached_at_utc": "2026-05-15T23:32:43.927596+00:00",
+      "analysis": {
+        "case_id": "0600833-52.2026.6.00.0000",
+        "title": "Fraude à cota de gênero por inércia partidária após indeferimento de candidatura feminina",
+        "relevance_score": 7,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Alexandro Ferreira de Assis Nascimento",
+          "Fernanda Daguia Alves Vieira"
+        ],
+        "parties": [
+          "PT/PI"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados neste período, segundo os dados fornecidos.",
+        "what_happened": "Requerentes vinculados ao PT municipal buscaram tutela cautelar antecedente no TSE em contexto de recurso especial eleitoral contra decisão em AIME sobre fraude à cota de gênero nas eleições de 2024. O relator, Ministro André Mendonça, negou seguimento à cautelar por ausência de pressuposto processual ligado ao recurso especial e por falta de plausibilidade jurídica do direito invocado.",
+        "legal_grounds": "A decisão adotou dois fundamentos centrais. Primeiro, afirmou que a competência do TSE ainda não estava inaugurada porque não havia juízo de admissibilidade do recurso especial eleitoral. Segundo, em obiter dictum, registrou ausência de plausibilidade jurídica: a candidatura feminina tinha óbice considerado evidente e intransponível, por falta de quitação eleitoral decorrente de contas de campanha pretérita julgadas não prestadas, com referência à Súmula 42 do TSE. A inércia da agremiação em substituir a candidatura ou ajustar o número de candidaturas masculinas foi tratada como burla à cota de gênero, em linha com jurisprudência do TSE aplicada às eleições de 2024.",
+        "consequence": "O relator negou seguimento à tutela cautelar antecedente. Na prática, não houve tutela provisória para afastar os efeitos do acórdão regional no ponto informado; determinou-se o encaminhamento ao processo principal e o arquivamento da cautelar.",
+        "strategic_comment": "O caso interessa ao acompanhamento legislativo por consolidar, em contexto municipal, uma leitura rigorosa da cota de gênero: partido que lança candidatura feminina com impedimento objetivo e não corrige a chapa assume risco de caracterização de fraude. Embora o processo seja local, a tese é replicável e afeta diretamente a estratégia de formação de chapas proporcionais pelos partidos.",
+        "why_relevant": "A decisão tem relevância político-eleitoral porque reforça dever operacional dos partidos de acompanhar a viabilidade jurídica de candidaturas femininas usadas para cumprimento da cota. A mensagem institucional é que a inércia após indeferimento por falta de quitação eleitoral pode caracterizar burla à cota, com potencial de impactar chapas proporcionais em outros municípios e eleições.",
+        "source_notes": [
+          "Processo 0600833-52.2026.6.00.0000, Tutela Cautelar Antecedente, decisão monocrática de 14/05/2026.",
+          "Município de São João da Varjota/PI, eleições de 2024.",
+          "Partes informadas: Alexandro Ferreira de Assis Nascimento, Fernanda Daguia Alves Vieira e Partido dos Trabalhadores (PT) - Municipal.",
+          "Tema informado: AIME por fraude à cota de gênero em razão de inércia partidária após indeferimento de candidatura feminina por falta de quitação eleitoral."
+        ],
+        "page_id": "36172195-5c64-81dc-a04d-cc283b502959",
+        "display_score": 7,
+        "ranking_reason": ""
+      }
+    },
+    "content_hash:4400a27e4befb38bdf5fdc3fee91dfee4bea748f1ea6021b2b260c354efbf0f4": {
+      "model": "gpt-5.5",
+      "case_id": "0600833-52.2026.6.00.0000",
+      "page_id": "36172195-5c64-81dc-a04d-cc283b502959",
+      "processo": "0600833-52.2026.6.00.0000",
+      "content_hash": "4400a27e4befb38bdf5fdc3fee91dfee4bea748f1ea6021b2b260c354efbf0f4",
+      "cached_at_utc": "2026-05-15T23:32:43.927596+00:00",
+      "analysis": {
+        "case_id": "0600833-52.2026.6.00.0000",
+        "title": "Fraude à cota de gênero por inércia partidária após indeferimento de candidatura feminina",
+        "relevance_score": 7,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Alexandro Ferreira de Assis Nascimento",
+          "Fernanda Daguia Alves Vieira"
+        ],
+        "parties": [
+          "PT/PI"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados neste período, segundo os dados fornecidos.",
+        "what_happened": "Requerentes vinculados ao PT municipal buscaram tutela cautelar antecedente no TSE em contexto de recurso especial eleitoral contra decisão em AIME sobre fraude à cota de gênero nas eleições de 2024. O relator, Ministro André Mendonça, negou seguimento à cautelar por ausência de pressuposto processual ligado ao recurso especial e por falta de plausibilidade jurídica do direito invocado.",
+        "legal_grounds": "A decisão adotou dois fundamentos centrais. Primeiro, afirmou que a competência do TSE ainda não estava inaugurada porque não havia juízo de admissibilidade do recurso especial eleitoral. Segundo, em obiter dictum, registrou ausência de plausibilidade jurídica: a candidatura feminina tinha óbice considerado evidente e intransponível, por falta de quitação eleitoral decorrente de contas de campanha pretérita julgadas não prestadas, com referência à Súmula 42 do TSE. A inércia da agremiação em substituir a candidatura ou ajustar o número de candidaturas masculinas foi tratada como burla à cota de gênero, em linha com jurisprudência do TSE aplicada às eleições de 2024.",
+        "consequence": "O relator negou seguimento à tutela cautelar antecedente. Na prática, não houve tutela provisória para afastar os efeitos do acórdão regional no ponto informado; determinou-se o encaminhamento ao processo principal e o arquivamento da cautelar.",
+        "strategic_comment": "O caso interessa ao acompanhamento legislativo por consolidar, em contexto municipal, uma leitura rigorosa da cota de gênero: partido que lança candidatura feminina com impedimento objetivo e não corrige a chapa assume risco de caracterização de fraude. Embora o processo seja local, a tese é replicável e afeta diretamente a estratégia de formação de chapas proporcionais pelos partidos.",
+        "why_relevant": "A decisão tem relevância político-eleitoral porque reforça dever operacional dos partidos de acompanhar a viabilidade jurídica de candidaturas femininas usadas para cumprimento da cota. A mensagem institucional é que a inércia após indeferimento por falta de quitação eleitoral pode caracterizar burla à cota, com potencial de impactar chapas proporcionais em outros municípios e eleições.",
+        "source_notes": [
+          "Processo 0600833-52.2026.6.00.0000, Tutela Cautelar Antecedente, decisão monocrática de 14/05/2026.",
+          "Município de São João da Varjota/PI, eleições de 2024.",
+          "Partes informadas: Alexandro Ferreira de Assis Nascimento, Fernanda Daguia Alves Vieira e Partido dos Trabalhadores (PT) - Municipal.",
+          "Tema informado: AIME por fraude à cota de gênero em razão de inércia partidária após indeferimento de candidatura feminina por falta de quitação eleitoral."
+        ],
+        "page_id": "36172195-5c64-81dc-a04d-cc283b502959",
+        "display_score": 7,
+        "ranking_reason": ""
+      }
+    },
+    "numero_unico:0600367-41.2024.6.17.0037": {
+      "model": "gpt-5.5",
+      "case_id": "0600367-41.2024.6.17.0037",
+      "page_id": "36172195-5c64-81a4-8d2d-d8718caedfb8",
+      "processo": "0600367-41.2024.6.17.0037",
+      "content_hash": "5207cb5e7776e00deabacce049c0127b66ae58d0caf1b2350a6671f370aa4750",
+      "cached_at_utc": "2026-05-15T23:32:44.148242+00:00",
+      "analysis": {
+        "case_id": "0600367-41.2024.6.17.0037",
+        "title": "Fraude à cota de gênero em AIJE municipal e exigência de prova robusta para cassação",
+        "relevance_score": 5,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": false,
+        "public_figures": [],
+        "parties": [],
+        "lawyers_signal": "Não há, nos dados do caso, advogado marcado como recorrente no período. A estatística geral indica recorrência de outros patronos, mas o próprio registro do processo não aponta esse sinal.",
+        "what_happened": "Em AIJE relativa às Eleições 2024 em Palmares/PE, discutiu-se suposta fraude à reserva de gênero. O agravante buscava reverter o entendimento regional, mas o TSE não conheceu do agravo em recurso especial eleitoral por entender que a pretensão dependia de nova valoração do acervo fático-probatório e que não havia prova robusta suficiente da fraude.",
+        "legal_grounds": "A decisão aplicou o art. 10, § 3º, da Lei 9.504/1997 sob exigência de prova robusta da fraude à cota de gênero. Também adotou a orientação de que dúvida razoável impede a cassação em matéria eleitoral, com referência ao in dubio pro sufragio. O TSE ainda considerou inviável reabrir o conjunto fático-probatório em recurso especial eleitoral.",
+        "consequence": "O TSE não conheceu do agravo em recurso especial eleitoral. Permaneceu o afastamento da procedência da AIJE, sem aplicação das consequências pretendidas por fraude à cota de gênero.",
+        "strategic_comment": "O caso interessa ao acompanhamento legislativo por reafirmar o filtro probatório em ações de fraude à cota de gênero. A utilidade federal é moderada: o tema é replicável para chapas proporcionais e partidos, mas o processo é municipal, sem partido identificado nos dados e sem vetor federal direto.",
+        "why_relevant": "A decisão reforça que a fraude à cota de gênero exige prova consistente e que a dúvida razoável favorece a preservação do resultado eleitoral. Embora o caso seja municipal, a tese tem potencial de repetição em disputas proporcionais e no contencioso partidário sobre formação de candidaturas.",
+        "source_notes": [
+          "Processo 0600367-41.2024.6.17.0037, AREspEl, decisão monocrática de 14/05/2026.",
+          "Eleição de 2024, município de Palmares/PE.",
+          "Tema informado: AIJE por fraude à cota de gênero, art. 10, § 3º, da Lei 9.504/1997, suficiência probatória e in dubio pro sufragio.",
+          "Resultado informado: monocrática, não conhecido.",
+          "Partidos identificados no caso: nenhum."
+        ],
+        "page_id": "36172195-5c64-81a4-8d2d-d8718caedfb8",
+        "display_score": 5,
+        "ranking_reason": ""
+      }
+    },
+    "numero_processo:60036741": {
+      "model": "gpt-5.5",
+      "case_id": "0600367-41.2024.6.17.0037",
+      "page_id": "36172195-5c64-81a4-8d2d-d8718caedfb8",
+      "processo": "0600367-41.2024.6.17.0037",
+      "content_hash": "5207cb5e7776e00deabacce049c0127b66ae58d0caf1b2350a6671f370aa4750",
+      "cached_at_utc": "2026-05-15T23:32:44.148242+00:00",
+      "analysis": {
+        "case_id": "0600367-41.2024.6.17.0037",
+        "title": "Fraude à cota de gênero em AIJE municipal e exigência de prova robusta para cassação",
+        "relevance_score": 5,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": false,
+        "public_figures": [],
+        "parties": [],
+        "lawyers_signal": "Não há, nos dados do caso, advogado marcado como recorrente no período. A estatística geral indica recorrência de outros patronos, mas o próprio registro do processo não aponta esse sinal.",
+        "what_happened": "Em AIJE relativa às Eleições 2024 em Palmares/PE, discutiu-se suposta fraude à reserva de gênero. O agravante buscava reverter o entendimento regional, mas o TSE não conheceu do agravo em recurso especial eleitoral por entender que a pretensão dependia de nova valoração do acervo fático-probatório e que não havia prova robusta suficiente da fraude.",
+        "legal_grounds": "A decisão aplicou o art. 10, § 3º, da Lei 9.504/1997 sob exigência de prova robusta da fraude à cota de gênero. Também adotou a orientação de que dúvida razoável impede a cassação em matéria eleitoral, com referência ao in dubio pro sufragio. O TSE ainda considerou inviável reabrir o conjunto fático-probatório em recurso especial eleitoral.",
+        "consequence": "O TSE não conheceu do agravo em recurso especial eleitoral. Permaneceu o afastamento da procedência da AIJE, sem aplicação das consequências pretendidas por fraude à cota de gênero.",
+        "strategic_comment": "O caso interessa ao acompanhamento legislativo por reafirmar o filtro probatório em ações de fraude à cota de gênero. A utilidade federal é moderada: o tema é replicável para chapas proporcionais e partidos, mas o processo é municipal, sem partido identificado nos dados e sem vetor federal direto.",
+        "why_relevant": "A decisão reforça que a fraude à cota de gênero exige prova consistente e que a dúvida razoável favorece a preservação do resultado eleitoral. Embora o caso seja municipal, a tese tem potencial de repetição em disputas proporcionais e no contencioso partidário sobre formação de candidaturas.",
+        "source_notes": [
+          "Processo 0600367-41.2024.6.17.0037, AREspEl, decisão monocrática de 14/05/2026.",
+          "Eleição de 2024, município de Palmares/PE.",
+          "Tema informado: AIJE por fraude à cota de gênero, art. 10, § 3º, da Lei 9.504/1997, suficiência probatória e in dubio pro sufragio.",
+          "Resultado informado: monocrática, não conhecido.",
+          "Partidos identificados no caso: nenhum."
+        ],
+        "page_id": "36172195-5c64-81a4-8d2d-d8718caedfb8",
+        "display_score": 5,
+        "ranking_reason": ""
+      }
+    },
+    "page_id:36172195-5c64-81a4-8d2d-d8718caedfb8": {
+      "model": "gpt-5.5",
+      "case_id": "0600367-41.2024.6.17.0037",
+      "page_id": "36172195-5c64-81a4-8d2d-d8718caedfb8",
+      "processo": "0600367-41.2024.6.17.0037",
+      "content_hash": "5207cb5e7776e00deabacce049c0127b66ae58d0caf1b2350a6671f370aa4750",
+      "cached_at_utc": "2026-05-15T23:32:44.148242+00:00",
+      "analysis": {
+        "case_id": "0600367-41.2024.6.17.0037",
+        "title": "Fraude à cota de gênero em AIJE municipal e exigência de prova robusta para cassação",
+        "relevance_score": 5,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": false,
+        "public_figures": [],
+        "parties": [],
+        "lawyers_signal": "Não há, nos dados do caso, advogado marcado como recorrente no período. A estatística geral indica recorrência de outros patronos, mas o próprio registro do processo não aponta esse sinal.",
+        "what_happened": "Em AIJE relativa às Eleições 2024 em Palmares/PE, discutiu-se suposta fraude à reserva de gênero. O agravante buscava reverter o entendimento regional, mas o TSE não conheceu do agravo em recurso especial eleitoral por entender que a pretensão dependia de nova valoração do acervo fático-probatório e que não havia prova robusta suficiente da fraude.",
+        "legal_grounds": "A decisão aplicou o art. 10, § 3º, da Lei 9.504/1997 sob exigência de prova robusta da fraude à cota de gênero. Também adotou a orientação de que dúvida razoável impede a cassação em matéria eleitoral, com referência ao in dubio pro sufragio. O TSE ainda considerou inviável reabrir o conjunto fático-probatório em recurso especial eleitoral.",
+        "consequence": "O TSE não conheceu do agravo em recurso especial eleitoral. Permaneceu o afastamento da procedência da AIJE, sem aplicação das consequências pretendidas por fraude à cota de gênero.",
+        "strategic_comment": "O caso interessa ao acompanhamento legislativo por reafirmar o filtro probatório em ações de fraude à cota de gênero. A utilidade federal é moderada: o tema é replicável para chapas proporcionais e partidos, mas o processo é municipal, sem partido identificado nos dados e sem vetor federal direto.",
+        "why_relevant": "A decisão reforça que a fraude à cota de gênero exige prova consistente e que a dúvida razoável favorece a preservação do resultado eleitoral. Embora o caso seja municipal, a tese tem potencial de repetição em disputas proporcionais e no contencioso partidário sobre formação de candidaturas.",
+        "source_notes": [
+          "Processo 0600367-41.2024.6.17.0037, AREspEl, decisão monocrática de 14/05/2026.",
+          "Eleição de 2024, município de Palmares/PE.",
+          "Tema informado: AIJE por fraude à cota de gênero, art. 10, § 3º, da Lei 9.504/1997, suficiência probatória e in dubio pro sufragio.",
+          "Resultado informado: monocrática, não conhecido.",
+          "Partidos identificados no caso: nenhum."
+        ],
+        "page_id": "36172195-5c64-81a4-8d2d-d8718caedfb8",
+        "display_score": 5,
+        "ranking_reason": ""
+      }
+    },
+    "case_id:0600367-41.2024.6.17.0037": {
+      "model": "gpt-5.5",
+      "case_id": "0600367-41.2024.6.17.0037",
+      "page_id": "36172195-5c64-81a4-8d2d-d8718caedfb8",
+      "processo": "0600367-41.2024.6.17.0037",
+      "content_hash": "5207cb5e7776e00deabacce049c0127b66ae58d0caf1b2350a6671f370aa4750",
+      "cached_at_utc": "2026-05-15T23:32:44.148242+00:00",
+      "analysis": {
+        "case_id": "0600367-41.2024.6.17.0037",
+        "title": "Fraude à cota de gênero em AIJE municipal e exigência de prova robusta para cassação",
+        "relevance_score": 5,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": false,
+        "public_figures": [],
+        "parties": [],
+        "lawyers_signal": "Não há, nos dados do caso, advogado marcado como recorrente no período. A estatística geral indica recorrência de outros patronos, mas o próprio registro do processo não aponta esse sinal.",
+        "what_happened": "Em AIJE relativa às Eleições 2024 em Palmares/PE, discutiu-se suposta fraude à reserva de gênero. O agravante buscava reverter o entendimento regional, mas o TSE não conheceu do agravo em recurso especial eleitoral por entender que a pretensão dependia de nova valoração do acervo fático-probatório e que não havia prova robusta suficiente da fraude.",
+        "legal_grounds": "A decisão aplicou o art. 10, § 3º, da Lei 9.504/1997 sob exigência de prova robusta da fraude à cota de gênero. Também adotou a orientação de que dúvida razoável impede a cassação em matéria eleitoral, com referência ao in dubio pro sufragio. O TSE ainda considerou inviável reabrir o conjunto fático-probatório em recurso especial eleitoral.",
+        "consequence": "O TSE não conheceu do agravo em recurso especial eleitoral. Permaneceu o afastamento da procedência da AIJE, sem aplicação das consequências pretendidas por fraude à cota de gênero.",
+        "strategic_comment": "O caso interessa ao acompanhamento legislativo por reafirmar o filtro probatório em ações de fraude à cota de gênero. A utilidade federal é moderada: o tema é replicável para chapas proporcionais e partidos, mas o processo é municipal, sem partido identificado nos dados e sem vetor federal direto.",
+        "why_relevant": "A decisão reforça que a fraude à cota de gênero exige prova consistente e que a dúvida razoável favorece a preservação do resultado eleitoral. Embora o caso seja municipal, a tese tem potencial de repetição em disputas proporcionais e no contencioso partidário sobre formação de candidaturas.",
+        "source_notes": [
+          "Processo 0600367-41.2024.6.17.0037, AREspEl, decisão monocrática de 14/05/2026.",
+          "Eleição de 2024, município de Palmares/PE.",
+          "Tema informado: AIJE por fraude à cota de gênero, art. 10, § 3º, da Lei 9.504/1997, suficiência probatória e in dubio pro sufragio.",
+          "Resultado informado: monocrática, não conhecido.",
+          "Partidos identificados no caso: nenhum."
+        ],
+        "page_id": "36172195-5c64-81a4-8d2d-d8718caedfb8",
+        "display_score": 5,
+        "ranking_reason": ""
+      }
+    },
+    "content_hash:5207cb5e7776e00deabacce049c0127b66ae58d0caf1b2350a6671f370aa4750": {
+      "model": "gpt-5.5",
+      "case_id": "0600367-41.2024.6.17.0037",
+      "page_id": "36172195-5c64-81a4-8d2d-d8718caedfb8",
+      "processo": "0600367-41.2024.6.17.0037",
+      "content_hash": "5207cb5e7776e00deabacce049c0127b66ae58d0caf1b2350a6671f370aa4750",
+      "cached_at_utc": "2026-05-15T23:32:44.148242+00:00",
+      "analysis": {
+        "case_id": "0600367-41.2024.6.17.0037",
+        "title": "Fraude à cota de gênero em AIJE municipal e exigência de prova robusta para cassação",
+        "relevance_score": 5,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": false,
+        "public_figures": [],
+        "parties": [],
+        "lawyers_signal": "Não há, nos dados do caso, advogado marcado como recorrente no período. A estatística geral indica recorrência de outros patronos, mas o próprio registro do processo não aponta esse sinal.",
+        "what_happened": "Em AIJE relativa às Eleições 2024 em Palmares/PE, discutiu-se suposta fraude à reserva de gênero. O agravante buscava reverter o entendimento regional, mas o TSE não conheceu do agravo em recurso especial eleitoral por entender que a pretensão dependia de nova valoração do acervo fático-probatório e que não havia prova robusta suficiente da fraude.",
+        "legal_grounds": "A decisão aplicou o art. 10, § 3º, da Lei 9.504/1997 sob exigência de prova robusta da fraude à cota de gênero. Também adotou a orientação de que dúvida razoável impede a cassação em matéria eleitoral, com referência ao in dubio pro sufragio. O TSE ainda considerou inviável reabrir o conjunto fático-probatório em recurso especial eleitoral.",
+        "consequence": "O TSE não conheceu do agravo em recurso especial eleitoral. Permaneceu o afastamento da procedência da AIJE, sem aplicação das consequências pretendidas por fraude à cota de gênero.",
+        "strategic_comment": "O caso interessa ao acompanhamento legislativo por reafirmar o filtro probatório em ações de fraude à cota de gênero. A utilidade federal é moderada: o tema é replicável para chapas proporcionais e partidos, mas o processo é municipal, sem partido identificado nos dados e sem vetor federal direto.",
+        "why_relevant": "A decisão reforça que a fraude à cota de gênero exige prova consistente e que a dúvida razoável favorece a preservação do resultado eleitoral. Embora o caso seja municipal, a tese tem potencial de repetição em disputas proporcionais e no contencioso partidário sobre formação de candidaturas.",
+        "source_notes": [
+          "Processo 0600367-41.2024.6.17.0037, AREspEl, decisão monocrática de 14/05/2026.",
+          "Eleição de 2024, município de Palmares/PE.",
+          "Tema informado: AIJE por fraude à cota de gênero, art. 10, § 3º, da Lei 9.504/1997, suficiência probatória e in dubio pro sufragio.",
+          "Resultado informado: monocrática, não conhecido.",
+          "Partidos identificados no caso: nenhum."
+        ],
+        "page_id": "36172195-5c64-81a4-8d2d-d8718caedfb8",
+        "display_score": 5,
+        "ranking_reason": ""
+      }
+    },
+    "numero_unico:0600563-78.2024.6.10.0013": {
+      "model": "gpt-5.5",
+      "case_id": "0600563-78.2024.6.10.0013",
+      "page_id": "36172195-5c64-819a-93e9-eca63ea9fd33",
+      "processo": "0600563-78.2024.6.10.0013",
+      "content_hash": "8c07be074d59a5be24515ac02d69e9990c933b5f09c5045e4bebd9a034da5da8",
+      "cached_at_utc": "2026-05-15T23:32:44.184148+00:00",
+      "analysis": {
+        "case_id": "0600563-78.2024.6.10.0013",
+        "title": "RONI por omissão de serviços advocatícios e contábeis em contas de campanha do MDB em Bacabal",
+        "relevance_score": 5,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "MDB/MA"
+        ],
+        "lawyers_signal": "HUGO LEONARDO SOUSA SOARES e CARLOS SEABRA DE CARVALHO COELHO aparecem como advogados recorrentes no período, com 2 citações cada nas estatísticas fornecidas.",
+        "what_happened": "O MDB municipal de Bacabal, junto com MAYRA SAMPAIO PIRES e NATALIA SILVA MEDEIROS DA COSTA, agravou contra decisão que manteve a desaprovação das contas de campanha. O TSE negou seguimento ao agravo em recurso especial eleitoral por entender que a despesa não registrada, ligada a serviços advocatícios e contábeis, não teve origem comprovada e caracterizou RONI.",
+        "legal_grounds": "O TSE adotou como fundamentos a configuração de recursos de origem não identificada pela omissão de despesas com serviços advocatícios e contábeis, a gravidade da irregularidade e o comprometimento da confiabilidade das contas. A decisão afastou a tese de falha meramente formal, considerou inaplicáveis os princípios da proporcionalidade e da razoabilidade, rejeitou negativa de prestação jurisdicional, apontou ausência de impugnação específica e não reconheceu dissídio jurisprudencial por falta de cotejo analítico e similitude fática. Também invocou a vedação ao reexame de fatos e provas e as Súmulas-TSE nºs 24, 26, 28, 29 e 30.",
+        "consequence": "O agravo em recurso especial eleitoral teve seguimento negado. Ficou mantida a desaprovação das contas de campanha do MDB municipal em Bacabal nas Eleições 2024, sem registro de outra sanção nos dados fornecidos.",
+        "strategic_comment": "O caso tem interesse partidário-compliance, embora municipal. A utilidade estratégica está na reafirmação de que despesas de campanha com advocacia e contabilidade, quando omitidas e sem comprovação de origem, podem ser tratadas como RONI e justificar desaprovação, sem aplicação de proporcionalidade. A tese é replicável para prestações de contas de campanha de órgãos partidários, mas não há vetor federal direto nos dados fornecidos.",
+        "why_relevant": "A relevância político-eleitoral decorre do impacto sobre a governança financeira de campanhas partidárias. O caso reforça deveres de registro e comprovação de despesas sensíveis, inclusive serviços jurídicos e contábeis, e sinaliza baixa tolerância do TSE a omissões que afetem a confiabilidade das contas. Como o caso é municipal e não envolve cargo federal, diretório nacional ou estadual nos dados fornecidos, a relevância permanece média.",
+        "source_notes": [
+          "Processo 0600563-78.2024.6.10.0013, AREspEl, decisão monocrática de 14/05/2026, relator Ministro André Mendonça.",
+          "Caso referente às Eleições 2024 no município de Bacabal/MA.",
+          "Dados fornecidos indicam como partes MAYRA SAMPAIO PIRES, MOVIMENTO DEMOCRATICO BRASILEIRO (MDB) - MUNICIPAL e NATALIA SILVA MEDEIROS DA COSTA, sem explicitar cargos ou condição de candidatura."
+        ],
+        "page_id": "36172195-5c64-819a-93e9-eca63ea9fd33",
+        "display_score": 5,
+        "ranking_reason": ""
+      }
+    },
+    "numero_processo:60056378": {
+      "model": "gpt-5.5",
+      "case_id": "0600563-78.2024.6.10.0013",
+      "page_id": "36172195-5c64-819a-93e9-eca63ea9fd33",
+      "processo": "0600563-78.2024.6.10.0013",
+      "content_hash": "8c07be074d59a5be24515ac02d69e9990c933b5f09c5045e4bebd9a034da5da8",
+      "cached_at_utc": "2026-05-15T23:32:44.184148+00:00",
+      "analysis": {
+        "case_id": "0600563-78.2024.6.10.0013",
+        "title": "RONI por omissão de serviços advocatícios e contábeis em contas de campanha do MDB em Bacabal",
+        "relevance_score": 5,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "MDB/MA"
+        ],
+        "lawyers_signal": "HUGO LEONARDO SOUSA SOARES e CARLOS SEABRA DE CARVALHO COELHO aparecem como advogados recorrentes no período, com 2 citações cada nas estatísticas fornecidas.",
+        "what_happened": "O MDB municipal de Bacabal, junto com MAYRA SAMPAIO PIRES e NATALIA SILVA MEDEIROS DA COSTA, agravou contra decisão que manteve a desaprovação das contas de campanha. O TSE negou seguimento ao agravo em recurso especial eleitoral por entender que a despesa não registrada, ligada a serviços advocatícios e contábeis, não teve origem comprovada e caracterizou RONI.",
+        "legal_grounds": "O TSE adotou como fundamentos a configuração de recursos de origem não identificada pela omissão de despesas com serviços advocatícios e contábeis, a gravidade da irregularidade e o comprometimento da confiabilidade das contas. A decisão afastou a tese de falha meramente formal, considerou inaplicáveis os princípios da proporcionalidade e da razoabilidade, rejeitou negativa de prestação jurisdicional, apontou ausência de impugnação específica e não reconheceu dissídio jurisprudencial por falta de cotejo analítico e similitude fática. Também invocou a vedação ao reexame de fatos e provas e as Súmulas-TSE nºs 24, 26, 28, 29 e 30.",
+        "consequence": "O agravo em recurso especial eleitoral teve seguimento negado. Ficou mantida a desaprovação das contas de campanha do MDB municipal em Bacabal nas Eleições 2024, sem registro de outra sanção nos dados fornecidos.",
+        "strategic_comment": "O caso tem interesse partidário-compliance, embora municipal. A utilidade estratégica está na reafirmação de que despesas de campanha com advocacia e contabilidade, quando omitidas e sem comprovação de origem, podem ser tratadas como RONI e justificar desaprovação, sem aplicação de proporcionalidade. A tese é replicável para prestações de contas de campanha de órgãos partidários, mas não há vetor federal direto nos dados fornecidos.",
+        "why_relevant": "A relevância político-eleitoral decorre do impacto sobre a governança financeira de campanhas partidárias. O caso reforça deveres de registro e comprovação de despesas sensíveis, inclusive serviços jurídicos e contábeis, e sinaliza baixa tolerância do TSE a omissões que afetem a confiabilidade das contas. Como o caso é municipal e não envolve cargo federal, diretório nacional ou estadual nos dados fornecidos, a relevância permanece média.",
+        "source_notes": [
+          "Processo 0600563-78.2024.6.10.0013, AREspEl, decisão monocrática de 14/05/2026, relator Ministro André Mendonça.",
+          "Caso referente às Eleições 2024 no município de Bacabal/MA.",
+          "Dados fornecidos indicam como partes MAYRA SAMPAIO PIRES, MOVIMENTO DEMOCRATICO BRASILEIRO (MDB) - MUNICIPAL e NATALIA SILVA MEDEIROS DA COSTA, sem explicitar cargos ou condição de candidatura."
+        ],
+        "page_id": "36172195-5c64-819a-93e9-eca63ea9fd33",
+        "display_score": 5,
+        "ranking_reason": ""
+      }
+    },
+    "page_id:36172195-5c64-819a-93e9-eca63ea9fd33": {
+      "model": "gpt-5.5",
+      "case_id": "0600563-78.2024.6.10.0013",
+      "page_id": "36172195-5c64-819a-93e9-eca63ea9fd33",
+      "processo": "0600563-78.2024.6.10.0013",
+      "content_hash": "8c07be074d59a5be24515ac02d69e9990c933b5f09c5045e4bebd9a034da5da8",
+      "cached_at_utc": "2026-05-15T23:32:44.184148+00:00",
+      "analysis": {
+        "case_id": "0600563-78.2024.6.10.0013",
+        "title": "RONI por omissão de serviços advocatícios e contábeis em contas de campanha do MDB em Bacabal",
+        "relevance_score": 5,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "MDB/MA"
+        ],
+        "lawyers_signal": "HUGO LEONARDO SOUSA SOARES e CARLOS SEABRA DE CARVALHO COELHO aparecem como advogados recorrentes no período, com 2 citações cada nas estatísticas fornecidas.",
+        "what_happened": "O MDB municipal de Bacabal, junto com MAYRA SAMPAIO PIRES e NATALIA SILVA MEDEIROS DA COSTA, agravou contra decisão que manteve a desaprovação das contas de campanha. O TSE negou seguimento ao agravo em recurso especial eleitoral por entender que a despesa não registrada, ligada a serviços advocatícios e contábeis, não teve origem comprovada e caracterizou RONI.",
+        "legal_grounds": "O TSE adotou como fundamentos a configuração de recursos de origem não identificada pela omissão de despesas com serviços advocatícios e contábeis, a gravidade da irregularidade e o comprometimento da confiabilidade das contas. A decisão afastou a tese de falha meramente formal, considerou inaplicáveis os princípios da proporcionalidade e da razoabilidade, rejeitou negativa de prestação jurisdicional, apontou ausência de impugnação específica e não reconheceu dissídio jurisprudencial por falta de cotejo analítico e similitude fática. Também invocou a vedação ao reexame de fatos e provas e as Súmulas-TSE nºs 24, 26, 28, 29 e 30.",
+        "consequence": "O agravo em recurso especial eleitoral teve seguimento negado. Ficou mantida a desaprovação das contas de campanha do MDB municipal em Bacabal nas Eleições 2024, sem registro de outra sanção nos dados fornecidos.",
+        "strategic_comment": "O caso tem interesse partidário-compliance, embora municipal. A utilidade estratégica está na reafirmação de que despesas de campanha com advocacia e contabilidade, quando omitidas e sem comprovação de origem, podem ser tratadas como RONI e justificar desaprovação, sem aplicação de proporcionalidade. A tese é replicável para prestações de contas de campanha de órgãos partidários, mas não há vetor federal direto nos dados fornecidos.",
+        "why_relevant": "A relevância político-eleitoral decorre do impacto sobre a governança financeira de campanhas partidárias. O caso reforça deveres de registro e comprovação de despesas sensíveis, inclusive serviços jurídicos e contábeis, e sinaliza baixa tolerância do TSE a omissões que afetem a confiabilidade das contas. Como o caso é municipal e não envolve cargo federal, diretório nacional ou estadual nos dados fornecidos, a relevância permanece média.",
+        "source_notes": [
+          "Processo 0600563-78.2024.6.10.0013, AREspEl, decisão monocrática de 14/05/2026, relator Ministro André Mendonça.",
+          "Caso referente às Eleições 2024 no município de Bacabal/MA.",
+          "Dados fornecidos indicam como partes MAYRA SAMPAIO PIRES, MOVIMENTO DEMOCRATICO BRASILEIRO (MDB) - MUNICIPAL e NATALIA SILVA MEDEIROS DA COSTA, sem explicitar cargos ou condição de candidatura."
+        ],
+        "page_id": "36172195-5c64-819a-93e9-eca63ea9fd33",
+        "display_score": 5,
+        "ranking_reason": ""
+      }
+    },
+    "case_id:0600563-78.2024.6.10.0013": {
+      "model": "gpt-5.5",
+      "case_id": "0600563-78.2024.6.10.0013",
+      "page_id": "36172195-5c64-819a-93e9-eca63ea9fd33",
+      "processo": "0600563-78.2024.6.10.0013",
+      "content_hash": "8c07be074d59a5be24515ac02d69e9990c933b5f09c5045e4bebd9a034da5da8",
+      "cached_at_utc": "2026-05-15T23:32:44.184148+00:00",
+      "analysis": {
+        "case_id": "0600563-78.2024.6.10.0013",
+        "title": "RONI por omissão de serviços advocatícios e contábeis em contas de campanha do MDB em Bacabal",
+        "relevance_score": 5,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "MDB/MA"
+        ],
+        "lawyers_signal": "HUGO LEONARDO SOUSA SOARES e CARLOS SEABRA DE CARVALHO COELHO aparecem como advogados recorrentes no período, com 2 citações cada nas estatísticas fornecidas.",
+        "what_happened": "O MDB municipal de Bacabal, junto com MAYRA SAMPAIO PIRES e NATALIA SILVA MEDEIROS DA COSTA, agravou contra decisão que manteve a desaprovação das contas de campanha. O TSE negou seguimento ao agravo em recurso especial eleitoral por entender que a despesa não registrada, ligada a serviços advocatícios e contábeis, não teve origem comprovada e caracterizou RONI.",
+        "legal_grounds": "O TSE adotou como fundamentos a configuração de recursos de origem não identificada pela omissão de despesas com serviços advocatícios e contábeis, a gravidade da irregularidade e o comprometimento da confiabilidade das contas. A decisão afastou a tese de falha meramente formal, considerou inaplicáveis os princípios da proporcionalidade e da razoabilidade, rejeitou negativa de prestação jurisdicional, apontou ausência de impugnação específica e não reconheceu dissídio jurisprudencial por falta de cotejo analítico e similitude fática. Também invocou a vedação ao reexame de fatos e provas e as Súmulas-TSE nºs 24, 26, 28, 29 e 30.",
+        "consequence": "O agravo em recurso especial eleitoral teve seguimento negado. Ficou mantida a desaprovação das contas de campanha do MDB municipal em Bacabal nas Eleições 2024, sem registro de outra sanção nos dados fornecidos.",
+        "strategic_comment": "O caso tem interesse partidário-compliance, embora municipal. A utilidade estratégica está na reafirmação de que despesas de campanha com advocacia e contabilidade, quando omitidas e sem comprovação de origem, podem ser tratadas como RONI e justificar desaprovação, sem aplicação de proporcionalidade. A tese é replicável para prestações de contas de campanha de órgãos partidários, mas não há vetor federal direto nos dados fornecidos.",
+        "why_relevant": "A relevância político-eleitoral decorre do impacto sobre a governança financeira de campanhas partidárias. O caso reforça deveres de registro e comprovação de despesas sensíveis, inclusive serviços jurídicos e contábeis, e sinaliza baixa tolerância do TSE a omissões que afetem a confiabilidade das contas. Como o caso é municipal e não envolve cargo federal, diretório nacional ou estadual nos dados fornecidos, a relevância permanece média.",
+        "source_notes": [
+          "Processo 0600563-78.2024.6.10.0013, AREspEl, decisão monocrática de 14/05/2026, relator Ministro André Mendonça.",
+          "Caso referente às Eleições 2024 no município de Bacabal/MA.",
+          "Dados fornecidos indicam como partes MAYRA SAMPAIO PIRES, MOVIMENTO DEMOCRATICO BRASILEIRO (MDB) - MUNICIPAL e NATALIA SILVA MEDEIROS DA COSTA, sem explicitar cargos ou condição de candidatura."
+        ],
+        "page_id": "36172195-5c64-819a-93e9-eca63ea9fd33",
+        "display_score": 5,
+        "ranking_reason": ""
+      }
+    },
+    "content_hash:8c07be074d59a5be24515ac02d69e9990c933b5f09c5045e4bebd9a034da5da8": {
+      "model": "gpt-5.5",
+      "case_id": "0600563-78.2024.6.10.0013",
+      "page_id": "36172195-5c64-819a-93e9-eca63ea9fd33",
+      "processo": "0600563-78.2024.6.10.0013",
+      "content_hash": "8c07be074d59a5be24515ac02d69e9990c933b5f09c5045e4bebd9a034da5da8",
+      "cached_at_utc": "2026-05-15T23:32:44.184148+00:00",
+      "analysis": {
+        "case_id": "0600563-78.2024.6.10.0013",
+        "title": "RONI por omissão de serviços advocatícios e contábeis em contas de campanha do MDB em Bacabal",
+        "relevance_score": 5,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "MDB/MA"
+        ],
+        "lawyers_signal": "HUGO LEONARDO SOUSA SOARES e CARLOS SEABRA DE CARVALHO COELHO aparecem como advogados recorrentes no período, com 2 citações cada nas estatísticas fornecidas.",
+        "what_happened": "O MDB municipal de Bacabal, junto com MAYRA SAMPAIO PIRES e NATALIA SILVA MEDEIROS DA COSTA, agravou contra decisão que manteve a desaprovação das contas de campanha. O TSE negou seguimento ao agravo em recurso especial eleitoral por entender que a despesa não registrada, ligada a serviços advocatícios e contábeis, não teve origem comprovada e caracterizou RONI.",
+        "legal_grounds": "O TSE adotou como fundamentos a configuração de recursos de origem não identificada pela omissão de despesas com serviços advocatícios e contábeis, a gravidade da irregularidade e o comprometimento da confiabilidade das contas. A decisão afastou a tese de falha meramente formal, considerou inaplicáveis os princípios da proporcionalidade e da razoabilidade, rejeitou negativa de prestação jurisdicional, apontou ausência de impugnação específica e não reconheceu dissídio jurisprudencial por falta de cotejo analítico e similitude fática. Também invocou a vedação ao reexame de fatos e provas e as Súmulas-TSE nºs 24, 26, 28, 29 e 30.",
+        "consequence": "O agravo em recurso especial eleitoral teve seguimento negado. Ficou mantida a desaprovação das contas de campanha do MDB municipal em Bacabal nas Eleições 2024, sem registro de outra sanção nos dados fornecidos.",
+        "strategic_comment": "O caso tem interesse partidário-compliance, embora municipal. A utilidade estratégica está na reafirmação de que despesas de campanha com advocacia e contabilidade, quando omitidas e sem comprovação de origem, podem ser tratadas como RONI e justificar desaprovação, sem aplicação de proporcionalidade. A tese é replicável para prestações de contas de campanha de órgãos partidários, mas não há vetor federal direto nos dados fornecidos.",
+        "why_relevant": "A relevância político-eleitoral decorre do impacto sobre a governança financeira de campanhas partidárias. O caso reforça deveres de registro e comprovação de despesas sensíveis, inclusive serviços jurídicos e contábeis, e sinaliza baixa tolerância do TSE a omissões que afetem a confiabilidade das contas. Como o caso é municipal e não envolve cargo federal, diretório nacional ou estadual nos dados fornecidos, a relevância permanece média.",
+        "source_notes": [
+          "Processo 0600563-78.2024.6.10.0013, AREspEl, decisão monocrática de 14/05/2026, relator Ministro André Mendonça.",
+          "Caso referente às Eleições 2024 no município de Bacabal/MA.",
+          "Dados fornecidos indicam como partes MAYRA SAMPAIO PIRES, MOVIMENTO DEMOCRATICO BRASILEIRO (MDB) - MUNICIPAL e NATALIA SILVA MEDEIROS DA COSTA, sem explicitar cargos ou condição de candidatura."
+        ],
+        "page_id": "36172195-5c64-819a-93e9-eca63ea9fd33",
+        "display_score": 5,
+        "ranking_reason": ""
+      }
+    },
+    "numero_unico:0600821-38.2026.6.00.0000": {
+      "model": "gpt-5.5",
+      "case_id": "0600821-38.2026.6.00.0000",
+      "page_id": "36172195-5c64-8131-ad8a-c00f1b6b2b91",
+      "processo": "0600821-38.2026.6.00.0000",
+      "content_hash": "77bbc67ba63c3db63087bc32ee951673d7aebbc36fb408bd44093d17b960c280",
+      "cached_at_utc": "2026-05-15T23:32:44.460078+00:00",
+      "analysis": {
+        "case_id": "0600821-38.2026.6.00.0000",
+        "title": "Eleição suplementar para governo de Roraima e limites da reclamação contra calendário do TRE/RR",
+        "relevance_score": 9,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Governador de Roraima eleito em 2022",
+          "Vice-governador de Roraima eleito em 2022"
+        ],
+        "parties": [
+          "REPUBLICANOS (REPUBLICANOS) - ESTADUAL",
+          "TRIBUNAL REGIONAL ELEITORAL DE RORAIMA"
+        ],
+        "lawyers_signal": "Atuou Marcos Paulo Veloso Oliveira. O nome não aparece entre os advogados recorrentes no período informado.",
+        "what_happened": "O Diretório Estadual do Republicanos em Roraima ajuizou reclamação no TSE contra o TRE/RR. Alegou que a Resolução nº 584/2026, editada pelo Presidente do TRE/RR para disciplinar calendário e regras de eleição suplementar em Boa Vista/RR, teria descumprido acórdão do TSE no RO-El nº 0600940-96.2022.6.23.0000/RR, que confirmou a cassação dos diplomas do governador e do vice-governador de Roraima eleitos em 2022. O TSE rejeitou essa leitura e negou seguimento à reclamação.",
+        "legal_grounds": "A decisão aplicou a compreensão de que a reclamação não serve como sucedâneo recursal e exige aderência estrita entre o ato reclamado e a autoridade do acórdão invocado. O TSE entendeu que o acórdão no RO-El nº 0600940-96.2022.6.23.0000/RR não impôs demonstração formal prévia de inviabilidade técnica para iniciar atos do pleito, mas apenas condicionou eventual eleição indireta à demonstração concreta de impedimento técnico e à deliberação do Plenário.",
+        "consequence": "O TSE negou seguimento à reclamação. Com isso, afastou a alegação de descumprimento do acórdão paradigma e preservou, nos termos descritos, a apreciação da atividade administrativa do TRE/RR relativa aos atos preparatórios da eleição suplementar.",
+        "strategic_comment": "O caso é relevante porque delimita o uso da reclamação perante o TSE em contexto de eleição suplementar estadual. A decisão reduz a possibilidade de partidos bloquearem atos preparatórios de TREs por meio de reclamação quando não houver descumprimento claro do comando anterior. Para o debate legislativo, o ponto sensível é a governança institucional de eleições suplementares após cassação de chapa majoritária estadual, especialmente a relação entre comando jurisdicional do TSE, discricionariedade administrativa regional e escolha entre modalidade direta ou indireta.",
+        "why_relevant": "A relevância é alta por envolver eleição suplementar relacionada ao governo estadual, diretório estadual de partido político e os limites de atuação administrativa de tribunal regional após cassação de chapa majoritária. Embora o processo tenha sido decidido em reclamação, o entendimento tem interesse institucional porque sinaliza que atos preparatórios do TRE não ficam automaticamente condicionados a uma comprovação prévia e formal de inviabilidade técnica, salvo quando o acórdão do TSE assim determinar de modo claro.",
+        "source_notes": [
+          "Processo nº 0600821-38.2026.6.00.0000, decisão em 12/05/2026, classe Reclamação.",
+          "Relator: Min. Ricardo Villas Bôas Cueva.",
+          "Partido identificado nos dados: REPUBLICANOS/RR.",
+          "O caso decorre de acórdão que confirmou a cassação dos diplomas do governador e do vice-governador de Roraima eleitos em 2022.",
+          "A base fornecida menciona 13 processos no período, mas disponibiliza dados individualizados apenas deste processo."
+        ],
+        "page_id": "36172195-5c64-8131-ad8a-c00f1b6b2b91",
+        "display_score": 9,
+        "ranking_reason": ""
+      }
+    },
+    "numero_processo:60082138": {
+      "model": "gpt-5.5",
+      "case_id": "0600821-38.2026.6.00.0000",
+      "page_id": "36172195-5c64-8131-ad8a-c00f1b6b2b91",
+      "processo": "0600821-38.2026.6.00.0000",
+      "content_hash": "77bbc67ba63c3db63087bc32ee951673d7aebbc36fb408bd44093d17b960c280",
+      "cached_at_utc": "2026-05-15T23:32:44.460078+00:00",
+      "analysis": {
+        "case_id": "0600821-38.2026.6.00.0000",
+        "title": "Eleição suplementar para governo de Roraima e limites da reclamação contra calendário do TRE/RR",
+        "relevance_score": 9,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Governador de Roraima eleito em 2022",
+          "Vice-governador de Roraima eleito em 2022"
+        ],
+        "parties": [
+          "REPUBLICANOS (REPUBLICANOS) - ESTADUAL",
+          "TRIBUNAL REGIONAL ELEITORAL DE RORAIMA"
+        ],
+        "lawyers_signal": "Atuou Marcos Paulo Veloso Oliveira. O nome não aparece entre os advogados recorrentes no período informado.",
+        "what_happened": "O Diretório Estadual do Republicanos em Roraima ajuizou reclamação no TSE contra o TRE/RR. Alegou que a Resolução nº 584/2026, editada pelo Presidente do TRE/RR para disciplinar calendário e regras de eleição suplementar em Boa Vista/RR, teria descumprido acórdão do TSE no RO-El nº 0600940-96.2022.6.23.0000/RR, que confirmou a cassação dos diplomas do governador e do vice-governador de Roraima eleitos em 2022. O TSE rejeitou essa leitura e negou seguimento à reclamação.",
+        "legal_grounds": "A decisão aplicou a compreensão de que a reclamação não serve como sucedâneo recursal e exige aderência estrita entre o ato reclamado e a autoridade do acórdão invocado. O TSE entendeu que o acórdão no RO-El nº 0600940-96.2022.6.23.0000/RR não impôs demonstração formal prévia de inviabilidade técnica para iniciar atos do pleito, mas apenas condicionou eventual eleição indireta à demonstração concreta de impedimento técnico e à deliberação do Plenário.",
+        "consequence": "O TSE negou seguimento à reclamação. Com isso, afastou a alegação de descumprimento do acórdão paradigma e preservou, nos termos descritos, a apreciação da atividade administrativa do TRE/RR relativa aos atos preparatórios da eleição suplementar.",
+        "strategic_comment": "O caso é relevante porque delimita o uso da reclamação perante o TSE em contexto de eleição suplementar estadual. A decisão reduz a possibilidade de partidos bloquearem atos preparatórios de TREs por meio de reclamação quando não houver descumprimento claro do comando anterior. Para o debate legislativo, o ponto sensível é a governança institucional de eleições suplementares após cassação de chapa majoritária estadual, especialmente a relação entre comando jurisdicional do TSE, discricionariedade administrativa regional e escolha entre modalidade direta ou indireta.",
+        "why_relevant": "A relevância é alta por envolver eleição suplementar relacionada ao governo estadual, diretório estadual de partido político e os limites de atuação administrativa de tribunal regional após cassação de chapa majoritária. Embora o processo tenha sido decidido em reclamação, o entendimento tem interesse institucional porque sinaliza que atos preparatórios do TRE não ficam automaticamente condicionados a uma comprovação prévia e formal de inviabilidade técnica, salvo quando o acórdão do TSE assim determinar de modo claro.",
+        "source_notes": [
+          "Processo nº 0600821-38.2026.6.00.0000, decisão em 12/05/2026, classe Reclamação.",
+          "Relator: Min. Ricardo Villas Bôas Cueva.",
+          "Partido identificado nos dados: REPUBLICANOS/RR.",
+          "O caso decorre de acórdão que confirmou a cassação dos diplomas do governador e do vice-governador de Roraima eleitos em 2022.",
+          "A base fornecida menciona 13 processos no período, mas disponibiliza dados individualizados apenas deste processo."
+        ],
+        "page_id": "36172195-5c64-8131-ad8a-c00f1b6b2b91",
+        "display_score": 9,
+        "ranking_reason": ""
+      }
+    },
+    "page_id:36172195-5c64-8131-ad8a-c00f1b6b2b91": {
+      "model": "gpt-5.5",
+      "case_id": "0600821-38.2026.6.00.0000",
+      "page_id": "36172195-5c64-8131-ad8a-c00f1b6b2b91",
+      "processo": "0600821-38.2026.6.00.0000",
+      "content_hash": "77bbc67ba63c3db63087bc32ee951673d7aebbc36fb408bd44093d17b960c280",
+      "cached_at_utc": "2026-05-15T23:32:44.460078+00:00",
+      "analysis": {
+        "case_id": "0600821-38.2026.6.00.0000",
+        "title": "Eleição suplementar para governo de Roraima e limites da reclamação contra calendário do TRE/RR",
+        "relevance_score": 9,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Governador de Roraima eleito em 2022",
+          "Vice-governador de Roraima eleito em 2022"
+        ],
+        "parties": [
+          "REPUBLICANOS (REPUBLICANOS) - ESTADUAL",
+          "TRIBUNAL REGIONAL ELEITORAL DE RORAIMA"
+        ],
+        "lawyers_signal": "Atuou Marcos Paulo Veloso Oliveira. O nome não aparece entre os advogados recorrentes no período informado.",
+        "what_happened": "O Diretório Estadual do Republicanos em Roraima ajuizou reclamação no TSE contra o TRE/RR. Alegou que a Resolução nº 584/2026, editada pelo Presidente do TRE/RR para disciplinar calendário e regras de eleição suplementar em Boa Vista/RR, teria descumprido acórdão do TSE no RO-El nº 0600940-96.2022.6.23.0000/RR, que confirmou a cassação dos diplomas do governador e do vice-governador de Roraima eleitos em 2022. O TSE rejeitou essa leitura e negou seguimento à reclamação.",
+        "legal_grounds": "A decisão aplicou a compreensão de que a reclamação não serve como sucedâneo recursal e exige aderência estrita entre o ato reclamado e a autoridade do acórdão invocado. O TSE entendeu que o acórdão no RO-El nº 0600940-96.2022.6.23.0000/RR não impôs demonstração formal prévia de inviabilidade técnica para iniciar atos do pleito, mas apenas condicionou eventual eleição indireta à demonstração concreta de impedimento técnico e à deliberação do Plenário.",
+        "consequence": "O TSE negou seguimento à reclamação. Com isso, afastou a alegação de descumprimento do acórdão paradigma e preservou, nos termos descritos, a apreciação da atividade administrativa do TRE/RR relativa aos atos preparatórios da eleição suplementar.",
+        "strategic_comment": "O caso é relevante porque delimita o uso da reclamação perante o TSE em contexto de eleição suplementar estadual. A decisão reduz a possibilidade de partidos bloquearem atos preparatórios de TREs por meio de reclamação quando não houver descumprimento claro do comando anterior. Para o debate legislativo, o ponto sensível é a governança institucional de eleições suplementares após cassação de chapa majoritária estadual, especialmente a relação entre comando jurisdicional do TSE, discricionariedade administrativa regional e escolha entre modalidade direta ou indireta.",
+        "why_relevant": "A relevância é alta por envolver eleição suplementar relacionada ao governo estadual, diretório estadual de partido político e os limites de atuação administrativa de tribunal regional após cassação de chapa majoritária. Embora o processo tenha sido decidido em reclamação, o entendimento tem interesse institucional porque sinaliza que atos preparatórios do TRE não ficam automaticamente condicionados a uma comprovação prévia e formal de inviabilidade técnica, salvo quando o acórdão do TSE assim determinar de modo claro.",
+        "source_notes": [
+          "Processo nº 0600821-38.2026.6.00.0000, decisão em 12/05/2026, classe Reclamação.",
+          "Relator: Min. Ricardo Villas Bôas Cueva.",
+          "Partido identificado nos dados: REPUBLICANOS/RR.",
+          "O caso decorre de acórdão que confirmou a cassação dos diplomas do governador e do vice-governador de Roraima eleitos em 2022.",
+          "A base fornecida menciona 13 processos no período, mas disponibiliza dados individualizados apenas deste processo."
+        ],
+        "page_id": "36172195-5c64-8131-ad8a-c00f1b6b2b91",
+        "display_score": 9,
+        "ranking_reason": ""
+      }
+    },
+    "case_id:0600821-38.2026.6.00.0000": {
+      "model": "gpt-5.5",
+      "case_id": "0600821-38.2026.6.00.0000",
+      "page_id": "36172195-5c64-8131-ad8a-c00f1b6b2b91",
+      "processo": "0600821-38.2026.6.00.0000",
+      "content_hash": "77bbc67ba63c3db63087bc32ee951673d7aebbc36fb408bd44093d17b960c280",
+      "cached_at_utc": "2026-05-15T23:32:44.460078+00:00",
+      "analysis": {
+        "case_id": "0600821-38.2026.6.00.0000",
+        "title": "Eleição suplementar para governo de Roraima e limites da reclamação contra calendário do TRE/RR",
+        "relevance_score": 9,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Governador de Roraima eleito em 2022",
+          "Vice-governador de Roraima eleito em 2022"
+        ],
+        "parties": [
+          "REPUBLICANOS (REPUBLICANOS) - ESTADUAL",
+          "TRIBUNAL REGIONAL ELEITORAL DE RORAIMA"
+        ],
+        "lawyers_signal": "Atuou Marcos Paulo Veloso Oliveira. O nome não aparece entre os advogados recorrentes no período informado.",
+        "what_happened": "O Diretório Estadual do Republicanos em Roraima ajuizou reclamação no TSE contra o TRE/RR. Alegou que a Resolução nº 584/2026, editada pelo Presidente do TRE/RR para disciplinar calendário e regras de eleição suplementar em Boa Vista/RR, teria descumprido acórdão do TSE no RO-El nº 0600940-96.2022.6.23.0000/RR, que confirmou a cassação dos diplomas do governador e do vice-governador de Roraima eleitos em 2022. O TSE rejeitou essa leitura e negou seguimento à reclamação.",
+        "legal_grounds": "A decisão aplicou a compreensão de que a reclamação não serve como sucedâneo recursal e exige aderência estrita entre o ato reclamado e a autoridade do acórdão invocado. O TSE entendeu que o acórdão no RO-El nº 0600940-96.2022.6.23.0000/RR não impôs demonstração formal prévia de inviabilidade técnica para iniciar atos do pleito, mas apenas condicionou eventual eleição indireta à demonstração concreta de impedimento técnico e à deliberação do Plenário.",
+        "consequence": "O TSE negou seguimento à reclamação. Com isso, afastou a alegação de descumprimento do acórdão paradigma e preservou, nos termos descritos, a apreciação da atividade administrativa do TRE/RR relativa aos atos preparatórios da eleição suplementar.",
+        "strategic_comment": "O caso é relevante porque delimita o uso da reclamação perante o TSE em contexto de eleição suplementar estadual. A decisão reduz a possibilidade de partidos bloquearem atos preparatórios de TREs por meio de reclamação quando não houver descumprimento claro do comando anterior. Para o debate legislativo, o ponto sensível é a governança institucional de eleições suplementares após cassação de chapa majoritária estadual, especialmente a relação entre comando jurisdicional do TSE, discricionariedade administrativa regional e escolha entre modalidade direta ou indireta.",
+        "why_relevant": "A relevância é alta por envolver eleição suplementar relacionada ao governo estadual, diretório estadual de partido político e os limites de atuação administrativa de tribunal regional após cassação de chapa majoritária. Embora o processo tenha sido decidido em reclamação, o entendimento tem interesse institucional porque sinaliza que atos preparatórios do TRE não ficam automaticamente condicionados a uma comprovação prévia e formal de inviabilidade técnica, salvo quando o acórdão do TSE assim determinar de modo claro.",
+        "source_notes": [
+          "Processo nº 0600821-38.2026.6.00.0000, decisão em 12/05/2026, classe Reclamação.",
+          "Relator: Min. Ricardo Villas Bôas Cueva.",
+          "Partido identificado nos dados: REPUBLICANOS/RR.",
+          "O caso decorre de acórdão que confirmou a cassação dos diplomas do governador e do vice-governador de Roraima eleitos em 2022.",
+          "A base fornecida menciona 13 processos no período, mas disponibiliza dados individualizados apenas deste processo."
+        ],
+        "page_id": "36172195-5c64-8131-ad8a-c00f1b6b2b91",
+        "display_score": 9,
+        "ranking_reason": ""
+      }
+    },
+    "content_hash:77bbc67ba63c3db63087bc32ee951673d7aebbc36fb408bd44093d17b960c280": {
+      "model": "gpt-5.5",
+      "case_id": "0600821-38.2026.6.00.0000",
+      "page_id": "36172195-5c64-8131-ad8a-c00f1b6b2b91",
+      "processo": "0600821-38.2026.6.00.0000",
+      "content_hash": "77bbc67ba63c3db63087bc32ee951673d7aebbc36fb408bd44093d17b960c280",
+      "cached_at_utc": "2026-05-15T23:32:44.460078+00:00",
+      "analysis": {
+        "case_id": "0600821-38.2026.6.00.0000",
+        "title": "Eleição suplementar para governo de Roraima e limites da reclamação contra calendário do TRE/RR",
+        "relevance_score": 9,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Governador de Roraima eleito em 2022",
+          "Vice-governador de Roraima eleito em 2022"
+        ],
+        "parties": [
+          "REPUBLICANOS (REPUBLICANOS) - ESTADUAL",
+          "TRIBUNAL REGIONAL ELEITORAL DE RORAIMA"
+        ],
+        "lawyers_signal": "Atuou Marcos Paulo Veloso Oliveira. O nome não aparece entre os advogados recorrentes no período informado.",
+        "what_happened": "O Diretório Estadual do Republicanos em Roraima ajuizou reclamação no TSE contra o TRE/RR. Alegou que a Resolução nº 584/2026, editada pelo Presidente do TRE/RR para disciplinar calendário e regras de eleição suplementar em Boa Vista/RR, teria descumprido acórdão do TSE no RO-El nº 0600940-96.2022.6.23.0000/RR, que confirmou a cassação dos diplomas do governador e do vice-governador de Roraima eleitos em 2022. O TSE rejeitou essa leitura e negou seguimento à reclamação.",
+        "legal_grounds": "A decisão aplicou a compreensão de que a reclamação não serve como sucedâneo recursal e exige aderência estrita entre o ato reclamado e a autoridade do acórdão invocado. O TSE entendeu que o acórdão no RO-El nº 0600940-96.2022.6.23.0000/RR não impôs demonstração formal prévia de inviabilidade técnica para iniciar atos do pleito, mas apenas condicionou eventual eleição indireta à demonstração concreta de impedimento técnico e à deliberação do Plenário.",
+        "consequence": "O TSE negou seguimento à reclamação. Com isso, afastou a alegação de descumprimento do acórdão paradigma e preservou, nos termos descritos, a apreciação da atividade administrativa do TRE/RR relativa aos atos preparatórios da eleição suplementar.",
+        "strategic_comment": "O caso é relevante porque delimita o uso da reclamação perante o TSE em contexto de eleição suplementar estadual. A decisão reduz a possibilidade de partidos bloquearem atos preparatórios de TREs por meio de reclamação quando não houver descumprimento claro do comando anterior. Para o debate legislativo, o ponto sensível é a governança institucional de eleições suplementares após cassação de chapa majoritária estadual, especialmente a relação entre comando jurisdicional do TSE, discricionariedade administrativa regional e escolha entre modalidade direta ou indireta.",
+        "why_relevant": "A relevância é alta por envolver eleição suplementar relacionada ao governo estadual, diretório estadual de partido político e os limites de atuação administrativa de tribunal regional após cassação de chapa majoritária. Embora o processo tenha sido decidido em reclamação, o entendimento tem interesse institucional porque sinaliza que atos preparatórios do TRE não ficam automaticamente condicionados a uma comprovação prévia e formal de inviabilidade técnica, salvo quando o acórdão do TSE assim determinar de modo claro.",
+        "source_notes": [
+          "Processo nº 0600821-38.2026.6.00.0000, decisão em 12/05/2026, classe Reclamação.",
+          "Relator: Min. Ricardo Villas Bôas Cueva.",
+          "Partido identificado nos dados: REPUBLICANOS/RR.",
+          "O caso decorre de acórdão que confirmou a cassação dos diplomas do governador e do vice-governador de Roraima eleitos em 2022.",
+          "A base fornecida menciona 13 processos no período, mas disponibiliza dados individualizados apenas deste processo."
+        ],
+        "page_id": "36172195-5c64-8131-ad8a-c00f1b6b2b91",
+        "display_score": 9,
+        "ranking_reason": ""
+      }
+    },
+    "numero_unico:0601107-50.2024.6.13.0250": {
+      "model": "gpt-5.5",
+      "case_id": "0601107-50.2024.6.13.0250",
+      "page_id": "36172195-5c64-813e-80c9-dca51d81b767",
+      "processo": "0601107-50.2024.6.13.0250",
+      "content_hash": "a9d2aa31f64ed7fbe37aaadfef6328607923eb207d2781adb6cda6dd1acc34f1",
+      "cached_at_utc": "2026-05-15T23:32:44.630773+00:00",
+      "analysis": {
+        "case_id": "0601107-50.2024.6.13.0250",
+        "title": "Cota de gênero em lista municipal e ônus de impugnação específica no agravo especial eleitoral",
+        "relevance_score": 5,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "Progressistas (PP) de Paiva/MG"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados do caso no período informado.",
+        "what_happened": "Ricardo Alberto de Souza Paiva e Luciano Ferreira do Carmo ajuizaram AIJE contra Fabio Junior Filipe e outros, alegando fraude à cota mínima de gênero nas eleições municipais de 2024 em Paiva/MG. O TRE reformou a sentença e julgou a ação improcedente por falta de prova robusta. No TSE, o relator não conheceu do agravo em recurso especial eleitoral por deficiência de impugnação.",
+        "legal_grounds": "O relator aplicou a Súmula 26 do TSE, por falta de impugnação específica a todos os fundamentos autônomos da decisão de inadmissibilidade. No mérito subjacente, o acórdão regional exigiu conjunto probatório robusto para reconhecer fraude à cota de gênero prevista no art. 10, § 3º, da Lei nº 9.504/1997.",
+        "consequence": "O agravo em recurso especial eleitoral não foi conhecido ou teve seguimento negado. Permaneceu eficaz o acórdão regional que reformou a sentença e julgou improcedente a AIJE por ausência de prova robusta de candidatura feminina fictícia.",
+        "strategic_comment": "O caso reforça dois vetores práticos: a exigência de prova robusta para cassações por fraude à cota de gênero e o rigor formal da impugnação específica no agravo em recurso especial. Para partidos, a decisão não altera a tese de fundo, mas confirma que litígios de cota podem ser encerrados no TSE por deficiência recursal antes de reexame material.",
+        "why_relevant": "A relevância é média porque o tema de cota de gênero tem impacto partidário replicável, ainda que o caso seja municipal e tenha sido resolvido por óbice processual. A decisão interessa a partidos e assessorias eleitorais por combinar controle de candidaturas femininas fictícias com requisitos estritos de admissibilidade recursal no TSE.",
+        "source_notes": [
+          "Processo AREspEl nº 0601107-50.2024.6.13.0250, decisão monocrática de 14/05/2026, relator Min. Antonio Carlos Ferreira.",
+          "O trecho fornecido menciona AIJE por suposta fraude à cota de gênero nas eleições municipais de 2024 em Paiva/MG.",
+          "O trecho fornecido atribui a fraude alegada ao partido Progressistas (PP) do Município de Paiva/MG.",
+          "O resultado informado indica decisão monocrática e não conhecimento; a punchline informa negativa de seguimento ao agravo em recurso especial."
+        ],
+        "page_id": "36172195-5c64-813e-80c9-dca51d81b767",
+        "display_score": 5,
+        "ranking_reason": ""
+      }
+    },
+    "numero_processo:60110750": {
+      "model": "gpt-5.5",
+      "case_id": "0601107-50.2024.6.13.0250",
+      "page_id": "36172195-5c64-813e-80c9-dca51d81b767",
+      "processo": "0601107-50.2024.6.13.0250",
+      "content_hash": "a9d2aa31f64ed7fbe37aaadfef6328607923eb207d2781adb6cda6dd1acc34f1",
+      "cached_at_utc": "2026-05-15T23:32:44.630773+00:00",
+      "analysis": {
+        "case_id": "0601107-50.2024.6.13.0250",
+        "title": "Cota de gênero em lista municipal e ônus de impugnação específica no agravo especial eleitoral",
+        "relevance_score": 5,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "Progressistas (PP) de Paiva/MG"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados do caso no período informado.",
+        "what_happened": "Ricardo Alberto de Souza Paiva e Luciano Ferreira do Carmo ajuizaram AIJE contra Fabio Junior Filipe e outros, alegando fraude à cota mínima de gênero nas eleições municipais de 2024 em Paiva/MG. O TRE reformou a sentença e julgou a ação improcedente por falta de prova robusta. No TSE, o relator não conheceu do agravo em recurso especial eleitoral por deficiência de impugnação.",
+        "legal_grounds": "O relator aplicou a Súmula 26 do TSE, por falta de impugnação específica a todos os fundamentos autônomos da decisão de inadmissibilidade. No mérito subjacente, o acórdão regional exigiu conjunto probatório robusto para reconhecer fraude à cota de gênero prevista no art. 10, § 3º, da Lei nº 9.504/1997.",
+        "consequence": "O agravo em recurso especial eleitoral não foi conhecido ou teve seguimento negado. Permaneceu eficaz o acórdão regional que reformou a sentença e julgou improcedente a AIJE por ausência de prova robusta de candidatura feminina fictícia.",
+        "strategic_comment": "O caso reforça dois vetores práticos: a exigência de prova robusta para cassações por fraude à cota de gênero e o rigor formal da impugnação específica no agravo em recurso especial. Para partidos, a decisão não altera a tese de fundo, mas confirma que litígios de cota podem ser encerrados no TSE por deficiência recursal antes de reexame material.",
+        "why_relevant": "A relevância é média porque o tema de cota de gênero tem impacto partidário replicável, ainda que o caso seja municipal e tenha sido resolvido por óbice processual. A decisão interessa a partidos e assessorias eleitorais por combinar controle de candidaturas femininas fictícias com requisitos estritos de admissibilidade recursal no TSE.",
+        "source_notes": [
+          "Processo AREspEl nº 0601107-50.2024.6.13.0250, decisão monocrática de 14/05/2026, relator Min. Antonio Carlos Ferreira.",
+          "O trecho fornecido menciona AIJE por suposta fraude à cota de gênero nas eleições municipais de 2024 em Paiva/MG.",
+          "O trecho fornecido atribui a fraude alegada ao partido Progressistas (PP) do Município de Paiva/MG.",
+          "O resultado informado indica decisão monocrática e não conhecimento; a punchline informa negativa de seguimento ao agravo em recurso especial."
+        ],
+        "page_id": "36172195-5c64-813e-80c9-dca51d81b767",
+        "display_score": 5,
+        "ranking_reason": ""
+      }
+    },
+    "page_id:36172195-5c64-813e-80c9-dca51d81b767": {
+      "model": "gpt-5.5",
+      "case_id": "0601107-50.2024.6.13.0250",
+      "page_id": "36172195-5c64-813e-80c9-dca51d81b767",
+      "processo": "0601107-50.2024.6.13.0250",
+      "content_hash": "a9d2aa31f64ed7fbe37aaadfef6328607923eb207d2781adb6cda6dd1acc34f1",
+      "cached_at_utc": "2026-05-15T23:32:44.630773+00:00",
+      "analysis": {
+        "case_id": "0601107-50.2024.6.13.0250",
+        "title": "Cota de gênero em lista municipal e ônus de impugnação específica no agravo especial eleitoral",
+        "relevance_score": 5,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "Progressistas (PP) de Paiva/MG"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados do caso no período informado.",
+        "what_happened": "Ricardo Alberto de Souza Paiva e Luciano Ferreira do Carmo ajuizaram AIJE contra Fabio Junior Filipe e outros, alegando fraude à cota mínima de gênero nas eleições municipais de 2024 em Paiva/MG. O TRE reformou a sentença e julgou a ação improcedente por falta de prova robusta. No TSE, o relator não conheceu do agravo em recurso especial eleitoral por deficiência de impugnação.",
+        "legal_grounds": "O relator aplicou a Súmula 26 do TSE, por falta de impugnação específica a todos os fundamentos autônomos da decisão de inadmissibilidade. No mérito subjacente, o acórdão regional exigiu conjunto probatório robusto para reconhecer fraude à cota de gênero prevista no art. 10, § 3º, da Lei nº 9.504/1997.",
+        "consequence": "O agravo em recurso especial eleitoral não foi conhecido ou teve seguimento negado. Permaneceu eficaz o acórdão regional que reformou a sentença e julgou improcedente a AIJE por ausência de prova robusta de candidatura feminina fictícia.",
+        "strategic_comment": "O caso reforça dois vetores práticos: a exigência de prova robusta para cassações por fraude à cota de gênero e o rigor formal da impugnação específica no agravo em recurso especial. Para partidos, a decisão não altera a tese de fundo, mas confirma que litígios de cota podem ser encerrados no TSE por deficiência recursal antes de reexame material.",
+        "why_relevant": "A relevância é média porque o tema de cota de gênero tem impacto partidário replicável, ainda que o caso seja municipal e tenha sido resolvido por óbice processual. A decisão interessa a partidos e assessorias eleitorais por combinar controle de candidaturas femininas fictícias com requisitos estritos de admissibilidade recursal no TSE.",
+        "source_notes": [
+          "Processo AREspEl nº 0601107-50.2024.6.13.0250, decisão monocrática de 14/05/2026, relator Min. Antonio Carlos Ferreira.",
+          "O trecho fornecido menciona AIJE por suposta fraude à cota de gênero nas eleições municipais de 2024 em Paiva/MG.",
+          "O trecho fornecido atribui a fraude alegada ao partido Progressistas (PP) do Município de Paiva/MG.",
+          "O resultado informado indica decisão monocrática e não conhecimento; a punchline informa negativa de seguimento ao agravo em recurso especial."
+        ],
+        "page_id": "36172195-5c64-813e-80c9-dca51d81b767",
+        "display_score": 5,
+        "ranking_reason": ""
+      }
+    },
+    "case_id:0601107-50.2024.6.13.0250": {
+      "model": "gpt-5.5",
+      "case_id": "0601107-50.2024.6.13.0250",
+      "page_id": "36172195-5c64-813e-80c9-dca51d81b767",
+      "processo": "0601107-50.2024.6.13.0250",
+      "content_hash": "a9d2aa31f64ed7fbe37aaadfef6328607923eb207d2781adb6cda6dd1acc34f1",
+      "cached_at_utc": "2026-05-15T23:32:44.630773+00:00",
+      "analysis": {
+        "case_id": "0601107-50.2024.6.13.0250",
+        "title": "Cota de gênero em lista municipal e ônus de impugnação específica no agravo especial eleitoral",
+        "relevance_score": 5,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "Progressistas (PP) de Paiva/MG"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados do caso no período informado.",
+        "what_happened": "Ricardo Alberto de Souza Paiva e Luciano Ferreira do Carmo ajuizaram AIJE contra Fabio Junior Filipe e outros, alegando fraude à cota mínima de gênero nas eleições municipais de 2024 em Paiva/MG. O TRE reformou a sentença e julgou a ação improcedente por falta de prova robusta. No TSE, o relator não conheceu do agravo em recurso especial eleitoral por deficiência de impugnação.",
+        "legal_grounds": "O relator aplicou a Súmula 26 do TSE, por falta de impugnação específica a todos os fundamentos autônomos da decisão de inadmissibilidade. No mérito subjacente, o acórdão regional exigiu conjunto probatório robusto para reconhecer fraude à cota de gênero prevista no art. 10, § 3º, da Lei nº 9.504/1997.",
+        "consequence": "O agravo em recurso especial eleitoral não foi conhecido ou teve seguimento negado. Permaneceu eficaz o acórdão regional que reformou a sentença e julgou improcedente a AIJE por ausência de prova robusta de candidatura feminina fictícia.",
+        "strategic_comment": "O caso reforça dois vetores práticos: a exigência de prova robusta para cassações por fraude à cota de gênero e o rigor formal da impugnação específica no agravo em recurso especial. Para partidos, a decisão não altera a tese de fundo, mas confirma que litígios de cota podem ser encerrados no TSE por deficiência recursal antes de reexame material.",
+        "why_relevant": "A relevância é média porque o tema de cota de gênero tem impacto partidário replicável, ainda que o caso seja municipal e tenha sido resolvido por óbice processual. A decisão interessa a partidos e assessorias eleitorais por combinar controle de candidaturas femininas fictícias com requisitos estritos de admissibilidade recursal no TSE.",
+        "source_notes": [
+          "Processo AREspEl nº 0601107-50.2024.6.13.0250, decisão monocrática de 14/05/2026, relator Min. Antonio Carlos Ferreira.",
+          "O trecho fornecido menciona AIJE por suposta fraude à cota de gênero nas eleições municipais de 2024 em Paiva/MG.",
+          "O trecho fornecido atribui a fraude alegada ao partido Progressistas (PP) do Município de Paiva/MG.",
+          "O resultado informado indica decisão monocrática e não conhecimento; a punchline informa negativa de seguimento ao agravo em recurso especial."
+        ],
+        "page_id": "36172195-5c64-813e-80c9-dca51d81b767",
+        "display_score": 5,
+        "ranking_reason": ""
+      }
+    },
+    "content_hash:a9d2aa31f64ed7fbe37aaadfef6328607923eb207d2781adb6cda6dd1acc34f1": {
+      "model": "gpt-5.5",
+      "case_id": "0601107-50.2024.6.13.0250",
+      "page_id": "36172195-5c64-813e-80c9-dca51d81b767",
+      "processo": "0601107-50.2024.6.13.0250",
+      "content_hash": "a9d2aa31f64ed7fbe37aaadfef6328607923eb207d2781adb6cda6dd1acc34f1",
+      "cached_at_utc": "2026-05-15T23:32:44.630773+00:00",
+      "analysis": {
+        "case_id": "0601107-50.2024.6.13.0250",
+        "title": "Cota de gênero em lista municipal e ônus de impugnação específica no agravo especial eleitoral",
+        "relevance_score": 5,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "Progressistas (PP) de Paiva/MG"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados do caso no período informado.",
+        "what_happened": "Ricardo Alberto de Souza Paiva e Luciano Ferreira do Carmo ajuizaram AIJE contra Fabio Junior Filipe e outros, alegando fraude à cota mínima de gênero nas eleições municipais de 2024 em Paiva/MG. O TRE reformou a sentença e julgou a ação improcedente por falta de prova robusta. No TSE, o relator não conheceu do agravo em recurso especial eleitoral por deficiência de impugnação.",
+        "legal_grounds": "O relator aplicou a Súmula 26 do TSE, por falta de impugnação específica a todos os fundamentos autônomos da decisão de inadmissibilidade. No mérito subjacente, o acórdão regional exigiu conjunto probatório robusto para reconhecer fraude à cota de gênero prevista no art. 10, § 3º, da Lei nº 9.504/1997.",
+        "consequence": "O agravo em recurso especial eleitoral não foi conhecido ou teve seguimento negado. Permaneceu eficaz o acórdão regional que reformou a sentença e julgou improcedente a AIJE por ausência de prova robusta de candidatura feminina fictícia.",
+        "strategic_comment": "O caso reforça dois vetores práticos: a exigência de prova robusta para cassações por fraude à cota de gênero e o rigor formal da impugnação específica no agravo em recurso especial. Para partidos, a decisão não altera a tese de fundo, mas confirma que litígios de cota podem ser encerrados no TSE por deficiência recursal antes de reexame material.",
+        "why_relevant": "A relevância é média porque o tema de cota de gênero tem impacto partidário replicável, ainda que o caso seja municipal e tenha sido resolvido por óbice processual. A decisão interessa a partidos e assessorias eleitorais por combinar controle de candidaturas femininas fictícias com requisitos estritos de admissibilidade recursal no TSE.",
+        "source_notes": [
+          "Processo AREspEl nº 0601107-50.2024.6.13.0250, decisão monocrática de 14/05/2026, relator Min. Antonio Carlos Ferreira.",
+          "O trecho fornecido menciona AIJE por suposta fraude à cota de gênero nas eleições municipais de 2024 em Paiva/MG.",
+          "O trecho fornecido atribui a fraude alegada ao partido Progressistas (PP) do Município de Paiva/MG.",
+          "O resultado informado indica decisão monocrática e não conhecimento; a punchline informa negativa de seguimento ao agravo em recurso especial."
+        ],
+        "page_id": "36172195-5c64-813e-80c9-dca51d81b767",
+        "display_score": 5,
+        "ranking_reason": ""
+      }
+    },
+    "numero_unico:0600509-33.2024.6.18.0032": {
+      "model": "gpt-5.5",
+      "case_id": "0600509-33.2024.6.18.0032",
+      "page_id": "36172195-5c64-81a7-ab06-eea529cffdb3",
+      "processo": "0600509-33.2024.6.18.0032",
+      "content_hash": "7fb8772f3aeb41bf8d9d132c7e323322ff7679cc49690f64eee08271983769bb",
+      "cached_at_utc": "2026-05-15T23:32:46.200377+00:00",
+      "analysis": {
+        "case_id": "0600509-33.2024.6.18.0032",
+        "title": "Fraude à cota de gênero em chapa municipal e exigência de prova robusta na AIJE de 2024",
+        "relevance_score": 6,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "PDT/PI"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados deste processo no campo específico de recorrência do caso fornecido.",
+        "what_happened": "O PDT municipal e o Ministério Público Eleitoral agravaram em recurso especial eleitoral em AIJE sobre suposta candidatura feminina fictícia nas eleições proporcionais de 2024 em Pau D'Arco do Piauí. O TSE entendeu que o conjunto probatório não era suficiente para caracterizar burla à cota de gênero, apesar da votação zerada atribuída à candidatura questionada.",
+        "legal_grounds": "A decisão aplicou a exigência de prova robusta, uniforme, harmônica e segura para reconhecer fraude à cota de gênero. Invocou o princípio do in dubio pro sufragio e as Súmulas 24 e 30 do TSE, afastando a rediscussão probatória e a divergência jurisprudencial nos termos apresentados.",
+        "consequence": "O TSE negou seguimento aos agravos, manteve o acórdão do TRE/PI que julgou improcedente a AIJE e considerou prejudicado o exame do efeito suspensivo ativo.",
+        "strategic_comment": "O caso tem relevância político-eleitoral intermediária porque trata de fraude à cota de gênero, tema sensível para partidos e chapas proporcionais. A decisão reforça uma linha de contenção: votação zerada, isoladamente, não basta para cassar chapas ou reconhecer fraude sem acervo probatório consistente. Para fins legislativos, o ponto estratégico é a tensão entre efetividade das cotas e segurança do voto validamente depositado.",
+        "why_relevant": "A decisão é relevante para partidos porque delimita o padrão probatório exigido em ações de fraude à cota de gênero e preserva o resultado eleitoral quando subsiste dúvida relevante. Embora o caso seja municipal, a tese é replicável em disputas proporcionais e afeta a estratégia de montagem, fiscalização e defesa de chapas.",
+        "source_notes": [
+          "Dados fornecidos indicam julgamento no período de 11/05/2026 a 15/05/2026, com decisão em 13/05/2026.",
+          "O material recebido detalha apenas este processo, embora as estatísticas do período indiquem 13 processos.",
+          "Não há cargo eletivo específico informado para as pessoas físicas listadas."
+        ],
+        "page_id": "36172195-5c64-81a7-ab06-eea529cffdb3",
+        "display_score": 6,
+        "ranking_reason": ""
+      }
+    },
+    "numero_processo:60050933": {
+      "model": "gpt-5.5",
+      "case_id": "0600509-33.2024.6.18.0032",
+      "page_id": "36172195-5c64-81a7-ab06-eea529cffdb3",
+      "processo": "0600509-33.2024.6.18.0032",
+      "content_hash": "7fb8772f3aeb41bf8d9d132c7e323322ff7679cc49690f64eee08271983769bb",
+      "cached_at_utc": "2026-05-15T23:32:46.200377+00:00",
+      "analysis": {
+        "case_id": "0600509-33.2024.6.18.0032",
+        "title": "Fraude à cota de gênero em chapa municipal e exigência de prova robusta na AIJE de 2024",
+        "relevance_score": 6,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "PDT/PI"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados deste processo no campo específico de recorrência do caso fornecido.",
+        "what_happened": "O PDT municipal e o Ministério Público Eleitoral agravaram em recurso especial eleitoral em AIJE sobre suposta candidatura feminina fictícia nas eleições proporcionais de 2024 em Pau D'Arco do Piauí. O TSE entendeu que o conjunto probatório não era suficiente para caracterizar burla à cota de gênero, apesar da votação zerada atribuída à candidatura questionada.",
+        "legal_grounds": "A decisão aplicou a exigência de prova robusta, uniforme, harmônica e segura para reconhecer fraude à cota de gênero. Invocou o princípio do in dubio pro sufragio e as Súmulas 24 e 30 do TSE, afastando a rediscussão probatória e a divergência jurisprudencial nos termos apresentados.",
+        "consequence": "O TSE negou seguimento aos agravos, manteve o acórdão do TRE/PI que julgou improcedente a AIJE e considerou prejudicado o exame do efeito suspensivo ativo.",
+        "strategic_comment": "O caso tem relevância político-eleitoral intermediária porque trata de fraude à cota de gênero, tema sensível para partidos e chapas proporcionais. A decisão reforça uma linha de contenção: votação zerada, isoladamente, não basta para cassar chapas ou reconhecer fraude sem acervo probatório consistente. Para fins legislativos, o ponto estratégico é a tensão entre efetividade das cotas e segurança do voto validamente depositado.",
+        "why_relevant": "A decisão é relevante para partidos porque delimita o padrão probatório exigido em ações de fraude à cota de gênero e preserva o resultado eleitoral quando subsiste dúvida relevante. Embora o caso seja municipal, a tese é replicável em disputas proporcionais e afeta a estratégia de montagem, fiscalização e defesa de chapas.",
+        "source_notes": [
+          "Dados fornecidos indicam julgamento no período de 11/05/2026 a 15/05/2026, com decisão em 13/05/2026.",
+          "O material recebido detalha apenas este processo, embora as estatísticas do período indiquem 13 processos.",
+          "Não há cargo eletivo específico informado para as pessoas físicas listadas."
+        ],
+        "page_id": "36172195-5c64-81a7-ab06-eea529cffdb3",
+        "display_score": 6,
+        "ranking_reason": ""
+      }
+    },
+    "page_id:36172195-5c64-81a7-ab06-eea529cffdb3": {
+      "model": "gpt-5.5",
+      "case_id": "0600509-33.2024.6.18.0032",
+      "page_id": "36172195-5c64-81a7-ab06-eea529cffdb3",
+      "processo": "0600509-33.2024.6.18.0032",
+      "content_hash": "7fb8772f3aeb41bf8d9d132c7e323322ff7679cc49690f64eee08271983769bb",
+      "cached_at_utc": "2026-05-15T23:32:46.200377+00:00",
+      "analysis": {
+        "case_id": "0600509-33.2024.6.18.0032",
+        "title": "Fraude à cota de gênero em chapa municipal e exigência de prova robusta na AIJE de 2024",
+        "relevance_score": 6,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "PDT/PI"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados deste processo no campo específico de recorrência do caso fornecido.",
+        "what_happened": "O PDT municipal e o Ministério Público Eleitoral agravaram em recurso especial eleitoral em AIJE sobre suposta candidatura feminina fictícia nas eleições proporcionais de 2024 em Pau D'Arco do Piauí. O TSE entendeu que o conjunto probatório não era suficiente para caracterizar burla à cota de gênero, apesar da votação zerada atribuída à candidatura questionada.",
+        "legal_grounds": "A decisão aplicou a exigência de prova robusta, uniforme, harmônica e segura para reconhecer fraude à cota de gênero. Invocou o princípio do in dubio pro sufragio e as Súmulas 24 e 30 do TSE, afastando a rediscussão probatória e a divergência jurisprudencial nos termos apresentados.",
+        "consequence": "O TSE negou seguimento aos agravos, manteve o acórdão do TRE/PI que julgou improcedente a AIJE e considerou prejudicado o exame do efeito suspensivo ativo.",
+        "strategic_comment": "O caso tem relevância político-eleitoral intermediária porque trata de fraude à cota de gênero, tema sensível para partidos e chapas proporcionais. A decisão reforça uma linha de contenção: votação zerada, isoladamente, não basta para cassar chapas ou reconhecer fraude sem acervo probatório consistente. Para fins legislativos, o ponto estratégico é a tensão entre efetividade das cotas e segurança do voto validamente depositado.",
+        "why_relevant": "A decisão é relevante para partidos porque delimita o padrão probatório exigido em ações de fraude à cota de gênero e preserva o resultado eleitoral quando subsiste dúvida relevante. Embora o caso seja municipal, a tese é replicável em disputas proporcionais e afeta a estratégia de montagem, fiscalização e defesa de chapas.",
+        "source_notes": [
+          "Dados fornecidos indicam julgamento no período de 11/05/2026 a 15/05/2026, com decisão em 13/05/2026.",
+          "O material recebido detalha apenas este processo, embora as estatísticas do período indiquem 13 processos.",
+          "Não há cargo eletivo específico informado para as pessoas físicas listadas."
+        ],
+        "page_id": "36172195-5c64-81a7-ab06-eea529cffdb3",
+        "display_score": 6,
+        "ranking_reason": ""
+      }
+    },
+    "case_id:0600509-33.2024.6.18.0032": {
+      "model": "gpt-5.5",
+      "case_id": "0600509-33.2024.6.18.0032",
+      "page_id": "36172195-5c64-81a7-ab06-eea529cffdb3",
+      "processo": "0600509-33.2024.6.18.0032",
+      "content_hash": "7fb8772f3aeb41bf8d9d132c7e323322ff7679cc49690f64eee08271983769bb",
+      "cached_at_utc": "2026-05-15T23:32:46.200377+00:00",
+      "analysis": {
+        "case_id": "0600509-33.2024.6.18.0032",
+        "title": "Fraude à cota de gênero em chapa municipal e exigência de prova robusta na AIJE de 2024",
+        "relevance_score": 6,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "PDT/PI"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados deste processo no campo específico de recorrência do caso fornecido.",
+        "what_happened": "O PDT municipal e o Ministério Público Eleitoral agravaram em recurso especial eleitoral em AIJE sobre suposta candidatura feminina fictícia nas eleições proporcionais de 2024 em Pau D'Arco do Piauí. O TSE entendeu que o conjunto probatório não era suficiente para caracterizar burla à cota de gênero, apesar da votação zerada atribuída à candidatura questionada.",
+        "legal_grounds": "A decisão aplicou a exigência de prova robusta, uniforme, harmônica e segura para reconhecer fraude à cota de gênero. Invocou o princípio do in dubio pro sufragio e as Súmulas 24 e 30 do TSE, afastando a rediscussão probatória e a divergência jurisprudencial nos termos apresentados.",
+        "consequence": "O TSE negou seguimento aos agravos, manteve o acórdão do TRE/PI que julgou improcedente a AIJE e considerou prejudicado o exame do efeito suspensivo ativo.",
+        "strategic_comment": "O caso tem relevância político-eleitoral intermediária porque trata de fraude à cota de gênero, tema sensível para partidos e chapas proporcionais. A decisão reforça uma linha de contenção: votação zerada, isoladamente, não basta para cassar chapas ou reconhecer fraude sem acervo probatório consistente. Para fins legislativos, o ponto estratégico é a tensão entre efetividade das cotas e segurança do voto validamente depositado.",
+        "why_relevant": "A decisão é relevante para partidos porque delimita o padrão probatório exigido em ações de fraude à cota de gênero e preserva o resultado eleitoral quando subsiste dúvida relevante. Embora o caso seja municipal, a tese é replicável em disputas proporcionais e afeta a estratégia de montagem, fiscalização e defesa de chapas.",
+        "source_notes": [
+          "Dados fornecidos indicam julgamento no período de 11/05/2026 a 15/05/2026, com decisão em 13/05/2026.",
+          "O material recebido detalha apenas este processo, embora as estatísticas do período indiquem 13 processos.",
+          "Não há cargo eletivo específico informado para as pessoas físicas listadas."
+        ],
+        "page_id": "36172195-5c64-81a7-ab06-eea529cffdb3",
+        "display_score": 6,
+        "ranking_reason": ""
+      }
+    },
+    "content_hash:7fb8772f3aeb41bf8d9d132c7e323322ff7679cc49690f64eee08271983769bb": {
+      "model": "gpt-5.5",
+      "case_id": "0600509-33.2024.6.18.0032",
+      "page_id": "36172195-5c64-81a7-ab06-eea529cffdb3",
+      "processo": "0600509-33.2024.6.18.0032",
+      "content_hash": "7fb8772f3aeb41bf8d9d132c7e323322ff7679cc49690f64eee08271983769bb",
+      "cached_at_utc": "2026-05-15T23:32:46.200377+00:00",
+      "analysis": {
+        "case_id": "0600509-33.2024.6.18.0032",
+        "title": "Fraude à cota de gênero em chapa municipal e exigência de prova robusta na AIJE de 2024",
+        "relevance_score": 6,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "PDT/PI"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados deste processo no campo específico de recorrência do caso fornecido.",
+        "what_happened": "O PDT municipal e o Ministério Público Eleitoral agravaram em recurso especial eleitoral em AIJE sobre suposta candidatura feminina fictícia nas eleições proporcionais de 2024 em Pau D'Arco do Piauí. O TSE entendeu que o conjunto probatório não era suficiente para caracterizar burla à cota de gênero, apesar da votação zerada atribuída à candidatura questionada.",
+        "legal_grounds": "A decisão aplicou a exigência de prova robusta, uniforme, harmônica e segura para reconhecer fraude à cota de gênero. Invocou o princípio do in dubio pro sufragio e as Súmulas 24 e 30 do TSE, afastando a rediscussão probatória e a divergência jurisprudencial nos termos apresentados.",
+        "consequence": "O TSE negou seguimento aos agravos, manteve o acórdão do TRE/PI que julgou improcedente a AIJE e considerou prejudicado o exame do efeito suspensivo ativo.",
+        "strategic_comment": "O caso tem relevância político-eleitoral intermediária porque trata de fraude à cota de gênero, tema sensível para partidos e chapas proporcionais. A decisão reforça uma linha de contenção: votação zerada, isoladamente, não basta para cassar chapas ou reconhecer fraude sem acervo probatório consistente. Para fins legislativos, o ponto estratégico é a tensão entre efetividade das cotas e segurança do voto validamente depositado.",
+        "why_relevant": "A decisão é relevante para partidos porque delimita o padrão probatório exigido em ações de fraude à cota de gênero e preserva o resultado eleitoral quando subsiste dúvida relevante. Embora o caso seja municipal, a tese é replicável em disputas proporcionais e afeta a estratégia de montagem, fiscalização e defesa de chapas.",
+        "source_notes": [
+          "Dados fornecidos indicam julgamento no período de 11/05/2026 a 15/05/2026, com decisão em 13/05/2026.",
+          "O material recebido detalha apenas este processo, embora as estatísticas do período indiquem 13 processos.",
+          "Não há cargo eletivo específico informado para as pessoas físicas listadas."
+        ],
+        "page_id": "36172195-5c64-81a7-ab06-eea529cffdb3",
+        "display_score": 6,
+        "ranking_reason": ""
+      }
     }
   },
   "version": 1,
-  "updated_at_utc": "2026-05-09T11:23:37.659477+00:00"
+  "updated_at_utc": "2026-05-15T23:32:46.201444+00:00"
 }
