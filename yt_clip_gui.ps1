@@ -5,6 +5,14 @@ Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
 $script:activeProcess = $null
+$script:downloadLogBox = $null
+$script:downloadStatusLabel = $null
+$script:downloadButton = $null
+$script:cancelButton = $null
+$script:downloadTimer = $null
+$script:downloadFinished = $false
+$script:downloadExpectedPath = $null
+$script:downloadActualPath = $null
 $script:sessionLogFile = Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath ("yt_clip_gui_{0}.log" -f (Get-Date -Format "yyyyMMdd_HHmmss"))
 
 function Parse-IntegerPart {
@@ -123,8 +131,95 @@ function Format-SecondsForYtDlp {
     )
 }
 
+function Format-SecondsForFileName {
+    param([Parameter(Mandatory = $true)][double]$TotalSeconds)
+
+    $rounded = [Math]::Round($TotalSeconds)
+    $hours = [int][Math]::Floor($rounded / 3600)
+    $minutes = [int][Math]::Floor(($rounded % 3600) / 60)
+    $seconds = [int]($rounded % 60)
+
+    if ($hours -gt 0) {
+        return ("{0:00}h{1:00}m{2:00}s" -f $hours, $minutes, $seconds)
+    }
+
+    return ("{0:00}m{1:00}s" -f $minutes, $seconds)
+}
+
+function Convert-TitleToOutputBaseName {
+    param([Parameter(Mandatory = $true)][string]$Title)
+
+    $clean = $Title.Trim()
+    $clean = $clean -replace '\s*[|｜]\s*.+$', ''
+    $clean = $clean -replace '\s*[：:]\s*', ' - '
+    $clean = $clean -replace '[<>"/\\?*\x00-\x1F]', ' '
+    $clean = $clean -replace '\s+', ' '
+    $clean = $clean -replace '\s+-\s+', ' - '
+    $clean = $clean.Trim().TrimEnd('.', ' ')
+
+    if ([string]::IsNullOrWhiteSpace($clean)) {
+        return "youtube_clip"
+    }
+
+    return $clean
+}
+
+function Invoke-ToolCaptureSingleLine {
+    param(
+        [Parameter(Mandatory = $true)][string]$ExecutablePath,
+        [Parameter(Mandatory = $true)][AllowEmptyString()][string[]]$Arguments,
+        [int]$TimeoutMilliseconds = 30000
+    )
+
+    $psi = New-Object System.Diagnostics.ProcessStartInfo
+    $psi.FileName = $ExecutablePath
+    $psi.Arguments = Join-Arguments -Args $Arguments
+    $psi.RedirectStandardOutput = $true
+    $psi.RedirectStandardError = $true
+    $psi.UseShellExecute = $false
+    $psi.CreateNoWindow = $true
+    $process = New-Object System.Diagnostics.Process
+    $process.StartInfo = $psi
+
+    if (-not $process.Start()) {
+        throw "Nao foi possivel iniciar comando auxiliar."
+    }
+
+    $stdoutTask = $process.StandardOutput.ReadToEndAsync()
+    $stderrTask = $process.StandardError.ReadToEndAsync()
+
+    if (-not $process.WaitForExit($TimeoutMilliseconds)) {
+        try {
+            $process.Kill()
+        }
+        catch {
+            # Ignore cleanup errors.
+        }
+        throw "Tempo esgotado ao consultar titulo do YouTube."
+    }
+
+    $stdout = $stdoutTask.Result
+    $stderr = $stderrTask.Result
+
+    if ($process.ExitCode -ne 0) {
+        $message = if ([string]::IsNullOrWhiteSpace($stderr)) { $stdout } else { $stderr }
+        throw ("Falha ao consultar titulo do YouTube: {0}" -f $message.Trim())
+    }
+
+    $line = ($stdout -split "\r?\n" | Where-Object { -not [string]::IsNullOrWhiteSpace($_) } | Select-Object -First 1)
+    if ([string]::IsNullOrWhiteSpace($line)) {
+        throw "yt-dlp nao retornou titulo do YouTube."
+    }
+
+    return $line.Trim()
+}
+
 function Escape-Argument {
-    param([Parameter(Mandatory = $true)][string]$Value)
+    param([Parameter(Mandatory = $true)][AllowEmptyString()][string]$Value)
+
+    if ($Value.Length -eq 0) {
+        return '""'
+    }
 
     if ($Value -match '[\s"]') {
         return '"' + ($Value -replace '"', '\"') + '"'
@@ -134,7 +229,7 @@ function Escape-Argument {
 }
 
 function Join-Arguments {
-    param([Parameter(Mandatory = $true)][string[]]$Args)
+    param([Parameter(Mandatory = $true)][AllowEmptyString()][string[]]$Args)
     return ($Args | ForEach-Object { Escape-Argument -Value $_ }) -join " "
 }
 
@@ -234,6 +329,62 @@ function Set-ButtonState {
     }
 }
 
+function Complete-YtDlpDownload {
+    param([Parameter(Mandatory = $true)][int]$ExitCode)
+
+    if ($script:downloadFinished) {
+        return
+    }
+
+    $script:downloadFinished = $true
+
+    if ($null -ne $script:downloadTimer) {
+        try {
+            $script:downloadTimer.Stop()
+            $script:downloadTimer.Dispose()
+        }
+        catch {
+            # Ignore timer cleanup errors.
+        }
+        $script:downloadTimer = $null
+    }
+
+    $script:activeProcess = $null
+
+    Set-ButtonState -Target $script:downloadButton -Enabled $true
+    Set-ButtonState -Target $script:cancelButton -Enabled $false
+
+    if ($ExitCode -eq 0) {
+        Set-StatusText -Target $script:downloadStatusLabel -Text "Done. Clip downloaded successfully."
+        Append-Log -Target $script:downloadLogBox -Line ""
+        Append-Log -Target $script:downloadLogBox -Line "Download finished successfully."
+
+        if (-not [string]::IsNullOrWhiteSpace($script:downloadActualPath) -and (Test-Path -LiteralPath $script:downloadActualPath)) {
+            Append-Log -Target $script:downloadLogBox -Line ("Arquivo final encontrado: {0}" -f $script:downloadActualPath)
+        }
+        elseif (-not [string]::IsNullOrWhiteSpace($script:downloadExpectedPath)) {
+            if (Test-Path -LiteralPath $script:downloadExpectedPath) {
+                Append-Log -Target $script:downloadLogBox -Line ("Arquivo final encontrado: {0}" -f $script:downloadExpectedPath)
+            }
+            else {
+                Append-Log -Target $script:downloadLogBox -Line ("ATENCAO: caminho esperado nao encontrado: {0}" -f $script:downloadExpectedPath)
+                Append-Log -Target $script:downloadLogBox -Line "Verifique mensagens acima para saber se o yt-dlp salvou com outro nome."
+            }
+        }
+
+        Append-Log -Target $script:downloadLogBox -Line "Window kept open. You can close it when finished reviewing the log."
+    }
+    else {
+        Set-StatusText -Target $script:downloadStatusLabel -Text "Failed. Check log for details."
+        Append-Log -Target $script:downloadLogBox -Line ""
+        Append-Log -Target $script:downloadLogBox -Line ("Download failed with exit code {0}." -f $ExitCode)
+        if (-not [string]::IsNullOrWhiteSpace($script:downloadExpectedPath)) {
+            Append-Log -Target $script:downloadLogBox -Line ("Arquivo esperado seria: {0}" -f $script:downloadExpectedPath)
+        }
+        Append-Log -Target $script:downloadLogBox -Line "Window kept open so you can review the error above."
+    }
+}
+
 function Add-ToProcessPathIfExists {
     param([Parameter(Mandatory = $true)][string]$PathEntry)
 
@@ -270,6 +421,84 @@ function Ensure-CommonToolPaths {
     Add-ToProcessPathIfExists -PathEntry (Join-Path -Path $localAppData -ChildPath "Microsoft\WinGet\Links")
     Add-ToProcessPathIfExists -PathEntry (Join-Path -Path $programData -ChildPath "chocolatey\bin")
     Add-ToProcessPathIfExists -PathEntry (Join-Path -Path $userProfile -ChildPath "scoop\shims")
+
+    foreach ($pythonScriptsDir in (Get-PythonScriptsDirectories)) {
+        Add-ToProcessPathIfExists -PathEntry $pythonScriptsDir
+    }
+}
+
+function Get-PythonInstallRoots {
+    $localAppData = [Environment]::GetFolderPath("LocalApplicationData")
+    $appData = [Environment]::GetFolderPath("ApplicationData")
+
+    $roots = @()
+    $pythonInstallRoot = Join-Path -Path $localAppData -ChildPath "Programs\Python"
+    if (Test-Path -LiteralPath $pythonInstallRoot) {
+        $roots += Get-ChildItem -LiteralPath $pythonInstallRoot -Directory -Filter "Python*" -ErrorAction SilentlyContinue |
+            Sort-Object -Property Name -Descending |
+            ForEach-Object { $_.FullName }
+    }
+
+    $pythonRoamingRoot = Join-Path -Path $appData -ChildPath "Python"
+    if (Test-Path -LiteralPath $pythonRoamingRoot) {
+        $roots += Get-ChildItem -LiteralPath $pythonRoamingRoot -Directory -Filter "Python*" -ErrorAction SilentlyContinue |
+            Sort-Object -Property Name -Descending |
+            ForEach-Object { $_.FullName }
+    }
+
+    return @($roots | Select-Object -Unique)
+}
+
+function Get-PythonScriptsDirectories {
+    $dirs = @()
+
+    foreach ($root in (Get-PythonInstallRoots)) {
+        $scriptsDir = Join-Path -Path $root -ChildPath "Scripts"
+        if (Test-Path -LiteralPath $scriptsDir) {
+            $dirs += $scriptsDir
+        }
+    }
+
+    return @($dirs | Select-Object -Unique)
+}
+
+function Get-PythonToolCandidates {
+    param([Parameter(Mandatory = $true)][string]$ExecutableName)
+
+    $candidates = @()
+
+    foreach ($scriptsDir in (Get-PythonScriptsDirectories)) {
+        $candidates += Join-Path -Path $scriptsDir -ChildPath $ExecutableName
+    }
+
+    return @($candidates | Select-Object -Unique)
+}
+
+function Resolve-PythonYtDlpPathOrNull {
+    foreach ($root in (Get-PythonInstallRoots)) {
+        $pythonExe = Join-Path -Path $root -ChildPath "python.exe"
+        $moduleDir = Join-Path -Path $root -ChildPath "Lib\site-packages\yt_dlp"
+
+        if ((Test-Path -LiteralPath $pythonExe) -and (Test-Path -LiteralPath $moduleDir)) {
+            return $pythonExe
+        }
+    }
+
+    return $null
+}
+
+function Get-ImageioFfmpegCandidates {
+    $candidates = @()
+
+    foreach ($root in (Get-PythonInstallRoots)) {
+        $binariesDir = Join-Path -Path $root -ChildPath "Lib\site-packages\imageio_ffmpeg\binaries"
+        if (Test-Path -LiteralPath $binariesDir) {
+            $candidates += Get-ChildItem -LiteralPath $binariesDir -File -Filter "ffmpeg*.exe" -ErrorAction SilentlyContinue |
+                ForEach-Object { $_.FullName }
+        }
+    }
+
+    return @($candidates | Select-Object -Unique)
 }
 
 function Resolve-CommandPathOrThrow {
@@ -298,11 +527,12 @@ function Resolve-CommandPathOrThrow {
 function Start-YtDlpDownload {
     param(
         [Parameter(Mandatory = $true)][string]$ExecutablePath,
-        [Parameter(Mandatory = $true)][string[]]$Arguments,
+        [Parameter(Mandatory = $true)][AllowEmptyString()][string[]]$Arguments,
         [Parameter(Mandatory = $true)][System.Windows.Forms.TextBox]$LogBox,
         [Parameter(Mandatory = $true)][System.Windows.Forms.Label]$StatusLabel,
         [Parameter(Mandatory = $true)][System.Windows.Forms.Button]$DownloadButton,
-        [Parameter(Mandatory = $true)][System.Windows.Forms.Button]$CancelButton
+        [Parameter(Mandatory = $true)][System.Windows.Forms.Button]$CancelButton,
+        [AllowEmptyString()][string]$ExpectedOutputPath = ""
     )
 
     if ($script:activeProcess -and -not $script:activeProcess.HasExited) {
@@ -310,8 +540,13 @@ function Start-YtDlpDownload {
     }
 
     $argumentText = Join-Arguments -Args $Arguments
+    $executableName = Split-Path -Leaf $ExecutablePath
     Append-Log -Target $LogBox -Line ""
-    Append-Log -Target $LogBox -Line ("> yt-dlp $argumentText")
+    Append-Log -Target $LogBox -Line ("> {0} {1}" -f $executableName, $argumentText)
+    Append-Log -Target $LogBox -Line "Starting download. Keep this window open to follow progress."
+    if (-not [string]::IsNullOrWhiteSpace($ExpectedOutputPath)) {
+        Append-Log -Target $LogBox -Line ("Arquivo final esperado: {0}" -f $ExpectedOutputPath)
+    }
     Append-Log -Target $LogBox -Line ""
 
     $psi = New-Object System.Diagnostics.ProcessStartInfo
@@ -322,6 +557,14 @@ function Start-YtDlpDownload {
     $psi.UseShellExecute = $false
     $psi.CreateNoWindow = $true
 
+    $script:downloadLogBox = $LogBox
+    $script:downloadStatusLabel = $StatusLabel
+    $script:downloadButton = $DownloadButton
+    $script:cancelButton = $CancelButton
+    $script:downloadExpectedPath = $ExpectedOutputPath
+    $script:downloadActualPath = $null
+    $script:downloadFinished = $false
+
     $process = New-Object System.Diagnostics.Process
     $process.StartInfo = $psi
     $process.EnableRaisingEvents = $true
@@ -330,7 +573,11 @@ function Start-YtDlpDownload {
             param($sender, $eventArgs)
             try {
                 if (-not [string]::IsNullOrWhiteSpace($eventArgs.Data)) {
-                    Append-Log -Target $LogBox -Line $eventArgs.Data
+                    $line = $eventArgs.Data.Trim()
+                    Append-Log -Target $script:downloadLogBox -Line $line
+                    if (($line -match '\.(mp4|mp3|mkv|webm)$') -and (Test-Path -LiteralPath $line)) {
+                        $script:downloadActualPath = $line
+                    }
                 }
             }
             catch {
@@ -342,7 +589,7 @@ function Start-YtDlpDownload {
             param($sender, $eventArgs)
             try {
                 if (-not [string]::IsNullOrWhiteSpace($eventArgs.Data)) {
-                    Append-Log -Target $LogBox -Line $eventArgs.Data
+                    Append-Log -Target $script:downloadLogBox -Line $eventArgs.Data
                 }
             }
             catch {
@@ -361,21 +608,7 @@ function Start-YtDlpDownload {
                     # Keep default non-zero code.
                 }
 
-                $script:activeProcess = $null
-
-                Set-ButtonState -Target $DownloadButton -Enabled $true
-                Set-ButtonState -Target $CancelButton -Enabled $false
-
-                if ($exitCode -eq 0) {
-                    Set-StatusText -Target $StatusLabel -Text "Done. Clip downloaded successfully."
-                    Append-Log -Target $LogBox -Line ""
-                    Append-Log -Target $LogBox -Line "Download finished successfully."
-                }
-                else {
-                    Set-StatusText -Target $StatusLabel -Text "Failed. Check log for details."
-                    Append-Log -Target $LogBox -Line ""
-                    Append-Log -Target $LogBox -Line "Download failed."
-                }
+                Complete-YtDlpDownload -ExitCode $exitCode
             }
             catch {
                 # Ignore callback errors to avoid closing the GUI unexpectedly.
@@ -390,7 +623,23 @@ function Start-YtDlpDownload {
     $script:activeProcess = $process
     Set-ButtonState -Target $DownloadButton -Enabled $false
     Set-ButtonState -Target $CancelButton -Enabled $true
-    Set-StatusText -Target $StatusLabel -Text "Downloading clip..."
+    Set-StatusText -Target $StatusLabel -Text "Downloading clip... keep this window open to follow progress."
+
+    $timer = New-Object System.Windows.Forms.Timer
+    $timer.Interval = 1000
+    $timer.Add_Tick({
+            try {
+                if ($script:activeProcess -and $script:activeProcess.HasExited) {
+                    $exitCode = $script:activeProcess.ExitCode
+                    Complete-YtDlpDownload -ExitCode $exitCode
+                }
+            }
+            catch {
+                # Ignore timer polling errors.
+            }
+        })
+    $script:downloadTimer = $timer
+    $timer.Start()
 
     $process.BeginOutputReadLine()
     $process.BeginErrorReadLine()
@@ -527,6 +776,12 @@ $btnCancel.Add_Click({
         if ($script:activeProcess -and -not $script:activeProcess.HasExited) {
             try {
                 $script:activeProcess.Kill()
+                if ($null -ne $script:downloadTimer) {
+                    $script:downloadTimer.Stop()
+                    $script:downloadTimer.Dispose()
+                    $script:downloadTimer = $null
+                }
+                $script:downloadFinished = $true
                 Append-Log -Target $txtLog -Line "Process cancelled by user."
                 Set-StatusText -Target $lblStatus -Text "Cancelled."
             }
@@ -551,23 +806,31 @@ $btnDownload.Add_Click({
                 (Join-Path -Path $localAppData -ChildPath "Microsoft\WinGet\Links\yt-dlp.exe"),
                 (Join-Path -Path $programData -ChildPath "chocolatey\bin\yt-dlp.exe"),
                 (Join-Path -Path $userProfile -ChildPath "scoop\shims\yt-dlp.exe")
-            )
+            ) + (Get-PythonToolCandidates -ExecutableName "yt-dlp.exe")
 
             $ffmpegCandidates = @(
                 (Join-Path -Path $localAppData -ChildPath "Microsoft\WinGet\Links\ffmpeg.exe"),
                 (Join-Path -Path $programData -ChildPath "chocolatey\bin\ffmpeg.exe"),
                 (Join-Path -Path $userProfile -ChildPath "scoop\shims\ffmpeg.exe")
-            )
+            ) + (Get-ImageioFfmpegCandidates)
 
-            $ytDlpPath = Resolve-CommandPathOrThrow `
-                -CommandName "yt-dlp" `
-                -CandidatePaths $ytDlpCandidates `
-                -ErrorHint "yt-dlp not found. Install with: winget install yt-dlp.yt-dlp"
+            $ytDlpPrefixArgs = @()
+            $pythonYtDlpPath = Resolve-PythonYtDlpPathOrNull
+            if (-not [string]::IsNullOrWhiteSpace($pythonYtDlpPath)) {
+                $ytDlpPath = $pythonYtDlpPath
+                $ytDlpPrefixArgs = @("-m", "yt_dlp")
+            }
+            else {
+                $ytDlpPath = Resolve-CommandPathOrThrow `
+                    -CommandName "yt-dlp" `
+                    -CandidatePaths $ytDlpCandidates `
+                    -ErrorHint "yt-dlp not found. Install with: winget install yt-dlp.yt-dlp"
+            }
 
-            [void](Resolve-CommandPathOrThrow `
+            $ffmpegPath = Resolve-CommandPathOrThrow `
                     -CommandName "ffmpeg" `
                     -CandidatePaths $ffmpegCandidates `
-                    -ErrorHint "ffmpeg not found. Install with: winget install Gyan.FFmpeg")
+                    -ErrorHint "ffmpeg not found. Install with: winget install Gyan.FFmpeg"
 
             $url = $txtUrl.Text.Trim()
             if ([string]::IsNullOrWhiteSpace($url)) {
@@ -597,38 +860,76 @@ $btnDownload.Add_Click({
             $startText = Format-SecondsForYtDlp -TotalSeconds $startSeconds
             $endText = Format-SecondsForYtDlp -TotalSeconds $endSeconds
             $section = "*$startText-$endText"
+            $expectedOutputPath = ""
 
-            $args = @(
+            $ytDlpArgs = @(
                 "--newline",
+                "--no-playlist",
+                "--force-overwrites",
+                "--replace-in-metadata", "title", "\s*[|｜]\s*.+$", "",
+                "--replace-in-metadata", "title", "\s*[：:]\s*", " - ",
                 "--download-sections", $section,
                 "--paths", $outputDir,
                 "--windows-filenames",
-                "-o", "%(title)s [%(section_start)s-%(section_end)s].%(ext)s"
+                "--ffmpeg-location", $ffmpegPath,
+                "--print", "after_move:filepath",
+                "-o", "%(title)s.%(ext)s"
             )
 
             if ($cmbMode.SelectedIndex -eq 0) {
-                $args += @(
-                    "-f", "bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4]/bv*+ba/b",
-                    "--merge-output-format", "mp4"
+                $workerPath = Join-Path -Path $PSScriptRoot -ChildPath "yt_clip_video_worker.ps1"
+                if (-not (Test-Path -LiteralPath $workerPath)) {
+                    throw "Video worker script not found: $workerPath"
+                }
+
+                $powershellPath = Join-Path -Path $PSHOME -ChildPath "powershell.exe"
+                if (-not (Test-Path -LiteralPath $powershellPath)) {
+                    $powershellPath = "powershell.exe"
+                }
+
+                $workerArgs = @(
+                    "-NoProfile",
+                    "-ExecutionPolicy", "Bypass",
+                    "-File", $workerPath,
+                    "-YtDlpPath", $ytDlpPath,
+                    "-FfmpegPath", $ffmpegPath,
+                    "-Url", $url,
+                    "-Start", $startText,
+                    "-End", $endText,
+                    "-OutputDir", $outputDir
                 )
+
+                if ($ytDlpPrefixArgs.Count -gt 0) {
+                    $workerArgs += "-UsePythonModule"
+                }
+
+                Start-YtDlpDownload `
+                    -ExecutablePath $powershellPath `
+                    -Arguments $workerArgs `
+                    -LogBox $txtLog `
+                    -StatusLabel $lblStatus `
+                    -DownloadButton $btnDownload `
+                    -CancelButton $btnCancel `
+                    -ExpectedOutputPath $expectedOutputPath
             }
             else {
-                $args += @(
+                $ytDlpArgs += @(
                     "-x",
                     "--audio-format", "mp3",
                     "--audio-quality", "0"
                 )
+
+                $ytDlpArgs += $url
+
+                Start-YtDlpDownload `
+                    -ExecutablePath $ytDlpPath `
+                    -Arguments ($ytDlpPrefixArgs + $ytDlpArgs) `
+                    -LogBox $txtLog `
+                    -StatusLabel $lblStatus `
+                    -DownloadButton $btnDownload `
+                    -CancelButton $btnCancel `
+                    -ExpectedOutputPath $expectedOutputPath
             }
-
-            $args += $url
-
-            Start-YtDlpDownload `
-                -ExecutablePath $ytDlpPath `
-                -Arguments $args `
-                -LogBox $txtLog `
-                -StatusLabel $lblStatus `
-                -DownloadButton $btnDownload `
-                -CancelButton $btnCancel
         }
         catch {
             [System.Windows.Forms.MessageBox]::Show(
@@ -656,6 +957,12 @@ $form.Add_FormClosing({
 
             try {
                 $script:activeProcess.Kill()
+                if ($null -ne $script:downloadTimer) {
+                    $script:downloadTimer.Stop()
+                    $script:downloadTimer.Dispose()
+                    $script:downloadTimer = $null
+                }
+                $script:downloadFinished = $true
             }
             catch {
                 # Ignore close-time errors.
