@@ -1,6 +1,6 @@
 ﻿# -*- coding: utf-8 -*-
 """
-Converte legislação (Markdown, HTML, PDF ou DOCX) em CSV para importação no Notion.
+Converte legislação (Markdown, HTML, PDF ou DOCX) em CSV para importação no Notion/RAG.
 
 Fluxo de trabalho:
 1. Localiza o arquivo de entrada automaticamente (ou por seleção manual).
@@ -23,6 +23,8 @@ from gui_intuitiva import open_file_panel
 
 SUPPORTED_EXTENSIONS = (".md", ".html", ".htm", ".pdf", ".docx")
 SCRIPT_DIR = Path(__file__).resolve().parent
+DEFAULT_INPUT_TARGET = "L9605_files"
+CANCELLED_BY_USER = object()
 ARTICLE_HEADING_PATTERN = (
     r'Arts?\.\s*\d+(?:\s+a\s*\d+)?(?:\.\d+)*(?:[.\s]*(?:\u00ba|\u00aa))?(?:-[A-Z]+)?(?:\.\s*|\s+)?'
 )
@@ -49,12 +51,23 @@ HEADING_IDENTIFIER_WORDS = {
     "SETIMO", "SETIMA", "OITAVO", "OITAVA", "NONO", "NONA",
     "DECIMO", "DECIMA",
 }
+GENERIC_DOCUMENT_HEADING_PATTERN = re.compile(
+    r'^(?:'
+    r'CONSTITUICAO'
+    r'|EMENDA\s+CONSTITUCIONAL\s+N[ºO.]?'
+    r'|LEI(?:\s+COMPLEMENTAR)?\s+N[ºO.]?'
+    r'|DECRETO(?:\s+LEI)?\s+N[ºO.]?'
+    r'|MEDIDA\s+PROVISORIA\s+N[ºO.]?'
+    r')\b',
+    re.IGNORECASE,
+)
 
 
 def normalize_ordinals(text):
     """Padroniza indicadores ordinais duplicados e variações inconsistentes."""
     if not text:
         return text
+    text = text.replace('\u00b0', '\u00ba')
     text = text.replace('.\u00ba', '\u00ba').replace('.\u00aa', '\u00aa')
     text = re.sub(r'\u00ba{2,}', '\u00ba', text)
     text = re.sub(r'\u00aa{2,}', '\u00aa', text)
@@ -88,12 +101,14 @@ def normalize_for_matching(text):
 
 
 def get_document_heading(text):
-    """Detecta cabeçalhos de documentos embutidos no HTML do Regimento."""
+    """Detecta cabeçalhos de documentos normativos para compor metadados de RAG."""
     normalized = normalize_for_matching(text)
     if normalized == "CODIGO DE ETICA E DECORO PARLAMENTAR DA CAMARA DOS DEPUTADOS":
         return CODIGO_ETICA_DOCUMENT
     if normalized == "REGIMENTO INTERNO DA CAMARA DOS DEPUTADOS":
         return REGIMENTO_DOCUMENT
+    if GENERIC_DOCUMENT_HEADING_PATTERN.match(normalized):
+        return clean_title(text)
     return ""
 
 
@@ -213,7 +228,7 @@ def build_metadata_lines(structure_context, item_title):
 
 
 def content_from_best_start(content):
-    """Para páginas consolidadas, inicia no Regimento anexo, não na resolução introdutória."""
+    """Para páginas consolidadas, inicia no Regimento anexo; nas demais, preserva o preâmbulo."""
     lines = content.splitlines()
     for index, line in enumerate(lines):
         if get_document_heading(line) == REGIMENTO_DOCUMENT:
@@ -222,7 +237,7 @@ def content_from_best_start(content):
     match = re.search(r"Art\.\s*1", content, re.IGNORECASE)
     if not match:
         return ""
-    return content[match.start():]
+    return content
 
 
 article_sequence_pattern = re.compile(
@@ -285,6 +300,13 @@ def clean_title(raw_title):
     cleaned = re.sub(r'\s+', ' ', cleaned)
     return cleaned
 
+
+def is_standalone_noise_line(text):
+    """Remove notas isoladas que sobram de trechos HTML riscados/obsoletos."""
+    normalized = normalize_for_matching(text).rstrip(".")
+    return normalized in {"PREJUDICADA", "PREJUDICADO"}
+
+
 def collapse_duplicate_text(text):
     """Remove duplicações simples em que o mesmo conteúdo aparece duas vezes em sequência."""
     if not text:
@@ -314,7 +336,7 @@ class ParagraphHTMLExtractor(HTMLParser):
     """Extrai blocos textuais relevantes de HTML normativo sem bibliotecas externas."""
 
     block_tags = {"p", "li", "h1", "h2", "h3", "h4", "h5", "h6"}
-    skip_tags = {"script", "style"}
+    skip_tags = {"script", "style", "strike", "s", "del"}
 
     def __init__(self):
         super().__init__()
@@ -357,7 +379,7 @@ class ParagraphHTMLExtractor(HTMLParser):
     def _flush_current_parts(self):
         text = normalize_space_characters("".join(self.current_parts)).replace("\r", "")
         candidate = re.sub(r'\s+', ' ', text).strip()
-        if candidate:
+        if candidate and not is_standalone_noise_line(candidate):
             self.lines.append(candidate)
         self.current_parts = []
 
@@ -486,15 +508,18 @@ def select_input_and_output_via_gui(default_output_name="legislacao.csv"):
         initial_output=str(SCRIPT_DIR),
         extra_texts=[("output_name", "Nome do CSV de saida", default_output_name)],
     )
-    if not gui or not gui.get("confirmed"):
+    if gui is None:
         return None, None
+    if not gui.get("confirmed"):
+        return CANCELLED_BY_USER, None
 
     files = list(gui.get("files") or [])
     if not files:
-        return None, None
+        return CANCELLED_BY_USER, None
     input_file = files[0]
+    output_dir = str(gui.get("output") or "").strip() or str(SCRIPT_DIR)
     output_name = str((gui.get("texts") or {}).get("output_name", "")).strip() or default_output_name
-    output_file = str((SCRIPT_DIR / Path(output_name).name).resolve())
+    output_file = force_output_path(str(Path(output_dir) / Path(output_name).name))
     return input_file, output_file
 
 
@@ -505,13 +530,73 @@ def resolve_input_path(path_value: str) -> str:
     return str(path.resolve())
 
 
+def find_supported_input_files(folder):
+    """Lista arquivos suportados em uma pasta, preferindo documentos diretos e HTML."""
+    base = Path(folder).expanduser()
+    if not base.is_absolute():
+        base = SCRIPT_DIR / base
+    base = base.resolve()
+    if not base.is_dir():
+        return []
+
+    extension_rank = {".html": 0, ".htm": 1, ".md": 2, ".pdf": 3, ".docx": 4}
+    candidates = [
+        path.resolve()
+        for path in base.rglob("*")
+        if path.is_file() and path.suffix.lower() in SUPPORTED_EXTENSIONS
+    ]
+    return sorted(
+        candidates,
+        key=lambda path: (
+            len(path.relative_to(base).parts),
+            extension_rank.get(path.suffix.lower(), 99),
+            str(path).lower(),
+        ),
+    )
+
+
+def resolve_input_file(path_value: str):
+    """Resolve arquivo de entrada; se for pasta, seleciona o primeiro documento suportado."""
+    path = Path(path_value).expanduser()
+    if not path.is_absolute():
+        path = SCRIPT_DIR / path
+    path = path.resolve()
+
+    if path.is_dir():
+        candidates = find_supported_input_files(path)
+        if not candidates:
+            print(f"\n[ERRO] Nenhum arquivo suportado foi encontrado na pasta: '{path}'")
+            return None
+        if len(candidates) > 1:
+            print(f"[AVISO] Múltiplos arquivos suportados na pasta. Usando o primeiro: '{candidates[0]}'")
+        else:
+            print(f"[INFO] Arquivo encontrado na pasta alvo: '{candidates[0]}'")
+        return str(candidates[0])
+
+    return str(path)
+
+
 def force_output_path(path_value: str) -> str:
-    name = Path(str(path_value or "legislacao.csv")).name or "legislacao.csv"
-    return str((SCRIPT_DIR / name).resolve())
+    raw_value = str(path_value or "legislacao.csv").strip()
+    path = Path(raw_value).expanduser()
+    if path.exists() and path.is_dir():
+        path = path / "legislacao.csv"
+    if not path.is_absolute():
+        path = SCRIPT_DIR / path
+    path.parent.mkdir(parents=True, exist_ok=True)
+    return str(path.resolve())
 
 def find_local_input_file():
     """Procura arquivo suportado na pasta do script."""
     print("\n[INFO] Nenhum arquivo selecionado. Procurando por arquivo suportado na pasta do script...")
+
+    default_target = SCRIPT_DIR / DEFAULT_INPUT_TARGET
+    if default_target.is_dir():
+        target_candidates = find_supported_input_files(default_target)
+        if target_candidates:
+            print(f"[INFO] Usando pasta alvo padrão '{DEFAULT_INPUT_TARGET}': '{target_candidates[0]}'")
+            return str(target_candidates[0])
+
     candidates = []
     for name in glob.glob(str(SCRIPT_DIR / "*")):
         if not os.path.isfile(name):
@@ -630,13 +715,18 @@ def find_and_convert_markdown_to_csv(input_filename="", output_filename="", use_
         print("\n[INFO] Abrindo painel GUI para seleção do arquivo...")
         default_output_name = "legislacao.csv"
         gui_input, gui_output = select_input_and_output_via_gui(default_output_name=default_output_name)
+        if gui_input is CANCELLED_BY_USER:
+            print("\n[INFO] Operação cancelada pelo usuário. Nenhum arquivo foi processado.")
+            return
         if gui_input:
             input_filename = gui_input
             if gui_output:
                 output_filename = gui_output
 
     if input_filename:
-        input_filename = resolve_input_path(input_filename)
+        input_filename = resolve_input_file(input_filename)
+        if not input_filename:
+            return
         print(f"[INFO] Arquivo selecionado: '{input_filename}'")
         if os.path.splitext(input_filename)[1].lower() not in SUPPORTED_EXTENSIONS:
             print("\n[ERRO] O arquivo selecionado não possui extensão suportada (.md, .html, .htm, .pdf, .docx).")
@@ -1015,6 +1105,12 @@ def find_and_convert_markdown_to_csv(input_filename="", output_filename="", use_
         else:
             cleaned_last = last_text.strip()
         all_rows[-1]['text'] = cleaned_last
+
+        if not stop_processing:
+            print(
+                "\n[AVISO] O arquivo terminou sem rodapé normativo detectado. "
+                "Confira se a fonte de entrada está completa."
+            )
     try:
         with open(output_filename, 'w', newline='', encoding='utf-8-sig') as csv_file:
             writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
@@ -1037,7 +1133,7 @@ def find_and_convert_markdown_to_csv(input_filename="", output_filename="", use_
 
 def build_arg_parser():
     parser = argparse.ArgumentParser(description="Conversor estruturado de legislacao (MD/HTML/PDF/DOCX) para CSV.")
-    parser.add_argument("--input-file", default="", help="Arquivo de entrada (.md, .html, .htm, .pdf, .docx).")
+    parser.add_argument("--input-file", default="", help="Arquivo ou pasta de entrada (.md, .html, .htm, .pdf, .docx).")
     parser.add_argument("--output-csv", default="", help="Arquivo CSV de saida.")
     parser.add_argument("--no-gui", action="store_true", help="Desativa painel GUI e usa apenas CLI.")
     return parser
