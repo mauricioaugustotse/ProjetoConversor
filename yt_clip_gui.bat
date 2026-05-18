@@ -4,11 +4,11 @@ setlocal
 set "SCRIPT_DIR=%~dp0"
 set "PS1_FILE=%SCRIPT_DIR%yt_clip_gui.ps1"
 
-where pwsh >nul 2>nul
+where powershell >nul 2>nul
 if %ERRORLEVEL% EQU 0 (
-    pwsh -NoLogo -NoProfile -ExecutionPolicy Bypass -File "%PS1_FILE%"
+    powershell -NoLogo -NoProfile -ExecutionPolicy Bypass -Sta -File "%PS1_FILE%"
 ) else (
-    powershell -NoLogo -NoProfile -ExecutionPolicy Bypass -File "%PS1_FILE%"
+    pwsh -NoLogo -NoProfile -ExecutionPolicy Bypass -Sta -File "%PS1_FILE%"
 )
 
 endlocal

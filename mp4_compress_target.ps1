@@ -15,6 +15,13 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
 $script:activeProcess = $null
+$script:compressLogBox = $null
+$script:compressStatusLabel = $null
+$script:compressStartButton = $null
+$script:compressCancelButton = $null
+$script:compressOutputPath = $null
+$script:compressResultFilePath = $null
+$script:lastSuggestedOutput = $null
 $script:sessionLogFile = Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath ("mp4_compress_gui_{0}.log" -f (Get-Date -Format "yyyyMMdd_HHmmss"))
 
 function Add-ToProcessPathIfExists {
@@ -53,6 +60,42 @@ function Ensure-CommonToolPaths {
     Add-ToProcessPathIfExists -PathEntry (Join-Path -Path $localAppData -ChildPath "Microsoft\WinGet\Links")
     Add-ToProcessPathIfExists -PathEntry (Join-Path -Path $programData -ChildPath "chocolatey\bin")
     Add-ToProcessPathIfExists -PathEntry (Join-Path -Path $userProfile -ChildPath "scoop\shims")
+}
+
+function Get-PythonInstallRoots {
+    $localAppData = [Environment]::GetFolderPath("LocalApplicationData")
+    $appData = [Environment]::GetFolderPath("ApplicationData")
+
+    $roots = @()
+    $pythonInstallRoot = Join-Path -Path $localAppData -ChildPath "Programs\Python"
+    if (Test-Path -LiteralPath $pythonInstallRoot) {
+        $roots += Get-ChildItem -LiteralPath $pythonInstallRoot -Directory -Filter "Python*" -ErrorAction SilentlyContinue |
+            Sort-Object -Property Name -Descending |
+            ForEach-Object { $_.FullName }
+    }
+
+    $pythonRoamingRoot = Join-Path -Path $appData -ChildPath "Python"
+    if (Test-Path -LiteralPath $pythonRoamingRoot) {
+        $roots += Get-ChildItem -LiteralPath $pythonRoamingRoot -Directory -Filter "Python*" -ErrorAction SilentlyContinue |
+            Sort-Object -Property Name -Descending |
+            ForEach-Object { $_.FullName }
+    }
+
+    return @($roots | Select-Object -Unique)
+}
+
+function Get-ImageioFfmpegCandidates {
+    $candidates = @()
+
+    foreach ($root in (Get-PythonInstallRoots)) {
+        $binariesDir = Join-Path -Path $root -ChildPath "Lib\site-packages\imageio_ffmpeg\binaries"
+        if (Test-Path -LiteralPath $binariesDir) {
+            $candidates += Get-ChildItem -LiteralPath $binariesDir -File -Filter "ffmpeg*.exe" -ErrorAction SilentlyContinue |
+                ForEach-Object { $_.FullName }
+        }
+    }
+
+    return @($candidates | Select-Object -Unique)
 }
 
 function Resolve-CommandPathOrThrow {
@@ -617,10 +660,32 @@ function Get-DefaultOutputName {
     )
 
     $dir = Split-Path -Path $InputPath -Parent
-    $name = [System.IO.Path]::GetFileNameWithoutExtension($InputPath)
+    $name = Convert-ToSafeFileBaseName -Name ([System.IO.Path]::GetFileNameWithoutExtension($InputPath))
     $targetLabel = $TargetMb.ToString("0.##", [System.Globalization.CultureInfo]::InvariantCulture)
 
     return (Join-Path -Path $dir -ChildPath ("{0}_compressed_{1}MB.mp4" -f $name, $targetLabel))
+}
+
+function Convert-ToSafeFileBaseName {
+    param([Parameter(Mandatory = $true)][string]$Name)
+
+    $normalized = $Name.Normalize([System.Text.NormalizationForm]::FormD)
+    $withoutMarksChars = foreach ($char in $normalized.ToCharArray()) {
+        if ([System.Globalization.CharUnicodeInfo]::GetUnicodeCategory($char) -ne [System.Globalization.UnicodeCategory]::NonSpacingMark) {
+            $char
+        }
+    }
+
+    $withoutMarks = -join $withoutMarksChars
+    $asciiOnly = $withoutMarks -replace '[^\x20-\x7E]', '_'
+    $safe = $asciiOnly -replace '[^A-Za-z0-9._-]+', '_'
+    $safe = $safe.Trim("._- ")
+
+    if ([string]::IsNullOrWhiteSpace($safe)) {
+        return "video"
+    }
+
+    return $safe
 }
 
 function Resolve-ToolPaths {
@@ -632,7 +697,7 @@ function Resolve-ToolPaths {
         (Join-Path -Path $localAppData -ChildPath "Microsoft\WinGet\Links\ffmpeg.exe"),
         (Join-Path -Path $programData -ChildPath "chocolatey\bin\ffmpeg.exe"),
         (Join-Path -Path $userProfile -ChildPath "scoop\shims\ffmpeg.exe")
-    )
+    ) + (Get-ImageioFfmpegCandidates)
 
     $ffprobeCandidates = @(
         (Join-Path -Path $localAppData -ChildPath "Microsoft\WinGet\Links\ffprobe.exe"),
@@ -689,20 +754,11 @@ function Invoke-TargetCompression {
         $targetBytes = [int64][Math]::Floor($TargetMb * 1024 * 1024)
 
         $hasAudio = Test-InputHasAudio -FilePath $InputPath -FfmpegPath $ffmpegPath -FfprobePath $ffprobePath
+        $audioBitrateK = 96
         $audioBytes = 0L
-        $tempAudio = Join-Path -Path $tempRoot -ChildPath "audio_only.mkv"
 
         if ($hasAudio) {
-            Invoke-ExternalOrThrow -Executable $ffmpegPath -Arguments @(
-                "-y",
-                "-i", $InputPath,
-                "-map", "0:a",
-                "-vn",
-                "-c:a", "copy",
-                $tempAudio
-            ) -Step "Extracao do audio sem perda" -Log $Log
-
-            $audioBytes = (Get-Item -LiteralPath $tempAudio).Length
+            $audioBytes = [int64][Math]::Ceiling(($durationSec * $audioBitrateK * 1000.0) / 8.0)
         }
 
         $overheadBytes = [int64][Math]::Ceiling($targetBytes * 0.015) + 131072
@@ -769,7 +825,12 @@ function Invoke-TargetCompression {
             Write-LogLine -Log $Log -Line "- FPS: original"
         }
 
-        Write-LogLine -Log $Log -Line "- Audio: copia sem reencode (qualidade preservada)"
+        if ($hasAudio) {
+            Write-LogLine -Log $Log -Line ("- Audio: AAC {0} kbps para compatibilidade com Windows" -f $audioBitrateK)
+        }
+        else {
+            Write-LogLine -Log $Log -Line "- Audio: sem audio"
+        }
 
         for ($attempt = 1; $attempt -le 3; $attempt++) {
             Write-LogLine -Log $Log -Line ""
@@ -786,6 +847,11 @@ function Invoke-TargetCompression {
                 "-an",
                 "-c:v", "libx264",
                 "-preset", "slow",
+                "-tune", "fastdecode",
+                "-profile:v", "baseline",
+                "-level:v", "3.1",
+                "-bf", "0",
+                "-refs", "1",
                 "-b:v", ("{0}k" -f $currentBitrateK),
                 "-pass", "1",
                 "-passlogfile", $passLog,
@@ -807,6 +873,11 @@ function Invoke-TargetCompression {
                 "-an",
                 "-c:v", "libx264",
                 "-preset", "slow",
+                "-tune", "fastdecode",
+                "-profile:v", "baseline",
+                "-level:v", "3.1",
+                "-bf", "0",
+                "-refs", "1",
                 "-b:v", ("{0}k" -f $currentBitrateK),
                 "-pass", "2",
                 "-passlogfile", $passLog,
@@ -827,14 +898,18 @@ function Invoke-TargetCompression {
                 "-i", $InputPath,
                 "-map", "0:v:0",
                 "-map", "1:a?",
-                "-map_metadata", "1",
-                "-map_chapters", "1",
+                "-map_metadata", "-1",
+                "-map_chapters", "-1",
                 "-c:v", "copy",
-                "-c:a", "copy"
+                "-tag:v", "avc1",
+                "-c:a", "aac",
+                "-b:a", ("{0}k" -f $audioBitrateK),
+                "-ac", "2",
+                "-ar", "44100"
             )
 
             if ([System.IO.Path]::GetExtension($finalOutputPath).ToLowerInvariant() -eq ".mp4") {
-                $muxArgs += @("-movflags", "+faststart")
+                $muxArgs += @("-movflags", "+faststart", "-brand", "mp42")
             }
 
             if (Test-Path -LiteralPath $finalOutputPath) {
@@ -861,10 +936,13 @@ function Invoke-TargetCompression {
                         "-i", $InputPath,
                         "-map", "0:v:0",
                         "-map", "1:a?",
-                        "-map_metadata", "1",
-                        "-map_chapters", "1",
+                        "-map_metadata", "-1",
+                        "-map_chapters", "-1",
                         "-c:v", "copy",
-                        "-c:a", "copy",
+                        "-c:a", "aac",
+                        "-b:a", ("{0}k" -f $audioBitrateK),
+                        "-ac", "2",
+                        "-ar", "44100",
                         $fallbackOutput
                     )
 
@@ -1099,6 +1177,13 @@ function Start-GuiCompressionProcess {
     $psi.UseShellExecute = $false
     $psi.CreateNoWindow = $true
 
+    $script:compressLogBox = $LogBox
+    $script:compressStatusLabel = $StatusLabel
+    $script:compressStartButton = $StartButton
+    $script:compressCancelButton = $CancelButton
+    $script:compressOutputPath = $OutputPath
+    $script:compressResultFilePath = $resultFilePath
+
     $process = New-Object System.Diagnostics.Process
     $process.StartInfo = $psi
     $process.EnableRaisingEvents = $true
@@ -1107,7 +1192,7 @@ function Start-GuiCompressionProcess {
             param($sender, $eventArgs)
             try {
                 if (-not [string]::IsNullOrWhiteSpace($eventArgs.Data)) {
-                    Append-UiLog -Target $LogBox -Line $eventArgs.Data
+                    Append-UiLog -Target $script:compressLogBox -Line $eventArgs.Data
                     try {
                         [Console]::WriteLine($eventArgs.Data)
                     }
@@ -1125,7 +1210,7 @@ function Start-GuiCompressionProcess {
             param($sender, $eventArgs)
             try {
                 if (-not [string]::IsNullOrWhiteSpace($eventArgs.Data)) {
-                    Append-UiLog -Target $LogBox -Line $eventArgs.Data
+                    Append-UiLog -Target $script:compressLogBox -Line $eventArgs.Data
                     try {
                         [Console]::WriteLine($eventArgs.Data)
                     }
@@ -1151,53 +1236,53 @@ function Start-GuiCompressionProcess {
                 }
 
                 $script:activeProcess = $null
-                Set-UiButtonEnabled -Target $StartButton -Enabled $true
-                Set-UiButtonEnabled -Target $CancelButton -Enabled $false
+                Set-UiButtonEnabled -Target $script:compressStartButton -Enabled $true
+                Set-UiButtonEnabled -Target $script:compressCancelButton -Enabled $false
 
                 if ($exitCode -eq 0) {
-                    Set-UiLabelText -Target $StatusLabel -Text "Concluido com sucesso."
-                    Append-UiLog -Target $LogBox -Line ""
-                    Append-UiLog -Target $LogBox -Line "Processo finalizado com sucesso."
-                    $effectiveOutput = $OutputPath
-                    if (Test-Path -LiteralPath $resultFilePath) {
+                    Set-UiLabelText -Target $script:compressStatusLabel -Text "Concluido com sucesso."
+                    Append-UiLog -Target $script:compressLogBox -Line ""
+                    Append-UiLog -Target $script:compressLogBox -Line "Processo finalizado com sucesso."
+                    $effectiveOutput = $script:compressOutputPath
+                    if (Test-Path -LiteralPath $script:compressResultFilePath) {
                         try {
-                            $resultJson = Get-Content -LiteralPath $resultFilePath -Raw -Encoding UTF8
+                            $resultJson = Get-Content -LiteralPath $script:compressResultFilePath -Raw -Encoding UTF8
                             $resultObj = $resultJson | ConvertFrom-Json
                             if ($null -ne $resultObj -and -not [string]::IsNullOrWhiteSpace($resultObj.outputPath)) {
                                 $effectiveOutput = [string]$resultObj.outputPath
-                                Append-UiLog -Target $LogBox -Line ("Arquivo final salvo em: {0}" -f $effectiveOutput)
+                                Append-UiLog -Target $script:compressLogBox -Line ("Arquivo final salvo em: {0}" -f $effectiveOutput)
                             }
                         }
                         catch {
-                            Append-UiLog -Target $LogBox -Line "Nao foi possivel ler o arquivo de resultado final."
+                            Append-UiLog -Target $script:compressLogBox -Line "Nao foi possivel ler o arquivo de resultado final."
                         }
                         finally {
-                            Remove-Item -LiteralPath $resultFilePath -Force -ErrorAction SilentlyContinue
+                            Remove-Item -LiteralPath $script:compressResultFilePath -Force -ErrorAction SilentlyContinue
                         }
                     }
                     else {
-                        Append-UiLog -Target $LogBox -Line ("Arquivo final esperado em: {0}" -f $OutputPath)
+                        Append-UiLog -Target $script:compressLogBox -Line ("Arquivo final esperado em: {0}" -f $script:compressOutputPath)
                     }
 
                     if (-not (Test-Path -LiteralPath $effectiveOutput)) {
                         $mkvFallback = [System.IO.Path]::ChangeExtension($effectiveOutput, ".mkv")
                         if (Test-Path -LiteralPath $mkvFallback) {
-                            Append-UiLog -Target $LogBox -Line ("Arquivo final salvo em (fallback): {0}" -f $mkvFallback)
+                            Append-UiLog -Target $script:compressLogBox -Line ("Arquivo final salvo em (fallback): {0}" -f $mkvFallback)
                         }
                         else {
-                            Set-UiLabelText -Target $StatusLabel -Text "Terminou sem arquivo final."
-                            Append-UiLog -Target $LogBox -Line "ATENCAO: processo terminou sem arquivo de saida detectado."
-                            Append-UiLog -Target $LogBox -Line ("Log de sessao: {0}" -f $script:sessionLogFile)
+                            Set-UiLabelText -Target $script:compressStatusLabel -Text "Terminou sem arquivo final."
+                            Append-UiLog -Target $script:compressLogBox -Line "ATENCAO: processo terminou sem arquivo de saida detectado."
+                            Append-UiLog -Target $script:compressLogBox -Line ("Log de sessao: {0}" -f $script:sessionLogFile)
                         }
                     }
                 }
                 else {
-                    Set-UiLabelText -Target $StatusLabel -Text "Falhou. Veja o log abaixo."
-                    Append-UiLog -Target $LogBox -Line ""
-                    Append-UiLog -Target $LogBox -Line "Processo terminou com erro."
-                    Append-UiLog -Target $LogBox -Line ("Log de sessao: {0}" -f $script:sessionLogFile)
-                    if (Test-Path -LiteralPath $resultFilePath) {
-                        Remove-Item -LiteralPath $resultFilePath -Force -ErrorAction SilentlyContinue
+                    Set-UiLabelText -Target $script:compressStatusLabel -Text "Falhou. Veja o log abaixo."
+                    Append-UiLog -Target $script:compressLogBox -Line ""
+                    Append-UiLog -Target $script:compressLogBox -Line "Processo terminou com erro."
+                    Append-UiLog -Target $script:compressLogBox -Line ("Log de sessao: {0}" -f $script:sessionLogFile)
+                    if (Test-Path -LiteralPath $script:compressResultFilePath) {
+                        Remove-Item -LiteralPath $script:compressResultFilePath -Force -ErrorAction SilentlyContinue
                     }
                 }
             }
@@ -1301,7 +1386,7 @@ function Start-GuiMode {
     $lblMinEstimate.AutoSize = $true
 
     $lblHints = New-Object System.Windows.Forms.Label
-    $lblHints.Text = "Dica: use 0 em Altura/FPS para manter original. Audio sempre e copiado sem reencode."
+    $lblHints.Text = "Dica: use 0 em Altura/FPS para manter original. Audio sai em AAC 96 kbps para compatibilidade."
     $lblHints.Location = New-Object System.Drawing.Point(15, 152)
     $lblHints.AutoSize = $true
 
@@ -1381,10 +1466,25 @@ function Start-GuiMode {
             }
 
             $targetMbParsed = Parse-PositiveDouble -Raw $txtTarget.Text -FieldName "Tamanho alvo"
-            $txtOutput.Text = Get-DefaultOutputName -InputPath $inputPath -TargetMb $targetMbParsed
+            $suggestedOutput = Get-DefaultOutputName -InputPath $inputPath -TargetMb $targetMbParsed
+            $txtOutput.Text = $suggestedOutput
+            $script:lastSuggestedOutput = $suggestedOutput
         }
         catch {
             # Ignore temporary invalid user typing.
+        }
+    }
+
+    $refreshSuggestedOutputIfAuto = {
+        $currentOutput = $txtOutput.Text.Trim().Trim('"')
+        if (
+            [string]::IsNullOrWhiteSpace($currentOutput) -or
+            (
+                -not [string]::IsNullOrWhiteSpace($script:lastSuggestedOutput) -and
+                [string]::Equals($currentOutput, $script:lastSuggestedOutput, [System.StringComparison]::OrdinalIgnoreCase)
+            )
+        ) {
+            & $setSuggestedOutput
         }
     }
 
@@ -1457,6 +1557,10 @@ function Start-GuiMode {
             & $updateMinimumEstimate
         })
 
+    $txtTarget.Add_Leave({
+            & $refreshSuggestedOutputIfAuto
+        })
+
     $btnOutput.Add_Click({
             $dialog = New-Object System.Windows.Forms.SaveFileDialog
             $dialog.Filter = "MP4 file|*.mp4|MKV file|*.mkv|All files|*.*"
@@ -1479,6 +1583,7 @@ function Start-GuiMode {
             $result = $dialog.ShowDialog()
             if ($result -eq [System.Windows.Forms.DialogResult]::OK) {
                 $txtOutput.Text = $dialog.FileName
+                $script:lastSuggestedOutput = $null
             }
         })
 
@@ -1504,6 +1609,14 @@ function Start-GuiMode {
                 if ([string]::IsNullOrWhiteSpace($outputPath)) {
                     $outputPath = Get-DefaultOutputName -InputPath $inputPath -TargetMb $targetMbParsed
                     $txtOutput.Text = $outputPath
+                }
+                elseif (
+                    -not [string]::IsNullOrWhiteSpace($script:lastSuggestedOutput) -and
+                    [string]::Equals($outputPath, $script:lastSuggestedOutput, [System.StringComparison]::OrdinalIgnoreCase)
+                ) {
+                    $outputPath = Get-DefaultOutputName -InputPath $inputPath -TargetMb $targetMbParsed
+                    $txtOutput.Text = $outputPath
+                    $script:lastSuggestedOutput = $outputPath
                 }
 
                 Append-UiLog -Target $txtLog -Line ("Saida configurada para: {0}" -f $outputPath)
@@ -1649,7 +1762,16 @@ function Run-NoGuiMode {
         }
     }
 
-    $result = Invoke-TargetCompression -InputPath $InputFile -TargetMb $TargetSizeMB -MaxHeightValue $MaxHeight -FpsValue $Fps -OutputPath $OutputFile
+    $result = Invoke-TargetCompression `
+        -InputPath $InputFile `
+        -TargetMb $TargetSizeMB `
+        -MaxHeightValue $MaxHeight `
+        -FpsValue $Fps `
+        -OutputPath $OutputFile `
+        -Log {
+            param([string]$Line)
+            Write-Host $Line
+        }
 
     if (-not [string]::IsNullOrWhiteSpace($ResultFile)) {
         try {
