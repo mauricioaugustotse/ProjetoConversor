@@ -25586,3 +25586,174 @@
 2026-05-15 20:33:19 | DEBUG | NOTION_relatoriodeIA_v2 | Notion PATCH /v1/blocks/36172195-5c64-815e-a6b4-fe76c9e8e7c3/children | tentativa 1/5
 2026-05-15 20:33:19 | DEBUG | NOTION_relatoriodeIA_v2 | Notion PATCH /v1/blocks/36172195-5c64-815e-a6b4-fe76c9e8e7c3/children | tentativa 1/5 concluida em 0.45s | status=200
 2026-05-15 20:33:19 | INFO | NOTION_relatoriodeIA_v2 | Concluído | processos=13 | período=11/05/2026 a 15/05/2026 | dry_run=False
+2026-05-22 08:13:59 | DEBUG | NOTION_relatoriodeIA_v2 | Logger configurado: level=DEBUG | quiet=False | verbose=True | debug=False
+2026-05-22 08:13:59 | INFO | NOTION_relatoriodeIA_v2 | Arquivo de log: C:\Users\mauri\ProjetoConversor\Artefatos\logs\run_producao_relatorio_v2.log
+2026-05-22 08:13:59 | INFO | NOTION_relatoriodeIA_v2 | Perf config: openai_batch=1 | openai_workers=12 | openai_rpm=360 | max_openai_cases=12 | triage_threshold=55 | analysis_cache=True | openai_timeout=90s
+2026-05-22 08:13:59 | INFO | NOTION_relatoriodeIA_v2 | [Stage 1/5] Validando página alvo...
+2026-05-22 08:13:59 | DEBUG | NOTION_relatoriodeIA_v2 | Notion GET /v1/pages/36872195-5c64-815d-a04b-ca176917a0c6 | tentativa 1/5
+2026-05-22 08:14:00 | DEBUG | NOTION_relatoriodeIA_v2 | Notion GET /v1/pages/36872195-5c64-815d-a04b-ca176917a0c6 | tentativa 1/5 concluida em 0.60s | status=200
+2026-05-22 08:14:00 | DEBUG | NOTION_relatoriodeIA_v2 | Notion GET /v1/blocks/36872195-5c64-815d-a04b-ca176917a0c6/children | tentativa 1/5
+2026-05-22 08:14:00 | DEBUG | NOTION_relatoriodeIA_v2 | Notion GET /v1/blocks/36872195-5c64-815d-a04b-ca176917a0c6/children | tentativa 1/5 concluida em 0.27s | status=200
+2026-05-22 08:14:00 | INFO | NOTION_relatoriodeIA_v2 | [Stage 2/5] Resolvendo data source e consultando base...
+2026-05-22 08:14:00 | DEBUG | NOTION_relatoriodeIA_v2 | Notion GET /v1/databases/32872195-5c64-8020-988a-f0654c3554a2 | tentativa 1/5
+2026-05-22 08:14:00 | DEBUG | NOTION_relatoriodeIA_v2 | Notion GET /v1/databases/32872195-5c64-8020-988a-f0654c3554a2 | tentativa 1/5 concluida em 0.34s | status=200
+2026-05-22 08:14:00 | DEBUG | NOTION_relatoriodeIA_v2 | Notion POST /v1/data_sources/32872195-5c64-8093-ab9b-000b8a94e7dd/query | tentativa 1/5
+2026-05-22 08:14:05 | INFO | NOTION_relatoriodeIA_v2 | Notion POST /v1/data_sources/32872195-5c64-8093-ab9b-000b8a94e7dd/query em andamento... 5.0s decorrido.
+2026-05-22 08:14:08 | DEBUG | NOTION_relatoriodeIA_v2 | Notion POST /v1/data_sources/32872195-5c64-8093-ab9b-000b8a94e7dd/query | tentativa 1/5 concluida em 7.43s | status=200
+2026-05-22 08:14:08 | INFO | NOTION_relatoriodeIA_v2 | Query página 1 recebida | itens=30 | has_more=False
+2026-05-22 08:14:08 | INFO | NOTION_relatoriodeIA_v2 | [Stage 3/5] Analisando 30 processo(s)...
+2026-05-22 08:14:08 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] pré-processamento | análises_prontas=18/30 | candidatos_gpt=12
+2026-05-22 08:14:08 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] triagem local evitou 17 chamada(s) por score abaixo de 55.
+2026-05-22 08:14:08 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] teto econômico evitou 1 chamada(s); limite=12 caso(s) enviados ao GPT.
+2026-05-22 08:14:08 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lotes preparados | total=12 | max_chars_lote=3279 | limite_chars=14000 | max_itens_lote=1 | workers=12
+2026-05-22 08:14:08 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 1/12 | casos_no_lote=1 | iniciado em worker
+2026-05-22 08:14:08 | DEBUG | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600063-20.2026.6.23.0000 .. 0600063-20.2026.6.23.0000 | tentativa 1/4 | max_completion_tokens=3000
+2026-05-22 08:14:08 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 2/12 | casos_no_lote=1 | iniciado em worker
+2026-05-22 08:14:08 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 3/12 | casos_no_lote=1 | iniciado em worker
+2026-05-22 08:14:08 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 4/12 | casos_no_lote=1 | iniciado em worker
+2026-05-22 08:14:08 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 5/12 | casos_no_lote=1 | iniciado em worker
+2026-05-22 08:14:08 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 6/12 | casos_no_lote=1 | iniciado em worker
+2026-05-22 08:14:08 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 7/12 | casos_no_lote=1 | iniciado em worker
+2026-05-22 08:14:08 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 8/12 | casos_no_lote=1 | iniciado em worker
+2026-05-22 08:14:08 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 9/12 | casos_no_lote=1 | iniciado em worker
+2026-05-22 08:14:08 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 10/12 | casos_no_lote=1 | iniciado em worker
+2026-05-22 08:14:08 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 11/12 | casos_no_lote=1 | iniciado em worker
+2026-05-22 08:14:08 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 12/12 | casos_no_lote=1 | iniciado em worker
+2026-05-22 08:14:08 | DEBUG | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600002-04.2025.6.18.0011 .. 0600002-04.2025.6.18.0011 | tentativa 1/4 | max_completion_tokens=3000
+2026-05-22 08:14:08 | DEBUG | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0602212-13.2022.6.02.0000 .. 0602212-13.2022.6.02.0000 | tentativa 1/4 | max_completion_tokens=3000
+2026-05-22 08:14:08 | DEBUG | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600198-43.2026.6.19.0000 .. 0600198-43.2026.6.19.0000 | tentativa 1/4 | max_completion_tokens=3000
+2026-05-22 08:14:09 | DEBUG | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600312-19.2024.6.19.0172 .. 0600312-19.2024.6.19.0172 | tentativa 1/4 | max_completion_tokens=3000
+2026-05-22 08:14:09 | DEBUG | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600771-21.2024.6.16.0005 .. 0600771-21.2024.6.16.0005 | tentativa 1/4 | max_completion_tokens=3000
+2026-05-22 08:14:09 | DEBUG | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600066-72.2026.6.23.0000 .. 0600066-72.2026.6.23.0000 | tentativa 1/4 | max_completion_tokens=3000
+2026-05-22 08:14:09 | DEBUG | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600891-90.2024.6.13.0088 .. 0600891-90.2024.6.13.0088 | tentativa 1/4 | max_completion_tokens=3000
+2026-05-22 08:14:09 | DEBUG | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600781-65.2024.6.16.0005 .. 0600781-65.2024.6.16.0005 | tentativa 1/4 | max_completion_tokens=3000
+2026-05-22 08:14:09 | DEBUG | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600531-34.2024.6.22.0015 .. 0600531-34.2024.6.22.0015 | tentativa 1/4 | max_completion_tokens=3000
+2026-05-22 08:14:10 | DEBUG | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600068-42.2026.6.23.0000 .. 0600068-42.2026.6.23.0000 | tentativa 1/4 | max_completion_tokens=3000
+2026-05-22 08:14:10 | DEBUG | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600673-27.2026.6.00.0000 .. 0600673-27.2026.6.00.0000 | tentativa 1/4 | max_completion_tokens=3000
+2026-05-22 08:14:13 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600063-20.2026.6.23.0000 .. 0600063-20.2026.6.23.0000 em andamento... 5.0s decorrido.
+2026-05-22 08:14:13 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600002-04.2025.6.18.0011 .. 0600002-04.2025.6.18.0011 em andamento... 5.0s decorrido.
+2026-05-22 08:14:13 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0602212-13.2022.6.02.0000 .. 0602212-13.2022.6.02.0000 em andamento... 5.0s decorrido.
+2026-05-22 08:14:13 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600198-43.2026.6.19.0000 .. 0600198-43.2026.6.19.0000 em andamento... 5.0s decorrido.
+2026-05-22 08:14:14 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600312-19.2024.6.19.0172 .. 0600312-19.2024.6.19.0172 em andamento... 5.0s decorrido.
+2026-05-22 08:14:14 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600771-21.2024.6.16.0005 .. 0600771-21.2024.6.16.0005 em andamento... 5.0s decorrido.
+2026-05-22 08:14:14 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600066-72.2026.6.23.0000 .. 0600066-72.2026.6.23.0000 em andamento... 5.0s decorrido.
+2026-05-22 08:14:14 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600891-90.2024.6.13.0088 .. 0600891-90.2024.6.13.0088 em andamento... 5.0s decorrido.
+2026-05-22 08:14:14 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600781-65.2024.6.16.0005 .. 0600781-65.2024.6.16.0005 em andamento... 5.0s decorrido.
+2026-05-22 08:14:14 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600531-34.2024.6.22.0015 .. 0600531-34.2024.6.22.0015 em andamento... 5.0s decorrido.
+2026-05-22 08:14:15 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600068-42.2026.6.23.0000 .. 0600068-42.2026.6.23.0000 em andamento... 5.0s decorrido.
+2026-05-22 08:14:15 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600673-27.2026.6.00.0000 .. 0600673-27.2026.6.00.0000 em andamento... 5.0s decorrido.
+2026-05-22 08:14:18 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600063-20.2026.6.23.0000 .. 0600063-20.2026.6.23.0000 em andamento... 10.0s decorrido.
+2026-05-22 08:14:18 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600002-04.2025.6.18.0011 .. 0600002-04.2025.6.18.0011 em andamento... 10.0s decorrido.
+2026-05-22 08:14:18 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0602212-13.2022.6.02.0000 .. 0602212-13.2022.6.02.0000 em andamento... 10.0s decorrido.
+2026-05-22 08:14:18 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600198-43.2026.6.19.0000 .. 0600198-43.2026.6.19.0000 em andamento... 10.0s decorrido.
+2026-05-22 08:14:19 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600312-19.2024.6.19.0172 .. 0600312-19.2024.6.19.0172 em andamento... 10.0s decorrido.
+2026-05-22 08:14:19 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600771-21.2024.6.16.0005 .. 0600771-21.2024.6.16.0005 em andamento... 10.0s decorrido.
+2026-05-22 08:14:19 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600066-72.2026.6.23.0000 .. 0600066-72.2026.6.23.0000 em andamento... 10.0s decorrido.
+2026-05-22 08:14:19 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600891-90.2024.6.13.0088 .. 0600891-90.2024.6.13.0088 em andamento... 10.0s decorrido.
+2026-05-22 08:14:19 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600781-65.2024.6.16.0005 .. 0600781-65.2024.6.16.0005 em andamento... 10.0s decorrido.
+2026-05-22 08:14:19 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600531-34.2024.6.22.0015 .. 0600531-34.2024.6.22.0015 em andamento... 10.0s decorrido.
+2026-05-22 08:14:20 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600068-42.2026.6.23.0000 .. 0600068-42.2026.6.23.0000 em andamento... 10.0s decorrido.
+2026-05-22 08:14:20 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600673-27.2026.6.00.0000 .. 0600673-27.2026.6.00.0000 em andamento... 10.0s decorrido.
+2026-05-22 08:14:23 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600063-20.2026.6.23.0000 .. 0600063-20.2026.6.23.0000 em andamento... 15.0s decorrido.
+2026-05-22 08:14:23 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600002-04.2025.6.18.0011 .. 0600002-04.2025.6.18.0011 em andamento... 15.0s decorrido.
+2026-05-22 08:14:23 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0602212-13.2022.6.02.0000 .. 0602212-13.2022.6.02.0000 em andamento... 15.0s decorrido.
+2026-05-22 08:14:23 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600198-43.2026.6.19.0000 .. 0600198-43.2026.6.19.0000 em andamento... 15.0s decorrido.
+2026-05-22 08:14:24 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600312-19.2024.6.19.0172 .. 0600312-19.2024.6.19.0172 em andamento... 15.0s decorrido.
+2026-05-22 08:14:24 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600771-21.2024.6.16.0005 .. 0600771-21.2024.6.16.0005 em andamento... 15.0s decorrido.
+2026-05-22 08:14:24 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600066-72.2026.6.23.0000 .. 0600066-72.2026.6.23.0000 em andamento... 15.0s decorrido.
+2026-05-22 08:14:24 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600891-90.2024.6.13.0088 .. 0600891-90.2024.6.13.0088 em andamento... 15.0s decorrido.
+2026-05-22 08:14:24 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600781-65.2024.6.16.0005 .. 0600781-65.2024.6.16.0005 em andamento... 15.0s decorrido.
+2026-05-22 08:14:24 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600531-34.2024.6.22.0015 .. 0600531-34.2024.6.22.0015 em andamento... 15.0s decorrido.
+2026-05-22 08:14:25 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600068-42.2026.6.23.0000 .. 0600068-42.2026.6.23.0000 em andamento... 15.0s decorrido.
+2026-05-22 08:14:25 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600673-27.2026.6.00.0000 .. 0600673-27.2026.6.00.0000 em andamento... 15.0s decorrido.
+2026-05-22 08:14:28 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600063-20.2026.6.23.0000 .. 0600063-20.2026.6.23.0000 em andamento... 20.0s decorrido.
+2026-05-22 08:14:28 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600002-04.2025.6.18.0011 .. 0600002-04.2025.6.18.0011 em andamento... 20.0s decorrido.
+2026-05-22 08:14:28 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0602212-13.2022.6.02.0000 .. 0602212-13.2022.6.02.0000 em andamento... 20.0s decorrido.
+2026-05-22 08:14:28 | DEBUG | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600781-65.2024.6.16.0005 .. 0600781-65.2024.6.16.0005 | tentativa 1/4 concluida em 19.18s | status=200
+2026-05-22 08:14:28 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 10/12 concluido | concluidos_agora=19/30
+2026-05-22 08:14:28 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600198-43.2026.6.19.0000 .. 0600198-43.2026.6.19.0000 em andamento... 20.0s decorrido.
+2026-05-22 08:14:29 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600312-19.2024.6.19.0172 .. 0600312-19.2024.6.19.0172 em andamento... 20.0s decorrido.
+2026-05-22 08:14:29 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600771-21.2024.6.16.0005 .. 0600771-21.2024.6.16.0005 em andamento... 20.0s decorrido.
+2026-05-22 08:14:29 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600066-72.2026.6.23.0000 .. 0600066-72.2026.6.23.0000 em andamento... 20.0s decorrido.
+2026-05-22 08:14:29 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600891-90.2024.6.13.0088 .. 0600891-90.2024.6.13.0088 em andamento... 20.0s decorrido.
+2026-05-22 08:14:30 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600531-34.2024.6.22.0015 .. 0600531-34.2024.6.22.0015 em andamento... 20.0s decorrido.
+2026-05-22 08:14:30 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600068-42.2026.6.23.0000 .. 0600068-42.2026.6.23.0000 em andamento... 20.0s decorrido.
+2026-05-22 08:14:30 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600673-27.2026.6.00.0000 .. 0600673-27.2026.6.00.0000 em andamento... 20.0s decorrido.
+2026-05-22 08:14:30 | DEBUG | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600531-34.2024.6.22.0015 .. 0600531-34.2024.6.22.0015 | tentativa 1/4 concluida em 20.46s | status=200
+2026-05-22 08:14:30 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] cache local atualizado com 1 análise(s).
+2026-05-22 08:14:30 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 8/12 concluido | concluidos_agora=20/30
+2026-05-22 08:14:31 | DEBUG | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600198-43.2026.6.19.0000 .. 0600198-43.2026.6.19.0000 | tentativa 1/4 concluida em 22.69s | status=200
+2026-05-22 08:14:31 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 11/12 concluido | concluidos_agora=21/30
+2026-05-22 08:14:31 | DEBUG | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600312-19.2024.6.19.0172 .. 0600312-19.2024.6.19.0172 | tentativa 1/4 concluida em 22.83s | status=200
+2026-05-22 08:14:31 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] cache local atualizado com 1 análise(s).
+2026-05-22 08:14:31 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 12/12 concluido | concluidos_agora=22/30
+2026-05-22 08:14:33 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600063-20.2026.6.23.0000 .. 0600063-20.2026.6.23.0000 em andamento... 25.0s decorrido.
+2026-05-22 08:14:33 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600002-04.2025.6.18.0011 .. 0600002-04.2025.6.18.0011 em andamento... 25.0s decorrido.
+2026-05-22 08:14:33 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0602212-13.2022.6.02.0000 .. 0602212-13.2022.6.02.0000 em andamento... 25.0s decorrido.
+2026-05-22 08:14:33 | DEBUG | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0602212-13.2022.6.02.0000 .. 0602212-13.2022.6.02.0000 | tentativa 1/4 concluida em 25.10s | status=200
+2026-05-22 08:14:33 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] cache local atualizado com 1 análise(s).
+2026-05-22 08:14:33 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 3/12 concluido | concluidos_agora=23/30
+2026-05-22 08:14:34 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600771-21.2024.6.16.0005 .. 0600771-21.2024.6.16.0005 em andamento... 25.1s decorrido.
+2026-05-22 08:14:34 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600066-72.2026.6.23.0000 .. 0600066-72.2026.6.23.0000 em andamento... 25.0s decorrido.
+2026-05-22 08:14:34 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600891-90.2024.6.13.0088 .. 0600891-90.2024.6.13.0088 em andamento... 25.0s decorrido.
+2026-05-22 08:14:35 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600068-42.2026.6.23.0000 .. 0600068-42.2026.6.23.0000 em andamento... 25.0s decorrido.
+2026-05-22 08:14:35 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600673-27.2026.6.00.0000 .. 0600673-27.2026.6.00.0000 em andamento... 25.0s decorrido.
+2026-05-22 08:14:35 | DEBUG | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600068-42.2026.6.23.0000 .. 0600068-42.2026.6.23.0000 | tentativa 1/4 concluida em 25.29s | status=200
+2026-05-22 08:14:35 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] cache local atualizado com 1 análise(s).
+2026-05-22 08:14:35 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 5/12 concluido | concluidos_agora=24/30
+2026-05-22 08:14:35 | DEBUG | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600771-21.2024.6.16.0005 .. 0600771-21.2024.6.16.0005 | tentativa 1/4 concluida em 26.61s | status=200
+2026-05-22 08:14:35 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] cache local atualizado com 1 análise(s).
+2026-05-22 08:14:35 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 9/12 concluido | concluidos_agora=25/30
+2026-05-22 08:14:36 | DEBUG | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600063-20.2026.6.23.0000 .. 0600063-20.2026.6.23.0000 | tentativa 1/4 concluida em 28.00s | status=200
+2026-05-22 08:14:36 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] cache local atualizado com 1 análise(s).
+2026-05-22 08:14:36 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 1/12 concluido | concluidos_agora=26/30
+2026-05-22 08:14:37 | DEBUG | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600002-04.2025.6.18.0011 .. 0600002-04.2025.6.18.0011 | tentativa 1/4 concluida em 28.81s | status=200
+2026-05-22 08:14:37 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] cache local atualizado com 1 análise(s).
+2026-05-22 08:14:37 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 7/12 concluido | concluidos_agora=27/30
+2026-05-22 08:14:38 | DEBUG | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600673-27.2026.6.00.0000 .. 0600673-27.2026.6.00.0000 | tentativa 1/4 concluida em 27.71s | status=200
+2026-05-22 08:14:38 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 2/12 concluido | concluidos_agora=28/30
+2026-05-22 08:14:38 | DEBUG | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600891-90.2024.6.13.0088 .. 0600891-90.2024.6.13.0088 | tentativa 1/4 concluida em 29.14s | status=200
+2026-05-22 08:14:38 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] cache local atualizado com 1 análise(s).
+2026-05-22 08:14:38 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 6/12 concluido | concluidos_agora=29/30
+2026-05-22 08:14:39 | INFO | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600066-72.2026.6.23.0000 .. 0600066-72.2026.6.23.0000 em andamento... 30.0s decorrido.
+2026-05-22 08:14:41 | DEBUG | NOTION_relatoriodeIA_v2 | OpenAI análise de casos 0600066-72.2026.6.23.0000 .. 0600066-72.2026.6.23.0000 | tentativa 1/4 concluida em 32.11s | status=200
+2026-05-22 08:14:41 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] cache local atualizado com 1 análise(s).
+2026-05-22 08:14:41 | INFO | NOTION_relatoriodeIA_v2 | [OpenAI] lote 4/12 concluido | concluidos_agora=30/30
+2026-05-22 08:14:41 | INFO | NOTION_relatoriodeIA_v2 | [Gemini] Busca seletiva de notícias: apenas 4 caso(s) publicado(s) no relatório.
+2026-05-22 08:14:41 | DEBUG | asyncio | Using proactor: IocpProactor
+2026-05-22 08:14:41 | INFO | NOTION_relatoriodeIA_v2 | [Gemini] Processando lote 1-4 de 4
+2026-05-22 08:14:47 | INFO | NOTION_relatoriodeIA_v2 | [Gemini] Lote 1-4 progresso | consultas=1/4
+2026-05-22 08:14:49 | INFO | NOTION_relatoriodeIA_v2 | [Gemini] Lote 1-4 progresso | consultas=3/4
+2026-05-22 08:14:52 | INFO | NOTION_relatoriodeIA_v2 | [Gemini] Lote 1-4 progresso | consultas=4/4
+2026-05-22 08:14:52 | INFO | NOTION_relatoriodeIA_v2 | [Gemini] Lote 1-4 concluido | novos_tse=0 | novos_tre=1 | novas_gerais=1 | api=4 | cache=0 | no_match=2 | retryable=0
+2026-05-22 08:14:52 | DEBUG | NOTION_relatoriodeIA_v2 | Notion PATCH /v1/pages/35a72195-5c64-8172-a9e5-e74b12cb840a | tentativa 1/5
+2026-05-22 08:14:53 | DEBUG | NOTION_relatoriodeIA_v2 | Notion PATCH /v1/pages/35a72195-5c64-8172-a9e5-e74b12cb840a | tentativa 1/5 concluida em 0.86s | status=200
+2026-05-22 08:14:53 | DEBUG | NOTION_relatoriodeIA_v2 | Notion PATCH /v1/pages/36872195-5c64-813f-b47f-f993eb489a05 | tentativa 1/5
+2026-05-22 08:14:53 | DEBUG | NOTION_relatoriodeIA_v2 | Notion PATCH /v1/pages/36872195-5c64-813f-b47f-f993eb489a05 | tentativa 1/5 concluida em 0.64s | status=200
+2026-05-22 08:14:53 | INFO | NOTION_relatoriodeIA_v2 | [Stage 4/5] Gerando síntese executiva...
+2026-05-22 08:14:53 | DEBUG | NOTION_relatoriodeIA_v2 | OpenAI síntese executiva | tentativa 1/4 | max_completion_tokens=2200
+2026-05-22 08:14:58 | INFO | NOTION_relatoriodeIA_v2 | OpenAI síntese executiva em andamento... 5.0s decorrido.
+2026-05-22 08:15:03 | INFO | NOTION_relatoriodeIA_v2 | OpenAI síntese executiva em andamento... 10.0s decorrido.
+2026-05-22 08:15:08 | INFO | NOTION_relatoriodeIA_v2 | OpenAI síntese executiva em andamento... 15.0s decorrido.
+2026-05-22 08:15:13 | INFO | NOTION_relatoriodeIA_v2 | OpenAI síntese executiva em andamento... 20.0s decorrido.
+2026-05-22 08:15:18 | DEBUG | NOTION_relatoriodeIA_v2 | OpenAI síntese executiva | tentativa 1/4 concluida em 24.94s | status=200
+2026-05-22 08:15:18 | INFO | NOTION_relatoriodeIA_v2 | [Stage 5/5] Publicando relatório no Notion...
+2026-05-22 08:15:18 | DEBUG | NOTION_relatoriodeIA_v2 | Notion PATCH /v1/blocks/36872195-5c64-815d-a04b-ca176917a0c6/children | tentativa 1/5
+2026-05-22 08:15:20 | DEBUG | NOTION_relatoriodeIA_v2 | Notion PATCH /v1/blocks/36872195-5c64-815d-a04b-ca176917a0c6/children | tentativa 1/5 concluida em 2.04s | status=200
+2026-05-22 08:15:20 | DEBUG | NOTION_relatoriodeIA_v2 | Notion PATCH /v1/blocks/36872195-5c64-815d-a04b-ca176917a0c6/children | tentativa 1/5
+2026-05-22 08:15:21 | DEBUG | NOTION_relatoriodeIA_v2 | Notion PATCH /v1/blocks/36872195-5c64-815d-a04b-ca176917a0c6/children | tentativa 1/5 concluida em 0.46s | status=200
+2026-05-22 08:15:21 | DEBUG | NOTION_relatoriodeIA_v2 | Notion PATCH /v1/blocks/36872195-5c64-815d-a04b-ca176917a0c6/children | tentativa 1/5
+2026-05-22 08:15:23 | DEBUG | NOTION_relatoriodeIA_v2 | Notion PATCH /v1/blocks/36872195-5c64-815d-a04b-ca176917a0c6/children | tentativa 1/5 concluida em 1.63s | status=200
+2026-05-22 08:15:23 | DEBUG | NOTION_relatoriodeIA_v2 | Notion PATCH /v1/blocks/36872195-5c64-812c-9bb0-c04707b250a4/children | tentativa 1/5
+2026-05-22 08:15:23 | DEBUG | NOTION_relatoriodeIA_v2 | Notion PATCH /v1/blocks/36872195-5c64-812c-9bb0-c04707b250a4/children | tentativa 1/5 concluida em 0.68s | status=200
+2026-05-22 08:15:23 | DEBUG | NOTION_relatoriodeIA_v2 | Notion PATCH /v1/blocks/36872195-5c64-815d-a04b-ca176917a0c6/children | tentativa 1/5
+2026-05-22 08:15:25 | DEBUG | NOTION_relatoriodeIA_v2 | Notion PATCH /v1/blocks/36872195-5c64-815d-a04b-ca176917a0c6/children | tentativa 1/5 concluida em 1.31s | status=200
+2026-05-22 08:15:25 | DEBUG | NOTION_relatoriodeIA_v2 | Heading candidate | source=case.tema | score=77 | text=Agravo regimental em recurso ordinário eleitoral contra cassação de mandato (deputado federal, 2022)
+2026-05-22 08:15:25 | DEBUG | NOTION_relatoriodeIA_v2 | Heading candidate | source=case.tema | score=55 | text=Competência em mandado de segurança contra resolução do TRE/RR que regulamenta eleição suplementar ao governo e vice-governadoria de Roraima
+2026-05-22 08:15:25 | DEBUG | NOTION_relatoriodeIA_v2 | Heading candidate | source=case.tema | score=77 | text=Mandado de segurança contra resolução do TRE/RR que disciplinou eleição suplementar para governador e vice-governador
+2026-05-22 08:15:25 | DEBUG | NOTION_relatoriodeIA_v2 | Heading candidate | source=case.tema | score=77 | text=Mandado de segurança relativo a eleição suplementar para governador e vice-governador (21/6/2026)
+2026-05-22 08:15:25 | DEBUG | NOTION_relatoriodeIA_v2 | Notion PATCH /v1/blocks/36872195-5c64-815d-a04b-ca176917a0c6/children | tentativa 1/5
+2026-05-22 08:15:26 | DEBUG | NOTION_relatoriodeIA_v2 | Notion PATCH /v1/blocks/36872195-5c64-815d-a04b-ca176917a0c6/children | tentativa 1/5 concluida em 1.21s | status=200
+2026-05-22 08:15:26 | DEBUG | NOTION_relatoriodeIA_v2 | Notion PATCH /v1/blocks/36872195-5c64-815d-a04b-ca176917a0c6/children | tentativa 1/5
+2026-05-22 08:15:27 | DEBUG | NOTION_relatoriodeIA_v2 | Notion PATCH /v1/blocks/36872195-5c64-815d-a04b-ca176917a0c6/children | tentativa 1/5 concluida em 1.06s | status=200
+2026-05-22 08:15:27 | INFO | NOTION_relatoriodeIA_v2 | Concluído | processos=30 | período=18/05/2026 a 22/05/2026 | dry_run=False

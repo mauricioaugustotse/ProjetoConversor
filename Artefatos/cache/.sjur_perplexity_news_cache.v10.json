@@ -1,7 +1,7 @@
 {
   "version": 1,
   "strategy_version": 10,
-  "updated_at": "2026-05-15T23:32:51.509638+00:00",
+  "updated_at": "2026-05-22T11:14:52.349029+00:00",
   "entries": {
     "8e982b4ad42597f84c533228e5c858bc278bfc0d": {
       "status": "no_match",
@@ -7019,6 +7019,36 @@
       "tre": "",
       "gerais": [],
       "updated_at": "2026-05-15T23:32:51.509615+00:00"
+    },
+    "85571792e95bd573c5fbee6080d83a6f3b0f5866": {
+      "status": "filled",
+      "tse": "",
+      "tre": "https://www.tre-al.jus.br/comunicacao/noticias/2026/Maio/eleicoes-2022-tre-al-conclui-retotalizacao-dos-votos-para-a-camara-federal",
+      "gerais": [],
+      "updated_at": "2026-05-22T11:14:52.348917+00:00"
+    },
+    "3b474d6541734e59d733380c14903510bdac762a": {
+      "status": "filled",
+      "tse": "",
+      "tre": "",
+      "gerais": [
+        "https://www.poder360.com.br/justica/federacao-pede-ingresso-em-acao-sobre-eleicao-suplementar-em-roraima/"
+      ],
+      "updated_at": "2026-05-22T11:14:52.348990+00:00"
+    },
+    "be83adbf523525e69029247d9b73823f5d7ebe19": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-05-22T11:14:52.349017+00:00"
+    },
+    "01fff75153f43618efcdde74c0bcb32e9dab505e": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-05-22T11:14:52.349025+00:00"
     }
   }
 }

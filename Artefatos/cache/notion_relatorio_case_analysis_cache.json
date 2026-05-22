@@ -10420,35 +10420,35 @@
       "case_id": "0602212-13.2022.6.02.0000",
       "page_id": "35a72195-5c64-8172-a9e5-e74b12cb840a",
       "processo": "0602212-13.2022.6.02.0000",
-      "content_hash": "77bbb3a6af50d2f275289c6e7f046403064be3f9c2074c2837ef0786de832e87",
-      "cached_at_utc": "2026-05-08T23:21:45.056712+00:00",
+      "content_hash": "e658e41b64b3c1fb2ad6dbcfaa5bd2666d2b306ac8f900a4cb78f7934be8c42e",
+      "cached_at_utc": "2026-05-22T11:14:33.907137+00:00",
       "analysis": {
         "case_id": "0602212-13.2022.6.02.0000",
-        "title": "Legitimidade recursal de assistente simples em art. 30-A com cassação de suplente federal",
+        "title": "Mandato de deputado federal e retotalização dos votos em AL após cassação em RO-El de 2022",
         "relevance_score": 9,
-        "risk_level": "alto",
+        "risk_level": "critico",
         "includes_public_figure": true,
         "includes_party": true,
         "public_figures": [
-          "Paulo Fernando dos Santos",
-          "João Victor Loureiro Pessoa Catunda"
+          "PAULO FERNANDO DOS SANTOS"
         ],
         "parties": [
           "FEDERAÇÃO BRASIL DA ESPERANÇA (FE BRASIL) - NACIONAL",
           "PAULO FERNANDO DOS SANTOS",
-          "REPUBLICANOS (REPUBLICANOS) - ESTADUAL",
-          "REPUBLICANOS/AL"
+          "REPUBLICANOS (REPUBLICANOS) - ESTADUAL"
         ],
-        "lawyers_signal": "Os advogados indicados no caso não aparecem entre os recorrentes do período informado.",
-        "what_happened": "Paulo Fernando dos Santos e a Federação Brasil da Esperança interpuseram recurso ordinário, na condição de assistentes simples, contra acórdão do TRE/AL. O tribunal regional havia rejeitado questão de ordem de nulidade e julgado procedente representação por captação ilícita de recursos de campanha. No TSE, o relator não conheceu do recurso porque ele foi interposto exclusivamente por assistentes simples, sem insurgência da parte assistida.",
-        "legal_grounds": "A decisão aplicou a regra de ilegitimidade recursal do assistente simples quando a parte assistida não recorre. O mérito regional preservado baseou-se no art. 30-A da Lei nº 9.504/1997, relativo à captação ilícita de recursos de campanha.",
-        "consequence": "O TSE não conheceu do recurso ordinário. Ficou mantido o acórdão regional que julgou procedente a representação por captação ilícita de recursos, cassou o diploma de suplente de deputado federal de João Victor Loureiro Pessoa Catunda, anulou seus votos e determinou a retotalização dos votos válidos, com recálculo dos quocientes eleitoral e partidário.",
-        "strategic_comment": "O caso tem alta relevância federal porque envolve suplência de deputado federal, anulação de votos e recálculo dos quocientes eleitoral e partidário. A decisão também reforça limite processual relevante para federações, partidos e intervenientes: o assistente simples não substitui a parte assistida na iniciativa recursal. Para a consultoria legislativa, o ponto sensível é a combinação entre sanção por financiamento irregular de campanha e efeitos sistêmicos na distribuição de cadeiras proporcionais.",
-        "why_relevant": "A relevância decorre do impacto direto sobre mandato proporcional federal em potencial, pois o acórdão mantido cassou diploma de suplente de deputado federal e determinou anulação de votos, retotalização e recálculo dos quocientes. O caso também interessa a partidos e federações porque delimita a atuação recursal de assistentes simples em litígios eleitorais de alta consequência.",
+        "lawyers_signal": "Não há advogados recorrentes no período vinculados ao caso nos dados fornecidos. A lista de patronos é numerosa, mas sem sinal estatístico adicional informado.",
+        "what_happened": "Paulo Fernando dos Santos, eleito deputado federal em 2022, e a Federação Brasil da Esperança interpuseram agravo regimental com pedido de efeito suspensivo contra decisão em recurso ordinário eleitoral relacionada à cassação de mandato. O TSE, conforme a síntese fornecida, recebeu o agravo com efeitos devolutivo e suspensivo e determinou a suspensão operacional da retotalização no TRE/AL.",
+        "legal_grounds": "A decisão aplicou o art. 257, § 2º, do Código Eleitoral para atribuir efeitos devolutivo e suspensivo ao agravo regimental. O caso também envolve debate sobre legitimidade recursal de terceiros assistentes, conforme a descrição temática fornecida.",
+        "consequence": "O TSE determinou comunicação urgente ao TRE/AL para sobrestar a retotalização dos votos e o recálculo dos quocientes eleitorais até o julgamento do agravo regimental. Os dados estruturados registram o resultado como monocrático e não conhecido, mas a síntese fornecida informa recebimento do agravo com efeitos devolutivo e suspensivo.",
+        "strategic_comment": "O caso merece acompanhamento prioritário porque preserva provisoriamente mandato de deputado federal e impede alteração imediata da composição da representação de Alagoas na Câmara. A ordem de sobrestamento da retotalização reduz risco institucional imediato, mas mantém incerteza relevante até o julgamento do agravo regimental.",
+        "why_relevant": "A controvérsia afeta mandato de deputado federal, quocientes eleitorais e retotalização de votos, com potencial impacto direto na composição da Câmara dos Deputados. Também envolve federação nacional e órgão estadual de partido político, o que eleva a relevância federal e partidária do processo.",
         "source_notes": [
-          "Processo RO-El nº 0602212-13.2022.6.02.0000, Maceió/AL, decisão de 04/05/2026, relator Min. Nunes Marques.",
-          "O caso envolve eleições de 2022, art. 30-A da Lei nº 9.504/1997 e diploma de suplente de deputado federal.",
-          "A decisão no TSE foi de não conhecimento do recurso por ausência de legitimidade recursal de assistentes simples."
+          "Processo 0602212-13.2022.6.02.0000, RO-El, Maceió/AL, eleição de 2022.",
+          "Data de decisão informada: 2026-05-21, dentro do período analisado de 18/05/2026 a 22/05/2026.",
+          "Partido identificado nos dados: REPUBLICANOS/AL.",
+          "Há divergência interna nos dados: o campo relator indica Min. Dias Toffoli, enquanto o trecho da decisão menciona Relator Ministro Nunes Marques.",
+          "Há tensão entre o campo resultado, que registra 'não conhecido', e a punchline, que informa recebimento do agravo com efeitos devolutivo e suspensivo."
         ],
         "page_id": "35a72195-5c64-8172-a9e5-e74b12cb840a",
         "display_score": 9,
@@ -10460,35 +10460,35 @@
       "case_id": "0602212-13.2022.6.02.0000",
       "page_id": "35a72195-5c64-8172-a9e5-e74b12cb840a",
       "processo": "0602212-13.2022.6.02.0000",
-      "content_hash": "77bbb3a6af50d2f275289c6e7f046403064be3f9c2074c2837ef0786de832e87",
-      "cached_at_utc": "2026-05-08T23:21:45.056712+00:00",
+      "content_hash": "e658e41b64b3c1fb2ad6dbcfaa5bd2666d2b306ac8f900a4cb78f7934be8c42e",
+      "cached_at_utc": "2026-05-22T11:14:33.907137+00:00",
       "analysis": {
         "case_id": "0602212-13.2022.6.02.0000",
-        "title": "Legitimidade recursal de assistente simples em art. 30-A com cassação de suplente federal",
+        "title": "Mandato de deputado federal e retotalização dos votos em AL após cassação em RO-El de 2022",
         "relevance_score": 9,
-        "risk_level": "alto",
+        "risk_level": "critico",
         "includes_public_figure": true,
         "includes_party": true,
         "public_figures": [
-          "Paulo Fernando dos Santos",
-          "João Victor Loureiro Pessoa Catunda"
+          "PAULO FERNANDO DOS SANTOS"
         ],
         "parties": [
           "FEDERAÇÃO BRASIL DA ESPERANÇA (FE BRASIL) - NACIONAL",
           "PAULO FERNANDO DOS SANTOS",
-          "REPUBLICANOS (REPUBLICANOS) - ESTADUAL",
-          "REPUBLICANOS/AL"
+          "REPUBLICANOS (REPUBLICANOS) - ESTADUAL"
         ],
-        "lawyers_signal": "Os advogados indicados no caso não aparecem entre os recorrentes do período informado.",
-        "what_happened": "Paulo Fernando dos Santos e a Federação Brasil da Esperança interpuseram recurso ordinário, na condição de assistentes simples, contra acórdão do TRE/AL. O tribunal regional havia rejeitado questão de ordem de nulidade e julgado procedente representação por captação ilícita de recursos de campanha. No TSE, o relator não conheceu do recurso porque ele foi interposto exclusivamente por assistentes simples, sem insurgência da parte assistida.",
-        "legal_grounds": "A decisão aplicou a regra de ilegitimidade recursal do assistente simples quando a parte assistida não recorre. O mérito regional preservado baseou-se no art. 30-A da Lei nº 9.504/1997, relativo à captação ilícita de recursos de campanha.",
-        "consequence": "O TSE não conheceu do recurso ordinário. Ficou mantido o acórdão regional que julgou procedente a representação por captação ilícita de recursos, cassou o diploma de suplente de deputado federal de João Victor Loureiro Pessoa Catunda, anulou seus votos e determinou a retotalização dos votos válidos, com recálculo dos quocientes eleitoral e partidário.",
-        "strategic_comment": "O caso tem alta relevância federal porque envolve suplência de deputado federal, anulação de votos e recálculo dos quocientes eleitoral e partidário. A decisão também reforça limite processual relevante para federações, partidos e intervenientes: o assistente simples não substitui a parte assistida na iniciativa recursal. Para a consultoria legislativa, o ponto sensível é a combinação entre sanção por financiamento irregular de campanha e efeitos sistêmicos na distribuição de cadeiras proporcionais.",
-        "why_relevant": "A relevância decorre do impacto direto sobre mandato proporcional federal em potencial, pois o acórdão mantido cassou diploma de suplente de deputado federal e determinou anulação de votos, retotalização e recálculo dos quocientes. O caso também interessa a partidos e federações porque delimita a atuação recursal de assistentes simples em litígios eleitorais de alta consequência.",
+        "lawyers_signal": "Não há advogados recorrentes no período vinculados ao caso nos dados fornecidos. A lista de patronos é numerosa, mas sem sinal estatístico adicional informado.",
+        "what_happened": "Paulo Fernando dos Santos, eleito deputado federal em 2022, e a Federação Brasil da Esperança interpuseram agravo regimental com pedido de efeito suspensivo contra decisão em recurso ordinário eleitoral relacionada à cassação de mandato. O TSE, conforme a síntese fornecida, recebeu o agravo com efeitos devolutivo e suspensivo e determinou a suspensão operacional da retotalização no TRE/AL.",
+        "legal_grounds": "A decisão aplicou o art. 257, § 2º, do Código Eleitoral para atribuir efeitos devolutivo e suspensivo ao agravo regimental. O caso também envolve debate sobre legitimidade recursal de terceiros assistentes, conforme a descrição temática fornecida.",
+        "consequence": "O TSE determinou comunicação urgente ao TRE/AL para sobrestar a retotalização dos votos e o recálculo dos quocientes eleitorais até o julgamento do agravo regimental. Os dados estruturados registram o resultado como monocrático e não conhecido, mas a síntese fornecida informa recebimento do agravo com efeitos devolutivo e suspensivo.",
+        "strategic_comment": "O caso merece acompanhamento prioritário porque preserva provisoriamente mandato de deputado federal e impede alteração imediata da composição da representação de Alagoas na Câmara. A ordem de sobrestamento da retotalização reduz risco institucional imediato, mas mantém incerteza relevante até o julgamento do agravo regimental.",
+        "why_relevant": "A controvérsia afeta mandato de deputado federal, quocientes eleitorais e retotalização de votos, com potencial impacto direto na composição da Câmara dos Deputados. Também envolve federação nacional e órgão estadual de partido político, o que eleva a relevância federal e partidária do processo.",
         "source_notes": [
-          "Processo RO-El nº 0602212-13.2022.6.02.0000, Maceió/AL, decisão de 04/05/2026, relator Min. Nunes Marques.",
-          "O caso envolve eleições de 2022, art. 30-A da Lei nº 9.504/1997 e diploma de suplente de deputado federal.",
-          "A decisão no TSE foi de não conhecimento do recurso por ausência de legitimidade recursal de assistentes simples."
+          "Processo 0602212-13.2022.6.02.0000, RO-El, Maceió/AL, eleição de 2022.",
+          "Data de decisão informada: 2026-05-21, dentro do período analisado de 18/05/2026 a 22/05/2026.",
+          "Partido identificado nos dados: REPUBLICANOS/AL.",
+          "Há divergência interna nos dados: o campo relator indica Min. Dias Toffoli, enquanto o trecho da decisão menciona Relator Ministro Nunes Marques.",
+          "Há tensão entre o campo resultado, que registra 'não conhecido', e a punchline, que informa recebimento do agravo com efeitos devolutivo e suspensivo."
         ],
         "page_id": "35a72195-5c64-8172-a9e5-e74b12cb840a",
         "display_score": 9,
@@ -10500,35 +10500,35 @@
       "case_id": "0602212-13.2022.6.02.0000",
       "page_id": "35a72195-5c64-8172-a9e5-e74b12cb840a",
       "processo": "0602212-13.2022.6.02.0000",
-      "content_hash": "77bbb3a6af50d2f275289c6e7f046403064be3f9c2074c2837ef0786de832e87",
-      "cached_at_utc": "2026-05-08T23:21:45.056712+00:00",
+      "content_hash": "e658e41b64b3c1fb2ad6dbcfaa5bd2666d2b306ac8f900a4cb78f7934be8c42e",
+      "cached_at_utc": "2026-05-22T11:14:33.907137+00:00",
       "analysis": {
         "case_id": "0602212-13.2022.6.02.0000",
-        "title": "Legitimidade recursal de assistente simples em art. 30-A com cassação de suplente federal",
+        "title": "Mandato de deputado federal e retotalização dos votos em AL após cassação em RO-El de 2022",
         "relevance_score": 9,
-        "risk_level": "alto",
+        "risk_level": "critico",
         "includes_public_figure": true,
         "includes_party": true,
         "public_figures": [
-          "Paulo Fernando dos Santos",
-          "João Victor Loureiro Pessoa Catunda"
+          "PAULO FERNANDO DOS SANTOS"
         ],
         "parties": [
           "FEDERAÇÃO BRASIL DA ESPERANÇA (FE BRASIL) - NACIONAL",
           "PAULO FERNANDO DOS SANTOS",
-          "REPUBLICANOS (REPUBLICANOS) - ESTADUAL",
-          "REPUBLICANOS/AL"
+          "REPUBLICANOS (REPUBLICANOS) - ESTADUAL"
         ],
-        "lawyers_signal": "Os advogados indicados no caso não aparecem entre os recorrentes do período informado.",
-        "what_happened": "Paulo Fernando dos Santos e a Federação Brasil da Esperança interpuseram recurso ordinário, na condição de assistentes simples, contra acórdão do TRE/AL. O tribunal regional havia rejeitado questão de ordem de nulidade e julgado procedente representação por captação ilícita de recursos de campanha. No TSE, o relator não conheceu do recurso porque ele foi interposto exclusivamente por assistentes simples, sem insurgência da parte assistida.",
-        "legal_grounds": "A decisão aplicou a regra de ilegitimidade recursal do assistente simples quando a parte assistida não recorre. O mérito regional preservado baseou-se no art. 30-A da Lei nº 9.504/1997, relativo à captação ilícita de recursos de campanha.",
-        "consequence": "O TSE não conheceu do recurso ordinário. Ficou mantido o acórdão regional que julgou procedente a representação por captação ilícita de recursos, cassou o diploma de suplente de deputado federal de João Victor Loureiro Pessoa Catunda, anulou seus votos e determinou a retotalização dos votos válidos, com recálculo dos quocientes eleitoral e partidário.",
-        "strategic_comment": "O caso tem alta relevância federal porque envolve suplência de deputado federal, anulação de votos e recálculo dos quocientes eleitoral e partidário. A decisão também reforça limite processual relevante para federações, partidos e intervenientes: o assistente simples não substitui a parte assistida na iniciativa recursal. Para a consultoria legislativa, o ponto sensível é a combinação entre sanção por financiamento irregular de campanha e efeitos sistêmicos na distribuição de cadeiras proporcionais.",
-        "why_relevant": "A relevância decorre do impacto direto sobre mandato proporcional federal em potencial, pois o acórdão mantido cassou diploma de suplente de deputado federal e determinou anulação de votos, retotalização e recálculo dos quocientes. O caso também interessa a partidos e federações porque delimita a atuação recursal de assistentes simples em litígios eleitorais de alta consequência.",
+        "lawyers_signal": "Não há advogados recorrentes no período vinculados ao caso nos dados fornecidos. A lista de patronos é numerosa, mas sem sinal estatístico adicional informado.",
+        "what_happened": "Paulo Fernando dos Santos, eleito deputado federal em 2022, e a Federação Brasil da Esperança interpuseram agravo regimental com pedido de efeito suspensivo contra decisão em recurso ordinário eleitoral relacionada à cassação de mandato. O TSE, conforme a síntese fornecida, recebeu o agravo com efeitos devolutivo e suspensivo e determinou a suspensão operacional da retotalização no TRE/AL.",
+        "legal_grounds": "A decisão aplicou o art. 257, § 2º, do Código Eleitoral para atribuir efeitos devolutivo e suspensivo ao agravo regimental. O caso também envolve debate sobre legitimidade recursal de terceiros assistentes, conforme a descrição temática fornecida.",
+        "consequence": "O TSE determinou comunicação urgente ao TRE/AL para sobrestar a retotalização dos votos e o recálculo dos quocientes eleitorais até o julgamento do agravo regimental. Os dados estruturados registram o resultado como monocrático e não conhecido, mas a síntese fornecida informa recebimento do agravo com efeitos devolutivo e suspensivo.",
+        "strategic_comment": "O caso merece acompanhamento prioritário porque preserva provisoriamente mandato de deputado federal e impede alteração imediata da composição da representação de Alagoas na Câmara. A ordem de sobrestamento da retotalização reduz risco institucional imediato, mas mantém incerteza relevante até o julgamento do agravo regimental.",
+        "why_relevant": "A controvérsia afeta mandato de deputado federal, quocientes eleitorais e retotalização de votos, com potencial impacto direto na composição da Câmara dos Deputados. Também envolve federação nacional e órgão estadual de partido político, o que eleva a relevância federal e partidária do processo.",
         "source_notes": [
-          "Processo RO-El nº 0602212-13.2022.6.02.0000, Maceió/AL, decisão de 04/05/2026, relator Min. Nunes Marques.",
-          "O caso envolve eleições de 2022, art. 30-A da Lei nº 9.504/1997 e diploma de suplente de deputado federal.",
-          "A decisão no TSE foi de não conhecimento do recurso por ausência de legitimidade recursal de assistentes simples."
+          "Processo 0602212-13.2022.6.02.0000, RO-El, Maceió/AL, eleição de 2022.",
+          "Data de decisão informada: 2026-05-21, dentro do período analisado de 18/05/2026 a 22/05/2026.",
+          "Partido identificado nos dados: REPUBLICANOS/AL.",
+          "Há divergência interna nos dados: o campo relator indica Min. Dias Toffoli, enquanto o trecho da decisão menciona Relator Ministro Nunes Marques.",
+          "Há tensão entre o campo resultado, que registra 'não conhecido', e a punchline, que informa recebimento do agravo com efeitos devolutivo e suspensivo."
         ],
         "page_id": "35a72195-5c64-8172-a9e5-e74b12cb840a",
         "display_score": 9,
@@ -10540,35 +10540,35 @@
       "case_id": "0602212-13.2022.6.02.0000",
       "page_id": "35a72195-5c64-8172-a9e5-e74b12cb840a",
       "processo": "0602212-13.2022.6.02.0000",
-      "content_hash": "77bbb3a6af50d2f275289c6e7f046403064be3f9c2074c2837ef0786de832e87",
-      "cached_at_utc": "2026-05-08T23:21:45.056712+00:00",
+      "content_hash": "e658e41b64b3c1fb2ad6dbcfaa5bd2666d2b306ac8f900a4cb78f7934be8c42e",
+      "cached_at_utc": "2026-05-22T11:14:33.907137+00:00",
       "analysis": {
         "case_id": "0602212-13.2022.6.02.0000",
-        "title": "Legitimidade recursal de assistente simples em art. 30-A com cassação de suplente federal",
+        "title": "Mandato de deputado federal e retotalização dos votos em AL após cassação em RO-El de 2022",
         "relevance_score": 9,
-        "risk_level": "alto",
+        "risk_level": "critico",
         "includes_public_figure": true,
         "includes_party": true,
         "public_figures": [
-          "Paulo Fernando dos Santos",
-          "João Victor Loureiro Pessoa Catunda"
+          "PAULO FERNANDO DOS SANTOS"
         ],
         "parties": [
           "FEDERAÇÃO BRASIL DA ESPERANÇA (FE BRASIL) - NACIONAL",
           "PAULO FERNANDO DOS SANTOS",
-          "REPUBLICANOS (REPUBLICANOS) - ESTADUAL",
-          "REPUBLICANOS/AL"
+          "REPUBLICANOS (REPUBLICANOS) - ESTADUAL"
         ],
-        "lawyers_signal": "Os advogados indicados no caso não aparecem entre os recorrentes do período informado.",
-        "what_happened": "Paulo Fernando dos Santos e a Federação Brasil da Esperança interpuseram recurso ordinário, na condição de assistentes simples, contra acórdão do TRE/AL. O tribunal regional havia rejeitado questão de ordem de nulidade e julgado procedente representação por captação ilícita de recursos de campanha. No TSE, o relator não conheceu do recurso porque ele foi interposto exclusivamente por assistentes simples, sem insurgência da parte assistida.",
-        "legal_grounds": "A decisão aplicou a regra de ilegitimidade recursal do assistente simples quando a parte assistida não recorre. O mérito regional preservado baseou-se no art. 30-A da Lei nº 9.504/1997, relativo à captação ilícita de recursos de campanha.",
-        "consequence": "O TSE não conheceu do recurso ordinário. Ficou mantido o acórdão regional que julgou procedente a representação por captação ilícita de recursos, cassou o diploma de suplente de deputado federal de João Victor Loureiro Pessoa Catunda, anulou seus votos e determinou a retotalização dos votos válidos, com recálculo dos quocientes eleitoral e partidário.",
-        "strategic_comment": "O caso tem alta relevância federal porque envolve suplência de deputado federal, anulação de votos e recálculo dos quocientes eleitoral e partidário. A decisão também reforça limite processual relevante para federações, partidos e intervenientes: o assistente simples não substitui a parte assistida na iniciativa recursal. Para a consultoria legislativa, o ponto sensível é a combinação entre sanção por financiamento irregular de campanha e efeitos sistêmicos na distribuição de cadeiras proporcionais.",
-        "why_relevant": "A relevância decorre do impacto direto sobre mandato proporcional federal em potencial, pois o acórdão mantido cassou diploma de suplente de deputado federal e determinou anulação de votos, retotalização e recálculo dos quocientes. O caso também interessa a partidos e federações porque delimita a atuação recursal de assistentes simples em litígios eleitorais de alta consequência.",
+        "lawyers_signal": "Não há advogados recorrentes no período vinculados ao caso nos dados fornecidos. A lista de patronos é numerosa, mas sem sinal estatístico adicional informado.",
+        "what_happened": "Paulo Fernando dos Santos, eleito deputado federal em 2022, e a Federação Brasil da Esperança interpuseram agravo regimental com pedido de efeito suspensivo contra decisão em recurso ordinário eleitoral relacionada à cassação de mandato. O TSE, conforme a síntese fornecida, recebeu o agravo com efeitos devolutivo e suspensivo e determinou a suspensão operacional da retotalização no TRE/AL.",
+        "legal_grounds": "A decisão aplicou o art. 257, § 2º, do Código Eleitoral para atribuir efeitos devolutivo e suspensivo ao agravo regimental. O caso também envolve debate sobre legitimidade recursal de terceiros assistentes, conforme a descrição temática fornecida.",
+        "consequence": "O TSE determinou comunicação urgente ao TRE/AL para sobrestar a retotalização dos votos e o recálculo dos quocientes eleitorais até o julgamento do agravo regimental. Os dados estruturados registram o resultado como monocrático e não conhecido, mas a síntese fornecida informa recebimento do agravo com efeitos devolutivo e suspensivo.",
+        "strategic_comment": "O caso merece acompanhamento prioritário porque preserva provisoriamente mandato de deputado federal e impede alteração imediata da composição da representação de Alagoas na Câmara. A ordem de sobrestamento da retotalização reduz risco institucional imediato, mas mantém incerteza relevante até o julgamento do agravo regimental.",
+        "why_relevant": "A controvérsia afeta mandato de deputado federal, quocientes eleitorais e retotalização de votos, com potencial impacto direto na composição da Câmara dos Deputados. Também envolve federação nacional e órgão estadual de partido político, o que eleva a relevância federal e partidária do processo.",
         "source_notes": [
-          "Processo RO-El nº 0602212-13.2022.6.02.0000, Maceió/AL, decisão de 04/05/2026, relator Min. Nunes Marques.",
-          "O caso envolve eleições de 2022, art. 30-A da Lei nº 9.504/1997 e diploma de suplente de deputado federal.",
-          "A decisão no TSE foi de não conhecimento do recurso por ausência de legitimidade recursal de assistentes simples."
+          "Processo 0602212-13.2022.6.02.0000, RO-El, Maceió/AL, eleição de 2022.",
+          "Data de decisão informada: 2026-05-21, dentro do período analisado de 18/05/2026 a 22/05/2026.",
+          "Partido identificado nos dados: REPUBLICANOS/AL.",
+          "Há divergência interna nos dados: o campo relator indica Min. Dias Toffoli, enquanto o trecho da decisão menciona Relator Ministro Nunes Marques.",
+          "Há tensão entre o campo resultado, que registra 'não conhecido', e a punchline, que informa recebimento do agravo com efeitos devolutivo e suspensivo."
         ],
         "page_id": "35a72195-5c64-8172-a9e5-e74b12cb840a",
         "display_score": 9,
@@ -15314,8 +15314,1548 @@
         "display_score": 6,
         "ranking_reason": ""
       }
+    },
+    "numero_unico:0600531-34.2024.6.22.0015": {
+      "model": "gpt-5.5",
+      "case_id": "0600531-34.2024.6.22.0015",
+      "page_id": "36872195-5c64-81d2-a393-eaa7f71ee969",
+      "processo": "0600531-34.2024.6.22.0015",
+      "content_hash": "54fa04a6380cd93a6600a34c7ef3e4f3072c91262bf9a279c21c8aece8b522b6",
+      "cached_at_utc": "2026-05-22T11:14:30.433640+00:00",
+      "analysis": {
+        "case_id": "0600531-34.2024.6.22.0015",
+        "title": "Prova robusta e in dubio pro suffragio em AIJE por cota de gênero nas proporcionais municipais",
+        "relevance_score": 5,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": false,
+        "public_figures": [],
+        "parties": [],
+        "lawyers_signal": "Há registro de atuação de Allan Cardoso Pipino, sem indicação de recorrência no período informado.",
+        "what_happened": "O Ministério Público Eleitoral agravou contra a inadmissão de recurso especial em AIJE que alegava fraude à cota de gênero nas eleições de 2024 para vereador em Castanheiras/RO. O TSE manteve a conclusão regional de improcedência, destacando que atos efetivos de campanha e movimentação em contas afastaram a certeza necessária sobre candidatura fictícia.",
+        "legal_grounds": "A decisão aplicou o art. 10, § 3º, da Lei nº 9.504/1997, as Súmulas 24 e 30 do TSE, a exigência de prova robusta e contextualizada para fraude à cota de gênero e o princípio do in dubio pro suffragio. Também registrou que o consilium fraudis é irrelevante para a caracterização da fraude, mas que a dúvida razoável impede a condenação.",
+        "consequence": "O TSE negou seguimento ao agravo em recurso especial eleitoral. Ficou mantida a improcedência da AIJE por fraude à cota de gênero nas eleições proporcionais de 2024 em Castanheiras/RO, sem cassação de registros, diplomas ou mandatos nos dados fornecidos.",
+        "strategic_comment": "O caso tem relevância média por reafirmar parâmetro probatório em ações de fraude à cota de gênero, tema sensível para partidos e chapas proporcionais. O interesse federal é limitado porque o litígio é municipal e não há partido identificado, mas a tese é replicável em disputas sobre candidaturas femininas fictícias.",
+        "why_relevant": "A decisão reforça que a fraude à cota de gênero não pode ser presumida a partir de indícios isolados. Para partidos e candidaturas proporcionais, o precedente sinaliza que a responsabilização exige prova contextualizada, e que a dúvida razoável favorece a preservação do voto e da capacidade eleitoral passiva.",
+        "source_notes": [
+          "Processo 0600531-34.2024.6.22.0015, AREspEl, decisão monocrática de 21/05/2026.",
+          "Relator: Ministro Antonio Carlos Ferreira.",
+          "Origem: Castanheiras/RO, eleições de 2024, cargo de vereador.",
+          "Agravante: Ministério Público Eleitoral. Agravados: Ana Caroline de Souza Castilho e outros."
+        ],
+        "page_id": "36872195-5c64-81d2-a393-eaa7f71ee969",
+        "display_score": 5,
+        "ranking_reason": ""
+      }
+    },
+    "numero_processo:60053134": {
+      "model": "gpt-5.5",
+      "case_id": "0600531-34.2024.6.22.0015",
+      "page_id": "36872195-5c64-81d2-a393-eaa7f71ee969",
+      "processo": "0600531-34.2024.6.22.0015",
+      "content_hash": "54fa04a6380cd93a6600a34c7ef3e4f3072c91262bf9a279c21c8aece8b522b6",
+      "cached_at_utc": "2026-05-22T11:14:30.433640+00:00",
+      "analysis": {
+        "case_id": "0600531-34.2024.6.22.0015",
+        "title": "Prova robusta e in dubio pro suffragio em AIJE por cota de gênero nas proporcionais municipais",
+        "relevance_score": 5,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": false,
+        "public_figures": [],
+        "parties": [],
+        "lawyers_signal": "Há registro de atuação de Allan Cardoso Pipino, sem indicação de recorrência no período informado.",
+        "what_happened": "O Ministério Público Eleitoral agravou contra a inadmissão de recurso especial em AIJE que alegava fraude à cota de gênero nas eleições de 2024 para vereador em Castanheiras/RO. O TSE manteve a conclusão regional de improcedência, destacando que atos efetivos de campanha e movimentação em contas afastaram a certeza necessária sobre candidatura fictícia.",
+        "legal_grounds": "A decisão aplicou o art. 10, § 3º, da Lei nº 9.504/1997, as Súmulas 24 e 30 do TSE, a exigência de prova robusta e contextualizada para fraude à cota de gênero e o princípio do in dubio pro suffragio. Também registrou que o consilium fraudis é irrelevante para a caracterização da fraude, mas que a dúvida razoável impede a condenação.",
+        "consequence": "O TSE negou seguimento ao agravo em recurso especial eleitoral. Ficou mantida a improcedência da AIJE por fraude à cota de gênero nas eleições proporcionais de 2024 em Castanheiras/RO, sem cassação de registros, diplomas ou mandatos nos dados fornecidos.",
+        "strategic_comment": "O caso tem relevância média por reafirmar parâmetro probatório em ações de fraude à cota de gênero, tema sensível para partidos e chapas proporcionais. O interesse federal é limitado porque o litígio é municipal e não há partido identificado, mas a tese é replicável em disputas sobre candidaturas femininas fictícias.",
+        "why_relevant": "A decisão reforça que a fraude à cota de gênero não pode ser presumida a partir de indícios isolados. Para partidos e candidaturas proporcionais, o precedente sinaliza que a responsabilização exige prova contextualizada, e que a dúvida razoável favorece a preservação do voto e da capacidade eleitoral passiva.",
+        "source_notes": [
+          "Processo 0600531-34.2024.6.22.0015, AREspEl, decisão monocrática de 21/05/2026.",
+          "Relator: Ministro Antonio Carlos Ferreira.",
+          "Origem: Castanheiras/RO, eleições de 2024, cargo de vereador.",
+          "Agravante: Ministério Público Eleitoral. Agravados: Ana Caroline de Souza Castilho e outros."
+        ],
+        "page_id": "36872195-5c64-81d2-a393-eaa7f71ee969",
+        "display_score": 5,
+        "ranking_reason": ""
+      }
+    },
+    "page_id:36872195-5c64-81d2-a393-eaa7f71ee969": {
+      "model": "gpt-5.5",
+      "case_id": "0600531-34.2024.6.22.0015",
+      "page_id": "36872195-5c64-81d2-a393-eaa7f71ee969",
+      "processo": "0600531-34.2024.6.22.0015",
+      "content_hash": "54fa04a6380cd93a6600a34c7ef3e4f3072c91262bf9a279c21c8aece8b522b6",
+      "cached_at_utc": "2026-05-22T11:14:30.433640+00:00",
+      "analysis": {
+        "case_id": "0600531-34.2024.6.22.0015",
+        "title": "Prova robusta e in dubio pro suffragio em AIJE por cota de gênero nas proporcionais municipais",
+        "relevance_score": 5,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": false,
+        "public_figures": [],
+        "parties": [],
+        "lawyers_signal": "Há registro de atuação de Allan Cardoso Pipino, sem indicação de recorrência no período informado.",
+        "what_happened": "O Ministério Público Eleitoral agravou contra a inadmissão de recurso especial em AIJE que alegava fraude à cota de gênero nas eleições de 2024 para vereador em Castanheiras/RO. O TSE manteve a conclusão regional de improcedência, destacando que atos efetivos de campanha e movimentação em contas afastaram a certeza necessária sobre candidatura fictícia.",
+        "legal_grounds": "A decisão aplicou o art. 10, § 3º, da Lei nº 9.504/1997, as Súmulas 24 e 30 do TSE, a exigência de prova robusta e contextualizada para fraude à cota de gênero e o princípio do in dubio pro suffragio. Também registrou que o consilium fraudis é irrelevante para a caracterização da fraude, mas que a dúvida razoável impede a condenação.",
+        "consequence": "O TSE negou seguimento ao agravo em recurso especial eleitoral. Ficou mantida a improcedência da AIJE por fraude à cota de gênero nas eleições proporcionais de 2024 em Castanheiras/RO, sem cassação de registros, diplomas ou mandatos nos dados fornecidos.",
+        "strategic_comment": "O caso tem relevância média por reafirmar parâmetro probatório em ações de fraude à cota de gênero, tema sensível para partidos e chapas proporcionais. O interesse federal é limitado porque o litígio é municipal e não há partido identificado, mas a tese é replicável em disputas sobre candidaturas femininas fictícias.",
+        "why_relevant": "A decisão reforça que a fraude à cota de gênero não pode ser presumida a partir de indícios isolados. Para partidos e candidaturas proporcionais, o precedente sinaliza que a responsabilização exige prova contextualizada, e que a dúvida razoável favorece a preservação do voto e da capacidade eleitoral passiva.",
+        "source_notes": [
+          "Processo 0600531-34.2024.6.22.0015, AREspEl, decisão monocrática de 21/05/2026.",
+          "Relator: Ministro Antonio Carlos Ferreira.",
+          "Origem: Castanheiras/RO, eleições de 2024, cargo de vereador.",
+          "Agravante: Ministério Público Eleitoral. Agravados: Ana Caroline de Souza Castilho e outros."
+        ],
+        "page_id": "36872195-5c64-81d2-a393-eaa7f71ee969",
+        "display_score": 5,
+        "ranking_reason": ""
+      }
+    },
+    "case_id:0600531-34.2024.6.22.0015": {
+      "model": "gpt-5.5",
+      "case_id": "0600531-34.2024.6.22.0015",
+      "page_id": "36872195-5c64-81d2-a393-eaa7f71ee969",
+      "processo": "0600531-34.2024.6.22.0015",
+      "content_hash": "54fa04a6380cd93a6600a34c7ef3e4f3072c91262bf9a279c21c8aece8b522b6",
+      "cached_at_utc": "2026-05-22T11:14:30.433640+00:00",
+      "analysis": {
+        "case_id": "0600531-34.2024.6.22.0015",
+        "title": "Prova robusta e in dubio pro suffragio em AIJE por cota de gênero nas proporcionais municipais",
+        "relevance_score": 5,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": false,
+        "public_figures": [],
+        "parties": [],
+        "lawyers_signal": "Há registro de atuação de Allan Cardoso Pipino, sem indicação de recorrência no período informado.",
+        "what_happened": "O Ministério Público Eleitoral agravou contra a inadmissão de recurso especial em AIJE que alegava fraude à cota de gênero nas eleições de 2024 para vereador em Castanheiras/RO. O TSE manteve a conclusão regional de improcedência, destacando que atos efetivos de campanha e movimentação em contas afastaram a certeza necessária sobre candidatura fictícia.",
+        "legal_grounds": "A decisão aplicou o art. 10, § 3º, da Lei nº 9.504/1997, as Súmulas 24 e 30 do TSE, a exigência de prova robusta e contextualizada para fraude à cota de gênero e o princípio do in dubio pro suffragio. Também registrou que o consilium fraudis é irrelevante para a caracterização da fraude, mas que a dúvida razoável impede a condenação.",
+        "consequence": "O TSE negou seguimento ao agravo em recurso especial eleitoral. Ficou mantida a improcedência da AIJE por fraude à cota de gênero nas eleições proporcionais de 2024 em Castanheiras/RO, sem cassação de registros, diplomas ou mandatos nos dados fornecidos.",
+        "strategic_comment": "O caso tem relevância média por reafirmar parâmetro probatório em ações de fraude à cota de gênero, tema sensível para partidos e chapas proporcionais. O interesse federal é limitado porque o litígio é municipal e não há partido identificado, mas a tese é replicável em disputas sobre candidaturas femininas fictícias.",
+        "why_relevant": "A decisão reforça que a fraude à cota de gênero não pode ser presumida a partir de indícios isolados. Para partidos e candidaturas proporcionais, o precedente sinaliza que a responsabilização exige prova contextualizada, e que a dúvida razoável favorece a preservação do voto e da capacidade eleitoral passiva.",
+        "source_notes": [
+          "Processo 0600531-34.2024.6.22.0015, AREspEl, decisão monocrática de 21/05/2026.",
+          "Relator: Ministro Antonio Carlos Ferreira.",
+          "Origem: Castanheiras/RO, eleições de 2024, cargo de vereador.",
+          "Agravante: Ministério Público Eleitoral. Agravados: Ana Caroline de Souza Castilho e outros."
+        ],
+        "page_id": "36872195-5c64-81d2-a393-eaa7f71ee969",
+        "display_score": 5,
+        "ranking_reason": ""
+      }
+    },
+    "content_hash:54fa04a6380cd93a6600a34c7ef3e4f3072c91262bf9a279c21c8aece8b522b6": {
+      "model": "gpt-5.5",
+      "case_id": "0600531-34.2024.6.22.0015",
+      "page_id": "36872195-5c64-81d2-a393-eaa7f71ee969",
+      "processo": "0600531-34.2024.6.22.0015",
+      "content_hash": "54fa04a6380cd93a6600a34c7ef3e4f3072c91262bf9a279c21c8aece8b522b6",
+      "cached_at_utc": "2026-05-22T11:14:30.433640+00:00",
+      "analysis": {
+        "case_id": "0600531-34.2024.6.22.0015",
+        "title": "Prova robusta e in dubio pro suffragio em AIJE por cota de gênero nas proporcionais municipais",
+        "relevance_score": 5,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": false,
+        "public_figures": [],
+        "parties": [],
+        "lawyers_signal": "Há registro de atuação de Allan Cardoso Pipino, sem indicação de recorrência no período informado.",
+        "what_happened": "O Ministério Público Eleitoral agravou contra a inadmissão de recurso especial em AIJE que alegava fraude à cota de gênero nas eleições de 2024 para vereador em Castanheiras/RO. O TSE manteve a conclusão regional de improcedência, destacando que atos efetivos de campanha e movimentação em contas afastaram a certeza necessária sobre candidatura fictícia.",
+        "legal_grounds": "A decisão aplicou o art. 10, § 3º, da Lei nº 9.504/1997, as Súmulas 24 e 30 do TSE, a exigência de prova robusta e contextualizada para fraude à cota de gênero e o princípio do in dubio pro suffragio. Também registrou que o consilium fraudis é irrelevante para a caracterização da fraude, mas que a dúvida razoável impede a condenação.",
+        "consequence": "O TSE negou seguimento ao agravo em recurso especial eleitoral. Ficou mantida a improcedência da AIJE por fraude à cota de gênero nas eleições proporcionais de 2024 em Castanheiras/RO, sem cassação de registros, diplomas ou mandatos nos dados fornecidos.",
+        "strategic_comment": "O caso tem relevância média por reafirmar parâmetro probatório em ações de fraude à cota de gênero, tema sensível para partidos e chapas proporcionais. O interesse federal é limitado porque o litígio é municipal e não há partido identificado, mas a tese é replicável em disputas sobre candidaturas femininas fictícias.",
+        "why_relevant": "A decisão reforça que a fraude à cota de gênero não pode ser presumida a partir de indícios isolados. Para partidos e candidaturas proporcionais, o precedente sinaliza que a responsabilização exige prova contextualizada, e que a dúvida razoável favorece a preservação do voto e da capacidade eleitoral passiva.",
+        "source_notes": [
+          "Processo 0600531-34.2024.6.22.0015, AREspEl, decisão monocrática de 21/05/2026.",
+          "Relator: Ministro Antonio Carlos Ferreira.",
+          "Origem: Castanheiras/RO, eleições de 2024, cargo de vereador.",
+          "Agravante: Ministério Público Eleitoral. Agravados: Ana Caroline de Souza Castilho e outros."
+        ],
+        "page_id": "36872195-5c64-81d2-a393-eaa7f71ee969",
+        "display_score": 5,
+        "ranking_reason": ""
+      }
+    },
+    "numero_unico:0600312-19.2024.6.19.0172": {
+      "model": "gpt-5.5",
+      "case_id": "0600312-19.2024.6.19.0172",
+      "page_id": "36872195-5c64-8103-8a7c-ee45f3766256",
+      "processo": "0600312-19.2024.6.19.0172",
+      "content_hash": "0374fe594e70d22d52375f6c55e7be85cd4cc935f13379e09341ddc61ad49782",
+      "cached_at_utc": "2026-05-22T11:14:31.968327+00:00",
+      "analysis": {
+        "case_id": "0600312-19.2024.6.19.0172",
+        "title": "FEFC em contratação de parente sem descrição de serviços na prestação de contas de vereadora",
+        "relevance_score": 6,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "CELYMAR SALES RABELO"
+        ],
+        "parties": [
+          "CELYMAR SALES RABELO"
+        ],
+        "lawyers_signal": "A advogada indicada no processo não aparece como recorrente nas estatísticas do período fornecidas.",
+        "what_happened": "Celymar Sales Rabelo agravou contra decisão que manteve a desaprovação de suas contas de campanha de 2024 para vereador em Armação dos Búzios/RJ. A irregularidade central foi a contratação do filho da candidata com recursos do FEFC, sem especificação suficiente das atividades executadas e sem justificativa do preço contratado.",
+        "legal_grounds": "O TSE aplicou a Súmula 72 por ausência de prequestionamento da tese de limitação da devolução ao valor excedente à média de mercado. Também aplicou as Súmulas 29 e 28 por falta de comprovação adequada do dissídio jurisprudencial. No mérito indicado em obiter dictum, considerou relevante o art. 35, § 12, da Res.-TSE nº 23.607/2019, que exige especificação das atividades e justificativa do preço na contratação de serviços de campanha. A decisão ainda mencionou a Súmula 30 para manter a conclusão de irregularidade documental sem reexaminar o quadro fático-probatório.",
+        "consequence": "O agravo em recurso especial eleitoral ficou prejudicado ou sem seguimento por falta de requisitos de admissibilidade. Permaneceram a desaprovação das contas de campanha e a determinação de devolução ao Tesouro dos valores do FEFC aplicados de forma irregular.",
+        "strategic_comment": "O caso é municipal, mas tem utilidade normativa para controle de gastos com FEFC. A decisão reforça que contratos genéricos, especialmente em contratação de familiar, não bastam para demonstrar regularidade da despesa pública eleitoral. Para partidos e campanhas, o ponto operacional é documentar atividade, preço e aderência ao serviço efetivamente prestado antes de usar recursos públicos.",
+        "why_relevant": "A relevância decorre do uso de recursos públicos do FEFC e da exigência de prova robusta da regularidade de despesas de campanha. Embora o caso seja local e relativo a vereadora, a tese é replicável para candidaturas e partidos em prestações de contas, especialmente quando houver contratação de parentes ou serviços de militância com documentação genérica.",
+        "source_notes": [
+          "Processo AREspEl nº 0600312-19.2024.6.19.0172, Armação dos Búzios/RJ, decisão monocrática de 21/05/2026.",
+          "Eleição de 2024, prestação de contas de campanha de candidata ao cargo de vereador.",
+          "Tema informado: contratação de parente com recursos do FEFC sem detalhamento das atividades e sem justificativa do preço."
+        ],
+        "page_id": "36872195-5c64-8103-8a7c-ee45f3766256",
+        "display_score": 6,
+        "ranking_reason": ""
+      }
+    },
+    "numero_processo:60031219": {
+      "model": "gpt-5.5",
+      "case_id": "0600312-19.2024.6.19.0172",
+      "page_id": "36872195-5c64-8103-8a7c-ee45f3766256",
+      "processo": "0600312-19.2024.6.19.0172",
+      "content_hash": "0374fe594e70d22d52375f6c55e7be85cd4cc935f13379e09341ddc61ad49782",
+      "cached_at_utc": "2026-05-22T11:14:31.968327+00:00",
+      "analysis": {
+        "case_id": "0600312-19.2024.6.19.0172",
+        "title": "FEFC em contratação de parente sem descrição de serviços na prestação de contas de vereadora",
+        "relevance_score": 6,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "CELYMAR SALES RABELO"
+        ],
+        "parties": [
+          "CELYMAR SALES RABELO"
+        ],
+        "lawyers_signal": "A advogada indicada no processo não aparece como recorrente nas estatísticas do período fornecidas.",
+        "what_happened": "Celymar Sales Rabelo agravou contra decisão que manteve a desaprovação de suas contas de campanha de 2024 para vereador em Armação dos Búzios/RJ. A irregularidade central foi a contratação do filho da candidata com recursos do FEFC, sem especificação suficiente das atividades executadas e sem justificativa do preço contratado.",
+        "legal_grounds": "O TSE aplicou a Súmula 72 por ausência de prequestionamento da tese de limitação da devolução ao valor excedente à média de mercado. Também aplicou as Súmulas 29 e 28 por falta de comprovação adequada do dissídio jurisprudencial. No mérito indicado em obiter dictum, considerou relevante o art. 35, § 12, da Res.-TSE nº 23.607/2019, que exige especificação das atividades e justificativa do preço na contratação de serviços de campanha. A decisão ainda mencionou a Súmula 30 para manter a conclusão de irregularidade documental sem reexaminar o quadro fático-probatório.",
+        "consequence": "O agravo em recurso especial eleitoral ficou prejudicado ou sem seguimento por falta de requisitos de admissibilidade. Permaneceram a desaprovação das contas de campanha e a determinação de devolução ao Tesouro dos valores do FEFC aplicados de forma irregular.",
+        "strategic_comment": "O caso é municipal, mas tem utilidade normativa para controle de gastos com FEFC. A decisão reforça que contratos genéricos, especialmente em contratação de familiar, não bastam para demonstrar regularidade da despesa pública eleitoral. Para partidos e campanhas, o ponto operacional é documentar atividade, preço e aderência ao serviço efetivamente prestado antes de usar recursos públicos.",
+        "why_relevant": "A relevância decorre do uso de recursos públicos do FEFC e da exigência de prova robusta da regularidade de despesas de campanha. Embora o caso seja local e relativo a vereadora, a tese é replicável para candidaturas e partidos em prestações de contas, especialmente quando houver contratação de parentes ou serviços de militância com documentação genérica.",
+        "source_notes": [
+          "Processo AREspEl nº 0600312-19.2024.6.19.0172, Armação dos Búzios/RJ, decisão monocrática de 21/05/2026.",
+          "Eleição de 2024, prestação de contas de campanha de candidata ao cargo de vereador.",
+          "Tema informado: contratação de parente com recursos do FEFC sem detalhamento das atividades e sem justificativa do preço."
+        ],
+        "page_id": "36872195-5c64-8103-8a7c-ee45f3766256",
+        "display_score": 6,
+        "ranking_reason": ""
+      }
+    },
+    "page_id:36872195-5c64-8103-8a7c-ee45f3766256": {
+      "model": "gpt-5.5",
+      "case_id": "0600312-19.2024.6.19.0172",
+      "page_id": "36872195-5c64-8103-8a7c-ee45f3766256",
+      "processo": "0600312-19.2024.6.19.0172",
+      "content_hash": "0374fe594e70d22d52375f6c55e7be85cd4cc935f13379e09341ddc61ad49782",
+      "cached_at_utc": "2026-05-22T11:14:31.968327+00:00",
+      "analysis": {
+        "case_id": "0600312-19.2024.6.19.0172",
+        "title": "FEFC em contratação de parente sem descrição de serviços na prestação de contas de vereadora",
+        "relevance_score": 6,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "CELYMAR SALES RABELO"
+        ],
+        "parties": [
+          "CELYMAR SALES RABELO"
+        ],
+        "lawyers_signal": "A advogada indicada no processo não aparece como recorrente nas estatísticas do período fornecidas.",
+        "what_happened": "Celymar Sales Rabelo agravou contra decisão que manteve a desaprovação de suas contas de campanha de 2024 para vereador em Armação dos Búzios/RJ. A irregularidade central foi a contratação do filho da candidata com recursos do FEFC, sem especificação suficiente das atividades executadas e sem justificativa do preço contratado.",
+        "legal_grounds": "O TSE aplicou a Súmula 72 por ausência de prequestionamento da tese de limitação da devolução ao valor excedente à média de mercado. Também aplicou as Súmulas 29 e 28 por falta de comprovação adequada do dissídio jurisprudencial. No mérito indicado em obiter dictum, considerou relevante o art. 35, § 12, da Res.-TSE nº 23.607/2019, que exige especificação das atividades e justificativa do preço na contratação de serviços de campanha. A decisão ainda mencionou a Súmula 30 para manter a conclusão de irregularidade documental sem reexaminar o quadro fático-probatório.",
+        "consequence": "O agravo em recurso especial eleitoral ficou prejudicado ou sem seguimento por falta de requisitos de admissibilidade. Permaneceram a desaprovação das contas de campanha e a determinação de devolução ao Tesouro dos valores do FEFC aplicados de forma irregular.",
+        "strategic_comment": "O caso é municipal, mas tem utilidade normativa para controle de gastos com FEFC. A decisão reforça que contratos genéricos, especialmente em contratação de familiar, não bastam para demonstrar regularidade da despesa pública eleitoral. Para partidos e campanhas, o ponto operacional é documentar atividade, preço e aderência ao serviço efetivamente prestado antes de usar recursos públicos.",
+        "why_relevant": "A relevância decorre do uso de recursos públicos do FEFC e da exigência de prova robusta da regularidade de despesas de campanha. Embora o caso seja local e relativo a vereadora, a tese é replicável para candidaturas e partidos em prestações de contas, especialmente quando houver contratação de parentes ou serviços de militância com documentação genérica.",
+        "source_notes": [
+          "Processo AREspEl nº 0600312-19.2024.6.19.0172, Armação dos Búzios/RJ, decisão monocrática de 21/05/2026.",
+          "Eleição de 2024, prestação de contas de campanha de candidata ao cargo de vereador.",
+          "Tema informado: contratação de parente com recursos do FEFC sem detalhamento das atividades e sem justificativa do preço."
+        ],
+        "page_id": "36872195-5c64-8103-8a7c-ee45f3766256",
+        "display_score": 6,
+        "ranking_reason": ""
+      }
+    },
+    "case_id:0600312-19.2024.6.19.0172": {
+      "model": "gpt-5.5",
+      "case_id": "0600312-19.2024.6.19.0172",
+      "page_id": "36872195-5c64-8103-8a7c-ee45f3766256",
+      "processo": "0600312-19.2024.6.19.0172",
+      "content_hash": "0374fe594e70d22d52375f6c55e7be85cd4cc935f13379e09341ddc61ad49782",
+      "cached_at_utc": "2026-05-22T11:14:31.968327+00:00",
+      "analysis": {
+        "case_id": "0600312-19.2024.6.19.0172",
+        "title": "FEFC em contratação de parente sem descrição de serviços na prestação de contas de vereadora",
+        "relevance_score": 6,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "CELYMAR SALES RABELO"
+        ],
+        "parties": [
+          "CELYMAR SALES RABELO"
+        ],
+        "lawyers_signal": "A advogada indicada no processo não aparece como recorrente nas estatísticas do período fornecidas.",
+        "what_happened": "Celymar Sales Rabelo agravou contra decisão que manteve a desaprovação de suas contas de campanha de 2024 para vereador em Armação dos Búzios/RJ. A irregularidade central foi a contratação do filho da candidata com recursos do FEFC, sem especificação suficiente das atividades executadas e sem justificativa do preço contratado.",
+        "legal_grounds": "O TSE aplicou a Súmula 72 por ausência de prequestionamento da tese de limitação da devolução ao valor excedente à média de mercado. Também aplicou as Súmulas 29 e 28 por falta de comprovação adequada do dissídio jurisprudencial. No mérito indicado em obiter dictum, considerou relevante o art. 35, § 12, da Res.-TSE nº 23.607/2019, que exige especificação das atividades e justificativa do preço na contratação de serviços de campanha. A decisão ainda mencionou a Súmula 30 para manter a conclusão de irregularidade documental sem reexaminar o quadro fático-probatório.",
+        "consequence": "O agravo em recurso especial eleitoral ficou prejudicado ou sem seguimento por falta de requisitos de admissibilidade. Permaneceram a desaprovação das contas de campanha e a determinação de devolução ao Tesouro dos valores do FEFC aplicados de forma irregular.",
+        "strategic_comment": "O caso é municipal, mas tem utilidade normativa para controle de gastos com FEFC. A decisão reforça que contratos genéricos, especialmente em contratação de familiar, não bastam para demonstrar regularidade da despesa pública eleitoral. Para partidos e campanhas, o ponto operacional é documentar atividade, preço e aderência ao serviço efetivamente prestado antes de usar recursos públicos.",
+        "why_relevant": "A relevância decorre do uso de recursos públicos do FEFC e da exigência de prova robusta da regularidade de despesas de campanha. Embora o caso seja local e relativo a vereadora, a tese é replicável para candidaturas e partidos em prestações de contas, especialmente quando houver contratação de parentes ou serviços de militância com documentação genérica.",
+        "source_notes": [
+          "Processo AREspEl nº 0600312-19.2024.6.19.0172, Armação dos Búzios/RJ, decisão monocrática de 21/05/2026.",
+          "Eleição de 2024, prestação de contas de campanha de candidata ao cargo de vereador.",
+          "Tema informado: contratação de parente com recursos do FEFC sem detalhamento das atividades e sem justificativa do preço."
+        ],
+        "page_id": "36872195-5c64-8103-8a7c-ee45f3766256",
+        "display_score": 6,
+        "ranking_reason": ""
+      }
+    },
+    "content_hash:0374fe594e70d22d52375f6c55e7be85cd4cc935f13379e09341ddc61ad49782": {
+      "model": "gpt-5.5",
+      "case_id": "0600312-19.2024.6.19.0172",
+      "page_id": "36872195-5c64-8103-8a7c-ee45f3766256",
+      "processo": "0600312-19.2024.6.19.0172",
+      "content_hash": "0374fe594e70d22d52375f6c55e7be85cd4cc935f13379e09341ddc61ad49782",
+      "cached_at_utc": "2026-05-22T11:14:31.968327+00:00",
+      "analysis": {
+        "case_id": "0600312-19.2024.6.19.0172",
+        "title": "FEFC em contratação de parente sem descrição de serviços na prestação de contas de vereadora",
+        "relevance_score": 6,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "CELYMAR SALES RABELO"
+        ],
+        "parties": [
+          "CELYMAR SALES RABELO"
+        ],
+        "lawyers_signal": "A advogada indicada no processo não aparece como recorrente nas estatísticas do período fornecidas.",
+        "what_happened": "Celymar Sales Rabelo agravou contra decisão que manteve a desaprovação de suas contas de campanha de 2024 para vereador em Armação dos Búzios/RJ. A irregularidade central foi a contratação do filho da candidata com recursos do FEFC, sem especificação suficiente das atividades executadas e sem justificativa do preço contratado.",
+        "legal_grounds": "O TSE aplicou a Súmula 72 por ausência de prequestionamento da tese de limitação da devolução ao valor excedente à média de mercado. Também aplicou as Súmulas 29 e 28 por falta de comprovação adequada do dissídio jurisprudencial. No mérito indicado em obiter dictum, considerou relevante o art. 35, § 12, da Res.-TSE nº 23.607/2019, que exige especificação das atividades e justificativa do preço na contratação de serviços de campanha. A decisão ainda mencionou a Súmula 30 para manter a conclusão de irregularidade documental sem reexaminar o quadro fático-probatório.",
+        "consequence": "O agravo em recurso especial eleitoral ficou prejudicado ou sem seguimento por falta de requisitos de admissibilidade. Permaneceram a desaprovação das contas de campanha e a determinação de devolução ao Tesouro dos valores do FEFC aplicados de forma irregular.",
+        "strategic_comment": "O caso é municipal, mas tem utilidade normativa para controle de gastos com FEFC. A decisão reforça que contratos genéricos, especialmente em contratação de familiar, não bastam para demonstrar regularidade da despesa pública eleitoral. Para partidos e campanhas, o ponto operacional é documentar atividade, preço e aderência ao serviço efetivamente prestado antes de usar recursos públicos.",
+        "why_relevant": "A relevância decorre do uso de recursos públicos do FEFC e da exigência de prova robusta da regularidade de despesas de campanha. Embora o caso seja local e relativo a vereadora, a tese é replicável para candidaturas e partidos em prestações de contas, especialmente quando houver contratação de parentes ou serviços de militância com documentação genérica.",
+        "source_notes": [
+          "Processo AREspEl nº 0600312-19.2024.6.19.0172, Armação dos Búzios/RJ, decisão monocrática de 21/05/2026.",
+          "Eleição de 2024, prestação de contas de campanha de candidata ao cargo de vereador.",
+          "Tema informado: contratação de parente com recursos do FEFC sem detalhamento das atividades e sem justificativa do preço."
+        ],
+        "page_id": "36872195-5c64-8103-8a7c-ee45f3766256",
+        "display_score": 6,
+        "ranking_reason": ""
+      }
+    },
+    "content_hash:e658e41b64b3c1fb2ad6dbcfaa5bd2666d2b306ac8f900a4cb78f7934be8c42e": {
+      "model": "gpt-5.5",
+      "case_id": "0602212-13.2022.6.02.0000",
+      "page_id": "35a72195-5c64-8172-a9e5-e74b12cb840a",
+      "processo": "0602212-13.2022.6.02.0000",
+      "content_hash": "e658e41b64b3c1fb2ad6dbcfaa5bd2666d2b306ac8f900a4cb78f7934be8c42e",
+      "cached_at_utc": "2026-05-22T11:14:33.907137+00:00",
+      "analysis": {
+        "case_id": "0602212-13.2022.6.02.0000",
+        "title": "Mandato de deputado federal e retotalização dos votos em AL após cassação em RO-El de 2022",
+        "relevance_score": 9,
+        "risk_level": "critico",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "PAULO FERNANDO DOS SANTOS"
+        ],
+        "parties": [
+          "FEDERAÇÃO BRASIL DA ESPERANÇA (FE BRASIL) - NACIONAL",
+          "PAULO FERNANDO DOS SANTOS",
+          "REPUBLICANOS (REPUBLICANOS) - ESTADUAL"
+        ],
+        "lawyers_signal": "Não há advogados recorrentes no período vinculados ao caso nos dados fornecidos. A lista de patronos é numerosa, mas sem sinal estatístico adicional informado.",
+        "what_happened": "Paulo Fernando dos Santos, eleito deputado federal em 2022, e a Federação Brasil da Esperança interpuseram agravo regimental com pedido de efeito suspensivo contra decisão em recurso ordinário eleitoral relacionada à cassação de mandato. O TSE, conforme a síntese fornecida, recebeu o agravo com efeitos devolutivo e suspensivo e determinou a suspensão operacional da retotalização no TRE/AL.",
+        "legal_grounds": "A decisão aplicou o art. 257, § 2º, do Código Eleitoral para atribuir efeitos devolutivo e suspensivo ao agravo regimental. O caso também envolve debate sobre legitimidade recursal de terceiros assistentes, conforme a descrição temática fornecida.",
+        "consequence": "O TSE determinou comunicação urgente ao TRE/AL para sobrestar a retotalização dos votos e o recálculo dos quocientes eleitorais até o julgamento do agravo regimental. Os dados estruturados registram o resultado como monocrático e não conhecido, mas a síntese fornecida informa recebimento do agravo com efeitos devolutivo e suspensivo.",
+        "strategic_comment": "O caso merece acompanhamento prioritário porque preserva provisoriamente mandato de deputado federal e impede alteração imediata da composição da representação de Alagoas na Câmara. A ordem de sobrestamento da retotalização reduz risco institucional imediato, mas mantém incerteza relevante até o julgamento do agravo regimental.",
+        "why_relevant": "A controvérsia afeta mandato de deputado federal, quocientes eleitorais e retotalização de votos, com potencial impacto direto na composição da Câmara dos Deputados. Também envolve federação nacional e órgão estadual de partido político, o que eleva a relevância federal e partidária do processo.",
+        "source_notes": [
+          "Processo 0602212-13.2022.6.02.0000, RO-El, Maceió/AL, eleição de 2022.",
+          "Data de decisão informada: 2026-05-21, dentro do período analisado de 18/05/2026 a 22/05/2026.",
+          "Partido identificado nos dados: REPUBLICANOS/AL.",
+          "Há divergência interna nos dados: o campo relator indica Min. Dias Toffoli, enquanto o trecho da decisão menciona Relator Ministro Nunes Marques.",
+          "Há tensão entre o campo resultado, que registra 'não conhecido', e a punchline, que informa recebimento do agravo com efeitos devolutivo e suspensivo."
+        ],
+        "page_id": "35a72195-5c64-8172-a9e5-e74b12cb840a",
+        "display_score": 9,
+        "ranking_reason": ""
+      }
+    },
+    "numero_unico:0600068-42.2026.6.23.0000": {
+      "model": "gpt-5.5",
+      "case_id": "0600068-42.2026.6.23.0000",
+      "page_id": "36872195-5c64-8161-9163-daec163649c6",
+      "processo": "0600068-42.2026.6.23.0000",
+      "content_hash": "8db4c1b4a71d5df60e49b30b4bd36c6be7bdfae9accba4ae188f1102acfb8593",
+      "cached_at_utc": "2026-05-22T11:14:35.431677+00:00",
+      "analysis": {
+        "case_id": "0600068-42.2026.6.23.0000",
+        "title": "Competência originária em MS sobre filiação para eleição suplementar de governador em Roraima",
+        "relevance_score": 8,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "EDILSON DAMIAO LIMA"
+        ],
+        "parties": [
+          "EDILSON DAMIAO LIMA",
+          "TRIBUNAL REGIONAL ELEITORAL DE RORAIMA"
+        ],
+        "lawyers_signal": "Os advogados indicados no processo não aparecem entre os recorrentes no período informado.",
+        "what_happened": "Edilson Damião Lima impetrou mandado de segurança no TSE contra a Resolução TRE/RR nº 584/2026, que exige filiação partidária deferida pelo menos seis meses antes da eleição suplementar para governador e vice-governador de Roraima. Alegou ilegalidade da exigência diante da imprevisibilidade e do calendário reduzido de eleições suplementares. O TSE entendeu que não tinha competência originária para julgar o mandado de segurança contra ato administrativo colegiado do TRE/RR.",
+        "legal_grounds": "A decisão aplicou o art. 21, VI, da LOMAN para afirmar que mandado de segurança contra ato administrativo colegiado de tribunal regional eleitoral deve ser processado no próprio tribunal de origem, e não originariamente no TSE.",
+        "consequence": "O TSE não examinou o mérito da regra de filiação. Reconheceu a incompetência originária para processar o mandado de segurança e determinou a remessa urgente ao TRE/RR para apreciação da controvérsia.",
+        "strategic_comment": "O caso importa menos pelo resultado processual imediato e mais pelo objeto subjacente: a incidência do prazo de filiação partidária em eleição suplementar para o Executivo estadual. A remessa ao TRE/RR preserva a competência regional, mas mantém aberta tese sensível para candidaturas em pleitos suplementares de calendário reduzido.",
+        "why_relevant": "A matéria envolve eleição suplementar para governador e vice-governador, condição de elegibilidade por filiação partidária e potencial impacto sobre candidaturas estaduais. Embora a decisão seja apenas de competência, o tema tem relevância político-eleitoral alta por afetar a organização do pleito suplementar e a aplicação de prazo de filiação em contexto excepcional.",
+        "source_notes": [
+          "Processo 0600068-42.2026.6.23.0000, MSCiv, decisão monocrática de 20/05/2026, relatoria do Min. Ricardo Villas Bôas Cueva.",
+          "O impetrante é descrito como ex-vice-governador de Roraima eleito em 2022.",
+          "A controvérsia envolve a Resolução TRE/RR nº 584/2026, que disciplina eleição suplementar para governador e vice-governador de Roraima em 21/6/2026.",
+          "O trecho informa a existência de três mandados de segurança conexos, inclusive por Diretório Nacional da Federação União Progressistas e Diretório Estadual do PDT/RR, mas este registro traz como partes apenas Edilson Damião Lima e o TRE/RR."
+        ],
+        "page_id": "36872195-5c64-8161-9163-daec163649c6",
+        "display_score": 8,
+        "ranking_reason": ""
+      }
+    },
+    "numero_processo:60006842": {
+      "model": "gpt-5.5",
+      "case_id": "0600068-42.2026.6.23.0000",
+      "page_id": "36872195-5c64-8161-9163-daec163649c6",
+      "processo": "0600068-42.2026.6.23.0000",
+      "content_hash": "8db4c1b4a71d5df60e49b30b4bd36c6be7bdfae9accba4ae188f1102acfb8593",
+      "cached_at_utc": "2026-05-22T11:14:35.431677+00:00",
+      "analysis": {
+        "case_id": "0600068-42.2026.6.23.0000",
+        "title": "Competência originária em MS sobre filiação para eleição suplementar de governador em Roraima",
+        "relevance_score": 8,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "EDILSON DAMIAO LIMA"
+        ],
+        "parties": [
+          "EDILSON DAMIAO LIMA",
+          "TRIBUNAL REGIONAL ELEITORAL DE RORAIMA"
+        ],
+        "lawyers_signal": "Os advogados indicados no processo não aparecem entre os recorrentes no período informado.",
+        "what_happened": "Edilson Damião Lima impetrou mandado de segurança no TSE contra a Resolução TRE/RR nº 584/2026, que exige filiação partidária deferida pelo menos seis meses antes da eleição suplementar para governador e vice-governador de Roraima. Alegou ilegalidade da exigência diante da imprevisibilidade e do calendário reduzido de eleições suplementares. O TSE entendeu que não tinha competência originária para julgar o mandado de segurança contra ato administrativo colegiado do TRE/RR.",
+        "legal_grounds": "A decisão aplicou o art. 21, VI, da LOMAN para afirmar que mandado de segurança contra ato administrativo colegiado de tribunal regional eleitoral deve ser processado no próprio tribunal de origem, e não originariamente no TSE.",
+        "consequence": "O TSE não examinou o mérito da regra de filiação. Reconheceu a incompetência originária para processar o mandado de segurança e determinou a remessa urgente ao TRE/RR para apreciação da controvérsia.",
+        "strategic_comment": "O caso importa menos pelo resultado processual imediato e mais pelo objeto subjacente: a incidência do prazo de filiação partidária em eleição suplementar para o Executivo estadual. A remessa ao TRE/RR preserva a competência regional, mas mantém aberta tese sensível para candidaturas em pleitos suplementares de calendário reduzido.",
+        "why_relevant": "A matéria envolve eleição suplementar para governador e vice-governador, condição de elegibilidade por filiação partidária e potencial impacto sobre candidaturas estaduais. Embora a decisão seja apenas de competência, o tema tem relevância político-eleitoral alta por afetar a organização do pleito suplementar e a aplicação de prazo de filiação em contexto excepcional.",
+        "source_notes": [
+          "Processo 0600068-42.2026.6.23.0000, MSCiv, decisão monocrática de 20/05/2026, relatoria do Min. Ricardo Villas Bôas Cueva.",
+          "O impetrante é descrito como ex-vice-governador de Roraima eleito em 2022.",
+          "A controvérsia envolve a Resolução TRE/RR nº 584/2026, que disciplina eleição suplementar para governador e vice-governador de Roraima em 21/6/2026.",
+          "O trecho informa a existência de três mandados de segurança conexos, inclusive por Diretório Nacional da Federação União Progressistas e Diretório Estadual do PDT/RR, mas este registro traz como partes apenas Edilson Damião Lima e o TRE/RR."
+        ],
+        "page_id": "36872195-5c64-8161-9163-daec163649c6",
+        "display_score": 8,
+        "ranking_reason": ""
+      }
+    },
+    "page_id:36872195-5c64-8161-9163-daec163649c6": {
+      "model": "gpt-5.5",
+      "case_id": "0600068-42.2026.6.23.0000",
+      "page_id": "36872195-5c64-8161-9163-daec163649c6",
+      "processo": "0600068-42.2026.6.23.0000",
+      "content_hash": "8db4c1b4a71d5df60e49b30b4bd36c6be7bdfae9accba4ae188f1102acfb8593",
+      "cached_at_utc": "2026-05-22T11:14:35.431677+00:00",
+      "analysis": {
+        "case_id": "0600068-42.2026.6.23.0000",
+        "title": "Competência originária em MS sobre filiação para eleição suplementar de governador em Roraima",
+        "relevance_score": 8,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "EDILSON DAMIAO LIMA"
+        ],
+        "parties": [
+          "EDILSON DAMIAO LIMA",
+          "TRIBUNAL REGIONAL ELEITORAL DE RORAIMA"
+        ],
+        "lawyers_signal": "Os advogados indicados no processo não aparecem entre os recorrentes no período informado.",
+        "what_happened": "Edilson Damião Lima impetrou mandado de segurança no TSE contra a Resolução TRE/RR nº 584/2026, que exige filiação partidária deferida pelo menos seis meses antes da eleição suplementar para governador e vice-governador de Roraima. Alegou ilegalidade da exigência diante da imprevisibilidade e do calendário reduzido de eleições suplementares. O TSE entendeu que não tinha competência originária para julgar o mandado de segurança contra ato administrativo colegiado do TRE/RR.",
+        "legal_grounds": "A decisão aplicou o art. 21, VI, da LOMAN para afirmar que mandado de segurança contra ato administrativo colegiado de tribunal regional eleitoral deve ser processado no próprio tribunal de origem, e não originariamente no TSE.",
+        "consequence": "O TSE não examinou o mérito da regra de filiação. Reconheceu a incompetência originária para processar o mandado de segurança e determinou a remessa urgente ao TRE/RR para apreciação da controvérsia.",
+        "strategic_comment": "O caso importa menos pelo resultado processual imediato e mais pelo objeto subjacente: a incidência do prazo de filiação partidária em eleição suplementar para o Executivo estadual. A remessa ao TRE/RR preserva a competência regional, mas mantém aberta tese sensível para candidaturas em pleitos suplementares de calendário reduzido.",
+        "why_relevant": "A matéria envolve eleição suplementar para governador e vice-governador, condição de elegibilidade por filiação partidária e potencial impacto sobre candidaturas estaduais. Embora a decisão seja apenas de competência, o tema tem relevância político-eleitoral alta por afetar a organização do pleito suplementar e a aplicação de prazo de filiação em contexto excepcional.",
+        "source_notes": [
+          "Processo 0600068-42.2026.6.23.0000, MSCiv, decisão monocrática de 20/05/2026, relatoria do Min. Ricardo Villas Bôas Cueva.",
+          "O impetrante é descrito como ex-vice-governador de Roraima eleito em 2022.",
+          "A controvérsia envolve a Resolução TRE/RR nº 584/2026, que disciplina eleição suplementar para governador e vice-governador de Roraima em 21/6/2026.",
+          "O trecho informa a existência de três mandados de segurança conexos, inclusive por Diretório Nacional da Federação União Progressistas e Diretório Estadual do PDT/RR, mas este registro traz como partes apenas Edilson Damião Lima e o TRE/RR."
+        ],
+        "page_id": "36872195-5c64-8161-9163-daec163649c6",
+        "display_score": 8,
+        "ranking_reason": ""
+      }
+    },
+    "case_id:0600068-42.2026.6.23.0000": {
+      "model": "gpt-5.5",
+      "case_id": "0600068-42.2026.6.23.0000",
+      "page_id": "36872195-5c64-8161-9163-daec163649c6",
+      "processo": "0600068-42.2026.6.23.0000",
+      "content_hash": "8db4c1b4a71d5df60e49b30b4bd36c6be7bdfae9accba4ae188f1102acfb8593",
+      "cached_at_utc": "2026-05-22T11:14:35.431677+00:00",
+      "analysis": {
+        "case_id": "0600068-42.2026.6.23.0000",
+        "title": "Competência originária em MS sobre filiação para eleição suplementar de governador em Roraima",
+        "relevance_score": 8,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "EDILSON DAMIAO LIMA"
+        ],
+        "parties": [
+          "EDILSON DAMIAO LIMA",
+          "TRIBUNAL REGIONAL ELEITORAL DE RORAIMA"
+        ],
+        "lawyers_signal": "Os advogados indicados no processo não aparecem entre os recorrentes no período informado.",
+        "what_happened": "Edilson Damião Lima impetrou mandado de segurança no TSE contra a Resolução TRE/RR nº 584/2026, que exige filiação partidária deferida pelo menos seis meses antes da eleição suplementar para governador e vice-governador de Roraima. Alegou ilegalidade da exigência diante da imprevisibilidade e do calendário reduzido de eleições suplementares. O TSE entendeu que não tinha competência originária para julgar o mandado de segurança contra ato administrativo colegiado do TRE/RR.",
+        "legal_grounds": "A decisão aplicou o art. 21, VI, da LOMAN para afirmar que mandado de segurança contra ato administrativo colegiado de tribunal regional eleitoral deve ser processado no próprio tribunal de origem, e não originariamente no TSE.",
+        "consequence": "O TSE não examinou o mérito da regra de filiação. Reconheceu a incompetência originária para processar o mandado de segurança e determinou a remessa urgente ao TRE/RR para apreciação da controvérsia.",
+        "strategic_comment": "O caso importa menos pelo resultado processual imediato e mais pelo objeto subjacente: a incidência do prazo de filiação partidária em eleição suplementar para o Executivo estadual. A remessa ao TRE/RR preserva a competência regional, mas mantém aberta tese sensível para candidaturas em pleitos suplementares de calendário reduzido.",
+        "why_relevant": "A matéria envolve eleição suplementar para governador e vice-governador, condição de elegibilidade por filiação partidária e potencial impacto sobre candidaturas estaduais. Embora a decisão seja apenas de competência, o tema tem relevância político-eleitoral alta por afetar a organização do pleito suplementar e a aplicação de prazo de filiação em contexto excepcional.",
+        "source_notes": [
+          "Processo 0600068-42.2026.6.23.0000, MSCiv, decisão monocrática de 20/05/2026, relatoria do Min. Ricardo Villas Bôas Cueva.",
+          "O impetrante é descrito como ex-vice-governador de Roraima eleito em 2022.",
+          "A controvérsia envolve a Resolução TRE/RR nº 584/2026, que disciplina eleição suplementar para governador e vice-governador de Roraima em 21/6/2026.",
+          "O trecho informa a existência de três mandados de segurança conexos, inclusive por Diretório Nacional da Federação União Progressistas e Diretório Estadual do PDT/RR, mas este registro traz como partes apenas Edilson Damião Lima e o TRE/RR."
+        ],
+        "page_id": "36872195-5c64-8161-9163-daec163649c6",
+        "display_score": 8,
+        "ranking_reason": ""
+      }
+    },
+    "content_hash:8db4c1b4a71d5df60e49b30b4bd36c6be7bdfae9accba4ae188f1102acfb8593": {
+      "model": "gpt-5.5",
+      "case_id": "0600068-42.2026.6.23.0000",
+      "page_id": "36872195-5c64-8161-9163-daec163649c6",
+      "processo": "0600068-42.2026.6.23.0000",
+      "content_hash": "8db4c1b4a71d5df60e49b30b4bd36c6be7bdfae9accba4ae188f1102acfb8593",
+      "cached_at_utc": "2026-05-22T11:14:35.431677+00:00",
+      "analysis": {
+        "case_id": "0600068-42.2026.6.23.0000",
+        "title": "Competência originária em MS sobre filiação para eleição suplementar de governador em Roraima",
+        "relevance_score": 8,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "EDILSON DAMIAO LIMA"
+        ],
+        "parties": [
+          "EDILSON DAMIAO LIMA",
+          "TRIBUNAL REGIONAL ELEITORAL DE RORAIMA"
+        ],
+        "lawyers_signal": "Os advogados indicados no processo não aparecem entre os recorrentes no período informado.",
+        "what_happened": "Edilson Damião Lima impetrou mandado de segurança no TSE contra a Resolução TRE/RR nº 584/2026, que exige filiação partidária deferida pelo menos seis meses antes da eleição suplementar para governador e vice-governador de Roraima. Alegou ilegalidade da exigência diante da imprevisibilidade e do calendário reduzido de eleições suplementares. O TSE entendeu que não tinha competência originária para julgar o mandado de segurança contra ato administrativo colegiado do TRE/RR.",
+        "legal_grounds": "A decisão aplicou o art. 21, VI, da LOMAN para afirmar que mandado de segurança contra ato administrativo colegiado de tribunal regional eleitoral deve ser processado no próprio tribunal de origem, e não originariamente no TSE.",
+        "consequence": "O TSE não examinou o mérito da regra de filiação. Reconheceu a incompetência originária para processar o mandado de segurança e determinou a remessa urgente ao TRE/RR para apreciação da controvérsia.",
+        "strategic_comment": "O caso importa menos pelo resultado processual imediato e mais pelo objeto subjacente: a incidência do prazo de filiação partidária em eleição suplementar para o Executivo estadual. A remessa ao TRE/RR preserva a competência regional, mas mantém aberta tese sensível para candidaturas em pleitos suplementares de calendário reduzido.",
+        "why_relevant": "A matéria envolve eleição suplementar para governador e vice-governador, condição de elegibilidade por filiação partidária e potencial impacto sobre candidaturas estaduais. Embora a decisão seja apenas de competência, o tema tem relevância político-eleitoral alta por afetar a organização do pleito suplementar e a aplicação de prazo de filiação em contexto excepcional.",
+        "source_notes": [
+          "Processo 0600068-42.2026.6.23.0000, MSCiv, decisão monocrática de 20/05/2026, relatoria do Min. Ricardo Villas Bôas Cueva.",
+          "O impetrante é descrito como ex-vice-governador de Roraima eleito em 2022.",
+          "A controvérsia envolve a Resolução TRE/RR nº 584/2026, que disciplina eleição suplementar para governador e vice-governador de Roraima em 21/6/2026.",
+          "O trecho informa a existência de três mandados de segurança conexos, inclusive por Diretório Nacional da Federação União Progressistas e Diretório Estadual do PDT/RR, mas este registro traz como partes apenas Edilson Damião Lima e o TRE/RR."
+        ],
+        "page_id": "36872195-5c64-8161-9163-daec163649c6",
+        "display_score": 8,
+        "ranking_reason": ""
+      }
+    },
+    "numero_unico:0600771-21.2024.6.16.0005": {
+      "model": "gpt-5.5",
+      "case_id": "0600771-21.2024.6.16.0005",
+      "page_id": "36872195-5c64-8148-947f-f36fa76c74ce",
+      "processo": "0600771-21.2024.6.16.0005",
+      "content_hash": "407a41aa74a844efbe0ff4b07d42ab2e551623d3278fae1c4eb78890059a7c68",
+      "cached_at_utc": "2026-05-22T11:14:35.911172+00:00",
+      "analysis": {
+        "case_id": "0600771-21.2024.6.16.0005",
+        "title": "FEFC em campanha de vereadora e comprovação do beneficiário final na prestação de contas de 2024",
+        "relevance_score": 6,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "ANGELA CHEMURE"
+        ],
+        "parties": [
+          "ANGELA CHEMURE",
+          "Ministério Público Eleitoral"
+        ],
+        "lawyers_signal": "LUIZ FERNANDO ZORNIG FILHO e LUIZ GUSTAVO DE ANDRADE aparecem como advogados no caso e constam entre os advogados recorrentes do período, com duas ocorrências cada.",
+        "what_happened": "Angela Chemure agravou contra a inadmissão de recurso especial eleitoral relativo à desaprovação de suas contas de campanha ao cargo de vereador em Paranaguá/PR nas Eleições 2024. O relator, Ministro André Mendonça, negou seguimento ao agravo e preservou o acórdão do TRE/PR.",
+        "legal_grounds": "O TSE aplicou as Súmulas-TSE 24, 26 e 27. A decisão registrou ausência de impugnação específica dos fundamentos da decisão agravada, deficiência de fundamentação e impossibilidade de reexame fático-probatório na instância especial. No mérito delimitado pelo TRE/PR, permaneceu a conclusão de que não houve comprovação adequada da destinação de recursos do FEFC, especialmente pela ausência de identificação do beneficiário final e pela realização de saques em espécie pela própria candidata.",
+        "consequence": "O agravo teve seguimento negado. Ficaram mantidas a desaprovação das contas de campanha de Angela Chemure e a determinação de recolhimento de R$ 6.000,00 ao Tesouro Nacional.",
+        "strategic_comment": "O caso é municipal e individual, mas tem utilidade normativa para campanhas que utilizam FEFC. A decisão reforça a exigência de rastreabilidade do gasto público eleitoral e confirma que a discussão sobre beneficiário final e saques em espécie tende a ficar estabilizada quando o acórdão regional assenta irregularidade com base nas provas. Para assessoria legislativa, o ponto de atenção é a governança do FEFC em prestações de contas, não a disputa local em si.",
+        "why_relevant": "A relevância decorre do uso de recursos do Fundo Especial de Financiamento de Campanha e da exigência de comprovação da destinação final desses valores. Embora o caso envolva candidatura municipal, a tese operacional sobre FEFC, identificação do beneficiário final e limites do recurso especial pode orientar condutas de campanhas e partidos em prestações de contas futuras.",
+        "source_notes": [
+          "Processo 0600771-21.2024.6.16.0005, AREspEl, Eleições 2024, Paranaguá/PR.",
+          "Decisão de 21/05/2026, dentro do período analisado de 18/05/2026 a 22/05/2026.",
+          "Os dados fornecidos não identificam partido político vinculado ao caso."
+        ],
+        "page_id": "36872195-5c64-8148-947f-f36fa76c74ce",
+        "display_score": 6,
+        "ranking_reason": ""
+      }
+    },
+    "numero_processo:60077121": {
+      "model": "gpt-5.5",
+      "case_id": "0600771-21.2024.6.16.0005",
+      "page_id": "36872195-5c64-8148-947f-f36fa76c74ce",
+      "processo": "0600771-21.2024.6.16.0005",
+      "content_hash": "407a41aa74a844efbe0ff4b07d42ab2e551623d3278fae1c4eb78890059a7c68",
+      "cached_at_utc": "2026-05-22T11:14:35.911172+00:00",
+      "analysis": {
+        "case_id": "0600771-21.2024.6.16.0005",
+        "title": "FEFC em campanha de vereadora e comprovação do beneficiário final na prestação de contas de 2024",
+        "relevance_score": 6,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "ANGELA CHEMURE"
+        ],
+        "parties": [
+          "ANGELA CHEMURE",
+          "Ministério Público Eleitoral"
+        ],
+        "lawyers_signal": "LUIZ FERNANDO ZORNIG FILHO e LUIZ GUSTAVO DE ANDRADE aparecem como advogados no caso e constam entre os advogados recorrentes do período, com duas ocorrências cada.",
+        "what_happened": "Angela Chemure agravou contra a inadmissão de recurso especial eleitoral relativo à desaprovação de suas contas de campanha ao cargo de vereador em Paranaguá/PR nas Eleições 2024. O relator, Ministro André Mendonça, negou seguimento ao agravo e preservou o acórdão do TRE/PR.",
+        "legal_grounds": "O TSE aplicou as Súmulas-TSE 24, 26 e 27. A decisão registrou ausência de impugnação específica dos fundamentos da decisão agravada, deficiência de fundamentação e impossibilidade de reexame fático-probatório na instância especial. No mérito delimitado pelo TRE/PR, permaneceu a conclusão de que não houve comprovação adequada da destinação de recursos do FEFC, especialmente pela ausência de identificação do beneficiário final e pela realização de saques em espécie pela própria candidata.",
+        "consequence": "O agravo teve seguimento negado. Ficaram mantidas a desaprovação das contas de campanha de Angela Chemure e a determinação de recolhimento de R$ 6.000,00 ao Tesouro Nacional.",
+        "strategic_comment": "O caso é municipal e individual, mas tem utilidade normativa para campanhas que utilizam FEFC. A decisão reforça a exigência de rastreabilidade do gasto público eleitoral e confirma que a discussão sobre beneficiário final e saques em espécie tende a ficar estabilizada quando o acórdão regional assenta irregularidade com base nas provas. Para assessoria legislativa, o ponto de atenção é a governança do FEFC em prestações de contas, não a disputa local em si.",
+        "why_relevant": "A relevância decorre do uso de recursos do Fundo Especial de Financiamento de Campanha e da exigência de comprovação da destinação final desses valores. Embora o caso envolva candidatura municipal, a tese operacional sobre FEFC, identificação do beneficiário final e limites do recurso especial pode orientar condutas de campanhas e partidos em prestações de contas futuras.",
+        "source_notes": [
+          "Processo 0600771-21.2024.6.16.0005, AREspEl, Eleições 2024, Paranaguá/PR.",
+          "Decisão de 21/05/2026, dentro do período analisado de 18/05/2026 a 22/05/2026.",
+          "Os dados fornecidos não identificam partido político vinculado ao caso."
+        ],
+        "page_id": "36872195-5c64-8148-947f-f36fa76c74ce",
+        "display_score": 6,
+        "ranking_reason": ""
+      }
+    },
+    "page_id:36872195-5c64-8148-947f-f36fa76c74ce": {
+      "model": "gpt-5.5",
+      "case_id": "0600771-21.2024.6.16.0005",
+      "page_id": "36872195-5c64-8148-947f-f36fa76c74ce",
+      "processo": "0600771-21.2024.6.16.0005",
+      "content_hash": "407a41aa74a844efbe0ff4b07d42ab2e551623d3278fae1c4eb78890059a7c68",
+      "cached_at_utc": "2026-05-22T11:14:35.911172+00:00",
+      "analysis": {
+        "case_id": "0600771-21.2024.6.16.0005",
+        "title": "FEFC em campanha de vereadora e comprovação do beneficiário final na prestação de contas de 2024",
+        "relevance_score": 6,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "ANGELA CHEMURE"
+        ],
+        "parties": [
+          "ANGELA CHEMURE",
+          "Ministério Público Eleitoral"
+        ],
+        "lawyers_signal": "LUIZ FERNANDO ZORNIG FILHO e LUIZ GUSTAVO DE ANDRADE aparecem como advogados no caso e constam entre os advogados recorrentes do período, com duas ocorrências cada.",
+        "what_happened": "Angela Chemure agravou contra a inadmissão de recurso especial eleitoral relativo à desaprovação de suas contas de campanha ao cargo de vereador em Paranaguá/PR nas Eleições 2024. O relator, Ministro André Mendonça, negou seguimento ao agravo e preservou o acórdão do TRE/PR.",
+        "legal_grounds": "O TSE aplicou as Súmulas-TSE 24, 26 e 27. A decisão registrou ausência de impugnação específica dos fundamentos da decisão agravada, deficiência de fundamentação e impossibilidade de reexame fático-probatório na instância especial. No mérito delimitado pelo TRE/PR, permaneceu a conclusão de que não houve comprovação adequada da destinação de recursos do FEFC, especialmente pela ausência de identificação do beneficiário final e pela realização de saques em espécie pela própria candidata.",
+        "consequence": "O agravo teve seguimento negado. Ficaram mantidas a desaprovação das contas de campanha de Angela Chemure e a determinação de recolhimento de R$ 6.000,00 ao Tesouro Nacional.",
+        "strategic_comment": "O caso é municipal e individual, mas tem utilidade normativa para campanhas que utilizam FEFC. A decisão reforça a exigência de rastreabilidade do gasto público eleitoral e confirma que a discussão sobre beneficiário final e saques em espécie tende a ficar estabilizada quando o acórdão regional assenta irregularidade com base nas provas. Para assessoria legislativa, o ponto de atenção é a governança do FEFC em prestações de contas, não a disputa local em si.",
+        "why_relevant": "A relevância decorre do uso de recursos do Fundo Especial de Financiamento de Campanha e da exigência de comprovação da destinação final desses valores. Embora o caso envolva candidatura municipal, a tese operacional sobre FEFC, identificação do beneficiário final e limites do recurso especial pode orientar condutas de campanhas e partidos em prestações de contas futuras.",
+        "source_notes": [
+          "Processo 0600771-21.2024.6.16.0005, AREspEl, Eleições 2024, Paranaguá/PR.",
+          "Decisão de 21/05/2026, dentro do período analisado de 18/05/2026 a 22/05/2026.",
+          "Os dados fornecidos não identificam partido político vinculado ao caso."
+        ],
+        "page_id": "36872195-5c64-8148-947f-f36fa76c74ce",
+        "display_score": 6,
+        "ranking_reason": ""
+      }
+    },
+    "case_id:0600771-21.2024.6.16.0005": {
+      "model": "gpt-5.5",
+      "case_id": "0600771-21.2024.6.16.0005",
+      "page_id": "36872195-5c64-8148-947f-f36fa76c74ce",
+      "processo": "0600771-21.2024.6.16.0005",
+      "content_hash": "407a41aa74a844efbe0ff4b07d42ab2e551623d3278fae1c4eb78890059a7c68",
+      "cached_at_utc": "2026-05-22T11:14:35.911172+00:00",
+      "analysis": {
+        "case_id": "0600771-21.2024.6.16.0005",
+        "title": "FEFC em campanha de vereadora e comprovação do beneficiário final na prestação de contas de 2024",
+        "relevance_score": 6,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "ANGELA CHEMURE"
+        ],
+        "parties": [
+          "ANGELA CHEMURE",
+          "Ministério Público Eleitoral"
+        ],
+        "lawyers_signal": "LUIZ FERNANDO ZORNIG FILHO e LUIZ GUSTAVO DE ANDRADE aparecem como advogados no caso e constam entre os advogados recorrentes do período, com duas ocorrências cada.",
+        "what_happened": "Angela Chemure agravou contra a inadmissão de recurso especial eleitoral relativo à desaprovação de suas contas de campanha ao cargo de vereador em Paranaguá/PR nas Eleições 2024. O relator, Ministro André Mendonça, negou seguimento ao agravo e preservou o acórdão do TRE/PR.",
+        "legal_grounds": "O TSE aplicou as Súmulas-TSE 24, 26 e 27. A decisão registrou ausência de impugnação específica dos fundamentos da decisão agravada, deficiência de fundamentação e impossibilidade de reexame fático-probatório na instância especial. No mérito delimitado pelo TRE/PR, permaneceu a conclusão de que não houve comprovação adequada da destinação de recursos do FEFC, especialmente pela ausência de identificação do beneficiário final e pela realização de saques em espécie pela própria candidata.",
+        "consequence": "O agravo teve seguimento negado. Ficaram mantidas a desaprovação das contas de campanha de Angela Chemure e a determinação de recolhimento de R$ 6.000,00 ao Tesouro Nacional.",
+        "strategic_comment": "O caso é municipal e individual, mas tem utilidade normativa para campanhas que utilizam FEFC. A decisão reforça a exigência de rastreabilidade do gasto público eleitoral e confirma que a discussão sobre beneficiário final e saques em espécie tende a ficar estabilizada quando o acórdão regional assenta irregularidade com base nas provas. Para assessoria legislativa, o ponto de atenção é a governança do FEFC em prestações de contas, não a disputa local em si.",
+        "why_relevant": "A relevância decorre do uso de recursos do Fundo Especial de Financiamento de Campanha e da exigência de comprovação da destinação final desses valores. Embora o caso envolva candidatura municipal, a tese operacional sobre FEFC, identificação do beneficiário final e limites do recurso especial pode orientar condutas de campanhas e partidos em prestações de contas futuras.",
+        "source_notes": [
+          "Processo 0600771-21.2024.6.16.0005, AREspEl, Eleições 2024, Paranaguá/PR.",
+          "Decisão de 21/05/2026, dentro do período analisado de 18/05/2026 a 22/05/2026.",
+          "Os dados fornecidos não identificam partido político vinculado ao caso."
+        ],
+        "page_id": "36872195-5c64-8148-947f-f36fa76c74ce",
+        "display_score": 6,
+        "ranking_reason": ""
+      }
+    },
+    "content_hash:407a41aa74a844efbe0ff4b07d42ab2e551623d3278fae1c4eb78890059a7c68": {
+      "model": "gpt-5.5",
+      "case_id": "0600771-21.2024.6.16.0005",
+      "page_id": "36872195-5c64-8148-947f-f36fa76c74ce",
+      "processo": "0600771-21.2024.6.16.0005",
+      "content_hash": "407a41aa74a844efbe0ff4b07d42ab2e551623d3278fae1c4eb78890059a7c68",
+      "cached_at_utc": "2026-05-22T11:14:35.911172+00:00",
+      "analysis": {
+        "case_id": "0600771-21.2024.6.16.0005",
+        "title": "FEFC em campanha de vereadora e comprovação do beneficiário final na prestação de contas de 2024",
+        "relevance_score": 6,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "ANGELA CHEMURE"
+        ],
+        "parties": [
+          "ANGELA CHEMURE",
+          "Ministério Público Eleitoral"
+        ],
+        "lawyers_signal": "LUIZ FERNANDO ZORNIG FILHO e LUIZ GUSTAVO DE ANDRADE aparecem como advogados no caso e constam entre os advogados recorrentes do período, com duas ocorrências cada.",
+        "what_happened": "Angela Chemure agravou contra a inadmissão de recurso especial eleitoral relativo à desaprovação de suas contas de campanha ao cargo de vereador em Paranaguá/PR nas Eleições 2024. O relator, Ministro André Mendonça, negou seguimento ao agravo e preservou o acórdão do TRE/PR.",
+        "legal_grounds": "O TSE aplicou as Súmulas-TSE 24, 26 e 27. A decisão registrou ausência de impugnação específica dos fundamentos da decisão agravada, deficiência de fundamentação e impossibilidade de reexame fático-probatório na instância especial. No mérito delimitado pelo TRE/PR, permaneceu a conclusão de que não houve comprovação adequada da destinação de recursos do FEFC, especialmente pela ausência de identificação do beneficiário final e pela realização de saques em espécie pela própria candidata.",
+        "consequence": "O agravo teve seguimento negado. Ficaram mantidas a desaprovação das contas de campanha de Angela Chemure e a determinação de recolhimento de R$ 6.000,00 ao Tesouro Nacional.",
+        "strategic_comment": "O caso é municipal e individual, mas tem utilidade normativa para campanhas que utilizam FEFC. A decisão reforça a exigência de rastreabilidade do gasto público eleitoral e confirma que a discussão sobre beneficiário final e saques em espécie tende a ficar estabilizada quando o acórdão regional assenta irregularidade com base nas provas. Para assessoria legislativa, o ponto de atenção é a governança do FEFC em prestações de contas, não a disputa local em si.",
+        "why_relevant": "A relevância decorre do uso de recursos do Fundo Especial de Financiamento de Campanha e da exigência de comprovação da destinação final desses valores. Embora o caso envolva candidatura municipal, a tese operacional sobre FEFC, identificação do beneficiário final e limites do recurso especial pode orientar condutas de campanhas e partidos em prestações de contas futuras.",
+        "source_notes": [
+          "Processo 0600771-21.2024.6.16.0005, AREspEl, Eleições 2024, Paranaguá/PR.",
+          "Decisão de 21/05/2026, dentro do período analisado de 18/05/2026 a 22/05/2026.",
+          "Os dados fornecidos não identificam partido político vinculado ao caso."
+        ],
+        "page_id": "36872195-5c64-8148-947f-f36fa76c74ce",
+        "display_score": 6,
+        "ranking_reason": ""
+      }
+    },
+    "numero_unico:0600063-20.2026.6.23.0000": {
+      "model": "gpt-5.5",
+      "case_id": "0600063-20.2026.6.23.0000",
+      "page_id": "36872195-5c64-8146-9d42-ec252b28dafd",
+      "processo": "0600063-20.2026.6.23.0000",
+      "content_hash": "70cef0b9a4decb31c6ee1b92f9b2f55a5cd00bb28c6ed120eedb6a0d17b4e1cd",
+      "cached_at_utc": "2026-05-22T11:14:36.473084+00:00",
+      "analysis": {
+        "case_id": "0600063-20.2026.6.23.0000",
+        "title": "Competência do TRE em MS contra resolução de eleição suplementar para governador e vice de Roraima",
+        "relevance_score": 8,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Edilson Damião Lima"
+        ],
+        "parties": [
+          "PARTIDO DEMOCRÁTICO TRABALHISTA (PDT) - ESTADUAL",
+          "TRIBUNAL REGIONAL ELEITORAL DE RORAIMA",
+          "PDT/RR"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados do processo entre os recorrentes do período informado.",
+        "what_happened": "O Diretório Estadual do PDT em Roraima impetrou mandado de segurança contra ato relacionado à Resolução TRE/RR nº 584/2026, que disciplinou eleição suplementar para governador e vice-governador de Roraima marcada para 21/06/2026. O TSE tratou o caso em conjunto com outras impetrações contra a mesma resolução e decidiu que não tinha competência originária para processar a ação.",
+        "legal_grounds": "A decisão aplicou o art. 21, VI, da LOMAN para afirmar que mandado de segurança contra ato administrativo colegiado de Tribunal Regional Eleitoral deve ser processado no próprio tribunal de origem, e não originariamente no TSE.",
+        "consequence": "O TSE não examinou o mérito da resolução nem a liminar. Reconheceu a incompetência originária do Tribunal Superior e determinou a remessa urgente dos mandados de segurança ao TRE/RR para apreciação da controvérsia.",
+        "strategic_comment": "O caso interessa ao acompanhamento legislativo porque delimita a competência judicial em impugnações urgentes contra normas de eleição suplementar para governador e vice-governador. Embora a decisão seja processual, ela desloca o centro decisório para o TRE/RR e preserva, por ora, a resolução regional que organiza o pleito suplementar.",
+        "why_relevant": "A relevância é alta porque o processo envolve eleição suplementar para governador e vice-governador, diretório estadual partidário e definição de foro competente para controle judicial de resolução regional eleitoral. A tese pode orientar futuras impugnações a atos normativos de TREs em eleições suplementares, ainda que não tenha havido pronunciamento de mérito sobre as regras do pleito.",
+        "source_notes": [
+          "Processo 0600063-20.2026.6.23.0000, MSCiv, decisão monocrática de 20/05/2026, relator Min. Ricardo Villas Bôas Cueva.",
+          "O trecho informa três mandados de segurança relacionados à Resolução TRE/RR nº 584/2026, inclusive um do Diretório Estadual do PDT de Roraima.",
+          "Edilson Damião Lima é citado no trecho como ex-vice-governador de Roraima eleito em 2022 e impetrante em mandado de segurança conexo.",
+          "O dado disponível não informa julgamento de mérito sobre filiação partidária, calendário eleitoral ou validade da resolução."
+        ],
+        "page_id": "36872195-5c64-8146-9d42-ec252b28dafd",
+        "display_score": 8,
+        "ranking_reason": ""
+      }
+    },
+    "numero_processo:60006320": {
+      "model": "gpt-5.5",
+      "case_id": "0600063-20.2026.6.23.0000",
+      "page_id": "36872195-5c64-8146-9d42-ec252b28dafd",
+      "processo": "0600063-20.2026.6.23.0000",
+      "content_hash": "70cef0b9a4decb31c6ee1b92f9b2f55a5cd00bb28c6ed120eedb6a0d17b4e1cd",
+      "cached_at_utc": "2026-05-22T11:14:36.473084+00:00",
+      "analysis": {
+        "case_id": "0600063-20.2026.6.23.0000",
+        "title": "Competência do TRE em MS contra resolução de eleição suplementar para governador e vice de Roraima",
+        "relevance_score": 8,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Edilson Damião Lima"
+        ],
+        "parties": [
+          "PARTIDO DEMOCRÁTICO TRABALHISTA (PDT) - ESTADUAL",
+          "TRIBUNAL REGIONAL ELEITORAL DE RORAIMA",
+          "PDT/RR"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados do processo entre os recorrentes do período informado.",
+        "what_happened": "O Diretório Estadual do PDT em Roraima impetrou mandado de segurança contra ato relacionado à Resolução TRE/RR nº 584/2026, que disciplinou eleição suplementar para governador e vice-governador de Roraima marcada para 21/06/2026. O TSE tratou o caso em conjunto com outras impetrações contra a mesma resolução e decidiu que não tinha competência originária para processar a ação.",
+        "legal_grounds": "A decisão aplicou o art. 21, VI, da LOMAN para afirmar que mandado de segurança contra ato administrativo colegiado de Tribunal Regional Eleitoral deve ser processado no próprio tribunal de origem, e não originariamente no TSE.",
+        "consequence": "O TSE não examinou o mérito da resolução nem a liminar. Reconheceu a incompetência originária do Tribunal Superior e determinou a remessa urgente dos mandados de segurança ao TRE/RR para apreciação da controvérsia.",
+        "strategic_comment": "O caso interessa ao acompanhamento legislativo porque delimita a competência judicial em impugnações urgentes contra normas de eleição suplementar para governador e vice-governador. Embora a decisão seja processual, ela desloca o centro decisório para o TRE/RR e preserva, por ora, a resolução regional que organiza o pleito suplementar.",
+        "why_relevant": "A relevância é alta porque o processo envolve eleição suplementar para governador e vice-governador, diretório estadual partidário e definição de foro competente para controle judicial de resolução regional eleitoral. A tese pode orientar futuras impugnações a atos normativos de TREs em eleições suplementares, ainda que não tenha havido pronunciamento de mérito sobre as regras do pleito.",
+        "source_notes": [
+          "Processo 0600063-20.2026.6.23.0000, MSCiv, decisão monocrática de 20/05/2026, relator Min. Ricardo Villas Bôas Cueva.",
+          "O trecho informa três mandados de segurança relacionados à Resolução TRE/RR nº 584/2026, inclusive um do Diretório Estadual do PDT de Roraima.",
+          "Edilson Damião Lima é citado no trecho como ex-vice-governador de Roraima eleito em 2022 e impetrante em mandado de segurança conexo.",
+          "O dado disponível não informa julgamento de mérito sobre filiação partidária, calendário eleitoral ou validade da resolução."
+        ],
+        "page_id": "36872195-5c64-8146-9d42-ec252b28dafd",
+        "display_score": 8,
+        "ranking_reason": ""
+      }
+    },
+    "page_id:36872195-5c64-8146-9d42-ec252b28dafd": {
+      "model": "gpt-5.5",
+      "case_id": "0600063-20.2026.6.23.0000",
+      "page_id": "36872195-5c64-8146-9d42-ec252b28dafd",
+      "processo": "0600063-20.2026.6.23.0000",
+      "content_hash": "70cef0b9a4decb31c6ee1b92f9b2f55a5cd00bb28c6ed120eedb6a0d17b4e1cd",
+      "cached_at_utc": "2026-05-22T11:14:36.473084+00:00",
+      "analysis": {
+        "case_id": "0600063-20.2026.6.23.0000",
+        "title": "Competência do TRE em MS contra resolução de eleição suplementar para governador e vice de Roraima",
+        "relevance_score": 8,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Edilson Damião Lima"
+        ],
+        "parties": [
+          "PARTIDO DEMOCRÁTICO TRABALHISTA (PDT) - ESTADUAL",
+          "TRIBUNAL REGIONAL ELEITORAL DE RORAIMA",
+          "PDT/RR"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados do processo entre os recorrentes do período informado.",
+        "what_happened": "O Diretório Estadual do PDT em Roraima impetrou mandado de segurança contra ato relacionado à Resolução TRE/RR nº 584/2026, que disciplinou eleição suplementar para governador e vice-governador de Roraima marcada para 21/06/2026. O TSE tratou o caso em conjunto com outras impetrações contra a mesma resolução e decidiu que não tinha competência originária para processar a ação.",
+        "legal_grounds": "A decisão aplicou o art. 21, VI, da LOMAN para afirmar que mandado de segurança contra ato administrativo colegiado de Tribunal Regional Eleitoral deve ser processado no próprio tribunal de origem, e não originariamente no TSE.",
+        "consequence": "O TSE não examinou o mérito da resolução nem a liminar. Reconheceu a incompetência originária do Tribunal Superior e determinou a remessa urgente dos mandados de segurança ao TRE/RR para apreciação da controvérsia.",
+        "strategic_comment": "O caso interessa ao acompanhamento legislativo porque delimita a competência judicial em impugnações urgentes contra normas de eleição suplementar para governador e vice-governador. Embora a decisão seja processual, ela desloca o centro decisório para o TRE/RR e preserva, por ora, a resolução regional que organiza o pleito suplementar.",
+        "why_relevant": "A relevância é alta porque o processo envolve eleição suplementar para governador e vice-governador, diretório estadual partidário e definição de foro competente para controle judicial de resolução regional eleitoral. A tese pode orientar futuras impugnações a atos normativos de TREs em eleições suplementares, ainda que não tenha havido pronunciamento de mérito sobre as regras do pleito.",
+        "source_notes": [
+          "Processo 0600063-20.2026.6.23.0000, MSCiv, decisão monocrática de 20/05/2026, relator Min. Ricardo Villas Bôas Cueva.",
+          "O trecho informa três mandados de segurança relacionados à Resolução TRE/RR nº 584/2026, inclusive um do Diretório Estadual do PDT de Roraima.",
+          "Edilson Damião Lima é citado no trecho como ex-vice-governador de Roraima eleito em 2022 e impetrante em mandado de segurança conexo.",
+          "O dado disponível não informa julgamento de mérito sobre filiação partidária, calendário eleitoral ou validade da resolução."
+        ],
+        "page_id": "36872195-5c64-8146-9d42-ec252b28dafd",
+        "display_score": 8,
+        "ranking_reason": ""
+      }
+    },
+    "case_id:0600063-20.2026.6.23.0000": {
+      "model": "gpt-5.5",
+      "case_id": "0600063-20.2026.6.23.0000",
+      "page_id": "36872195-5c64-8146-9d42-ec252b28dafd",
+      "processo": "0600063-20.2026.6.23.0000",
+      "content_hash": "70cef0b9a4decb31c6ee1b92f9b2f55a5cd00bb28c6ed120eedb6a0d17b4e1cd",
+      "cached_at_utc": "2026-05-22T11:14:36.473084+00:00",
+      "analysis": {
+        "case_id": "0600063-20.2026.6.23.0000",
+        "title": "Competência do TRE em MS contra resolução de eleição suplementar para governador e vice de Roraima",
+        "relevance_score": 8,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Edilson Damião Lima"
+        ],
+        "parties": [
+          "PARTIDO DEMOCRÁTICO TRABALHISTA (PDT) - ESTADUAL",
+          "TRIBUNAL REGIONAL ELEITORAL DE RORAIMA",
+          "PDT/RR"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados do processo entre os recorrentes do período informado.",
+        "what_happened": "O Diretório Estadual do PDT em Roraima impetrou mandado de segurança contra ato relacionado à Resolução TRE/RR nº 584/2026, que disciplinou eleição suplementar para governador e vice-governador de Roraima marcada para 21/06/2026. O TSE tratou o caso em conjunto com outras impetrações contra a mesma resolução e decidiu que não tinha competência originária para processar a ação.",
+        "legal_grounds": "A decisão aplicou o art. 21, VI, da LOMAN para afirmar que mandado de segurança contra ato administrativo colegiado de Tribunal Regional Eleitoral deve ser processado no próprio tribunal de origem, e não originariamente no TSE.",
+        "consequence": "O TSE não examinou o mérito da resolução nem a liminar. Reconheceu a incompetência originária do Tribunal Superior e determinou a remessa urgente dos mandados de segurança ao TRE/RR para apreciação da controvérsia.",
+        "strategic_comment": "O caso interessa ao acompanhamento legislativo porque delimita a competência judicial em impugnações urgentes contra normas de eleição suplementar para governador e vice-governador. Embora a decisão seja processual, ela desloca o centro decisório para o TRE/RR e preserva, por ora, a resolução regional que organiza o pleito suplementar.",
+        "why_relevant": "A relevância é alta porque o processo envolve eleição suplementar para governador e vice-governador, diretório estadual partidário e definição de foro competente para controle judicial de resolução regional eleitoral. A tese pode orientar futuras impugnações a atos normativos de TREs em eleições suplementares, ainda que não tenha havido pronunciamento de mérito sobre as regras do pleito.",
+        "source_notes": [
+          "Processo 0600063-20.2026.6.23.0000, MSCiv, decisão monocrática de 20/05/2026, relator Min. Ricardo Villas Bôas Cueva.",
+          "O trecho informa três mandados de segurança relacionados à Resolução TRE/RR nº 584/2026, inclusive um do Diretório Estadual do PDT de Roraima.",
+          "Edilson Damião Lima é citado no trecho como ex-vice-governador de Roraima eleito em 2022 e impetrante em mandado de segurança conexo.",
+          "O dado disponível não informa julgamento de mérito sobre filiação partidária, calendário eleitoral ou validade da resolução."
+        ],
+        "page_id": "36872195-5c64-8146-9d42-ec252b28dafd",
+        "display_score": 8,
+        "ranking_reason": ""
+      }
+    },
+    "content_hash:70cef0b9a4decb31c6ee1b92f9b2f55a5cd00bb28c6ed120eedb6a0d17b4e1cd": {
+      "model": "gpt-5.5",
+      "case_id": "0600063-20.2026.6.23.0000",
+      "page_id": "36872195-5c64-8146-9d42-ec252b28dafd",
+      "processo": "0600063-20.2026.6.23.0000",
+      "content_hash": "70cef0b9a4decb31c6ee1b92f9b2f55a5cd00bb28c6ed120eedb6a0d17b4e1cd",
+      "cached_at_utc": "2026-05-22T11:14:36.473084+00:00",
+      "analysis": {
+        "case_id": "0600063-20.2026.6.23.0000",
+        "title": "Competência do TRE em MS contra resolução de eleição suplementar para governador e vice de Roraima",
+        "relevance_score": 8,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Edilson Damião Lima"
+        ],
+        "parties": [
+          "PARTIDO DEMOCRÁTICO TRABALHISTA (PDT) - ESTADUAL",
+          "TRIBUNAL REGIONAL ELEITORAL DE RORAIMA",
+          "PDT/RR"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados do processo entre os recorrentes do período informado.",
+        "what_happened": "O Diretório Estadual do PDT em Roraima impetrou mandado de segurança contra ato relacionado à Resolução TRE/RR nº 584/2026, que disciplinou eleição suplementar para governador e vice-governador de Roraima marcada para 21/06/2026. O TSE tratou o caso em conjunto com outras impetrações contra a mesma resolução e decidiu que não tinha competência originária para processar a ação.",
+        "legal_grounds": "A decisão aplicou o art. 21, VI, da LOMAN para afirmar que mandado de segurança contra ato administrativo colegiado de Tribunal Regional Eleitoral deve ser processado no próprio tribunal de origem, e não originariamente no TSE.",
+        "consequence": "O TSE não examinou o mérito da resolução nem a liminar. Reconheceu a incompetência originária do Tribunal Superior e determinou a remessa urgente dos mandados de segurança ao TRE/RR para apreciação da controvérsia.",
+        "strategic_comment": "O caso interessa ao acompanhamento legislativo porque delimita a competência judicial em impugnações urgentes contra normas de eleição suplementar para governador e vice-governador. Embora a decisão seja processual, ela desloca o centro decisório para o TRE/RR e preserva, por ora, a resolução regional que organiza o pleito suplementar.",
+        "why_relevant": "A relevância é alta porque o processo envolve eleição suplementar para governador e vice-governador, diretório estadual partidário e definição de foro competente para controle judicial de resolução regional eleitoral. A tese pode orientar futuras impugnações a atos normativos de TREs em eleições suplementares, ainda que não tenha havido pronunciamento de mérito sobre as regras do pleito.",
+        "source_notes": [
+          "Processo 0600063-20.2026.6.23.0000, MSCiv, decisão monocrática de 20/05/2026, relator Min. Ricardo Villas Bôas Cueva.",
+          "O trecho informa três mandados de segurança relacionados à Resolução TRE/RR nº 584/2026, inclusive um do Diretório Estadual do PDT de Roraima.",
+          "Edilson Damião Lima é citado no trecho como ex-vice-governador de Roraima eleito em 2022 e impetrante em mandado de segurança conexo.",
+          "O dado disponível não informa julgamento de mérito sobre filiação partidária, calendário eleitoral ou validade da resolução."
+        ],
+        "page_id": "36872195-5c64-8146-9d42-ec252b28dafd",
+        "display_score": 8,
+        "ranking_reason": ""
+      }
+    },
+    "numero_unico:0600002-04.2025.6.18.0011": {
+      "model": "gpt-5.5",
+      "case_id": "0600002-04.2025.6.18.0011",
+      "page_id": "35a72195-5c64-8177-9b21-d8ce37faa465",
+      "processo": "0600002-04.2025.6.18.0011",
+      "content_hash": "7b21302ce7fe6c886c7b58fb55c7ee9e78d41d20cd151f0a9be2c31752542c1b",
+      "cached_at_utc": "2026-05-22T11:14:37.453156+00:00",
+      "analysis": {
+        "case_id": "0600002-04.2025.6.18.0011",
+        "title": "Decadência em RCED municipal e limites recursais sobre regularidade de federação partidária",
+        "relevance_score": 4,
+        "risk_level": "baixo",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Paulo Roberto Limeira dos Santos",
+          "Jovenília Alves de Oliveira Monteiro",
+          "Hilton Martins Osório"
+        ],
+        "parties": [
+          "Federação Brasil da Esperança",
+          "PT",
+          "PCdoB",
+          "PV"
+        ],
+        "lawyers_signal": "Os advogados indicados no processo não aparecem como recorrentes nas estatísticas do período fornecidas. Não há sinal de atuação repetida relevante no intervalo analisado.",
+        "what_happened": "Paulo Roberto Limeira dos Santos, candidato a prefeito de Piripiri/PI em 2024, ajuizou RCED contra Jovenília Alves de Oliveira Monteiro e Hilton Martins Osório, eleitos prefeita e vice-prefeito. Alegou ausência de condição de elegibilidade relacionada a suposta irregularidade dos partidos da Federação Brasil da Esperança na época da convenção. A instância de origem reconheceu decadência. No TSE, o agravo em recurso especial eleitoral não superou os óbices processuais apontados.",
+        "legal_grounds": "A decisão afastou omissão e negativa de prestação jurisdicional em embargos de declaração, à luz do art. 1.022 do CPC. Aplicou a Súmula 72 do TSE quanto à deficiência relacionada à alegada violação de dispositivos legais e a Súmula 28 do TSE pela ausência de demonstração adequada do dissídio jurisprudencial. Também prevaleceu o fundamento de decadência do RCED reconhecido na origem, associado a vício de pressuposto recursal.",
+        "consequence": "O TSE negou seguimento ao agravo em recurso especial eleitoral. Ficou mantido o não conhecimento do RCED por decadência, com preservação da extinção do feito e sem cassação dos diplomas da prefeita e do vice-prefeito eleitos em Piripiri/PI. Houve retificação de erro material de ofício, conforme informado no resumo fornecido.",
+        "strategic_comment": "O processo tem interesse eleitoral moderado apenas pelo uso do RCED e pela menção a federação partidária. A decisão, contudo, não enfrentou tese substantiva sobre regularidade de federação, convenção ou condição de elegibilidade. O núcleo útil para acompanhamento legislativo é procedimental: decadência do RCED, limites dos embargos declaratórios e rigor na demonstração de dissídio em recurso especial eleitoral.",
+        "why_relevant": "A relevância político-eleitoral é limitada, pois o caso é municipal e terminou por fundamentos processuais. Ainda assim, interessa ao monitoramento federal por tangenciar federação partidária, RCED e condições de elegibilidade. A decisão reforça que controvérsias potencialmente partidárias não avançam ao mérito no TSE quando houver decadência, deficiência recursal ou dissídio jurisprudencial mal demonstrado.",
+        "source_notes": [
+          "Processo 0600002-04.2025.6.18.0011, AREspEl, decisão monocrática de 21/05/2026, relator Min. Antonio Carlos Ferreira.",
+          "O caso envolve RCED nas eleições de 2024 em Piripiri/PI, proposto por candidato a prefeito contra prefeita e vice-prefeito eleitos.",
+          "A alegação de fundo mencionava suposta irregularidade, à época da convenção, de partidos integrantes da Federação Brasil da Esperança, identificada no trecho como PT/PCdoB/PV.",
+          "O resultado informado foi monocrático e de não conhecimento, com negativa de seguimento ao agravo em recurso especial."
+        ],
+        "page_id": "35a72195-5c64-8177-9b21-d8ce37faa465",
+        "display_score": 4,
+        "ranking_reason": ""
+      }
+    },
+    "numero_processo:60000204": {
+      "model": "gpt-5.5",
+      "case_id": "0600002-04.2025.6.18.0011",
+      "page_id": "35a72195-5c64-8177-9b21-d8ce37faa465",
+      "processo": "0600002-04.2025.6.18.0011",
+      "content_hash": "7b21302ce7fe6c886c7b58fb55c7ee9e78d41d20cd151f0a9be2c31752542c1b",
+      "cached_at_utc": "2026-05-22T11:14:37.453156+00:00",
+      "analysis": {
+        "case_id": "0600002-04.2025.6.18.0011",
+        "title": "Decadência em RCED municipal e limites recursais sobre regularidade de federação partidária",
+        "relevance_score": 4,
+        "risk_level": "baixo",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Paulo Roberto Limeira dos Santos",
+          "Jovenília Alves de Oliveira Monteiro",
+          "Hilton Martins Osório"
+        ],
+        "parties": [
+          "Federação Brasil da Esperança",
+          "PT",
+          "PCdoB",
+          "PV"
+        ],
+        "lawyers_signal": "Os advogados indicados no processo não aparecem como recorrentes nas estatísticas do período fornecidas. Não há sinal de atuação repetida relevante no intervalo analisado.",
+        "what_happened": "Paulo Roberto Limeira dos Santos, candidato a prefeito de Piripiri/PI em 2024, ajuizou RCED contra Jovenília Alves de Oliveira Monteiro e Hilton Martins Osório, eleitos prefeita e vice-prefeito. Alegou ausência de condição de elegibilidade relacionada a suposta irregularidade dos partidos da Federação Brasil da Esperança na época da convenção. A instância de origem reconheceu decadência. No TSE, o agravo em recurso especial eleitoral não superou os óbices processuais apontados.",
+        "legal_grounds": "A decisão afastou omissão e negativa de prestação jurisdicional em embargos de declaração, à luz do art. 1.022 do CPC. Aplicou a Súmula 72 do TSE quanto à deficiência relacionada à alegada violação de dispositivos legais e a Súmula 28 do TSE pela ausência de demonstração adequada do dissídio jurisprudencial. Também prevaleceu o fundamento de decadência do RCED reconhecido na origem, associado a vício de pressuposto recursal.",
+        "consequence": "O TSE negou seguimento ao agravo em recurso especial eleitoral. Ficou mantido o não conhecimento do RCED por decadência, com preservação da extinção do feito e sem cassação dos diplomas da prefeita e do vice-prefeito eleitos em Piripiri/PI. Houve retificação de erro material de ofício, conforme informado no resumo fornecido.",
+        "strategic_comment": "O processo tem interesse eleitoral moderado apenas pelo uso do RCED e pela menção a federação partidária. A decisão, contudo, não enfrentou tese substantiva sobre regularidade de federação, convenção ou condição de elegibilidade. O núcleo útil para acompanhamento legislativo é procedimental: decadência do RCED, limites dos embargos declaratórios e rigor na demonstração de dissídio em recurso especial eleitoral.",
+        "why_relevant": "A relevância político-eleitoral é limitada, pois o caso é municipal e terminou por fundamentos processuais. Ainda assim, interessa ao monitoramento federal por tangenciar federação partidária, RCED e condições de elegibilidade. A decisão reforça que controvérsias potencialmente partidárias não avançam ao mérito no TSE quando houver decadência, deficiência recursal ou dissídio jurisprudencial mal demonstrado.",
+        "source_notes": [
+          "Processo 0600002-04.2025.6.18.0011, AREspEl, decisão monocrática de 21/05/2026, relator Min. Antonio Carlos Ferreira.",
+          "O caso envolve RCED nas eleições de 2024 em Piripiri/PI, proposto por candidato a prefeito contra prefeita e vice-prefeito eleitos.",
+          "A alegação de fundo mencionava suposta irregularidade, à época da convenção, de partidos integrantes da Federação Brasil da Esperança, identificada no trecho como PT/PCdoB/PV.",
+          "O resultado informado foi monocrático e de não conhecimento, com negativa de seguimento ao agravo em recurso especial."
+        ],
+        "page_id": "35a72195-5c64-8177-9b21-d8ce37faa465",
+        "display_score": 4,
+        "ranking_reason": ""
+      }
+    },
+    "page_id:35a72195-5c64-8177-9b21-d8ce37faa465": {
+      "model": "gpt-5.5",
+      "case_id": "0600002-04.2025.6.18.0011",
+      "page_id": "35a72195-5c64-8177-9b21-d8ce37faa465",
+      "processo": "0600002-04.2025.6.18.0011",
+      "content_hash": "7b21302ce7fe6c886c7b58fb55c7ee9e78d41d20cd151f0a9be2c31752542c1b",
+      "cached_at_utc": "2026-05-22T11:14:37.453156+00:00",
+      "analysis": {
+        "case_id": "0600002-04.2025.6.18.0011",
+        "title": "Decadência em RCED municipal e limites recursais sobre regularidade de federação partidária",
+        "relevance_score": 4,
+        "risk_level": "baixo",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Paulo Roberto Limeira dos Santos",
+          "Jovenília Alves de Oliveira Monteiro",
+          "Hilton Martins Osório"
+        ],
+        "parties": [
+          "Federação Brasil da Esperança",
+          "PT",
+          "PCdoB",
+          "PV"
+        ],
+        "lawyers_signal": "Os advogados indicados no processo não aparecem como recorrentes nas estatísticas do período fornecidas. Não há sinal de atuação repetida relevante no intervalo analisado.",
+        "what_happened": "Paulo Roberto Limeira dos Santos, candidato a prefeito de Piripiri/PI em 2024, ajuizou RCED contra Jovenília Alves de Oliveira Monteiro e Hilton Martins Osório, eleitos prefeita e vice-prefeito. Alegou ausência de condição de elegibilidade relacionada a suposta irregularidade dos partidos da Federação Brasil da Esperança na época da convenção. A instância de origem reconheceu decadência. No TSE, o agravo em recurso especial eleitoral não superou os óbices processuais apontados.",
+        "legal_grounds": "A decisão afastou omissão e negativa de prestação jurisdicional em embargos de declaração, à luz do art. 1.022 do CPC. Aplicou a Súmula 72 do TSE quanto à deficiência relacionada à alegada violação de dispositivos legais e a Súmula 28 do TSE pela ausência de demonstração adequada do dissídio jurisprudencial. Também prevaleceu o fundamento de decadência do RCED reconhecido na origem, associado a vício de pressuposto recursal.",
+        "consequence": "O TSE negou seguimento ao agravo em recurso especial eleitoral. Ficou mantido o não conhecimento do RCED por decadência, com preservação da extinção do feito e sem cassação dos diplomas da prefeita e do vice-prefeito eleitos em Piripiri/PI. Houve retificação de erro material de ofício, conforme informado no resumo fornecido.",
+        "strategic_comment": "O processo tem interesse eleitoral moderado apenas pelo uso do RCED e pela menção a federação partidária. A decisão, contudo, não enfrentou tese substantiva sobre regularidade de federação, convenção ou condição de elegibilidade. O núcleo útil para acompanhamento legislativo é procedimental: decadência do RCED, limites dos embargos declaratórios e rigor na demonstração de dissídio em recurso especial eleitoral.",
+        "why_relevant": "A relevância político-eleitoral é limitada, pois o caso é municipal e terminou por fundamentos processuais. Ainda assim, interessa ao monitoramento federal por tangenciar federação partidária, RCED e condições de elegibilidade. A decisão reforça que controvérsias potencialmente partidárias não avançam ao mérito no TSE quando houver decadência, deficiência recursal ou dissídio jurisprudencial mal demonstrado.",
+        "source_notes": [
+          "Processo 0600002-04.2025.6.18.0011, AREspEl, decisão monocrática de 21/05/2026, relator Min. Antonio Carlos Ferreira.",
+          "O caso envolve RCED nas eleições de 2024 em Piripiri/PI, proposto por candidato a prefeito contra prefeita e vice-prefeito eleitos.",
+          "A alegação de fundo mencionava suposta irregularidade, à época da convenção, de partidos integrantes da Federação Brasil da Esperança, identificada no trecho como PT/PCdoB/PV.",
+          "O resultado informado foi monocrático e de não conhecimento, com negativa de seguimento ao agravo em recurso especial."
+        ],
+        "page_id": "35a72195-5c64-8177-9b21-d8ce37faa465",
+        "display_score": 4,
+        "ranking_reason": ""
+      }
+    },
+    "case_id:0600002-04.2025.6.18.0011": {
+      "model": "gpt-5.5",
+      "case_id": "0600002-04.2025.6.18.0011",
+      "page_id": "35a72195-5c64-8177-9b21-d8ce37faa465",
+      "processo": "0600002-04.2025.6.18.0011",
+      "content_hash": "7b21302ce7fe6c886c7b58fb55c7ee9e78d41d20cd151f0a9be2c31752542c1b",
+      "cached_at_utc": "2026-05-22T11:14:37.453156+00:00",
+      "analysis": {
+        "case_id": "0600002-04.2025.6.18.0011",
+        "title": "Decadência em RCED municipal e limites recursais sobre regularidade de federação partidária",
+        "relevance_score": 4,
+        "risk_level": "baixo",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Paulo Roberto Limeira dos Santos",
+          "Jovenília Alves de Oliveira Monteiro",
+          "Hilton Martins Osório"
+        ],
+        "parties": [
+          "Federação Brasil da Esperança",
+          "PT",
+          "PCdoB",
+          "PV"
+        ],
+        "lawyers_signal": "Os advogados indicados no processo não aparecem como recorrentes nas estatísticas do período fornecidas. Não há sinal de atuação repetida relevante no intervalo analisado.",
+        "what_happened": "Paulo Roberto Limeira dos Santos, candidato a prefeito de Piripiri/PI em 2024, ajuizou RCED contra Jovenília Alves de Oliveira Monteiro e Hilton Martins Osório, eleitos prefeita e vice-prefeito. Alegou ausência de condição de elegibilidade relacionada a suposta irregularidade dos partidos da Federação Brasil da Esperança na época da convenção. A instância de origem reconheceu decadência. No TSE, o agravo em recurso especial eleitoral não superou os óbices processuais apontados.",
+        "legal_grounds": "A decisão afastou omissão e negativa de prestação jurisdicional em embargos de declaração, à luz do art. 1.022 do CPC. Aplicou a Súmula 72 do TSE quanto à deficiência relacionada à alegada violação de dispositivos legais e a Súmula 28 do TSE pela ausência de demonstração adequada do dissídio jurisprudencial. Também prevaleceu o fundamento de decadência do RCED reconhecido na origem, associado a vício de pressuposto recursal.",
+        "consequence": "O TSE negou seguimento ao agravo em recurso especial eleitoral. Ficou mantido o não conhecimento do RCED por decadência, com preservação da extinção do feito e sem cassação dos diplomas da prefeita e do vice-prefeito eleitos em Piripiri/PI. Houve retificação de erro material de ofício, conforme informado no resumo fornecido.",
+        "strategic_comment": "O processo tem interesse eleitoral moderado apenas pelo uso do RCED e pela menção a federação partidária. A decisão, contudo, não enfrentou tese substantiva sobre regularidade de federação, convenção ou condição de elegibilidade. O núcleo útil para acompanhamento legislativo é procedimental: decadência do RCED, limites dos embargos declaratórios e rigor na demonstração de dissídio em recurso especial eleitoral.",
+        "why_relevant": "A relevância político-eleitoral é limitada, pois o caso é municipal e terminou por fundamentos processuais. Ainda assim, interessa ao monitoramento federal por tangenciar federação partidária, RCED e condições de elegibilidade. A decisão reforça que controvérsias potencialmente partidárias não avançam ao mérito no TSE quando houver decadência, deficiência recursal ou dissídio jurisprudencial mal demonstrado.",
+        "source_notes": [
+          "Processo 0600002-04.2025.6.18.0011, AREspEl, decisão monocrática de 21/05/2026, relator Min. Antonio Carlos Ferreira.",
+          "O caso envolve RCED nas eleições de 2024 em Piripiri/PI, proposto por candidato a prefeito contra prefeita e vice-prefeito eleitos.",
+          "A alegação de fundo mencionava suposta irregularidade, à época da convenção, de partidos integrantes da Federação Brasil da Esperança, identificada no trecho como PT/PCdoB/PV.",
+          "O resultado informado foi monocrático e de não conhecimento, com negativa de seguimento ao agravo em recurso especial."
+        ],
+        "page_id": "35a72195-5c64-8177-9b21-d8ce37faa465",
+        "display_score": 4,
+        "ranking_reason": ""
+      }
+    },
+    "content_hash:7b21302ce7fe6c886c7b58fb55c7ee9e78d41d20cd151f0a9be2c31752542c1b": {
+      "model": "gpt-5.5",
+      "case_id": "0600002-04.2025.6.18.0011",
+      "page_id": "35a72195-5c64-8177-9b21-d8ce37faa465",
+      "processo": "0600002-04.2025.6.18.0011",
+      "content_hash": "7b21302ce7fe6c886c7b58fb55c7ee9e78d41d20cd151f0a9be2c31752542c1b",
+      "cached_at_utc": "2026-05-22T11:14:37.453156+00:00",
+      "analysis": {
+        "case_id": "0600002-04.2025.6.18.0011",
+        "title": "Decadência em RCED municipal e limites recursais sobre regularidade de federação partidária",
+        "relevance_score": 4,
+        "risk_level": "baixo",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Paulo Roberto Limeira dos Santos",
+          "Jovenília Alves de Oliveira Monteiro",
+          "Hilton Martins Osório"
+        ],
+        "parties": [
+          "Federação Brasil da Esperança",
+          "PT",
+          "PCdoB",
+          "PV"
+        ],
+        "lawyers_signal": "Os advogados indicados no processo não aparecem como recorrentes nas estatísticas do período fornecidas. Não há sinal de atuação repetida relevante no intervalo analisado.",
+        "what_happened": "Paulo Roberto Limeira dos Santos, candidato a prefeito de Piripiri/PI em 2024, ajuizou RCED contra Jovenília Alves de Oliveira Monteiro e Hilton Martins Osório, eleitos prefeita e vice-prefeito. Alegou ausência de condição de elegibilidade relacionada a suposta irregularidade dos partidos da Federação Brasil da Esperança na época da convenção. A instância de origem reconheceu decadência. No TSE, o agravo em recurso especial eleitoral não superou os óbices processuais apontados.",
+        "legal_grounds": "A decisão afastou omissão e negativa de prestação jurisdicional em embargos de declaração, à luz do art. 1.022 do CPC. Aplicou a Súmula 72 do TSE quanto à deficiência relacionada à alegada violação de dispositivos legais e a Súmula 28 do TSE pela ausência de demonstração adequada do dissídio jurisprudencial. Também prevaleceu o fundamento de decadência do RCED reconhecido na origem, associado a vício de pressuposto recursal.",
+        "consequence": "O TSE negou seguimento ao agravo em recurso especial eleitoral. Ficou mantido o não conhecimento do RCED por decadência, com preservação da extinção do feito e sem cassação dos diplomas da prefeita e do vice-prefeito eleitos em Piripiri/PI. Houve retificação de erro material de ofício, conforme informado no resumo fornecido.",
+        "strategic_comment": "O processo tem interesse eleitoral moderado apenas pelo uso do RCED e pela menção a federação partidária. A decisão, contudo, não enfrentou tese substantiva sobre regularidade de federação, convenção ou condição de elegibilidade. O núcleo útil para acompanhamento legislativo é procedimental: decadência do RCED, limites dos embargos declaratórios e rigor na demonstração de dissídio em recurso especial eleitoral.",
+        "why_relevant": "A relevância político-eleitoral é limitada, pois o caso é municipal e terminou por fundamentos processuais. Ainda assim, interessa ao monitoramento federal por tangenciar federação partidária, RCED e condições de elegibilidade. A decisão reforça que controvérsias potencialmente partidárias não avançam ao mérito no TSE quando houver decadência, deficiência recursal ou dissídio jurisprudencial mal demonstrado.",
+        "source_notes": [
+          "Processo 0600002-04.2025.6.18.0011, AREspEl, decisão monocrática de 21/05/2026, relator Min. Antonio Carlos Ferreira.",
+          "O caso envolve RCED nas eleições de 2024 em Piripiri/PI, proposto por candidato a prefeito contra prefeita e vice-prefeito eleitos.",
+          "A alegação de fundo mencionava suposta irregularidade, à época da convenção, de partidos integrantes da Federação Brasil da Esperança, identificada no trecho como PT/PCdoB/PV.",
+          "O resultado informado foi monocrático e de não conhecimento, com negativa de seguimento ao agravo em recurso especial."
+        ],
+        "page_id": "35a72195-5c64-8177-9b21-d8ce37faa465",
+        "display_score": 4,
+        "ranking_reason": ""
+      }
+    },
+    "numero_unico:0600891-90.2024.6.13.0088": {
+      "model": "gpt-5.5",
+      "case_id": "0600891-90.2024.6.13.0088",
+      "page_id": "36872195-5c64-8106-a045-f0d19d1278f9",
+      "processo": "0600891-90.2024.6.13.0088",
+      "content_hash": "15b4a96b9e935e233ad0e9d4b86f71897721b45373c8bf8d6d39daa2c403ab88",
+      "cached_at_utc": "2026-05-22T11:14:38.776467+00:00",
+      "analysis": {
+        "case_id": "0600891-90.2024.6.13.0088",
+        "title": "Dialeticidade recursal em AIJE por fraude à cota de gênero nas eleições proporcionais municipais",
+        "relevance_score": 4,
+        "risk_level": "baixo",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "PRD/MG",
+          "UNIÃO Brasil (UNIÃO) - Municipal"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados deste processo nas estatísticas do período fornecido.",
+        "what_happened": "O União Brasil municipal interpôs agravo em recurso especial eleitoral em AIJE sobre suposta fraude à cota de gênero nas Eleições 2024 em Santana dos Montes/MG. O relator concluiu que o agravante rediscutiu o mérito da fraude, mas não enfrentou especificamente os fundamentos da decisão que inadmitira o recurso especial.",
+        "legal_grounds": "O TSE aplicou o princípio da dialeticidade recursal e o Enunciado nº 26 da Súmula do TSE. A decisão registrou que o agravante não impugnou, de modo específico e ponto a ponto, os fundamentos da inadmissibilidade do recurso especial, especialmente o óbice de reexame fático-probatório. A controvérsia de fundo envolvia AIJE por suposta fraude à cota de gênero prevista no art. 10, § 3º, da Lei nº 9.504/1997.",
+        "consequence": "O agravo em recurso especial eleitoral não foi conhecido. Permaneceu o óbice processual que impediu o avanço do recurso especial, preservando a decisão anterior que afastara a fraude à cota de gênero por falta de comprovação, conforme descrito nos dados fornecidos.",
+        "strategic_comment": "O caso tem utilidade como alerta processual para litigância eleitoral sobre cota de gênero: a parte que leva o tema ao TSE precisa atacar os fundamentos de inadmissibilidade, e não apenas reeditar a tese de mérito. A relevância político-eleitoral é limitada porque o processo é municipal, envolve candidatura proporcional local e foi decidido por fundamento processual, sem formulação nova sobre a configuração material da fraude.",
+        "why_relevant": "A matéria de fundo, fraude à cota de gênero, tem impacto potencial sobre partidos e candidaturas proporcionais. Contudo, a decisão analisada concentrou-se na técnica recursal e na Súmula 26/TSE, sem alterar parâmetros materiais sobre cotas, contas, financiamento ou organização partidária. Por isso, o interesse federal é baixo a médio e predominantemente operacional.",
+        "source_notes": [
+          "Processo 0600891-90.2024.6.13.0088, AREspEl, decisão monocrática de 21/05/2026.",
+          "Município de Santana dos Montes/MG, Eleições 2024.",
+          "Tema informado: AIJE por fraude de cota de gênero em candidatura proporcional.",
+          "Resultado informado: agravo não conhecido."
+        ],
+        "page_id": "36872195-5c64-8106-a045-f0d19d1278f9",
+        "display_score": 4,
+        "ranking_reason": ""
+      }
+    },
+    "numero_processo:60089190": {
+      "model": "gpt-5.5",
+      "case_id": "0600891-90.2024.6.13.0088",
+      "page_id": "36872195-5c64-8106-a045-f0d19d1278f9",
+      "processo": "0600891-90.2024.6.13.0088",
+      "content_hash": "15b4a96b9e935e233ad0e9d4b86f71897721b45373c8bf8d6d39daa2c403ab88",
+      "cached_at_utc": "2026-05-22T11:14:38.776467+00:00",
+      "analysis": {
+        "case_id": "0600891-90.2024.6.13.0088",
+        "title": "Dialeticidade recursal em AIJE por fraude à cota de gênero nas eleições proporcionais municipais",
+        "relevance_score": 4,
+        "risk_level": "baixo",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "PRD/MG",
+          "UNIÃO Brasil (UNIÃO) - Municipal"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados deste processo nas estatísticas do período fornecido.",
+        "what_happened": "O União Brasil municipal interpôs agravo em recurso especial eleitoral em AIJE sobre suposta fraude à cota de gênero nas Eleições 2024 em Santana dos Montes/MG. O relator concluiu que o agravante rediscutiu o mérito da fraude, mas não enfrentou especificamente os fundamentos da decisão que inadmitira o recurso especial.",
+        "legal_grounds": "O TSE aplicou o princípio da dialeticidade recursal e o Enunciado nº 26 da Súmula do TSE. A decisão registrou que o agravante não impugnou, de modo específico e ponto a ponto, os fundamentos da inadmissibilidade do recurso especial, especialmente o óbice de reexame fático-probatório. A controvérsia de fundo envolvia AIJE por suposta fraude à cota de gênero prevista no art. 10, § 3º, da Lei nº 9.504/1997.",
+        "consequence": "O agravo em recurso especial eleitoral não foi conhecido. Permaneceu o óbice processual que impediu o avanço do recurso especial, preservando a decisão anterior que afastara a fraude à cota de gênero por falta de comprovação, conforme descrito nos dados fornecidos.",
+        "strategic_comment": "O caso tem utilidade como alerta processual para litigância eleitoral sobre cota de gênero: a parte que leva o tema ao TSE precisa atacar os fundamentos de inadmissibilidade, e não apenas reeditar a tese de mérito. A relevância político-eleitoral é limitada porque o processo é municipal, envolve candidatura proporcional local e foi decidido por fundamento processual, sem formulação nova sobre a configuração material da fraude.",
+        "why_relevant": "A matéria de fundo, fraude à cota de gênero, tem impacto potencial sobre partidos e candidaturas proporcionais. Contudo, a decisão analisada concentrou-se na técnica recursal e na Súmula 26/TSE, sem alterar parâmetros materiais sobre cotas, contas, financiamento ou organização partidária. Por isso, o interesse federal é baixo a médio e predominantemente operacional.",
+        "source_notes": [
+          "Processo 0600891-90.2024.6.13.0088, AREspEl, decisão monocrática de 21/05/2026.",
+          "Município de Santana dos Montes/MG, Eleições 2024.",
+          "Tema informado: AIJE por fraude de cota de gênero em candidatura proporcional.",
+          "Resultado informado: agravo não conhecido."
+        ],
+        "page_id": "36872195-5c64-8106-a045-f0d19d1278f9",
+        "display_score": 4,
+        "ranking_reason": ""
+      }
+    },
+    "page_id:36872195-5c64-8106-a045-f0d19d1278f9": {
+      "model": "gpt-5.5",
+      "case_id": "0600891-90.2024.6.13.0088",
+      "page_id": "36872195-5c64-8106-a045-f0d19d1278f9",
+      "processo": "0600891-90.2024.6.13.0088",
+      "content_hash": "15b4a96b9e935e233ad0e9d4b86f71897721b45373c8bf8d6d39daa2c403ab88",
+      "cached_at_utc": "2026-05-22T11:14:38.776467+00:00",
+      "analysis": {
+        "case_id": "0600891-90.2024.6.13.0088",
+        "title": "Dialeticidade recursal em AIJE por fraude à cota de gênero nas eleições proporcionais municipais",
+        "relevance_score": 4,
+        "risk_level": "baixo",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "PRD/MG",
+          "UNIÃO Brasil (UNIÃO) - Municipal"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados deste processo nas estatísticas do período fornecido.",
+        "what_happened": "O União Brasil municipal interpôs agravo em recurso especial eleitoral em AIJE sobre suposta fraude à cota de gênero nas Eleições 2024 em Santana dos Montes/MG. O relator concluiu que o agravante rediscutiu o mérito da fraude, mas não enfrentou especificamente os fundamentos da decisão que inadmitira o recurso especial.",
+        "legal_grounds": "O TSE aplicou o princípio da dialeticidade recursal e o Enunciado nº 26 da Súmula do TSE. A decisão registrou que o agravante não impugnou, de modo específico e ponto a ponto, os fundamentos da inadmissibilidade do recurso especial, especialmente o óbice de reexame fático-probatório. A controvérsia de fundo envolvia AIJE por suposta fraude à cota de gênero prevista no art. 10, § 3º, da Lei nº 9.504/1997.",
+        "consequence": "O agravo em recurso especial eleitoral não foi conhecido. Permaneceu o óbice processual que impediu o avanço do recurso especial, preservando a decisão anterior que afastara a fraude à cota de gênero por falta de comprovação, conforme descrito nos dados fornecidos.",
+        "strategic_comment": "O caso tem utilidade como alerta processual para litigância eleitoral sobre cota de gênero: a parte que leva o tema ao TSE precisa atacar os fundamentos de inadmissibilidade, e não apenas reeditar a tese de mérito. A relevância político-eleitoral é limitada porque o processo é municipal, envolve candidatura proporcional local e foi decidido por fundamento processual, sem formulação nova sobre a configuração material da fraude.",
+        "why_relevant": "A matéria de fundo, fraude à cota de gênero, tem impacto potencial sobre partidos e candidaturas proporcionais. Contudo, a decisão analisada concentrou-se na técnica recursal e na Súmula 26/TSE, sem alterar parâmetros materiais sobre cotas, contas, financiamento ou organização partidária. Por isso, o interesse federal é baixo a médio e predominantemente operacional.",
+        "source_notes": [
+          "Processo 0600891-90.2024.6.13.0088, AREspEl, decisão monocrática de 21/05/2026.",
+          "Município de Santana dos Montes/MG, Eleições 2024.",
+          "Tema informado: AIJE por fraude de cota de gênero em candidatura proporcional.",
+          "Resultado informado: agravo não conhecido."
+        ],
+        "page_id": "36872195-5c64-8106-a045-f0d19d1278f9",
+        "display_score": 4,
+        "ranking_reason": ""
+      }
+    },
+    "case_id:0600891-90.2024.6.13.0088": {
+      "model": "gpt-5.5",
+      "case_id": "0600891-90.2024.6.13.0088",
+      "page_id": "36872195-5c64-8106-a045-f0d19d1278f9",
+      "processo": "0600891-90.2024.6.13.0088",
+      "content_hash": "15b4a96b9e935e233ad0e9d4b86f71897721b45373c8bf8d6d39daa2c403ab88",
+      "cached_at_utc": "2026-05-22T11:14:38.776467+00:00",
+      "analysis": {
+        "case_id": "0600891-90.2024.6.13.0088",
+        "title": "Dialeticidade recursal em AIJE por fraude à cota de gênero nas eleições proporcionais municipais",
+        "relevance_score": 4,
+        "risk_level": "baixo",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "PRD/MG",
+          "UNIÃO Brasil (UNIÃO) - Municipal"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados deste processo nas estatísticas do período fornecido.",
+        "what_happened": "O União Brasil municipal interpôs agravo em recurso especial eleitoral em AIJE sobre suposta fraude à cota de gênero nas Eleições 2024 em Santana dos Montes/MG. O relator concluiu que o agravante rediscutiu o mérito da fraude, mas não enfrentou especificamente os fundamentos da decisão que inadmitira o recurso especial.",
+        "legal_grounds": "O TSE aplicou o princípio da dialeticidade recursal e o Enunciado nº 26 da Súmula do TSE. A decisão registrou que o agravante não impugnou, de modo específico e ponto a ponto, os fundamentos da inadmissibilidade do recurso especial, especialmente o óbice de reexame fático-probatório. A controvérsia de fundo envolvia AIJE por suposta fraude à cota de gênero prevista no art. 10, § 3º, da Lei nº 9.504/1997.",
+        "consequence": "O agravo em recurso especial eleitoral não foi conhecido. Permaneceu o óbice processual que impediu o avanço do recurso especial, preservando a decisão anterior que afastara a fraude à cota de gênero por falta de comprovação, conforme descrito nos dados fornecidos.",
+        "strategic_comment": "O caso tem utilidade como alerta processual para litigância eleitoral sobre cota de gênero: a parte que leva o tema ao TSE precisa atacar os fundamentos de inadmissibilidade, e não apenas reeditar a tese de mérito. A relevância político-eleitoral é limitada porque o processo é municipal, envolve candidatura proporcional local e foi decidido por fundamento processual, sem formulação nova sobre a configuração material da fraude.",
+        "why_relevant": "A matéria de fundo, fraude à cota de gênero, tem impacto potencial sobre partidos e candidaturas proporcionais. Contudo, a decisão analisada concentrou-se na técnica recursal e na Súmula 26/TSE, sem alterar parâmetros materiais sobre cotas, contas, financiamento ou organização partidária. Por isso, o interesse federal é baixo a médio e predominantemente operacional.",
+        "source_notes": [
+          "Processo 0600891-90.2024.6.13.0088, AREspEl, decisão monocrática de 21/05/2026.",
+          "Município de Santana dos Montes/MG, Eleições 2024.",
+          "Tema informado: AIJE por fraude de cota de gênero em candidatura proporcional.",
+          "Resultado informado: agravo não conhecido."
+        ],
+        "page_id": "36872195-5c64-8106-a045-f0d19d1278f9",
+        "display_score": 4,
+        "ranking_reason": ""
+      }
+    },
+    "content_hash:15b4a96b9e935e233ad0e9d4b86f71897721b45373c8bf8d6d39daa2c403ab88": {
+      "model": "gpt-5.5",
+      "case_id": "0600891-90.2024.6.13.0088",
+      "page_id": "36872195-5c64-8106-a045-f0d19d1278f9",
+      "processo": "0600891-90.2024.6.13.0088",
+      "content_hash": "15b4a96b9e935e233ad0e9d4b86f71897721b45373c8bf8d6d39daa2c403ab88",
+      "cached_at_utc": "2026-05-22T11:14:38.776467+00:00",
+      "analysis": {
+        "case_id": "0600891-90.2024.6.13.0088",
+        "title": "Dialeticidade recursal em AIJE por fraude à cota de gênero nas eleições proporcionais municipais",
+        "relevance_score": 4,
+        "risk_level": "baixo",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "PRD/MG",
+          "UNIÃO Brasil (UNIÃO) - Municipal"
+        ],
+        "lawyers_signal": "Não há sinal de recorrência dos advogados deste processo nas estatísticas do período fornecido.",
+        "what_happened": "O União Brasil municipal interpôs agravo em recurso especial eleitoral em AIJE sobre suposta fraude à cota de gênero nas Eleições 2024 em Santana dos Montes/MG. O relator concluiu que o agravante rediscutiu o mérito da fraude, mas não enfrentou especificamente os fundamentos da decisão que inadmitira o recurso especial.",
+        "legal_grounds": "O TSE aplicou o princípio da dialeticidade recursal e o Enunciado nº 26 da Súmula do TSE. A decisão registrou que o agravante não impugnou, de modo específico e ponto a ponto, os fundamentos da inadmissibilidade do recurso especial, especialmente o óbice de reexame fático-probatório. A controvérsia de fundo envolvia AIJE por suposta fraude à cota de gênero prevista no art. 10, § 3º, da Lei nº 9.504/1997.",
+        "consequence": "O agravo em recurso especial eleitoral não foi conhecido. Permaneceu o óbice processual que impediu o avanço do recurso especial, preservando a decisão anterior que afastara a fraude à cota de gênero por falta de comprovação, conforme descrito nos dados fornecidos.",
+        "strategic_comment": "O caso tem utilidade como alerta processual para litigância eleitoral sobre cota de gênero: a parte que leva o tema ao TSE precisa atacar os fundamentos de inadmissibilidade, e não apenas reeditar a tese de mérito. A relevância político-eleitoral é limitada porque o processo é municipal, envolve candidatura proporcional local e foi decidido por fundamento processual, sem formulação nova sobre a configuração material da fraude.",
+        "why_relevant": "A matéria de fundo, fraude à cota de gênero, tem impacto potencial sobre partidos e candidaturas proporcionais. Contudo, a decisão analisada concentrou-se na técnica recursal e na Súmula 26/TSE, sem alterar parâmetros materiais sobre cotas, contas, financiamento ou organização partidária. Por isso, o interesse federal é baixo a médio e predominantemente operacional.",
+        "source_notes": [
+          "Processo 0600891-90.2024.6.13.0088, AREspEl, decisão monocrática de 21/05/2026.",
+          "Município de Santana dos Montes/MG, Eleições 2024.",
+          "Tema informado: AIJE por fraude de cota de gênero em candidatura proporcional.",
+          "Resultado informado: agravo não conhecido."
+        ],
+        "page_id": "36872195-5c64-8106-a045-f0d19d1278f9",
+        "display_score": 4,
+        "ranking_reason": ""
+      }
+    },
+    "numero_unico:0600066-72.2026.6.23.0000": {
+      "model": "gpt-5.5",
+      "case_id": "0600066-72.2026.6.23.0000",
+      "page_id": "36872195-5c64-813f-b47f-f993eb489a05",
+      "processo": "0600066-72.2026.6.23.0000",
+      "content_hash": "e37e74315f0318007ad607a12b13799fecc5167ffdb979d1e4a6f7d35b628ca9",
+      "cached_at_utc": "2026-05-22T11:14:41.578121+00:00",
+      "analysis": {
+        "case_id": "0600066-72.2026.6.23.0000",
+        "title": "Competência para MS contra resolução do TRE/RR sobre eleição suplementar ao governo estadual",
+        "relevance_score": 9,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Edilson Damião Lima, ex-vice-governador de Roraima eleito em 2022"
+        ],
+        "parties": [
+          "FEDERAÇÃO UNIAO PROGRESSISTA - NACIONAL",
+          "TRIBUNAL REGIONAL ELEITORAL DE RORAIMA"
+        ],
+        "lawyers_signal": "Atuaram Ricardo Martins Junior, Fabricio Juliano Mendes Medeiros e Claudia Mariana Laviola de Carvalho Viana. Os dados fornecidos não indicam recorrência desses advogados no período.",
+        "what_happened": "A Federação Uniao Progressista - Nacional impetrou mandado de segurança contra a Resolução TRE/RR nº 584/2026, que regulamentou eleição suplementar para governador e vice-governador de Roraima. O TSE, por decisão monocrática do Ministro Ricardo Villas Bôas Cueva, entendeu que o ato questionado era administrativo e colegiado do TRE/RR, não do presidente do tribunal regional, e remeteu o processo com urgência ao próprio TRE/RR.",
+        "legal_grounds": "A decisão aplicou regra de competência em mandado de segurança contra ato administrativo colegiado de Tribunal Regional Eleitoral. O relator enquadrou a Resolução TRE/RR nº 584/2026 como ato do próprio TRE/RR, afastando a competência originária do TSE. O tema indicado envolve a incidência do art. 21, VI, da LOMAN, mas a conclusão foi estritamente processual, com remessa à origem.",
+        "consequence": "O TSE reconheceu a incompetência originária para processar o mandado de segurança e determinou a remessa urgente dos autos ao TRE/RR, para apreciação pela instância de origem. Não houve deliberação de mérito sobre a regra de filiação partidária prevista na Resolução TRE/RR nº 584/2026.",
+        "strategic_comment": "O caso tem interesse político-eleitoral elevado porque afeta a organização de eleição suplementar para governo estadual e envolve impugnação por estrutura partidária nacional. A decisão, contudo, não fixa tese material sobre prazo de filiação em eleição suplementar; sua utilidade estratégica está na delimitação de competência para controle judicial de resolução administrativa de TRE.",
+        "why_relevant": "A relevância decorre da combinação entre eleição suplementar para governador e vice-governador, participação de federação partidária nacional e discussão sobre filiação partidária em pleito convocado supervenientemente. Para o acompanhamento legislativo, o caso sinaliza tensão entre calendário excepcional de eleições suplementares e exigências ordinárias de elegibilidade, embora a decisão analisada tenha resolvido apenas a competência.",
+        "source_notes": [
+          "Processo nº 0600066-72.2026.6.23.0000, Mandado de Segurança Cível, decisão monocrática de 20/05/2026.",
+          "Impetrante formal informado: Federação Uniao Progressista - Nacional.",
+          "Órgão apontado como coator: Tribunal Regional Eleitoral de Roraima.",
+          "A controvérsia decorre da Resolução TRE/RR nº 584/2026, que disciplina eleição suplementar para governador e vice-governador de Roraima em 21/06/2026.",
+          "O trecho da decisão menciona três mandados de segurança correlatos, inclusive impetração de Edilson Damião Lima e do Diretório Estadual do PDT de Roraima."
+        ],
+        "page_id": "36872195-5c64-813f-b47f-f993eb489a05",
+        "display_score": 9,
+        "ranking_reason": ""
+      }
+    },
+    "numero_processo:60006672": {
+      "model": "gpt-5.5",
+      "case_id": "0600066-72.2026.6.23.0000",
+      "page_id": "36872195-5c64-813f-b47f-f993eb489a05",
+      "processo": "0600066-72.2026.6.23.0000",
+      "content_hash": "e37e74315f0318007ad607a12b13799fecc5167ffdb979d1e4a6f7d35b628ca9",
+      "cached_at_utc": "2026-05-22T11:14:41.578121+00:00",
+      "analysis": {
+        "case_id": "0600066-72.2026.6.23.0000",
+        "title": "Competência para MS contra resolução do TRE/RR sobre eleição suplementar ao governo estadual",
+        "relevance_score": 9,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Edilson Damião Lima, ex-vice-governador de Roraima eleito em 2022"
+        ],
+        "parties": [
+          "FEDERAÇÃO UNIAO PROGRESSISTA - NACIONAL",
+          "TRIBUNAL REGIONAL ELEITORAL DE RORAIMA"
+        ],
+        "lawyers_signal": "Atuaram Ricardo Martins Junior, Fabricio Juliano Mendes Medeiros e Claudia Mariana Laviola de Carvalho Viana. Os dados fornecidos não indicam recorrência desses advogados no período.",
+        "what_happened": "A Federação Uniao Progressista - Nacional impetrou mandado de segurança contra a Resolução TRE/RR nº 584/2026, que regulamentou eleição suplementar para governador e vice-governador de Roraima. O TSE, por decisão monocrática do Ministro Ricardo Villas Bôas Cueva, entendeu que o ato questionado era administrativo e colegiado do TRE/RR, não do presidente do tribunal regional, e remeteu o processo com urgência ao próprio TRE/RR.",
+        "legal_grounds": "A decisão aplicou regra de competência em mandado de segurança contra ato administrativo colegiado de Tribunal Regional Eleitoral. O relator enquadrou a Resolução TRE/RR nº 584/2026 como ato do próprio TRE/RR, afastando a competência originária do TSE. O tema indicado envolve a incidência do art. 21, VI, da LOMAN, mas a conclusão foi estritamente processual, com remessa à origem.",
+        "consequence": "O TSE reconheceu a incompetência originária para processar o mandado de segurança e determinou a remessa urgente dos autos ao TRE/RR, para apreciação pela instância de origem. Não houve deliberação de mérito sobre a regra de filiação partidária prevista na Resolução TRE/RR nº 584/2026.",
+        "strategic_comment": "O caso tem interesse político-eleitoral elevado porque afeta a organização de eleição suplementar para governo estadual e envolve impugnação por estrutura partidária nacional. A decisão, contudo, não fixa tese material sobre prazo de filiação em eleição suplementar; sua utilidade estratégica está na delimitação de competência para controle judicial de resolução administrativa de TRE.",
+        "why_relevant": "A relevância decorre da combinação entre eleição suplementar para governador e vice-governador, participação de federação partidária nacional e discussão sobre filiação partidária em pleito convocado supervenientemente. Para o acompanhamento legislativo, o caso sinaliza tensão entre calendário excepcional de eleições suplementares e exigências ordinárias de elegibilidade, embora a decisão analisada tenha resolvido apenas a competência.",
+        "source_notes": [
+          "Processo nº 0600066-72.2026.6.23.0000, Mandado de Segurança Cível, decisão monocrática de 20/05/2026.",
+          "Impetrante formal informado: Federação Uniao Progressista - Nacional.",
+          "Órgão apontado como coator: Tribunal Regional Eleitoral de Roraima.",
+          "A controvérsia decorre da Resolução TRE/RR nº 584/2026, que disciplina eleição suplementar para governador e vice-governador de Roraima em 21/06/2026.",
+          "O trecho da decisão menciona três mandados de segurança correlatos, inclusive impetração de Edilson Damião Lima e do Diretório Estadual do PDT de Roraima."
+        ],
+        "page_id": "36872195-5c64-813f-b47f-f993eb489a05",
+        "display_score": 9,
+        "ranking_reason": ""
+      }
+    },
+    "page_id:36872195-5c64-813f-b47f-f993eb489a05": {
+      "model": "gpt-5.5",
+      "case_id": "0600066-72.2026.6.23.0000",
+      "page_id": "36872195-5c64-813f-b47f-f993eb489a05",
+      "processo": "0600066-72.2026.6.23.0000",
+      "content_hash": "e37e74315f0318007ad607a12b13799fecc5167ffdb979d1e4a6f7d35b628ca9",
+      "cached_at_utc": "2026-05-22T11:14:41.578121+00:00",
+      "analysis": {
+        "case_id": "0600066-72.2026.6.23.0000",
+        "title": "Competência para MS contra resolução do TRE/RR sobre eleição suplementar ao governo estadual",
+        "relevance_score": 9,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Edilson Damião Lima, ex-vice-governador de Roraima eleito em 2022"
+        ],
+        "parties": [
+          "FEDERAÇÃO UNIAO PROGRESSISTA - NACIONAL",
+          "TRIBUNAL REGIONAL ELEITORAL DE RORAIMA"
+        ],
+        "lawyers_signal": "Atuaram Ricardo Martins Junior, Fabricio Juliano Mendes Medeiros e Claudia Mariana Laviola de Carvalho Viana. Os dados fornecidos não indicam recorrência desses advogados no período.",
+        "what_happened": "A Federação Uniao Progressista - Nacional impetrou mandado de segurança contra a Resolução TRE/RR nº 584/2026, que regulamentou eleição suplementar para governador e vice-governador de Roraima. O TSE, por decisão monocrática do Ministro Ricardo Villas Bôas Cueva, entendeu que o ato questionado era administrativo e colegiado do TRE/RR, não do presidente do tribunal regional, e remeteu o processo com urgência ao próprio TRE/RR.",
+        "legal_grounds": "A decisão aplicou regra de competência em mandado de segurança contra ato administrativo colegiado de Tribunal Regional Eleitoral. O relator enquadrou a Resolução TRE/RR nº 584/2026 como ato do próprio TRE/RR, afastando a competência originária do TSE. O tema indicado envolve a incidência do art. 21, VI, da LOMAN, mas a conclusão foi estritamente processual, com remessa à origem.",
+        "consequence": "O TSE reconheceu a incompetência originária para processar o mandado de segurança e determinou a remessa urgente dos autos ao TRE/RR, para apreciação pela instância de origem. Não houve deliberação de mérito sobre a regra de filiação partidária prevista na Resolução TRE/RR nº 584/2026.",
+        "strategic_comment": "O caso tem interesse político-eleitoral elevado porque afeta a organização de eleição suplementar para governo estadual e envolve impugnação por estrutura partidária nacional. A decisão, contudo, não fixa tese material sobre prazo de filiação em eleição suplementar; sua utilidade estratégica está na delimitação de competência para controle judicial de resolução administrativa de TRE.",
+        "why_relevant": "A relevância decorre da combinação entre eleição suplementar para governador e vice-governador, participação de federação partidária nacional e discussão sobre filiação partidária em pleito convocado supervenientemente. Para o acompanhamento legislativo, o caso sinaliza tensão entre calendário excepcional de eleições suplementares e exigências ordinárias de elegibilidade, embora a decisão analisada tenha resolvido apenas a competência.",
+        "source_notes": [
+          "Processo nº 0600066-72.2026.6.23.0000, Mandado de Segurança Cível, decisão monocrática de 20/05/2026.",
+          "Impetrante formal informado: Federação Uniao Progressista - Nacional.",
+          "Órgão apontado como coator: Tribunal Regional Eleitoral de Roraima.",
+          "A controvérsia decorre da Resolução TRE/RR nº 584/2026, que disciplina eleição suplementar para governador e vice-governador de Roraima em 21/06/2026.",
+          "O trecho da decisão menciona três mandados de segurança correlatos, inclusive impetração de Edilson Damião Lima e do Diretório Estadual do PDT de Roraima."
+        ],
+        "page_id": "36872195-5c64-813f-b47f-f993eb489a05",
+        "display_score": 9,
+        "ranking_reason": ""
+      }
+    },
+    "case_id:0600066-72.2026.6.23.0000": {
+      "model": "gpt-5.5",
+      "case_id": "0600066-72.2026.6.23.0000",
+      "page_id": "36872195-5c64-813f-b47f-f993eb489a05",
+      "processo": "0600066-72.2026.6.23.0000",
+      "content_hash": "e37e74315f0318007ad607a12b13799fecc5167ffdb979d1e4a6f7d35b628ca9",
+      "cached_at_utc": "2026-05-22T11:14:41.578121+00:00",
+      "analysis": {
+        "case_id": "0600066-72.2026.6.23.0000",
+        "title": "Competência para MS contra resolução do TRE/RR sobre eleição suplementar ao governo estadual",
+        "relevance_score": 9,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Edilson Damião Lima, ex-vice-governador de Roraima eleito em 2022"
+        ],
+        "parties": [
+          "FEDERAÇÃO UNIAO PROGRESSISTA - NACIONAL",
+          "TRIBUNAL REGIONAL ELEITORAL DE RORAIMA"
+        ],
+        "lawyers_signal": "Atuaram Ricardo Martins Junior, Fabricio Juliano Mendes Medeiros e Claudia Mariana Laviola de Carvalho Viana. Os dados fornecidos não indicam recorrência desses advogados no período.",
+        "what_happened": "A Federação Uniao Progressista - Nacional impetrou mandado de segurança contra a Resolução TRE/RR nº 584/2026, que regulamentou eleição suplementar para governador e vice-governador de Roraima. O TSE, por decisão monocrática do Ministro Ricardo Villas Bôas Cueva, entendeu que o ato questionado era administrativo e colegiado do TRE/RR, não do presidente do tribunal regional, e remeteu o processo com urgência ao próprio TRE/RR.",
+        "legal_grounds": "A decisão aplicou regra de competência em mandado de segurança contra ato administrativo colegiado de Tribunal Regional Eleitoral. O relator enquadrou a Resolução TRE/RR nº 584/2026 como ato do próprio TRE/RR, afastando a competência originária do TSE. O tema indicado envolve a incidência do art. 21, VI, da LOMAN, mas a conclusão foi estritamente processual, com remessa à origem.",
+        "consequence": "O TSE reconheceu a incompetência originária para processar o mandado de segurança e determinou a remessa urgente dos autos ao TRE/RR, para apreciação pela instância de origem. Não houve deliberação de mérito sobre a regra de filiação partidária prevista na Resolução TRE/RR nº 584/2026.",
+        "strategic_comment": "O caso tem interesse político-eleitoral elevado porque afeta a organização de eleição suplementar para governo estadual e envolve impugnação por estrutura partidária nacional. A decisão, contudo, não fixa tese material sobre prazo de filiação em eleição suplementar; sua utilidade estratégica está na delimitação de competência para controle judicial de resolução administrativa de TRE.",
+        "why_relevant": "A relevância decorre da combinação entre eleição suplementar para governador e vice-governador, participação de federação partidária nacional e discussão sobre filiação partidária em pleito convocado supervenientemente. Para o acompanhamento legislativo, o caso sinaliza tensão entre calendário excepcional de eleições suplementares e exigências ordinárias de elegibilidade, embora a decisão analisada tenha resolvido apenas a competência.",
+        "source_notes": [
+          "Processo nº 0600066-72.2026.6.23.0000, Mandado de Segurança Cível, decisão monocrática de 20/05/2026.",
+          "Impetrante formal informado: Federação Uniao Progressista - Nacional.",
+          "Órgão apontado como coator: Tribunal Regional Eleitoral de Roraima.",
+          "A controvérsia decorre da Resolução TRE/RR nº 584/2026, que disciplina eleição suplementar para governador e vice-governador de Roraima em 21/06/2026.",
+          "O trecho da decisão menciona três mandados de segurança correlatos, inclusive impetração de Edilson Damião Lima e do Diretório Estadual do PDT de Roraima."
+        ],
+        "page_id": "36872195-5c64-813f-b47f-f993eb489a05",
+        "display_score": 9,
+        "ranking_reason": ""
+      }
+    },
+    "content_hash:e37e74315f0318007ad607a12b13799fecc5167ffdb979d1e4a6f7d35b628ca9": {
+      "model": "gpt-5.5",
+      "case_id": "0600066-72.2026.6.23.0000",
+      "page_id": "36872195-5c64-813f-b47f-f993eb489a05",
+      "processo": "0600066-72.2026.6.23.0000",
+      "content_hash": "e37e74315f0318007ad607a12b13799fecc5167ffdb979d1e4a6f7d35b628ca9",
+      "cached_at_utc": "2026-05-22T11:14:41.578121+00:00",
+      "analysis": {
+        "case_id": "0600066-72.2026.6.23.0000",
+        "title": "Competência para MS contra resolução do TRE/RR sobre eleição suplementar ao governo estadual",
+        "relevance_score": 9,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Edilson Damião Lima, ex-vice-governador de Roraima eleito em 2022"
+        ],
+        "parties": [
+          "FEDERAÇÃO UNIAO PROGRESSISTA - NACIONAL",
+          "TRIBUNAL REGIONAL ELEITORAL DE RORAIMA"
+        ],
+        "lawyers_signal": "Atuaram Ricardo Martins Junior, Fabricio Juliano Mendes Medeiros e Claudia Mariana Laviola de Carvalho Viana. Os dados fornecidos não indicam recorrência desses advogados no período.",
+        "what_happened": "A Federação Uniao Progressista - Nacional impetrou mandado de segurança contra a Resolução TRE/RR nº 584/2026, que regulamentou eleição suplementar para governador e vice-governador de Roraima. O TSE, por decisão monocrática do Ministro Ricardo Villas Bôas Cueva, entendeu que o ato questionado era administrativo e colegiado do TRE/RR, não do presidente do tribunal regional, e remeteu o processo com urgência ao próprio TRE/RR.",
+        "legal_grounds": "A decisão aplicou regra de competência em mandado de segurança contra ato administrativo colegiado de Tribunal Regional Eleitoral. O relator enquadrou a Resolução TRE/RR nº 584/2026 como ato do próprio TRE/RR, afastando a competência originária do TSE. O tema indicado envolve a incidência do art. 21, VI, da LOMAN, mas a conclusão foi estritamente processual, com remessa à origem.",
+        "consequence": "O TSE reconheceu a incompetência originária para processar o mandado de segurança e determinou a remessa urgente dos autos ao TRE/RR, para apreciação pela instância de origem. Não houve deliberação de mérito sobre a regra de filiação partidária prevista na Resolução TRE/RR nº 584/2026.",
+        "strategic_comment": "O caso tem interesse político-eleitoral elevado porque afeta a organização de eleição suplementar para governo estadual e envolve impugnação por estrutura partidária nacional. A decisão, contudo, não fixa tese material sobre prazo de filiação em eleição suplementar; sua utilidade estratégica está na delimitação de competência para controle judicial de resolução administrativa de TRE.",
+        "why_relevant": "A relevância decorre da combinação entre eleição suplementar para governador e vice-governador, participação de federação partidária nacional e discussão sobre filiação partidária em pleito convocado supervenientemente. Para o acompanhamento legislativo, o caso sinaliza tensão entre calendário excepcional de eleições suplementares e exigências ordinárias de elegibilidade, embora a decisão analisada tenha resolvido apenas a competência.",
+        "source_notes": [
+          "Processo nº 0600066-72.2026.6.23.0000, Mandado de Segurança Cível, decisão monocrática de 20/05/2026.",
+          "Impetrante formal informado: Federação Uniao Progressista - Nacional.",
+          "Órgão apontado como coator: Tribunal Regional Eleitoral de Roraima.",
+          "A controvérsia decorre da Resolução TRE/RR nº 584/2026, que disciplina eleição suplementar para governador e vice-governador de Roraima em 21/06/2026.",
+          "O trecho da decisão menciona três mandados de segurança correlatos, inclusive impetração de Edilson Damião Lima e do Diretório Estadual do PDT de Roraima."
+        ],
+        "page_id": "36872195-5c64-813f-b47f-f993eb489a05",
+        "display_score": 9,
+        "ranking_reason": ""
+      }
     }
   },
   "version": 1,
-  "updated_at_utc": "2026-05-15T23:32:46.201444+00:00"
+  "updated_at_utc": "2026-05-22T11:14:41.578547+00:00"
 }
