@@ -9,10 +9,13 @@ $script:downloadLogBox = $null
 $script:downloadStatusLabel = $null
 $script:downloadButton = $null
 $script:cancelButton = $null
+$script:downloadProgressBar = $null
 $script:downloadTimer = $null
 $script:downloadFinished = $false
 $script:downloadExpectedPath = $null
 $script:downloadActualPath = $null
+$script:downloadPollFile = $null
+$script:downloadPollPosition = 0
 $script:sessionLogFile = Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath ("yt_clip_gui_{0}.log" -f (Get-Date -Format "yyyyMMdd_HHmmss"))
 
 function Parse-IntegerPart {
@@ -162,6 +165,44 @@ function Convert-TitleToOutputBaseName {
     }
 
     return $clean
+}
+
+function Normalize-YouTubeUrl {
+    param([Parameter(Mandatory = $true)][AllowEmptyString()][string]$InputText)
+
+    $raw = $InputText.Trim()
+    if ([string]::IsNullOrWhiteSpace($raw)) {
+        throw "URL cannot be empty."
+    }
+
+    [System.Uri]$uri = $null
+    $isUri = [System.Uri]::TryCreate($raw, [System.UriKind]::Absolute, [ref]$uri)
+    if (-not $isUri -or (@("http", "https") -notcontains $uri.Scheme.ToLowerInvariant())) {
+        throw "Please provide a valid URL, for example https://www.youtube.com/watch?v=... or https://youtu.be/..."
+    }
+
+    $urlHost = $uri.Host.ToLowerInvariant()
+    if (($urlHost -eq "youtu.be") -or ($urlHost -eq "www.youtu.be")) {
+        $path = $uri.AbsolutePath.Trim("/")
+        if ([string]::IsNullOrWhiteSpace($path)) {
+            throw "Short YouTube URL does not contain a video id."
+        }
+
+        $videoId = $path.Split("/")[0]
+        $normalized = "https://www.youtube.com/watch?v={0}" -f [System.Uri]::EscapeDataString($videoId)
+
+        $query = $uri.Query
+        if (-not [string]::IsNullOrWhiteSpace($query)) {
+            $query = $query.TrimStart("?")
+            if (-not [string]::IsNullOrWhiteSpace($query)) {
+                $normalized = "{0}&{1}" -f $normalized, $query
+            }
+        }
+
+        return $normalized
+    }
+
+    return $raw
 }
 
 function Invoke-ToolCaptureSingleLine {
@@ -329,6 +370,58 @@ function Set-ButtonState {
     }
 }
 
+function Set-ProgressMarquee {
+    param(
+        [Parameter(Mandatory = $true)][System.Windows.Forms.ProgressBar]$Target,
+        [Parameter(Mandatory = $true)][bool]$Enabled
+    )
+
+    $setter = {
+        param([System.Windows.Forms.ProgressBar]$Bar, [bool]$State)
+        if ($State) {
+            $Bar.Style = [System.Windows.Forms.ProgressBarStyle]::Marquee
+            $Bar.MarqueeAnimationSpeed = 30
+            $Bar.Value = 0
+        }
+        else {
+            $Bar.MarqueeAnimationSpeed = 0
+            $Bar.Style = [System.Windows.Forms.ProgressBarStyle]::Continuous
+        }
+    }
+
+    if ($Target.InvokeRequired) {
+        $Target.BeginInvoke($setter, $Target, $Enabled) | Out-Null
+    }
+    else {
+        & $setter $Target $Enabled
+    }
+}
+
+function Set-ProgressPercent {
+    param(
+        [Parameter(Mandatory = $true)][System.Windows.Forms.ProgressBar]$Target,
+        [Parameter(Mandatory = $true)][int]$Value
+    )
+
+    $clamped = [Math]::Max(0, [Math]::Min(100, $Value))
+
+    $setter = {
+        param([System.Windows.Forms.ProgressBar]$Bar, [int]$Percent)
+        if ($Bar.Style -ne [System.Windows.Forms.ProgressBarStyle]::Continuous) {
+            $Bar.MarqueeAnimationSpeed = 0
+            $Bar.Style = [System.Windows.Forms.ProgressBarStyle]::Continuous
+        }
+        $Bar.Value = $Percent
+    }
+
+    if ($Target.InvokeRequired) {
+        $Target.BeginInvoke($setter, $Target, $clamped) | Out-Null
+    }
+    else {
+        & $setter $Target $clamped
+    }
+}
+
 function Complete-YtDlpDownload {
     param([Parameter(Mandatory = $true)][int]$ExitCode)
 
@@ -350,11 +443,17 @@ function Complete-YtDlpDownload {
     }
 
     $script:activeProcess = $null
+    $script:downloadPollFile = $null
+    $script:downloadPollPosition = 0
 
     Set-ButtonState -Target $script:downloadButton -Enabled $true
     Set-ButtonState -Target $script:cancelButton -Enabled $false
 
     if ($ExitCode -eq 0) {
+        if ($null -ne $script:downloadProgressBar) {
+            Set-ProgressPercent -Target $script:downloadProgressBar -Value 100
+        }
+
         Set-StatusText -Target $script:downloadStatusLabel -Text "Done. Clip downloaded successfully."
         Append-Log -Target $script:downloadLogBox -Line ""
         Append-Log -Target $script:downloadLogBox -Line "Download finished successfully."
@@ -375,6 +474,10 @@ function Complete-YtDlpDownload {
         Append-Log -Target $script:downloadLogBox -Line "Window kept open. You can close it when finished reviewing the log."
     }
     else {
+        if ($null -ne $script:downloadProgressBar) {
+            Set-ProgressMarquee -Target $script:downloadProgressBar -Enabled $false
+        }
+
         Set-StatusText -Target $script:downloadStatusLabel -Text "Failed. Check log for details."
         Append-Log -Target $script:downloadLogBox -Line ""
         Append-Log -Target $script:downloadLogBox -Line ("Download failed with exit code {0}." -f $ExitCode)
@@ -382,6 +485,75 @@ function Complete-YtDlpDownload {
             Append-Log -Target $script:downloadLogBox -Line ("Arquivo esperado seria: {0}" -f $script:downloadExpectedPath)
         }
         Append-Log -Target $script:downloadLogBox -Line "Window kept open so you can review the error above."
+    }
+}
+
+function Handle-DownloadOutputLine {
+    param([Parameter(Mandatory = $true)][AllowEmptyString()][string]$Line)
+
+    if ([string]::IsNullOrWhiteSpace($Line)) {
+        return
+    }
+
+    $cleanLine = $Line.Trim()
+    Append-Log -Target $script:downloadLogBox -Line $cleanLine
+
+    if ($cleanLine -match '\[download\]\s+([0-9]+(?:\.[0-9]+)?)%') {
+        Set-ProgressPercent -Target $script:downloadProgressBar -Value ([int][Math]::Round([double]::Parse($matches[1], [System.Globalization.CultureInfo]::InvariantCulture)))
+    }
+    elseif ($cleanLine -like "Cutting locally*") {
+        Set-ProgressMarquee -Target $script:downloadProgressBar -Enabled $true
+    }
+    elseif ($cleanLine -eq "progress=end") {
+        Set-ProgressPercent -Target $script:downloadProgressBar -Value 100
+    }
+
+    if (($cleanLine -match '\.(mp4|mp3|mkv|webm)$') -and (Test-Path -LiteralPath $cleanLine)) {
+        $script:downloadActualPath = $cleanLine
+    }
+}
+
+function Read-PolledDownloadLog {
+    if ([string]::IsNullOrWhiteSpace($script:downloadPollFile)) {
+        return
+    }
+
+    if (-not (Test-Path -LiteralPath $script:downloadPollFile)) {
+        return
+    }
+
+    $stream = $null
+    $reader = $null
+    try {
+        $stream = [System.IO.File]::Open(
+            $script:downloadPollFile,
+            [System.IO.FileMode]::Open,
+            [System.IO.FileAccess]::Read,
+            [System.IO.FileShare]::ReadWrite
+        )
+        [void]$stream.Seek($script:downloadPollPosition, [System.IO.SeekOrigin]::Begin)
+        $reader = New-Object System.IO.StreamReader($stream, [System.Text.Encoding]::UTF8, $true, 4096, $true)
+        $text = $reader.ReadToEnd()
+        $script:downloadPollPosition = $stream.Position
+    }
+    catch {
+        return
+    }
+    finally {
+        if ($null -ne $reader) {
+            $reader.Dispose()
+        }
+        if ($null -ne $stream) {
+            $stream.Dispose()
+        }
+    }
+
+    if ([string]::IsNullOrWhiteSpace($text)) {
+        return
+    }
+
+    foreach ($line in ($text -split "\r?\n")) {
+        Handle-DownloadOutputLine -Line $line
     }
 }
 
@@ -532,7 +704,9 @@ function Start-YtDlpDownload {
         [Parameter(Mandatory = $true)][System.Windows.Forms.Label]$StatusLabel,
         [Parameter(Mandatory = $true)][System.Windows.Forms.Button]$DownloadButton,
         [Parameter(Mandatory = $true)][System.Windows.Forms.Button]$CancelButton,
-        [AllowEmptyString()][string]$ExpectedOutputPath = ""
+        [Parameter(Mandatory = $true)][System.Windows.Forms.ProgressBar]$ProgressBar,
+        [AllowEmptyString()][string]$ExpectedOutputPath = "",
+        [AllowEmptyString()][string]$PollLogFile = ""
     )
 
     if ($script:activeProcess -and -not $script:activeProcess.HasExited) {
@@ -549,11 +723,22 @@ function Start-YtDlpDownload {
     }
     Append-Log -Target $LogBox -Line ""
 
+    $usePollLog = -not [string]::IsNullOrWhiteSpace($PollLogFile)
+    if ($usePollLog) {
+        try {
+            [System.IO.File]::WriteAllText($PollLogFile, "", [System.Text.Encoding]::UTF8)
+        }
+        catch {
+            throw "Could not create process log file: $PollLogFile"
+        }
+        Append-Log -Target $LogBox -Line ("Process progress log: {0}" -f $PollLogFile)
+    }
+
     $psi = New-Object System.Diagnostics.ProcessStartInfo
     $psi.FileName = $ExecutablePath
     $psi.Arguments = $argumentText
-    $psi.RedirectStandardOutput = $true
-    $psi.RedirectStandardError = $true
+    $psi.RedirectStandardOutput = -not $usePollLog
+    $psi.RedirectStandardError = -not $usePollLog
     $psi.UseShellExecute = $false
     $psi.CreateNoWindow = $true
 
@@ -561,23 +746,23 @@ function Start-YtDlpDownload {
     $script:downloadStatusLabel = $StatusLabel
     $script:downloadButton = $DownloadButton
     $script:cancelButton = $CancelButton
+    $script:downloadProgressBar = $ProgressBar
     $script:downloadExpectedPath = $ExpectedOutputPath
     $script:downloadActualPath = $null
     $script:downloadFinished = $false
+    $script:downloadPollFile = if ($usePollLog) { $PollLogFile } else { $null }
+    $script:downloadPollPosition = 0
 
     $process = New-Object System.Diagnostics.Process
     $process.StartInfo = $psi
     $process.EnableRaisingEvents = $true
 
-    $process.add_OutputDataReceived({
+    if (-not $usePollLog) {
+        $process.add_OutputDataReceived({
             param($sender, $eventArgs)
             try {
                 if (-not [string]::IsNullOrWhiteSpace($eventArgs.Data)) {
-                    $line = $eventArgs.Data.Trim()
-                    Append-Log -Target $script:downloadLogBox -Line $line
-                    if (($line -match '\.(mp4|mp3|mkv|webm)$') -and (Test-Path -LiteralPath $line)) {
-                        $script:downloadActualPath = $line
-                    }
+                    Handle-DownloadOutputLine -Line $eventArgs.Data
                 }
             }
             catch {
@@ -585,35 +770,18 @@ function Start-YtDlpDownload {
             }
         })
 
-    $process.add_ErrorDataReceived({
+        $process.add_ErrorDataReceived({
             param($sender, $eventArgs)
             try {
                 if (-not [string]::IsNullOrWhiteSpace($eventArgs.Data)) {
-                    Append-Log -Target $script:downloadLogBox -Line $eventArgs.Data
+                    Handle-DownloadOutputLine -Line $eventArgs.Data
                 }
             }
             catch {
                 # Ignore callback errors to avoid crashing the UI host.
             }
         })
-
-    $process.add_Exited({
-            param($sender, $eventArgs)
-            try {
-                $exitCode = 1
-                try {
-                    $exitCode = $sender.ExitCode
-                }
-                catch {
-                    # Keep default non-zero code.
-                }
-
-                Complete-YtDlpDownload -ExitCode $exitCode
-            }
-            catch {
-                # Ignore callback errors to avoid closing the GUI unexpectedly.
-            }
-        })
+    }
 
     $started = $process.Start()
     if (-not $started) {
@@ -623,13 +791,16 @@ function Start-YtDlpDownload {
     $script:activeProcess = $process
     Set-ButtonState -Target $DownloadButton -Enabled $false
     Set-ButtonState -Target $CancelButton -Enabled $true
+    Set-ProgressMarquee -Target $ProgressBar -Enabled $true
     Set-StatusText -Target $StatusLabel -Text "Downloading clip... keep this window open to follow progress."
 
     $timer = New-Object System.Windows.Forms.Timer
     $timer.Interval = 1000
     $timer.Add_Tick({
             try {
+                Read-PolledDownloadLog
                 if ($script:activeProcess -and $script:activeProcess.HasExited) {
+                    Read-PolledDownloadLog
                     $exitCode = $script:activeProcess.ExitCode
                     Complete-YtDlpDownload -ExitCode $exitCode
                 }
@@ -641,8 +812,10 @@ function Start-YtDlpDownload {
     $script:downloadTimer = $timer
     $timer.Start()
 
-    $process.BeginOutputReadLine()
-    $process.BeginErrorReadLine()
+    if (-not $usePollLog) {
+        $process.BeginOutputReadLine()
+        $process.BeginErrorReadLine()
+    }
 }
 
 $form = New-Object System.Windows.Forms.Form
@@ -733,9 +906,18 @@ $lblStatus.Text = "Ready."
 $lblStatus.Location = New-Object System.Drawing.Point(15, 274)
 $lblStatus.AutoSize = $true
 
+$progressDownload = New-Object System.Windows.Forms.ProgressBar
+$progressDownload.Location = New-Object System.Drawing.Point(15, 300)
+$progressDownload.Size = New-Object System.Drawing.Size(810, 18)
+$progressDownload.Anchor = "Top, Left, Right"
+$progressDownload.Minimum = 0
+$progressDownload.Maximum = 100
+$progressDownload.Value = 0
+$progressDownload.Style = [System.Windows.Forms.ProgressBarStyle]::Continuous
+
 $txtLog = New-Object System.Windows.Forms.TextBox
-$txtLog.Location = New-Object System.Drawing.Point(15, 300)
-$txtLog.Size = New-Object System.Drawing.Size(810, 270)
+$txtLog.Location = New-Object System.Drawing.Point(15, 328)
+$txtLog.Size = New-Object System.Drawing.Size(810, 242)
 $txtLog.Multiline = $true
 $txtLog.ScrollBars = "Vertical"
 $txtLog.ReadOnly = $true
@@ -757,6 +939,7 @@ $form.Controls.AddRange(@(
         $btnDownload,
         $btnCancel,
         $lblStatus,
+        $progressDownload,
         $txtLog
     ))
 
@@ -781,7 +964,11 @@ $btnCancel.Add_Click({
                     $script:downloadTimer.Dispose()
                     $script:downloadTimer = $null
                 }
+                $script:activeProcess = $null
                 $script:downloadFinished = $true
+                Set-ButtonState -Target $btnDownload -Enabled $true
+                Set-ButtonState -Target $btnCancel -Enabled $false
+                Set-ProgressMarquee -Target $progressDownload -Enabled $false
                 Append-Log -Target $txtLog -Line "Process cancelled by user."
                 Set-StatusText -Target $lblStatus -Text "Cancelled."
             }
@@ -832,14 +1019,7 @@ $btnDownload.Add_Click({
                     -CandidatePaths $ffmpegCandidates `
                     -ErrorHint "ffmpeg not found. Install with: winget install Gyan.FFmpeg"
 
-            $url = $txtUrl.Text.Trim()
-            if ([string]::IsNullOrWhiteSpace($url)) {
-                throw "URL cannot be empty."
-            }
-
-            if ($url -notmatch '^https?://') {
-                throw "Please provide a valid URL (starting with http:// or https://)."
-            }
+            $url = Normalize-YouTubeUrl -InputText $txtUrl.Text
 
             $startSeconds = Convert-TimeInputToSeconds -InputText $txtStart.Text
             $endSeconds = Convert-TimeInputToSeconds -InputText $txtEnd.Text
@@ -860,27 +1040,15 @@ $btnDownload.Add_Click({
             $startText = Format-SecondsForYtDlp -TotalSeconds $startSeconds
             $endText = Format-SecondsForYtDlp -TotalSeconds $endSeconds
             $section = "*$startText-$endText"
+            $clipSuffix = "{0}-{1}" -f (Format-SecondsForFileName -TotalSeconds $startSeconds), (Format-SecondsForFileName -TotalSeconds $endSeconds)
             $expectedOutputPath = ""
-
-            $ytDlpArgs = @(
-                "--newline",
-                "--no-playlist",
-                "--force-overwrites",
-                "--replace-in-metadata", "title", "\s*[|｜]\s*.+$", "",
-                "--replace-in-metadata", "title", "\s*[：:]\s*", " - ",
-                "--download-sections", $section,
-                "--paths", $outputDir,
-                "--windows-filenames",
-                "--ffmpeg-location", $ffmpegPath,
-                "--print", "after_move:filepath",
-                "-o", "%(title)s.%(ext)s"
-            )
 
             if ($cmbMode.SelectedIndex -eq 0) {
                 $workerPath = Join-Path -Path $PSScriptRoot -ChildPath "yt_clip_video_worker.ps1"
                 if (-not (Test-Path -LiteralPath $workerPath)) {
                     throw "Video worker script not found: $workerPath"
                 }
+                $workerLogFile = Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath ("yt_clip_worker_{0}.log" -f (Get-Date -Format "yyyyMMdd_HHmmss"))
 
                 $powershellPath = Join-Path -Path $PSHOME -ChildPath "powershell.exe"
                 if (-not (Test-Path -LiteralPath $powershellPath)) {
@@ -896,7 +1064,9 @@ $btnDownload.Add_Click({
                     "-Url", $url,
                     "-Start", $startText,
                     "-End", $endText,
-                    "-OutputDir", $outputDir
+                    "-OutputDir", $outputDir,
+                    "-ClipSuffix", $clipSuffix,
+                    "-ProgressLogFile", $workerLogFile
                 )
 
                 if ($ytDlpPrefixArgs.Count -gt 0) {
@@ -910,10 +1080,24 @@ $btnDownload.Add_Click({
                     -StatusLabel $lblStatus `
                     -DownloadButton $btnDownload `
                     -CancelButton $btnCancel `
-                    -ExpectedOutputPath $expectedOutputPath
+                    -ProgressBar $progressDownload `
+                    -ExpectedOutputPath $expectedOutputPath `
+                    -PollLogFile $workerLogFile
             }
             else {
-                $ytDlpArgs += @(
+                $ytDlpArgs = @(
+                    "--newline",
+                    "--no-playlist",
+                    "--force-overwrites",
+                    "--replace-in-metadata", "title", "\s*[|｜]\s*.+$", "",
+                    "--replace-in-metadata", "title", "\s*[：:]\s*", " - ",
+                    "--replace-in-metadata", "title", "[/\\]+", "-",
+                    "--download-sections", $section,
+                    "--paths", $outputDir,
+                    "--windows-filenames",
+                    "--ffmpeg-location", $ffmpegPath,
+                    "--print", "after_move:filepath",
+                    "-o", ("%(title)s [{0}].%(ext)s" -f $clipSuffix),
                     "-x",
                     "--audio-format", "mp3",
                     "--audio-quality", "0"
@@ -928,10 +1112,16 @@ $btnDownload.Add_Click({
                     -StatusLabel $lblStatus `
                     -DownloadButton $btnDownload `
                     -CancelButton $btnCancel `
+                    -ProgressBar $progressDownload `
                     -ExpectedOutputPath $expectedOutputPath
             }
         }
         catch {
+            Append-Log -Target $txtLog -Line ("ERROR: {0}" -f $_.Exception.Message)
+            Set-StatusText -Target $lblStatus -Text "Error. Check log for details."
+            Set-ButtonState -Target $btnDownload -Enabled $true
+            Set-ButtonState -Target $btnCancel -Enabled $false
+            Set-ProgressMarquee -Target $progressDownload -Enabled $false
             [System.Windows.Forms.MessageBox]::Show(
                 $_.Exception.Message,
                 "Validation error",
@@ -943,30 +1133,14 @@ $btnDownload.Add_Click({
 
 $form.Add_FormClosing({
         if ($script:activeProcess -and -not $script:activeProcess.HasExited) {
-            $confirm = [System.Windows.Forms.MessageBox]::Show(
-                "A download is running. Close and cancel it?",
+            [System.Windows.Forms.MessageBox]::Show(
+                "A download is running. Use Cancel before closing this window.",
                 "yt clip",
-                [System.Windows.Forms.MessageBoxButtons]::YesNo,
-                [System.Windows.Forms.MessageBoxIcon]::Question
-            )
-
-            if ($confirm -eq [System.Windows.Forms.DialogResult]::No) {
-                $_.Cancel = $true
-                return
-            }
-
-            try {
-                $script:activeProcess.Kill()
-                if ($null -ne $script:downloadTimer) {
-                    $script:downloadTimer.Stop()
-                    $script:downloadTimer.Dispose()
-                    $script:downloadTimer = $null
-                }
-                $script:downloadFinished = $true
-            }
-            catch {
-                # Ignore close-time errors.
-            }
+                [System.Windows.Forms.MessageBoxButtons]::OK,
+                [System.Windows.Forms.MessageBoxIcon]::Information
+            ) | Out-Null
+            $_.Cancel = $true
+            return
         }
     })
 
