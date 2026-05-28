@@ -123,6 +123,89 @@ function Format-SecondsForFfmpeg {
     )
 }
 
+function Get-QueryParameter {
+    param(
+        [Parameter(Mandatory = $true)][System.Uri]$Uri,
+        [Parameter(Mandatory = $true)][string]$Name
+    )
+
+    if ([string]::IsNullOrWhiteSpace($Uri.Query)) {
+        return $null
+    }
+
+    foreach ($part in $Uri.Query.TrimStart("?").Split("&")) {
+        if ([string]::IsNullOrWhiteSpace($part)) {
+            continue
+        }
+
+        $pair = $part -split "=", 2
+        $key = [System.Uri]::UnescapeDataString($pair[0].Replace("+", " "))
+        if ($key -ine $Name) {
+            continue
+        }
+
+        if ($pair.Count -lt 2) {
+            return ""
+        }
+
+        return [System.Uri]::UnescapeDataString($pair[1].Replace("+", " "))
+    }
+
+    return $null
+}
+
+function Normalize-YouTubeUrl {
+    param([Parameter(Mandatory = $true)][AllowEmptyString()][string]$InputText)
+
+    $raw = $InputText.Trim()
+    if ([string]::IsNullOrWhiteSpace($raw)) {
+        throw "URL cannot be empty."
+    }
+
+    [System.Uri]$uri = $null
+    $isUri = [System.Uri]::TryCreate($raw, [System.UriKind]::Absolute, [ref]$uri)
+    if (-not $isUri -or (@("http", "https") -notcontains $uri.Scheme.ToLowerInvariant())) {
+        throw "Please provide a valid URL, for example https://www.youtube.com/watch?v=... or https://youtu.be/..."
+    }
+
+    $urlHost = $uri.Host.ToLowerInvariant()
+    $isShortHost = ($urlHost -eq "youtu.be") -or ($urlHost -eq "www.youtu.be")
+    $isYoutubeHost = ($urlHost -eq "youtube.com") -or $urlHost.EndsWith(".youtube.com")
+
+    if (-not ($isShortHost -or $isYoutubeHost)) {
+        throw "Please provide a YouTube video URL."
+    }
+
+    $videoId = $null
+    $pathParts = @($uri.AbsolutePath.Trim("/").Split("/") | Where-Object { -not [string]::IsNullOrWhiteSpace($_) })
+
+    if ($isShortHost) {
+        if ($pathParts.Count -gt 0) {
+            $videoId = $pathParts[0]
+        }
+    }
+    elseif ($pathParts.Count -gt 0) {
+        switch ($pathParts[0].ToLowerInvariant()) {
+            "watch" {
+                $videoId = Get-QueryParameter -Uri $uri -Name "v"
+                break
+            }
+            { @("shorts", "embed", "v", "live") -contains $_ } {
+                if ($pathParts.Count -gt 1) {
+                    $videoId = $pathParts[1]
+                }
+                break
+            }
+        }
+    }
+
+    if ($videoId -notmatch '^[A-Za-z0-9_-]{11}$') {
+        throw "Please provide a direct YouTube video URL (watch?v=..., youtu.be/..., /shorts/...). Channel, playlist, and home URLs are not supported."
+    }
+
+    return "https://www.youtube.com/watch?v={0}" -f [System.Uri]::EscapeDataString($videoId)
+}
+
 if (-not (Test-Path -LiteralPath $YtDlpPath)) {
     throw "yt-dlp executable was not found: $YtDlpPath"
 }
@@ -135,12 +218,42 @@ if (-not (Test-Path -LiteralPath $OutputDir)) {
     New-Item -ItemType Directory -Path $OutputDir -Force | Out-Null
 }
 
-$tempDir = Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath ("yt_clip_full_{0}" -f ([System.Guid]::NewGuid().ToString("N")))
+try {
+    $Url = Normalize-YouTubeUrl -InputText $Url
+}
+catch {
+    Write-ProgressLine -Line ("ERROR: {0}" -f $_.Exception.Message)
+    exit 1
+}
+
+$tempDir = Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath ("yt_clip_window_{0}" -f ([System.Guid]::NewGuid().ToString("N")))
 New-Item -ItemType Directory -Path $tempDir -Force | Out-Null
 
 try {
-    Write-ProgressLine -Line "Downloading a synced source MP4 to a temporary folder before cutting locally."
+    Write-ProgressLine -Line "Downloading a synced source MP4 window to a temporary folder before cutting locally."
     Write-ProgressLine -Line "Temporary folder: $tempDir"
+
+    $startSeconds = Convert-TimecodeToSeconds -Value $Start
+    $endSeconds = Convert-TimecodeToSeconds -Value $End
+    $durationSeconds = $endSeconds - $startSeconds
+    if ($durationSeconds -le 0) {
+        throw "Invalid cut duration calculated from $Start to $End."
+    }
+
+    $paddingSeconds = 30.0
+    $windowStartSeconds = [Math]::Max(0, $startSeconds - $paddingSeconds)
+    $windowEndSeconds = $endSeconds + $paddingSeconds
+    $localStartSeconds = $startSeconds - $windowStartSeconds
+
+    $windowStartText = Format-SecondsForFfmpeg -TotalSeconds $windowStartSeconds
+    $windowEndText = Format-SecondsForFfmpeg -TotalSeconds $windowEndSeconds
+    $localStartText = Format-SecondsForFfmpeg -TotalSeconds $localStartSeconds
+    $durationText = Format-SecondsForFfmpeg -TotalSeconds $durationSeconds
+    $downloadSection = "*{0}-{1}" -f $windowStartText, $windowEndText
+
+    Write-ProgressLine -Line "Downloading only a small source window instead of the full video."
+    Write-ProgressLine -Line ("Requested clip: {0} to {1} ({2})." -f $Start, $End, $durationText)
+    Write-ProgressLine -Line ("Source window: {0} to {1}; final cut starts {2} inside that window." -f $windowStartText, $windowEndText, $localStartText)
 
     $ytDlpArgs = @()
     if ($UsePythonModule) {
@@ -151,6 +264,8 @@ try {
         "--newline",
         "--no-playlist",
         "--force-overwrites",
+        "--download-sections", $downloadSection,
+        "--force-keyframes-at-cuts",
         "--replace-in-metadata", "title", "\s*[|｜]\s*.+$", "",
         "--replace-in-metadata", "title", "\s*[：:]\s*", " - ",
         "--replace-in-metadata", "title", "[/\\]+", "-",
@@ -190,13 +305,8 @@ try {
     }
     $finalPath = Join-Path -Path $OutputDir -ChildPath $finalFileName
 
-    $durationSeconds = (Convert-TimecodeToSeconds -Value $End) - (Convert-TimecodeToSeconds -Value $Start)
-    if ($durationSeconds -le 0) {
-        throw "Invalid cut duration calculated from $Start to $End."
-    }
-    $durationText = Format-SecondsForFfmpeg -TotalSeconds $durationSeconds
-
-    Write-ProgressLine -Line "Cutting locally with ffmpeg from $Start for $durationText."
+    Write-ProgressLine -Line "Cutting locally with ffmpeg from the downloaded source window."
+    Write-ProgressLine -Line ("Precise local cut: {0} for {1}." -f $localStartText, $durationText)
     Write-ProgressLine -Line "Using timestamp reset to keep audio and video synchronized."
 
     $ffmpegArgs = @(
@@ -207,7 +317,7 @@ try {
         "-nostdin",
         "-y",
         "-i", $sourcePath,
-        "-ss", $Start,
+        "-ss", $localStartText,
         "-t", $durationText,
         "-map", "0:v:0",
         "-map", "0:a:0?",

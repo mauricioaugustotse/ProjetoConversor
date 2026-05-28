@@ -167,6 +167,37 @@ function Convert-TitleToOutputBaseName {
     return $clean
 }
 
+function Get-QueryParameter {
+    param(
+        [Parameter(Mandatory = $true)][System.Uri]$Uri,
+        [Parameter(Mandatory = $true)][string]$Name
+    )
+
+    if ([string]::IsNullOrWhiteSpace($Uri.Query)) {
+        return $null
+    }
+
+    foreach ($part in $Uri.Query.TrimStart("?").Split("&")) {
+        if ([string]::IsNullOrWhiteSpace($part)) {
+            continue
+        }
+
+        $pair = $part -split "=", 2
+        $key = [System.Uri]::UnescapeDataString($pair[0].Replace("+", " "))
+        if ($key -ine $Name) {
+            continue
+        }
+
+        if ($pair.Count -lt 2) {
+            return ""
+        }
+
+        return [System.Uri]::UnescapeDataString($pair[1].Replace("+", " "))
+    }
+
+    return $null
+}
+
 function Normalize-YouTubeUrl {
     param([Parameter(Mandatory = $true)][AllowEmptyString()][string]$InputText)
 
@@ -182,27 +213,41 @@ function Normalize-YouTubeUrl {
     }
 
     $urlHost = $uri.Host.ToLowerInvariant()
-    if (($urlHost -eq "youtu.be") -or ($urlHost -eq "www.youtu.be")) {
-        $path = $uri.AbsolutePath.Trim("/")
-        if ([string]::IsNullOrWhiteSpace($path)) {
-            throw "Short YouTube URL does not contain a video id."
-        }
+    $isShortHost = ($urlHost -eq "youtu.be") -or ($urlHost -eq "www.youtu.be")
+    $isYoutubeHost = ($urlHost -eq "youtube.com") -or $urlHost.EndsWith(".youtube.com")
 
-        $videoId = $path.Split("/")[0]
-        $normalized = "https://www.youtube.com/watch?v={0}" -f [System.Uri]::EscapeDataString($videoId)
-
-        $query = $uri.Query
-        if (-not [string]::IsNullOrWhiteSpace($query)) {
-            $query = $query.TrimStart("?")
-            if (-not [string]::IsNullOrWhiteSpace($query)) {
-                $normalized = "{0}&{1}" -f $normalized, $query
-            }
-        }
-
-        return $normalized
+    if (-not ($isShortHost -or $isYoutubeHost)) {
+        throw "Please provide a YouTube video URL."
     }
 
-    return $raw
+    $videoId = $null
+    $pathParts = @($uri.AbsolutePath.Trim("/").Split("/") | Where-Object { -not [string]::IsNullOrWhiteSpace($_) })
+
+    if ($isShortHost) {
+        if ($pathParts.Count -gt 0) {
+            $videoId = $pathParts[0]
+        }
+    }
+    elseif ($pathParts.Count -gt 0) {
+        switch ($pathParts[0].ToLowerInvariant()) {
+            "watch" {
+                $videoId = Get-QueryParameter -Uri $uri -Name "v"
+                break
+            }
+            { @("shorts", "embed", "v", "live") -contains $_ } {
+                if ($pathParts.Count -gt 1) {
+                    $videoId = $pathParts[1]
+                }
+                break
+            }
+        }
+    }
+
+    if ($videoId -notmatch '^[A-Za-z0-9_-]{11}$') {
+        throw "Please provide a direct YouTube video URL (watch?v=..., youtu.be/..., /shorts/...). Channel, playlist, and home URLs are not supported."
+    }
+
+    return "https://www.youtube.com/watch?v={0}" -f [System.Uri]::EscapeDataString($videoId)
 }
 
 function Invoke-ToolCaptureSingleLine {
@@ -696,6 +741,45 @@ function Resolve-CommandPathOrThrow {
     throw $ErrorHint
 }
 
+function Stop-ChildProcessTree {
+    param([Parameter(Mandatory = $true)][int]$ParentProcessId)
+
+    $children = @(
+        Get-CimInstance Win32_Process -Filter ("ParentProcessId = {0}" -f $ParentProcessId) -ErrorAction SilentlyContinue
+    )
+
+    foreach ($child in $children) {
+        $childId = [int]$child.ProcessId
+        Stop-ChildProcessTree -ParentProcessId $childId
+
+        try {
+            Stop-Process -Id $childId -Force -ErrorAction SilentlyContinue
+        }
+        catch {
+            # Ignore cancellation races when a child process exits on its own.
+        }
+    }
+}
+
+function Stop-DownloadProcess {
+    param([Parameter(Mandatory = $true)][System.Diagnostics.Process]$Process)
+
+    if ($Process.HasExited) {
+        return
+    }
+
+    Stop-ChildProcessTree -ParentProcessId $Process.Id
+
+    try {
+        if (-not $Process.WaitForExit(5000)) {
+            Stop-Process -Id $Process.Id -Force -ErrorAction SilentlyContinue
+        }
+    }
+    catch {
+        # Ignore cancellation races when the worker exits while cleanup is running.
+    }
+}
+
 function Start-YtDlpDownload {
     param(
         [Parameter(Mandatory = $true)][string]$ExecutablePath,
@@ -958,7 +1042,7 @@ $btnBrowse.Add_Click({
 $btnCancel.Add_Click({
         if ($script:activeProcess -and -not $script:activeProcess.HasExited) {
             try {
-                $script:activeProcess.Kill()
+                Stop-DownloadProcess -Process $script:activeProcess
                 if ($null -ne $script:downloadTimer) {
                     $script:downloadTimer.Stop()
                     $script:downloadTimer.Dispose()
