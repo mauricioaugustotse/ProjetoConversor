@@ -1,0 +1,599 @@
+﻿"id","ordem_doc","arquivo_fonte","norma_id","norma_titulo","norma_nome_popular","macrogrupo","grupo_sumario","pagina_inicial","pagina_final","hierarquia_normativa","tipo_dispositivo","dispositivo","dispositivo_pai","artigo","paragrafo","inciso","alinea","item","texto_dispositivo","notas_texto","notas_json","qtd_notas","referencias_normativas","referencias_jurisprudenciais","referencias_sumulas","texto_rag","resumo_curto","palavras_chave","incluir_no_rag","chars","tokens_estimados"
+"1","1","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","643","643","","norma","Lei n. 6.996, de 7 de junho de 1982","","","","","","","Dispõe sobre a utilização de processamento eletrônico de dados nos serviços eleitorais e dá outras providências. O PRESIDENTE DA REPÚBLICA Faço saber que o Congresso Nacional decreta e eu sanciono a seguinte lei:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Lei n. 6.996, de 7 de junho de 1982
+Tipo: norma
+Páginas: 643-643
+Dispõe sobre a utilização de processamento eletrônico de dados nos serviços eleitorais e dá outras providências. O PRESIDENTE DA REPÚBLICA Faço saber que o Congresso Nacional decreta e eu sanciono a seguinte lei:","Dispõe sobre a utilização de processamento eletrônico de dados nos serviços eleitorais e dá outras providências. O PRESIDENTE DA REPÚBLICA Faço saber que o Congresso Nacional decreta e eu sanciono a seguinte lei:","junho; dispoe; sobre; utilizacao; processamento; eletronico; dados; servicos; eleitorais; outras","True","472","118"
+"2","2","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","643","643","","artigo","Art. 1º","","Art. 1º","","","","","Art. 1º Os Tribunais Regionais Eleitorais, nos estados em que for autorizado pelo Tribunal Superior Eleitoral, poderão utilizar processamento eletrônico de dados nos serviços eleitorais, na forma prevista nesta lei.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 1º
+Tipo: artigo
+Páginas: 643-643
+Art. 1º Os Tribunais Regionais Eleitorais, nos estados em que for autorizado pelo Tribunal Superior Eleitoral, poderão utilizar processamento eletrônico de dados nos serviços eleitorais, na forma prevista nesta lei.","Art. 1º Os Tribunais Regionais Eleitorais, nos estados em que for autorizado pelo Tribunal Superior Eleitoral, poderão utilizar processamento eletrônico de dados nos serviços eleitorais, na forma prevista nesta lei.","eleitorais; junho; tribunais; regionais; estados; autorizado; tribunal; superior; eleitoral; poderao","True","448","112"
+"3","3","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","643","643","","paragrafo","Art. 1º, §1º","Art. 1º","Art. 1º","§1º","","","","§ 1º A autorização do Tribunal Superior Eleitoral será solicitada pelo Tribunal Regional Eleitoral interessado, que, previamente, ouvirá os partidos políticos.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 1º, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 1º
+Páginas: 643-643
+§ 1º A autorização do Tribunal Superior Eleitoral será solicitada pelo Tribunal Regional Eleitoral interessado, que, previamente, ouvirá os partidos políticos.","§ 1º A autorização do Tribunal Superior Eleitoral será solicitada pelo Tribunal Regional Eleitoral interessado, que, previamente, ouvirá os partidos políticos.","tribunal; eleitoral; junho; autorizacao; superior; sera; solicitada; regional; interessado; previamente","True","425","106"
+"4","4","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","643","643","","paragrafo","Art. 1º, §2º","Art. 1º","Art. 1º","§2º","","","","§ 2º O pedido de autorização poderá referir-se ao alistamento eleitoral, à votação e à apuração, ou apenas uma dessas fases, em todo o estado, em determinadas zonas eleitorais ou em parte destas.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 1º, §2º
+Tipo: paragrafo
+Dispositivo pai: Art. 1º
+Páginas: 643-643
+§ 2º O pedido de autorização poderá referir-se ao alistamento eleitoral, à votação e à apuração, ou apenas uma dessas fases, em todo o estado, em determinadas zonas eleitorais ou em parte destas.","§ 2º O pedido de autorização poderá referir-se ao alistamento eleitoral, à votação e à apuração, ou apenas uma dessas fases, em todo o estado, em determinadas zonas eleitorais ou em parte destas.","junho; pedido; autorizacao; podera; referir; alistamento; eleitoral; votacao; apuracao; apenas","True","461","115"
+"5","5","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","643","643","","artigo","Art. 2º","","Art. 2º","","","","","Art. 2º Concedida a autorização, o Tribunal Regional Eleitoral, em conformidade com as condições e peculiaridades locais, executará os serviços de processamento eletrônico de dados diretamente ou mediante convênio ou contrato.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 2º
+Tipo: artigo
+Páginas: 643-643
+Art. 2º Concedida a autorização, o Tribunal Regional Eleitoral, em conformidade com as condições e peculiaridades locais, executará os serviços de processamento eletrônico de dados diretamente ou mediante convênio ou contrato.","Art. 2º Concedida a autorização, o Tribunal Regional Eleitoral, em conformidade com as condições e peculiaridades locais, executará os serviços de processamento eletrônico de dados diretamente ou mediante convênio ou contrato.","junho; concedida; autorizacao; tribunal; regional; eleitoral; conformidade; condicoes; peculiaridades; locais","True","459","114"
+"6","6","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","643","643","","paragrafo","Art. 2º, §1º","Art. 2º","Art. 2º","§1º","","","","§ 1º Os serviços de que trata este artigo deverão ser executados de acordo com definições e especificações fixadas pelo Tribunal Superior Eleitoral.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 2º, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 2º
+Páginas: 643-643
+§ 1º Os serviços de que trata este artigo deverão ser executados de acordo com definições e especificações fixadas pelo Tribunal Superior Eleitoral.","§ 1º Os serviços de que trata este artigo deverão ser executados de acordo com definições e especificações fixadas pelo Tribunal Superior Eleitoral.","junho; servicos; trata; este; artigo; deverao; executados; acordo; definicoes; especificacoes","True","414","103"
+"7","7","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","643","643","","paragrafo","Art. 2º, §2º","Art. 2º","Art. 2º","§2º","","","","§ 2º (Revogado pela Lei n. 7.444/1985).","","[]","0","Lei n. 7.444/1985","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 2º, §2º
+Tipo: paragrafo
+Dispositivo pai: Art. 2º
+Páginas: 643-643
+§ 2º (Revogado pela Lei n. 7.444/1985).","§ 2º (Revogado pela Lei n. 7.444/1985).","junho; revogado","True","305","76"
+"8","8","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","643","643","","artigo","Art. 3º","","Art. 3º","","","","","Art. 3º Ao setor da Secretaria do Tribunal Regional Eleitoral responsável pelos serviços de processamento eletrônico de dados compete:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 3º
+Tipo: artigo
+Páginas: 643-643
+Art. 3º Ao setor da Secretaria do Tribunal Regional Eleitoral responsável pelos serviços de processamento eletrônico de dados compete:","Art. 3º Ao setor da Secretaria do Tribunal Regional Eleitoral responsável pelos serviços de processamento eletrônico de dados compete:","junho; setor; secretaria; tribunal; regional; eleitoral; responsavel; servicos; processamento; eletronico","True","367","91"
+"9","9","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","643","643","","inciso","Art. 3º, I","Art. 3º","Art. 3º","","I","","","I - preencher as fórmulas dos títulos e documentos eleitorais;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 3º, I
+Tipo: inciso
+Dispositivo pai: Art. 3º
+Páginas: 643-643
+I - preencher as fórmulas dos títulos e documentos eleitorais;","I - preencher as fórmulas dos títulos e documentos eleitorais;","junho; preencher; formulas; titulos; documentos; eleitorais","True","323","80"
+"10","10","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","643","643","II","estrutura","II","","Art. 3º","","I","","","II","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: II
+Tipo: estrutura
+Hierarquia: II
+Páginas: 643-643
+II","II","junho","True","248","62"
+"11","11","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","643","643","- confeccionar relações de eleitores","estrutura","- confeccionar relações de eleitores","","Art. 3º","","I","","","- confeccionar relações de eleitores destinadas aos cartórios eleitorais e aos partidos políticos;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: - confeccionar relações de eleitores
+Tipo: estrutura
+Hierarquia: - confeccionar relações de eleitores
+Páginas: 643-643
+- confeccionar relações de eleitores destinadas aos cartórios eleitorais e aos partidos políticos;","- confeccionar relações de eleitores destinadas aos cartórios eleitorais e aos partidos políticos;","confeccionar; relacoes; eleitores; junho; destinadas; cartorios; eleitorais; partidos; politicos","True","412","103"
+"12","12","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","643","643","- confeccionar relações de eleitores","inciso","Art. 3º, III","Art. 3º","Art. 3º","","III","","","III - manter atualizado o cadastro geral de eleitores do estado;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 3º, III
+Tipo: inciso
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 3º
+Páginas: 643-643
+III - manter atualizado o cadastro geral de eleitores do estado;","III - manter atualizado o cadastro geral de eleitores do estado;","eleitores; junho; confeccionar; relacoes; manter; atualizado; cadastro; geral; estado","True","376","94"
+"13","13","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","643","643","- confeccionar relações de eleitores","inciso","Art. 3º, IV","Art. 3º","Art. 3º","","IV","","","IV - manter atualizado o cadastro de filiação partidária, expedindo relações destinadas aos partidos políticos e à Justiça Eleitoral;","Res.-TSE n. 23596/2019: “Dispõe sobre a filiação partidária, institui o Sistema de Filiação Partidária (Filia), disciplina o encaminhamento de dados pelos partidos políticos à Justiça Eleitoral e dá outras providências”.
+Res.-TSE n. 21377/2003, art. 2º: conversão, pela Secretaria de Informática do TSE, das anotações de filiação partidária no Cadastro Nacional de Eleitores, em caso de fusão ou incorporação de partidos políticos.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Res.-TSE n. 23596/2019: “Dispõe sobre a filiação partidária, institui o Sistema de Filiação Partidária (Filia), disciplina o encaminhamento de dados pelos partidos políticos à Justiça Eleitoral e dá outras providências”."", ""pagina_inicial"": 643, ""pagina_final"": 643}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""Res.-TSE n. 21377/2003, art. 2º: conversão, pela Secretaria de Informática do TSE, das anotações de filiação partidária no Cadastro Nacional de Eleitores, em caso de fusão ou incorporação de partidos políticos."", ""pagina_inicial"": 643, ""pagina_final"": 643}]","2","Res.-TSE n. 23596/2019; Res.-TSE n. 21377/2003","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 3º, IV
+Tipo: inciso
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 3º
+Páginas: 643-643
+IV - manter atualizado o cadastro de filiação partidária, expedindo relações destinadas aos partidos políticos e à Justiça Eleitoral;
+Notas vinculadas:
+Res.-TSE n. 23596/2019: “Dispõe sobre a filiação partidária, institui o Sistema de Filiação Partidária (Filia), disciplina o encaminhamento de dados pelos partidos políticos à Justiça Eleitoral e dá outras providências”.
+Res.-TSE n. 21377/2003, art. 2º: conversão, pela Secretaria de Informática do TSE, das anotações de filiação partidária no Cadastro Nacional de Eleitores, em caso de fusão ou incorporação de partidos políticos.","IV - manter atualizado o cadastro de filiação partidária, expedindo relações destinadas aos partidos políticos e à Justiça Eleitoral;","filiacao; partidaria; partidos; politicos; relacoes; eleitores; cadastro; justica; eleitoral; junho","True","894","223"
+"14","14","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","643","643","- confeccionar relações de eleitores","inciso","Art. 3º, V","Art. 3º","Art. 3º","","V","","","V - expedir comunicações padronizadas e previamente programadas nos processos de alistamento, transferência ou cancelamento de inscrições;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 3º, V
+Tipo: inciso
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 3º
+Páginas: 643-643
+V - expedir comunicações padronizadas e previamente programadas nos processos de alistamento, transferência ou cancelamento de inscrições;","V - expedir comunicações padronizadas e previamente programadas nos processos de alistamento, transferência ou cancelamento de inscrições;","junho; confeccionar; relacoes; eleitores; expedir; comunicacoes; padronizadas; previamente; programadas; processos","True","448","112"
+"15","15","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","643","643","- confeccionar relações de eleitores","inciso","Art. 3º, VI","Art. 3º","Art. 3º","","VI","","","VI - contar votos, ou totalizar resultados já apurados, expedindo relações ou boletins destinados à Justiça Eleitoral e aos partidos políticos;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 3º, VI
+Tipo: inciso
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 3º
+Páginas: 643-643
+VI - contar votos, ou totalizar resultados já apurados, expedindo relações ou boletins destinados à Justiça Eleitoral e aos partidos políticos;","VI - contar votos, ou totalizar resultados já apurados, expedindo relações ou boletins destinados à Justiça Eleitoral e aos partidos políticos;","relacoes; junho; confeccionar; eleitores; contar; votos; totalizar; resultados; apurados; expedindo","True","454","113"
+"16","16","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","643","643","- confeccionar relações de eleitores","inciso","Art. 3º, VII","Art. 3º","Art. 3º","","VII","","","VII - calcular quociente eleitoral, quociente partidário e distribuição de sobras, indicando os eleitos;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 3º, VII
+Tipo: inciso
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 3º
+Páginas: 643-643
+VII - calcular quociente eleitoral, quociente partidário e distribuição de sobras, indicando os eleitos;","VII - calcular quociente eleitoral, quociente partidário e distribuição de sobras, indicando os eleitos;","quociente; junho; confeccionar; relacoes; eleitores; calcular; eleitoral; partidario; distribuicao; sobras","True","416","104"
+"17","17","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","644","644","- confeccionar relações de eleitores","inciso","Art. 3º, VIII","Art. 3º","Art. 3º","","VIII","","","VIII - preencher diplomas e expedir relações com os resultados finais de cada pleito, destinados à Justiça Eleitoral e aos partidos políticos;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 3º, VIII
+Tipo: inciso
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 3º
+Páginas: 644-644
+VIII - preencher diplomas e expedir relações com os resultados finais de cada pleito, destinados à Justiça Eleitoral e aos partidos políticos;","VIII - preencher diplomas e expedir relações com os resultados finais de cada pleito, destinados à Justiça Eleitoral e aos partidos políticos;","relacoes; viii; junho; confeccionar; eleitores; preencher; diplomas; expedir; resultados; finais","True","455","113"
+"18","18","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","644","644","- confeccionar relações de eleitores","inciso","Art. 3º, IX","Art. 3º","Art. 3º","","IX","","","IX - executar outras tarefas que lhe forem atribuídas por instruções do Tribunal Superior Eleitoral.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 3º, IX
+Tipo: inciso
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 3º
+Páginas: 644-644
+IX - executar outras tarefas que lhe forem atribuídas por instruções do Tribunal Superior Eleitoral.","IX - executar outras tarefas que lhe forem atribuídas por instruções do Tribunal Superior Eleitoral.","junho; confeccionar; relacoes; eleitores; executar; outras; tarefas; forem; atribuidas; instrucoes","True","411","102"
+"19","19","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","644","644","- confeccionar relações de eleitores","artigo","Art. 4º","","Art. 4º","","","","","Art. 4º O alistamento se faz mediante a inscrição do eleitor.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 4º
+Tipo: artigo
+Hierarquia: - confeccionar relações de eleitores
+Páginas: 644-644
+Art. 4º O alistamento se faz mediante a inscrição do eleitor.","Art. 4º O alistamento se faz mediante a inscrição do eleitor.","junho; confeccionar; relacoes; eleitores; alistamento; mediante; inscricao; eleitor","True","343","85"
+"20","20","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","644","644","- confeccionar relações de eleitores","paragrafo","Art. 4º, Parágrafo único","Art. 4º","Art. 4º","Parágrafo único","","","","Parágrafo único. Para efeito de inscrição, domicílio eleitoral é o lugar de residência ou moradia do requerente, e, verificado ter o alistando mais de uma, considerar-se-á domicílio qualquer delas.","Ac.-TSE, de 4/10/2018, no RO n. 060238825 e, de 8/4/2014, no REspe n. 8551: o conceito de domicílio eleitoral pode ser demonstrado não só pela residência com ânimo definitivo, mas também pela constituição de vínculos políticos, econômicos, sociais ou familiares.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Ac.-TSE, de 4/10/2018, no RO n. 060238825 e, de 8/4/2014, no REspe n. 8551: o conceito de domicílio eleitoral pode ser demonstrado não só pela residência com ânimo definitivo, mas também pela constituição de vínculos políticos, econômicos, sociais ou familiares."", ""pagina_inicial"": 644, ""pagina_final"": 644}]","1","","Ac.-TSE, de 4/10/2018, no RO n; RO n. 060238825; REspe n. 8551","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 4º, Parágrafo único
+Tipo: paragrafo
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 4º
+Páginas: 644-644
+Parágrafo único. Para efeito de inscrição, domicílio eleitoral é o lugar de residência ou moradia do requerente, e, verificado ter o alistando mais de uma, considerar-se-á domicílio qualquer delas.
+Notas vinculadas:
+Ac.-TSE, de 4/10/2018, no RO n. 060238825 e, de 8/4/2014, no REspe n. 8551: o conceito de domicílio eleitoral pode ser demonstrado não só pela residência com ânimo definitivo, mas também pela constituição de vínculos políticos, econômicos, sociais ou familiares.","Parágrafo único. Para efeito de inscrição, domicílio eleitoral é o lugar de residência ou moradia do requerente, e, verificado ter o alistando mais de uma, considerar-se-á domicílio qualquer delas.","domicilio; paragrafo; unico; eleitoral; residencia; junho; confeccionar; relacoes; eleitores; efeito","True","805","201"
+"21","21","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","644","644","- confeccionar relações de eleitores","artigo","Art. 5º","","Art. 5º","","","","","Art. 5º O alistando apresentará em cartório, ou em local previamente designado, requerimento em formulário que obedecerá a modelo aprovado pelo Tribunal Superior Eleitoral.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 5º
+Tipo: artigo
+Hierarquia: - confeccionar relações de eleitores
+Páginas: 644-644
+Art. 5º O alistando apresentará em cartório, ou em local previamente designado, requerimento em formulário que obedecerá a modelo aprovado pelo Tribunal Superior Eleitoral.","Art. 5º O alistando apresentará em cartório, ou em local previamente designado, requerimento em formulário que obedecerá a modelo aprovado pelo Tribunal Superior Eleitoral.","junho; confeccionar; relacoes; eleitores; alistando; apresentara; cartorio; local; previamente; designado","True","454","113"
+"22","22","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","644","644","- confeccionar relações de eleitores","paragrafo","Art. 5º, Parágrafo único","Art. 5º","Art. 5º","Parágrafo único","","","","Parágrafo único. O escrivão, o funcionário ou o preparador, recebendo o formulário e documentos, determinará que o alistando date e assine o requerimento, e, ato contínuo, atestará terem sido a data e a assinatura lançadas na sua presença.","Lei n. 10.842/2004, art. 4º: as atribuições da escrivania eleitoral passaram a ser exercidas privativamente pelo chefe de cartório eleitoral.
+Lei n. 8.868/1994, art. 14: revoga os artigos do CE/1965 que fazem menção ao preparador eleitoral.","[{""ordem"": 1, ""marcador"": ""ticado"", ""texto"": ""Lei n. 10.842/2004, art. 4º: as atribuições da escrivania eleitoral passaram a ser exercidas privativamente pelo chefe de cartório eleitoral."", ""pagina_inicial"": 644, ""pagina_final"": 644}, {""ordem"": 2, ""marcador"": ""ticado"", ""texto"": ""Lei n. 8.868/1994, art. 14: revoga os artigos do CE/1965 que fazem menção ao preparador eleitoral."", ""pagina_inicial"": 644, ""pagina_final"": 644}]","2","CE/1965; Lei n. 10.842/2004; Lei n. 8.868/1994","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 5º, Parágrafo único
+Tipo: paragrafo
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 5º
+Páginas: 644-644
+Parágrafo único. O escrivão, o funcionário ou o preparador, recebendo o formulário e documentos, determinará que o alistando date e assine o requerimento, e, ato contínuo, atestará terem sido a data e a assinatura lançadas na sua presença.
+Notas vinculadas:
+Lei n. 10.842/2004, art. 4º: as atribuições da escrivania eleitoral passaram a ser exercidas privativamente pelo chefe de cartório eleitoral.
+Lei n. 8.868/1994, art. 14: revoga os artigos do CE/1965 que fazem menção ao preparador eleitoral.","Parágrafo único. O escrivão, o funcionário ou o preparador, recebendo o formulário e documentos, determinará que o alistando date e assine o requerimento, e, ato contínuo, atestará terem sido a data e a assinatura lançadas na sua presença.","eleitoral; paragrafo; unico; preparador; junho; confeccionar; relacoes; eleitores; escrivao; funcionario","True","825","206"
+"23","23","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","644","644","- confeccionar relações de eleitores","artigo","Art. 6º","","Art. 6º","","","","","Art. 6º O pedido de inscrição do eleitor será instruído com um dos seguintes documentos:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 6º
+Tipo: artigo
+Hierarquia: - confeccionar relações de eleitores
+Páginas: 644-644
+Art. 6º O pedido de inscrição do eleitor será instruído com um dos seguintes documentos:","Art. 6º O pedido de inscrição do eleitor será instruído com um dos seguintes documentos:","junho; confeccionar; relacoes; eleitores; pedido; inscricao; eleitor; sera; instruido; seguintes","True","370","92"
+"24","24","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","644","644","- confeccionar relações de eleitores","inciso","Art. 6º, I","Art. 6º","Art. 6º","","I","","","I - carteira de identidade;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 6º, I
+Tipo: inciso
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 6º
+Páginas: 644-644
+I - carteira de identidade;","I - carteira de identidade;","junho; confeccionar; relacoes; eleitores; carteira; identidade","True","337","84"
+"25","25","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","644","644","- confeccionar relações de eleitores","inciso","Art. 6º, II","Art. 6º","Art. 6º","","II","","","II - certificado de quitação de serviço militar;","Inexigibilidade de comprovação de quitação com o serviço militar: Res.-TSE n. 21384/2003 (nas operações de transferência de domicílio, revisão de dados e segunda via); Res.-TSE n. 23659/2021, art. 35, § 2º (para quem completou 18 anos e ainda esteja em curso o prazo de apresentação ao órgão de alistamento militar).","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Inexigibilidade de comprovação de quitação com o serviço militar: Res.-TSE n. 21384/2003 (nas operações de transferência de domicílio, revisão de dados e segunda via); Res.-TSE n. 23659/2021, art. 35, § 2º (para quem completou 18 anos e ainda esteja em curso o prazo de apresentação ao órgão de alistamento militar)."", ""pagina_inicial"": 644, ""pagina_final"": 644}]","1","Res.-TSE n. 21384/2003; Res.-TSE n. 23659/2021","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 6º, II
+Tipo: inciso
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 6º
+Páginas: 644-644
+II - certificado de quitação de serviço militar;
+Notas vinculadas:
+Inexigibilidade de comprovação de quitação com o serviço militar: Res.-TSE n. 21384/2003 (nas operações de transferência de domicílio, revisão de dados e segunda via); Res.-TSE n. 23659/2021, art. 35, § 2º (para quem completou 18 anos e ainda esteja em curso o prazo de apresentação ao órgão de alistamento militar).","II - certificado de quitação de serviço militar;","militar; quitacao; servico; junho; confeccionar; relacoes; eleitores; certificado; inexigibilidade; comprovacao","True","694","173"
+"26","26","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","644","644","- confeccionar relações de eleitores","inciso","Art. 6º, III","Art. 6º","Art. 6º","","III","","","III - carteira emitida pelos órgãos criados por lei federal, controladores do exercício profissional;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 6º, III
+Tipo: inciso
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 6º
+Páginas: 644-644
+III - carteira emitida pelos órgãos criados por lei federal, controladores do exercício profissional;","III - carteira emitida pelos órgãos criados por lei federal, controladores do exercício profissional;","junho; confeccionar; relacoes; eleitores; carteira; emitida; orgaos; criados; federal; controladores","True","413","103"
+"27","27","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","644","644","- confeccionar relações de eleitores","inciso","Art. 6º, IV","Art. 6º","Art. 6º","","IV","","","IV - certidão de idade extraída do Registro Civil;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 6º, IV
+Tipo: inciso
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 6º
+Páginas: 644-644
+IV - certidão de idade extraída do Registro Civil;","IV - certidão de idade extraída do Registro Civil;","junho; confeccionar; relacoes; eleitores; certidao; idade; extraida; registro; civil","True","361","90"
+"28","28","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","644","644","- confeccionar relações de eleitores","inciso","Art. 6º, V","Art. 6º","Art. 6º","","V","","","V - instrumento público do qual se infira, por direito, ter o requerente idade superior a 18 (dezoito) anos e do qual constem, também, os demais elementos necessários à sua qualificação;","CF/1988, art. 14, § 1º, II, c: admissão do alistamento facultativo aos maiores de 16 e menores de 18 anos.","[{""ordem"": 1, ""marcador"": ""ticado"", ""texto"": ""CF/1988, art. 14, § 1º, II, c: admissão do alistamento facultativo aos maiores de 16 e menores de 18 anos."", ""pagina_inicial"": 644, ""pagina_final"": 644}]","1","CF/1988, art. 14, § 1º, II, c: admissão do alistamento facultativo aos maiores de 16 e menores de 18 anos","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 6º, V
+Tipo: inciso
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 6º
+Páginas: 644-644
+V - instrumento público do qual se infira, por direito, ter o requerente idade superior a 18 (dezoito) anos e do qual constem, também, os demais elementos necessários à sua qualificação;
+Notas vinculadas:
+CF/1988, art. 14, § 1º, II, c: admissão do alistamento facultativo aos maiores de 16 e menores de 18 anos.","V - instrumento público do qual se infira, por direito, ter o requerente idade superior a 18 (dezoito) anos e do qual constem, também, os demais elementos necessários à sua qualificação;","qual; anos; junho; confeccionar; relacoes; eleitores; instrumento; publico; infira; direito","True","621","155"
+"29","29","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","644","644","- confeccionar relações de eleitores","inciso","Art. 6º, VI","Art. 6º","Art. 6º","","VI","","","VI - documento do qual se infira a nacionalidade brasileira, originária ou adquirida, do requerente.","Lei n. 6.192/1974, que “dispõe sobre restrições a brasileiros naturalizados e dá outras providências”: Art. 1º É vedada qualquer distinção entre brasileiros natos e naturalizados. [...] Art. 4º Nos documentos públicos, a indicação da nacionalidade brasileira alcançada mediante naturalização far-se-á sem referência a essa circunstância”. (CF/1988, art. 12, § 2º)
+Res.-TSE n. 21385/2003: inexigibilidade da prova de opção pela nacionalidade brasileira para fins de alistamento.","[{""ordem"": 1, ""marcador"": ""ticado"", ""texto"": ""Lei n. 6.192/1974, que “dispõe sobre restrições a brasileiros naturalizados e dá outras providências”: Art. 1º É vedada qualquer distinção entre brasileiros natos e naturalizados. [...] Art. 4º Nos documentos públicos, a indicação da nacionalidade brasileira alcançada mediante naturalização far-se-á sem referência a essa circunstância”. (CF/1988, art. 12, § 2º)"", ""pagina_inicial"": 644, ""pagina_final"": 644}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""Res.-TSE n. 21385/2003: inexigibilidade da prova de opção pela nacionalidade brasileira para fins de alistamento."", ""pagina_inicial"": 644, ""pagina_final"": 644}]","2","CF/1988, art. 12, § 2º); Lei n. 6.192/1974; Res.-TSE n. 21385/2003","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 6º, VI
+Tipo: inciso
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 6º
+Páginas: 644-644
+VI - documento do qual se infira a nacionalidade brasileira, originária ou adquirida, do requerente.
+Notas vinculadas:
+Lei n. 6.192/1974, que “dispõe sobre restrições a brasileiros naturalizados e dá outras providências”: Art. 1º É vedada qualquer distinção entre brasileiros natos e naturalizados. [...] Art. 4º Nos documentos públicos, a indicação da nacionalidade brasileira alcançada mediante naturalização far-se-á sem referência a essa circunstância”. (CF/1988, art. 12, § 2º)
+Res.-TSE n. 21385/2003: inexigibilidade da prova de opção pela nacionalidade brasileira para fins de alistamento.","VI - documento do qual se infira a nacionalidade brasileira, originária ou adquirida, do requerente.","nacionalidade; brasileira; brasileiros; naturalizados; junho; confeccionar; relacoes; eleitores; documento; qual","True","907","226"
+"30","30","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","645","645","- confeccionar relações de eleitores","paragrafo","Art. 6º, §1º","Art. 6º","Art. 6º","§1º","","","","§ 1º A restituição de qualquer documento não poderá ser feita antes de despachado o requerimento pelo juiz eleitoral.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 6º, §1º
+Tipo: paragrafo
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 6º
+Páginas: 645-645
+§ 1º A restituição de qualquer documento não poderá ser feita antes de despachado o requerimento pelo juiz eleitoral.","§ 1º A restituição de qualquer documento não poderá ser feita antes de despachado o requerimento pelo juiz eleitoral.","junho; confeccionar; relacoes; eleitores; restituicao; qualquer; documento; podera; feita; antes","True","432","108"
+"31","31","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","645","645","- confeccionar relações de eleitores","paragrafo","Art. 6º, §2º","Art. 6º","Art. 6º","§2º","","","","§ 2º Sempre que, com o documento, for apresentada cópia, o original será devolvido no ato, feita a autenticação pelo próprio funcionário do cartório eleitoral, mediante aposição de sua assinatura no verso da cópia.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 6º, §2º
+Tipo: paragrafo
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 6º
+Páginas: 645-645
+§ 2º Sempre que, com o documento, for apresentada cópia, o original será devolvido no ato, feita a autenticação pelo próprio funcionário do cartório eleitoral, mediante aposição de sua assinatura no verso da cópia.","§ 2º Sempre que, com o documento, for apresentada cópia, o original será devolvido no ato, feita a autenticação pelo próprio funcionário do cartório eleitoral, mediante aposição de sua assinatura no verso da cópia.","copia; junho; confeccionar; relacoes; eleitores; sempre; documento; apresentada; original; sera","True","529","132"
+"32","32","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","645","645","- confeccionar relações de eleitores","paragrafo","Art. 6º, §3º","Art. 6º","Art. 6º","§3º","","","","§ 3º O documento poderá ser apresentado em cópia autenticada por tabelião, dispensando-se, nessa hipótese, nova conferência com o documento original.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 6º, §3º
+Tipo: paragrafo
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 6º
+Páginas: 645-645
+§ 3º O documento poderá ser apresentado em cópia autenticada por tabelião, dispensando-se, nessa hipótese, nova conferência com o documento original.","§ 3º O documento poderá ser apresentado em cópia autenticada por tabelião, dispensando-se, nessa hipótese, nova conferência com o documento original.","documento; junho; confeccionar; relacoes; eleitores; podera; apresentado; copia; autenticada; tabeliao","True","464","116"
+"33","33","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","645","645","- confeccionar relações de eleitores","artigo","Art. 7º","","Art. 7º","","","","","Art. 7º Despachado o requerimento de inscrição pelo juiz eleitoral, o setor da secretaria do Tribunal Regional Eleitoral responsável pelos serviços de processamento eletrônico de dados enviará ao cartório eleitoral, que as fornecerá aos partidos políticos, relações dos eleitores inscritos originariamente ou por transferência, com os respectivos endereços, assim como dos pedidos indeferidos ou convertidos em diligência.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 7º
+Tipo: artigo
+Hierarquia: - confeccionar relações de eleitores
+Páginas: 645-645
+Art. 7º Despachado o requerimento de inscrição pelo juiz eleitoral, o setor da secretaria do Tribunal Regional Eleitoral responsável pelos serviços de processamento eletrônico de dados enviará ao cartório eleitoral, que as fornecerá aos partidos políticos, relações dos eleitores inscritos originariamente ou por transferência, com os respectivos endereços, assim como dos pedidos indeferidos ou convertidos em diligência.","Art. 7º Despachado o requerimento de inscrição pelo juiz eleitoral, o setor da secretaria do Tribunal Regional Eleitoral responsável pelos serviços de processamento eletrônico de dados enviará ao cartório eleitoral, que as fornecerá aos...","eleitoral; relacoes; eleitores; junho; confeccionar; despachado; requerimento; inscricao; juiz; setor","True","704","176"
+"34","34","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","645","645","- confeccionar relações de eleitores","paragrafo","Art. 7º, §1º","Art. 7º","Art. 7º","§1º","","","","§ 1º Do despacho que indeferir o requerimento de inscrição, caberá recurso interposto pelo alistando no prazo de 5 (cinco) dias e, do que o deferir, poderá recorrer qualquer delegado de partido político no prazo de 10 (dez) dias.","V. Res.-TSE n. 23659/2021, art. 40: segunda via do título eleitoral.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""V. Res.-TSE n. 23659/2021, art. 40: segunda via do título eleitoral."", ""pagina_inicial"": 645, ""pagina_final"": 645}]","1","Res.-TSE n. 23659/2021","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 7º, §1º
+Tipo: paragrafo
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 7º
+Páginas: 645-645
+§ 1º Do despacho que indeferir o requerimento de inscrição, caberá recurso interposto pelo alistando no prazo de 5 (cinco) dias e, do que o deferir, poderá recorrer qualquer delegado de partido político no prazo de 10 (dez) dias.
+Notas vinculadas:
+V. Res.-TSE n. 23659/2021, art. 40: segunda via do título eleitoral.","§ 1º Do despacho que indeferir o requerimento de inscrição, caberá recurso interposto pelo alistando no prazo de 5 (cinco) dias e, do que o deferir, poderá recorrer qualquer delegado de partido político no prazo de 10 (dez) dias.","prazo; dias; junho; confeccionar; relacoes; eleitores; despacho; indeferir; requerimento; inscricao","True","631","157"
+"35","35","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","645","645","- confeccionar relações de eleitores","paragrafo","Art. 7º, §2º","Art. 7º","Art. 7º","§2º","","","","§ 2º As relações a que se refere o caput deste artigo serão fornecidas aos partidos políticos nos dias 1º (primeiro) e 15 (quinze) de cada mês, ou no 1º (primeiro) dia útil seguinte, datas em que começarão a correr os prazos mencionados no parágrafo anterior, ainda que tenham sido exibidas ao alistando antes dessas datas e mesmo que os partidos não as retirem.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 7º, §2º
+Tipo: paragrafo
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 7º
+Páginas: 645-645
+§ 2º As relações a que se refere o caput deste artigo serão fornecidas aos partidos políticos nos dias 1º (primeiro) e 15 (quinze) de cada mês, ou no 1º (primeiro) dia útil seguinte, datas em que começarão a correr os prazos mencionados no parágrafo anterior, ainda que tenham sido exibidas ao alistando antes dessas datas e mesmo que os partidos não as retirem.","§ 2º As relações a que se refere o caput deste artigo serão fornecidas aos partidos políticos nos dias 1º (primeiro) e 15 (quinze) de cada mês, ou no 1º (primeiro) dia útil seguinte, datas em que começarão a correr os prazos mencionados no...","relacoes; partidos; primeiro; datas; junho; confeccionar; eleitores; refere; caput; deste","True","677","169"
+"36","36","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","645","645","- confeccionar relações de eleitores","artigo","Art. 8º","","Art. 8º","","","","","Art. 8º A transferência do eleitor só será admitida se satisfeitas as seguintes exigências:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 8º
+Tipo: artigo
+Hierarquia: - confeccionar relações de eleitores
+Páginas: 645-645
+Art. 8º A transferência do eleitor só será admitida se satisfeitas as seguintes exigências:","Art. 8º A transferência do eleitor só será admitida se satisfeitas as seguintes exigências:","junho; confeccionar; relacoes; eleitores; transferencia; eleitor; sera; admitida; satisfeitas; seguintes","True","373","93"
+"37","37","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","645","645","- confeccionar relações de eleitores","inciso","Art. 8º, I","Art. 8º","Art. 8º","","I","","","I - entrada do requerimento no cartório eleitoral do novo domicílio até 100 (cem) dias antes da data da eleição;","Lei n. 9.504/1997, art. 91, caput: fixação em 150 dias.","[{""ordem"": 1, ""marcador"": ""ticado"", ""texto"": ""Lei n. 9.504/1997, art. 91, caput: fixação em 150 dias."", ""pagina_inicial"": 645, ""pagina_final"": 645}]","1","Lei n. 9.504/1997","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 8º, I
+Tipo: inciso
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 8º
+Páginas: 645-645
+I - entrada do requerimento no cartório eleitoral do novo domicílio até 100 (cem) dias antes da data da eleição;
+Notas vinculadas:
+Lei n. 9.504/1997, art. 91, caput: fixação em 150 dias.","I - entrada do requerimento no cartório eleitoral do novo domicílio até 100 (cem) dias antes da data da eleição;","dias; junho; confeccionar; relacoes; eleitores; entrada; requerimento; cartorio; eleitoral; novo","True","496","124"
+"38","38","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","645","645","- confeccionar relações de eleitores","inciso","Art. 8º, II","Art. 8º","Art. 8º","","II","","","II - transcurso de, pelo menos, 1 (um) ano da inscrição anterior;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 8º, II
+Tipo: inciso
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 8º
+Páginas: 645-645
+II - transcurso de, pelo menos, 1 (um) ano da inscrição anterior;","II - transcurso de, pelo menos, 1 (um) ano da inscrição anterior;","junho; confeccionar; relacoes; eleitores; transcurso; menos; inscricao; anterior","True","376","94"
+"39","39","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","645","645","- confeccionar relações de eleitores","inciso","Art. 8º, III","Art. 8º","Art. 8º","","III","","","III - residência mínima de 3 (três) meses no novo domicílio, declarada, sob as penas da lei, pelo próprio eleitor.","V. Lei n. 7.115/1983, art. 1º, e Res.-TSE n. 11.917/1984: as regras de direito probatório contidas na Lei n. 7.115/1983 são aplicáveis ao processo eleitoral, com exceção do processo penal eleitoral.
+Ac.-TSE, de 8/4/2014, no REspe n. 8551; de 5/2/2013, no AgR-AI n. 7286 e, de 16/11/2000, no AgRgREspe n. 18124: conceito de domicílio eleitoral em que basta a demonstração de vínculos políticos, sociais, afetivos, patrimoniais ou de negócios.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""V. Lei n. 7.115/1983, art. 1º, e Res.-TSE n. 11.917/1984: as regras de direito probatório contidas na Lei n. 7.115/1983 são aplicáveis ao processo eleitoral, com exceção do processo penal eleitoral."", ""pagina_inicial"": 645, ""pagina_final"": 645}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""Ac.-TSE, de 8/4/2014, no REspe n. 8551; de 5/2/2013, no AgR-AI n. 7286 e, de 16/11/2000, no AgRgREspe n. 18124: conceito de domicílio eleitoral em que basta a demonstração de vínculos políticos, sociais, afetivos, patrimoniais ou de negócios."", ""pagina_inicial"": 645, ""pagina_final"": 645}]","2","Lei n. 7.115/1983","Ac.-TSE, de 8/4/2014, no REspe n; REspe n. 8551","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 8º, III
+Tipo: inciso
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 8º
+Páginas: 645-645
+III - residência mínima de 3 (três) meses no novo domicílio, declarada, sob as penas da lei, pelo próprio eleitor.
+Notas vinculadas:
+V. Lei n. 7.115/1983, art. 1º, e Res.-TSE n. 11.917/1984: as regras de direito probatório contidas na Lei n. 7.115/1983 são aplicáveis ao processo eleitoral, com exceção do processo penal eleitoral.
+Ac.-TSE, de 8/4/2014, no REspe n. 8551; de 5/2/2013, no AgR-AI n. 7286 e, de 16/11/2000, no AgRgREspe n. 18124: conceito de domicílio eleitoral em que basta a demonstração de vínculos políticos, sociais, afetivos, patrimoniais ou de negócios.","III - residência mínima de 3 (três) meses no novo domicílio, declarada, sob as penas da lei, pelo próprio eleitor.","eleitoral; domicilio; processo; junho; confeccionar; relacoes; eleitores; residencia; minima; tres","True","886","221"
+"40","40","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","645","645","- confeccionar relações de eleitores","paragrafo","Art. 8º, Parágrafo único","Art. 8º","Art. 8º","Parágrafo único","","","","Parágrafo único. O disposto nos incisos II e III deste artigo não se aplica à transferência de título eleitoral de servidor público civil, militar, autárquico, ou de membro de sua família, por motivo de remoção ou transferência.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 8º, Parágrafo único
+Tipo: paragrafo
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 8º
+Páginas: 645-645
+Parágrafo único. O disposto nos incisos II e III deste artigo não se aplica à transferência de título eleitoral de servidor público civil, militar, autárquico, ou de membro de sua família, por motivo de remoção ou transferência.","Parágrafo único. O disposto nos incisos II e III deste artigo não se aplica à transferência de título eleitoral de servidor público civil, militar, autárquico, ou de membro de sua família, por motivo de remoção ou transferência.","paragrafo; unico; transferencia; junho; confeccionar; relacoes; eleitores; disposto; incisos; deste","True","555","138"
+"41","41","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","645","645","- confeccionar relações de eleitores","artigo","Art. 9º","","Art. 9º","","","","","Art. 9º (Revogado pelo art. 5º da Lei n. 7.663/1988).","","[]","0","Lei n. 7.663/1988","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 9º
+Tipo: artigo
+Hierarquia: - confeccionar relações de eleitores
+Páginas: 645-645
+Art. 9º (Revogado pelo art. 5º da Lei n. 7.663/1988).","Art. 9º (Revogado pelo art. 5º da Lei n. 7.663/1988).","junho; confeccionar; relacoes; eleitores; revogado","True","335","83"
+"42","42","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","645","645","- confeccionar relações de eleitores","artigo","Art. 10","","Art. 10","","","","","Art. 10. Na votação poderá ser utilizada cédula de acordo com modelo aprovado pelo Tribunal Superior Eleitoral.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 10
+Tipo: artigo
+Hierarquia: - confeccionar relações de eleitores
+Páginas: 645-645
+Art. 10. Na votação poderá ser utilizada cédula de acordo com modelo aprovado pelo Tribunal Superior Eleitoral.","Art. 10. Na votação poderá ser utilizada cédula de acordo com modelo aprovado pelo Tribunal Superior Eleitoral.","junho; confeccionar; relacoes; eleitores; votacao; podera; utilizada; cedula; acordo; modelo","True","393","98"
+"43","43","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","645","646","- confeccionar relações de eleitores","artigo","Art. 11","","Art. 11","","","","","Art. 11. O Tribunal Superior Eleitoral estabelecerá o número de eleitores das seções eleitorais em função do número de cabinas nelas existentes.","V. Lei n. 9.504/1997, art. 84, parágrafo único: fixação pela JE do número de eleitores por seção.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""V. Lei n. 9.504/1997, art. 84, parágrafo único: fixação pela JE do número de eleitores por seção."", ""pagina_inicial"": 646, ""pagina_final"": 646}]","1","Lei n. 9.504/1997","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 11
+Tipo: artigo
+Hierarquia: - confeccionar relações de eleitores
+Páginas: 645-646
+Art. 11. O Tribunal Superior Eleitoral estabelecerá o número de eleitores das seções eleitorais em função do número de cabinas nelas existentes.
+Notas vinculadas:
+V. Lei n. 9.504/1997, art. 84, parágrafo único: fixação pela JE do número de eleitores por seção.","Art. 11. O Tribunal Superior Eleitoral estabelecerá o número de eleitores das seções eleitorais em função do número de cabinas nelas existentes.","eleitores; numero; junho; confeccionar; relacoes; tribunal; superior; eleitoral; estabelecera; secoes","True","542","135"
+"44","44","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","646","646","- confeccionar relações de eleitores","paragrafo","Art. 11, Parágrafo único","Art. 11","Art. 11","Parágrafo único","","","","Parágrafo único. Cada seção eleitoral terá, no mínimo, duas cabinas.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 11, Parágrafo único
+Tipo: paragrafo
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 11
+Páginas: 646-646
+Parágrafo único. Cada seção eleitoral terá, no mínimo, duas cabinas.","Parágrafo único. Cada seção eleitoral terá, no mínimo, duas cabinas.","paragrafo; unico; junho; confeccionar; relacoes; eleitores; cada; secao; eleitoral; tera","True","395","98"
+"45","45","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","646","646","- confeccionar relações de eleitores","artigo","Art. 12","","Art. 12","","","","","Art. 12. Nas seções das zonas eleitorais em que o alistamento se fizer pelo processamento eletrônico de dados, as folhas individuais de votação serão substituídas por listas de eleitores, emitidas por computador, das quais constarão, além do nome do eleitor, os dados de qualificação indicados pelo Tribunal Superior Eleitoral.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 12
+Tipo: artigo
+Hierarquia: - confeccionar relações de eleitores
+Páginas: 646-646
+Art. 12. Nas seções das zonas eleitorais em que o alistamento se fizer pelo processamento eletrônico de dados, as folhas individuais de votação serão substituídas por listas de eleitores, emitidas por computador, das quais constarão, além do nome do eleitor, os dados de qualificação indicados pelo Tribunal Superior Eleitoral.","Art. 12. Nas seções das zonas eleitorais em que o alistamento se fizer pelo processamento eletrônico de dados, as folhas individuais de votação serão substituídas por listas de eleitores, emitidas por computador, das quais constarão, além...","eleitores; dados; junho; confeccionar; relacoes; secoes; zonas; eleitorais; alistamento; fizer","True","609","152"
+"46","46","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","646","646","- confeccionar relações de eleitores","paragrafo","Art. 12, §1º","Art. 12","Art. 12","§1º","","","","§ 1º Somente poderão votar fora da respectiva seção os mesários, os candidatos e os fiscais ou delegados de partidos políticos, desde que eleitores do município e de posse do título eleitoral.","Lei n. 9.504/1997, art. 62, caput, e Res.-TSE
+n. 20686/2000: somente pode votar o eleitor cujo nome conste na folha de votação da respectiva seção eleitoral.","[{""ordem"": 1, ""marcador"": ""continuação"", ""texto"": ""Lei n. 9.504/1997, art. 62, caput, e Res.-TSE"", ""pagina_inicial"": 646, ""pagina_final"": 646}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""n. 20686/2000: somente pode votar o eleitor cujo nome conste na folha de votação da respectiva seção eleitoral."", ""pagina_inicial"": 646, ""pagina_final"": 646}]","2","Lei n. 9.504/1997","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 12, §1º
+Tipo: paragrafo
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 12
+Páginas: 646-646
+§ 1º Somente poderão votar fora da respectiva seção os mesários, os candidatos e os fiscais ou delegados de partidos políticos, desde que eleitores do município e de posse do título eleitoral.
+Notas vinculadas:
+Lei n. 9.504/1997, art. 62, caput, e Res.-TSE
+n. 20686/2000: somente pode votar o eleitor cujo nome conste na folha de votação da respectiva seção eleitoral.","§ 1º Somente poderão votar fora da respectiva seção os mesários, os candidatos e os fiscais ou delegados de partidos políticos, desde que eleitores do município e de posse do título eleitoral.","eleitores; somente; votar; respectiva; secao; eleitoral; junho; confeccionar; relacoes; poderao","True","683","170"
+"47","47","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","646","646","- confeccionar relações de eleitores","paragrafo","Art. 12, §2º","Art. 12","Art. 12","§2º","","","","§ 2º Ainda que não esteja de posse do seu título, o eleitor será admitido a votar desde que seja inscrito na seção, conste da lista dos eleitores e exiba documento que comprove sua identidade.","Lei n. 9.504/1997, art. 91-A: exigência, no momento da votação, da apresentação do título de eleitor e de documento de identificação com fotografia.
+Res.-TSE n. 21632/2004: certidões de nascimento ou de casamento não são documentos hábeis para comprovar a identidade de quem não apresentar título de eleitor no momento da votação.","[{""ordem"": 1, ""marcador"": ""ticado"", ""texto"": ""Lei n. 9.504/1997, art. 91-A: exigência, no momento da votação, da apresentação do título de eleitor e de documento de identificação com fotografia."", ""pagina_inicial"": 646, ""pagina_final"": 646}, {""ordem"": 2, ""marcador"": ""ticado"", ""texto"": ""Res.-TSE n. 21632/2004: certidões de nascimento ou de casamento não são documentos hábeis para comprovar a identidade de quem não apresentar título de eleitor no momento da votação."", ""pagina_inicial"": 646, ""pagina_final"": 646}]","2","Lei n. 9.504/1997; Res.-TSE n. 21632/2004","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 12, §2º
+Tipo: paragrafo
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 12
+Páginas: 646-646
+§ 2º Ainda que não esteja de posse do seu título, o eleitor será admitido a votar desde que seja inscrito na seção, conste da lista dos eleitores e exiba documento que comprove sua identidade.
+Notas vinculadas:
+Lei n. 9.504/1997, art. 91-A: exigência, no momento da votação, da apresentação do título de eleitor e de documento de identificação com fotografia.
+Res.-TSE n. 21632/2004: certidões de nascimento ou de casamento não são documentos hábeis para comprovar a identidade de quem não apresentar título de eleitor no momento da votação.","§ 2º Ainda que não esteja de posse do seu título, o eleitor será admitido a votar desde que seja inscrito na seção, conste da lista dos eleitores e exiba documento que comprove sua identidade.","titulo; eleitor; eleitores; documento; identidade; momento; votacao; junho; confeccionar; relacoes","True","856","214"
+"48","48","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","646","646","- confeccionar relações de eleitores","paragrafo","Art. 12, §3º","Art. 12","Art. 12","§3º","","","","§ 3º Os votos dos eleitores mencionados nos parágrafos anteriores não serão tomados em separado.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 12, §3º
+Tipo: paragrafo
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 12
+Páginas: 646-646
+§ 3º Os votos dos eleitores mencionados nos parágrafos anteriores não serão tomados em separado.","§ 3º Os votos dos eleitores mencionados nos parágrafos anteriores não serão tomados em separado.","eleitores; junho; confeccionar; relacoes; votos; mencionados; paragrafos; anteriores; serao; tomados","True","411","102"
+"49","49","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","646","646","- confeccionar relações de eleitores","paragrafo","Art. 12, §4º","Art. 12","Art. 12","§4º","","","","§ 4º O voto em separado será recolhido em invólucro especial e somente será admitido quando houver dúvida quanto à identidade ou inscrição do eleitor, ou quando da lista não constar nome de eleitor que apresentar título correspondente à seção.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 12, §4º
+Tipo: paragrafo
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 12
+Páginas: 646-646
+§ 4º O voto em separado será recolhido em invólucro especial e somente será admitido quando houver dúvida quanto à identidade ou inscrição do eleitor, ou quando da lista não constar nome de eleitor que apresentar título correspondente à seção.","§ 4º O voto em separado será recolhido em invólucro especial e somente será admitido quando houver dúvida quanto à identidade ou inscrição do eleitor, ou quando da lista não constar nome de eleitor que apresentar título correspondente à...","sera; quando; eleitor; junho; confeccionar; relacoes; eleitores; voto; separado; recolhido","True","558","139"
+"50","50","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","646","646","- confeccionar relações de eleitores","paragrafo","Art. 12, §5º","Art. 12","Art. 12","§5º","","","","§ 5º A validade dos votos tomados em separado, das seções de um mesmo município, será examinada em conjunto pela junta apuradora, independentemente da apuração dos votos contidos nas urnas.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 12, §5º
+Tipo: paragrafo
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 12
+Páginas: 646-646
+§ 5º A validade dos votos tomados em separado, das seções de um mesmo município, será examinada em conjunto pela junta apuradora, independentemente da apuração dos votos contidos nas urnas.","§ 5º A validade dos votos tomados em separado, das seções de um mesmo município, será examinada em conjunto pela junta apuradora, independentemente da apuração dos votos contidos nas urnas.","votos; junho; confeccionar; relacoes; eleitores; validade; tomados; separado; secoes; mesmo","True","504","126"
+"51","51","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","646","646","- confeccionar relações de eleitores","artigo","Art. 13","","Art. 13","","","","","Art. 13. O Tribunal Superior Eleitoral poderá autorizar a criação de juntas apuradoras regionais, nos termos das instruções que baixar.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 13
+Tipo: artigo
+Hierarquia: - confeccionar relações de eleitores
+Páginas: 646-646
+Art. 13. O Tribunal Superior Eleitoral poderá autorizar a criação de juntas apuradoras regionais, nos termos das instruções que baixar.","Art. 13. O Tribunal Superior Eleitoral poderá autorizar a criação de juntas apuradoras regionais, nos termos das instruções que baixar.","junho; confeccionar; relacoes; eleitores; tribunal; superior; eleitoral; podera; autorizar; criacao","True","417","104"
+"52","52","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","646","646","- confeccionar relações de eleitores","artigo","Art. 14","","Art. 14","","","","","Art. 14. A apuração poderá ser iniciada a partir do recebimento da primeira urna, prolongando-se pelo tempo necessário, observado o prazo máximo de 10 (dez) dias.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 14
+Tipo: artigo
+Hierarquia: - confeccionar relações de eleitores
+Páginas: 646-646
+Art. 14. A apuração poderá ser iniciada a partir do recebimento da primeira urna, prolongando-se pelo tempo necessário, observado o prazo máximo de 10 (dez) dias.","Art. 14. A apuração poderá ser iniciada a partir do recebimento da primeira urna, prolongando-se pelo tempo necessário, observado o prazo máximo de 10 (dez) dias.","junho; confeccionar; relacoes; eleitores; apuracao; podera; iniciada; partir; recebimento; primeira","True","444","111"
+"53","53","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","646","646","- confeccionar relações de eleitores","paragrafo","Art. 14, Parágrafo único","Art. 14","Art. 14","Parágrafo único","","","","Parágrafo único. Ultrapassada a fase de abertura da urna, as cédulas programadas para a apuração através da computação serão eletronicamente processadas, caso em que os partidos poderão manter fiscais nos locais destinados a esse fim.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 14, Parágrafo único
+Tipo: paragrafo
+Hierarquia: - confeccionar relações de eleitores
+Dispositivo pai: Art. 14
+Páginas: 646-646
+Parágrafo único. Ultrapassada a fase de abertura da urna, as cédulas programadas para a apuração através da computação serão eletronicamente processadas, caso em que os partidos poderão manter fiscais nos locais destinados a esse fim.","Parágrafo único. Ultrapassada a fase de abertura da urna, as cédulas programadas para a apuração através da computação serão eletronicamente processadas, caso em que os partidos poderão manter fiscais nos locais destinados a esse fim.","paragrafo; unico; junho; confeccionar; relacoes; eleitores; ultrapassada; fase; abertura; urna","True","561","140"
+"54","54","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","646","646","- confeccionar relações de eleitores","artigo","Art. 15","","Art. 15","","","","","Art. 15. Incorrerá nas penas do art. 315 do Código Eleitoral quem, no processamento eletrônico das cédulas, alterar resultados, qualquer que seja o método utilizado.","Lei n. 9.504/1997, art. 72: crimes relacionados ao sistema de tratamento automático de dados usado pelo serviço eleitoral e a equipamento usado na votação ou na totalização de votos.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Lei n. 9.504/1997, art. 72: crimes relacionados ao sistema de tratamento automático de dados usado pelo serviço eleitoral e a equipamento usado na votação ou na totalização de votos."", ""pagina_inicial"": 646, ""pagina_final"": 646}]","1","Lei n. 9.504/1997","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 15
+Tipo: artigo
+Hierarquia: - confeccionar relações de eleitores
+Páginas: 646-646
+Art. 15. Incorrerá nas penas do art. 315 do Código Eleitoral quem, no processamento eletrônico das cédulas, alterar resultados, qualquer que seja o método utilizado.
+Notas vinculadas:
+Lei n. 9.504/1997, art. 72: crimes relacionados ao sistema de tratamento automático de dados usado pelo serviço eleitoral e a equipamento usado na votação ou na totalização de votos.","Art. 15. Incorrerá nas penas do art. 315 do Código Eleitoral quem, no processamento eletrônico das cédulas, alterar resultados, qualquer que seja o método utilizado.","eleitoral; usado; junho; confeccionar; relacoes; eleitores; incorrera; penas; codigo; quem","True","648","162"
+"55","55","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","646","646","- confeccionar relações de eleitores","artigo","Art. 16","","Art. 16","","","","","Art. 16. (Revogado pelo art. 63 da Lei n. 9.096/1995).","","[]","0","Lei n. 9.096/1995","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 16
+Tipo: artigo
+Hierarquia: - confeccionar relações de eleitores
+Páginas: 646-646
+Art. 16. (Revogado pelo art. 63 da Lei n. 9.096/1995).","Art. 16. (Revogado pelo art. 63 da Lei n. 9.096/1995).","junho; confeccionar; relacoes; eleitores; revogado","True","336","84"
+"56","56","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","646","647","- confeccionar relações de eleitores","artigo","Art. 17","","Art. 17","","","","","Art. 17. Os arts. 6º e 8º e o parágrafo único do art. 9º desta lei também serão aplicados nas zonas eleitorais em que o alistamento continuar a ser efetuado na forma prevista no Código Eleitoral.","Art. 9º desta lei revogado pelo art. 5º da Lei n. 7.663/1988.","[{""ordem"": 1, ""marcador"": ""ticado"", ""texto"": ""Art. 9º desta lei revogado pelo art. 5º da Lei n. 7.663/1988."", ""pagina_inicial"": 647, ""pagina_final"": 647}]","1","Lei n. 7.663/1988","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 17
+Tipo: artigo
+Hierarquia: - confeccionar relações de eleitores
+Páginas: 646-647
+Art. 17. Os arts. 6º e 8º e o parágrafo único do art. 9º desta lei também serão aplicados nas zonas eleitorais em que o alistamento continuar a ser efetuado na forma prevista no Código Eleitoral.
+Notas vinculadas:
+Art. 9º desta lei revogado pelo art. 5º da Lei n. 7.663/1988.","Art. 17. Os arts. 6º e 8º e o parágrafo único do art. 9º desta lei também serão aplicados nas zonas eleitorais em que o alistamento continuar a ser efetuado na forma prevista no Código Eleitoral.","desta; junho; confeccionar; relacoes; eleitores; arts; paragrafo; unico; tambem; serao","True","557","139"
+"57","57","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","647","647","- confeccionar relações de eleitores","artigo","Art. 18","","Art. 18","","","","","Art. 18. O Tribunal Superior Eleitoral expedirá as instruções que se fizerem necessárias para o cumprimento desta lei, inclusive divulgando entre os partidos políticos, os juízes e os cartórios eleitorais manuais de procedimentos detalhando a nova sistemática.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 18
+Tipo: artigo
+Hierarquia: - confeccionar relações de eleitores
+Páginas: 647-647
+Art. 18. O Tribunal Superior Eleitoral expedirá as instruções que se fizerem necessárias para o cumprimento desta lei, inclusive divulgando entre os partidos políticos, os juízes e os cartórios eleitorais manuais de procedimentos detalhando a nova sistemática.","Art. 18. O Tribunal Superior Eleitoral expedirá as instruções que se fizerem necessárias para o cumprimento desta lei, inclusive divulgando entre os partidos políticos, os juízes e os cartórios eleitorais manuais de procedimentos...","junho; confeccionar; relacoes; eleitores; tribunal; superior; eleitoral; expedira; instrucoes; fizerem","True","542","135"
+"58","58","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","647","647","- confeccionar relações de eleitores","artigo","Art. 19","","Art. 19","","","","","Art. 19. Esta lei entra em vigor na data de sua publicação.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 19
+Tipo: artigo
+Hierarquia: - confeccionar relações de eleitores
+Páginas: 647-647
+Art. 19. Esta lei entra em vigor na data de sua publicação.","Art. 19. Esta lei entra em vigor na data de sua publicação.","junho; confeccionar; relacoes; eleitores; esta; entra; vigor; data; publicacao","True","341","85"
+"59","59","Codigo_Eleitoral_2026_anotado.pdf","lei_6996_1982","Lei n. 6.996, de 7 de junho de 1982","","Legislação correlata","Legislação correlata","647","647","- confeccionar relações de eleitores","artigo","Art. 20","","Art. 20","","","","","Art. 20. Revogam-se as disposições em contrário.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 6.996, de 7 de junho de 1982
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 20
+Tipo: artigo
+Hierarquia: - confeccionar relações de eleitores
+Páginas: 647-647
+Art. 20. Revogam-se as disposições em contrário.","Art. 20. Revogam-se as disposições em contrário.","junho; confeccionar; relacoes; eleitores; revogam; disposicoes; contrario","True","330","82"

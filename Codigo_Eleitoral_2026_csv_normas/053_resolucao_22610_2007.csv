@@ -1,0 +1,277 @@
+﻿"id","ordem_doc","arquivo_fonte","norma_id","norma_titulo","norma_nome_popular","macrogrupo","grupo_sumario","pagina_inicial","pagina_final","hierarquia_normativa","tipo_dispositivo","dispositivo","dispositivo_pai","artigo","paragrafo","inciso","alinea","item","texto_dispositivo","notas_texto","notas_json","qtd_notas","referencias_normativas","referencias_jurisprudenciais","referencias_sumulas","texto_rag","resumo_curto","palavras_chave","incluir_no_rag","chars","tokens_estimados"
+"1","1","Codigo_Eleitoral_2026_anotado.pdf","resolucao_22610_2007","Resolução n. 22.610, de 25 de outubro de 2007","","Normas editadas pelo TSE","Resoluções","811","811","","norma","Resolução n. 22.610, de 25 de outubro de 2007","","","","","","","Disciplina o processo de perda de cargo eletivo, bem como de justificação de desfiliação partidária. O TRIBUNAL SUPERIOR ELEITORAL, no uso das atribuições que lhe confere o art. 23, XVIII, do Código Eleitoral, e na observância do que decidiu o Supremo Tribunal Federal nos Mandados de Segurança n. 26.602, 26.603 e 26.604, resolve disciplinar o processo de perda de cargo eletivo, bem como de justificação de desfiliação partidária, nos termos seguintes:","Res.-TSE n. 22866/2008: a fidelidade partidária a que se refere o § 1º do art. 17 da CF/1988 trata das relações entre o partido e o afiliado, somente. A relação institucional com o parlamento e a perda do mandato por infidelidade partidária não pode ser objeto de disciplina estatutária de partido político.
+Res.-TSE n. 22526/2007, 22563/2007 e 22580/2007: o cargo eletivo no sistema proporcional pertence ao partido, e não ao candidato; Ac.-TSE, de 25/6/2015, na Cta n. 8271: a perda do mandato em razão da mudança de partido não se aplica aos candidatos eleitos pelo sistema majoritário.
+Ac.-TSE, de 20/11/2007, no AgRgMS n. 3668: inexistência de ilegalidade na Res.-TSE n. 22610/2007; Ac.-STF, de 12/11/2008, nas ADIs n. 3999 e 4086 e Ac.-TSE, de 11/10/2008, no AgR-AC n. 2424: constitucionalidade da citada resolução.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Res.-TSE n. 22866/2008: a fidelidade partidária a que se refere o § 1º do art. 17 da CF/1988 trata das relações entre o partido e o afiliado, somente. A relação institucional com o parlamento e a perda do mandato por infidelidade partidária não pode ser objeto de disciplina estatutária de partido político."", ""pagina_inicial"": 811, ""pagina_final"": 811}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""Res.-TSE n. 22526/2007, 22563/2007 e 22580/2007: o cargo eletivo no sistema proporcional pertence ao partido, e não ao candidato; Ac.-TSE, de 25/6/2015, na Cta n. 8271: a perda do mandato em razão da mudança de partido não se aplica aos candidatos eleitos pelo sistema majoritário."", ""pagina_inicial"": 811, ""pagina_final"": 811}, {""ordem"": 3, ""marcador"": ""quadrado"", ""texto"": ""Ac.-TSE, de 20/11/2007, no AgRgMS n. 3668: inexistência de ilegalidade na Res.-TSE n. 22610/2007; Ac.-STF, de 12/11/2008, nas ADIs n. 3999 e 4086 e Ac.-TSE, de 11/10/2008, no AgR-AC n. 2424: constitucionalidade da citada resolução."", ""pagina_inicial"": 811, ""pagina_final"": 811}]","3","CF/1988; Res.-TSE n. 22866/2008; Res.-TSE n. 22526/2007; Res.-TSE n. 22610/2007","Ac.-TSE, de 25/6/2015, na Cta n; Ac.-TSE, de 20/11/2007, no AgRgMS n; Ac.-STF, de 12/11/2008, nas ADIs n; Ac.-TSE, de 11/10/2008, no AgR-AC n","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 22.610, de 25 de outubro de 2007
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Resolução n. 22.610, de 25 de outubro de 2007
+Tipo: norma
+Páginas: 811-811
+Disciplina o processo de perda de cargo eletivo, bem como de justificação de desfiliação partidária. O TRIBUNAL SUPERIOR ELEITORAL, no uso das atribuições que lhe confere o art. 23, XVIII, do Código Eleitoral, e na observância do que decidiu o Supremo Tribunal Federal nos Mandados de Segurança n. 26.602, 26.603 e 26.604, resolve disciplinar o processo de perda de cargo eletivo, bem como de justificação de desfiliação partidária, nos termos seguintes:
+Notas vinculadas:
+Res.-TSE n. 22866/2008: a fidelidade partidária a que se refere o § 1º do art. 17 da CF/1988 trata das relações entre o partido e o afiliado, somente. A relação institucional com o parlamento e a perda do mandato por infidelidade partidária não pode ser objeto de disciplina estatutária de partido político.
+Res.-TSE n. 22526/2007, 22563/2007 e 22580/2007: o cargo eletivo no sistema proporcional pertence ao partido, e não ao candidato; Ac.-TSE, de 25/6/2015, na Cta n. 8271: a perda do mandato em razão da mudança de partido não se aplica aos candidatos eleitos pelo sistema majoritário.
+Ac.-TSE, de 20/11/2007, no AgRgMS n. 3668: inexistência de ilegalidade na Res.-TSE n. 22610/2007; Ac.-STF, de 12/11/2008, nas ADIs n. 3999 e 4086 e Ac.-TSE, de 11/10/2008, no AgR-AC n. 2424: constitucionalidade da citada resolução.","Disciplina o processo de perda de cargo eletivo, bem como de justificação de desfiliação partidária. O TRIBUNAL SUPERIOR ELEITORAL, no uso das atribuições que lhe confere o art. 23, XVIII, do Código Eleitoral, e na observância do que...","perda; partidaria; partido; resolucao; cargo; eletivo; outubro; disciplina; processo; justificacao","True","1568","392"
+"2","2","Codigo_Eleitoral_2026_anotado.pdf","resolucao_22610_2007","Resolução n. 22.610, de 25 de outubro de 2007","","Normas editadas pelo TSE","Resoluções","811","811","","artigo","Art. 1º","","Art. 1º","","","","","Art. 1º O partido político interessado pode pedir, perante a Justiça Eleitoral, a decretação da perda de cargo eletivo em decorrência de desfiliação partidária sem justa causa.","Ac.-TSE, de 31/3/2009, no AgR-AC n. 3233: competência da Justiça Eleitoral para reconhecimento ou não de infidelidade partidária.
+V. art. 22-A, parágrafo único, da Lei n. 9.096/1995: justa causa para a desfiliação partidária. V. nota ao art. 13, caput, desta resolução, sobre
+o Ac.-STF, de 27/5/2015, na ADI n. 5081.
+Ac.-TSE, de 8/9/2015, na Cta n. 93721: novo partido que recebe parlamentar que, novamente, se transfere para outra legenda, não possui interesse em ajuizar ação de perda de cargo eletivo por desfiliação partidária, em razão da inexistência de suplentes em seus quadros aptos a assumirem o mandato.
+Não incidência das disposições desta resolução: Ac.-TSE, de 12/12/2019, no AgR-AI n. 060054541 (expulsão proferida pela agremiação política); Ac.-TSE, de 24/6/2014, no AgR-Pet n. 89853 e, de 27/11/2012, no AgR-REspe n. 67303 (desfiliação autorizada pelo próprio partido); Ac.-TSE, de 23/4/2009, no AgR-Pet n. 2778 (reintegração do detentor de cargo eletivo ao partido político); Ac.-TSE, de 14/4/2009, no RMS n. 640 (vacância de cargo por nomeação do titular como secretário de Estado); Ac.-TSE, de 19/3/2009, no AgR-Pet n. 2980 (desfiliação imposta pelo próprio partido político); Ac.-TSE, de 19/2/2009, no AgR-Rp n. 1399 (desfiliação partidária de suplente por não exercer mandato eletivo).","[{""ordem"": 1, ""marcador"": ""ticado"", ""texto"": ""Ac.-TSE, de 31/3/2009, no AgR-AC n. 3233: competência da Justiça Eleitoral para reconhecimento ou não de infidelidade partidária."", ""pagina_inicial"": 811, ""pagina_final"": 811}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""V. art. 22-A, parágrafo único, da Lei n. 9.096/1995: justa causa para a desfiliação partidária. V. nota ao art. 13, caput, desta resolução, sobre"", ""pagina_inicial"": 811, ""pagina_final"": 811}, {""ordem"": 3, ""marcador"": ""quadrado"", ""texto"": ""o Ac.-STF, de 27/5/2015, na ADI n. 5081."", ""pagina_inicial"": 811, ""pagina_final"": 811}, {""ordem"": 4, ""marcador"": ""quadrado"", ""texto"": ""Ac.-TSE, de 8/9/2015, na Cta n. 93721: novo partido que recebe parlamentar que, novamente, se transfere para outra legenda, não possui interesse em ajuizar ação de perda de cargo eletivo por desfiliação partidária, em razão da inexistência de suplentes em seus quadros aptos a assumirem o mandato."", ""pagina_inicial"": 811, ""pagina_final"": 811}, {""ordem"": 5, ""marcador"": ""quadrado"", ""texto"": ""Não incidência das disposições desta resolução: Ac.-TSE, de 12/12/2019, no AgR-AI n. 060054541 (expulsão proferida pela agremiação política); Ac.-TSE, de 24/6/2014, no AgR-Pet n. 89853 e, de 27/11/2012, no AgR-REspe n. 67303 (desfiliação autorizada pelo próprio partido); Ac.-TSE, de 23/4/2009, no AgR-Pet n. 2778 (reintegração do detentor de cargo eletivo ao partido político); Ac.-TSE, de 14/4/2009, no RMS n. 640 (vacância de cargo por nomeação do titular como secretário de Estado); Ac.-TSE, de 19/3/2009, no AgR-Pet n. 2980 (desfiliação imposta pelo próprio partido político); Ac.-TSE, de 19/2/2009, no AgR-Rp n. 1399 (desfiliação partidária de suplente por não exercer mandato eletivo)."", ""pagina_inicial"": 811, ""pagina_final"": 811}]","5","Lei n. 9.096/1995","Ac.-TSE, de 31/3/2009, no AgR-AC n; Ac.-STF, de 27/5/2015, na ADI n; Ac.-TSE, de 8/9/2015, na Cta n; Ac.-TSE, de 12/12/2019, no AgR-AI n; Ac.-TSE, de 24/6/2014, no AgR-Pet n; Ac.-TSE, de 23/4/2009, no AgR-Pet n; Ac.-TSE, de 14/4/2009, no RMS n; Ac.-TSE, de 19/3/2009, no AgR-Pet n; Ac.-TSE, de 19/2/2009, no AgR-Rp n; ADI n. 5081.; AgR-REspe n. 67303; Rp n. 1399","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 22.610, de 25 de outubro de 2007
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 1º
+Tipo: artigo
+Páginas: 811-811
+Art. 1º O partido político interessado pode pedir, perante a Justiça Eleitoral, a decretação da perda de cargo eletivo em decorrência de desfiliação partidária sem justa causa.
+Notas vinculadas:
+Ac.-TSE, de 31/3/2009, no AgR-AC n. 3233: competência da Justiça Eleitoral para reconhecimento ou não de infidelidade partidária.
+V. art. 22-A, parágrafo único, da Lei n. 9.096/1995: justa causa para a desfiliação partidária. V. nota ao art. 13, caput, desta resolução, sobre
+o Ac.-STF, de 27/5/2015, na ADI n. 5081.
+Ac.-TSE, de 8/9/2015, na Cta n. 93721: novo partido que recebe parlamentar que, novamente, se transfere para outra legenda, não possui interesse em ajuizar ação de perda de cargo eletivo por desfiliação partidária, em razão da inexistência de suplentes em seus quadros aptos a assumirem o mandato.
+Não incidência das disposições desta resolução: Ac.-TSE, de 12/12/2019, no AgR-AI n. 060054541 (expulsão proferida pela agremiação política); Ac.-TSE, de 24/6/2014, no AgR-Pet n. 89853 e, de 27/11/2012, no AgR-REspe n. 67303 (desfiliação autorizada pelo próprio partido); Ac.-TSE, de 23/4/2009, no AgR-Pet n. 2778 (reintegração do detentor de cargo eletivo ao partido político); Ac.-TSE, de 14/4/2009, no RMS n. 640 (vacância de cargo por nomeação do titular como secretário de Estado); Ac.-TSE, de 19/3/2009, no AgR-Pet n. 2980 (desfiliação imposta pelo próprio partido político); Ac.-TSE, de 19/2/2009, no AgR-Rp n. 1399 (desfiliação partidária de suplente por não exercer mandato eletivo).","Art. 1º O partido político interessado pode pedir, perante a Justiça Eleitoral, a decretação da perda de cargo eletivo em decorrência de desfiliação partidária sem justa causa.","desfiliacao; partido; partidaria; cargo; eletivo; resolucao; politico; justica; eleitoral; perda","True","1739","434"
+"3","3","Codigo_Eleitoral_2026_anotado.pdf","resolucao_22610_2007","Resolução n. 22.610, de 25 de outubro de 2007","","Normas editadas pelo TSE","Resoluções","811","812","","paragrafo","Art. 1º, §1º","Art. 1º","Art. 1º","§1º","","","","§ 1º Considera-se justa causa:","Ac.-TSE, de 3/3/2016, no AgR-REspe n. 6424 e, de 21/8/2014, no AgR-Pet n. 89416 e Res.-TSE n. 22705/2008: caracterização de justa causa quando o partido reconhecer fatos que justifiquem a desfiliação.
+Ac.-TSE, de 7/10/2010, no AgR-AC n. 198464: eventual resistência do partido à futura pretensão de o filiado concorrer a cargo eletivo ou intenção de viabilizar essa candidatura por outra agremiação não caracteriza justa causa.
+Ac.-TSE, de 12/3/2009, na Pet n. 2773: “A modificação da posição do partido em relação a tema de grande relevância configura justa causa para a migração partidária de filiado”.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Ac.-TSE, de 3/3/2016, no AgR-REspe n. 6424 e, de 21/8/2014, no AgR-Pet n. 89416 e Res.-TSE n. 22705/2008: caracterização de justa causa quando o partido reconhecer fatos que justifiquem a desfiliação."", ""pagina_inicial"": 812, ""pagina_final"": 812}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""Ac.-TSE, de 7/10/2010, no AgR-AC n. 198464: eventual resistência do partido à futura pretensão de o filiado concorrer a cargo eletivo ou intenção de viabilizar essa candidatura por outra agremiação não caracteriza justa causa."", ""pagina_inicial"": 812, ""pagina_final"": 812}, {""ordem"": 3, ""marcador"": ""quadrado"", ""texto"": ""Ac.-TSE, de 12/3/2009, na Pet n. 2773: “A modificação da posição do partido em relação a tema de grande relevância configura justa causa para a migração partidária de filiado”."", ""pagina_inicial"": 812, ""pagina_final"": 812}]","3","Res.-TSE n. 22705/2008","Ac.-TSE, de 3/3/2016, no AgR-REspe n; Ac.-TSE, de 7/10/2010, no AgR-AC n; Ac.-TSE, de 12/3/2009, na Pet n; AgR-REspe n. 6424","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 22.610, de 25 de outubro de 2007
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 1º, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 1º
+Páginas: 811-812
+§ 1º Considera-se justa causa:
+Notas vinculadas:
+Ac.-TSE, de 3/3/2016, no AgR-REspe n. 6424 e, de 21/8/2014, no AgR-Pet n. 89416 e Res.-TSE n. 22705/2008: caracterização de justa causa quando o partido reconhecer fatos que justifiquem a desfiliação.
+Ac.-TSE, de 7/10/2010, no AgR-AC n. 198464: eventual resistência do partido à futura pretensão de o filiado concorrer a cargo eletivo ou intenção de viabilizar essa candidatura por outra agremiação não caracteriza justa causa.
+Ac.-TSE, de 12/3/2009, na Pet n. 2773: “A modificação da posição do partido em relação a tema de grande relevância configura justa causa para a migração partidária de filiado”.","§ 1º Considera-se justa causa:","justa; causa; partido; filiado; resolucao; outubro; considera; respe; caracterizacao; quando","True","923","230"
+"4","4","Codigo_Eleitoral_2026_anotado.pdf","resolucao_22610_2007","Resolução n. 22.610, de 25 de outubro de 2007","","Normas editadas pelo TSE","Resoluções","812","812","","inciso","Art. 1º, §1º, I","Art. 1º, §1º","Art. 1º","§1º","I","","","I - incorporação ou fusão do partido;","Ac.-TSE, de 7/8/2008, no AgR-AC n. 2380: decorrido extenso lapso temporal entre o ato de incorporação e o pedido de desfiliação partidária, fica impossibilitado o reconhecimento da justa causa.
+Res.-TSE n. 22885/2008: a justa causa prevista neste dispositivo atinge apenas o parlamentar filiado ao partido político incorporado.
+Ac.-TSE, de 29/4/2014, na Cta n. 18226: a fusão não abre a parlamentares de partidos que não a integraram a oportunidade de migrarem.","[{""ordem"": 1, ""marcador"": ""ticado"", ""texto"": ""Ac.-TSE, de 7/8/2008, no AgR-AC n. 2380: decorrido extenso lapso temporal entre o ato de incorporação e o pedido de desfiliação partidária, fica impossibilitado o reconhecimento da justa causa."", ""pagina_inicial"": 812, ""pagina_final"": 812}, {""ordem"": 2, ""marcador"": ""ticado"", ""texto"": ""Res.-TSE n. 22885/2008: a justa causa prevista neste dispositivo atinge apenas o parlamentar filiado ao partido político incorporado."", ""pagina_inicial"": 812, ""pagina_final"": 812}, {""ordem"": 3, ""marcador"": ""quadrado"", ""texto"": ""Ac.-TSE, de 29/4/2014, na Cta n. 18226: a fusão não abre a parlamentares de partidos que não a integraram a oportunidade de migrarem."", ""pagina_inicial"": 812, ""pagina_final"": 812}]","3","Res.-TSE n. 22885/2008","Ac.-TSE, de 7/8/2008, no AgR-AC n; Ac.-TSE, de 29/4/2014, na Cta n","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 22.610, de 25 de outubro de 2007
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 1º, §1º, I
+Tipo: inciso
+Dispositivo pai: Art. 1º, §1º
+Páginas: 812-812
+I - incorporação ou fusão do partido;
+Notas vinculadas:
+Ac.-TSE, de 7/8/2008, no AgR-AC n. 2380: decorrido extenso lapso temporal entre o ato de incorporação e o pedido de desfiliação partidária, fica impossibilitado o reconhecimento da justa causa.
+Res.-TSE n. 22885/2008: a justa causa prevista neste dispositivo atinge apenas o parlamentar filiado ao partido político incorporado.
+Ac.-TSE, de 29/4/2014, na Cta n. 18226: a fusão não abre a parlamentares de partidos que não a integraram a oportunidade de migrarem.","I - incorporação ou fusão do partido;","incorporacao; fusao; partido; justa; causa; resolucao; outubro; decorrido; extenso; lapso","True","792","198"
+"5","5","Codigo_Eleitoral_2026_anotado.pdf","resolucao_22610_2007","Resolução n. 22.610, de 25 de outubro de 2007","","Normas editadas pelo TSE","Resoluções","812","812","","inciso","Art. 1º, §1º, II","Art. 1º, §1º","Art. 1º","§1º","II","","","II - criação de novo partido;","Ac.-TSE, de 2/6/2011, na Cta n. 75535: possibilidade da filiação partidária no novo partido somente após o registro do estatuto na JE.
+Ac.-STF, de 9/3/2026, na ADI n. 5398: “É constitucional a exclusão da criação de nova legenda como hipótese de justa causa para a desfiliação, sem perda de mandato por infidelidade partidária”.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Ac.-TSE, de 2/6/2011, na Cta n. 75535: possibilidade da filiação partidária no novo partido somente após o registro do estatuto na JE."", ""pagina_inicial"": 812, ""pagina_final"": 812}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""Ac.-STF, de 9/3/2026, na ADI n. 5398: “É constitucional a exclusão da criação de nova legenda como hipótese de justa causa para a desfiliação, sem perda de mandato por infidelidade partidária”."", ""pagina_inicial"": 812, ""pagina_final"": 812}]","2","","Ac.-TSE, de 2/6/2011, na Cta n; Ac.-STF, de 9/3/2026, na ADI n; ADI n. 5398","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 22.610, de 25 de outubro de 2007
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 1º, §1º, II
+Tipo: inciso
+Dispositivo pai: Art. 1º, §1º
+Páginas: 812-812
+II - criação de novo partido;
+Notas vinculadas:
+Ac.-TSE, de 2/6/2011, na Cta n. 75535: possibilidade da filiação partidária no novo partido somente após o registro do estatuto na JE.
+Ac.-STF, de 9/3/2026, na ADI n. 5398: “É constitucional a exclusão da criação de nova legenda como hipótese de justa causa para a desfiliação, sem perda de mandato por infidelidade partidária”.","II - criação de novo partido;","criacao; novo; partido; partidaria; resolucao; outubro; possibilidade; filiacao; somente; apos","True","652","163"
+"6","6","Codigo_Eleitoral_2026_anotado.pdf","resolucao_22610_2007","Resolução n. 22.610, de 25 de outubro de 2007","","Normas editadas pelo TSE","Resoluções","812","812","","inciso","Art. 1º, §1º, III","Art. 1º, §1º","Art. 1º","§1º","III","","","III - mudança substancial ou desvio reiterado do programa partidário;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 22.610, de 25 de outubro de 2007
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 1º, §1º, III
+Tipo: inciso
+Dispositivo pai: Art. 1º, §1º
+Páginas: 812-812
+III - mudança substancial ou desvio reiterado do programa partidário;","III - mudança substancial ou desvio reiterado do programa partidário;","resolucao; outubro; mudanca; substancial; desvio; reiterado; programa; partidario","True","346","86"
+"7","7","Codigo_Eleitoral_2026_anotado.pdf","resolucao_22610_2007","Resolução n. 22.610, de 25 de outubro de 2007","","Normas editadas pelo TSE","Resoluções","812","812","","inciso","Art. 1º, §1º, IV","Art. 1º, §1º","Art. 1º","§1º","IV","","","IV - grave discriminação pessoal.","Ac.-TSE, de 13/4/2021, na Pet n. 060063814: não cabe à JE examinar a correção da sanção imposta pelo partido, mas averiguar se tal sanção é caracterizadora de grave discriminação pessoal.
+Ac.-TSE, de 27/3/2008, na Pet n. 2756: “Divergência entre filiados partidários no sentido de ser alcançada projeção política não constitui justa causa para desfiliação”.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Ac.-TSE, de 13/4/2021, na Pet n. 060063814: não cabe à JE examinar a correção da sanção imposta pelo partido, mas averiguar se tal sanção é caracterizadora de grave discriminação pessoal."", ""pagina_inicial"": 812, ""pagina_final"": 812}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""Ac.-TSE, de 27/3/2008, na Pet n. 2756: “Divergência entre filiados partidários no sentido de ser alcançada projeção política não constitui justa causa para desfiliação”."", ""pagina_inicial"": 812, ""pagina_final"": 812}]","2","","Ac.-TSE, de 13/4/2021, na Pet n; Ac.-TSE, de 27/3/2008, na Pet n","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 22.610, de 25 de outubro de 2007
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 1º, §1º, IV
+Tipo: inciso
+Dispositivo pai: Art. 1º, §1º
+Páginas: 812-812
+IV - grave discriminação pessoal.
+Notas vinculadas:
+Ac.-TSE, de 13/4/2021, na Pet n. 060063814: não cabe à JE examinar a correção da sanção imposta pelo partido, mas averiguar se tal sanção é caracterizadora de grave discriminação pessoal.
+Ac.-TSE, de 27/3/2008, na Pet n. 2756: “Divergência entre filiados partidários no sentido de ser alcançada projeção política não constitui justa causa para desfiliação”.","IV - grave discriminação pessoal.","grave; discriminacao; pessoal; sancao; resolucao; outubro; cabe; examinar; correcao; imposta","True","685","171"
+"8","8","Codigo_Eleitoral_2026_anotado.pdf","resolucao_22610_2007","Resolução n. 22.610, de 25 de outubro de 2007","","Normas editadas pelo TSE","Resoluções","812","813","","paragrafo","Art. 1º, §2º","Art. 1º","Art. 1º","§2º","","","","§ 2º Quando o partido político não formular o pedido dentro de 30 (trinta) dias da comunicação da desfiliação, efetivada pela Justiça Eleitoral nos termos do 25-B da Res.-TSE n. 23.596/2018, pode fazê-lo, em nome próprio, nos 30 (trinta) subsequentes, quem tenha interesse jurídico ou o Ministério Público Eleitoral.","Parágrafo 2º com redação dada pelo art. 2º da Res.-TSE n. 23668/2021.
+A Res.-TSE n. 23596 é de 2019.
+Ac.-TSE, de 25/8/2010, na Pet n. 3019: legitimidade ativa do primeiro suplente para formular o pedido de decretação de perda de cargo eletivo.
+Res.-TSE n. 23148/2009: acordos ou deliberações de qualquer esfera partidária não têm o condão de afastar as consequências impostas por esta resolução.
+Res.-TSE n. 22907/2008 e Ac.-TSE, de 5/6/2008, na AC n. 2374: os prazos previstos neste dispositivo são decadenciais.
+Ac.-TSE, de 17/11/2023, nos ED-AgR-REspEl n. 060008591: o termo de início da contagem do prazo decadencial constante deste parágrafo é a data da primeira comunicação de desfiliação feita pelo detentor do mandato eletivo ao partido político, e não a da divulgação das listas de filiados pela Justiça Eleitoral.
+Ac.-TSE, de 6/8/2015, no REspe n. 23517: o partido para o qual tenha migrado o parlamentar é litisconsorte passivo necessário em ação de perda de mandato eletivo por suposta infidelidade partidária.
+Ac.-TSE, de 16/10/2012, no AgR-REspe n. 242755: o termo inicial do prazo para a propositura de ação de perda de mandato eletivo é contado a partir da primeira comunicação feita ao partido político, e não da realizada perante a JE; Ac.-TSE, de 6/5/2014, no AgR-Pet n. 2882 e, de 25/5/2010, no RO n. 2275: o prazo para o ajuizamento da ação por infidelidade partidária de suplente é contado da data da posse no cargo eletivo.
+Ac.-TSE, de 28/6/2012, no AgR-AC n. 45624: a legitimidade concorrente do diretório municipal e do diretório estadual para requerer o mandato municipal não implica a dobra do prazo previsto neste parágrafo.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Parágrafo 2º com redação dada pelo art. 2º da Res.-TSE n. 23668/2021."", ""pagina_inicial"": 812, ""pagina_final"": 812}, {""ordem"": 2, ""marcador"": ""ticado"", ""texto"": ""A Res.-TSE n. 23596 é de 2019."", ""pagina_inicial"": 812, ""pagina_final"": 812}, {""ordem"": 3, ""marcador"": ""ticado"", ""texto"": ""Ac.-TSE, de 25/8/2010, na Pet n. 3019: legitimidade ativa do primeiro suplente para formular o pedido de decretação de perda de cargo eletivo."", ""pagina_inicial"": 812, ""pagina_final"": 812}, {""ordem"": 4, ""marcador"": ""quadrado"", ""texto"": ""Res.-TSE n. 23148/2009: acordos ou deliberações de qualquer esfera partidária não têm o condão de afastar as consequências impostas por esta resolução."", ""pagina_inicial"": 812, ""pagina_final"": 812}, {""ordem"": 5, ""marcador"": ""quadrado"", ""texto"": ""Res.-TSE n. 22907/2008 e Ac.-TSE, de 5/6/2008, na AC n. 2374: os prazos previstos neste dispositivo são decadenciais."", ""pagina_inicial"": 812, ""pagina_final"": 812}, {""ordem"": 6, ""marcador"": ""quadrado"", ""texto"": ""Ac.-TSE, de 17/11/2023, nos ED-AgR-REspEl n. 060008591: o termo de início da contagem do prazo decadencial constante deste parágrafo é a data da primeira comunicação de desfiliação feita pelo detentor do mandato eletivo ao partido político, e não a da divulgação das listas de filiados pela Justiça Eleitoral."", ""pagina_inicial"": 812, ""pagina_final"": 812}, {""ordem"": 7, ""marcador"": ""quadrado"", ""texto"": ""Ac.-TSE, de 6/8/2015, no REspe n. 23517: o partido para o qual tenha migrado o parlamentar é litisconsorte passivo necessário em ação de perda de mandato eletivo por suposta infidelidade partidária."", ""pagina_inicial"": 813, ""pagina_final"": 813}, {""ordem"": 8, ""marcador"": ""quadrado"", ""texto"": ""Ac.-TSE, de 16/10/2012, no AgR-REspe n. 242755: o termo inicial do prazo para a propositura de ação de perda de mandato eletivo é contado a partir da primeira comunicação feita ao partido político, e não da realizada perante a JE; Ac.-TSE, de 6/5/2014, no AgR-Pet n. 2882 e, de 25/5/2010, no RO n. 2275: o prazo para o ajuizamento da ação por infidelidade partidária de suplente é contado da data da posse no cargo eletivo."", ""pagina_inicial"": 813, ""pagina_final"": 813}, {""ordem"": 9, ""marcador"": ""quadrado"", ""texto"": ""Ac.-TSE, de 28/6/2012, no AgR-AC n. 45624: a legitimidade concorrente do diretório municipal e do diretório estadual para requerer o mandato municipal não implica a dobra do prazo previsto neste parágrafo."", ""pagina_inicial"": 813, ""pagina_final"": 813}]","9","Res.-TSE n. 23668/2021; Res.-TSE n. 23148/2009; Res.-TSE n. 22907/2008","Ac.-TSE, de 25/8/2010, na Pet n; Ac.-TSE, de 5/6/2008, na AC n; Ac.-TSE, de 17/11/2023, nos ED-AgR-REspEl n; Ac.-TSE, de 6/8/2015, no REspe n; Ac.-TSE, de 16/10/2012, no AgR-REspe n; Ac.-TSE, de 6/5/2014, no AgR-Pet n; Ac.-TSE, de 28/6/2012, no AgR-AC n; REspEl n. 060008591; REspe n. 23517; AgR-REspe n. 242755; RO n. 2275","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 22.610, de 25 de outubro de 2007
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 1º, §2º
+Tipo: paragrafo
+Dispositivo pai: Art. 1º
+Páginas: 812-813
+§ 2º Quando o partido político não formular o pedido dentro de 30 (trinta) dias da comunicação da desfiliação, efetivada pela Justiça Eleitoral nos termos do 25-B da Res.-TSE n. 23.596/2018, pode fazê-lo, em nome próprio, nos 30 (trinta) subsequentes, quem tenha interesse jurídico ou o Ministério Público Eleitoral.
+Notas vinculadas:
+Parágrafo 2º com redação dada pelo art. 2º da Res.-TSE n. 23668/2021.
+A Res.-TSE n. 23596 é de 2019.
+Ac.-TSE, de 25/8/2010, na Pet n. 3019: legitimidade ativa do primeiro suplente para formular o pedido de decretação de perda de cargo eletivo.
+Res.-TSE n. 23148/2009: acordos ou deliberações de qualquer esfera partidária não têm o condão de afastar as consequências impostas por esta resolução.
+Res.-TSE n. 22907/2008 e Ac.-TSE, de 5/6/2008, na AC n. 2374: os prazos previstos neste dispositivo são decadenciais.
+Ac.-TSE, de 17/11/2023, nos ED-AgR-REspEl n. 060008591: o termo de início da contagem do prazo decadencial constante deste parágrafo é a data da primeira comunicação de desfiliação feita pelo detentor do mandato eletivo ao partido político, e não a da divulgação das listas de filiados pela Justiça Eleitoral.
+Ac.-TSE, de 6/8/2015, no REspe n. 23517: o partido para o qual tenha migrado o parlamentar é litisconsorte passivo necessário em ação de perda de mandato eletivo por suposta infidelidade partidária.
+Ac.-TSE, de 16/10/2012, no AgR-REspe n. 242755: o termo inicial do prazo para a propositura de ação de perda de mandato eletivo é contado a partir da primeira comunicação feita ao partido político, e não da realizada perante a JE; Ac.-TSE, de 6/5/2014, no AgR-Pet n. 2882 e, de 25/5/2010, no RO n. 2275: o prazo para o ajuizamento da ação por infidelidade partidária de suplente é contado da data da posse no cargo eletivo.
+Ac.-TSE, de 28/6/2012, no AgR-AC n. 45624: a legitimidade concorrente do diretório municipal e do diretório estadual para requerer o mandato municipal não implica a dobra do prazo previsto neste parágrafo.","§ 2º Quando o partido político não formular o pedido dentro de 30 (trinta) dias da comunicação da desfiliação, efetivada pela Justiça Eleitoral nos termos do 25-B da Res.-TSE n. 23.596/2018, pode fazê-lo, em nome próprio, nos 30 (trinta)...","eletivo; partido; prazo; mandato; politico; comunicacao; eleitoral; paragrafo; perda; partidaria","True","2257","564"
+"9","9","Codigo_Eleitoral_2026_anotado.pdf","resolucao_22610_2007","Resolução n. 22.610, de 25 de outubro de 2007","","Normas editadas pelo TSE","Resoluções","813","813","","paragrafo","Art. 1º, §3º","Art. 1º","Art. 1º","§3º","","","","§ 3º O mandatário que se desfiliou ou pretenda desfiliar-se pode pedir a declaração da existência de justa causa, fazendo citar o partido, na forma desta resolução.","V. nota ao art. 1º, § 1º, II, desta resolução sobre o Ac.-TSE, de 2/6/2011, na Cta n. 75535.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""V. nota ao art. 1º, § 1º, II, desta resolução sobre o Ac.-TSE, de 2/6/2011, na Cta n. 75535."", ""pagina_inicial"": 813, ""pagina_final"": 813}]","1","","Ac.-TSE, de 2/6/2011, na Cta n","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 22.610, de 25 de outubro de 2007
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 1º, §3º
+Tipo: paragrafo
+Dispositivo pai: Art. 1º
+Páginas: 813-813
+§ 3º O mandatário que se desfiliou ou pretenda desfiliar-se pode pedir a declaração da existência de justa causa, fazendo citar o partido, na forma desta resolução.
+Notas vinculadas:
+V. nota ao art. 1º, § 1º, II, desta resolução sobre o Ac.-TSE, de 2/6/2011, na Cta n. 75535.","§ 3º O mandatário que se desfiliou ou pretenda desfiliar-se pode pedir a declaração da existência de justa causa, fazendo citar o partido, na forma desta resolução.","resolucao; desta; outubro; mandatario; desfiliou; pretenda; desfiliar; pode; pedir; declaracao","True","545","136"
+"10","10","Codigo_Eleitoral_2026_anotado.pdf","resolucao_22610_2007","Resolução n. 22.610, de 25 de outubro de 2007","","Normas editadas pelo TSE","Resoluções","813","813","","artigo","Art. 2º","","Art. 2º","","","","","Art. 2º O Tribunal Superior Eleitoral é competente para processar e julgar pedido relativo a mandato federal; nos demais casos, é competente o Tribunal Eleitoral do respectivo estado.","V. nota ao art. 1º, caput, desta resolução sobre
+o Ac.-TSE, de 31/3/2009, no AgR-AC n. 3233.","[{""ordem"": 1, ""marcador"": ""continuação"", ""texto"": ""V. nota ao art. 1º, caput, desta resolução sobre"", ""pagina_inicial"": 813, ""pagina_final"": 813}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""o Ac.-TSE, de 31/3/2009, no AgR-AC n. 3233."", ""pagina_inicial"": 813, ""pagina_final"": 813}]","2","","Ac.-TSE, de 31/3/2009, no AgR-AC n","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 22.610, de 25 de outubro de 2007
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 2º
+Tipo: artigo
+Páginas: 813-813
+Art. 2º O Tribunal Superior Eleitoral é competente para processar e julgar pedido relativo a mandato federal; nos demais casos, é competente o Tribunal Eleitoral do respectivo estado.
+Notas vinculadas:
+V. nota ao art. 1º, caput, desta resolução sobre
+o Ac.-TSE, de 31/3/2009, no AgR-AC n. 3233.","Art. 2º O Tribunal Superior Eleitoral é competente para processar e julgar pedido relativo a mandato federal; nos demais casos, é competente o Tribunal Eleitoral do respectivo estado.","resolucao; tribunal; eleitoral; competente; outubro; superior; processar; julgar; pedido; relativo","True","531","132"
+"11","11","Codigo_Eleitoral_2026_anotado.pdf","resolucao_22610_2007","Resolução n. 22.610, de 25 de outubro de 2007","","Normas editadas pelo TSE","Resoluções","813","813","","artigo","Art. 3º","","Art. 3º","","","","","Art. 3º Na inicial, expondo o fundamento do pedido, o requerente juntará prova documental da desfiliação, podendo arrolar testemunhas, até o máximo de 3 (três), e requerer, justificadamente, outras provas, inclusive requisição de documentos em poder de terceiros ou de repartições públicas.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 22.610, de 25 de outubro de 2007
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º
+Tipo: artigo
+Páginas: 813-813
+Art. 3º Na inicial, expondo o fundamento do pedido, o requerente juntará prova documental da desfiliação, podendo arrolar testemunhas, até o máximo de 3 (três), e requerer, justificadamente, outras provas, inclusive requisição de documentos em poder de terceiros ou de repartições públicas.","Art. 3º Na inicial, expondo o fundamento do pedido, o requerente juntará prova documental da desfiliação, podendo arrolar testemunhas, até o máximo de 3 (três), e requerer, justificadamente, outras provas, inclusive requisição de...","resolucao; outubro; inicial; expondo; fundamento; pedido; requerente; juntara; prova; documental","True","527","131"
+"12","12","Codigo_Eleitoral_2026_anotado.pdf","resolucao_22610_2007","Resolução n. 22.610, de 25 de outubro de 2007","","Normas editadas pelo TSE","Resoluções","813","813","","artigo","Art. 4º","","Art. 4º","","","","","Art. 4º O mandatário que se desfiliou e o eventual partido em que esteja inscrito serão citados para responder no prazo de 5 (cinco) dias, contados do ato da citação.","V. nota ao art. 1º, § 2º, desta resolução sobre o Ac.-TSE, de 6/8/2015, no REspe n. 23517.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""V. nota ao art. 1º, § 2º, desta resolução sobre o Ac.-TSE, de 6/8/2015, no REspe n. 23517."", ""pagina_inicial"": 813, ""pagina_final"": 813}]","1","","Ac.-TSE, de 6/8/2015, no REspe n; REspe n. 23517.","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 22.610, de 25 de outubro de 2007
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º
+Tipo: artigo
+Páginas: 813-813
+Art. 4º O mandatário que se desfiliou e o eventual partido em que esteja inscrito serão citados para responder no prazo de 5 (cinco) dias, contados do ato da citação.
+Notas vinculadas:
+V. nota ao art. 1º, § 2º, desta resolução sobre o Ac.-TSE, de 6/8/2015, no REspe n. 23517.","Art. 4º O mandatário que se desfiliou e o eventual partido em que esteja inscrito serão citados para responder no prazo de 5 (cinco) dias, contados do ato da citação.","resolucao; outubro; mandatario; desfiliou; eventual; partido; esteja; inscrito; serao; citados","True","512","128"
+"13","13","Codigo_Eleitoral_2026_anotado.pdf","resolucao_22610_2007","Resolução n. 22.610, de 25 de outubro de 2007","","Normas editadas pelo TSE","Resoluções","813","813","","paragrafo","Art. 4º, Parágrafo único","Art. 4º","Art. 4º","Parágrafo único","","","","Parágrafo único. Do mandado constará expressa advertência de que, em caso de revelia, se presumirão verdadeiros os fatos afirmados na inicial.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 22.610, de 25 de outubro de 2007
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º, Parágrafo único
+Tipo: paragrafo
+Dispositivo pai: Art. 4º
+Páginas: 813-813
+Parágrafo único. Do mandado constará expressa advertência de que, em caso de revelia, se presumirão verdadeiros os fatos afirmados na inicial.","Parágrafo único. Do mandado constará expressa advertência de que, em caso de revelia, se presumirão verdadeiros os fatos afirmados na inicial.","paragrafo; unico; resolucao; outubro; mandado; constara; expressa; advertencia; caso; revelia","True","424","106"
+"14","14","Codigo_Eleitoral_2026_anotado.pdf","resolucao_22610_2007","Resolução n. 22.610, de 25 de outubro de 2007","","Normas editadas pelo TSE","Resoluções","813","813","","artigo","Art. 5º","","Art. 5º","","","","","Art. 5º Na resposta, o requerido juntará prova documental, podendo arrolar testemunhas, até o máximo de 3 (três), e requerer, justificadamente, outras provas, inclusive requisição de documentos em poder de terceiros ou de repartições públicas.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 22.610, de 25 de outubro de 2007
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 5º
+Tipo: artigo
+Páginas: 813-813
+Art. 5º Na resposta, o requerido juntará prova documental, podendo arrolar testemunhas, até o máximo de 3 (três), e requerer, justificadamente, outras provas, inclusive requisição de documentos em poder de terceiros ou de repartições públicas.","Art. 5º Na resposta, o requerido juntará prova documental, podendo arrolar testemunhas, até o máximo de 3 (três), e requerer, justificadamente, outras provas, inclusive requisição de documentos em poder de terceiros ou de repartições...","resolucao; outubro; resposta; requerido; juntara; prova; documental; podendo; arrolar; testemunhas","True","480","120"
+"15","15","Codigo_Eleitoral_2026_anotado.pdf","resolucao_22610_2007","Resolução n. 22.610, de 25 de outubro de 2007","","Normas editadas pelo TSE","Resoluções","813","813","","artigo","Art. 6º","","Art. 6º","","","","","Art. 6º Decorrido o prazo de resposta, o Tribunal ouvirá, em 48 (quarenta e oito) horas, o representante do Ministério Público, quando não seja requerente, e, em seguida, julgará o pedido, em não havendo necessidade de dilação probatória.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 22.610, de 25 de outubro de 2007
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 6º
+Tipo: artigo
+Páginas: 813-813
+Art. 6º Decorrido o prazo de resposta, o Tribunal ouvirá, em 48 (quarenta e oito) horas, o representante do Ministério Público, quando não seja requerente, e, em seguida, julgará o pedido, em não havendo necessidade de dilação probatória.","Art. 6º Decorrido o prazo de resposta, o Tribunal ouvirá, em 48 (quarenta e oito) horas, o representante do Ministério Público, quando não seja requerente, e, em seguida, julgará o pedido, em não havendo necessidade de dilação probatória.","resolucao; outubro; decorrido; prazo; resposta; tribunal; ouvira; quarenta; oito; horas","True","475","118"
+"16","16","Codigo_Eleitoral_2026_anotado.pdf","resolucao_22610_2007","Resolução n. 22.610, de 25 de outubro de 2007","","Normas editadas pelo TSE","Resoluções","813","813","","artigo","Art. 7º","","Art. 7º","","","","","Art. 7º Havendo necessidade de provas, deferi-las-á o relator, designando o 5º (quinto) dia útil subsequente para, em única assentada, tomar depoimentos pessoais e inquirir testemunhas, as quais serão trazidas pela parte que as arrolou.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 22.610, de 25 de outubro de 2007
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 7º
+Tipo: artigo
+Páginas: 813-813
+Art. 7º Havendo necessidade de provas, deferi-las-á o relator, designando o 5º (quinto) dia útil subsequente para, em única assentada, tomar depoimentos pessoais e inquirir testemunhas, as quais serão trazidas pela parte que as arrolou.","Art. 7º Havendo necessidade de provas, deferi-las-á o relator, designando o 5º (quinto) dia útil subsequente para, em única assentada, tomar depoimentos pessoais e inquirir testemunhas, as quais serão trazidas pela parte que as arrolou.","resolucao; outubro; havendo; necessidade; provas; deferi; relator; designando; quinto; util","True","473","118"
+"17","17","Codigo_Eleitoral_2026_anotado.pdf","resolucao_22610_2007","Resolução n. 22.610, de 25 de outubro de 2007","","Normas editadas pelo TSE","Resoluções","813","813","","paragrafo","Art. 7º, Parágrafo único","Art. 7º","Art. 7º","Parágrafo único","","","","Parágrafo único. Declarando encerrada a instrução, o relator intimará as partes e o representante do Ministério Público, para apresentarem, no prazo comum de 48 (quarenta e oito) horas, alegações finais por escrito.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 22.610, de 25 de outubro de 2007
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 7º, Parágrafo único
+Tipo: paragrafo
+Dispositivo pai: Art. 7º
+Páginas: 813-813
+Parágrafo único. Declarando encerrada a instrução, o relator intimará as partes e o representante do Ministério Público, para apresentarem, no prazo comum de 48 (quarenta e oito) horas, alegações finais por escrito.","Parágrafo único. Declarando encerrada a instrução, o relator intimará as partes e o representante do Ministério Público, para apresentarem, no prazo comum de 48 (quarenta e oito) horas, alegações finais por escrito.","paragrafo; unico; resolucao; outubro; declarando; encerrada; instrucao; relator; intimara; partes","True","497","124"
+"18","18","Codigo_Eleitoral_2026_anotado.pdf","resolucao_22610_2007","Resolução n. 22.610, de 25 de outubro de 2007","","Normas editadas pelo TSE","Resoluções","813","813","","artigo","Art. 8º","","Art. 8º","","","","","Art. 8º Incumbe aos requeridos o ônus da prova de fato extintivo, impeditivo ou modificativo da eficácia do pedido.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 22.610, de 25 de outubro de 2007
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 8º
+Tipo: artigo
+Páginas: 813-813
+Art. 8º Incumbe aos requeridos o ônus da prova de fato extintivo, impeditivo ou modificativo da eficácia do pedido.","Art. 8º Incumbe aos requeridos o ônus da prova de fato extintivo, impeditivo ou modificativo da eficácia do pedido.","resolucao; outubro; incumbe; requeridos; onus; prova; fato; extintivo; impeditivo; modificativo","True","352","88"
+"19","19","Codigo_Eleitoral_2026_anotado.pdf","resolucao_22610_2007","Resolução n. 22.610, de 25 de outubro de 2007","","Normas editadas pelo TSE","Resoluções","813","814","","artigo","Art. 9º","","Art. 9º","","","","","Art. 9º Para o julgamento, antecipado ou não, o relator preparará voto e pedirá inclusão do processo na pauta da sessão seguinte, observada a antecedência de 48 (quarenta e oito) horas. É facultada a sustentação oral por 15 (quinze) minutos.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 22.610, de 25 de outubro de 2007
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 9º
+Tipo: artigo
+Páginas: 813-814
+Art. 9º Para o julgamento, antecipado ou não, o relator preparará voto e pedirá inclusão do processo na pauta da sessão seguinte, observada a antecedência de 48 (quarenta e oito) horas. É facultada a sustentação oral por 15 (quinze) minutos.","Art. 9º Para o julgamento, antecipado ou não, o relator preparará voto e pedirá inclusão do processo na pauta da sessão seguinte, observada a antecedência de 48 (quarenta e oito) horas. É facultada a sustentação oral por 15 (quinze)...","resolucao; outubro; julgamento; antecipado; relator; preparara; voto; pedira; inclusao; processo","True","478","119"
+"20","20","Codigo_Eleitoral_2026_anotado.pdf","resolucao_22610_2007","Resolução n. 22.610, de 25 de outubro de 2007","","Normas editadas pelo TSE","Resoluções","814","814","","artigo","Art. 10","","Art. 10","","","","","Art. 10. Julgando procedente o pedido, o Tribunal decretará a perda do cargo, comunicando a decisão ao presidente do órgão legislativo competente para que emposse, conforme o caso, o suplente ou o vice, no prazo de 10 (dez) dias.","Ac.-STF, de 27/5/2015, na ADI n. 5081: declara inconstitucional a expressão ou o vice e confere interpretação conforme a CF/1988 ao termo suplente, para excluir de seu alcance os cargos do sistema majoritário. Tese fixada de que a perda do mandato em razão da mudança de partido não se aplica aos candidatos eleitos pelo sistema majoritário.
+V. Súm.-TSE n. 67/2016.","[{""ordem"": 1, ""marcador"": ""ticado"", ""texto"": ""Ac.-STF, de 27/5/2015, na ADI n. 5081: declara inconstitucional a expressão ou o vice e confere interpretação conforme a CF/1988 ao termo suplente, para excluir de seu alcance os cargos do sistema majoritário. Tese fixada de que a perda do mandato em razão da mudança de partido não se aplica aos candidatos eleitos pelo sistema majoritário."", ""pagina_inicial"": 814, ""pagina_final"": 814}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""V. Súm.-TSE n. 67/2016."", ""pagina_inicial"": 814, ""pagina_final"": 814}]","2","CF/1988","Ac.-STF, de 27/5/2015, na ADI n; ADI n. 5081","Súm.-TSE n. 67/2016","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 22.610, de 25 de outubro de 2007
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 10
+Tipo: artigo
+Páginas: 814-814
+Art. 10. Julgando procedente o pedido, o Tribunal decretará a perda do cargo, comunicando a decisão ao presidente do órgão legislativo competente para que emposse, conforme o caso, o suplente ou o vice, no prazo de 10 (dez) dias.
+Notas vinculadas:
+Ac.-STF, de 27/5/2015, na ADI n. 5081: declara inconstitucional a expressão ou o vice e confere interpretação conforme a CF/1988 ao termo suplente, para excluir de seu alcance os cargos do sistema majoritário. Tese fixada de que a perda do mandato em razão da mudança de partido não se aplica aos candidatos eleitos pelo sistema majoritário.
+V. Súm.-TSE n. 67/2016.","Art. 10. Julgando procedente o pedido, o Tribunal decretará a perda do cargo, comunicando a decisão ao presidente do órgão legislativo competente para que emposse, conforme o caso, o suplente ou o vice, no prazo de 10 (dez) dias.","perda; conforme; suplente; vice; sistema; majoritario; resolucao; outubro; julgando; procedente","True","850","212"
+"21","21","Codigo_Eleitoral_2026_anotado.pdf","resolucao_22610_2007","Resolução n. 22.610, de 25 de outubro de 2007","","Normas editadas pelo TSE","Resoluções","814","814","","artigo","Art. 11","","Art. 11","","","","","Art. 11. São irrecorríveis as decisões interlocutórias do relator, as quais poderão ser revistas no julgamento final, de cujo acórdão cabe o recurso previsto no art. 121, § 4º, da Constituição da República.","Art. 11 com redação dada pelo art. 1º da Res.-TSE n. 22733/2008.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Art. 11 com redação dada pelo art. 1º da Res.-TSE n. 22733/2008."", ""pagina_inicial"": 814, ""pagina_final"": 814}]","1","Res.-TSE n. 22733/2008","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 22.610, de 25 de outubro de 2007
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 11
+Tipo: artigo
+Páginas: 814-814
+Art. 11. São irrecorríveis as decisões interlocutórias do relator, as quais poderão ser revistas no julgamento final, de cujo acórdão cabe o recurso previsto no art. 121, § 4º, da Constituição da República.
+Notas vinculadas:
+Art. 11 com redação dada pelo art. 1º da Res.-TSE n. 22733/2008.","Art. 11. São irrecorríveis as decisões interlocutórias do relator, as quais poderão ser revistas no julgamento final, de cujo acórdão cabe o recurso previsto no art. 121, § 4º, da Constituição da República.","resolucao; outubro; irrecorriveis; decisoes; interlocutorias; relator; quais; poderao; revistas; julgamento","True","526","131"
+"22","22","Codigo_Eleitoral_2026_anotado.pdf","resolucao_22610_2007","Resolução n. 22.610, de 25 de outubro de 2007","","Normas editadas pelo TSE","Resoluções","814","814","","artigo","Art. 12","","Art. 12","","","","","Art. 12. O processo de que trata esta resolução será observado pelos Tribunais Regionais Eleitorais e terá preferência, devendo encerrar-se no prazo de 60 (sessenta) dias.","Ac.-TSE, de 29/11/2007, no MS n. 3674 e, de 27/11/2007, no MS n. 3671: descabimento de tutela antecipada.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Ac.-TSE, de 29/11/2007, no MS n. 3674 e, de 27/11/2007, no MS n. 3671: descabimento de tutela antecipada."", ""pagina_inicial"": 814, ""pagina_final"": 814}]","1","","Ac.-TSE, de 29/11/2007, no MS n; MS n. 3674; MS n. 3671","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 22.610, de 25 de outubro de 2007
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 12
+Tipo: artigo
+Páginas: 814-814
+Art. 12. O processo de que trata esta resolução será observado pelos Tribunais Regionais Eleitorais e terá preferência, devendo encerrar-se no prazo de 60 (sessenta) dias.
+Notas vinculadas:
+Ac.-TSE, de 29/11/2007, no MS n. 3674 e, de 27/11/2007, no MS n. 3671: descabimento de tutela antecipada.","Art. 12. O processo de que trata esta resolução será observado pelos Tribunais Regionais Eleitorais e terá preferência, devendo encerrar-se no prazo de 60 (sessenta) dias.","resolucao; outubro; processo; trata; esta; sera; observado; tribunais; regionais; eleitorais","True","532","133"
+"23","23","Codigo_Eleitoral_2026_anotado.pdf","resolucao_22610_2007","Resolução n. 22.610, de 25 de outubro de 2007","","Normas editadas pelo TSE","Resoluções","814","814","","artigo","Art. 13","","Art. 13","","","","","Art. 13. Esta resolução entra em vigor na data de sua publicação, aplicando-se apenas às desfiliações consumadas após 27 (vinte e sete) de março deste ano, quanto a mandatários eleitos pelo sistema proporcional, e, após 16 (dezesseis) de outubro corrente, quanto a eleitos pelo sistema majoritário.","Ac.-STF, de 27/5/2015, na ADI n. 5081: declara inconstitucional a expressão e, após 16 (dezesseis) de outubro corrente, quanto a eleitos pelo sistema majoritário.
+Ac.-TSE, de 25/6/2015, na Cta n. 8271: a perda do mandato em razão da mudança de partido não se aplica aos candidatos eleitos pelo sistema majoritário, de acordo com a tese fixada no Ac.-STF, de 27/5/2015, na ADI n. 5081.","[{""ordem"": 1, ""marcador"": ""ticado"", ""texto"": ""Ac.-STF, de 27/5/2015, na ADI n. 5081: declara inconstitucional a expressão e, após 16 (dezesseis) de outubro corrente, quanto a eleitos pelo sistema majoritário."", ""pagina_inicial"": 814, ""pagina_final"": 814}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""Ac.-TSE, de 25/6/2015, na Cta n. 8271: a perda do mandato em razão da mudança de partido não se aplica aos candidatos eleitos pelo sistema majoritário, de acordo com a tese fixada no Ac.-STF, de 27/5/2015, na ADI n. 5081."", ""pagina_inicial"": 814, ""pagina_final"": 814}]","2","","Ac.-STF, de 27/5/2015, na ADI n; Ac.-TSE, de 25/6/2015, na Cta n; ADI n. 5081; ADI n. 5081.","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 22.610, de 25 de outubro de 2007
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 13
+Tipo: artigo
+Páginas: 814-814
+Art. 13. Esta resolução entra em vigor na data de sua publicação, aplicando-se apenas às desfiliações consumadas após 27 (vinte e sete) de março deste ano, quanto a mandatários eleitos pelo sistema proporcional, e, após 16 (dezesseis) de outubro corrente, quanto a eleitos pelo sistema majoritário.
+Notas vinculadas:
+Ac.-STF, de 27/5/2015, na ADI n. 5081: declara inconstitucional a expressão e, após 16 (dezesseis) de outubro corrente, quanto a eleitos pelo sistema majoritário.
+Ac.-TSE, de 25/6/2015, na Cta n. 8271: a perda do mandato em razão da mudança de partido não se aplica aos candidatos eleitos pelo sistema majoritário, de acordo com a tese fixada no Ac.-STF, de 27/5/2015, na ADI n. 5081.","Art. 13. Esta resolução entra em vigor na data de sua publicação, aplicando-se apenas às desfiliações consumadas após 27 (vinte e sete) de março deste ano, quanto a mandatários eleitos pelo sistema proporcional, e, após 16 (dezesseis) de...","eleitos; sistema; outubro; apos; quanto; majoritario; resolucao; dezesseis; corrente; esta","True","938","234"
+"24","24","Codigo_Eleitoral_2026_anotado.pdf","resolucao_22610_2007","Resolução n. 22.610, de 25 de outubro de 2007","","Normas editadas pelo TSE","Resoluções","814","814","","paragrafo","Art. 13, Parágrafo único","Art. 13","Art. 13","Parágrafo único","","","","Parágrafo único. Para os casos anteriores, o prazo previsto no art. 1º, § 2º, conta-se a partir do início de vigência desta resolução.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 22.610, de 25 de outubro de 2007
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 13, Parágrafo único
+Tipo: paragrafo
+Dispositivo pai: Art. 13
+Páginas: 814-814
+Parágrafo único. Para os casos anteriores, o prazo previsto no art. 1º, § 2º, conta-se a partir do início de vigência desta resolução.","Parágrafo único. Para os casos anteriores, o prazo previsto no art. 1º, § 2º, conta-se a partir do início de vigência desta resolução.","resolucao; paragrafo; unico; outubro; casos; anteriores; prazo; previsto; conta; partir","True","416","104"

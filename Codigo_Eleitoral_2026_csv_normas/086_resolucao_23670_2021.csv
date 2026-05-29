@@ -1,0 +1,625 @@
+﻿"id","ordem_doc","arquivo_fonte","norma_id","norma_titulo","norma_nome_popular","macrogrupo","grupo_sumario","pagina_inicial","pagina_final","hierarquia_normativa","tipo_dispositivo","dispositivo","dispositivo_pai","artigo","paragrafo","inciso","alinea","item","texto_dispositivo","notas_texto","notas_json","qtd_notas","referencias_normativas","referencias_jurisprudenciais","referencias_sumulas","texto_rag","resumo_curto","palavras_chave","incluir_no_rag","chars","tokens_estimados"
+"1","1","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1057","1057","","norma","Resolução n. 23.670, de 14 de dezembro de 2021","","","","","","","Dispõe sobre as federações de partidos políticos. O TRIBUNAL SUPERIOR ELEITORAL, no uso de suas atribuições legais e regimentais, Considerando a vigência da Lei n. 14.208, de 28 de setembro de 2021, que instituiu as federações de partidos políticos, RESOLVE:","Ac.-STF, de 6/8/2025, na ADI n. 7021: “1. É constitucional a Lei n. 14.208/2021, que institui as federações partidárias, salvo quanto ao prazo para seu registro, que deverá ser o mesmo aplicável aos partidos políticos. Excepcionalmente, nas eleições de 2022, o prazo para constituição de federações partidárias foi estendido até 31 de maio do mesmo ano; 2. No caso das federações constituídas em 2022, admite-se que, nas eleições de 2026, os partidos que as integraram possam alterar sua composição ou formar nova federação antes do decurso do prazo de quatro anos, sem a incidência das sanções previstas no art. 11-A, § 4º, da Lei n. 9.096/1995, de modo a viabilizar o cumprimento do requisito de constituição da federação até seis meses antes do pleito”.","[{""ordem"": 1, ""marcador"": ""ticado"", ""texto"": ""Ac.-STF, de 6/8/2025, na ADI n. 7021: “1. É constitucional a Lei n. 14.208/2021, que institui as federações partidárias, salvo quanto ao prazo para seu registro, que deverá ser o mesmo aplicável aos partidos políticos. Excepcionalmente, nas eleições de 2022, o prazo para constituição de federações partidárias foi estendido até 31 de maio do mesmo ano; 2. No caso das federações constituídas em 2022, admite-se que, nas eleições de 2026, os partidos que as integraram possam alterar sua composição ou formar nova federação antes do decurso do prazo de quatro anos, sem a incidência das sanções previstas no art. 11-A, § 4º, da Lei n. 9.096/1995, de modo a viabilizar o cumprimento do requisito de constituição da federação até seis meses antes do pleito”."", ""pagina_inicial"": 1057, ""pagina_final"": 1057}]","1","Lei n. 14.208; Lei n. 14.208/2021; Lei n. 9.096/1995","Ac.-STF, de 6/8/2025, na ADI n; ADI n. 7021","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Resolução n. 23.670, de 14 de dezembro de 2021
+Tipo: norma
+Páginas: 1057-1057
+Dispõe sobre as federações de partidos políticos. O TRIBUNAL SUPERIOR ELEITORAL, no uso de suas atribuições legais e regimentais, Considerando a vigência da Lei n. 14.208, de 28 de setembro de 2021, que instituiu as federações de partidos políticos, RESOLVE:
+Notas vinculadas:
+Ac.-STF, de 6/8/2025, na ADI n. 7021: “1. É constitucional a Lei n. 14.208/2021, que institui as federações partidárias, salvo quanto ao prazo para seu registro, que deverá ser o mesmo aplicável aos partidos políticos. Excepcionalmente, nas eleições de 2022, o prazo para constituição de federações partidárias foi estendido até 31 de maio do mesmo ano; 2. No caso das federações constituídas em 2022, admite-se que, nas eleições de 2026, os partidos que as integraram possam alterar sua composição ou formar nova federação antes do decurso do prazo de quatro anos, sem a incidência das sanções previstas no art. 11-A, § 4º, da Lei n. 9.096/1995, de modo a viabilizar o cumprimento do requisito de constituição da federação até seis meses antes do pleito”.","Dispõe sobre as federações de partidos políticos. O TRIBUNAL SUPERIOR ELEITORAL, no uso de suas atribuições legais e regimentais, Considerando a vigência da Lei n. 14.208, de 28 de setembro de 2021, que instituiu as federações de partidos...","federacoes; partidos; politicos; prazo; resolucao; dezembro; partidarias; mesmo; eleicoes; constituicao","True","1311","327"
+"2","2","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1057","1057","","artigo","Art. 1º","","Art. 1º","","","","","Art. 1º Dois ou mais partidos com registro definitivo no Tribunal Superior Eleitoral poderão reunir-se em federação, com abrangência nacional, e requerer o respectivo registro junto ao mesmo Tribunal (Lei n. 9.096/1995, art. 11-A, caput e § 3º, I e IV).","Ac.-STF, de 6/8/2025, na ADI n. 7021: interpretação conforme a CF/1988 dada ao caput do art. 11-A da Lei n. 9.096/1995 “de modo a exigir que, para participar das eleições, as federações estejam constituídas como pessoa jurídica e obtenham o registro de seu estatuto perante o Tribunal Superior Eleitoral no mesmo prazo aplicável aos partidos políticos. O registro da federação deve ser formalmente comunicado pelo TSE às Casas Legislativas federais, estaduais, distrital e municipais, a fim de assegurar o cumprimento do dever de atuação conjunta”.","[{""ordem"": 1, ""marcador"": ""ticado"", ""texto"": ""Ac.-STF, de 6/8/2025, na ADI n. 7021: interpretação conforme a CF/1988 dada ao caput do art. 11-A da Lei n. 9.096/1995 “de modo a exigir que, para participar das eleições, as federações estejam constituídas como pessoa jurídica e obtenham o registro de seu estatuto perante o Tribunal Superior Eleitoral no mesmo prazo aplicável aos partidos políticos. O registro da federação deve ser formalmente comunicado pelo TSE às Casas Legislativas federais, estaduais, distrital e municipais, a fim de assegurar o cumprimento do dever de atuação conjunta”."", ""pagina_inicial"": 1057, ""pagina_final"": 1057}]","1","CF/1988; Lei n. 9.096/1995","Ac.-STF, de 6/8/2025, na ADI n; ADI n. 7021","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 1º
+Tipo: artigo
+Páginas: 1057-1057
+Art. 1º Dois ou mais partidos com registro definitivo no Tribunal Superior Eleitoral poderão reunir-se em federação, com abrangência nacional, e requerer o respectivo registro junto ao mesmo Tribunal (Lei n. 9.096/1995, art. 11-A, caput e § 3º, I e IV).
+Notas vinculadas:
+Ac.-STF, de 6/8/2025, na ADI n. 7021: interpretação conforme a CF/1988 dada ao caput do art. 11-A da Lei n. 9.096/1995 “de modo a exigir que, para participar das eleições, as federações estejam constituídas como pessoa jurídica e obtenham o registro de seu estatuto perante o Tribunal Superior Eleitoral no mesmo prazo aplicável aos partidos políticos. O registro da federação deve ser formalmente comunicado pelo TSE às Casas Legislativas federais, estaduais, distrital e municipais, a fim de assegurar o cumprimento do dever de atuação conjunta”.","Art. 1º Dois ou mais partidos com registro definitivo no Tribunal Superior Eleitoral poderão reunir-se em federação, com abrangência nacional, e requerer o respectivo registro junto ao mesmo Tribunal (Lei n. 9.096/1995, art. 11-A, caput e...","registro; tribunal; partidos; superior; eleitoral; federacao; mesmo; caput; resolucao; dezembro","True","1060","265"
+"3","3","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1057","1057","","paragrafo","Art. 1º, §1º","Art. 1º","Art. 1º","§1º","","","","§ 1º Para os fins do caput deste artigo, a federação deverá ser previamente constituída sob a forma de associação, devidamente registrada no cartório competente do registro civil das pessoas jurídicas do local de sua sede.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 1º, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 1º
+Páginas: 1057-1057
+§ 1º Para os fins do caput deste artigo, a federação deverá ser previamente constituída sob a forma de associação, devidamente registrada no cartório competente do registro civil das pessoas jurídicas do local de sua sede.","§ 1º Para os fins do caput deste artigo, a federação deverá ser previamente constituída sob a forma de associação, devidamente registrada no cartório competente do registro civil das pessoas jurídicas do local de sua sede.","resolucao; dezembro; fins; caput; deste; artigo; federacao; devera; previamente; constituida","True","495","123"
+"4","4","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1057","1057","","artigo","Art. 2º","","Art. 2º","","","","","Art. 2º Adquirida sua personalidade jurídica, a federação apresentará seu pedido de registro ao Tribunal Superior Eleitoral, instruído com os seguintes documentos (Lei n. 9.096/1995,","","[]","0","Lei n. 9.096/1995","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 2º
+Tipo: artigo
+Páginas: 1057-1057
+Art. 2º Adquirida sua personalidade jurídica, a federação apresentará seu pedido de registro ao Tribunal Superior Eleitoral, instruído com os seguintes documentos (Lei n. 9.096/1995,","Art. 2º Adquirida sua personalidade jurídica, a federação apresentará seu pedido de registro ao Tribunal Superior Eleitoral, instruído com os seguintes documentos (Lei n. 9.096/1995,","resolucao; dezembro; adquirida; personalidade; juridica; federacao; apresentara; pedido; registro; tribunal","True","422","105"
+"5","5","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1057","1057","","artigo","Art. 11-A","","Art. 11-A","","","","","art. 11-A, § 6º):","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 11-A
+Tipo: artigo
+Páginas: 1057-1057
+art. 11-A, § 6º):","art. 11-A, § 6º):","resolucao; dezembro","True","259","64"
+"6","6","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1057","1057","","inciso","Art. 11-A, I","Art. 11-A","Art. 11-A","","I","","","I - a respectiva certidão do registro civil de pessoas jurídicas;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 11-A, I
+Tipo: inciso
+Dispositivo pai: Art. 11-A
+Páginas: 1057-1057
+I - a respectiva certidão do registro civil de pessoas jurídicas;","I - a respectiva certidão do registro civil de pessoas jurídicas;","resolucao; dezembro; respectiva; certidao; registro; civil; pessoas; juridicas","True","337","84"
+"7","7","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1057","1057","","inciso","Art. 11-A, II","Art. 11-A","Art. 11-A","","II","","","II - o seu número de inscrição no Cadastro Nacional de Pessoas Jurídicas (CNPJ);","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 11-A, II
+Tipo: inciso
+Dispositivo pai: Art. 11-A
+Páginas: 1057-1057
+II - o seu número de inscrição no Cadastro Nacional de Pessoas Jurídicas (CNPJ);","II - o seu número de inscrição no Cadastro Nacional de Pessoas Jurídicas (CNPJ);","resolucao; dezembro; numero; inscricao; cadastro; nacional; pessoas; juridicas; cnpj","True","353","88"
+"8","8","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1057","1057","","inciso","Art. 11-A, III","Art. 11-A","Art. 11-A","","III","","","III - cópia da resolução tomada pela maioria absoluta dos votos dos órgãos de deliberação nacional de cada um dos partidos integrantes da federação;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 11-A, III
+Tipo: inciso
+Dispositivo pai: Art. 11-A
+Páginas: 1057-1057
+III - cópia da resolução tomada pela maioria absoluta dos votos dos órgãos de deliberação nacional de cada um dos partidos integrantes da federação;","III - cópia da resolução tomada pela maioria absoluta dos votos dos órgãos de deliberação nacional de cada um dos partidos integrantes da federação;","resolucao; dezembro; copia; tomada; maioria; absoluta; votos; orgaos; deliberacao; nacional","True","422","105"
+"9","9","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1057","1057","","inciso","Art. 11-A, IV","Art. 11-A","Art. 11-A","","IV","","","IV - exemplar autenticado do inteiro teor do programa e do estatuto comuns da federação constituída, inscritos no cartório competente do registro civil das pessoas jurídicas;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 11-A, IV
+Tipo: inciso
+Dispositivo pai: Art. 11-A
+Páginas: 1057-1057
+IV - exemplar autenticado do inteiro teor do programa e do estatuto comuns da federação constituída, inscritos no cartório competente do registro civil das pessoas jurídicas;","IV - exemplar autenticado do inteiro teor do programa e do estatuto comuns da federação constituída, inscritos no cartório competente do registro civil das pessoas jurídicas;","resolucao; dezembro; exemplar; autenticado; inteiro; teor; programa; estatuto; comuns; federacao","True","447","111"
+"10","10","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1057","1057","","inciso","Art. 11-A, V","Art. 11-A","Art. 11-A","","V","","","V - ata de eleição do órgão de direção nacional da federação; e","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 11-A, V
+Tipo: inciso
+Dispositivo pai: Art. 11-A
+Páginas: 1057-1057
+V - ata de eleição do órgão de direção nacional da federação; e","V - ata de eleição do órgão de direção nacional da federação; e","resolucao; dezembro; eleicao; orgao; direcao; nacional; federacao","True","335","83"
+"11","11","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1058","1058","","inciso","Art. 11-A, VI","Art. 11-A","Art. 11-A","","VI","","","VI - endereço e telefone de sua sede e de seus dirigentes nacionais, bem como endereço eletrônico para recebimento de comunicações.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 11-A, VI
+Tipo: inciso
+Dispositivo pai: Art. 11-A
+Páginas: 1058-1058
+VI - endereço e telefone de sua sede e de seus dirigentes nacionais, bem como endereço eletrônico para recebimento de comunicações.","VI - endereço e telefone de sua sede e de seus dirigentes nacionais, bem como endereço eletrônico para recebimento de comunicações.","endereco; resolucao; dezembro; telefone; sede; seus; dirigentes; nacionais; eletronico; recebimento","True","404","101"
+"12","12","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1058","1058","","paragrafo","Art. 11-A, Parágrafo único","Art. 11-A","Art. 11-A","Parágrafo único","","","","Parágrafo único. O estatuto de que trata o inciso IV deste artigo deverá conter regras para a composição de listas para as eleições proporcionais, que vinculará a escolha de candidatos da federação em todos os níveis (Lei n. 9.096/1995, art. 11-A, § 7º).","","[]","0","Lei n. 9.096/1995","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 11-A, Parágrafo único
+Tipo: paragrafo
+Dispositivo pai: Art. 11-A
+Páginas: 1058-1058
+Parágrafo único. O estatuto de que trata o inciso IV deste artigo deverá conter regras para a composição de listas para as eleições proporcionais, que vinculará a escolha de candidatos da federação em todos os níveis (Lei n. 9.096/1995, art. 11-A, § 7º).","Parágrafo único. O estatuto de que trata o inciso IV deste artigo deverá conter regras para a composição de listas para as eleições proporcionais, que vinculará a escolha de candidatos da federação em todos os níveis (Lei n. 9.096/1995...","paragrafo; unico; resolucao; dezembro; estatuto; trata; inciso; deste; artigo; devera","True","543","135"
+"13","13","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1058","1058","","artigo","Art. 3º","","Art. 3º","","","","","Art. 3º O pedido será autuado na classe Registro de Federação Partidária (RFP) e distribuído a um relator ou a uma relatora, devendo a Secretaria do Tribunal publicar, imediatamente, no Diário da Justiça Eletrônico (DJe), edital para ciência das interessadas e dos interessados.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º
+Tipo: artigo
+Páginas: 1058-1058
+Art. 3º O pedido será autuado na classe Registro de Federação Partidária (RFP) e distribuído a um relator ou a uma relatora, devendo a Secretaria do Tribunal publicar, imediatamente, no Diário da Justiça Eletrônico (DJe), edital para ciência das interessadas e dos interessados.","Art. 3º O pedido será autuado na classe Registro de Federação Partidária (RFP) e distribuído a um relator ou a uma relatora, devendo a Secretaria do Tribunal publicar, imediatamente, no Diário da Justiça Eletrônico (DJe), edital para...","resolucao; dezembro; pedido; sera; autuado; classe; registro; federacao; partidaria; distribuido","True","518","129"
+"14","14","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1058","1058","","paragrafo","Art. 3º, §1º","Art. 3º","Art. 3º","§1º","","","","§ 1º Qualquer interessada ou interessado poderá, no prazo de 3 (três) dias contados da publicação do edital, impugnar o pedido de registro da federação, em petição fundamentada, acompanhada da prova documental pertinente e, se for o caso, de requerimento justificado de produção de outras provas, inclusive documentos em poder de terceiros ou de repartições públicas.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 1058-1058
+§ 1º Qualquer interessada ou interessado poderá, no prazo de 3 (três) dias contados da publicação do edital, impugnar o pedido de registro da federação, em petição fundamentada, acompanhada da prova documental pertinente e, se for o caso, de requerimento justificado de produção de outras provas, inclusive documentos em poder de terceiros ou de repartições públicas.","§ 1º Qualquer interessada ou interessado poderá, no prazo de 3 (três) dias contados da publicação do edital, impugnar o pedido de registro da federação, em petição fundamentada, acompanhada da prova documental pertinente e, se for o caso...","resolucao; dezembro; qualquer; interessada; interessado; podera; prazo; tres; dias; contados","True","640","160"
+"15","15","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1058","1058","","paragrafo","Art. 3º, §2º","Art. 3º","Art. 3º","§2º","","","","§ 2º Oferecida impugnação, o relator ou a relatora deverá determinar a intimação da federação para apresentar defesa, no prazo de 3 (três) dias, acompanhada da prova documental pertinente e, se for o caso, de requerimento justificado de produção de outras provas, inclusive documentos em poder de terceiros ou de repartições públicas.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §2º
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 1058-1058
+§ 2º Oferecida impugnação, o relator ou a relatora deverá determinar a intimação da federação para apresentar defesa, no prazo de 3 (três) dias, acompanhada da prova documental pertinente e, se for o caso, de requerimento justificado de produção de outras provas, inclusive documentos em poder de terceiros ou de repartições públicas.","§ 2º Oferecida impugnação, o relator ou a relatora deverá determinar a intimação da federação para apresentar defesa, no prazo de 3 (três) dias, acompanhada da prova documental pertinente e, se for o caso, de requerimento justificado de...","resolucao; dezembro; oferecida; impugnacao; relator; relatora; devera; determinar; intimacao; federacao","True","607","151"
+"16","16","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1058","1058","","paragrafo","Art. 3º, §3º","Art. 3º","Art. 3º","§3º","","","","§ 3º Oferecida a resposta ou findo o respectivo prazo, o relator ou a relatora determinará a oitiva, em 2 (dois) dias, do representante do Ministério Público Eleitoral e, em seguida:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §3º
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 1058-1058
+§ 3º Oferecida a resposta ou findo o respectivo prazo, o relator ou a relatora determinará a oitiva, em 2 (dois) dias, do representante do Ministério Público Eleitoral e, em seguida:","§ 3º Oferecida a resposta ou findo o respectivo prazo, o relator ou a relatora determinará a oitiva, em 2 (dois) dias, do representante do Ministério Público Eleitoral e, em seguida:","resolucao; dezembro; oferecida; resposta; findo; respectivo; prazo; relator; relatora; determinara","True","455","113"
+"17","17","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1058","1058","","inciso","Art. 3º, §3º, I","Art. 3º, §3º","Art. 3º","§3º","I","","","I - promoverá o saneamento de eventuais falhas processuais acaso existentes;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §3º, I
+Tipo: inciso
+Dispositivo pai: Art. 3º, §3º
+Páginas: 1058-1058
+I - promoverá o saneamento de eventuais falhas processuais acaso existentes;","I - promoverá o saneamento de eventuais falhas processuais acaso existentes;","resolucao; dezembro; promovera; saneamento; eventuais; falhas; processuais; acaso; existentes","True","354","88"
+"18","18","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1058","1058","","inciso","Art. 3º, §3º, II","Art. 3º, §3º","Art. 3º","§3º","II","","","II - decidirá sobre a pertinência das provas requeridas pelas partes, determinando a realização daquelas que contribuírem para a decisão da causa, indeferindo as inúteis ou meramente protelatórias; e","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §3º, II
+Tipo: inciso
+Dispositivo pai: Art. 3º, §3º
+Páginas: 1058-1058
+II - decidirá sobre a pertinência das provas requeridas pelas partes, determinando a realização daquelas que contribuírem para a decisão da causa, indeferindo as inúteis ou meramente protelatórias; e","II - decidirá sobre a pertinência das provas requeridas pelas partes, determinando a realização daquelas que contribuírem para a decisão da causa, indeferindo as inúteis ou meramente protelatórias; e","resolucao; dezembro; decidira; sobre; pertinencia; provas; requeridas; partes; determinando; realizacao","True","478","119"
+"19","19","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1058","1058","","inciso","Art. 3º, §3º, III","Art. 3º, §3º","Art. 3º","§3º","III","","","III - determinará a produção de provas que entender necessárias e que não tenham sido requeridas pelas partes.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §3º, III
+Tipo: inciso
+Dispositivo pai: Art. 3º, §3º
+Páginas: 1058-1058
+III - determinará a produção de provas que entender necessárias e que não tenham sido requeridas pelas partes.","III - determinará a produção de provas que entender necessárias e que não tenham sido requeridas pelas partes.","resolucao; dezembro; determinara; producao; provas; entender; necessarias; tenham; sido; requeridas","True","390","97"
+"20","20","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1058","1058","","paragrafo","Art. 3º, §4º","Art. 3º","Art. 3º","§4º","","","","§ 4º Havendo a juntada de qualquer documento com a resposta ou em momento posterior, deve ser dada vista à outra parte para manifestação no prazo de 3 (três) dias.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §4º
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 1058-1058
+§ 4º Havendo a juntada de qualquer documento com a resposta ou em momento posterior, deve ser dada vista à outra parte para manifestação no prazo de 3 (três) dias.","§ 4º Havendo a juntada de qualquer documento com a resposta ou em momento posterior, deve ser dada vista à outra parte para manifestação no prazo de 3 (três) dias.","resolucao; dezembro; havendo; juntada; qualquer; documento; resposta; momento; posterior; deve","True","436","109"
+"21","21","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1058","1058","","paragrafo","Art. 3º, §5º","Art. 3º","Art. 3º","§5º","","","","§ 5º Não havendo impugnação ou finda a instrução do feito, o relator ou a relatora deve ouvir o Ministério Público Eleitoral, no prazo de 3 (três) dias, e determinar, em igual prazo, as diligências para sanar eventuais falhas do processo.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §5º
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 1058-1058
+§ 5º Não havendo impugnação ou finda a instrução do feito, o relator ou a relatora deve ouvir o Ministério Público Eleitoral, no prazo de 3 (três) dias, e determinar, em igual prazo, as diligências para sanar eventuais falhas do processo.","§ 5º Não havendo impugnação ou finda a instrução do feito, o relator ou a relatora deve ouvir o Ministério Público Eleitoral, no prazo de 3 (três) dias, e determinar, em igual prazo, as diligências para sanar eventuais falhas do processo.","prazo; resolucao; dezembro; havendo; impugnacao; finda; instrucao; feito; relator; relatora","True","511","127"
+"22","22","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1058","1058","","paragrafo","Art. 3º, §6º","Art. 3º","Art. 3º","§6º","","","","§ 6º Ouvido o Ministério Público, os autos serão conclusos ao relator ou à relatora, que os apresentará para julgamento perante o Plenário do Tribunal no prazo de até 10 (dez) dias.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §6º
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 1058-1058
+§ 6º Ouvido o Ministério Público, os autos serão conclusos ao relator ou à relatora, que os apresentará para julgamento perante o Plenário do Tribunal no prazo de até 10 (dez) dias.","§ 6º Ouvido o Ministério Público, os autos serão conclusos ao relator ou à relatora, que os apresentará para julgamento perante o Plenário do Tribunal no prazo de até 10 (dez) dias.","resolucao; dezembro; ouvido; ministerio; publico; autos; serao; conclusos; relator; relatora","True","454","113"
+"23","23","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1058","1058","","paragrafo","Art. 3º, §7º","Art. 3º","Art. 3º","§7º","","","","§ 7º Na sessão de julgamento, após o relatório, as partes e a Procuradoria-Geral Eleitoral poderão sustentar oralmente suas razões, no prazo improrrogável de 15 (quinze) minutos cada uma.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §7º
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 1058-1058
+§ 7º Na sessão de julgamento, após o relatório, as partes e a Procuradoria-Geral Eleitoral poderão sustentar oralmente suas razões, no prazo improrrogável de 15 (quinze) minutos cada uma.","§ 7º Na sessão de julgamento, após o relatório, as partes e a Procuradoria-Geral Eleitoral poderão sustentar oralmente suas razões, no prazo improrrogável de 15 (quinze) minutos cada uma.","resolucao; dezembro; sessao; julgamento; apos; relatorio; partes; procuradoria; geral; eleitoral","True","460","115"
+"24","24","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1058","1058","","artigo","Art. 4º","","Art. 4º","","","","","Art. 4º Deferido o registro da federação, serão anotadas no Sistema de Gestão de Informações Partidárias (SGIP):","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º
+Tipo: artigo
+Páginas: 1058-1058
+Art. 4º Deferido o registro da federação, serão anotadas no Sistema de Gestão de Informações Partidárias (SGIP):","Art. 4º Deferido o registro da federação, serão anotadas no Sistema de Gestão de Informações Partidárias (SGIP):","resolucao; dezembro; deferido; registro; federacao; serao; anotadas; sistema; gestao; informacoes","True","352","88"
+"25","25","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1058","1058","","inciso","Art. 4º, I","Art. 4º","Art. 4º","","I","","","I - a informação, no registro de todos os partidos políticos que compõem a federação, da data em que passaram a integrá-la; e","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º, I
+Tipo: inciso
+Dispositivo pai: Art. 4º
+Páginas: 1058-1058
+I - a informação, no registro de todos os partidos políticos que compõem a federação, da data em que passaram a integrá-la; e","I - a informação, no registro de todos os partidos políticos que compõem a federação, da data em que passaram a integrá-la; e","resolucao; dezembro; informacao; registro; todos; partidos; politicos; compoem; federacao; data","True","393","98"
+"26","26","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1058","1058","","inciso","Art. 4º, II","Art. 4º","Art. 4º","","II","","","II - a composição do órgão de direção nacional da federação.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º, II
+Tipo: inciso
+Dispositivo pai: Art. 4º
+Páginas: 1058-1058
+II - a composição do órgão de direção nacional da federação.","II - a composição do órgão de direção nacional da federação.","resolucao; dezembro; composicao; orgao; direcao; nacional; federacao","True","329","82"
+"27","27","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1058","1059","","paragrafo","Art. 4º, §1º","Art. 4º","Art. 4º","§1º","","","","§ 1º Feitas as anotações a que se referem os incisos do caput deste artigo, os partidos que compõem a federação passarão a atuar, em todos os níveis, de forma unificada (Lei n. 9.096/1995, art. 11-A, caput).","V. nota ao art. 1º, caput, desta resolução sobre o Ac.-STF, de 6/8/2025, na ADI n. 7021.","[{""ordem"": 1, ""marcador"": ""ticado"", ""texto"": ""V. nota ao art. 1º, caput, desta resolução sobre o Ac.-STF, de 6/8/2025, na ADI n. 7021."", ""pagina_inicial"": 1059, ""pagina_final"": 1059}]","1","Lei n. 9.096/1995","Ac.-STF, de 6/8/2025, na ADI n; ADI n. 7021.","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 4º
+Páginas: 1058-1059
+§ 1º Feitas as anotações a que se referem os incisos do caput deste artigo, os partidos que compõem a federação passarão a atuar, em todos os níveis, de forma unificada (Lei n. 9.096/1995, art. 11-A, caput).
+Notas vinculadas:
+V. nota ao art. 1º, caput, desta resolução sobre o Ac.-STF, de 6/8/2025, na ADI n. 7021.","§ 1º Feitas as anotações a que se referem os incisos do caput deste artigo, os partidos que compõem a federação passarão a atuar, em todos os níveis, de forma unificada (Lei n. 9.096/1995, art. 11-A, caput).","caput; resolucao; dezembro; feitas; anotacoes; referem; incisos; deste; artigo; partidos","True","587","146"
+"28","28","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1059","1059","","paragrafo","Art. 4º, §2º","Art. 4º","Art. 4º","§2º","","","","§ 2º Para fins de aferição da cláusula de desempenho prevista no § 3º do art. 17 da Constituição e no art. 3º da EC n. 97/2017, será considerada a soma da votação e da representação dos partidos que integram a federação.","","[]","0","EC n. 97/2017","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º, §2º
+Tipo: paragrafo
+Dispositivo pai: Art. 4º
+Páginas: 1059-1059
+§ 2º Para fins de aferição da cláusula de desempenho prevista no § 3º do art. 17 da Constituição e no art. 3º da EC n. 97/2017, será considerada a soma da votação e da representação dos partidos que integram a federação.","§ 2º Para fins de aferição da cláusula de desempenho prevista no § 3º do art. 17 da Constituição e no art. 3º da EC n. 97/2017, será considerada a soma da votação e da representação dos partidos que integram a federação.","resolucao; dezembro; fins; afericao; clausula; desempenho; prevista; constituicao; sera; considerada","True","493","123"
+"29","29","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1059","1059","","paragrafo","Art. 4º, §3º","Art. 4º","Art. 4º","§3º","","","","§ 3º O efeito de que trata o § 2º deste artigo somente incidirá a partir do início da legislatura seguinte ao deferimento do registro da federação, compreendida aquela conforme o","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º, §3º
+Tipo: paragrafo
+Dispositivo pai: Art. 4º
+Páginas: 1059-1059
+§ 3º O efeito de que trata o § 2º deste artigo somente incidirá a partir do início da legislatura seguinte ao deferimento do registro da federação, compreendida aquela conforme o","§ 3º O efeito de que trata o § 2º deste artigo somente incidirá a partir do início da legislatura seguinte ao deferimento do registro da federação, compreendida aquela conforme o","resolucao; dezembro; efeito; trata; deste; artigo; somente; incidira; partir; inicio","True","451","112"
+"30","30","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1059","1059","","paragrafo","Art. 4º, Parágrafo único","Art. 4º","Art. 4º","Parágrafo único","","","","parágrafo único do art. 44 da Constituição.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º, Parágrafo único
+Tipo: paragrafo
+Dispositivo pai: Art. 4º
+Páginas: 1059-1059
+parágrafo único do art. 44 da Constituição.","parágrafo único do art. 44 da Constituição.","paragrafo; unico; resolucao; dezembro; constituicao","True","328","82"
+"31","31","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1059","1059","","paragrafo","Art. 4º, §4º","Art. 4º","Art. 4º","§4º","","","","§ 4º A fim de assegurar a isonomia com os partidos políticos, a participação da federação nas eleições somente será possível se o deferimento de seu registro no TSE ocorrer até 6 (seis) meses antes das eleições, observadas as demais disposições aplicáveis da resolução que tratar do registro de candidatura.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º, §4º
+Tipo: paragrafo
+Dispositivo pai: Art. 4º
+Páginas: 1059-1059
+§ 4º A fim de assegurar a isonomia com os partidos políticos, a participação da federação nas eleições somente será possível se o deferimento de seu registro no TSE ocorrer até 6 (seis) meses antes das eleições, observadas as demais disposições aplicáveis da resolução que tratar do registro de candidatura.","§ 4º A fim de assegurar a isonomia com os partidos políticos, a participação da federação nas eleições somente será possível se o deferimento de seu registro no TSE ocorrer até 6 (seis) meses antes das eleições, observadas as demais...","resolucao; eleicoes; registro; dezembro; assegurar; isonomia; partidos; politicos; participacao; federacao","True","580","145"
+"32","32","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1059","1059","","artigo","Art. 5º","","Art. 5º","","","","","Art. 5º O disposto no art. 4º não afeta a identidade e a autonomia dos partidos integrantes da federação, os quais conservarão (Constituição, art. 17, e Lei n. 9.096/1995,","","[]","0","Lei n. 9.096/1995","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 5º
+Tipo: artigo
+Páginas: 1059-1059
+Art. 5º O disposto no art. 4º não afeta a identidade e a autonomia dos partidos integrantes da federação, os quais conservarão (Constituição, art. 17, e Lei n. 9.096/1995,","Art. 5º O disposto no art. 4º não afeta a identidade e a autonomia dos partidos integrantes da federação, os quais conservarão (Constituição, art. 17, e Lei n. 9.096/1995,","resolucao; dezembro; disposto; afeta; identidade; autonomia; partidos; integrantes; federacao; quais","True","411","102"
+"33","33","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1059","1059","","artigo","Art. 11-A","","Art. 11-A","","","","","art. 11-A, § 2º):","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 11-A
+Tipo: artigo
+Páginas: 1059-1059
+art. 11-A, § 2º):","art. 11-A, § 2º):","resolucao; dezembro","True","259","64"
+"34","34","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1059","1059","","inciso","Art. 11-A, I","Art. 11-A","Art. 11-A","","I","","","I - seu nome, sigla e número próprios, inexistindo atribuição de número à federação;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 11-A, I
+Tipo: inciso
+Dispositivo pai: Art. 11-A
+Páginas: 1059-1059
+I - seu nome, sigla e número próprios, inexistindo atribuição de número à federação;","I - seu nome, sigla e número próprios, inexistindo atribuição de número à federação;","numero; resolucao; dezembro; nome; sigla; proprios; inexistindo; atribuicao; federacao","True","356","89"
+"35","35","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1059","1059","","inciso","Art. 11-A, II","Art. 11-A","Art. 11-A","","II","","","II - seu quadro de filiados;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 11-A, II
+Tipo: inciso
+Dispositivo pai: Art. 11-A
+Páginas: 1059-1059
+II - seu quadro de filiados;","II - seu quadro de filiados;","resolucao; dezembro; quadro; filiados","True","301","75"
+"36","36","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1059","1059","","inciso","Art. 11-A, III","Art. 11-A","Art. 11-A","","III","","","III - o direito ao recebimento direto dos repasses do Fundo Partidário e do Fundo Especial de Financiamento de Campanhas e o direito de acesso gratuito ao rádio e à televisão para a veiculação de propaganda partidária, na forma da lei;","Inciso III com redação dada pelo art. 34 da Res.-TSE n. 23679/2022.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Inciso III com redação dada pelo art. 34 da Res.-TSE n. 23679/2022."", ""pagina_inicial"": 1059, ""pagina_final"": 1059}]","1","Res.-TSE n. 23679/2022","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 11-A, III
+Tipo: inciso
+Dispositivo pai: Art. 11-A
+Páginas: 1059-1059
+III - o direito ao recebimento direto dos repasses do Fundo Partidário e do Fundo Especial de Financiamento de Campanhas e o direito de acesso gratuito ao rádio e à televisão para a veiculação de propaganda partidária, na forma da lei;
+Notas vinculadas:
+Inciso III com redação dada pelo art. 34 da Res.-TSE n. 23679/2022.","III - o direito ao recebimento direto dos repasses do Fundo Partidário e do Fundo Especial de Financiamento de Campanhas e o direito de acesso gratuito ao rádio e à televisão para a veiculação de propaganda partidária, na forma da lei;","direito; fundo; resolucao; dezembro; recebimento; direto; repasses; partidario; especial; financiamento","True","595","148"
+"37","37","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1059","1059","","inciso","Art. 11-A, IV","Art. 11-A","Art. 11-A","","IV","","","IV - o dever de prestar contas; e","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 11-A, IV
+Tipo: inciso
+Dispositivo pai: Art. 11-A
+Páginas: 1059-1059
+IV - o dever de prestar contas; e","IV - o dever de prestar contas; e","resolucao; dezembro; dever; prestar; contas","True","306","76"
+"38","38","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1059","1059","","inciso","Art. 11-A, V","Art. 11-A","Art. 11-A","","V","","","V - a responsabilidade pelos recolhimentos e sanções que lhes sejam imputados por decisão judicial.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 11-A, V
+Tipo: inciso
+Dispositivo pai: Art. 11-A
+Páginas: 1059-1059
+V - a responsabilidade pelos recolhimentos e sanções que lhes sejam imputados por decisão judicial.","V - a responsabilidade pelos recolhimentos e sanções que lhes sejam imputados por decisão judicial.","resolucao; dezembro; responsabilidade; recolhimentos; sancoes; lhes; sejam; imputados; decisao; judicial","True","371","92"
+"39","39","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1059","1059","","artigo","Art. 6º","","Art. 6º","","","","","Art. 6º A federação vigorará por prazo indeterminado, devendo os partidos políticos nela permanecer por, no mínimo, 4 (quatro) anos, contados da data de seu ingresso (Lei n. 9.096/1995, art. 11-A, § 3º, II).","","[]","0","Lei n. 9.096/1995","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 6º
+Tipo: artigo
+Páginas: 1059-1059
+Art. 6º A federação vigorará por prazo indeterminado, devendo os partidos políticos nela permanecer por, no mínimo, 4 (quatro) anos, contados da data de seu ingresso (Lei n. 9.096/1995, art. 11-A, § 3º, II).","Art. 6º A federação vigorará por prazo indeterminado, devendo os partidos políticos nela permanecer por, no mínimo, 4 (quatro) anos, contados da data de seu ingresso (Lei n. 9.096/1995, art. 11-A, § 3º, II).","resolucao; dezembro; federacao; vigorara; prazo; indeterminado; devendo; partidos; politicos; nela","True","447","111"
+"40","40","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1059","1059","","paragrafo","Art. 6º, §1º","Art. 6º","Art. 6º","§1º","","","","§ 1º A federação poderá requerer sua extinção ou a alteração de sua composição, para a inclusão ou exclusão de partidos políticos, bem como das demais regras de seu estatuto, mediante requerimento acompanhado da comprovação da alteração estatutária perante o registro civil das pessoas jurídicas.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 6º, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 6º
+Páginas: 1059-1059
+§ 1º A federação poderá requerer sua extinção ou a alteração de sua composição, para a inclusão ou exclusão de partidos políticos, bem como das demais regras de seu estatuto, mediante requerimento acompanhado da comprovação da alteração estatutária perante o registro civil das pessoas jurídicas.","§ 1º A federação poderá requerer sua extinção ou a alteração de sua composição, para a inclusão ou exclusão de partidos políticos, bem como das demais regras de seu estatuto, mediante requerimento acompanhado da comprovação da alteração...","alteracao; resolucao; dezembro; federacao; podera; requerer; extincao; composicao; inclusao; exclusao","True","569","142"
+"41","41","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1059","1059","","paragrafo","Art. 6º, §2º","Art. 6º","Art. 6º","§2º","","","","§ 2º No caso de exclusão, o partido político que estiver se desligando da federação também poderá apresentar o requerimento a que se refere o § 1º deste artigo.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 6º, §2º
+Tipo: paragrafo
+Dispositivo pai: Art. 6º
+Páginas: 1059-1059
+§ 2º No caso de exclusão, o partido político que estiver se desligando da federação também poderá apresentar o requerimento a que se refere o § 1º deste artigo.","§ 2º No caso de exclusão, o partido político que estiver se desligando da federação também poderá apresentar o requerimento a que se refere o § 1º deste artigo.","resolucao; dezembro; caso; exclusao; partido; politico; estiver; desligando; federacao; tambem","True","433","108"
+"42","42","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1059","1059","","paragrafo","Art. 6º, §3º","Art. 6º","Art. 6º","§3º","","","","§ 3º Apresentado o requerimento de alteração estatutária ou programática, será observado, no que couber, o procedimento previsto no","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 6º, §3º
+Tipo: paragrafo
+Dispositivo pai: Art. 6º
+Páginas: 1059-1059
+§ 3º Apresentado o requerimento de alteração estatutária ou programática, será observado, no que couber, o procedimento previsto no","§ 3º Apresentado o requerimento de alteração estatutária ou programática, será observado, no que couber, o procedimento previsto no","resolucao; dezembro; apresentado; requerimento; alteracao; estatutaria; programatica; sera; observado; couber","True","404","101"
+"43","43","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1059","1059","","artigo","Art. 3º","","Art. 3º","","","","","art. 3º desta resolução.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º
+Tipo: artigo
+Páginas: 1059-1059
+art. 3º desta resolução.","art. 3º desta resolução.","resolucao; dezembro; desta","True","264","66"
+"44","44","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1059","1059","","paragrafo","Art. 3º, §4º","Art. 3º","Art. 3º","§4º","","","","§ 4º As alterações de que trata este artigo somente surtirão efeitos após o deferimento do pedido pelo Tribunal Superior Eleitoral.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §4º
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 1059-1059
+§ 4º As alterações de que trata este artigo somente surtirão efeitos após o deferimento do pedido pelo Tribunal Superior Eleitoral.","§ 4º As alterações de que trata este artigo somente surtirão efeitos após o deferimento do pedido pelo Tribunal Superior Eleitoral.","resolucao; dezembro; alteracoes; trata; este; artigo; somente; surtirao; efeitos; apos","True","404","101"
+"45","45","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1059","1059","","paragrafo","Art. 3º, §5º","Art. 3º","Art. 3º","§5º","","","","§ 5º Extinta a federação, cessará imediatamente o efeito previsto no § 1º do art. 4º desta resolução, devendo-se proceder a novo cálculo para a distribuição do Fundo Partidário conforme a cláusula de desempenho em vigor.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §5º
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 1059-1059
+§ 5º Extinta a federação, cessará imediatamente o efeito previsto no § 1º do art. 4º desta resolução, devendo-se proceder a novo cálculo para a distribuição do Fundo Partidário conforme a cláusula de desempenho em vigor.","§ 5º Extinta a federação, cessará imediatamente o efeito previsto no § 1º do art. 4º desta resolução, devendo-se proceder a novo cálculo para a distribuição do Fundo Partidário conforme a cláusula de desempenho em vigor.","resolucao; dezembro; extinta; federacao; cessara; imediatamente; efeito; previsto; desta; devendo","True","493","123"
+"46","46","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1059","1060","","artigo","Art. 7º","","Art. 7º","","","","","Art. 7º O partido que se desligar da federação antes do tempo mínimo previsto no caput do art. 6º desta resolução ficará sujeito à vedação de ingressar em federação, de celebrar coligação nas 2 (duas) eleições seguintes e, até completar o prazo mínimo remanescente, de utilizar o Fundo Partidário (Lei n. 9.096/1995,","","[]","0","Lei n. 9.096/1995","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 7º
+Tipo: artigo
+Páginas: 1059-1060
+Art. 7º O partido que se desligar da federação antes do tempo mínimo previsto no caput do art. 6º desta resolução ficará sujeito à vedação de ingressar em federação, de celebrar coligação nas 2 (duas) eleições seguintes e, até completar o prazo mínimo remanescente, de utilizar o Fundo Partidário (Lei n. 9.096/1995,","Art. 7º O partido que se desligar da federação antes do tempo mínimo previsto no caput do art. 6º desta resolução ficará sujeito à vedação de ingressar em federação, de celebrar coligação nas 2 (duas) eleições seguintes e, até completar o...","resolucao; federacao; minimo; dezembro; partido; desligar; antes; tempo; previsto; caput","True","556","139"
+"47","47","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1060","1060","","artigo","Art. 11-A","","Art. 11-A","","","","","art. 11-A, § 4º).","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 11-A
+Tipo: artigo
+Páginas: 1060-1060
+art. 11-A, § 4º).","art. 11-A, § 4º).","resolucao; dezembro","True","259","64"
+"48","48","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1060","1060","","paragrafo","Art. 11-A, §1º","Art. 11-A","Art. 11-A","§1º","","","","§ 1º Na hipótese de desligamento de 1 (um) ou mais partidos, a federação continuará em funcionamento, sem prejuízo à sua participação na eleição seguinte, desde que nela permaneçam 2 (dois) ou mais partidos (Lei n. 9.096/1995, art. 11-A, § 5º).","","[]","0","Lei n. 9.096/1995","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 11-A, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 11-A
+Páginas: 1060-1060
+§ 1º Na hipótese de desligamento de 1 (um) ou mais partidos, a federação continuará em funcionamento, sem prejuízo à sua participação na eleição seguinte, desde que nela permaneçam 2 (dois) ou mais partidos (Lei n. 9.096/1995, art. 11-A, § 5º).","§ 1º Na hipótese de desligamento de 1 (um) ou mais partidos, a federação continuará em funcionamento, sem prejuízo à sua participação na eleição seguinte, desde que nela permaneçam 2 (dois) ou mais partidos (Lei n. 9.096/1995, art. 11-A, §...","mais; partidos; resolucao; dezembro; hipotese; desligamento; federacao; continuara; funcionamento; prejuizo","True","521","130"
+"49","49","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1060","1060","","paragrafo","Art. 11-A, §2º","Art. 11-A","Art. 11-A","§2º","","","","§ 2º O partido político que se desligar da federação até 6 (seis) meses antes da eleição poderá dela participar isoladamente, sem prejuízo da aplicação das sanções previstas no caput deste artigo.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 11-A, §2º
+Tipo: paragrafo
+Dispositivo pai: Art. 11-A
+Páginas: 1060-1060
+§ 2º O partido político que se desligar da federação até 6 (seis) meses antes da eleição poderá dela participar isoladamente, sem prejuízo da aplicação das sanções previstas no caput deste artigo.","§ 2º O partido político que se desligar da federação até 6 (seis) meses antes da eleição poderá dela participar isoladamente, sem prejuízo da aplicação das sanções previstas no caput deste artigo.","resolucao; dezembro; partido; politico; desligar; federacao; seis; meses; antes; eleicao","True","473","118"
+"50","50","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1060","1060","","paragrafo","Art. 11-A, §3º","Art. 11-A","Art. 11-A","§3º","","","","§ 3º As sanções previstas no caput deste artigo não serão aplicadas a(os) partido(s) político(s) em caso de a extinção da federação ser motivada pela fusão ou incorporação entre eles.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 11-A, §3º
+Tipo: paragrafo
+Dispositivo pai: Art. 11-A
+Páginas: 1060-1060
+§ 3º As sanções previstas no caput deste artigo não serão aplicadas a(os) partido(s) político(s) em caso de a extinção da federação ser motivada pela fusão ou incorporação entre eles.","§ 3º As sanções previstas no caput deste artigo não serão aplicadas a(os) partido(s) político(s) em caso de a extinção da federação ser motivada pela fusão ou incorporação entre eles.","resolucao; dezembro; sancoes; previstas; caput; deste; artigo; serao; aplicadas; partido","True","460","115"
+"51","51","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1060","1060","","artigo","Art. 8º","","Art. 8º","","","","","Art. 8º A requerimento de seu presidente, a federação poderá credenciar cinco delegados perante o Tribunal Superior Eleitoral.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 8º
+Tipo: artigo
+Páginas: 1060-1060
+Art. 8º A requerimento de seu presidente, a federação poderá credenciar cinco delegados perante o Tribunal Superior Eleitoral.","Art. 8º A requerimento de seu presidente, a federação poderá credenciar cinco delegados perante o Tribunal Superior Eleitoral.","resolucao; dezembro; requerimento; presidente; federacao; podera; credenciar; cinco; delegados; perante","True","366","91"
+"52","52","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1060","1060","","artigo","Art. 9º","","Art. 9º","","","","","Art. 9º Nos estados, no Distrito Federal e nos municípios, o funcionamento da federação não dependerá de constituição de órgãos próprios, bastando que exista, na localidade, órgão partidário de algum dos partidos que a compõem.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 9º
+Tipo: artigo
+Páginas: 1060-1060
+Art. 9º Nos estados, no Distrito Federal e nos municípios, o funcionamento da federação não dependerá de constituição de órgãos próprios, bastando que exista, na localidade, órgão partidário de algum dos partidos que a compõem.","Art. 9º Nos estados, no Distrito Federal e nos municípios, o funcionamento da federação não dependerá de constituição de órgãos próprios, bastando que exista, na localidade, órgão partidário de algum dos partidos que a compõem.","resolucao; dezembro; estados; distrito; federal; municipios; funcionamento; federacao; dependera; constituicao","True","467","116"
+"53","53","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1060","1060","","paragrafo","Art. 9º, Parágrafo único","Art. 9º","Art. 9º","Parágrafo único","","","","Parágrafo único. Havendo a constituição de órgão estadual, distrital ou municipal da federação, é facultada sua anotação no SGIP, bem como o credenciamento de delegados, em número equivalente ao dos partidos políticos.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 9º, Parágrafo único
+Tipo: paragrafo
+Dispositivo pai: Art. 9º
+Páginas: 1060-1060
+Parágrafo único. Havendo a constituição de órgão estadual, distrital ou municipal da federação, é facultada sua anotação no SGIP, bem como o credenciamento de delegados, em número equivalente ao dos partidos políticos.","Parágrafo único. Havendo a constituição de órgão estadual, distrital ou municipal da federação, é facultada sua anotação no SGIP, bem como o credenciamento de delegados, em número equivalente ao dos partidos políticos.","paragrafo; unico; resolucao; dezembro; havendo; constituicao; orgao; estadual; distrital; municipal","True","503","125"
+"54","54","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1060","1060","","artigo","Art. 10","","Art. 10","","","","","Art. 10. A manutenção e o funcionamento da federação serão custeados pelos partidos políticos que a compõem, cabendo ao estatuto dispor a respeito.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 10
+Tipo: artigo
+Páginas: 1060-1060
+Art. 10. A manutenção e o funcionamento da federação serão custeados pelos partidos políticos que a compõem, cabendo ao estatuto dispor a respeito.","Art. 10. A manutenção e o funcionamento da federação serão custeados pelos partidos políticos que a compõem, cabendo ao estatuto dispor a respeito.","resolucao; dezembro; manutencao; funcionamento; federacao; serao; custeados; partidos; politicos; compoem","True","387","96"
+"55","55","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1060","1060","","paragrafo","Art. 10, §1º","Art. 10","Art. 10","§1º","","","","§ 1º É lícito aos partidos realizar gastos em prol da federação com recursos do Fundo Partidário na manutenção e no funcionamento da federação, desde que não integrem parcela cuja aplicação é vinculada por lei.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 10, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 10
+Páginas: 1060-1060
+§ 1º É lícito aos partidos realizar gastos em prol da federação com recursos do Fundo Partidário na manutenção e no funcionamento da federação, desde que não integrem parcela cuja aplicação é vinculada por lei.","§ 1º É lícito aos partidos realizar gastos em prol da federação com recursos do Fundo Partidário na manutenção e no funcionamento da federação, desde que não integrem parcela cuja aplicação é vinculada por lei.","federacao; resolucao; dezembro; licito; partidos; realizar; gastos; prol; recursos; fundo","True","483","120"
+"56","56","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1060","1060","","paragrafo","Art. 10, §2º","Art. 10","Art. 10","§2º","","","","§ 2º A prestação de contas da federação corresponderá àquela apresentada à Justiça Eleitoral pelos partidos que a integram e em todos os níveis de direção partidária.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 10, §2º
+Tipo: paragrafo
+Dispositivo pai: Art. 10
+Páginas: 1060-1060
+§ 2º A prestação de contas da federação corresponderá àquela apresentada à Justiça Eleitoral pelos partidos que a integram e em todos os níveis de direção partidária.","§ 2º A prestação de contas da federação corresponderá àquela apresentada à Justiça Eleitoral pelos partidos que a integram e em todos os níveis de direção partidária.","resolucao; dezembro; prestacao; contas; federacao; correspondera; aquela; apresentada; justica; eleitoral","True","439","109"
+"57","57","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1060","1060","","paragrafo","Art. 10, §3º","Art. 10","Art. 10","§3º","","","","§ 3º A regularidade dos gastos em prol da federação será verificada na respectiva prestação de contas do partido político que realizou o gasto.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 10, §3º
+Tipo: paragrafo
+Dispositivo pai: Art. 10
+Páginas: 1060-1060
+§ 3º A regularidade dos gastos em prol da federação será verificada na respectiva prestação de contas do partido político que realizou o gasto.","§ 3º A regularidade dos gastos em prol da federação será verificada na respectiva prestação de contas do partido político que realizou o gasto.","resolucao; dezembro; regularidade; gastos; prol; federacao; sera; verificada; respectiva; prestacao","True","416","104"
+"58","58","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1060","1060","","artigo","Art. 11","","Art. 11","","","","","Art. 11. As controvérsias entre os partidos políticos relativas ao funcionamento da federação constituem matéria interna corporis, de competência da Justiça comum, ressalvada a competência da Justiça Eleitoral para dirimir questões relativas ao registro da federação e das alterações previstas nos arts. 6º e 7º desta resolução ou que impactem diretamente no processo eleitoral.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 11
+Tipo: artigo
+Páginas: 1060-1060
+Art. 11. As controvérsias entre os partidos políticos relativas ao funcionamento da federação constituem matéria interna corporis, de competência da Justiça comum, ressalvada a competência da Justiça Eleitoral para dirimir questões relativas ao registro da federação e das alterações previstas nos arts. 6º e 7º desta resolução ou que impactem diretamente no processo eleitoral.","Art. 11. As controvérsias entre os partidos políticos relativas ao funcionamento da federação constituem matéria interna corporis, de competência da Justiça comum, ressalvada a competência da Justiça Eleitoral para dirimir questões...","resolucao; relativas; federacao; competencia; justica; eleitoral; dezembro; controversias; partidos; politicos","True","618","154"
+"59","59","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1060","1060","","artigo","Art. 12","","Art. 12","","","","","Art. 12. A aplicação, à federação, das normas que regem as atividades dos partidos políticos no que diz respeito às eleições, inclusive no que se refere à escolha e registro de candidatos para as eleições majoritárias e proporcionais, à arrecadação e aplicação de recursos em campanhas eleitorais, à propaganda eleitoral, à contagem de votos, à obtenção de cadeiras, à prestação de contas e à convocação de suplentes será regulamentada nas instruções do Tribunal Superior Eleitoral que dispõem sobre essas matérias (Lei n. 9.096/1995, art. 11-A, § 8º; Lei n. 9.504/1997, art. 6º-A).","","[]","0","Lei n. 9.096/1995; Lei n. 9.504/1997","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 12
+Tipo: artigo
+Páginas: 1060-1060
+Art. 12. A aplicação, à federação, das normas que regem as atividades dos partidos políticos no que diz respeito às eleições, inclusive no que se refere à escolha e registro de candidatos para as eleições majoritárias e proporcionais, à arrecadação e aplicação de recursos em campanhas eleitorais, à propaganda eleitoral, à contagem de votos, à obtenção de cadeiras, à prestação de contas e à convocação de suplentes será regulamentada nas instruções do Tribunal Superior Eleitoral que dispõem sobre essas matérias (Lei n. 9.096/1995, art. 11-A, § 8º; Lei n. 9.504/1997, art. 6º-A).","Art. 12. A aplicação, à federação, das normas que regem as atividades dos partidos políticos no que diz respeito às eleições, inclusive no que se refere à escolha e registro de candidatos para as eleições majoritárias e proporcionais, à...","aplicacao; eleicoes; eleitoral; resolucao; dezembro; federacao; normas; regem; atividades; partidos","True","822","205"
+"60","60","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1060","1060","","paragrafo","Art. 12, Parágrafo único","Art. 12","Art. 12","Parágrafo único","","","","Parágrafo único. Sem prejuízo do disposto no caput deste artigo, serão observadas as seguintes regras destinadas a assegurar a isonomia na aplicação de recursos de campanha e a impedir o desvio de finalidade das federações partidárias:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 12, Parágrafo único
+Tipo: paragrafo
+Dispositivo pai: Art. 12
+Páginas: 1060-1060
+Parágrafo único. Sem prejuízo do disposto no caput deste artigo, serão observadas as seguintes regras destinadas a assegurar a isonomia na aplicação de recursos de campanha e a impedir o desvio de finalidade das federações partidárias:","Parágrafo único. Sem prejuízo do disposto no caput deste artigo, serão observadas as seguintes regras destinadas a assegurar a isonomia na aplicação de recursos de campanha e a impedir o desvio de finalidade das federações partidárias:","paragrafo; unico; resolucao; dezembro; prejuizo; disposto; caput; deste; artigo; serao","True","520","130"
+"61","61","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1060","1061","","inciso","Art. 12, Parágrafo único, I","Art. 12, Parágrafo único","Art. 12","Parágrafo único","I","","","I - na eleição proporcional, o percentual mínimo de candidaturas por gênero deverá ser atendido tanto globalmente, na lista da federação, quanto por cada partido, nas indicações que fizer para compor a lista; e","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 12, Parágrafo único, I
+Tipo: inciso
+Dispositivo pai: Art. 12, Parágrafo único
+Páginas: 1060-1061
+I - na eleição proporcional, o percentual mínimo de candidaturas por gênero deverá ser atendido tanto globalmente, na lista da federação, quanto por cada partido, nas indicações que fizer para compor a lista; e","I - na eleição proporcional, o percentual mínimo de candidaturas por gênero deverá ser atendido tanto globalmente, na lista da federação, quanto por cada partido, nas indicações que fizer para compor a lista; e","lista; resolucao; dezembro; paragrafo; unico; eleicao; proporcional; percentual; minimo; candidaturas","True","512","128"
+"62","62","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1061","1061","","inciso","Art. 12, Parágrafo único, II","Art. 12, Parágrafo único","Art. 12","Parágrafo único","II","","","II - havendo transferência de recursos oriundos do FEFC ou do Fundo Partidário entre os partidos que integram a federação, a desaprovação das contas do partido beneficiado, quando decorrente de irregularidades na aplicação daqueles recursos na campanha, acarretará a desaprovação das contas do partido doador.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 12, Parágrafo único, II
+Tipo: inciso
+Dispositivo pai: Art. 12, Parágrafo único
+Páginas: 1061-1061
+II - havendo transferência de recursos oriundos do FEFC ou do Fundo Partidário entre os partidos que integram a federação, a desaprovação das contas do partido beneficiado, quando decorrente de irregularidades na aplicação daqueles recursos na campanha, acarretará a desaprovação das contas do partido doador.","II - havendo transferência de recursos oriundos do FEFC ou do Fundo Partidário entre os partidos que integram a federação, a desaprovação das contas do partido beneficiado, quando decorrente de irregularidades na aplicação daqueles...","recursos; desaprovacao; contas; partido; resolucao; dezembro; paragrafo; unico; havendo; transferencia","True","612","153"
+"63","63","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1061","1061","","artigo","Art. 13","","Art. 13","","","","","Art. 13. No ano de 2022, não se aplicará o prazo previsto no § 4º do art. 4º desta resolução, ficando assegurada a participação nas eleições das federações que tiverem seu registro deferido no TSE até 31 de maio de 2022.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 13
+Tipo: artigo
+Páginas: 1061-1061
+Art. 13. No ano de 2022, não se aplicará o prazo previsto no § 4º do art. 4º desta resolução, ficando assegurada a participação nas eleições das federações que tiverem seu registro deferido no TSE até 31 de maio de 2022.","Art. 13. No ano de 2022, não se aplicará o prazo previsto no § 4º do art. 4º desta resolução, ficando assegurada a participação nas eleições das federações que tiverem seu registro deferido no TSE até 31 de maio de 2022.","resolucao; dezembro; aplicara; prazo; previsto; desta; ficando; assegurada; participacao; eleicoes","True","460","115"
+"64","64","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1061","1061","","paragrafo","Art. 13, §1º","Art. 13","Art. 13","§1º","","","","§ 1º Na hipótese do caput, o relator do registro de federação requerido tempestivamente poderá antecipar a tutela, antes ou depois do transcurso do prazo para impugnação, se, em juízo de cognição sumária, for constatada a inexistência de óbice ao deferimento do pedido, com ou sem necessidade de ajuste nas disposições estatutárias.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 13, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 13
+Páginas: 1061-1061
+§ 1º Na hipótese do caput, o relator do registro de federação requerido tempestivamente poderá antecipar a tutela, antes ou depois do transcurso do prazo para impugnação, se, em juízo de cognição sumária, for constatada a inexistência de óbice ao deferimento do pedido, com ou sem necessidade de ajuste nas disposições estatutárias.","§ 1º Na hipótese do caput, o relator do registro de federação requerido tempestivamente poderá antecipar a tutela, antes ou depois do transcurso do prazo para impugnação, se, em juízo de cognição sumária, for constatada a inexistência de...","resolucao; dezembro; hipotese; caput; relator; registro; federacao; requerido; tempestivamente; podera","True","605","151"
+"65","65","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1061","1061","","paragrafo","Art. 13, §2º","Art. 13","Art. 13","§2º","","","","§ 2º A decisão proferida nos termos do § 1º deste artigo será imediatamente submetida a referendo do Plenário, em sessão cujo término não deverá ultrapassar a data de 31 de maio de 2022, convocando-se, se necessário, sessão extraordinária em meio eletrônico com duração específica para atendimento a esse prazo.","Caput e §§ 1º e 2º com redação dada pelo
+art. 1º da Res.-TSE n. 23682/2022.","[{""ordem"": 1, ""marcador"": ""continuação"", ""texto"": ""Caput e §§ 1º e 2º com redação dada pelo"", ""pagina_inicial"": 1061, ""pagina_final"": 1061}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""art. 1º da Res.-TSE n. 23682/2022."", ""pagina_inicial"": 1061, ""pagina_final"": 1061}]","2","Res.-TSE n. 23682/2022","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 13, §2º
+Tipo: paragrafo
+Dispositivo pai: Art. 13
+Páginas: 1061-1061
+§ 2º A decisão proferida nos termos do § 1º deste artigo será imediatamente submetida a referendo do Plenário, em sessão cujo término não deverá ultrapassar a data de 31 de maio de 2022, convocando-se, se necessário, sessão extraordinária em meio eletrônico com duração específica para atendimento a esse prazo.
+Notas vinculadas:
+Caput e §§ 1º e 2º com redação dada pelo
+art. 1º da Res.-TSE n. 23682/2022.","§ 2º A decisão proferida nos termos do § 1º deste artigo será imediatamente submetida a referendo do Plenário, em sessão cujo término não deverá ultrapassar a data de 31 de maio de 2022, convocando-se, se necessário, sessão extraordinária...","sessao; resolucao; dezembro; decisao; proferida; termos; deste; artigo; sera; imediatamente","True","678","169"
+"66","66","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1061","1061","","paragrafo","Art. 13, §3º","Art. 13","Art. 13","§3º","","","","§ 3º Concedida a tutela antecipada nos termos deste artigo, o registro da federação partidária terá tramitação prioritária, devendo o julgamento ser concluído até 1º de julho de 2022.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 13, §3º
+Tipo: paragrafo
+Dispositivo pai: Art. 13
+Páginas: 1061-1061
+§ 3º Concedida a tutela antecipada nos termos deste artigo, o registro da federação partidária terá tramitação prioritária, devendo o julgamento ser concluído até 1º de julho de 2022.","§ 3º Concedida a tutela antecipada nos termos deste artigo, o registro da federação partidária terá tramitação prioritária, devendo o julgamento ser concluído até 1º de julho de 2022.","resolucao; dezembro; concedida; tutela; antecipada; termos; deste; artigo; registro; federacao","True","456","114"
+"67","67","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1061","1061","","paragrafo","Art. 13, §4º","Art. 13","Art. 13","§4º","","","","§ 4º Se o registro da federação for indeferido, cessarão os efeitos da tutela antecipada, voltando os partidos políticos a atuar individualmente no processo eleitoral.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 13, §4º
+Tipo: paragrafo
+Dispositivo pai: Art. 13
+Páginas: 1061-1061
+§ 4º Se o registro da federação for indeferido, cessarão os efeitos da tutela antecipada, voltando os partidos políticos a atuar individualmente no processo eleitoral.","§ 4º Se o registro da federação for indeferido, cessarão os efeitos da tutela antecipada, voltando os partidos políticos a atuar individualmente no processo eleitoral.","resolucao; dezembro; registro; federacao; indeferido; cessarao; efeitos; tutela; antecipada; voltando","True","440","110"
+"68","68","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1061","1061","","paragrafo","Art. 13, §5º","Art. 13","Art. 13","§5º","","","","§ 5º Na hipótese de que trata este artigo, o número de inscrição da federação no Cadastro Nacional de Pessoas Jurídicas fornecido pela Receita Federal poderá ser informado no curso do processo, sem prejuízo da tramitação e eventual concessão da tutela antecipada a que alude o § 1º deste artigo.","Parágrafo 5º com redação dada pelo art. 1º da Res.-TSE n. 23682/2022.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Parágrafo 5º com redação dada pelo art. 1º da Res.-TSE n. 23682/2022."", ""pagina_inicial"": 1061, ""pagina_final"": 1061}]","1","Res.-TSE n. 23682/2022","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 13, §5º
+Tipo: paragrafo
+Dispositivo pai: Art. 13
+Páginas: 1061-1061
+§ 5º Na hipótese de que trata este artigo, o número de inscrição da federação no Cadastro Nacional de Pessoas Jurídicas fornecido pela Receita Federal poderá ser informado no curso do processo, sem prejuízo da tramitação e eventual concessão da tutela antecipada a que alude o § 1º deste artigo.
+Notas vinculadas:
+Parágrafo 5º com redação dada pelo art. 1º da Res.-TSE n. 23682/2022.","§ 5º Na hipótese de que trata este artigo, o número de inscrição da federação no Cadastro Nacional de Pessoas Jurídicas fornecido pela Receita Federal poderá ser informado no curso do processo, sem prejuízo da tramitação e eventual...","artigo; resolucao; dezembro; hipotese; trata; este; numero; inscricao; federacao; cadastro","True","656","164"
+"69","69","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1061","1061","","artigo","Art. 14","","Art. 14","","","","","Art. 14. Aplicam-se subsidiariamente a esta resolução, no que com ela for compatível, as disposições da Res.-TSE n. 23.571/2018.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 14
+Tipo: artigo
+Páginas: 1061-1061
+Art. 14. Aplicam-se subsidiariamente a esta resolução, no que com ela for compatível, as disposições da Res.-TSE n. 23.571/2018.","Art. 14. Aplicam-se subsidiariamente a esta resolução, no que com ela for compatível, as disposições da Res.-TSE n. 23.571/2018.","resolucao; dezembro; aplicam; subsidiariamente; esta; compativel; disposicoes","True","368","92"
+"70","70","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23670_2021","Resolução n. 23.670, de 14 de dezembro de 2021","","Normas editadas pelo TSE","Resoluções","1061","1061","","artigo","Art. 15","","Art. 15","","","","","Art. 15. Esta resolução entra em vigor na data de sua publicação.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.670, de 14 de dezembro de 2021
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 15
+Tipo: artigo
+Páginas: 1061-1061
+Art. 15. Esta resolução entra em vigor na data de sua publicação.","Art. 15. Esta resolução entra em vigor na data de sua publicação.","resolucao; dezembro; esta; entra; vigor; data; publicacao","True","305","76"

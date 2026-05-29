@@ -1,0 +1,62 @@
+﻿"id","ordem_doc","arquivo_fonte","norma_id","norma_titulo","norma_nome_popular","macrogrupo","grupo_sumario","pagina_inicial","pagina_final","hierarquia_normativa","tipo_dispositivo","dispositivo","dispositivo_pai","artigo","paragrafo","inciso","alinea","item","texto_dispositivo","notas_texto","notas_json","qtd_notas","referencias_normativas","referencias_jurisprudenciais","referencias_sumulas","texto_rag","resumo_curto","palavras_chave","incluir_no_rag","chars","tokens_estimados"
+"1","1","Codigo_Eleitoral_2026_anotado.pdf","lei_7115_1983","Lei n. 7.115, de 29 de agosto de 1983","","Legislação correlata","Legislação correlata","651","651","","norma","Lei n. 7.115, de 29 de agosto de 1983","","","","","","","Dispõe sobre prova documental nos casos que indica e dá outras providências. O PRESIDENTE DA REPÚBLICA Faço saber que o Congresso Nacional decreta e eu sanciono a seguinte lei:","Res.-TSE n. 11917/1984: as regras de direito probatório contidas nesta lei são aplicáveis ao processo eleitoral, com exceção do processo penal eleitoral.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Res.-TSE n. 11917/1984: as regras de direito probatório contidas nesta lei são aplicáveis ao processo eleitoral, com exceção do processo penal eleitoral."", ""pagina_inicial"": 651, ""pagina_final"": 651}]","1","Res.-TSE n. 11917/1984","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 7.115, de 29 de agosto de 1983
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Lei n. 7.115, de 29 de agosto de 1983
+Tipo: norma
+Páginas: 651-651
+Dispõe sobre prova documental nos casos que indica e dá outras providências. O PRESIDENTE DA REPÚBLICA Faço saber que o Congresso Nacional decreta e eu sanciono a seguinte lei:
+Notas vinculadas:
+Res.-TSE n. 11917/1984: as regras de direito probatório contidas nesta lei são aplicáveis ao processo eleitoral, com exceção do processo penal eleitoral.","Dispõe sobre prova documental nos casos que indica e dá outras providências. O PRESIDENTE DA REPÚBLICA Faço saber que o Congresso Nacional decreta e eu sanciono a seguinte lei:","agosto; processo; eleitoral; dispoe; sobre; prova; documental; casos; indica; outras","True","612","153"
+"2","2","Codigo_Eleitoral_2026_anotado.pdf","lei_7115_1983","Lei n. 7.115, de 29 de agosto de 1983","","Legislação correlata","Legislação correlata","651","651","","artigo","Art. 1º","","Art. 1º","","","","","Art. 1º A declaração destinada a fazer prova de vida, residência, pobreza, dependência econômica, homonímia ou bons antecedentes, quando firmada pelo próprio interessado ou por procurador bastante, e sob as penas da lei, presume-se verdadeira.","V. Lei n. 6.996/1982, art. 8º, III.","[{""ordem"": 1, ""marcador"": ""ticado"", ""texto"": ""V. Lei n. 6.996/1982, art. 8º, III."", ""pagina_inicial"": 651, ""pagina_final"": 651}]","1","Lei n. 6.996/1982","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 7.115, de 29 de agosto de 1983
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 1º
+Tipo: artigo
+Páginas: 651-651
+Art. 1º A declaração destinada a fazer prova de vida, residência, pobreza, dependência econômica, homonímia ou bons antecedentes, quando firmada pelo próprio interessado ou por procurador bastante, e sob as penas da lei, presume-se verdadeira.
+Notas vinculadas:
+V. Lei n. 6.996/1982, art. 8º, III.","Art. 1º A declaração destinada a fazer prova de vida, residência, pobreza, dependência econômica, homonímia ou bons antecedentes, quando firmada pelo próprio interessado ou por procurador bastante, e sob as penas da lei, presume-se...","agosto; declaracao; destinada; fazer; prova; vida; residencia; pobreza; dependencia; economica","True","532","133"
+"3","3","Codigo_Eleitoral_2026_anotado.pdf","lei_7115_1983","Lei n. 7.115, de 29 de agosto de 1983","","Legislação correlata","Legislação correlata","651","651","","paragrafo","Art. 1º, Parágrafo único","Art. 1º","Art. 1º","Parágrafo único","","","","Parágrafo único. O disposto neste artigo não se aplica para fins de prova em processo penal.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 7.115, de 29 de agosto de 1983
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 1º, Parágrafo único
+Tipo: paragrafo
+Dispositivo pai: Art. 1º
+Páginas: 651-651
+Parágrafo único. O disposto neste artigo não se aplica para fins de prova em processo penal.","Parágrafo único. O disposto neste artigo não se aplica para fins de prova em processo penal.","paragrafo; unico; agosto; disposto; neste; artigo; aplica; fins; prova; processo","True","372","93"
+"4","4","Codigo_Eleitoral_2026_anotado.pdf","lei_7115_1983","Lei n. 7.115, de 29 de agosto de 1983","","Legislação correlata","Legislação correlata","651","651","","artigo","Art. 2º","","Art. 2º","","","","","Art. 2º Se comprovadamente falsa a declaração, sujeitar-se-á o declarante às sanções civis, administrativas e criminais previstas na legislação aplicável.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 7.115, de 29 de agosto de 1983
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 2º
+Tipo: artigo
+Páginas: 651-651
+Art. 2º Se comprovadamente falsa a declaração, sujeitar-se-á o declarante às sanções civis, administrativas e criminais previstas na legislação aplicável.","Art. 2º Se comprovadamente falsa a declaração, sujeitar-se-á o declarante às sanções civis, administrativas e criminais previstas na legislação aplicável.","agosto; comprovadamente; falsa; declaracao; sujeitar; declarante; sancoes; civis; administrativas; criminais","True","389","97"
+"5","5","Codigo_Eleitoral_2026_anotado.pdf","lei_7115_1983","Lei n. 7.115, de 29 de agosto de 1983","","Legislação correlata","Legislação correlata","651","651","","artigo","Art. 3º","","Art. 3º","","","","","Art. 3º A declaração mencionará expressamente a responsabilidade do declarante.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 7.115, de 29 de agosto de 1983
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 3º
+Tipo: artigo
+Páginas: 651-651
+Art. 3º A declaração mencionará expressamente a responsabilidade do declarante.","Art. 3º A declaração mencionará expressamente a responsabilidade do declarante.","agosto; declaracao; mencionara; expressamente; responsabilidade; declarante","True","314","78"
+"6","6","Codigo_Eleitoral_2026_anotado.pdf","lei_7115_1983","Lei n. 7.115, de 29 de agosto de 1983","","Legislação correlata","Legislação correlata","651","651","","artigo","Art. 4º","","Art. 4º","","","","","Art. 4º Esta lei entrará em vigor na data de sua publicação.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 7.115, de 29 de agosto de 1983
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 4º
+Tipo: artigo
+Páginas: 651-651
+Art. 4º Esta lei entrará em vigor na data de sua publicação.","Art. 4º Esta lei entrará em vigor na data de sua publicação.","agosto; esta; entrara; vigor; data; publicacao","True","295","73"
+"7","7","Codigo_Eleitoral_2026_anotado.pdf","lei_7115_1983","Lei n. 7.115, de 29 de agosto de 1983","","Legislação correlata","Legislação correlata","651","651","","artigo","Art. 5º","","Art. 5º","","","","","Art. 5º Revogam-se as disposições em contrário.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 7.115, de 29 de agosto de 1983
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 5º
+Tipo: artigo
+Páginas: 651-651
+Art. 5º Revogam-se as disposições em contrário.","Art. 5º Revogam-se as disposições em contrário.","agosto; revogam; disposicoes; contrario","True","282","70"

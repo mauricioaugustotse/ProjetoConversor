@@ -1,0 +1,155 @@
+﻿"id","ordem_doc","arquivo_fonte","norma_id","norma_titulo","norma_nome_popular","macrogrupo","grupo_sumario","pagina_inicial","pagina_final","hierarquia_normativa","tipo_dispositivo","dispositivo","dispositivo_pai","artigo","paragrafo","inciso","alinea","item","texto_dispositivo","notas_texto","notas_json","qtd_notas","referencias_normativas","referencias_jurisprudenciais","referencias_sumulas","texto_rag","resumo_curto","palavras_chave","incluir_no_rag","chars","tokens_estimados"
+"1","1","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21009_2002","Resolução n. 21.009, de 5 de março de 2002","","Normas editadas pelo TSE","Resoluções","781","781","","norma","Resolução n. 21.009, de 5 de março de 2002","","","","","","","Estabelece normas relativas ao exercício da jurisdição eleitoral em primeiro grau. O TRIBUNAL SUPERIOR ELEITORAL, no exercício de suas atribuições e considerando a necessidade de regulamentar os critérios concernentes às designações de juízes eleitorais de primeiro grau, resolve:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.009, de 5 de março de 2002
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Resolução n. 21.009, de 5 de março de 2002
+Tipo: norma
+Páginas: 781-781
+Estabelece normas relativas ao exercício da jurisdição eleitoral em primeiro grau. O TRIBUNAL SUPERIOR ELEITORAL, no exercício de suas atribuições e considerando a necessidade de regulamentar os critérios concernentes às designações de juízes eleitorais de primeiro grau, resolve:","Estabelece normas relativas ao exercício da jurisdição eleitoral em primeiro grau. O TRIBUNAL SUPERIOR ELEITORAL, no exercício de suas atribuições e considerando a necessidade de regulamentar os critérios concernentes às designações de...","resolucao; marco; exercicio; eleitoral; primeiro; grau; estabelece; normas; relativas; jurisdicao","True","548","137"
+"2","2","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21009_2002","Resolução n. 21.009, de 5 de março de 2002","","Normas editadas pelo TSE","Resoluções","781","781","","artigo","Art. 1º","","Art. 1º","","","","","Art. 1º A jurisdição em cada uma das zonas eleitorais em que houver mais de uma vara será exercida, pelo período de dois anos, por juiz de direito da respectiva comarca, em efetivo exercício (CE, art. 32).","Res.-TSE n. 22314/2006: magistrado que já fez parte de TRE pode assumir a titularidade de zona eleitoral, devendo figurar no final da lista; juiz substituto de TRE não pode.
+Res.-TSE n. 20505/1999: estabelece normas relativas ao exercício da jurisdição eleitoral em primeiro grau; Prov.-CGE n. 5/2002: “Recomenda observância de orientações que explicita, relativas à aplicação dos critérios concernentes ao rodízio eleitoral [...]”.
+Ac.-TSE, de 29/3/2012, na Pet n. 33275: impossibilidade de juízes federais integrarem a jurisdição eleitoral de primeiro grau.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Res.-TSE n. 22314/2006: magistrado que já fez parte de TRE pode assumir a titularidade de zona eleitoral, devendo figurar no final da lista; juiz substituto de TRE não pode."", ""pagina_inicial"": 781, ""pagina_final"": 781}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""Res.-TSE n. 20505/1999: estabelece normas relativas ao exercício da jurisdição eleitoral em primeiro grau; Prov.-CGE n. 5/2002: “Recomenda observância de orientações que explicita, relativas à aplicação dos critérios concernentes ao rodízio eleitoral [...]”."", ""pagina_inicial"": 781, ""pagina_final"": 781}, {""ordem"": 3, ""marcador"": ""quadrado"", ""texto"": ""Ac.-TSE, de 29/3/2012, na Pet n. 33275: impossibilidade de juízes federais integrarem a jurisdição eleitoral de primeiro grau."", ""pagina_inicial"": 781, ""pagina_final"": 781}]","3","Res.-TSE n. 22314/2006; Res.-TSE n. 20505/1999; Prov.-CGE n. 5/2002","Ac.-TSE, de 29/3/2012, na Pet n","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.009, de 5 de março de 2002
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 1º
+Tipo: artigo
+Páginas: 781-781
+Art. 1º A jurisdição em cada uma das zonas eleitorais em que houver mais de uma vara será exercida, pelo período de dois anos, por juiz de direito da respectiva comarca, em efetivo exercício (CE, art. 32).
+Notas vinculadas:
+Res.-TSE n. 22314/2006: magistrado que já fez parte de TRE pode assumir a titularidade de zona eleitoral, devendo figurar no final da lista; juiz substituto de TRE não pode.
+Res.-TSE n. 20505/1999: estabelece normas relativas ao exercício da jurisdição eleitoral em primeiro grau; Prov.-CGE n. 5/2002: “Recomenda observância de orientações que explicita, relativas à aplicação dos critérios concernentes ao rodízio eleitoral [...]”.
+Ac.-TSE, de 29/3/2012, na Pet n. 33275: impossibilidade de juízes federais integrarem a jurisdição eleitoral de primeiro grau.","Art. 1º A jurisdição em cada uma das zonas eleitorais em que houver mais de uma vara será exercida, pelo período de dois anos, por juiz de direito da respectiva comarca, em efetivo exercício (CE, art. 32).","eleitoral; jurisdicao; juiz; exercicio; pode; relativas; primeiro; grau; resolucao; marco","True","1017","254"
+"3","3","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21009_2002","Resolução n. 21.009, de 5 de março de 2002","","Normas editadas pelo TSE","Resoluções","781","781","","artigo","Art. 2º","","Art. 2º","","","","","Art. 2º Nas faltas, férias ou impedimentos do titular, a jurisdição eleitoral será exercida pelo substituto, de acordo com a tabela do Judiciário estadual.","Res.-TSE n. 21876/2004: “Vago cargo de juiz eleitoral, em decorrência de promoção, abre-se inscrição para a escolha de magistrado, que iniciará novo biênio”.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Res.-TSE n. 21876/2004: “Vago cargo de juiz eleitoral, em decorrência de promoção, abre-se inscrição para a escolha de magistrado, que iniciará novo biênio”."", ""pagina_inicial"": 781, ""pagina_final"": 781}]","1","Res.-TSE n. 21876/2004","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.009, de 5 de março de 2002
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 2º
+Tipo: artigo
+Páginas: 781-781
+Art. 2º Nas faltas, férias ou impedimentos do titular, a jurisdição eleitoral será exercida pelo substituto, de acordo com a tabela do Judiciário estadual.
+Notas vinculadas:
+Res.-TSE n. 21876/2004: “Vago cargo de juiz eleitoral, em decorrência de promoção, abre-se inscrição para a escolha de magistrado, que iniciará novo biênio”.","Art. 2º Nas faltas, férias ou impedimentos do titular, a jurisdição eleitoral será exercida pelo substituto, de acordo com a tabela do Judiciário estadual.","eleitoral; resolucao; marco; faltas; ferias; impedimentos; titular; jurisdicao; sera; exercida","True","565","141"
+"4","4","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21009_2002","Resolução n. 21.009, de 5 de março de 2002","","Normas editadas pelo TSE","Resoluções","781","781","","paragrafo","Art. 2º, §1º","Art. 2º","Art. 2º","§1º","","","","§ 1º Poderá o Tribunal Regional Eleitoral, declinando motivo relevante, atribuir o exercício da substituição a outro juiz de direito que não o da tabela do Judiciário estadual.","Ac.-TSE, de 13/12/2005, na Rp n. 715: a substituição temporária deve recair, preferencialmente, em juízes pertencentes à mesma circunscrição judiciária eleitoral.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Ac.-TSE, de 13/12/2005, na Rp n. 715: a substituição temporária deve recair, preferencialmente, em juízes pertencentes à mesma circunscrição judiciária eleitoral."", ""pagina_inicial"": 781, ""pagina_final"": 781}]","1","","Ac.-TSE, de 13/12/2005, na Rp n; Rp n. 715","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.009, de 5 de março de 2002
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 2º, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 2º
+Páginas: 781-781
+§ 1º Poderá o Tribunal Regional Eleitoral, declinando motivo relevante, atribuir o exercício da substituição a outro juiz de direito que não o da tabela do Judiciário estadual.
+Notas vinculadas:
+Ac.-TSE, de 13/12/2005, na Rp n. 715: a substituição temporária deve recair, preferencialmente, em juízes pertencentes à mesma circunscrição judiciária eleitoral.","§ 1º Poderá o Tribunal Regional Eleitoral, declinando motivo relevante, atribuir o exercício da substituição a outro juiz de direito que não o da tabela do Judiciário estadual.","eleitoral; substituicao; resolucao; marco; podera; tribunal; regional; declinando; motivo; relevante","True","624","156"
+"5","5","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21009_2002","Resolução n. 21.009, de 5 de março de 2002","","Normas editadas pelo TSE","Resoluções","781","781","","paragrafo","Art. 2º, §2º","Art. 2º","Art. 2º","§2º","","","","§ 2º Nas capitais, os juízes eleitorais serão substituídos uns pelos outros, mediante designação do Tribunal Regional Eleitoral.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.009, de 5 de março de 2002
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 2º, §2º
+Tipo: paragrafo
+Dispositivo pai: Art. 2º
+Páginas: 781-781
+§ 2º Nas capitais, os juízes eleitorais serão substituídos uns pelos outros, mediante designação do Tribunal Regional Eleitoral.","§ 2º Nas capitais, os juízes eleitorais serão substituídos uns pelos outros, mediante designação do Tribunal Regional Eleitoral.","resolucao; marco; capitais; juizes; eleitorais; serao; substituidos; outros; mediante; designacao","True","395","98"
+"6","6","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21009_2002","Resolução n. 21.009, de 5 de março de 2002","","Normas editadas pelo TSE","Resoluções","781","781","","artigo","Art. 3º","","Art. 3º","","","","","Art. 3º Nas comarcas com mais de uma vara, caberá ao Tribunal Regional Eleitoral designar o juiz de direito que exercerá as funções de juiz eleitoral.","Res.-TSE n. 21227/2002: “É possível o exercício, em caráter excepcional e temporário, das funções eleitorais por juiz de direito que goze das prerrogativas do art. 95 da Constituição Federal, como auxiliar do juiz eleitoral, em comarca diversa da que sedia a respectiva zona eleitoral, porém da qual faz parte. Circunstâncias especiais relacionadas ao número de municípios, grandes distâncias e precariedade das vias de acesso”.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Res.-TSE n. 21227/2002: “É possível o exercício, em caráter excepcional e temporário, das funções eleitorais por juiz de direito que goze das prerrogativas do art. 95 da Constituição Federal, como auxiliar do juiz eleitoral, em comarca diversa da que sedia a respectiva zona eleitoral, porém da qual faz parte. Circunstâncias especiais relacionadas ao número de municípios, grandes distâncias e precariedade das vias de acesso”."", ""pagina_inicial"": 781, ""pagina_final"": 781}]","1","Res.-TSE n. 21227/2002","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.009, de 5 de março de 2002
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º
+Tipo: artigo
+Páginas: 781-781
+Art. 3º Nas comarcas com mais de uma vara, caberá ao Tribunal Regional Eleitoral designar o juiz de direito que exercerá as funções de juiz eleitoral.
+Notas vinculadas:
+Res.-TSE n. 21227/2002: “É possível o exercício, em caráter excepcional e temporário, das funções eleitorais por juiz de direito que goze das prerrogativas do art. 95 da Constituição Federal, como auxiliar do juiz eleitoral, em comarca diversa da que sedia a respectiva zona eleitoral, porém da qual faz parte. Circunstâncias especiais relacionadas ao número de municípios, grandes distâncias e precariedade das vias de acesso”.","Art. 3º Nas comarcas com mais de uma vara, caberá ao Tribunal Regional Eleitoral designar o juiz de direito que exercerá as funções de juiz eleitoral.","eleitoral; juiz; direito; funcoes; resolucao; marco; comarcas; mais; vara; cabera","True","831","207"
+"7","7","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21009_2002","Resolução n. 21.009, de 5 de março de 2002","","Normas editadas pelo TSE","Resoluções","781","781","","paragrafo","Art. 3º, §1º","Art. 3º","Art. 3º","§1º","","","","§ 1º Na designação, será observada a antiguidade, apurada entre os juízes que não hajam exercido a titularidade de zona eleitoral, salvo impossibilidade.","Parágrafo 1º com redação dada pelo art. 1º da Res.-TSE n. 22197/2006.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Parágrafo 1º com redação dada pelo art. 1º da Res.-TSE n. 22197/2006."", ""pagina_inicial"": 781, ""pagina_final"": 781}]","1","Res.-TSE n. 22197/2006","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.009, de 5 de março de 2002
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 781-781
+§ 1º Na designação, será observada a antiguidade, apurada entre os juízes que não hajam exercido a titularidade de zona eleitoral, salvo impossibilidade.
+Notas vinculadas:
+Parágrafo 1º com redação dada pelo art. 1º da Res.-TSE n. 22197/2006.","§ 1º Na designação, será observada a antiguidade, apurada entre os juízes que não hajam exercido a titularidade de zona eleitoral, salvo impossibilidade.","resolucao; marco; designacao; sera; observada; antiguidade; apurada; juizes; hajam; exercido","True","508","127"
+"8","8","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21009_2002","Resolução n. 21.009, de 5 de março de 2002","","Normas editadas pelo TSE","Resoluções","782","782","","paragrafo","Art. 3º, §2º","Art. 3º","Art. 3º","§2º","","","","§ 2º O Tribunal poderá, excepcionalmente, pelo voto de cinco (5) dos seus membros, afastar o critério indicado no parágrafo anterior (§ 1º) por conveniência objetiva do serviço eleitoral e no interesse da administração judiciária. Nesse caso, o critério para a escolha será o merecimento do magistrado, aferido pela operosidade e eficiência no exercício das jurisdições eleitoral e comum, segundo dados colhidos pelos Tribunais Regionais Eleitorais e pelos Tribunais de Justiça dos respectivos estados.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.009, de 5 de março de 2002
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §2º
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 782-782
+§ 2º O Tribunal poderá, excepcionalmente, pelo voto de cinco (5) dos seus membros, afastar o critério indicado no parágrafo anterior (§ 1º) por conveniência objetiva do serviço eleitoral e no interesse da administração judiciária. Nesse caso, o critério para a escolha será o merecimento do magistrado, aferido pela operosidade e eficiência no exercício das jurisdições eleitoral e comum, segundo dados colhidos pelos Tribunais Regionais Eleitorais e pelos Tribunais de Justiça dos respectivos estados.","§ 2º O Tribunal poderá, excepcionalmente, pelo voto de cinco (5) dos seus membros, afastar o critério indicado no parágrafo anterior (§ 1º) por conveniência objetiva do serviço eleitoral e no interesse da administração judiciária. Nesse...","criterio; eleitoral; tribunais; resolucao; marco; tribunal; podera; excepcionalmente; voto; cinco","True","769","192"
+"9","9","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21009_2002","Resolução n. 21.009, de 5 de março de 2002","","Normas editadas pelo TSE","Resoluções","782","782","","paragrafo","Art. 3º, §3º","Art. 3º","Art. 3º","§3º","","","","§ 3º A designação do juiz eleitoral, salvo nas comarcas de uma só vara, dependerá de inscrição do interessado no respectivo Tribunal Regional.","V. nota ao art. 2º, caput, desta resolução sobre
+a Res.-TSE n. 21876/2004.","[{""ordem"": 1, ""marcador"": ""continuação"", ""texto"": ""V. nota ao art. 2º, caput, desta resolução sobre"", ""pagina_inicial"": 782, ""pagina_final"": 782}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""a Res.-TSE n. 21876/2004."", ""pagina_inicial"": 782, ""pagina_final"": 782}]","2","Res.-TSE n. 21876/2004","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.009, de 5 de março de 2002
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §3º
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 782-782
+§ 3º A designação do juiz eleitoral, salvo nas comarcas de uma só vara, dependerá de inscrição do interessado no respectivo Tribunal Regional.
+Notas vinculadas:
+V. nota ao art. 2º, caput, desta resolução sobre
+a Res.-TSE n. 21876/2004.","§ 3º A designação do juiz eleitoral, salvo nas comarcas de uma só vara, dependerá de inscrição do interessado no respectivo Tribunal Regional.","resolucao; marco; designacao; juiz; eleitoral; salvo; comarcas; vara; dependera; inscricao","True","502","125"
+"10","10","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21009_2002","Resolução n. 21.009, de 5 de março de 2002","","Normas editadas pelo TSE","Resoluções","782","782","","artigo","Art. 3º-A","","Art. 3º-A","","","","","Art. 3º-A Os Tribunais Regionais Eleitorais terão o prazo de 30 (trinta) dias para promoverem as designações de magistrados titulares para o exercício das funções nas zonas eleitorais vagas, contados da data em que se verificar a vacância, salvo impossibilidade devidamente justificada.","Art. 3º-A acrescido pelo art. 1º da Res.-TSE n. 23449/2015.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Art. 3º-A acrescido pelo art. 1º da Res.-TSE n. 23449/2015."", ""pagina_inicial"": 782, ""pagina_final"": 782}]","1","Res.-TSE n. 23449/2015","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.009, de 5 de março de 2002
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º-A
+Tipo: artigo
+Páginas: 782-782
+Art. 3º-A Os Tribunais Regionais Eleitorais terão o prazo de 30 (trinta) dias para promoverem as designações de magistrados titulares para o exercício das funções nas zonas eleitorais vagas, contados da data em que se verificar a vacância, salvo impossibilidade devidamente justificada.
+Notas vinculadas:
+Art. 3º-A acrescido pelo art. 1º da Res.-TSE n. 23449/2015.","Art. 3º-A Os Tribunais Regionais Eleitorais terão o prazo de 30 (trinta) dias para promoverem as designações de magistrados titulares para o exercício das funções nas zonas eleitorais vagas, contados da data em que se verificar a vacância...","eleitorais; resolucao; marco; tribunais; regionais; terao; prazo; trinta; dias; promoverem","True","600","150"
+"11","11","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21009_2002","Resolução n. 21.009, de 5 de março de 2002","","Normas editadas pelo TSE","Resoluções","782","782","","paragrafo","Art. 3º-A, Parágrafo único","Art. 3º-A","Art. 3º-A","Parágrafo único","","","","Parágrafo único. Na hipótese de impossibilidade de preenchimento das referidas vagas no prazo mencionado no caput deste artigo, o respectivo Tribunal poderá aprovar a prorrogação, por igual período, pelo voto de 5 (cinco) de seus integrantes.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.009, de 5 de março de 2002
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º-A, Parágrafo único
+Tipo: paragrafo
+Dispositivo pai: Art. 3º-A
+Páginas: 782-782
+Parágrafo único. Na hipótese de impossibilidade de preenchimento das referidas vagas no prazo mencionado no caput deste artigo, o respectivo Tribunal poderá aprovar a prorrogação, por igual período, pelo voto de 5 (cinco) de seus integrantes.","Parágrafo único. Na hipótese de impossibilidade de preenchimento das referidas vagas no prazo mencionado no caput deste artigo, o respectivo Tribunal poderá aprovar a prorrogação, por igual período, pelo voto de 5 (cinco) de seus...","paragrafo; unico; resolucao; marco; hipotese; impossibilidade; preenchimento; referidas; vagas; prazo","True","525","131"
+"12","12","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21009_2002","Resolução n. 21.009, de 5 de março de 2002","","Normas editadas pelo TSE","Resoluções","782","782","","artigo","Art. 4º","","Art. 4º","","","","","Art. 4º O juiz eleitoral, ao assumir a jurisdição, comunicará ao Tribunal Regional Eleitoral o termo inicial, para os devidos fins. E os Tribunais Regionais Eleitorais deverão comunicar ao Tribunal Superior Eleitoral as designações e reconduções dos juízes eleitorais, informando as datas de início e fim do biênio.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.009, de 5 de março de 2002
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º
+Tipo: artigo
+Páginas: 782-782
+Art. 4º O juiz eleitoral, ao assumir a jurisdição, comunicará ao Tribunal Regional Eleitoral o termo inicial, para os devidos fins. E os Tribunais Regionais Eleitorais deverão comunicar ao Tribunal Superior Eleitoral as designações e reconduções dos juízes eleitorais, informando as datas de início e fim do biênio.","Art. 4º O juiz eleitoral, ao assumir a jurisdição, comunicará ao Tribunal Regional Eleitoral o termo inicial, para os devidos fins. E os Tribunais Regionais Eleitorais deverão comunicar ao Tribunal Superior Eleitoral as designações e...","eleitoral; tribunal; eleitorais; resolucao; marco; juiz; assumir; jurisdicao; comunicara; regional","True","549","137"
+"13","13","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21009_2002","Resolução n. 21.009, de 5 de março de 2002","","Normas editadas pelo TSE","Resoluções","782","782","","artigo","Art. 5º","","Art. 5º","","","","","Art. 5º Não poderá servir como juiz eleitoral o cônjuge, parente consanguíneo ou afim, até o segundo grau, de candidato a cargo eletivo registrado na circunscrição, durante o período entre o registro de candidaturas até apuração final da eleição (CE, art. 14, § 3º).","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.009, de 5 de março de 2002
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 5º
+Tipo: artigo
+Páginas: 782-782
+Art. 5º Não poderá servir como juiz eleitoral o cônjuge, parente consanguíneo ou afim, até o segundo grau, de candidato a cargo eletivo registrado na circunscrição, durante o período entre o registro de candidaturas até apuração final da eleição (CE, art. 14, § 3º).","Art. 5º Não poderá servir como juiz eleitoral o cônjuge, parente consanguíneo ou afim, até o segundo grau, de candidato a cargo eletivo registrado na circunscrição, durante o período entre o registro de candidaturas até apuração final da...","resolucao; marco; podera; servir; juiz; eleitoral; conjuge; parente; consanguineo; afim","True","500","125"
+"14","14","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21009_2002","Resolução n. 21.009, de 5 de março de 2002","","Normas editadas pelo TSE","Resoluções","782","782","","artigo","Art. 6º","","Art. 6º","","","","","Art. 6º Não se farão alterações na jurisdição eleitoral, prorrogando-se automaticamente o exercício do titular, entre três (3) meses antes e dois (2) meses após as eleições.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.009, de 5 de março de 2002
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 6º
+Tipo: artigo
+Páginas: 782-782
+Art. 6º Não se farão alterações na jurisdição eleitoral, prorrogando-se automaticamente o exercício do titular, entre três (3) meses antes e dois (2) meses após as eleições.","Art. 6º Não se farão alterações na jurisdição eleitoral, prorrogando-se automaticamente o exercício do titular, entre três (3) meses antes e dois (2) meses após as eleições.","meses; resolucao; marco; farao; alteracoes; jurisdicao; eleitoral; prorrogando; automaticamente; exercicio","True","407","101"
+"15","15","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21009_2002","Resolução n. 21.009, de 5 de março de 2002","","Normas editadas pelo TSE","Resoluções","782","782","","artigo","Art. 7º","","Art. 7º","","","","","Art. 7º Havendo mais de uma vara na comarca e estando a titularidade da zona ocupada há mais de dois (2) anos pelo mesmo juiz, o Tribunal Regional Eleitoral providenciará a designação e posse do novo titular.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.009, de 5 de março de 2002
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 7º
+Tipo: artigo
+Páginas: 782-782
+Art. 7º Havendo mais de uma vara na comarca e estando a titularidade da zona ocupada há mais de dois (2) anos pelo mesmo juiz, o Tribunal Regional Eleitoral providenciará a designação e posse do novo titular.","Art. 7º Havendo mais de uma vara na comarca e estando a titularidade da zona ocupada há mais de dois (2) anos pelo mesmo juiz, o Tribunal Regional Eleitoral providenciará a designação e posse do novo titular.","mais; resolucao; marco; havendo; vara; comarca; estando; titularidade; zona; ocupada","True","442","110"
+"16","16","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21009_2002","Resolução n. 21.009, de 5 de março de 2002","","Normas editadas pelo TSE","Resoluções","782","782","","artigo","Art. 8º","","Art. 8º","","","","","Art. 8º Esta resolução entra em vigor na data de sua publicação, revogadas as disposições em contrário. Sala de Sessões do Tribunal Superior Eleitoral.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.009, de 5 de março de 2002
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 8º
+Tipo: artigo
+Páginas: 782-782
+Art. 8º Esta resolução entra em vigor na data de sua publicação, revogadas as disposições em contrário. Sala de Sessões do Tribunal Superior Eleitoral.","Art. 8º Esta resolução entra em vigor na data de sua publicação, revogadas as disposições em contrário. Sala de Sessões do Tribunal Superior Eleitoral.","resolucao; marco; esta; entra; vigor; data; publicacao; revogadas; disposicoes; contrario","True","385","96"

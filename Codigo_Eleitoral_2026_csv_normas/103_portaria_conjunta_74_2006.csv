@@ -1,0 +1,365 @@
+﻿"id","ordem_doc","arquivo_fonte","norma_id","norma_titulo","norma_nome_popular","macrogrupo","grupo_sumario","pagina_inicial","pagina_final","hierarquia_normativa","tipo_dispositivo","dispositivo","dispositivo_pai","artigo","paragrafo","inciso","alinea","item","texto_dispositivo","notas_texto","notas_json","qtd_notas","referencias_normativas","referencias_jurisprudenciais","referencias_sumulas","texto_rag","resumo_curto","palavras_chave","incluir_no_rag","chars","tokens_estimados"
+"1","1","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1191","1191","","norma","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","","","","","","Dispõe sobre o intercâmbio de informações entre o Tribunal Superior Eleitoral e a Secretaria da Receita Federal e dá outras providências. O MINISTRO PRESIDENTE DO TRIBUNAL SUPERIOR ELEITORAL E O SECRETÁRIO DA RECEITA FEDERAL, no uso de suas atribuições, resolvem:","Lei n. 11.457/2007, art. 1º: altera a denominação da Secretaria da Receita Federal (SRF) para Secretaria da Receita Federal do Brasil (RFB).
+V. Port. Conjunta-TSE/RFB n. 1/2016:“Dispõe sobre o apoio institucional da Secretaria da Receita Federal do Brasil ao Tribunal Superior Eleitoral nas atividades de verificação de contas de candidatos e partidos políticos”.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Lei n. 11.457/2007, art. 1º: altera a denominação da Secretaria da Receita Federal (SRF) para Secretaria da Receita Federal do Brasil (RFB)."", ""pagina_inicial"": 1191, ""pagina_final"": 1191}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""V. Port. Conjunta-TSE/RFB n. 1/2016:“Dispõe sobre o apoio institucional da Secretaria da Receita Federal do Brasil ao Tribunal Superior Eleitoral nas atividades de verificação de contas de candidatos e partidos políticos”."", ""pagina_inicial"": 1191, ""pagina_final"": 1191}]","2","Lei n. 11.457/2007","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Tipo: norma
+Páginas: 1191-1191
+Dispõe sobre o intercâmbio de informações entre o Tribunal Superior Eleitoral e a Secretaria da Receita Federal e dá outras providências. O MINISTRO PRESIDENTE DO TRIBUNAL SUPERIOR ELEITORAL E O SECRETÁRIO DA RECEITA FEDERAL, no uso de suas atribuições, resolvem:
+Notas vinculadas:
+Lei n. 11.457/2007, art. 1º: altera a denominação da Secretaria da Receita Federal (SRF) para Secretaria da Receita Federal do Brasil (RFB).
+V. Port. Conjunta-TSE/RFB n. 1/2016:“Dispõe sobre o apoio institucional da Secretaria da Receita Federal do Brasil ao Tribunal Superior Eleitoral nas atividades de verificação de contas de candidatos e partidos políticos”.","Dispõe sobre o intercâmbio de informações entre o Tribunal Superior Eleitoral e a Secretaria da Receita Federal e dá outras providências. O MINISTRO PRESIDENTE DO TRIBUNAL SUPERIOR ELEITORAL E O SECRETÁRIO DA RECEITA FEDERAL, no uso de...","receita; federal; secretaria; conjunta; tribunal; superior; eleitoral; portaria; janeiro; dispoe","True","942","235"
+"2","2","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1191","1191","","artigo","Art. 1º","","Art. 1º","","","","","Art. 1º O Tribunal Superior Eleitoral (TSE) encaminhará à Secretaria da Receita Federal (SRF), em conformidade com prazos e procedimentos por ele fixados para cada pleito eleitoral, informações relativas a prestação de contas dos candidatos a cargos eletivos e dos comitês financeiros de partidos políticos, especificando:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 1º
+Tipo: artigo
+Páginas: 1191-1191
+Art. 1º O Tribunal Superior Eleitoral (TSE) encaminhará à Secretaria da Receita Federal (SRF), em conformidade com prazos e procedimentos por ele fixados para cada pleito eleitoral, informações relativas a prestação de contas dos candidatos a cargos eletivos e dos comitês financeiros de partidos políticos, especificando:","Art. 1º O Tribunal Superior Eleitoral (TSE) encaminhará à Secretaria da Receita Federal (SRF), em conformidade com prazos e procedimentos por ele fixados para cada pleito eleitoral, informações relativas a prestação de contas dos...","eleitoral; portaria; conjunta; janeiro; tribunal; superior; encaminhara; secretaria; receita; federal","True","571","142"
+"3","3","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1191","1191","","inciso","Art. 1º, I","Art. 1º","Art. 1º","","I","","","I - as fontes de arrecadação, com a indicação do número de inscrição no Cadastro de Pessoas Físicas (CPF) ou no Cadastro Nacional da Pessoa Jurídica (CNPJ) dos respectivos doadores;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 1º, I
+Tipo: inciso
+Dispositivo pai: Art. 1º
+Páginas: 1191-1191
+I - as fontes de arrecadação, com a indicação do número de inscrição no Cadastro de Pessoas Físicas (CPF) ou no Cadastro Nacional da Pessoa Jurídica (CNPJ) dos respectivos doadores;","I - as fontes de arrecadação, com a indicação do número de inscrição no Cadastro de Pessoas Físicas (CPF) ou no Cadastro Nacional da Pessoa Jurídica (CNPJ) dos respectivos doadores;","cadastro; portaria; conjunta; janeiro; fontes; arrecadacao; indicacao; numero; inscricao; pessoas","True","458","114"
+"4","4","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1191","1191","","inciso","Art. 1º, II","Art. 1º","Art. 1º","","II","","","II - os recursos recebidos, financeiros ou não, e utilizados na campanha eleitoral, com a indicação de datas e valores;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 1º, II
+Tipo: inciso
+Dispositivo pai: Art. 1º
+Páginas: 1191-1191
+II - os recursos recebidos, financeiros ou não, e utilizados na campanha eleitoral, com a indicação de datas e valores;","II - os recursos recebidos, financeiros ou não, e utilizados na campanha eleitoral, com a indicação de datas e valores;","portaria; conjunta; janeiro; recursos; recebidos; financeiros; utilizados; campanha; eleitoral; indicacao","True","397","99"
+"5","5","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1191","1191","","inciso","Art. 1º, III","Art. 1º","Art. 1º","","III","","","III - o nome do candidato ou comitê financeiro beneficiário da doação, com indicação do número de inscrição no CNPJ e da conta bancária utilizada;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 1º, III
+Tipo: inciso
+Dispositivo pai: Art. 1º
+Páginas: 1191-1191
+III - o nome do candidato ou comitê financeiro beneficiário da doação, com indicação do número de inscrição no CNPJ e da conta bancária utilizada;","III - o nome do candidato ou comitê financeiro beneficiário da doação, com indicação do número de inscrição no CNPJ e da conta bancária utilizada;","portaria; conjunta; janeiro; nome; candidato; comite; financeiro; beneficiario; doacao; indicacao","True","425","106"
+"6","6","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1191","1191","","inciso","Art. 1º, IV","Art. 1º","Art. 1º","","IV","","","IV - o nome da pessoa física ou razão social da pessoa jurídica e respectivo número de inscrição no CPF ou no CNPJ, os valores recebidos, a data e, quando for o caso, o número do documento fiscal, relativos à prestação de serviços e fornecimento de mercadorias na campanha eleitoral.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 1º, IV
+Tipo: inciso
+Dispositivo pai: Art. 1º
+Páginas: 1191-1191
+IV - o nome da pessoa física ou razão social da pessoa jurídica e respectivo número de inscrição no CPF ou no CNPJ, os valores recebidos, a data e, quando for o caso, o número do documento fiscal, relativos à prestação de serviços e fornecimento de mercadorias na campanha eleitoral.","IV - o nome da pessoa física ou razão social da pessoa jurídica e respectivo número de inscrição no CPF ou no CNPJ, os valores recebidos, a data e, quando for o caso, o número do documento fiscal, relativos à prestação de serviços e...","pessoa; numero; portaria; conjunta; janeiro; nome; fisica; razao; social; juridica","True","561","140"
+"7","7","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1191","1191","","paragrafo","Art. 1º, §1º","Art. 1º","Art. 1º","§1º","","","","§ 1º O disposto neste artigo também se aplica à prestação anual de contas dos partidos políticos.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 1º, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 1º
+Páginas: 1191-1191
+§ 1º O disposto neste artigo também se aplica à prestação anual de contas dos partidos políticos.","§ 1º O disposto neste artigo também se aplica à prestação anual de contas dos partidos políticos.","portaria; conjunta; janeiro; disposto; neste; artigo; tambem; aplica; prestacao; anual","True","379","94"
+"8","8","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1191","1191","","paragrafo","Art. 1º, §2º","Art. 1º","Art. 1º","§2º","","","","§ 2º As informações de que trata este artigo deverão ser encaminhadas em meio eletrônico, observado modelo aprovado em ato conjunto da Secretaria de Informática do TSE e da Coordenação-Geral de Tecnologia e Segurança da Informação da SRF.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 1º, §2º
+Tipo: paragrafo
+Dispositivo pai: Art. 1º
+Páginas: 1191-1191
+§ 2º As informações de que trata este artigo deverão ser encaminhadas em meio eletrônico, observado modelo aprovado em ato conjunto da Secretaria de Informática do TSE e da Coordenação-Geral de Tecnologia e Segurança da Informação da SRF.","§ 2º As informações de que trata este artigo deverão ser encaminhadas em meio eletrônico, observado modelo aprovado em ato conjunto da Secretaria de Informática do TSE e da Coordenação-Geral de Tecnologia e Segurança da Informação da SRF.","portaria; conjunta; janeiro; informacoes; trata; este; artigo; deverao; encaminhadas; meio","True","520","130"
+"9","9","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1191","1191","","artigo","Art. 2º","","Art. 2º","","","","","Art. 2º Qualquer cidadão poderá apresentar denúncia à SRF sobre uso indevido de recursos, financeiros ou não, em campanha eleitoral ou nas atividades dos partidos políticos.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 2º
+Tipo: artigo
+Páginas: 1191-1191
+Art. 2º Qualquer cidadão poderá apresentar denúncia à SRF sobre uso indevido de recursos, financeiros ou não, em campanha eleitoral ou nas atividades dos partidos políticos.","Art. 2º Qualquer cidadão poderá apresentar denúncia à SRF sobre uso indevido de recursos, financeiros ou não, em campanha eleitoral ou nas atividades dos partidos políticos.","portaria; conjunta; janeiro; qualquer; cidadao; podera; apresentar; denuncia; sobre; indevido","True","422","105"
+"10","10","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1191","1191","","paragrafo","Art. 2º, §1º","Art. 2º","Art. 2º","§1º","","","","§ 1º A denúncia deverá ser formalizada por escrito, contendo:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 2º, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 2º
+Páginas: 1191-1191
+§ 1º A denúncia deverá ser formalizada por escrito, contendo:","§ 1º A denúncia deverá ser formalizada por escrito, contendo:","portaria; conjunta; janeiro; denuncia; devera; formalizada; escrito; contendo","True","343","85"
+"11","11","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1191","1191","","inciso","Art. 2º, §1º, I","Art. 2º, §1º","Art. 2º","§1º","I","","","I - identificação do denunciante, com a indicação do nome, endereço, número do título de eleitor e de inscrição no CPF;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 2º, §1º, I
+Tipo: inciso
+Dispositivo pai: Art. 2º, §1º
+Páginas: 1191-1191
+I - identificação do denunciante, com a indicação do nome, endereço, número do título de eleitor e de inscrição no CPF;","I - identificação do denunciante, com a indicação do nome, endereço, número do título de eleitor e de inscrição no CPF;","portaria; conjunta; janeiro; identificacao; denunciante; indicacao; nome; endereco; numero; titulo","True","406","101"
+"12","12","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1191","1191","","inciso","Art. 2º, §1º, II","Art. 2º, §1º","Art. 2º","§1º","II","","","II - identificação do denunciado, com a indicação, no mínimo, do nome ou do nome empresarial, do número de inscrição no CPF ou no CNPJ, e do respectivo domicílio fiscal, ou de elementos que permitam levar a essa identificação;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 2º, §1º, II
+Tipo: inciso
+Dispositivo pai: Art. 2º, §1º
+Páginas: 1191-1191
+II - identificação do denunciado, com a indicação, no mínimo, do nome ou do nome empresarial, do número de inscrição no CPF ou no CNPJ, e do respectivo domicílio fiscal, ou de elementos que permitam levar a essa identificação;","II - identificação do denunciado, com a indicação, no mínimo, do nome ou do nome empresarial, do número de inscrição no CPF ou no CNPJ, e do respectivo domicílio fiscal, ou de elementos que permitam levar a essa identificação;","identificacao; nome; portaria; conjunta; janeiro; denunciado; indicacao; minimo; empresarial; numero","True","514","128"
+"13","13","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1191","1192","","inciso","Art. 2º, §1º, III","Art. 2º, §1º","Art. 2º","§1º","III","","","III - descrição detalhada dos fatos apontados como irregulares, com a indicação de datas e valores envolvidos, acompanhados dos documentos comprobatórios.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 2º, §1º, III
+Tipo: inciso
+Dispositivo pai: Art. 2º, §1º
+Páginas: 1191-1192
+III - descrição detalhada dos fatos apontados como irregulares, com a indicação de datas e valores envolvidos, acompanhados dos documentos comprobatórios.","III - descrição detalhada dos fatos apontados como irregulares, com a indicação de datas e valores envolvidos, acompanhados dos documentos comprobatórios.","portaria; conjunta; janeiro; descricao; detalhada; fatos; apontados; irregulares; indicacao; datas","True","443","110"
+"14","14","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1192","1192","","paragrafo","Art. 2º, §2º","Art. 2º","Art. 2º","§2º","","","","§ 2º A denúncia deverá ser encaminhada à Coordenação-Geral de Fiscalização (Cofis) da SRF, para o endereço Esplanada dos Ministérios – Anexo do Ministério da Fazenda – 2º andar – ala A, sala 201 – Brasília/DF – CEP 70048-900, por intermédio da Empresa Brasileira de Correios e Telégrafos (ECT), mediante Aviso de Recebimento (AR).","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 2º, §2º
+Tipo: paragrafo
+Dispositivo pai: Art. 2º
+Páginas: 1192-1192
+§ 2º A denúncia deverá ser encaminhada à Coordenação-Geral de Fiscalização (Cofis) da SRF, para o endereço Esplanada dos Ministérios – Anexo do Ministério da Fazenda – 2º andar – ala A, sala 201 – Brasília/DF – CEP 70048-900, por intermédio da Empresa Brasileira de Correios e Telégrafos (ECT), mediante Aviso de Recebimento (AR).","§ 2º A denúncia deverá ser encaminhada à Coordenação-Geral de Fiscalização (Cofis) da SRF, para o endereço Esplanada dos Ministérios – Anexo do Ministério da Fazenda – 2º andar – ala A, sala 201 – Brasília/DF – CEP 70048-900, por...","portaria; conjunta; janeiro; denuncia; devera; encaminhada; coordenacao; geral; fiscalizacao; cofis","True","612","153"
+"15","15","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1192","1192","","paragrafo","Art. 2º, §3º","Art. 2º","Art. 2º","§3º","","","","§ 3º A denúncia será submetida a uma análise prévia, no âmbito da SRF, sendo classificada como:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 2º, §3º
+Tipo: paragrafo
+Dispositivo pai: Art. 2º
+Páginas: 1192-1192
+§ 3º A denúncia será submetida a uma análise prévia, no âmbito da SRF, sendo classificada como:","§ 3º A denúncia será submetida a uma análise prévia, no âmbito da SRF, sendo classificada como:","portaria; conjunta; janeiro; denuncia; sera; submetida; analise; previa; ambito; sendo","True","377","94"
+"16","16","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1192","1192","","inciso","Art. 2º, §3º, I","Art. 2º, §3º","Art. 2º","§3º","I","","","I - inepta, quando não observar a exigência contida no § 1º do art. 2º ou for encaminhada de forma distinta da prevista no § 2º do mesmo artigo;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 2º, §3º, I
+Tipo: inciso
+Dispositivo pai: Art. 2º, §3º
+Páginas: 1192-1192
+I - inepta, quando não observar a exigência contida no § 1º do art. 2º ou for encaminhada de forma distinta da prevista no § 2º do mesmo artigo;","I - inepta, quando não observar a exigência contida no § 1º do art. 2º ou for encaminhada de forma distinta da prevista no § 2º do mesmo artigo;","portaria; conjunta; janeiro; inepta; quando; observar; exigencia; contida; encaminhada; forma","True","431","107"
+"17","17","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1192","1192","","inciso","Art. 2º, §3º, II","Art. 2º, §3º","Art. 2º","§3º","II","","","II - improcedente, quando os elementos analisados não indicarem indícios de irregularidades tributárias;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 2º, §3º, II
+Tipo: inciso
+Dispositivo pai: Art. 2º, §3º
+Páginas: 1192-1192
+II - improcedente, quando os elementos analisados não indicarem indícios de irregularidades tributárias;","II - improcedente, quando os elementos analisados não indicarem indícios de irregularidades tributárias;","portaria; conjunta; janeiro; improcedente; quando; elementos; analisados; indicarem; indicios; irregularidades","True","392","98"
+"18","18","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1192","1192","III -","estrutura","III -","","Art. 2º","§3º","II","","","III procedente, quando os elementos analisados indicarem indícios de irregularidades tributárias.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: III -
+Tipo: estrutura
+Hierarquia: III -
+Páginas: 1192-1192
+III procedente, quando os elementos analisados indicarem indícios de irregularidades tributárias.","III procedente, quando os elementos analisados indicarem indícios de irregularidades tributárias.","portaria; conjunta; janeiro; procedente; quando; elementos; analisados; indicarem; indicios; irregularidades","True","365","91"
+"19","19","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1192","1192","III -","paragrafo","Art. 2º, §4º","Art. 2º","Art. 2º","§4º","","","","§ 4º As denúncias classificadas no inciso I ou II serão arquivadas.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 2º, §4º
+Tipo: paragrafo
+Hierarquia: III -
+Dispositivo pai: Art. 2º
+Páginas: 1192-1192
+§ 4º As denúncias classificadas no inciso I ou II serão arquivadas.","§ 4º As denúncias classificadas no inciso I ou II serão arquivadas.","portaria; conjunta; janeiro; denuncias; classificadas; inciso; serao; arquivadas","True","367","91"
+"20","20","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1192","1192","III -","paragrafo","Art. 2º, §5º","Art. 2º","Art. 2º","§5º","","","","§ 5º As denúncias classificadas no inciso III serão encaminhadas à unidade da SRF da jurisdição do domicílio fiscal do denunciado, com vistas à inclusão na programação da fiscalização.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 2º, §5º
+Tipo: paragrafo
+Hierarquia: III -
+Dispositivo pai: Art. 2º
+Páginas: 1192-1192
+§ 5º As denúncias classificadas no inciso III serão encaminhadas à unidade da SRF da jurisdição do domicílio fiscal do denunciado, com vistas à inclusão na programação da fiscalização.","§ 5º As denúncias classificadas no inciso III serão encaminhadas à unidade da SRF da jurisdição do domicílio fiscal do denunciado, com vistas à inclusão na programação da fiscalização.","portaria; conjunta; janeiro; denuncias; classificadas; inciso; serao; encaminhadas; unidade; jurisdicao","True","484","121"
+"21","21","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1192","1192","III -","paragrafo","Art. 2º, §6º","Art. 2º","Art. 2º","§6º","","","","§ 6º Por força do art. 198 da Lei n. 5.172, de 25 de outubro de 1966 – Código Tributário Nacional (CTN), a SRF não divulgará as denúncias recebidas.","","[]","0","Lei n. 5.172","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 2º, §6º
+Tipo: paragrafo
+Hierarquia: III -
+Dispositivo pai: Art. 2º
+Páginas: 1192-1192
+§ 6º Por força do art. 198 da Lei n. 5.172, de 25 de outubro de 1966 – Código Tributário Nacional (CTN), a SRF não divulgará as denúncias recebidas.","§ 6º Por força do art. 198 da Lei n. 5.172, de 25 de outubro de 1966 – Código Tributário Nacional (CTN), a SRF não divulgará as denúncias recebidas.","portaria; conjunta; janeiro; forca; outubro; codigo; tributario; nacional; divulgara; denuncias","True","448","112"
+"22","22","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1192","1192","III -","artigo","Art. 3º","","Art. 3º","","","","","Art. 3º A SRF procederá à análise, com vistas à verificação de eventual cometimento de ilícitos tributários, das:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 3º
+Tipo: artigo
+Hierarquia: III -
+Páginas: 1192-1192
+Art. 3º A SRF procederá à análise, com vistas à verificação de eventual cometimento de ilícitos tributários, das:","Art. 3º A SRF procederá à análise, com vistas à verificação de eventual cometimento de ilícitos tributários, das:","portaria; conjunta; janeiro; procedera; analise; vistas; verificacao; eventual; cometimento; ilicitos","True","380","95"
+"23","23","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1192","1192","III -","inciso","Art. 3º, I","Art. 3º","Art. 3º","","I","","","I - prestações de contas dos candidatos a cargos eletivos e dos comitês financeiros de partidos políticos, bem como dos partidos políticos;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 3º, I
+Tipo: inciso
+Hierarquia: III -
+Dispositivo pai: Art. 3º
+Páginas: 1192-1192
+I - prestações de contas dos candidatos a cargos eletivos e dos comitês financeiros de partidos políticos, bem como dos partidos políticos;","I - prestações de contas dos candidatos a cargos eletivos e dos comitês financeiros de partidos políticos, bem como dos partidos políticos;","partidos; politicos; portaria; conjunta; janeiro; prestacoes; contas; candidatos; cargos; eletivos","True","434","108"
+"24","24","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1192","1192","III -","inciso","Art. 3º, II","Art. 3º","Art. 3º","","II","","","II - denúncias recebidas, na forma do art. 2º.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 3º, II
+Tipo: inciso
+Hierarquia: III -
+Dispositivo pai: Art. 3º
+Páginas: 1192-1192
+II - denúncias recebidas, na forma do art. 2º.","II - denúncias recebidas, na forma do art. 2º.","portaria; conjunta; janeiro; denuncias; recebidas; forma","True","342","85"
+"25","25","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1192","1192","III -","paragrafo","Art. 3º, §1º","Art. 3º","Art. 3º","§1º","","","","§ 1º Além dos elementos contidos nas prestações de contas e nas denúncias, o procedimento de análise levará em consideração as informações disponíveis nos sistemas informatizados da SRF.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 3º, §1º
+Tipo: paragrafo
+Hierarquia: III -
+Dispositivo pai: Art. 3º
+Páginas: 1192-1192
+§ 1º Além dos elementos contidos nas prestações de contas e nas denúncias, o procedimento de análise levará em consideração as informações disponíveis nos sistemas informatizados da SRF.","§ 1º Além dos elementos contidos nas prestações de contas e nas denúncias, o procedimento de análise levará em consideração as informações disponíveis nos sistemas informatizados da SRF.","portaria; conjunta; janeiro; alem; elementos; contidos; prestacoes; contas; denuncias; procedimento","True","486","121"
+"26","26","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1192","1192","III -","paragrafo","Art. 3º, §2º","Art. 3º","Art. 3º","§2º","","","","§ 2º Nas declarações de ajuste anual do imposto de renda da pessoa física e nas declarações de informações econômico-fiscais da pessoa jurídica serão estabelecidos campos específicos para identificar doações a candidatos, comitês financeiros e partidos políticos, bem como gastos realizados por eleitores na forma do art. 27 da Lei n. 9.504, de 30 de setembro de 1997, sem prejuízo da instituição pela SRF, no âmbito de sua competência, de declarações específicas dos fornecedores de mercadorias ou prestadores de serviço para campanhas eleitorais.","","[]","0","Lei n. 9.504","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 3º, §2º
+Tipo: paragrafo
+Hierarquia: III -
+Dispositivo pai: Art. 3º
+Páginas: 1192-1192
+§ 2º Nas declarações de ajuste anual do imposto de renda da pessoa física e nas declarações de informações econômico-fiscais da pessoa jurídica serão estabelecidos campos específicos para identificar doações a candidatos, comitês financeiros e partidos políticos, bem como gastos realizados por eleitores na forma do art. 27 da Lei n. 9.504, de 30 de setembro de 1997, sem prejuízo da instituição pela SRF, no âmbito de sua competência, de declarações específicas dos fornecedores de mercadorias ou prestadores de serviço para campanhas eleitorais.","§ 2º Nas declarações de ajuste anual do imposto de renda da pessoa física e nas declarações de informações econômico-fiscais da pessoa jurídica serão estabelecidos campos específicos para identificar doações a candidatos, comitês...","declaracoes; pessoa; portaria; conjunta; janeiro; ajuste; anual; imposto; renda; fisica","True","848","212"
+"27","27","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1192","1192","III -","paragrafo","Art. 3º, §3º","Art. 3º","Art. 3º","§3º","","","","§ 3º A omissão de informações nas declarações a que se refere o § 2º sujeitará o contribuinte às sanções previstas na legislação fiscal aplicável.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 3º, §3º
+Tipo: paragrafo
+Hierarquia: III -
+Dispositivo pai: Art. 3º
+Páginas: 1192-1192
+§ 3º A omissão de informações nas declarações a que se refere o § 2º sujeitará o contribuinte às sanções previstas na legislação fiscal aplicável.","§ 3º A omissão de informações nas declarações a que se refere o § 2º sujeitará o contribuinte às sanções previstas na legislação fiscal aplicável.","portaria; conjunta; janeiro; omissao; informacoes; declaracoes; refere; sujeitara; contribuinte; sancoes","True","446","111"
+"28","28","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1192","1192","III -","paragrafo","Art. 3º, §4º","Art. 3º","Art. 3º","§4º","","","","§ 4º As informações obtidas em virtude do disposto no § 2º serão confrontadas com as contidas nas prestações de contas de candidatos, comitês financeiros e partidos políticos.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 3º, §4º
+Tipo: paragrafo
+Hierarquia: III -
+Dispositivo pai: Art. 3º
+Páginas: 1192-1192
+§ 4º As informações obtidas em virtude do disposto no § 2º serão confrontadas com as contidas nas prestações de contas de candidatos, comitês financeiros e partidos políticos.","§ 4º As informações obtidas em virtude do disposto no § 2º serão confrontadas com as contidas nas prestações de contas de candidatos, comitês financeiros e partidos políticos.","portaria; conjunta; janeiro; informacoes; obtidas; virtude; disposto; serao; confrontadas; contidas","True","475","118"
+"29","29","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1192","1192","III -","paragrafo","Art. 3º, §5º","Art. 3º","Art. 3º","§5º","","","","§ 5º O disposto nesta portaria não elide a instauração de procedimentos fiscais decorrentes da programação de trabalho da SRF ou da requisição de autoridade competente.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 3º, §5º
+Tipo: paragrafo
+Hierarquia: III -
+Dispositivo pai: Art. 3º
+Páginas: 1192-1192
+§ 5º O disposto nesta portaria não elide a instauração de procedimentos fiscais decorrentes da programação de trabalho da SRF ou da requisição de autoridade competente.","§ 5º O disposto nesta portaria não elide a instauração de procedimentos fiscais decorrentes da programação de trabalho da SRF ou da requisição de autoridade competente.","portaria; conjunta; janeiro; disposto; nesta; elide; instauracao; procedimentos; fiscais; decorrentes","True","468","117"
+"30","30","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1192","1192","III -","artigo","Art. 4º","","Art. 4º","","","","","Art. 4º Com base nas análises realizadas, a SRF, sem prejuízo de outros procedimentos a serem adotados no âmbito de sua competência, informará ao TSE qualquer infração tributária detectada, especialmente no que se refere:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 4º
+Tipo: artigo
+Hierarquia: III -
+Páginas: 1192-1192
+Art. 4º Com base nas análises realizadas, a SRF, sem prejuízo de outros procedimentos a serem adotados no âmbito de sua competência, informará ao TSE qualquer infração tributária detectada, especialmente no que se refere:","Art. 4º Com base nas análises realizadas, a SRF, sem prejuízo de outros procedimentos a serem adotados no âmbito de sua competência, informará ao TSE qualquer infração tributária detectada, especialmente no que se refere:","portaria; conjunta; janeiro; base; analises; realizadas; prejuizo; outros; procedimentos; serem","True","488","122"
+"31","31","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1193","1193","III -","inciso","Art. 4º, I","Art. 4º","Art. 4º","","I","","","I - omissão de doações;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 4º, I
+Tipo: inciso
+Hierarquia: III -
+Dispositivo pai: Art. 4º
+Páginas: 1193-1193
+I - omissão de doações;","I - omissão de doações;","portaria; conjunta; janeiro; omissao; doacoes","True","318","79"
+"32","32","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1193","1193","III -","inciso","Art. 4º, II","Art. 4º","Art. 4º","","II","","","II - fornecimento de mercadorias ou prestação de serviços por pessoa jurídica, cuja situação cadastral perante o CNPJ revele a condição de inapta, suspensa ou baixada, ou, ainda, de inexistente;","Inciso II com redação alterada conforme retificação publicada no DOUde 4/5/2006, Seção I, pág. 7, substituindo-se a palavra “cancelada” por “baixada”.","[{""ordem"": 1, ""marcador"": ""ticado"", ""texto"": ""Inciso II com redação alterada conforme retificação publicada no DOUde 4/5/2006, Seção I, pág. 7, substituindo-se a palavra “cancelada” por “baixada”."", ""pagina_inicial"": 1193, ""pagina_final"": 1193}]","1","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 4º, II
+Tipo: inciso
+Hierarquia: III -
+Dispositivo pai: Art. 4º
+Páginas: 1193-1193
+II - fornecimento de mercadorias ou prestação de serviços por pessoa jurídica, cuja situação cadastral perante o CNPJ revele a condição de inapta, suspensa ou baixada, ou, ainda, de inexistente;
+Notas vinculadas:
+Inciso II com redação alterada conforme retificação publicada no DOUde 4/5/2006, Seção I, pág. 7, substituindo-se a palavra “cancelada” por “baixada”.","II - fornecimento de mercadorias ou prestação de serviços por pessoa jurídica, cuja situação cadastral perante o CNPJ revele a condição de inapta, suspensa ou baixada, ou, ainda, de inexistente;","baixada; portaria; conjunta; janeiro; fornecimento; mercadorias; prestacao; servicos; pessoa; juridica","True","659","164"
+"33","33","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1193","1193","III -","inciso","Art. 4º, III","Art. 4º","Art. 4º","","III","","","III - prestação de serviços por pessoa física com CPF inexistente ou cancelado;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 4º, III
+Tipo: inciso
+Hierarquia: III -
+Dispositivo pai: Art. 4º
+Páginas: 1193-1193
+III - prestação de serviços por pessoa física com CPF inexistente ou cancelado;","III - prestação de serviços por pessoa física com CPF inexistente ou cancelado;","portaria; conjunta; janeiro; prestacao; servicos; pessoa; fisica; inexistente; cancelado","True","376","94"
+"34","34","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1193","1193","III -","inciso","Art. 4º, IV","Art. 4º","Art. 4º","","IV","","","IV - uso de documentos fiscais falsos ou fraudulentos;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 4º, IV
+Tipo: inciso
+Hierarquia: III -
+Dispositivo pai: Art. 4º
+Páginas: 1193-1193
+IV - uso de documentos fiscais falsos ou fraudulentos;","IV - uso de documentos fiscais falsos ou fraudulentos;","portaria; conjunta; janeiro; documentos; fiscais; falsos; fraudulentos","True","350","87"
+"35","35","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1193","1193","III -","inciso","Art. 4º, V","Art. 4º","Art. 4º","","V","","","V - qualquer fato que dê causa a suspensão de imunidade tributária de partido político, na forma do arts. 9º e 14 do Código Tributário Nacional;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 4º, V
+Tipo: inciso
+Hierarquia: III -
+Dispositivo pai: Art. 4º
+Páginas: 1193-1193
+V - qualquer fato que dê causa a suspensão de imunidade tributária de partido político, na forma do arts. 9º e 14 do Código Tributário Nacional;","V - qualquer fato que dê causa a suspensão de imunidade tributária de partido político, na forma do arts. 9º e 14 do Código Tributário Nacional;","portaria; conjunta; janeiro; qualquer; fato; causa; suspensao; imunidade; tributaria; partido","True","439","109"
+"36","36","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1193","1193","III -","inciso","Art. 4º, VI","Art. 4º","Art. 4º","","VI","","","VI - simulação de ato, inclusive por meio de interpostas pessoas.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 4º, VI
+Tipo: inciso
+Hierarquia: III -
+Dispositivo pai: Art. 4º
+Páginas: 1193-1193
+VI - simulação de ato, inclusive por meio de interpostas pessoas.","VI - simulação de ato, inclusive por meio de interpostas pessoas.","portaria; conjunta; janeiro; simulacao; inclusive; meio; interpostas; pessoas","True","361","90"
+"37","37","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1193","1193","III -","paragrafo","Art. 4º, Parágrafo único","Art. 4º","Art. 4º","Parágrafo único","","","","Parágrafo único. A SRF informará também qualquer infração ao disposto nos arts. 23, 27 e 81 da Lei n. 9.504, de 1997.","Art. 81 da Lei n. 9.504/1997 revogado pelo art. 15 da Lei n. 13.165/2015.","[{""ordem"": 1, ""marcador"": ""ticado"", ""texto"": ""Art. 81 da Lei n. 9.504/1997 revogado pelo art. 15 da Lei n. 13.165/2015."", ""pagina_inicial"": 1193, ""pagina_final"": 1193}]","1","Lei n. 9.504; Lei n. 9.504/1997; Lei n. 13.165/2015","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 4º, Parágrafo único
+Tipo: paragrafo
+Hierarquia: III -
+Dispositivo pai: Art. 4º
+Páginas: 1193-1193
+Parágrafo único. A SRF informará também qualquer infração ao disposto nos arts. 23, 27 e 81 da Lei n. 9.504, de 1997.
+Notas vinculadas:
+Art. 81 da Lei n. 9.504/1997 revogado pelo art. 15 da Lei n. 13.165/2015.","Parágrafo único. A SRF informará também qualquer infração ao disposto nos arts. 23, 27 e 81 da Lei n. 9.504, de 1997.","paragrafo; unico; portaria; conjunta; janeiro; informara; tambem; qualquer; infracao; disposto","True","521","130"
+"38","38","Codigo_Eleitoral_2026_anotado.pdf","portaria_conjunta_74_2006","Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006","","Normas editadas pelo TSE","Portarias","1193","1193","III -","artigo","Art. 5º","","Art. 5º","","","","","Art. 5º Esta portaria entra em vigor na data de sua publicação. Ministro CARLOS VELLOSO, Presidente do Tribunal Superior Eleitoral – JORGE ANTÔNIO DEHER RACHID, Secretário da Receita Federal","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Portaria Conjunta-TSE/SRF n. 74 de 10 de janeiro de 2006
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Portarias
+Dispositivo: Art. 5º
+Tipo: artigo
+Hierarquia: III -
+Páginas: 1193-1193
+Art. 5º Esta portaria entra em vigor na data de sua publicação. Ministro CARLOS VELLOSO, Presidente do Tribunal Superior Eleitoral – JORGE ANTÔNIO DEHER RACHID, Secretário da Receita Federal","Art. 5º Esta portaria entra em vigor na data de sua publicação. Ministro CARLOS VELLOSO, Presidente do Tribunal Superior Eleitoral – JORGE ANTÔNIO DEHER RACHID, Secretário da Receita Federal","portaria; conjunta; janeiro; esta; entra; vigor; data; publicacao; ministro; carlos","True","457","114"

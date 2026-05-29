@@ -1,0 +1,521 @@
+﻿"id","ordem_doc","arquivo_fonte","norma_id","norma_titulo","norma_nome_popular","macrogrupo","grupo_sumario","pagina_inicial","pagina_final","hierarquia_normativa","tipo_dispositivo","dispositivo","dispositivo_pai","artigo","paragrafo","inciso","alinea","item","texto_dispositivo","notas_texto","notas_json","qtd_notas","referencias_normativas","referencias_jurisprudenciais","referencias_sumulas","texto_rag","resumo_curto","palavras_chave","incluir_no_rag","chars","tokens_estimados"
+"1","1","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","619","619","","norma","Lei Complementar n. 35, de 14 de março de 1979","","","","","","","Dispõe sobre a Lei Orgânica da Magistratura Nacional. O PRESIDENTE DA REPÚBLICA Faço saber que o Congresso Nacional decreta e eu sanciono a seguinte lei complementar:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Lei Complementar n. 35, de 14 de março de 1979
+Tipo: norma
+Páginas: 619-619
+Dispõe sobre a Lei Orgânica da Magistratura Nacional. O PRESIDENTE DA REPÚBLICA Faço saber que o Congresso Nacional decreta e eu sanciono a seguinte lei complementar:","Dispõe sobre a Lei Orgânica da Magistratura Nacional. O PRESIDENTE DA REPÚBLICA Faço saber que o Congresso Nacional decreta e eu sanciono a seguinte lei complementar:","complementar; marco; nacional; dispoe; sobre; organica; magistratura; presidente; republica; faco","True","448","112"
+"2","2","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","619","619","TÍTULO I - DO PODER JUDICIÁRIO","estrutura","TÍTULO I - DO PODER JUDICIÁRIO","","","","","","","TÍTULO I - DO PODER JUDICIÁRIO","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: TÍTULO I - DO PODER JUDICIÁRIO
+Tipo: estrutura
+Hierarquia: TÍTULO I - DO PODER JUDICIÁRIO
+Páginas: 619-619
+TÍTULO I - DO PODER JUDICIÁRIO","TÍTULO I - DO PODER JUDICIÁRIO","titulo; poder; judiciario; complementar; marco","True","343","85"
+"3","3","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","619","619","TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO I - DOS ÓRGÃOS DO PODER JUDICIÁRIO","estrutura","CAPÍTULO I - DOS ÓRGÃOS DO PODER JUDICIÁRIO","","","","","","","CAPÍTULO I - DOS ÓRGÃOS DO PODER JUDICIÁRIO","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: CAPÍTULO I - DOS ÓRGÃOS DO PODER JUDICIÁRIO
+Tipo: estrutura
+Hierarquia: TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO I - DOS ÓRGÃOS DO PODER JUDICIÁRIO
+Páginas: 619-619
+CAPÍTULO I - DOS ÓRGÃOS DO PODER JUDICIÁRIO","CAPÍTULO I - DOS ÓRGÃOS DO PODER JUDICIÁRIO","poder; judiciario; capitulo; orgaos; complementar; marco; titulo","True","415","103"
+"4","4","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","619","619","TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO I - DOS ÓRGÃOS DO PODER JUDICIÁRIO","artigo","Art. 1º","","Art. 1º","","","","","Art. 1º O Poder Judiciário é exercido pelos seguintes órgãos: [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 1º
+Tipo: artigo
+Hierarquia: TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO I - DOS ÓRGÃOS DO PODER JUDICIÁRIO
+Páginas: 619-619
+Art. 1º O Poder Judiciário é exercido pelos seguintes órgãos: [...]","Art. 1º O Poder Judiciário é exercido pelos seguintes órgãos: [...]","poder; judiciario; orgaos; complementar; marco; titulo; capitulo; exercido; seguintes","True","400","100"
+"5","5","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","619","619","TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO I - DOS ÓRGÃOS DO PODER JUDICIÁRIO","inciso","Art. 1º, V","Art. 1º","Art. 1º","","V","","","V - Tribunais e juízes eleitorais; [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 1º, V
+Tipo: inciso
+Hierarquia: TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO I - DOS ÓRGÃOS DO PODER JUDICIÁRIO
+Dispositivo pai: Art. 1º
+Páginas: 619-619
+V - Tribunais e juízes eleitorais; [...]","V - Tribunais e juízes eleitorais; [...]","poder; judiciario; complementar; marco; titulo; capitulo; orgaos; tribunais; juizes; eleitorais","True","401","100"
+"6","6","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","619","619","TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO I - DOS ÓRGÃOS DO PODER JUDICIÁRIO","artigo","Art. 8º","","Art. 8º","","","","","Art. 8º O Tribunal Superior Eleitoral, com sede na capital da União e jurisdição em todo o território nacional, é composto de sete juízes, dos quais três ministros do Supremo Tribunal Federal e dois ministros do Tribunal Federal de Recursos, escolhidos pelo respectivo Tribunal, mediante eleição, pelo voto secreto, e dois nomeados pelo presidente da República, dentre seis advogados de notável saber jurídico e idoneidade moral, indicados pelo Supremo Tribunal Federal.","CF/1988, art. 119, I, b: eleição dentre os ministros do STJ.
+Ac.-STF, de 17/5/2006, na ADI n. 1127: exclui apenas os juízes eleitorais e seus suplentes da proibição de exercício da advocacia contida no art. 28, II, do EOAB.","[{""ordem"": 1, ""marcador"": ""ticado"", ""texto"": ""CF/1988, art. 119, I, b: eleição dentre os ministros do STJ."", ""pagina_inicial"": 619, ""pagina_final"": 619}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""Ac.-STF, de 17/5/2006, na ADI n. 1127: exclui apenas os juízes eleitorais e seus suplentes da proibição de exercício da advocacia contida no art. 28, II, do EOAB."", ""pagina_inicial"": 619, ""pagina_final"": 619}]","2","CF/1988, art. 119, I, b: eleição dentre os ministros do STJ","Ac.-STF, de 17/5/2006, na ADI n; ADI n. 1127","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 8º
+Tipo: artigo
+Hierarquia: TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO I - DOS ÓRGÃOS DO PODER JUDICIÁRIO
+Páginas: 619-619
+Art. 8º O Tribunal Superior Eleitoral, com sede na capital da União e jurisdição em todo o território nacional, é composto de sete juízes, dos quais três ministros do Supremo Tribunal Federal e dois ministros do Tribunal Federal de Recursos, escolhidos pelo respectivo Tribunal, mediante eleição, pelo voto secreto, e dois nomeados pelo presidente da República, dentre seis advogados de notável saber jurídico e idoneidade moral, indicados pelo Supremo Tribunal Federal.
+Notas vinculadas:
+CF/1988, art. 119, I, b: eleição dentre os ministros do STJ.
+Ac.-STF, de 17/5/2006, na ADI n. 1127: exclui apenas os juízes eleitorais e seus suplentes da proibição de exercício da advocacia contida no art. 28, II, do EOAB.","Art. 8º O Tribunal Superior Eleitoral, com sede na capital da União e jurisdição em todo o território nacional, é composto de sete juízes, dos quais três ministros do Supremo Tribunal Federal e dois ministros do Tribunal Federal de...","tribunal; ministros; federal; poder; judiciario; juizes; supremo; dois; eleicao; dentre","True","1045","261"
+"7","7","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","619","619","TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO I - DOS ÓRGÃOS DO PODER JUDICIÁRIO","artigo","Art. 9º","","Art. 9º","","","","","Art. 9º Os Tribunais Regionais Eleitorais, com sede na capital do estado em que tenham jurisdição e no Distrito Federal, compõe-se de quatro juízes eleitos, pelo voto secreto, pelo respectivo Tribunal de Justiça, sendo dois dentre desembargadores e dois dentre juízes de direito; um juiz federal, escolhido pelo Tribunal Federal de Recursos, se na seção judiciária houver mais de um, e, por nomeação do presidente da República, de dois dentre seis cidadãos de notável saber jurídico e idoneidade moral, indicados pelo Tribunal de Justiça.","V. CF/1988, art. 120, § 1º, II: eleição dentre os juízes do Tribunal Regional Federal, ou, não havendo, será eleito um juiz federal.
+V. CF/1988, art. 120, § 1º, III: nomeação de dois juízes dentre seis advogados.
+Ac.-STF, de 17/5/2006, na ADI n. 1127: exclui apenas os juízes eleitorais e seus suplentes da proibição de exercício da advocacia contida no art. 28, II, do EOAB.
+Ac.-STF, de 19/6/1991, no MS n. 21060 e, de 29/11/1990, no MS n. 21073: a OAB não participa do procedimento de indicação de advogados para composição de TRE.","[{""ordem"": 1, ""marcador"": ""ticado"", ""texto"": ""V. CF/1988, art. 120, § 1º, II: eleição dentre os juízes do Tribunal Regional Federal, ou, não havendo, será eleito um juiz federal."", ""pagina_inicial"": 619, ""pagina_final"": 619}, {""ordem"": 2, ""marcador"": ""ticado"", ""texto"": ""V. CF/1988, art. 120, § 1º, III: nomeação de dois juízes dentre seis advogados."", ""pagina_inicial"": 619, ""pagina_final"": 619}, {""ordem"": 3, ""marcador"": ""quadrado"", ""texto"": ""Ac.-STF, de 17/5/2006, na ADI n. 1127: exclui apenas os juízes eleitorais e seus suplentes da proibição de exercício da advocacia contida no art. 28, II, do EOAB."", ""pagina_inicial"": 619, ""pagina_final"": 619}, {""ordem"": 4, ""marcador"": ""quadrado"", ""texto"": ""Ac.-STF, de 19/6/1991, no MS n. 21060 e, de 29/11/1990, no MS n. 21073: a OAB não participa do procedimento de indicação de advogados para composição de TRE."", ""pagina_inicial"": 619, ""pagina_final"": 619}]","4","CF/1988, art. 120, § 1º, II: eleição dentre os juízes do Tribunal Regional Federal, ou, não havendo, será eleito um juiz federal; CF/1988, art. 120, § 1º, III: nomeação de dois juízes dentre seis advogados","Ac.-STF, de 17/5/2006, na ADI n; Ac.-STF, de 19/6/1991, no MS n; ADI n. 1127; MS n. 21060; MS n. 21073","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 9º
+Tipo: artigo
+Hierarquia: TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO I - DOS ÓRGÃOS DO PODER JUDICIÁRIO
+Páginas: 619-619
+Art. 9º Os Tribunais Regionais Eleitorais, com sede na capital do estado em que tenham jurisdição e no Distrito Federal, compõe-se de quatro juízes eleitos, pelo voto secreto, pelo respectivo Tribunal de Justiça, sendo dois dentre desembargadores e dois dentre juízes de direito; um juiz federal, escolhido pelo Tribunal Federal de Recursos, se na seção judiciária houver mais de um, e, por nomeação do presidente da República, de dois dentre seis cidadãos de notável saber jurídico e idoneidade moral, indicados pelo Tribunal de Justiça.
+Notas vinculadas:
+V. CF/1988, art. 120, § 1º, II: eleição dentre os juízes do Tribunal Regional Federal, ou, não havendo, será eleito um juiz federal.
+V. CF/1988, art. 120, § 1º, III: nomeação de dois juízes dentre seis advogados.
+Ac.-STF, de 17/5/2006, na ADI n. 1127: exclui apenas os juízes eleitorais e seus suplentes da proibição de exercício da advocacia contida no art. 28, II, do EOAB.
+Ac.-STF, de 19/6/1991, no MS n. 21060 e, de 29/11/1990, no MS n. 21073: a OAB não participa do procedimento de indicação de advogados para composição de TRE.","Art. 9º Os Tribunais Regionais Eleitorais, com sede na capital do estado em que tenham jurisdição e no Distrito Federal, compõe-se de quatro juízes eleitos, pelo voto secreto, pelo respectivo Tribunal de Justiça, sendo dois dentre...","federal; juizes; dentre; tribunal; dois; poder; judiciario; eleitorais; justica; juiz","True","1423","355"
+"8","8","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","619","619","TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO I - DOS ÓRGÃOS DO PODER JUDICIÁRIO","artigo","Art. 10","","Art. 10","","","","","Art. 10. Os juízes do Tribunal Superior Eleitoral e dos Tribunais Regionais Eleitorais, bem como os respectivos substitutos, escolhidos na mesma ocasião e por igual processo, salvo motivo justificado, servirão, obrigatoriamente, por dois anos, no mínimo, e nunca por mais de dois biênios consecutivos.","V. CF/1988, art. 121, § 2º.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""V. CF/1988, art. 121, § 2º."", ""pagina_inicial"": 619, ""pagina_final"": 619}]","1","CF/1988, art. 121, § 2º","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 10
+Tipo: artigo
+Hierarquia: TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO I - DOS ÓRGÃOS DO PODER JUDICIÁRIO
+Páginas: 619-619
+Art. 10. Os juízes do Tribunal Superior Eleitoral e dos Tribunais Regionais Eleitorais, bem como os respectivos substitutos, escolhidos na mesma ocasião e por igual processo, salvo motivo justificado, servirão, obrigatoriamente, por dois anos, no mínimo, e nunca por mais de dois biênios consecutivos.
+Notas vinculadas:
+V. CF/1988, art. 121, § 2º.","Art. 10. Os juízes do Tribunal Superior Eleitoral e dos Tribunais Regionais Eleitorais, bem como os respectivos substitutos, escolhidos na mesma ocasião e por igual processo, salvo motivo justificado, servirão, obrigatoriamente, por dois...","poder; judiciario; dois; complementar; marco; titulo; capitulo; orgaos; juizes; tribunal","True","680","170"
+"9","9","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","620","620","TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO I - DOS ÓRGÃOS DO PODER JUDICIÁRIO","artigo","Art. 11","","Art. 11","","","","","Art. 11. Os juízes de direito exercem as funções de juízes eleitorais, nos termos da lei.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 11
+Tipo: artigo
+Hierarquia: TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO I - DOS ÓRGÃOS DO PODER JUDICIÁRIO
+Páginas: 620-620
+Art. 11. Os juízes de direito exercem as funções de juízes eleitorais, nos termos da lei.","Art. 11. Os juízes de direito exercem as funções de juízes eleitorais, nos termos da lei.","poder; judiciario; juizes; complementar; marco; titulo; capitulo; orgaos; direito; exercem","True","422","105"
+"10","10","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","620","620","TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO I - DOS ÓRGÃOS DO PODER JUDICIÁRIO","paragrafo","Art. 11, §1º","Art. 11","Art. 11","§1º","","","","§ 1º A lei pode outorgar a outros juízes competência para funções não decisórias.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 11, §1º
+Tipo: paragrafo
+Hierarquia: TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO I - DOS ÓRGÃOS DO PODER JUDICIÁRIO
+Dispositivo pai: Art. 11
+Páginas: 620-620
+§ 1º A lei pode outorgar a outros juízes competência para funções não decisórias.","§ 1º A lei pode outorgar a outros juízes competência para funções não decisórias.","poder; judiciario; complementar; marco; titulo; capitulo; orgaos; pode; outorgar; outros","True","447","111"
+"11","11","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","620","620","TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO I - DOS ÓRGÃOS DO PODER JUDICIÁRIO","paragrafo","Art. 11, §2º","Art. 11","Art. 11","§2º","","","","§ 2º Para a apuração de eleições, constituir-se-ão juntas eleitorais, presididas por juízes de direito, e cujos membros, indicados conforme dispuser a legislação eleitoral, serão aprovados pelo Tribunal Regional Eleitoral e nomeados pelo seu presidente. [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 11, §2º
+Tipo: paragrafo
+Hierarquia: TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO I - DOS ÓRGÃOS DO PODER JUDICIÁRIO
+Dispositivo pai: Art. 11
+Páginas: 620-620
+§ 2º Para a apuração de eleições, constituir-se-ão juntas eleitorais, presididas por juízes de direito, e cujos membros, indicados conforme dispuser a legislação eleitoral, serão aprovados pelo Tribunal Regional Eleitoral e nomeados pelo seu presidente. [...]","§ 2º Para a apuração de eleições, constituir-se-ão juntas eleitorais, presididas por juízes de direito, e cujos membros, indicados conforme dispuser a legislação eleitoral, serão aprovados pelo Tribunal Regional Eleitoral e nomeados pelo...","poder; judiciario; eleitoral; complementar; marco; titulo; capitulo; orgaos; apuracao; eleicoes","True","625","156"
+"12","12","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","620","620","TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO I - DOS ÓRGÃOS DO PODER JUDICIÁRIO","artigo","Art. 15","","Art. 15","","","","","Art. 15. Os órgãos do Poder Judiciário da União (art. 1º, incisos I a VI) têm a organização e a competência definidas na Constituição, na lei e, quanto aos Tribunais, ainda, no respectivo regimento interno. [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 15
+Tipo: artigo
+Hierarquia: TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO I - DOS ÓRGÃOS DO PODER JUDICIÁRIO
+Páginas: 620-620
+Art. 15. Os órgãos do Poder Judiciário da União (art. 1º, incisos I a VI) têm a organização e a competência definidas na Constituição, na lei e, quanto aos Tribunais, ainda, no respectivo regimento interno. [...]","Art. 15. Os órgãos do Poder Judiciário da União (art. 1º, incisos I a VI) têm a organização e a competência definidas na Constituição, na lei e, quanto aos Tribunais, ainda, no respectivo regimento interno. [...]","poder; judiciario; orgaos; complementar; marco; titulo; capitulo; uniao; incisos; organizacao","True","545","136"
+"13","13","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","620","620","TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO II - DOS TRIBUNAIS","estrutura","CAPÍTULO II - DOS TRIBUNAIS","","Art. 15","","","","","CAPÍTULO II - DOS TRIBUNAIS","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: CAPÍTULO II - DOS TRIBUNAIS
+Tipo: estrutura
+Hierarquia: TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO II - DOS TRIBUNAIS
+Páginas: 620-620
+CAPÍTULO II - DOS TRIBUNAIS","CAPÍTULO II - DOS TRIBUNAIS","capitulo; tribunais; complementar; marco; titulo; poder; judiciario","True","367","91"
+"14","14","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","620","620","TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO II - DOS TRIBUNAIS","artigo","Art. 21","","Art. 21","","","","","Art. 21. Compete aos Tribunais, privativamente:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 21
+Tipo: artigo
+Hierarquia: TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO II - DOS TRIBUNAIS
+Páginas: 620-620
+Art. 21. Compete aos Tribunais, privativamente:","Art. 21. Compete aos Tribunais, privativamente:","tribunais; complementar; marco; titulo; poder; judiciario; capitulo; compete; privativamente","True","364","91"
+"15","15","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","620","620","TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO II - DOS TRIBUNAIS","inciso","Art. 21, I","Art. 21","Art. 21","","I","","","I - eleger seus presidentes e demais titulares de sua direção, observado o disposto na presente lei;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 21, I
+Tipo: inciso
+Hierarquia: TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO II - DOS TRIBUNAIS
+Dispositivo pai: Art. 21
+Páginas: 620-620
+I - eleger seus presidentes e demais titulares de sua direção, observado o disposto na presente lei;","I - eleger seus presidentes e demais titulares de sua direção, observado o disposto na presente lei;","complementar; marco; titulo; poder; judiciario; capitulo; tribunais; eleger; seus; presidentes","True","445","111"
+"16","16","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","620","620","TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO II - DOS TRIBUNAIS","inciso","Art. 21, II","Art. 21","Art. 21","","II","","","II - organizar seus serviços auxiliares, provendo-lhes os cargos, na forma da lei; propor ao Poder Legislativo a criação ou a extinção de cargos e a fixação dos respectivos vencimentos;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 21, II
+Tipo: inciso
+Hierarquia: TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO II - DOS TRIBUNAIS
+Dispositivo pai: Art. 21
+Páginas: 620-620
+II - organizar seus serviços auxiliares, provendo-lhes os cargos, na forma da lei; propor ao Poder Legislativo a criação ou a extinção de cargos e a fixação dos respectivos vencimentos;","II - organizar seus serviços auxiliares, provendo-lhes os cargos, na forma da lei; propor ao Poder Legislativo a criação ou a extinção de cargos e a fixação dos respectivos vencimentos;","poder; cargos; complementar; marco; titulo; judiciario; capitulo; tribunais; organizar; seus","True","531","132"
+"17","17","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","620","620","TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO II - DOS TRIBUNAIS","inciso","Art. 21, III","Art. 21","Art. 21","","III","","","III - elaborar seus regimentos internos e neles estabelecer, observada esta lei, a competência de suas câmaras ou turmas isoladas, grupos, seções ou outros órgãos com funções jurisdicionais ou administrativas;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 21, III
+Tipo: inciso
+Hierarquia: TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO II - DOS TRIBUNAIS
+Dispositivo pai: Art. 21
+Páginas: 620-620
+III - elaborar seus regimentos internos e neles estabelecer, observada esta lei, a competência de suas câmaras ou turmas isoladas, grupos, seções ou outros órgãos com funções jurisdicionais ou administrativas;","III - elaborar seus regimentos internos e neles estabelecer, observada esta lei, a competência de suas câmaras ou turmas isoladas, grupos, seções ou outros órgãos com funções jurisdicionais ou administrativas;","complementar; marco; titulo; poder; judiciario; capitulo; tribunais; elaborar; seus; regimentos","True","556","139"
+"18","18","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","620","620","TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO II - DOS TRIBUNAIS","inciso","Art. 21, IV","Art. 21","Art. 21","","IV","","","IV - conceder licença e férias, nos termos da lei, aos seus membros e aos juízes e serventuários que lhes são imediatamente subordinados;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 21, IV
+Tipo: inciso
+Hierarquia: TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO II - DOS TRIBUNAIS
+Dispositivo pai: Art. 21
+Páginas: 620-620
+IV - conceder licença e férias, nos termos da lei, aos seus membros e aos juízes e serventuários que lhes são imediatamente subordinados;","IV - conceder licença e férias, nos termos da lei, aos seus membros e aos juízes e serventuários que lhes são imediatamente subordinados;","complementar; marco; titulo; poder; judiciario; capitulo; tribunais; conceder; licenca; ferias","True","483","120"
+"19","19","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","620","620","TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO II - DOS TRIBUNAIS","inciso","Art. 21, V","Art. 21","Art. 21","","V","","","V - exercer a direção e a disciplina dos órgãos e serviços que lhes forem subordinados;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 21, V
+Tipo: inciso
+Hierarquia: TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO II - DOS TRIBUNAIS
+Dispositivo pai: Art. 21
+Páginas: 620-620
+V - exercer a direção e a disciplina dos órgãos e serviços que lhes forem subordinados;","V - exercer a direção e a disciplina dos órgãos e serviços que lhes forem subordinados;","complementar; marco; titulo; poder; judiciario; capitulo; tribunais; exercer; direcao; disciplina","True","432","108"
+"20","20","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","620","620","TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO II - DOS TRIBUNAIS","inciso","Art. 21, VI","Art. 21","Art. 21","","VI","","","VI - julgar, originariamente, os mandados de segurança contra seus atos, os dos respectivos presidentes e os de suas Câmaras, turmas ou seções.","Ac.-TSE, de 3/11/2020, no MSCiv n. 060161217: incompetência absoluta do TSE para julgamento originário de mandado de segurança contra ato administrativo dos TREs.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Ac.-TSE, de 3/11/2020, no MSCiv n. 060161217: incompetência absoluta do TSE para julgamento originário de mandado de segurança contra ato administrativo dos TREs."", ""pagina_inicial"": 620, ""pagina_final"": 620}]","1","","Ac.-TSE, de 3/11/2020, no MSCiv n","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 21, VI
+Tipo: inciso
+Hierarquia: TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO II - DOS TRIBUNAIS
+Dispositivo pai: Art. 21
+Páginas: 620-620
+VI - julgar, originariamente, os mandados de segurança contra seus atos, os dos respectivos presidentes e os de suas Câmaras, turmas ou seções.
+Notas vinculadas:
+Ac.-TSE, de 3/11/2020, no MSCiv n. 060161217: incompetência absoluta do TSE para julgamento originário de mandado de segurança contra ato administrativo dos TREs.","VI - julgar, originariamente, os mandados de segurança contra seus atos, os dos respectivos presidentes e os de suas Câmaras, turmas ou seções.","seguranca; contra; complementar; marco; titulo; poder; judiciario; capitulo; tribunais; julgar","True","670","167"
+"21","21","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","620","620","TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO III - DOS MAGISTRADOS","estrutura","CAPÍTULO III - DOS MAGISTRADOS","","Art. 21","","VI","","","CAPÍTULO III - DOS MAGISTRADOS","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: CAPÍTULO III - DOS MAGISTRADOS
+Tipo: estrutura
+Hierarquia: TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO III - DOS MAGISTRADOS
+Páginas: 620-620
+CAPÍTULO III - DOS MAGISTRADOS","CAPÍTULO III - DOS MAGISTRADOS","capitulo; magistrados; complementar; marco; titulo; poder; judiciario","True","376","94"
+"22","22","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","620","620","TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO III - DOS MAGISTRADOS","artigo","Art. 22","","Art. 22","","","","","Art. 22. São vitalícios: [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 22
+Tipo: artigo
+Hierarquia: TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO III - DOS MAGISTRADOS
+Páginas: 620-620
+Art. 22. São vitalícios: [...]","Art. 22. São vitalícios: [...]","complementar; marco; titulo; poder; judiciario; capitulo; magistrados; vitalicios","True","350","87"
+"23","23","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","620","620","TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO III - DOS MAGISTRADOS","inciso","Art. 22, II","Art. 22","Art. 22","","II","","","II - após dois anos de exercício: [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 22, II
+Tipo: inciso
+Hierarquia: TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO III - DOS MAGISTRADOS
+Dispositivo pai: Art. 22
+Páginas: 620-620
+II - após dois anos de exercício: [...]","II - após dois anos de exercício: [...]","complementar; marco; titulo; poder; judiciario; capitulo; magistrados; apos; dois; anos","True","388","97"
+"24","24","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","620","620","TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO III - DOS MAGISTRADOS","alinea","Art. 22, II, d)","Art. 22, II","Art. 22","","II","d)","","d) os juízes de direito e os juízes substitutos da Justiça dos estados, do Distrito Federal e dos territórios, bem assim os juízes auditores da Justiça Militar dos estados.","Alínea d com redação dada pelo art. 1º da
+LC n. 37/1979.","[{""ordem"": 1, ""marcador"": ""continuação"", ""texto"": ""Alínea d com redação dada pelo art. 1º da"", ""pagina_inicial"": 620, ""pagina_final"": 620}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""LC n. 37/1979."", ""pagina_inicial"": 620, ""pagina_final"": 620}]","2","LC n. 37/1979","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 22, II, d)
+Tipo: alinea
+Hierarquia: TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO III - DOS MAGISTRADOS
+Dispositivo pai: Art. 22, II
+Páginas: 620-620
+d) os juízes de direito e os juízes substitutos da Justiça dos estados, do Distrito Federal e dos territórios, bem assim os juízes auditores da Justiça Militar dos estados.
+Notas vinculadas:
+Alínea d com redação dada pelo art. 1º da
+LC n. 37/1979.","d) os juízes de direito e os juízes substitutos da Justiça dos estados, do Distrito Federal e dos territórios, bem assim os juízes auditores da Justiça Militar dos estados.","juizes; justica; estados; complementar; marco; titulo; poder; judiciario; capitulo; magistrados","True","604","151"
+"25","25","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","620","620","TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO III - DOS MAGISTRADOS","paragrafo","Art. 22, §1º","Art. 22","Art. 22","§1º","","","","§ 1º Os juízes mencionados no inciso II deste artigo, mesmo que não hajam adquirido a vitaliciedade, não poderão perder o cargo senão por proposta do Tribunal ou do órgão especial competente, adotada pelo voto de dois terços de seus membros efetivos.","Parágrafo 1º com redação dada pelo art. 1º da LC n. 37/1979.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Parágrafo 1º com redação dada pelo art. 1º da LC n. 37/1979."", ""pagina_inicial"": 620, ""pagina_final"": 620}]","1","LC n. 37/1979","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 22, §1º
+Tipo: paragrafo
+Hierarquia: TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO III - DOS MAGISTRADOS
+Dispositivo pai: Art. 22
+Páginas: 620-620
+§ 1º Os juízes mencionados no inciso II deste artigo, mesmo que não hajam adquirido a vitaliciedade, não poderão perder o cargo senão por proposta do Tribunal ou do órgão especial competente, adotada pelo voto de dois terços de seus membros efetivos.
+Notas vinculadas:
+Parágrafo 1º com redação dada pelo art. 1º da LC n. 37/1979.","§ 1º Os juízes mencionados no inciso II deste artigo, mesmo que não hajam adquirido a vitaliciedade, não poderão perder o cargo senão por proposta do Tribunal ou do órgão especial competente, adotada pelo voto de dois terços de seus...","complementar; marco; titulo; poder; judiciario; capitulo; magistrados; juizes; mencionados; inciso","True","682","170"
+"26","26","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","620","621","TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO III - DOS MAGISTRADOS","paragrafo","Art. 22, §2º","Art. 22","Art. 22","§2º","","","","§ 2º Os juízes a que se refere o inciso II deste artigo, mesmo que não hajam adquirido a vitaliciedade, poderão praticar todos os atos reservados por lei aos juízes vitalícios.","Parágrafo 2º acrescido pelo art. 1º da LC n. 37/1979.
+Ac.-TSE, de 1º/3/2001, no REspe n. 19260: possibilidade de juiz de direito substituto exercer as funções de juiz eleitoral mesmo antes de adquirir a vitaliciedade.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Parágrafo 2º acrescido pelo art. 1º da LC n. 37/1979."", ""pagina_inicial"": 621, ""pagina_final"": 621}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""Ac.-TSE, de 1º/3/2001, no REspe n. 19260: possibilidade de juiz de direito substituto exercer as funções de juiz eleitoral mesmo antes de adquirir a vitaliciedade."", ""pagina_inicial"": 621, ""pagina_final"": 621}]","2","LC n. 37/1979","Ac.-TSE, de 1º/3/2001, no REspe n; REspe n. 19260","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 22, §2º
+Tipo: paragrafo
+Hierarquia: TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO III - DOS MAGISTRADOS
+Dispositivo pai: Art. 22
+Páginas: 620-621
+§ 2º Os juízes a que se refere o inciso II deste artigo, mesmo que não hajam adquirido a vitaliciedade, poderão praticar todos os atos reservados por lei aos juízes vitalícios.
+Notas vinculadas:
+Parágrafo 2º acrescido pelo art. 1º da LC n. 37/1979.
+Ac.-TSE, de 1º/3/2001, no REspe n. 19260: possibilidade de juiz de direito substituto exercer as funções de juiz eleitoral mesmo antes de adquirir a vitaliciedade.","§ 2º Os juízes a que se refere o inciso II deste artigo, mesmo que não hajam adquirido a vitaliciedade, poderão praticar todos os atos reservados por lei aos juízes vitalícios.","juizes; mesmo; vitaliciedade; juiz; complementar; marco; titulo; poder; judiciario; capitulo","True","765","191"
+"27","27","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","621","621","TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO III - DOS MAGISTRADOS","artigo","Art. 23","","Art. 23","","","","","Art. 23. Os juízes e membros de Tribunais e juntas eleitorais, no exercício de suas funções e no que lhes for aplicável, gozarão de plenas garantias e serão inamovíveis. [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 23
+Tipo: artigo
+Hierarquia: TÍTULO I - DO PODER JUDICIÁRIO > CAPÍTULO III - DOS MAGISTRADOS
+Páginas: 621-621
+Art. 23. Os juízes e membros de Tribunais e juntas eleitorais, no exercício de suas funções e no que lhes for aplicável, gozarão de plenas garantias e serão inamovíveis. [...]","Art. 23. Os juízes e membros de Tribunais e juntas eleitorais, no exercício de suas funções e no que lhes for aplicável, gozarão de plenas garantias e serão inamovíveis. [...]","complementar; marco; titulo; poder; judiciario; capitulo; magistrados; juizes; membros; tribunais","True","495","123"
+"28","28","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","621","621","TÍTULO II - DAS GARANTIAS DA MAGISTRATURA E DAS","estrutura","TÍTULO II - DAS GARANTIAS DA MAGISTRATURA E DAS","","Art. 23","","","","","TÍTULO II - DAS GARANTIAS DA MAGISTRATURA E DAS","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: TÍTULO II - DAS GARANTIAS DA MAGISTRATURA E DAS
+Tipo: estrutura
+Hierarquia: TÍTULO II - DAS GARANTIAS DA MAGISTRATURA E DAS
+Páginas: 621-621
+TÍTULO II - DAS GARANTIAS DA MAGISTRATURA E DAS","TÍTULO II - DAS GARANTIAS DA MAGISTRATURA E DAS","titulo; garantias; magistratura; complementar; marco","True","394","98"
+"29","29","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","621","621","TÍTULO II - DAS GARANTIAS DA MAGISTRATURA E DAS > PRERROGATIVAS DO MAGISTRADO","estrutura","PRERROGATIVAS DO MAGISTRADO","","Art. 23","","","","","PRERROGATIVAS DO MAGISTRADO [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: PRERROGATIVAS DO MAGISTRADO
+Tipo: estrutura
+Hierarquia: TÍTULO II - DAS GARANTIAS DA MAGISTRATURA E DAS > PRERROGATIVAS DO MAGISTRADO
+Páginas: 621-621
+PRERROGATIVAS DO MAGISTRADO [...]","PRERROGATIVAS DO MAGISTRADO [...]","prerrogativas; magistrado; complementar; marco; titulo; garantias; magistratura","True","390","97"
+"30","30","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","621","621","TÍTULO II - DAS GARANTIAS DA MAGISTRATURA E DAS > CAPÍTULO II - DAS PRERROGATIVAS DO MAGISTRADO","estrutura","CAPÍTULO II - DAS PRERROGATIVAS DO MAGISTRADO","","Art. 23","","","","","CAPÍTULO II - DAS PRERROGATIVAS DO MAGISTRADO [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: CAPÍTULO II - DAS PRERROGATIVAS DO MAGISTRADO
+Tipo: estrutura
+Hierarquia: TÍTULO II - DAS GARANTIAS DA MAGISTRATURA E DAS > CAPÍTULO II - DAS PRERROGATIVAS DO MAGISTRADO
+Páginas: 621-621
+CAPÍTULO II - DAS PRERROGATIVAS DO MAGISTRADO [...]","CAPÍTULO II - DAS PRERROGATIVAS DO MAGISTRADO [...]","capitulo; prerrogativas; magistrado; complementar; marco; titulo; garantias; magistratura","True","444","111"
+"31","31","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","621","621","TÍTULO II - DAS GARANTIAS DA MAGISTRATURA E DAS > CAPÍTULO II - DAS PRERROGATIVAS DO MAGISTRADO","artigo","Art. 34","","Art. 34","","","","","Art. 34. Os membros do Supremo Tribunal Federal, do Tribunal Federal de Recursos, do Superior Tribunal Militar, do Tribunal Superior Eleitoral e do Tribunal Superior do Trabalho têm o título de ministro; os dos Tribunais de Justiça, o de desembargador; sendo o de juiz, privativo dos integrantes dos outros Tribunais e da magistratura de primeira instância.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 34
+Tipo: artigo
+Hierarquia: TÍTULO II - DAS GARANTIAS DA MAGISTRATURA E DAS > CAPÍTULO II - DAS PRERROGATIVAS DO MAGISTRADO
+Páginas: 621-621
+Art. 34. Os membros do Supremo Tribunal Federal, do Tribunal Federal de Recursos, do Superior Tribunal Militar, do Tribunal Superior Eleitoral e do Tribunal Superior do Trabalho têm o título de ministro; os dos Tribunais de Justiça, o de desembargador; sendo o de juiz, privativo dos integrantes dos outros Tribunais e da magistratura de primeira instância.","Art. 34. Os membros do Supremo Tribunal Federal, do Tribunal Federal de Recursos, do Superior Tribunal Militar, do Tribunal Superior Eleitoral e do Tribunal Superior do Trabalho têm o título de ministro; os dos Tribunais de Justiça, o de...","tribunal; superior; titulo; magistratura; federal; tribunais; complementar; marco; garantias; capitulo","True","709","177"
+"32","32","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","621","621","TÍTULO III - DA DISCIPLINA JUDICIÁRIA","estrutura","TÍTULO III - DA DISCIPLINA JUDICIÁRIA","","Art. 34","","","","","TÍTULO III - DA DISCIPLINA JUDICIÁRIA","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: TÍTULO III - DA DISCIPLINA JUDICIÁRIA
+Tipo: estrutura
+Hierarquia: TÍTULO III - DA DISCIPLINA JUDICIÁRIA
+Páginas: 621-621
+TÍTULO III - DA DISCIPLINA JUDICIÁRIA","TÍTULO III - DA DISCIPLINA JUDICIÁRIA","titulo; disciplina; judiciaria; complementar; marco","True","364","91"
+"33","33","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","621","621","TÍTULO III - DA DISCIPLINA JUDICIÁRIA > CAPÍTULO I - DOS DEVERES DO MAGISTRADO","estrutura","CAPÍTULO I - DOS DEVERES DO MAGISTRADO","","Art. 34","","","","","CAPÍTULO I - DOS DEVERES DO MAGISTRADO","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: CAPÍTULO I - DOS DEVERES DO MAGISTRADO
+Tipo: estrutura
+Hierarquia: TÍTULO III - DA DISCIPLINA JUDICIÁRIA > CAPÍTULO I - DOS DEVERES DO MAGISTRADO
+Páginas: 621-621
+CAPÍTULO I - DOS DEVERES DO MAGISTRADO","CAPÍTULO I - DOS DEVERES DO MAGISTRADO","capitulo; deveres; magistrado; complementar; marco; titulo; disciplina; judiciaria","True","407","101"
+"34","34","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","621","621","TÍTULO III - DA DISCIPLINA JUDICIÁRIA > CAPÍTULO I - DOS DEVERES DO MAGISTRADO","artigo","Art. 35","","Art. 35","","","","","Art. 35. São deveres do magistrado: [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 35
+Tipo: artigo
+Hierarquia: TÍTULO III - DA DISCIPLINA JUDICIÁRIA > CAPÍTULO I - DOS DEVERES DO MAGISTRADO
+Páginas: 621-621
+Art. 35. São deveres do magistrado: [...]","Art. 35. São deveres do magistrado: [...]","deveres; magistrado; complementar; marco; titulo; disciplina; judiciaria; capitulo","True","376","94"
+"35","35","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","621","621","TÍTULO III - DA DISCIPLINA JUDICIÁRIA > CAPÍTULO I - DOS DEVERES DO MAGISTRADO","inciso","Art. 35, V","Art. 35","Art. 35","","V","","","V - residir na sede da comarca, salvo autorização do órgão disciplinar a que estiver subordinado; [...]","Res.-TSE n. 22607/2007, art. 1º, § 1º: “Compete aos Tribunais de Justiça, e não aos Tribunais Regionais Eleitorais, autorizar os juízes de direito, em caráter excepcional, a residirem fora da comarca”.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Res.-TSE n. 22607/2007, art. 1º, § 1º: “Compete aos Tribunais de Justiça, e não aos Tribunais Regionais Eleitorais, autorizar os juízes de direito, em caráter excepcional, a residirem fora da comarca”."", ""pagina_inicial"": 621, ""pagina_final"": 621}]","1","Res.-TSE n. 22607/2007","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 35, V
+Tipo: inciso
+Hierarquia: TÍTULO III - DA DISCIPLINA JUDICIÁRIA > CAPÍTULO I - DOS DEVERES DO MAGISTRADO
+Dispositivo pai: Art. 35
+Páginas: 621-621
+V - residir na sede da comarca, salvo autorização do órgão disciplinar a que estiver subordinado; [...]
+Notas vinculadas:
+Res.-TSE n. 22607/2007, art. 1º, § 1º: “Compete aos Tribunais de Justiça, e não aos Tribunais Regionais Eleitorais, autorizar os juízes de direito, em caráter excepcional, a residirem fora da comarca”.","V - residir na sede da comarca, salvo autorização do órgão disciplinar a que estiver subordinado; [...]","comarca; tribunais; complementar; marco; titulo; disciplina; judiciaria; capitulo; deveres; magistrado","True","686","171"
+"36","36","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","621","621","TÍTULO IV - DOS VENCIMENTOS, VANTAGENS E","estrutura","TÍTULO IV - DOS VENCIMENTOS, VANTAGENS E","","Art. 35","","V","","","TÍTULO IV - DOS VENCIMENTOS, VANTAGENS E","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: TÍTULO IV - DOS VENCIMENTOS, VANTAGENS E
+Tipo: estrutura
+Hierarquia: TÍTULO IV - DOS VENCIMENTOS, VANTAGENS E
+Páginas: 621-621
+TÍTULO IV - DOS VENCIMENTOS, VANTAGENS E","TÍTULO IV - DOS VENCIMENTOS, VANTAGENS E","titulo; vencimentos; vantagens; complementar; marco","True","373","93"
+"37","37","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","621","621","TÍTULO IV - DOS VENCIMENTOS, VANTAGENS E > DIREITOS DOS MAGISTRADOS","estrutura","DIREITOS DOS MAGISTRADOS","","Art. 35","","V","","","DIREITOS DOS MAGISTRADOS","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: DIREITOS DOS MAGISTRADOS
+Tipo: estrutura
+Hierarquia: TÍTULO IV - DOS VENCIMENTOS, VANTAGENS E > DIREITOS DOS MAGISTRADOS
+Páginas: 621-621
+DIREITOS DOS MAGISTRADOS","DIREITOS DOS MAGISTRADOS","direitos; magistrados; complementar; marco; titulo; vencimentos; vantagens","True","368","92"
+"38","38","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","621","621","TÍTULO IV - DOS VENCIMENTOS, VANTAGENS E > CAPÍTULO I - DOS VENCIMENTOS E VANTAGENS","estrutura","CAPÍTULO I - DOS VENCIMENTOS E VANTAGENS","","Art. 35","","V","","","CAPÍTULO I - DOS VENCIMENTOS E VANTAGENS","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: CAPÍTULO I - DOS VENCIMENTOS E VANTAGENS
+Tipo: estrutura
+Hierarquia: TÍTULO IV - DOS VENCIMENTOS, VANTAGENS E > CAPÍTULO I - DOS VENCIMENTOS E VANTAGENS
+Páginas: 621-621
+CAPÍTULO I - DOS VENCIMENTOS E VANTAGENS","CAPÍTULO I - DOS VENCIMENTOS E VANTAGENS","vencimentos; vantagens; capitulo; complementar; marco; titulo","True","416","104"
+"39","39","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","621","621","TÍTULO IV - DOS VENCIMENTOS, VANTAGENS E > CAPÍTULO I - DOS VENCIMENTOS E VANTAGENS > PECUNIÁRIAS","estrutura","PECUNIÁRIAS","","Art. 35","","V","","","PECUNIÁRIAS [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: PECUNIÁRIAS
+Tipo: estrutura
+Hierarquia: TÍTULO IV - DOS VENCIMENTOS, VANTAGENS E > CAPÍTULO I - DOS VENCIMENTOS E VANTAGENS > PECUNIÁRIAS
+Páginas: 621-621
+PECUNIÁRIAS [...]","PECUNIÁRIAS [...]","pecuniarias; vencimentos; vantagens; complementar; marco; titulo; capitulo","True","378","94"
+"40","40","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","621","621","TÍTULO IV - DOS VENCIMENTOS, VANTAGENS E > CAPÍTULO I - DOS VENCIMENTOS E VANTAGENS > PECUNIÁRIAS","artigo","Art. 65","","Art. 65","","","","","Art. 65. Além dos vencimentos, poderão ser outorgadas, aos magistrados, nos termos da lei, as seguintes vantagens: [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 65
+Tipo: artigo
+Hierarquia: TÍTULO IV - DOS VENCIMENTOS, VANTAGENS E > CAPÍTULO I - DOS VENCIMENTOS E VANTAGENS > PECUNIÁRIAS
+Páginas: 621-621
+Art. 65. Além dos vencimentos, poderão ser outorgadas, aos magistrados, nos termos da lei, as seguintes vantagens: [...]","Art. 65. Além dos vencimentos, poderão ser outorgadas, aos magistrados, nos termos da lei, as seguintes vantagens: [...]","vencimentos; vantagens; complementar; marco; titulo; capitulo; pecuniarias; alem; poderao; outorgadas","True","474","118"
+"41","41","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","621","621","TÍTULO IV - DOS VENCIMENTOS, VANTAGENS E > CAPÍTULO I - DOS VENCIMENTOS E VANTAGENS > PECUNIÁRIAS","inciso","Art. 65, VI","Art. 65","Art. 65","","VI","","","VI - gratificação pela prestação de serviço à Justiça Eleitoral; [...]","Lei n. 8.350/1991: “Dispõe sobre gratificações e representações na Justiça Eleitoral”.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Lei n. 8.350/1991: “Dispõe sobre gratificações e representações na Justiça Eleitoral”."", ""pagina_inicial"": 621, ""pagina_final"": 621}]","1","Lei n. 8.350/1991","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 65, VI
+Tipo: inciso
+Hierarquia: TÍTULO IV - DOS VENCIMENTOS, VANTAGENS E > CAPÍTULO I - DOS VENCIMENTOS E VANTAGENS > PECUNIÁRIAS
+Dispositivo pai: Art. 65
+Páginas: 621-621
+VI - gratificação pela prestação de serviço à Justiça Eleitoral; [...]
+Notas vinculadas:
+Lei n. 8.350/1991: “Dispõe sobre gratificações e representações na Justiça Eleitoral”.","VI - gratificação pela prestação de serviço à Justiça Eleitoral; [...]","vencimentos; vantagens; justica; eleitoral; complementar; marco; titulo; capitulo; pecuniarias; gratificacao","True","558","139"
+"42","42","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","621","621","TÍTULO IV - DOS VENCIMENTOS, VANTAGENS E > CAPÍTULO IV - DAS CONCESSÕES","estrutura","CAPÍTULO IV - DAS CONCESSÕES","","Art. 65","","VI","","","CAPÍTULO IV - DAS CONCESSÕES [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: CAPÍTULO IV - DAS CONCESSÕES
+Tipo: estrutura
+Hierarquia: TÍTULO IV - DOS VENCIMENTOS, VANTAGENS E > CAPÍTULO IV - DAS CONCESSÕES
+Páginas: 621-621
+CAPÍTULO IV - DAS CONCESSÕES [...]","CAPÍTULO IV - DAS CONCESSÕES [...]","capitulo; concessoes; complementar; marco; titulo; vencimentos; vantagens","True","386","96"
+"43","43","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","621","621","TÍTULO IV - DOS VENCIMENTOS, VANTAGENS E > CAPÍTULO IV - DAS CONCESSÕES","artigo","Art. 73","","Art. 73","","","","","Art. 73. Conceder-se-á afastamento ao magistrado, sem prejuízo de seus vencimentos e vantagens: [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 73
+Tipo: artigo
+Hierarquia: TÍTULO IV - DOS VENCIMENTOS, VANTAGENS E > CAPÍTULO IV - DAS CONCESSÕES
+Páginas: 621-621
+Art. 73. Conceder-se-á afastamento ao magistrado, sem prejuízo de seus vencimentos e vantagens: [...]","Art. 73. Conceder-se-á afastamento ao magistrado, sem prejuízo de seus vencimentos e vantagens: [...]","vencimentos; vantagens; complementar; marco; titulo; capitulo; concessoes; conceder; afastamento; magistrado","True","429","107"
+"44","44","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","622","622","TÍTULO IV - DOS VENCIMENTOS, VANTAGENS E > CAPÍTULO IV - DAS CONCESSÕES","inciso","Art. 73, II","Art. 73","Art. 73","","II","","","II - para a prestação de serviços, exclusivamente à Justiça Eleitoral. [...]","Res.-TSE n. 23486/2016: “Dispõe sobre o afastamento de magistrados na Justiça Eleitoral do exercício dos cargos efetivos”.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Res.-TSE n. 23486/2016: “Dispõe sobre o afastamento de magistrados na Justiça Eleitoral do exercício dos cargos efetivos”."", ""pagina_inicial"": 622, ""pagina_final"": 622}]","1","Res.-TSE n. 23486/2016","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 73, II
+Tipo: inciso
+Hierarquia: TÍTULO IV - DOS VENCIMENTOS, VANTAGENS E > CAPÍTULO IV - DAS CONCESSÕES
+Dispositivo pai: Art. 73
+Páginas: 622-622
+II - para a prestação de serviços, exclusivamente à Justiça Eleitoral. [...]
+Notas vinculadas:
+Res.-TSE n. 23486/2016: “Dispõe sobre o afastamento de magistrados na Justiça Eleitoral do exercício dos cargos efetivos”.","II - para a prestação de serviços, exclusivamente à Justiça Eleitoral. [...]","justica; eleitoral; complementar; marco; titulo; vencimentos; vantagens; capitulo; concessoes; prestacao","True","574","143"
+"45","45","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","622","622","TÍTULO VIII - DA JUSTIÇA DOS ESTADOS","estrutura","TÍTULO VIII - DA JUSTIÇA DOS ESTADOS","","Art. 73","","II","","","TÍTULO VIII - DA JUSTIÇA DOS ESTADOS [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: TÍTULO VIII - DA JUSTIÇA DOS ESTADOS
+Tipo: estrutura
+Hierarquia: TÍTULO VIII - DA JUSTIÇA DOS ESTADOS
+Páginas: 622-622
+TÍTULO VIII - DA JUSTIÇA DOS ESTADOS [...]","TÍTULO VIII - DA JUSTIÇA DOS ESTADOS [...]","titulo; viii; justica; estados; complementar; marco","True","367","91"
+"46","46","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","622","622","TÍTULO VIII - DA JUSTIÇA DOS ESTADOS > CAPÍTULO II - DOS TRIBUNAIS DE JUSTIÇA","estrutura","CAPÍTULO II - DOS TRIBUNAIS DE JUSTIÇA","","Art. 73","","II","","","CAPÍTULO II - DOS TRIBUNAIS DE JUSTIÇA [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: CAPÍTULO II - DOS TRIBUNAIS DE JUSTIÇA
+Tipo: estrutura
+Hierarquia: TÍTULO VIII - DA JUSTIÇA DOS ESTADOS > CAPÍTULO II - DOS TRIBUNAIS DE JUSTIÇA
+Páginas: 622-622
+CAPÍTULO II - DOS TRIBUNAIS DE JUSTIÇA [...]","CAPÍTULO II - DOS TRIBUNAIS DE JUSTIÇA [...]","justica; capitulo; tribunais; complementar; marco; titulo; viii; estados","True","412","103"
+"47","47","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","622","622","TÍTULO VIII - DA JUSTIÇA DOS ESTADOS > CAPÍTULO II - DOS TRIBUNAIS DE JUSTIÇA","artigo","Art. 102","","Art. 102","","","","","Art. 102. Os Tribunais, pela maioria dos seus membros efetivos, por votação secreta, elegerão dentre seus juízes mais antigos, em número correspondente ao dos cargos de direção, os titulares destes, com mandato por dois anos, proibida a reeleição. Quem tiver exercido quaisquer cargos de direção por quatro anos, ou o de presidente, não figurará mais entre os elegíveis, até que se esgotem todos os nomes, na ordem de antiguidade. É obrigatória a aceitação do cargo, salvo recusa manifestada e aceita antes da eleição.","Ac.-TSE, de 21/2/2013, na Rcl n. 6972: o TSE tem adotado a orientação de que o art. 102 da Loman impede a recondução a cargos diretivos de Tribunal Eleitoral em biênios consecutivos, embora a renovação da investidura em TRE seja assegurada por força da CF/1988, art. 121, § 2º.
+Ac.-STF, de 19/12/2006, na Rcl n. 4587: impossibilidade de alteração ou restrição, por qualquer norma infraconstitucional, da duração bienal de investidura e da possibilidade de recondução de juiz de TRE.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Ac.-TSE, de 21/2/2013, na Rcl n. 6972: o TSE tem adotado a orientação de que o art. 102 da Loman impede a recondução a cargos diretivos de Tribunal Eleitoral em biênios consecutivos, embora a renovação da investidura em TRE seja assegurada por força da CF/1988, art. 121, § 2º."", ""pagina_inicial"": 622, ""pagina_final"": 622}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""Ac.-STF, de 19/12/2006, na Rcl n. 4587: impossibilidade de alteração ou restrição, por qualquer norma infraconstitucional, da duração bienal de investidura e da possibilidade de recondução de juiz de TRE."", ""pagina_inicial"": 622, ""pagina_final"": 622}]","2","CF/1988, art. 121, § 2º","Ac.-TSE, de 21/2/2013, na Rcl n; Ac.-STF, de 19/12/2006, na Rcl n","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 102
+Tipo: artigo
+Hierarquia: TÍTULO VIII - DA JUSTIÇA DOS ESTADOS > CAPÍTULO II - DOS TRIBUNAIS DE JUSTIÇA
+Páginas: 622-622
+Art. 102. Os Tribunais, pela maioria dos seus membros efetivos, por votação secreta, elegerão dentre seus juízes mais antigos, em número correspondente ao dos cargos de direção, os titulares destes, com mandato por dois anos, proibida a reeleição. Quem tiver exercido quaisquer cargos de direção por quatro anos, ou o de presidente, não figurará mais entre os elegíveis, até que se esgotem todos os nomes, na ordem de antiguidade. É obrigatória a aceitação do cargo, salvo recusa manifestada e aceita antes da eleição.
+Notas vinculadas:
+Ac.-TSE, de 21/2/2013, na Rcl n. 6972: o TSE tem adotado a orientação de que o art. 102 da Loman impede a recondução a cargos diretivos de Tribunal Eleitoral em biênios consecutivos, embora a renovação da investidura em TRE seja assegurada por força da CF/1988, art. 121, § 2º.
+Ac.-STF, de 19/12/2006, na Rcl n. 4587: impossibilidade de alteração ou restrição, por qualquer norma infraconstitucional, da duração bienal de investidura e da possibilidade de recondução de juiz de TRE.","Art. 102. Os Tribunais, pela maioria dos seus membros efetivos, por votação secreta, elegerão dentre seus juízes mais antigos, em número correspondente ao dos cargos de direção, os titulares destes, com mandato por dois anos, proibida a...","cargos; justica; tribunais; seus; mais; direcao; anos; reconducao; investidura; complementar","True","1354","338"
+"48","48","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","622","622","TÍTULO VIII - DA JUSTIÇA DOS ESTADOS > CAPÍTULO II - DOS TRIBUNAIS DE JUSTIÇA","paragrafo","Art. 102, Parágrafo único","Art. 102","Art. 102","Parágrafo único","","","","Parágrafo único. O disposto neste artigo não se aplica ao juiz eleito, para completar período de mandato inferior a um ano. [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 102, Parágrafo único
+Tipo: paragrafo
+Hierarquia: TÍTULO VIII - DA JUSTIÇA DOS ESTADOS > CAPÍTULO II - DOS TRIBUNAIS DE JUSTIÇA
+Dispositivo pai: Art. 102
+Páginas: 622-622
+Parágrafo único. O disposto neste artigo não se aplica ao juiz eleito, para completar período de mandato inferior a um ano. [...]","Parágrafo único. O disposto neste artigo não se aplica ao juiz eleito, para completar período de mandato inferior a um ano. [...]","justica; paragrafo; unico; complementar; marco; titulo; viii; estados; capitulo; tribunais","True","510","127"
+"49","49","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","622","622","TÍTULO X - DISPOSIÇÕES FINAIS E TRANSITÓRIAS","estrutura","TÍTULO X - DISPOSIÇÕES FINAIS E TRANSITÓRIAS","","Art. 102","Parágrafo único","","","","TÍTULO X - DISPOSIÇÕES FINAIS E TRANSITÓRIAS [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: TÍTULO X - DISPOSIÇÕES FINAIS E TRANSITÓRIAS
+Tipo: estrutura
+Hierarquia: TÍTULO X - DISPOSIÇÕES FINAIS E TRANSITÓRIAS
+Páginas: 622-622
+TÍTULO X - DISPOSIÇÕES FINAIS E TRANSITÓRIAS [...]","TÍTULO X - DISPOSIÇÕES FINAIS E TRANSITÓRIAS [...]","titulo; disposicoes; finais; transitorias; complementar; marco","True","391","97"
+"50","50","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","622","622","TÍTULO X - DISPOSIÇÕES FINAIS E TRANSITÓRIAS","artigo","Art. 122","","Art. 122","","","","","Art. 122. Os presidentes e vice-presidentes de Tribunal, assim como os corregedores, não poderão participar de Tribunal Eleitoral. [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 122
+Tipo: artigo
+Hierarquia: TÍTULO X - DISPOSIÇÕES FINAIS E TRANSITÓRIAS
+Páginas: 622-622
+Art. 122. Os presidentes e vice-presidentes de Tribunal, assim como os corregedores, não poderão participar de Tribunal Eleitoral. [...]","Art. 122. Os presidentes e vice-presidentes de Tribunal, assim como os corregedores, não poderão participar de Tribunal Eleitoral. [...]","presidentes; tribunal; complementar; marco; titulo; disposicoes; finais; transitorias; vice; assim","True","438","109"
+"51","51","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","622","622","TÍTULO X - DISPOSIÇÕES FINAIS E TRANSITÓRIAS","artigo","Art. 146","","Art. 146","","","","","Art. 146. Esta lei entrará em vigor sessenta dias após sua publicação.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 146
+Tipo: artigo
+Hierarquia: TÍTULO X - DISPOSIÇÕES FINAIS E TRANSITÓRIAS
+Páginas: 622-622
+Art. 146. Esta lei entrará em vigor sessenta dias após sua publicação.","Art. 146. Esta lei entrará em vigor sessenta dias após sua publicação.","complementar; marco; titulo; disposicoes; finais; transitorias; esta; entrara; vigor; sessenta","True","372","93"
+"52","52","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_35_1979","Lei Complementar n. 35, de 14 de março de 1979","","Legislação correlata","Legislação correlata","622","622","TÍTULO X - DISPOSIÇÕES FINAIS E TRANSITÓRIAS","artigo","Art. 147","","Art. 147","","","","","Art. 147. Revogam-se as disposições em contrário. Brasília, em 14 de março de 1979; 158º da Independência e 91º da República. ERNESTO GEISEL ARMANDO FALCÃO","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 35, de 14 de março de 1979
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 147
+Tipo: artigo
+Hierarquia: TÍTULO X - DISPOSIÇÕES FINAIS E TRANSITÓRIAS
+Páginas: 622-622
+Art. 147. Revogam-se as disposições em contrário. Brasília, em 14 de março de 1979; 158º da Independência e 91º da República. ERNESTO GEISEL ARMANDO FALCÃO","Art. 147. Revogam-se as disposições em contrário. Brasília, em 14 de março de 1979; 158º da Independência e 91º da República. ERNESTO GEISEL ARMANDO FALCÃO","marco; disposicoes; complementar; titulo; finais; transitorias; revogam; contrario; brasilia; independencia","True","457","114"

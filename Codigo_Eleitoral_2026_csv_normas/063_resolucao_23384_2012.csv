@@ -1,0 +1,292 @@
+﻿"id","ordem_doc","arquivo_fonte","norma_id","norma_titulo","norma_nome_popular","macrogrupo","grupo_sumario","pagina_inicial","pagina_final","hierarquia_normativa","tipo_dispositivo","dispositivo","dispositivo_pai","artigo","paragrafo","inciso","alinea","item","texto_dispositivo","notas_texto","notas_json","qtd_notas","referencias_normativas","referencias_jurisprudenciais","referencias_sumulas","texto_rag","resumo_curto","palavras_chave","incluir_no_rag","chars","tokens_estimados"
+"1","1","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","845","845","","norma","Resolução n. 23.384, de 9 de agosto de 2012","","","","","","","Dispõe sobre o Sistema de Informações de Contas Eleitorais e Partidárias (Sico), no âmbito da Justiça Eleitoral. O TRIBUNAL SUPERIOR ELEITORAL, usando das atribuições que lhe confere o art. 61 da Lei n. 9.096, de 19 de setembro de 1995, e Considerando a necessidade de padronização e de gerenciamento das informações referentes às prestações de contas eleitorais e partidárias, resolve:","","[]","0","Lei n. 9.096","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Resolução n. 23.384, de 9 de agosto de 2012
+Tipo: norma
+Páginas: 845-845
+Dispõe sobre o Sistema de Informações de Contas Eleitorais e Partidárias (Sico), no âmbito da Justiça Eleitoral. O TRIBUNAL SUPERIOR ELEITORAL, usando das atribuições que lhe confere o art. 61 da Lei n. 9.096, de 19 de setembro de 1995, e Considerando a necessidade de padronização e de gerenciamento das informações referentes às prestações de contas eleitorais e partidárias, resolve:","Dispõe sobre o Sistema de Informações de Contas Eleitorais e Partidárias (Sico), no âmbito da Justiça Eleitoral. O TRIBUNAL SUPERIOR ELEITORAL, usando das atribuições que lhe confere o art. 61 da Lei n. 9.096, de 19 de setembro de 1995, e...","resolucao; agosto; informacoes; contas; eleitorais; partidarias; eleitoral; dispoe; sobre; sistema","True","656","164"
+"2","2","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","845","845","","artigo","Art. 1º","","Art. 1º","","","","","Art. 1º Implantar, no âmbito da Justiça Eleitoral, o Sistema de Informações de Contas Eleitorais e Partidárias (Sico).","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 1º
+Tipo: artigo
+Páginas: 845-845
+Art. 1º Implantar, no âmbito da Justiça Eleitoral, o Sistema de Informações de Contas Eleitorais e Partidárias (Sico).","Art. 1º Implantar, no âmbito da Justiça Eleitoral, o Sistema de Informações de Contas Eleitorais e Partidárias (Sico).","resolucao; agosto; implantar; ambito; justica; eleitoral; sistema; informacoes; contas; eleitorais","True","353","88"
+"3","3","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","845","845","","artigo","Art. 2º","","Art. 2º","","","","","Art. 2º O Sico é composto por dois módulos: interno e consulta web.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 2º
+Tipo: artigo
+Páginas: 845-845
+Art. 2º O Sico é composto por dois módulos: interno e consulta web.","Art. 2º O Sico é composto por dois módulos: interno e consulta web.","resolucao; agosto; sico; composto; dois; modulos; interno; consulta","True","302","75"
+"4","4","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","845","845","","artigo","Art. 3º","","Art. 3º","","","","","Art. 3º O módulo interno, de utilização obrigatória e exclusiva da Justiça Eleitoral por meio da rede intranet, tem como objetivo padronizar e gerenciar o cadastro de informações referentes aos processos de prestação de contas eleitorais e partidárias, quanto à apresentação e ao julgamento.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º
+Tipo: artigo
+Páginas: 845-845
+Art. 3º O módulo interno, de utilização obrigatória e exclusiva da Justiça Eleitoral por meio da rede intranet, tem como objetivo padronizar e gerenciar o cadastro de informações referentes aos processos de prestação de contas eleitorais e partidárias, quanto à apresentação e ao julgamento.","Art. 3º O módulo interno, de utilização obrigatória e exclusiva da Justiça Eleitoral por meio da rede intranet, tem como objetivo padronizar e gerenciar o cadastro de informações referentes aos processos de prestação de contas eleitorais e...","resolucao; agosto; modulo; interno; utilizacao; obrigatoria; exclusiva; justica; eleitoral; meio","True","526","131"
+"5","5","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","845","845","","paragrafo","Art. 3º, §1º","Art. 3º","Art. 3º","§1º","","","","§ 1º O módulo interno permitirá aos usuários registrar informações específicas sobre a apresentação ou não e julgamento das contas eleitorais e partidárias, bem como realizar, no âmbito da Justiça Eleitoral, o acompanhamento das penalidades previstas, quando for o caso.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 845-845
+§ 1º O módulo interno permitirá aos usuários registrar informações específicas sobre a apresentação ou não e julgamento das contas eleitorais e partidárias, bem como realizar, no âmbito da Justiça Eleitoral, o acompanhamento das penalidades previstas, quando for o caso.","§ 1º O módulo interno permitirá aos usuários registrar informações específicas sobre a apresentação ou não e julgamento das contas eleitorais e partidárias, bem como realizar, no âmbito da Justiça Eleitoral, o acompanhamento das...","resolucao; agosto; modulo; interno; permitira; usuarios; registrar; informacoes; especificas; sobre","True","538","134"
+"6","6","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","845","845","","paragrafo","Art. 3º, §2º","Art. 3º","Art. 3º","§2º","","","","§ 2º As informações serão cadastradas:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §2º
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 845-845
+§ 2º As informações serão cadastradas:","§ 2º As informações serão cadastradas:","resolucao; agosto; informacoes; serao; cadastradas","True","306","76"
+"7","7","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","845","845","","inciso","Art. 3º, §2º, I","Art. 3º, §2º","Art. 3º","§2º","I","","","I - pelo Tribunal Superior Eleitoral, em relação aos diretórios nacionais e às eleições presidenciais;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §2º, I
+Tipo: inciso
+Dispositivo pai: Art. 3º, §2º
+Páginas: 845-845
+I - pelo Tribunal Superior Eleitoral, em relação aos diretórios nacionais e às eleições presidenciais;","I - pelo Tribunal Superior Eleitoral, em relação aos diretórios nacionais e às eleições presidenciais;","resolucao; agosto; tribunal; superior; eleitoral; relacao; diretorios; nacionais; eleicoes; presidenciais","True","375","93"
+"8","8","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","845","845","","inciso","Art. 3º, §2º, II","Art. 3º, §2º","Art. 3º","§2º","II","","","II - pelos Tribunais Regionais, em relação aos diretórios, às comissões provisórias e às eleições estaduais/distrital;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §2º, II
+Tipo: inciso
+Dispositivo pai: Art. 3º, §2º
+Páginas: 845-845
+II - pelos Tribunais Regionais, em relação aos diretórios, às comissões provisórias e às eleições estaduais/distrital;","II - pelos Tribunais Regionais, em relação aos diretórios, às comissões provisórias e às eleições estaduais/distrital;","resolucao; agosto; tribunais; regionais; relacao; diretorios; comissoes; provisorias; eleicoes; estaduais","True","392","98"
+"9","9","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","845","845","","inciso","Art. 3º, §2º, III","Art. 3º, §2º","Art. 3º","§2º","III","","","III - pelos juízes eleitorais, em relação aos diretórios, às comissões provisórias e às eleições municipais.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §2º, III
+Tipo: inciso
+Dispositivo pai: Art. 3º, §2º
+Páginas: 845-845
+III - pelos juízes eleitorais, em relação aos diretórios, às comissões provisórias e às eleições municipais.","III - pelos juízes eleitorais, em relação aos diretórios, às comissões provisórias e às eleições municipais.","resolucao; agosto; juizes; eleitorais; relacao; diretorios; comissoes; provisorias; eleicoes; municipais","True","383","95"
+"10","10","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","845","845","","artigo","Art. 4º","","Art. 4º","","","","","Art. 4º O sistema importará automaticamente os dados das prestações de contas eleitorais registrados no Sistema de Prestação de Contas Eleitorais (SPCE).","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º
+Tipo: artigo
+Páginas: 845-845
+Art. 4º O sistema importará automaticamente os dados das prestações de contas eleitorais registrados no Sistema de Prestação de Contas Eleitorais (SPCE).","Art. 4º O sistema importará automaticamente os dados das prestações de contas eleitorais registrados no Sistema de Prestação de Contas Eleitorais (SPCE).","sistema; contas; eleitorais; resolucao; agosto; importara; automaticamente; dados; prestacoes; registrados","True","388","97"
+"11","11","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","845","845","","artigo","Art. 5º","","Art. 5º","","","","","Art. 5º Após implementação do Sistema de Acompanhamento de Documentos e Processos (SADP) em todos os órgãos da Justiça Eleitoral, o número de protocolo será vinculado automaticamente ao Sico.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 5º
+Tipo: artigo
+Páginas: 845-845
+Art. 5º Após implementação do Sistema de Acompanhamento de Documentos e Processos (SADP) em todos os órgãos da Justiça Eleitoral, o número de protocolo será vinculado automaticamente ao Sico.","Art. 5º Após implementação do Sistema de Acompanhamento de Documentos e Processos (SADP) em todos os órgãos da Justiça Eleitoral, o número de protocolo será vinculado automaticamente ao Sico.","resolucao; agosto; apos; implementacao; sistema; acompanhamento; documentos; processos; sadp; todos","True","426","106"
+"12","12","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","845","845","","artigo","Art. 6º","","Art. 6º","","","","","Art. 6º A Justiça Eleitoral, por meio do módulo consulta web, disponível no sítio do Tribunal Superior Eleitoral, divulgará os dados referentes à situação das contas dos partidos políticos, dos candidatos e dos comitês financeiros, nos âmbitos nacional, estadual, distrital e municipal.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 6º
+Tipo: artigo
+Páginas: 845-845
+Art. 6º A Justiça Eleitoral, por meio do módulo consulta web, disponível no sítio do Tribunal Superior Eleitoral, divulgará os dados referentes à situação das contas dos partidos políticos, dos candidatos e dos comitês financeiros, nos âmbitos nacional, estadual, distrital e municipal.","Art. 6º A Justiça Eleitoral, por meio do módulo consulta web, disponível no sítio do Tribunal Superior Eleitoral, divulgará os dados referentes à situação das contas dos partidos políticos, dos candidatos e dos comitês financeiros, nos...","eleitoral; resolucao; agosto; justica; meio; modulo; consulta; disponivel; sitio; tribunal","True","521","130"
+"13","13","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","845","845","","artigo","Art. 7º","","Art. 7º","","","","","Art. 7º O Sico possui três perfis de usuários:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 7º
+Tipo: artigo
+Páginas: 845-845
+Art. 7º O Sico possui três perfis de usuários:","Art. 7º O Sico possui três perfis de usuários:","resolucao; agosto; sico; possui; tres; perfis; usuarios","True","281","70"
+"14","14","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","845","845","","inciso","Art. 7º, I","Art. 7º","Art. 7º","","I","","","I - administrador, que gerencia o cadastro de usuários e efetua todas as operações e controles no sistema;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 7º, I
+Tipo: inciso
+Dispositivo pai: Art. 7º
+Páginas: 845-845
+I - administrador, que gerencia o cadastro de usuários e efetua todas as operações e controles no sistema;","I - administrador, que gerencia o cadastro de usuários e efetua todas as operações e controles no sistema;","resolucao; agosto; administrador; gerencia; cadastro; usuarios; efetua; todas; operacoes; controles","True","369","92"
+"15","15","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","845","845","","inciso","Art. 7º, II","Art. 7º","Art. 7º","","II","","","II - operador, que habilita operações de inclusão, alteração, edição e emissão de relatórios;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 7º, II
+Tipo: inciso
+Dispositivo pai: Art. 7º
+Páginas: 845-845
+II - operador, que habilita operações de inclusão, alteração, edição e emissão de relatórios;","II - operador, que habilita operações de inclusão, alteração, edição e emissão de relatórios;","resolucao; agosto; operador; habilita; operacoes; inclusao; alteracao; edicao; emissao; relatorios","True","357","89"
+"16","16","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","845","845","","inciso","Art. 7º, III","Art. 7º","Art. 7º","","III","","","III - consulta, que viabiliza a pesquisa de dados e emissão de relatórios.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 7º, III
+Tipo: inciso
+Dispositivo pai: Art. 7º
+Páginas: 845-845
+III - consulta, que viabiliza a pesquisa de dados e emissão de relatórios.","III - consulta, que viabiliza a pesquisa de dados e emissão de relatórios.","resolucao; agosto; consulta; viabiliza; pesquisa; dados; emissao; relatorios","True","339","84"
+"17","17","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","846","846","","paragrafo","Art. 7º, Parágrafo único","Art. 7º","Art. 7º","Parágrafo único","","","","Parágrafo único. Os perfis serão gerenciados de forma autônoma pelo administrador de cada órgão da Justiça Eleitoral.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 7º, Parágrafo único
+Tipo: paragrafo
+Dispositivo pai: Art. 7º
+Páginas: 846-846
+Parágrafo único. Os perfis serão gerenciados de forma autônoma pelo administrador de cada órgão da Justiça Eleitoral.","Parágrafo único. Os perfis serão gerenciados de forma autônoma pelo administrador de cada órgão da Justiça Eleitoral.","paragrafo; unico; resolucao; agosto; perfis; serao; gerenciados; forma; autonoma; administrador","True","397","99"
+"18","18","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","846","846","","artigo","Art. 8º","","Art. 8º","","","","","Art. 8º O cadastramento de usuários com perfil de administrador será realizado:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 8º
+Tipo: artigo
+Páginas: 846-846
+Art. 8º O cadastramento de usuários com perfil de administrador será realizado:","Art. 8º O cadastramento de usuários com perfil de administrador será realizado:","resolucao; agosto; cadastramento; usuarios; perfil; administrador; sera; realizado","True","314","78"
+"19","19","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","846","846","","inciso","Art. 8º, I","Art. 8º","Art. 8º","","I","","","I - pela unidade do Tribunal Superior Eleitoral responsável pela análise da prestação de contas eleitorais e partidárias, em relação a seus servidores, e, no momento da instalação do sistema, aos servidores dos Tribunais Regionais;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 8º, I
+Tipo: inciso
+Dispositivo pai: Art. 8º
+Páginas: 846-846
+I - pela unidade do Tribunal Superior Eleitoral responsável pela análise da prestação de contas eleitorais e partidárias, em relação a seus servidores, e, no momento da instalação do sistema, aos servidores dos Tribunais Regionais;","I - pela unidade do Tribunal Superior Eleitoral responsável pela análise da prestação de contas eleitorais e partidárias, em relação a seus servidores, e, no momento da instalação do sistema, aos servidores dos Tribunais Regionais;","servidores; resolucao; agosto; unidade; tribunal; superior; eleitoral; responsavel; analise; prestacao","True","494","123"
+"20","20","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","846","846","","inciso","Art. 8º, II","Art. 8º","Art. 8º","","II","","","II - pelas unidades dos Tribunais Regionais responsáveis pela análise da prestação de contas eleitorais e partidárias, em relação a seus servidores, na fase de produção;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 8º, II
+Tipo: inciso
+Dispositivo pai: Art. 8º
+Páginas: 846-846
+II - pelas unidades dos Tribunais Regionais responsáveis pela análise da prestação de contas eleitorais e partidárias, em relação a seus servidores, na fase de produção;","II - pelas unidades dos Tribunais Regionais responsáveis pela análise da prestação de contas eleitorais e partidárias, em relação a seus servidores, na fase de produção;","resolucao; agosto; unidades; tribunais; regionais; responsaveis; analise; prestacao; contas; eleitorais","True","433","108"
+"21","21","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","846","846","","inciso","Art. 8º, III","Art. 8º","Art. 8º","","III","","","III - pelas unidades dos Tribunais Regionais responsáveis pela análise da prestação de contas eleitorais e partidárias, em relação aos servidores dos cartórios eleitorais de sua circunscrição, no momento da instalação do sistema, segundo os procedimentos de liberação de acesso de cada Tribunal Regional;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 8º, III
+Tipo: inciso
+Dispositivo pai: Art. 8º
+Páginas: 846-846
+III - pelas unidades dos Tribunais Regionais responsáveis pela análise da prestação de contas eleitorais e partidárias, em relação aos servidores dos cartórios eleitorais de sua circunscrição, no momento da instalação do sistema, segundo os procedimentos de liberação de acesso de cada Tribunal Regional;","III - pelas unidades dos Tribunais Regionais responsáveis pela análise da prestação de contas eleitorais e partidárias, em relação aos servidores dos cartórios eleitorais de sua circunscrição, no momento da instalação do sistema, segundo...","eleitorais; resolucao; agosto; unidades; tribunais; regionais; responsaveis; analise; prestacao; contas","True","569","142"
+"22","22","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","846","846","","inciso","Art. 8º, IV","Art. 8º","Art. 8º","","IV","","","IV - pelos cartórios eleitorais, em relação a seus servidores, no momento do desenvolvimento do sistema.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 8º, IV
+Tipo: inciso
+Dispositivo pai: Art. 8º
+Páginas: 846-846
+IV - pelos cartórios eleitorais, em relação a seus servidores, no momento do desenvolvimento do sistema.","IV - pelos cartórios eleitorais, em relação a seus servidores, no momento do desenvolvimento do sistema.","resolucao; agosto; cartorios; eleitorais; relacao; seus; servidores; momento; desenvolvimento; sistema","True","368","92"
+"23","23","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","846","846","","paragrafo","Art. 8º, §1º","Art. 8º","Art. 8º","§1º","","","","§ 1º Os servidores dos cartórios serão cadastrados no ambiente específico dos sistemas da Justiça Eleitoral.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 8º, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 8º
+Páginas: 846-846
+§ 1º Os servidores dos cartórios serão cadastrados no ambiente específico dos sistemas da Justiça Eleitoral.","§ 1º Os servidores dos cartórios serão cadastrados no ambiente específico dos sistemas da Justiça Eleitoral.","resolucao; agosto; servidores; cartorios; serao; cadastrados; ambiente; especifico; sistemas; justica","True","376","94"
+"24","24","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","846","846","","paragrafo","Art. 8º, §2º","Art. 8º","Art. 8º","§2º","","","","§ 2º O cadastro nos perfis administrador e operador será realizado, exclusivamente, para servidores da Justiça Eleitoral.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 8º, §2º
+Tipo: paragrafo
+Dispositivo pai: Art. 8º
+Páginas: 846-846
+§ 2º O cadastro nos perfis administrador e operador será realizado, exclusivamente, para servidores da Justiça Eleitoral.","§ 2º O cadastro nos perfis administrador e operador será realizado, exclusivamente, para servidores da Justiça Eleitoral.","resolucao; agosto; cadastro; perfis; administrador; operador; sera; realizado; exclusivamente; servidores","True","389","97"
+"25","25","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","846","846","","artigo","Art. 9º","","Art. 9º","","","","","Art. 9º A Secretaria Judiciária e os cartórios eleitorais deverão registrar as informações no prazo de 10 (dez) dias úteis a contar:","Caput com redação dada pelo art. 57 da
+Res.-TSE n. 23709/2022.","[{""ordem"": 1, ""marcador"": ""continuação"", ""texto"": ""Caput com redação dada pelo art. 57 da"", ""pagina_inicial"": 846, ""pagina_final"": 846}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""Res.-TSE n. 23709/2022."", ""pagina_inicial"": 846, ""pagina_final"": 846}]","2","Res.-TSE n. 23709/2022","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 9º
+Tipo: artigo
+Páginas: 846-846
+Art. 9º A Secretaria Judiciária e os cartórios eleitorais deverão registrar as informações no prazo de 10 (dez) dias úteis a contar:
+Notas vinculadas:
+Caput com redação dada pelo art. 57 da
+Res.-TSE n. 23709/2022.","Art. 9º A Secretaria Judiciária e os cartórios eleitorais deverão registrar as informações no prazo de 10 (dez) dias úteis a contar:","resolucao; agosto; secretaria; judiciaria; cartorios; eleitorais; deverao; registrar; informacoes; prazo","True","448","112"
+"26","26","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","846","846","","inciso","Art. 9º, I","Art. 9º","Art. 9º","","I","","","I - de 30 de abril do ano da entrega da prestação de contas partidárias;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 9º, I
+Tipo: inciso
+Dispositivo pai: Art. 9º
+Páginas: 846-846
+I - de 30 de abril do ano da entrega da prestação de contas partidárias;","I - de 30 de abril do ano da entrega da prestação de contas partidárias;","resolucao; agosto; abril; entrega; prestacao; contas; partidarias","True","335","83"
+"27","27","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","846","846","","inciso","Art. 9º, II","Art. 9º","Art. 9º","","II","","","II - do trânsito em julgado da decisão (art. 37,","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 9º, II
+Tipo: inciso
+Dispositivo pai: Art. 9º
+Páginas: 846-846
+II - do trânsito em julgado da decisão (art. 37,","II - do trânsito em julgado da decisão (art. 37,","resolucao; agosto; transito; julgado; decisao","True","312","78"
+"28","28","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","846","846","","paragrafo","Art. 9º, §6º","Art. 9º","Art. 9º","§6º","","","","§ 6º, da Lei n. 9.096/1995).","Inciso II com redação dada pelo art. 57 da Res.-TSE n. 23709/2022.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Inciso II com redação dada pelo art. 57 da Res.-TSE n. 23709/2022."", ""pagina_inicial"": 846, ""pagina_final"": 846}]","1","Lei n. 9.096/1995; Res.-TSE n. 23709/2022","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 9º, §6º
+Tipo: paragrafo
+Dispositivo pai: Art. 9º
+Páginas: 846-846
+§ 6º, da Lei n. 9.096/1995).
+Notas vinculadas:
+Inciso II com redação dada pelo art. 57 da Res.-TSE n. 23709/2022.","§ 6º, da Lei n. 9.096/1995).","resolucao; agosto; inciso; redacao; dada","True","381","95"
+"29","29","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","846","846","","paragrafo","Art. 9º, §1º","Art. 9º","Art. 9º","§1º","","","","§ 1º O registro das informações no Sico retroagirá à prestação de contas do exercício financeiro de 2010, cujos dados deverão estar atualizados no sistema no prazo de 12 (doze) meses, contados da data de publicação desta resolução.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 9º, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 9º
+Páginas: 846-846
+§ 1º O registro das informações no Sico retroagirá à prestação de contas do exercício financeiro de 2010, cujos dados deverão estar atualizados no sistema no prazo de 12 (doze) meses, contados da data de publicação desta resolução.","§ 1º O registro das informações no Sico retroagirá à prestação de contas do exercício financeiro de 2010, cujos dados deverão estar atualizados no sistema no prazo de 12 (doze) meses, contados da data de publicação desta resolução.","resolucao; agosto; registro; informacoes; sico; retroagira; prestacao; contas; exercicio; financeiro","True","499","124"
+"30","30","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","846","846","","paragrafo","Art. 9º, §2º","Art. 9º","Art. 9º","§2º","","","","§ 2º Os registros deverão ser efetuados até 10 (dez) dias úteis da ocorrência.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 9º, §2º
+Tipo: paragrafo
+Dispositivo pai: Art. 9º
+Páginas: 846-846
+§ 2º Os registros deverão ser efetuados até 10 (dez) dias úteis da ocorrência.","§ 2º Os registros deverão ser efetuados até 10 (dez) dias úteis da ocorrência.","resolucao; agosto; registros; deverao; efetuados; dias; uteis; ocorrencia","True","346","86"
+"31","31","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","846","846","","paragrafo","Art. 9º, §3º","Art. 9º","Art. 9º","§3º","","","","§ 3º Cada órgão da Justiça Eleitoral será responsável pelo conteúdo inserido ou alterado no sistema ou dele excluído.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 9º, §3º
+Tipo: paragrafo
+Dispositivo pai: Art. 9º
+Páginas: 846-846
+§ 3º Cada órgão da Justiça Eleitoral será responsável pelo conteúdo inserido ou alterado no sistema ou dele excluído.","§ 3º Cada órgão da Justiça Eleitoral será responsável pelo conteúdo inserido ou alterado no sistema ou dele excluído.","resolucao; agosto; cada; orgao; justica; eleitoral; sera; responsavel; conteudo; inserido","True","385","96"
+"32","32","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","846","846","","artigo","Art. 10","","Art. 10","","","","","Art. 10. Esta resolução entra em vigor na data de sua publicação.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 10
+Tipo: artigo
+Páginas: 846-846
+Art. 10. Esta resolução entra em vigor na data de sua publicação.","Art. 10. Esta resolução entra em vigor na data de sua publicação.","resolucao; agosto; esta; entra; vigor; data; publicacao","True","300","75"
+"33","33","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23384_2012","Resolução n. 23.384, de 9 de agosto de 2012","","Normas editadas pelo TSE","Resoluções","846","846","","artigo","Art. 11","","Art. 11","","","","","Art. 11. Fica revogada a Resolução-TSE n. 22.108/2005.","","[]","0","Resolução-TSE n. 22.108/2005","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.384, de 9 de agosto de 2012
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 11
+Tipo: artigo
+Páginas: 846-846
+Art. 11. Fica revogada a Resolução-TSE n. 22.108/2005.","Art. 11. Fica revogada a Resolução-TSE n. 22.108/2005.","resolucao; agosto; fica; revogada","True","289","72"

@@ -1,0 +1,332 @@
+﻿"id","ordem_doc","arquivo_fonte","norma_id","norma_titulo","norma_nome_popular","macrogrupo","grupo_sumario","pagina_inicial","pagina_final","hierarquia_normativa","tipo_dispositivo","dispositivo","dispositivo_pai","artigo","paragrafo","inciso","alinea","item","texto_dispositivo","notas_texto","notas_json","qtd_notas","referencias_normativas","referencias_jurisprudenciais","referencias_sumulas","texto_rag","resumo_curto","palavras_chave","incluir_no_rag","chars","tokens_estimados"
+"1","1","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1099","1100","","norma","Resolução n. 23.753, de 26 de fevereiro de 2026","","","","","","","Institui o Programa Seu Voto Importa e estabelece diretrizes e providências para garantir o exercício do direito de voto às eleitoras e aos eleitores com deficiência ou mobilidade reduzida, bem como em outros casos expressamente previstos, que não disponham de meios próprios que viabilizem o comparecimento aos locais de votação mediante o oferecimento de transporte especial no dia da eleição. O TRIBUNAL SUPERIOR ELEITORAL, no uso de suas atribuições legais, Considerando os objetivos fundamentais da República Federativa do Brasil, como a promoção do bem de todos, e o direito à igualdade; Considerando os princípios democrático e da igualdade quanto à participação eleitoral; Considerando a necessidade da adoção de políticas e ações voltadas à equiparação de oportunidades no exercício da cidadania às eleitoras e aos eleitores com deficiência ou mobilidade reduzida; Considerando o disposto no art. 3º, a, b, c, d, e e f, da Convenção sobre os Direitos das Pessoas com Deficiência e seu Protocolo Facultativo, que têm status de Emenda Constitucional, em virtude da respectiva aprovação, conforme procedimento previsto no § 3º do art. 5º da Constituição Federal; Considerando o disposto no art. 29 da Convenção Internacional dos Direitos da Pessoa com Deficiência, que garante a efetiva e a plena participação na vida política e pública, incluindo a livre expressão da vontade eleitoral; Considerando a Lei n. 13.146, de 6 de julho de 2015 – Lei Brasileira de Inclusão da Pessoa com Deficiência (Estatuto da Pessoa com Deficiência); Considerando as metas da Agenda 2030, que estabeleceu os Objetivos de Desenvolvimento Sustentável (ODS), especialmente o ODS n. 10, que visa à redução das desigualdades, e o ODS n. 16, voltado à paz, à justiça e às instituições eficazes; Considerando o Programa Nacional de Direitos Humanos, aprovado pelo Decreto n. 7.037, de 21 de dezembro de 2009, especialmente o item g do Objetivo Estratégico IX – Garantia da participação igualitária e acessível na vida política; Considerando o Programa de Acessibilidade da Justiça Eleitoral, instituído pela Resolução-TSE n. 23.381, de 19 de junho de 2012, e a importância de a Justiça Eleitoral, além de remover barreiras para viabilizar o acesso amplo e irrestrito, adotar medidas para auxiliar o deslocamento individual de eleitoras e eleitores com deficiência e com mobilidade reduzida; Considerando que o transporte especial individual previsto nesta resolução, voltado especificamente às eleitoras e aos eleitores com deficiência ou mobilidade reduzida que não disponham de meios próprios para o comparecimento ao local de votação, não se confunde nem substitui a obrigação do poder público de assegurar, nos dias de votação, a oferta gratuita de transporte coletivo urbano e intermunicipal, considerado o pronunciamento do Supremo Tribunal Federal ao apreciar a ADPF n. 1.013/DF; Considerando a importância de nacionalizar iniciativas regionais de garantia de transporte individual gratuito no dia da votação e estabelecer diretrizes que possam potencializá-las; Considerando a previsão de realização de convênios e parcerias para a promoção da acessibilidade e inclusão social, nos termos do art. 3º, VIII, da Resolução-TSE n. 23.381/2012 e do","","[]","0","Lei n. 13.146; Resolução-TSE n. 23.381; Resolução-TSE n. 23.381/2012; Decreto n. 7.037","ADPF n. 1.013","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Resolução n. 23.753, de 26 de fevereiro de 2026
+Tipo: norma
+Páginas: 1099-1100
+Institui o Programa Seu Voto Importa e estabelece diretrizes e providências para garantir o exercício do direito de voto às eleitoras e aos eleitores com deficiência ou mobilidade reduzida, bem como em outros casos expressamente previstos, que não disponham de meios próprios que viabilizem o comparecimento aos locais de votação mediante o oferecimento de transporte especial no dia da eleição. O TRIBUNAL SUPERIOR ELEITORAL, no uso de suas atribuições legais, Considerando os objetivos fundamentais da República Federativa do Brasil, como a promoção do bem de todos, e o direito à igualdade; Considerando os princípios democrático e da igualdade quanto à participação eleitoral; Considerando a necessidade da adoção de políticas e ações voltadas à equiparação de oportunidades no exercício da cidadania às eleitoras e aos eleitores com deficiência ou mobilidade reduzida; Considerando o disposto no art. 3º, a, b, c, d, e e f, da Convenção sobre os Direitos das Pessoas com Deficiência e seu Protocolo Facultativo, que têm status de Emenda Constitucional, em virtude da respectiva aprovação, conforme procedimento previsto no § 3º do art. 5º da Constituição Federal; Considerando o disposto no art. 29 da Convenção Internacional dos Direitos da Pessoa com Deficiência, que garante a efetiva e a plena participação na vida política e pública, incluindo a livre expressão da vontade eleitoral; Considerando a Lei n. 13.146, de 6 de julho de 2015 – Lei Brasileira de Inclusão da Pessoa com Deficiência (Estatuto da Pessoa com Deficiência); Considerando as metas da Agenda 2030, que estabeleceu os Objetivos de Desenvolvimento Sustentável (ODS), especialmente o ODS n. 10, que visa à redução das desigualdades, e o ODS n. 16, voltado à paz, à justiça e às instituições eficazes; Considerando o Programa Nacional de Direitos Humanos, aprovado pelo Decreto n. 7.037, de 21 de dezembro de 2009, especialmente o item g do Objetivo Estratégico IX – Garantia da participação igualitária e acessível na vida política; Considerando o Programa de Acessibilidade da Justiça Eleitoral, instituído pela Resolução-TSE n. 23.381, de 19 de junho de 2012, e a importância de a Justiça Eleitoral, além de remover barreiras para viabilizar o acesso amplo e irrestrito, adotar medidas para auxiliar o deslocamento individual de eleitoras e eleitores com deficiência e com mobilidade reduzida; Considerando que o transporte especial individual previsto nesta resolução, voltado especificamente às eleitoras e aos eleitores com deficiência ou mobilidade reduzida que não disponham de meios próprios para o comparecimento ao local de votação, não se confunde nem substitui a obrigação do poder público de assegurar, nos dias de votação, a oferta gratuita de transporte coletivo urbano e intermunicipal, considerado o pronunciamento do Supremo Tribunal Federal ao apreciar a ADPF n. 1.013/DF; Considerando a importância de nacionalizar iniciativas regionais de garantia de transporte individual gratuito no dia da votação e estabelecer diretrizes que possam potencializá-las; Considerando a previsão de realização de convênios e parcerias para a promoção da acessibilidade e inclusão social, nos termos do art. 3º, VIII, da Resolução-TSE n. 23.381/2012 e do","Institui o Programa Seu Voto Importa e estabelece diretrizes e providências para garantir o exercício do direito de voto às eleitoras e aos eleitores com deficiência ou mobilidade reduzida, bem como em outros casos expressamente previstos...","considerando; deficiencia; resolucao; eleitoral; eleitoras; eleitores; mobilidade; reduzida; votacao; transporte","True","3512","878"
+"2","2","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1100","1100","","artigo","Art. 24","","Art. 24","","","","","art. 24 da Resolução-CNJ n. 401/2021; RESOLVE:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 24
+Tipo: artigo
+Páginas: 1100-1100
+art. 24 da Resolução-CNJ n. 401/2021; RESOLVE:","art. 24 da Resolução-CNJ n. 401/2021; RESOLVE:","resolucao; fevereiro; resolve","True","287","71"
+"3","3","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1100","1100","","artigo","Art. 1º","","Art. 1º","","","","","Art. 1º Fica instituído, na Justiça Eleitoral, para as Eleições 2026, o Programa Seu Voto Importa, destinado a promover a inclusão no processo eleitoral e assegurar às eleitoras e aos eleitores com deficiência ou mobilidade reduzida, bem como em outros casos expressamente previstos, a igualdade no exercício do direito de voto mediante o oferecimento de transporte especial àqueles que não disponham de meios próprios capazes de viabilizar o respectivo comparecimento aos locais de votação no dia da eleição, nos termos fixados nesta resolução.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 1º
+Tipo: artigo
+Páginas: 1100-1100
+Art. 1º Fica instituído, na Justiça Eleitoral, para as Eleições 2026, o Programa Seu Voto Importa, destinado a promover a inclusão no processo eleitoral e assegurar às eleitoras e aos eleitores com deficiência ou mobilidade reduzida, bem como em outros casos expressamente previstos, a igualdade no exercício do direito de voto mediante o oferecimento de transporte especial àqueles que não disponham de meios próprios capazes de viabilizar o respectivo comparecimento aos locais de votação no dia da eleição, nos termos fixados nesta resolução.","Art. 1º Fica instituído, na Justiça Eleitoral, para as Eleições 2026, o Programa Seu Voto Importa, destinado a promover a inclusão no processo eleitoral e assegurar às eleitoras e aos eleitores com deficiência ou mobilidade reduzida, bem...","resolucao; eleitoral; voto; fevereiro; fica; instituido; justica; eleicoes; programa; importa","True","786","196"
+"4","4","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1100","1100","","paragrafo","Art. 1º, Parágrafo único","Art. 1º","Art. 1º","Parágrafo único","","","","Parágrafo único. Para os efeitos desta resolução, considera-se:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 1º, Parágrafo único
+Tipo: paragrafo
+Dispositivo pai: Art. 1º
+Páginas: 1100-1100
+Parágrafo único. Para os efeitos desta resolução, considera-se:","Parágrafo único. Para os efeitos desta resolução, considera-se:","resolucao; paragrafo; unico; fevereiro; efeitos; desta; considera","True","349","87"
+"5","5","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1100","1100","","inciso","Art. 1º, Parágrafo único, I","Art. 1º, Parágrafo único","Art. 1º","Parágrafo único","I","","","I - pessoa com deficiência: aquela com impedimento de longo prazo de natureza física, mental, intelectual ou sensorial, o qual, em interação com uma ou mais barreiras, pode obstruir sua participação plena e efetiva na sociedade em igualdade de condições com as demais pessoas;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 1º, Parágrafo único, I
+Tipo: inciso
+Dispositivo pai: Art. 1º, Parágrafo único
+Páginas: 1100-1100
+I - pessoa com deficiência: aquela com impedimento de longo prazo de natureza física, mental, intelectual ou sensorial, o qual, em interação com uma ou mais barreiras, pode obstruir sua participação plena e efetiva na sociedade em igualdade de condições com as demais pessoas;","I - pessoa com deficiência: aquela com impedimento de longo prazo de natureza física, mental, intelectual ou sensorial, o qual, em interação com uma ou mais barreiras, pode obstruir sua participação plena e efetiva na sociedade em...","resolucao; fevereiro; paragrafo; unico; pessoa; deficiencia; aquela; impedimento; longo; prazo","True","579","144"
+"6","6","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1100","1100","","inciso","Art. 1º, Parágrafo único, II","Art. 1º, Parágrafo único","Art. 1º","Parágrafo único","II","","","II - pessoa com mobilidade reduzida: aquela que, não se enquadrando no conceito de pessoa com deficiência, tenha, por qualquer motivo, dificuldade de movimentar-se, permanente ou temporariamente, com redução efetiva da mobilidade, flexibilidade, coordenação motora ou da percepção – incluindo idoso, gestante, lactante, pessoa com criança de colo e obeso –, quando essa condição dificulte ou impeça o deslocamento por meios próprios até o local de votação.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 1º, Parágrafo único, II
+Tipo: inciso
+Dispositivo pai: Art. 1º, Parágrafo único
+Páginas: 1100-1100
+II - pessoa com mobilidade reduzida: aquela que, não se enquadrando no conceito de pessoa com deficiência, tenha, por qualquer motivo, dificuldade de movimentar-se, permanente ou temporariamente, com redução efetiva da mobilidade, flexibilidade, coordenação motora ou da percepção – incluindo idoso, gestante, lactante, pessoa com criança de colo e obeso –, quando essa condição dificulte ou impeça o deslocamento por meios próprios até o local de votação.","II - pessoa com mobilidade reduzida: aquela que, não se enquadrando no conceito de pessoa com deficiência, tenha, por qualquer motivo, dificuldade de movimentar-se, permanente ou temporariamente, com redução efetiva da mobilidade...","pessoa; mobilidade; resolucao; fevereiro; paragrafo; unico; reduzida; aquela; enquadrando; conceito","True","760","190"
+"7","7","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1100","1100","","artigo","Art. 2º","","Art. 2º","","","","","Art. 2º Os Tribunais Regionais Eleitorais adotarão as providências necessárias ao planejamento e buscarão celebrar acordo de cooperação técnica, administrativa ou instrumento congênere de natureza cooperativa, conforme a legislação aplicável, com órgãos e entidades da Administração Pública, com vistas à disponibilização de serviço de transporte individual gratuito às eleitoras e aos eleitores com deficiência ou mobilidade reduzida que não disponham de meios próprios para o comparecimento aos locais de votação no dia da eleição.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 2º
+Tipo: artigo
+Páginas: 1100-1100
+Art. 2º Os Tribunais Regionais Eleitorais adotarão as providências necessárias ao planejamento e buscarão celebrar acordo de cooperação técnica, administrativa ou instrumento congênere de natureza cooperativa, conforme a legislação aplicável, com órgãos e entidades da Administração Pública, com vistas à disponibilização de serviço de transporte individual gratuito às eleitoras e aos eleitores com deficiência ou mobilidade reduzida que não disponham de meios próprios para o comparecimento aos locais de votação no dia da eleição.","Art. 2º Os Tribunais Regionais Eleitorais adotarão as providências necessárias ao planejamento e buscarão celebrar acordo de cooperação técnica, administrativa ou instrumento congênere de natureza cooperativa, conforme a legislação...","resolucao; fevereiro; tribunais; regionais; eleitorais; adotarao; providencias; necessarias; planejamento; buscarao","True","774","193"
+"8","8","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1100","1100","","paragrafo","Art. 2º, §1º","Art. 2º","Art. 2º","§1º","","","","§ 1º Os instrumentos deverão prever, no mínimo:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 2º, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 2º
+Páginas: 1100-1100
+§ 1º Os instrumentos deverão prever, no mínimo:","§ 1º Os instrumentos deverão prever, no mínimo:","resolucao; fevereiro; instrumentos; deverao; prever; minimo","True","321","80"
+"9","9","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1100","1100","","inciso","Art. 2º, §1º, I","Art. 2º, §1º","Art. 2º","§1º","I","","","I - as atribuições de cada partícipe;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 2º, §1º, I
+Tipo: inciso
+Dispositivo pai: Art. 2º, §1º
+Páginas: 1100-1100
+I - as atribuições de cada partícipe;","I - as atribuições de cada partícipe;","resolucao; fevereiro; atribuicoes; cada; participe","True","316","79"
+"10","10","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1100","1100","","inciso","Art. 2º, §1º, II","Art. 2º, §1º","Art. 2º","§1º","II","","","II - os canais e procedimentos de solicitação, agendamento e confirmação do transporte;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 2º, §1º, II
+Tipo: inciso
+Dispositivo pai: Art. 2º, §1º
+Páginas: 1100-1100
+II - os canais e procedimentos de solicitação, agendamento e confirmação do transporte;","II - os canais e procedimentos de solicitação, agendamento e confirmação do transporte;","resolucao; fevereiro; canais; procedimentos; solicitacao; agendamento; confirmacao; transporte","True","367","91"
+"11","11","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1100","1100","","inciso","Art. 2º, §1º, III","Art. 2º, §1º","Art. 2º","§1º","III","","","III - as regras de proteção de dados pessoais, nos termos da legislação vigente;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 2º, §1º, III
+Tipo: inciso
+Dispositivo pai: Art. 2º, §1º
+Páginas: 1100-1100
+III - as regras de proteção de dados pessoais, nos termos da legislação vigente;","III - as regras de proteção de dados pessoais, nos termos da legislação vigente;","resolucao; fevereiro; regras; protecao; dados; pessoais; termos; legislacao; vigente","True","361","90"
+"12","12","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1100","1100","","inciso","Art. 2º, §1º, IV","Art. 2º, §1º","Art. 2º","§1º","IV","","","IV - a forma de acompanhamento e registro da execução; e","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 2º, §1º, IV
+Tipo: inciso
+Dispositivo pai: Art. 2º, §1º
+Páginas: 1100-1100
+IV - a forma de acompanhamento e registro da execução; e","IV - a forma de acompanhamento e registro da execução; e","resolucao; fevereiro; forma; acompanhamento; registro; execucao","True","336","84"
+"13","13","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1100","1100","","inciso","Art. 2º, §1º, V","Art. 2º, §1º","Art. 2º","§1º","V","","","V - a vedação de sua utilização para fins de promoção pessoal, partidária ou eleitoral.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 2º, §1º, V
+Tipo: inciso
+Dispositivo pai: Art. 2º, §1º
+Páginas: 1100-1100
+V - a vedação de sua utilização para fins de promoção pessoal, partidária ou eleitoral.","V - a vedação de sua utilização para fins de promoção pessoal, partidária ou eleitoral.","resolucao; fevereiro; vedacao; utilizacao; fins; promocao; pessoal; partidaria; eleitoral","True","366","91"
+"14","14","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1100","1100","","paragrafo","Art. 2º, §2º","Art. 2º","Art. 2º","§2º","","","","§ 2º Serão remetidas ao Ministério Público Eleitoral, no prazo de 5 (cinco) dias após a assinatura, cópias integrais de todos os acordos ou instrumentos congêneres firmados nos termos deste artigo.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 2º, §2º
+Tipo: paragrafo
+Dispositivo pai: Art. 2º
+Páginas: 1100-1100
+§ 2º Serão remetidas ao Ministério Público Eleitoral, no prazo de 5 (cinco) dias após a assinatura, cópias integrais de todos os acordos ou instrumentos congêneres firmados nos termos deste artigo.","§ 2º Serão remetidas ao Ministério Público Eleitoral, no prazo de 5 (cinco) dias após a assinatura, cópias integrais de todos os acordos ou instrumentos congêneres firmados nos termos deste artigo.","resolucao; fevereiro; serao; remetidas; ministerio; publico; eleitoral; prazo; cinco; dias","True","471","117"
+"15","15","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1100","1101","","artigo","Art. 3º","","Art. 3º","","","","","Art. 3º Os Tribunais Regionais Eleitorais, diretamente ou por intermédio dos órgãos ou entidades parceiras, deverão adotar, entre outras, as seguintes medidas destinadas a assegurar transporte individual gratuito para eleitoras e eleitores com deficiência ou mobilidade reduzida que não disponham de meios próprios que viabilizem o comparecimento aos locais de votação no dia da eleição:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º
+Tipo: artigo
+Páginas: 1100-1101
+Art. 3º Os Tribunais Regionais Eleitorais, diretamente ou por intermédio dos órgãos ou entidades parceiras, deverão adotar, entre outras, as seguintes medidas destinadas a assegurar transporte individual gratuito para eleitoras e eleitores com deficiência ou mobilidade reduzida que não disponham de meios próprios que viabilizem o comparecimento aos locais de votação no dia da eleição:","Art. 3º Os Tribunais Regionais Eleitorais, diretamente ou por intermédio dos órgãos ou entidades parceiras, deverão adotar, entre outras, as seguintes medidas destinadas a assegurar transporte individual gratuito para eleitoras e eleitores...","resolucao; fevereiro; tribunais; regionais; eleitorais; diretamente; intermedio; orgaos; entidades; parceiras","True","628","157"
+"16","16","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1101","1101","","inciso","Art. 3º, I","Art. 3º","Art. 3º","","I","","","I - prestação de informações claras, inclusive por meio de campanhas de publicidade, às eleitoras e aos eleitores com deficiência sobre os serviços disponíveis e os procedimentos para a respectiva utilização;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, I
+Tipo: inciso
+Dispositivo pai: Art. 3º
+Páginas: 1101-1101
+I - prestação de informações claras, inclusive por meio de campanhas de publicidade, às eleitoras e aos eleitores com deficiência sobre os serviços disponíveis e os procedimentos para a respectiva utilização;","I - prestação de informações claras, inclusive por meio de campanhas de publicidade, às eleitoras e aos eleitores com deficiência sobre os serviços disponíveis e os procedimentos para a respectiva utilização;","resolucao; fevereiro; prestacao; informacoes; claras; inclusive; meio; campanhas; publicidade; eleitoras","True","477","119"
+"17","17","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1101","1101","","inciso","Art. 3º, II","Art. 3º","Art. 3º","","II","","","II - fornecimento de canal de comunicação, a ser amplamente divulgado, para solicitação do fornecimento do transporte especial e agendamento prévio;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, II
+Tipo: inciso
+Dispositivo pai: Art. 3º
+Páginas: 1101-1101
+II - fornecimento de canal de comunicação, a ser amplamente divulgado, para solicitação do fornecimento do transporte especial e agendamento prévio;","II - fornecimento de canal de comunicação, a ser amplamente divulgado, para solicitação do fornecimento do transporte especial e agendamento prévio;","fornecimento; resolucao; fevereiro; canal; comunicacao; amplamente; divulgado; solicitacao; transporte; especial","True","418","104"
+"18","18","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1101","1101","","inciso","Art. 3º, III","Art. 3º","Art. 3º","","III","","","III - análise individual dos pedidos de agendamento de transporte;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, III
+Tipo: inciso
+Dispositivo pai: Art. 3º
+Páginas: 1101-1101
+III - análise individual dos pedidos de agendamento de transporte;","III - análise individual dos pedidos de agendamento de transporte;","resolucao; fevereiro; analise; individual; pedidos; agendamento; transporte","True","337","84"
+"19","19","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1101","1101","","inciso","Art. 3º, IV","Art. 3º","Art. 3º","","IV","","","IV - confirmação às eleitoras e aos eleitores, até 48 (quarenta e oito) horas antes do dia da votação, acerca da disponibilidade do serviço e dos dados do transporte a ser fornecido;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, IV
+Tipo: inciso
+Dispositivo pai: Art. 3º
+Páginas: 1101-1101
+IV - confirmação às eleitoras e aos eleitores, até 48 (quarenta e oito) horas antes do dia da votação, acerca da disponibilidade do serviço e dos dados do transporte a ser fornecido;","IV - confirmação às eleitoras e aos eleitores, até 48 (quarenta e oito) horas antes do dia da votação, acerca da disponibilidade do serviço e dos dados do transporte a ser fornecido;","resolucao; fevereiro; confirmacao; eleitoras; eleitores; quarenta; oito; horas; antes; votacao","True","452","113"
+"20","20","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1101","1101","","inciso","Art. 3º, V","Art. 3º","Art. 3º","","V","","","V - oferecimento de apoio técnico e operacional aos órgãos e às entidades parceiras, inclusive para esclarecimento de dúvidas e ajustes na execução das medidas previstas.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, V
+Tipo: inciso
+Dispositivo pai: Art. 3º
+Páginas: 1101-1101
+V - oferecimento de apoio técnico e operacional aos órgãos e às entidades parceiras, inclusive para esclarecimento de dúvidas e ajustes na execução das medidas previstas.","V - oferecimento de apoio técnico e operacional aos órgãos e às entidades parceiras, inclusive para esclarecimento de dúvidas e ajustes na execução das medidas previstas.","resolucao; fevereiro; oferecimento; apoio; tecnico; operacional; orgaos; entidades; parceiras; inclusive","True","439","109"
+"21","21","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1101","1101","","paragrafo","Art. 3º, §1º","Art. 3º","Art. 3º","§1º","","","","§ 1º A implementação das ações dispostas neste artigo observará limites materiais, orçamentários e financeiros dos Tribunais Regionais Eleitorais, devendo ser priorizados os casos de maior vulnerabilidade.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 1101-1101
+§ 1º A implementação das ações dispostas neste artigo observará limites materiais, orçamentários e financeiros dos Tribunais Regionais Eleitorais, devendo ser priorizados os casos de maior vulnerabilidade.","§ 1º A implementação das ações dispostas neste artigo observará limites materiais, orçamentários e financeiros dos Tribunais Regionais Eleitorais, devendo ser priorizados os casos de maior vulnerabilidade.","resolucao; fevereiro; implementacao; acoes; dispostas; neste; artigo; observara; limites; materiais","True","479","119"
+"22","22","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1101","1101","","paragrafo","Art. 3º, §2º","Art. 3º","Art. 3º","§2º","","","","§ 2º É vedado às candidatas e aos candidatos, aos órgãos partidários, às federações, às coligações ou a qualquer pessoa o fornecimento de transporte a eleitoras ou eleitores no dia da votação (Lei n. 6.091/1974, art. 10).","","[]","0","Lei n. 6.091/1974","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §2º
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 1101-1101
+§ 2º É vedado às candidatas e aos candidatos, aos órgãos partidários, às federações, às coligações ou a qualquer pessoa o fornecimento de transporte a eleitoras ou eleitores no dia da votação (Lei n. 6.091/1974, art. 10).","§ 2º É vedado às candidatas e aos candidatos, aos órgãos partidários, às federações, às coligações ou a qualquer pessoa o fornecimento de transporte a eleitoras ou eleitores no dia da votação (Lei n. 6.091/1974, art. 10).","resolucao; fevereiro; vedado; candidatas; candidatos; orgaos; partidarios; federacoes; coligacoes; qualquer","True","495","123"
+"23","23","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1101","1101","","paragrafo","Art. 3º, §3º","Art. 3º","Art. 3º","§3º","","","","§ 3º É facultado aos partidos políticos, às coligações e às federações exercer fiscalização quanto à regularidade do serviço de transporte especial, observada a vedação de qualquer forma de interferência, patrocínio, promoção ou benefício político decorrente da sua prestação (Lei n. 6.091/1974, art. 9º).","","[]","0","Lei n. 6.091/1974","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §3º
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 1101-1101
+§ 3º É facultado aos partidos políticos, às coligações e às federações exercer fiscalização quanto à regularidade do serviço de transporte especial, observada a vedação de qualquer forma de interferência, patrocínio, promoção ou benefício político decorrente da sua prestação (Lei n. 6.091/1974, art. 9º).","§ 3º É facultado aos partidos políticos, às coligações e às federações exercer fiscalização quanto à regularidade do serviço de transporte especial, observada a vedação de qualquer forma de interferência, patrocínio, promoção ou benefício...","resolucao; fevereiro; facultado; partidos; politicos; coligacoes; federacoes; exercer; fiscalizacao; quanto","True","579","144"
+"24","24","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1101","1101","","artigo","Art. 4º","","Art. 4º","","","","","Art. 4º É assegurado o fornecimento de transporte para viabilizar o exercício do voto pela população de territórios indígenas, de comunidades remanescentes de quilombos e de demais comunidades tradicionais, independentemente dos limites territoriais do município (Decreto n. 10.088/2019, art. 2º, LXXII, art. 6º da Convenção n. 169 da Organização Internacional do Trabalho).","","[]","0","Decreto n. 10.088/2019","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º
+Tipo: artigo
+Páginas: 1101-1101
+Art. 4º É assegurado o fornecimento de transporte para viabilizar o exercício do voto pela população de territórios indígenas, de comunidades remanescentes de quilombos e de demais comunidades tradicionais, independentemente dos limites territoriais do município (Decreto n. 10.088/2019, art. 2º, LXXII, art. 6º da Convenção n. 169 da Organização Internacional do Trabalho).","Art. 4º É assegurado o fornecimento de transporte para viabilizar o exercício do voto pela população de territórios indígenas, de comunidades remanescentes de quilombos e de demais comunidades tradicionais, independentemente dos limites...","comunidades; resolucao; fevereiro; assegurado; fornecimento; transporte; viabilizar; exercicio; voto; populacao","True","615","153"
+"25","25","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1101","1101","","paragrafo","Art. 4º, §1º","Art. 4º","Art. 4º","§1º","","","","§ 1º O transporte de eleitoras e eleitores de que trata este artigo somente será realizado pela Justiça Eleitoral nos limites territoriais do respectivo município e quando, das zonas rurais aos locais de votação, a distância for de pelo menos 2 (dois) quilômetros (Lei n. 6.091/1974, art. 4º, § 1º).","","[]","0","Lei n. 6.091/1974","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 4º
+Páginas: 1101-1101
+§ 1º O transporte de eleitoras e eleitores de que trata este artigo somente será realizado pela Justiça Eleitoral nos limites territoriais do respectivo município e quando, das zonas rurais aos locais de votação, a distância for de pelo menos 2 (dois) quilômetros (Lei n. 6.091/1974, art. 4º, § 1º).","§ 1º O transporte de eleitoras e eleitores de que trata este artigo somente será realizado pela Justiça Eleitoral nos limites territoriais do respectivo município e quando, das zonas rurais aos locais de votação, a distância for de pelo...","resolucao; fevereiro; transporte; eleitoras; eleitores; trata; este; artigo; somente; sera","True","573","143"
+"26","26","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1101","1101","","paragrafo","Art. 4º, §2º","Art. 4º","Art. 4º","§2º","","","","§ 2º Os Tribunais Regionais Eleitorais deverão coordenar as medidas previstas neste artigo, mediante a criação de comitê específico ligado diretamente à Presidência, as quais devem ser precedidas de consulta prévia às etnias e às populações envolvidas (Decreto n. 10.088/2019,","","[]","0","Decreto n. 10.088/2019","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º, §2º
+Tipo: paragrafo
+Dispositivo pai: Art. 4º
+Páginas: 1101-1101
+§ 2º Os Tribunais Regionais Eleitorais deverão coordenar as medidas previstas neste artigo, mediante a criação de comitê específico ligado diretamente à Presidência, as quais devem ser precedidas de consulta prévia às etnias e às populações envolvidas (Decreto n. 10.088/2019,","§ 2º Os Tribunais Regionais Eleitorais deverão coordenar as medidas previstas neste artigo, mediante a criação de comitê específico ligado diretamente à Presidência, as quais devem ser precedidas de consulta prévia às etnias e às...","resolucao; fevereiro; tribunais; regionais; eleitorais; deverao; coordenar; medidas; previstas; neste","True","550","137"
+"27","27","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1101","1101","","artigo","Art. 2º","","Art. 2º","","","","","art. 2º; Convenção n. 169 da Organização Internacional do Trabalho, art. 6º, LXXII).","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 2º
+Tipo: artigo
+Páginas: 1101-1101
+art. 2º; Convenção n. 169 da Organização Internacional do Trabalho, art. 6º, LXXII).","art. 2º; Convenção n. 169 da Organização Internacional do Trabalho, art. 6º, LXXII).","resolucao; fevereiro; convencao; organizacao; internacional; trabalho; lxxii","True","325","81"
+"28","28","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1101","1101","","artigo","Art. 5º","","Art. 5º","","","","","Art. 5º O pedido de fornecimento de transporte especial deverá ser formulado até 20 (vinte) dias antes do dia da eleição, pela própria eleitora ou pelo próprio eleitor, ou por curadora ou curador, apoiadora ou apoiador, ou procuradora ou procurador, por meio de atendimento presencial no cartório eleitoral ou por outro canal de comunicação estabelecido pelo Tribunal Regional Eleitoral e amplamente divulgado, mediante autodeclaração ou documentação comprobatória da deficiência ou da dificuldade de locomoção, assegurada a existência de ao menos um meio não presencial para a solicitação.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 5º
+Tipo: artigo
+Páginas: 1101-1101
+Art. 5º O pedido de fornecimento de transporte especial deverá ser formulado até 20 (vinte) dias antes do dia da eleição, pela própria eleitora ou pelo próprio eleitor, ou por curadora ou curador, apoiadora ou apoiador, ou procuradora ou procurador, por meio de atendimento presencial no cartório eleitoral ou por outro canal de comunicação estabelecido pelo Tribunal Regional Eleitoral e amplamente divulgado, mediante autodeclaração ou documentação comprobatória da deficiência ou da dificuldade de locomoção, assegurada a existência de ao menos um meio não presencial para a solicitação.","Art. 5º O pedido de fornecimento de transporte especial deverá ser formulado até 20 (vinte) dias antes do dia da eleição, pela própria eleitora ou pelo próprio eleitor, ou por curadora ou curador, apoiadora ou apoiador, ou procuradora ou...","meio; presencial; eleitoral; resolucao; fevereiro; pedido; fornecimento; transporte; especial; devera","True","831","207"
+"29","29","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1101","1101","","paragrafo","Art. 5º, §1º","Art. 5º","Art. 5º","§1º","","","","§ 1º Na análise dos pedidos, deverão ser considerados, entre outros critérios:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 5º, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 5º
+Páginas: 1101-1101
+§ 1º Na análise dos pedidos, deverão ser considerados, entre outros critérios:","§ 1º Na análise dos pedidos, deverão ser considerados, entre outros critérios:","resolucao; fevereiro; analise; pedidos; deverao; considerados; outros; criterios","True","352","88"
+"30","30","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1102","1102","","inciso","Art. 5º, §1º, I","Art. 5º, §1º","Art. 5º","§1º","I","","","I - o grau de limitação funcional da eleitora ou do eleitor com deficiência ou com mobilidade reduzida;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 5º, §1º, I
+Tipo: inciso
+Dispositivo pai: Art. 5º, §1º
+Páginas: 1102-1102
+I - o grau de limitação funcional da eleitora ou do eleitor com deficiência ou com mobilidade reduzida;","I - o grau de limitação funcional da eleitora ou do eleitor com deficiência ou com mobilidade reduzida;","resolucao; fevereiro; grau; limitacao; funcional; eleitora; eleitor; deficiencia; mobilidade; reduzida","True","382","95"
+"31","31","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1102","1102","","inciso","Art. 5º, §1º, II","Art. 5º, §1º","Art. 5º","§1º","II","","","II - a inexistência ou inadequação de transporte público acessível no trajeto até o local de votação;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 5º, §1º, II
+Tipo: inciso
+Dispositivo pai: Art. 5º, §1º
+Páginas: 1102-1102
+II - a inexistência ou inadequação de transporte público acessível no trajeto até o local de votação;","II - a inexistência ou inadequação de transporte público acessível no trajeto até o local de votação;","resolucao; fevereiro; inexistencia; inadequacao; transporte; publico; acessivel; trajeto; local; votacao","True","381","95"
+"32","32","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1102","1102","","inciso","Art. 5º, §1º, III","Art. 5º, §1º","Art. 5º","§1º","III","","","III - a distância entre a residência e o local de votação.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 5º, §1º, III
+Tipo: inciso
+Dispositivo pai: Art. 5º, §1º
+Páginas: 1102-1102
+III - a distância entre a residência e o local de votação.","III - a distância entre a residência e o local de votação.","resolucao; fevereiro; distancia; residencia; local; votacao","True","339","84"
+"33","33","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1102","1102","","paragrafo","Art. 5º, §2º","Art. 5º","Art. 5º","§2º","","","","§ 2º O serviço de transporte especial compreenderá, quando necessário, o deslocamento de ida e volta entre a residência da eleitora ou do eleitor e o respectivo local de votação, podendo incluir o transporte de acompanhante indicado, nos casos em que o apoio seja indispensável ao exercício do voto.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 5º, §2º
+Tipo: paragrafo
+Dispositivo pai: Art. 5º
+Páginas: 1102-1102
+§ 2º O serviço de transporte especial compreenderá, quando necessário, o deslocamento de ida e volta entre a residência da eleitora ou do eleitor e o respectivo local de votação, podendo incluir o transporte de acompanhante indicado, nos casos em que o apoio seja indispensável ao exercício do voto.","§ 2º O serviço de transporte especial compreenderá, quando necessário, o deslocamento de ida e volta entre a residência da eleitora ou do eleitor e o respectivo local de votação, podendo incluir o transporte de acompanhante indicado, nos...","transporte; resolucao; fevereiro; servico; especial; compreendera; quando; necessario; deslocamento; volta","True","573","143"
+"34","34","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1102","1102","","artigo","Art. 6º","","Art. 6º","","","","","Art. 6º É assegurada às eleitoras e aos eleitores com deficiência ou mobilidade reduzida beneficiários do Programa Seu Voto Importa a prioridade de atendimento no local de votação (art. 1º da Lei n. 10.048, de 8 de novembro de 2000, art. 143, § 2º, do Código Eleitoral, art. 5,","","[]","0","Lei n. 10.048","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 6º
+Tipo: artigo
+Páginas: 1102-1102
+Art. 6º É assegurada às eleitoras e aos eleitores com deficiência ou mobilidade reduzida beneficiários do Programa Seu Voto Importa a prioridade de atendimento no local de votação (art. 1º da Lei n. 10.048, de 8 de novembro de 2000, art. 143, § 2º, do Código Eleitoral, art. 5,","Art. 6º É assegurada às eleitoras e aos eleitores com deficiência ou mobilidade reduzida beneficiários do Programa Seu Voto Importa a prioridade de atendimento no local de votação (art. 1º da Lei n. 10.048, de 8 de novembro de 2000, art...","resolucao; fevereiro; assegurada; eleitoras; eleitores; deficiencia; mobilidade; reduzida; beneficiarios; programa","True","518","129"
+"35","35","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1102","1102","","paragrafo","Art. 6º, §1º","Art. 6º","Art. 6º","§1º","","","","§ 1º, da Resolução n. 23.381, de 19 de junho de 2012).","","[]","0","Resolução n. 23.381","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 6º, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 6º
+Páginas: 1102-1102
+§ 1º, da Resolução n. 23.381, de 19 de junho de 2012).","§ 1º, da Resolução n. 23.381, de 19 de junho de 2012).","resolucao; fevereiro; junho","True","328","82"
+"36","36","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1102","1102","","artigo","Art. 7º","","Art. 7º","","","","","Art. 7º A situação de eleitoras e eleitores com deficiência ou mobilidade reduzida deverá ser oportunamente atualizada no Cadastro Eleitoral quando do atendimento realizado nos cartórios eleitorais, incluindo-se as solicitações relativas ao programa instituído por esta Resolução.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 7º
+Tipo: artigo
+Páginas: 1102-1102
+Art. 7º A situação de eleitoras e eleitores com deficiência ou mobilidade reduzida deverá ser oportunamente atualizada no Cadastro Eleitoral quando do atendimento realizado nos cartórios eleitorais, incluindo-se as solicitações relativas ao programa instituído por esta Resolução.","Art. 7º A situação de eleitoras e eleitores com deficiência ou mobilidade reduzida deverá ser oportunamente atualizada no Cadastro Eleitoral quando do atendimento realizado nos cartórios eleitorais, incluindo-se as solicitações relativas...","resolucao; fevereiro; situacao; eleitoras; eleitores; deficiencia; mobilidade; reduzida; devera; oportunamente","True","521","130"
+"37","37","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1102","1102","","paragrafo","Art. 7º, Parágrafo único","Art. 7º","Art. 7º","Parágrafo único","","","","Parágrafo único. A anotação prevista no caput não enseja alteração permanente do local de votação, salvo se esta mudança também for requerida até 150 (cento e cinquenta) dias antes da eleição (Resolução-TSE n. 23.659/2021, art. 28).","","[]","0","Resolução-TSE n. 23.659/2021","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 7º, Parágrafo único
+Tipo: paragrafo
+Dispositivo pai: Art. 7º
+Páginas: 1102-1102
+Parágrafo único. A anotação prevista no caput não enseja alteração permanente do local de votação, salvo se esta mudança também for requerida até 150 (cento e cinquenta) dias antes da eleição (Resolução-TSE n. 23.659/2021, art. 28).","Parágrafo único. A anotação prevista no caput não enseja alteração permanente do local de votação, salvo se esta mudança também for requerida até 150 (cento e cinquenta) dias antes da eleição (Resolução-TSE n. 23.659/2021, art. 28).","resolucao; paragrafo; unico; fevereiro; anotacao; prevista; caput; enseja; alteracao; permanente","True","518","129"
+"38","38","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23753_2026","Resolução n. 23.753, de 26 de fevereiro de 2026","","Normas editadas pelo TSE","Resoluções","1102","1102","","artigo","Art. 8º","","Art. 8º","","","","","Art. 8º Esta resolução entra em vigor na data de sua publicação.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.753, de 26 de fevereiro de 2026
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 8º
+Tipo: artigo
+Páginas: 1102-1102
+Art. 8º Esta resolução entra em vigor na data de sua publicação.","Art. 8º Esta resolução entra em vigor na data de sua publicação.","resolucao; fevereiro; esta; entra; vigor; data; publicacao","True","305","76"

@@ -1,0 +1,548 @@
+﻿"id","ordem_doc","arquivo_fonte","norma_id","norma_titulo","norma_nome_popular","macrogrupo","grupo_sumario","pagina_inicial","pagina_final","hierarquia_normativa","tipo_dispositivo","dispositivo","dispositivo_pai","artigo","paragrafo","inciso","alinea","item","texto_dispositivo","notas_texto","notas_json","qtd_notas","referencias_normativas","referencias_jurisprudenciais","referencias_sumulas","texto_rag","resumo_curto","palavras_chave","incluir_no_rag","chars","tokens_estimados"
+"1","1","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","631","631","","norma","Lei Complementar n. 80, de 12 de janeiro de 1994","","","","","","","Organiza a Defensoria Pública da União, do Distrito Federal e dos Territórios e prescreve normas gerais para sua organização nos estados, e dá outras providências. O PRESIDENTE DA REPÚBLICA Faço saber que o Congresso Nacional decreta e eu sanciono a seguinte lei:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Lei Complementar n. 80, de 12 de janeiro de 1994
+Tipo: norma
+Páginas: 631-631
+Organiza a Defensoria Pública da União, do Distrito Federal e dos Territórios e prescreve normas gerais para sua organização nos estados, e dá outras providências. O PRESIDENTE DA REPÚBLICA Faço saber que o Congresso Nacional decreta e eu sanciono a seguinte lei:","Organiza a Defensoria Pública da União, do Distrito Federal e dos Territórios e prescreve normas gerais para sua organização nos estados, e dá outras providências. O PRESIDENTE DA REPÚBLICA Faço saber que o Congresso Nacional decreta e eu...","complementar; janeiro; organiza; defensoria; publica; uniao; distrito; federal; territorios; prescreve","True","549","137"
+"2","2","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","631","631","TÍTULO I - DISPOSIÇÕES GERAIS","estrutura","TÍTULO I - DISPOSIÇÕES GERAIS","","","","","","","TÍTULO I - DISPOSIÇÕES GERAIS","Título com denominação dada pelo art. 2º da LC n. 132/2009.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Título com denominação dada pelo art. 2º da LC n. 132/2009."", ""pagina_inicial"": 631, ""pagina_final"": 631}]","1","LC n. 132/2009","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: TÍTULO I - DISPOSIÇÕES GERAIS
+Tipo: estrutura
+Hierarquia: TÍTULO I - DISPOSIÇÕES GERAIS
+Páginas: 631-631
+TÍTULO I - DISPOSIÇÕES GERAIS
+Notas vinculadas:
+Título com denominação dada pelo art. 2º da LC n. 132/2009.","TÍTULO I - DISPOSIÇÕES GERAIS","titulo; disposicoes; gerais; complementar; janeiro; denominacao; dada","True","420","105"
+"3","3","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","631","631","TÍTULO I - DISPOSIÇÕES GERAIS","artigo","Art. 1º","","Art. 1º","","","","","Art. 1º A Defensoria Pública é instituição permanente, essencial à função jurisdicional do Estado, incumbindo-lhe, como expressão e instrumento do regime democrático, fundamentalmente, a orientação jurídica, a promoção dos direitos humanos e a defesa, em todos os graus, judicial e extrajudicial, dos direitos individuais e coletivos, de forma integral e gratuita, aos necessitados, assim considerados na forma do inciso LXXIV do art. 5º da Constituição Federal.","Art. 1º com redação dada pelo art. 1º da LC n. 132/2009.
+Ac.-TSE, de 6/3/2012, no AgR-REspe n. 3973097: impossibilidade de atuação da Defensoria Pública na defesa de pessoas que não sejam hipossuficientes.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Art. 1º com redação dada pelo art. 1º da LC n. 132/2009."", ""pagina_inicial"": 631, ""pagina_final"": 631}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""Ac.-TSE, de 6/3/2012, no AgR-REspe n. 3973097: impossibilidade de atuação da Defensoria Pública na defesa de pessoas que não sejam hipossuficientes."", ""pagina_inicial"": 631, ""pagina_final"": 631}]","2","LC n. 132/2009","Ac.-TSE, de 6/3/2012, no AgR-REspe n; AgR-REspe n. 3973097","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 1º
+Tipo: artigo
+Hierarquia: TÍTULO I - DISPOSIÇÕES GERAIS
+Páginas: 631-631
+Art. 1º A Defensoria Pública é instituição permanente, essencial à função jurisdicional do Estado, incumbindo-lhe, como expressão e instrumento do regime democrático, fundamentalmente, a orientação jurídica, a promoção dos direitos humanos e a defesa, em todos os graus, judicial e extrajudicial, dos direitos individuais e coletivos, de forma integral e gratuita, aos necessitados, assim considerados na forma do inciso LXXIV do art. 5º da Constituição Federal.
+Notas vinculadas:
+Art. 1º com redação dada pelo art. 1º da LC n. 132/2009.
+Ac.-TSE, de 6/3/2012, no AgR-REspe n. 3973097: impossibilidade de atuação da Defensoria Pública na defesa de pessoas que não sejam hipossuficientes.","Art. 1º A Defensoria Pública é instituição permanente, essencial à função jurisdicional do Estado, incumbindo-lhe, como expressão e instrumento do regime democrático, fundamentalmente, a orientação jurídica, a promoção dos direitos humanos...","defensoria; publica; direitos; defesa; forma; complementar; janeiro; titulo; disposicoes; gerais","True","974","243"
+"4","4","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","631","631","TÍTULO I - DISPOSIÇÕES GERAIS","artigo","Art. 2º","","Art. 2º","","","","","Art. 2º A Defensoria Pública abrange:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 2º
+Tipo: artigo
+Hierarquia: TÍTULO I - DISPOSIÇÕES GERAIS
+Páginas: 631-631
+Art. 2º A Defensoria Pública abrange:","Art. 2º A Defensoria Pública abrange:","complementar; janeiro; titulo; disposicoes; gerais; defensoria; publica; abrange","True","325","81"
+"5","5","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","631","631","TÍTULO I - DISPOSIÇÕES GERAIS","inciso","Art. 2º, I","Art. 2º","Art. 2º","","I","","","I- a Defensoria Pública da União;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 2º, I
+Tipo: inciso
+Hierarquia: TÍTULO I - DISPOSIÇÕES GERAIS
+Dispositivo pai: Art. 2º
+Páginas: 631-631
+I- a Defensoria Pública da União;","I- a Defensoria Pública da União;","complementar; janeiro; titulo; disposicoes; gerais; defensoria; publica; uniao","True","349","87"
+"6","6","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","631","631","TÍTULO I - DISPOSIÇÕES GERAIS","inciso","Art. 2º, II","Art. 2º","Art. 2º","","II","","","II- a Defensoria Pública do Distrito Federal e dos Territórios;","EC n. 69/2012, art. 2º: aplicação à Defensoria Pública do Distrito Federal dos mesmos princípios e regras que regem as Defensorias Públicas dos estados.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""EC n. 69/2012, art. 2º: aplicação à Defensoria Pública do Distrito Federal dos mesmos princípios e regras que regem as Defensorias Públicas dos estados."", ""pagina_inicial"": 631, ""pagina_final"": 631}]","1","EC n. 69/2012","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 2º, II
+Tipo: inciso
+Hierarquia: TÍTULO I - DISPOSIÇÕES GERAIS
+Dispositivo pai: Art. 2º
+Páginas: 631-631
+II- a Defensoria Pública do Distrito Federal e dos Territórios;
+Notas vinculadas:
+EC n. 69/2012, art. 2º: aplicação à Defensoria Pública do Distrito Federal dos mesmos princípios e regras que regem as Defensorias Públicas dos estados.","II- a Defensoria Pública do Distrito Federal e dos Territórios;","defensoria; publica; distrito; federal; complementar; janeiro; titulo; disposicoes; gerais; territorios","True","551","137"
+"7","7","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","631","631","TÍTULO I - DISPOSIÇÕES GERAIS","inciso","Art. 2º, III","Art. 2º","Art. 2º","","III","","","III- as Defensorias Públicas dos estados. [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 2º, III
+Tipo: inciso
+Hierarquia: TÍTULO I - DISPOSIÇÕES GERAIS
+Dispositivo pai: Art. 2º
+Páginas: 631-631
+III- as Defensorias Públicas dos estados. [...]","III- as Defensorias Públicas dos estados. [...]","complementar; janeiro; titulo; disposicoes; gerais; defensorias; publicas; estados","True","365","91"
+"8","8","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","631","631","TÍTULO I - DISPOSIÇÕES GERAIS","artigo","Art. 4º","","Art. 4º","","","","","Art. 4º São funções institucionais da Defensoria Pública, dentre outras:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 4º
+Tipo: artigo
+Hierarquia: TÍTULO I - DISPOSIÇÕES GERAIS
+Páginas: 631-631
+Art. 4º São funções institucionais da Defensoria Pública, dentre outras:","Art. 4º São funções institucionais da Defensoria Pública, dentre outras:","complementar; janeiro; titulo; disposicoes; gerais; funcoes; institucionais; defensoria; publica; dentre","True","360","90"
+"9","9","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","631","631","TÍTULO I - DISPOSIÇÕES GERAIS","inciso","Art. 4º, I","Art. 4º","Art. 4º","","I","","","I - prestar orientação jurídica e exercer a defesa dos necessitados, em todos os graus; [...]","Inciso I com redação dada pelo art. 1º da LC n. 132/2009.
+V. nota ao art. 1º desta lei complementar sobre o Ac.-TSE, de 6/3/2012, no AgR-REspe n. 3973097.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Inciso I com redação dada pelo art. 1º da LC n. 132/2009."", ""pagina_inicial"": 631, ""pagina_final"": 631}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""V. nota ao art. 1º desta lei complementar sobre o Ac.-TSE, de 6/3/2012, no AgR-REspe n. 3973097."", ""pagina_inicial"": 631, ""pagina_final"": 631}]","2","LC n. 132/2009","Ac.-TSE, de 6/3/2012, no AgR-REspe n; AgR-REspe n. 3973097.","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 4º, I
+Tipo: inciso
+Hierarquia: TÍTULO I - DISPOSIÇÕES GERAIS
+Dispositivo pai: Art. 4º
+Páginas: 631-631
+I - prestar orientação jurídica e exercer a defesa dos necessitados, em todos os graus; [...]
+Notas vinculadas:
+Inciso I com redação dada pelo art. 1º da LC n. 132/2009.
+V. nota ao art. 1º desta lei complementar sobre o Ac.-TSE, de 6/3/2012, no AgR-REspe n. 3973097.","I - prestar orientação jurídica e exercer a defesa dos necessitados, em todos os graus; [...]","complementar; janeiro; titulo; disposicoes; gerais; prestar; orientacao; juridica; exercer; defesa","True","582","145"
+"10","10","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","631","631","TÍTULO I - DISPOSIÇÕES GERAIS","inciso","Art. 4º, VII","Art. 4º","Art. 4º","","VII","","","VII - promover ação civil pública e todas as espécies de ações capazes de propiciar a adequada tutela dos direitos difusos, coletivos ou individuais homogêneos quando o resultado da demanda puder beneficiar grupo de pessoas hipossuficientes;","Inciso VII com redação dada pelo art. 1º da LC n. 132/2009.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Inciso VII com redação dada pelo art. 1º da LC n. 132/2009."", ""pagina_inicial"": 631, ""pagina_final"": 631}]","1","LC n. 132/2009","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 4º, VII
+Tipo: inciso
+Hierarquia: TÍTULO I - DISPOSIÇÕES GERAIS
+Dispositivo pai: Art. 4º
+Páginas: 631-631
+VII - promover ação civil pública e todas as espécies de ações capazes de propiciar a adequada tutela dos direitos difusos, coletivos ou individuais homogêneos quando o resultado da demanda puder beneficiar grupo de pessoas hipossuficientes;
+Notas vinculadas:
+Inciso VII com redação dada pelo art. 1º da LC n. 132/2009.","VII - promover ação civil pública e todas as espécies de ações capazes de propiciar a adequada tutela dos direitos difusos, coletivos ou individuais homogêneos quando o resultado da demanda puder beneficiar grupo de pessoas...","complementar; janeiro; titulo; disposicoes; gerais; promover; acao; civil; publica; todas","True","637","159"
+"11","11","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","631","632","TÍTULO I - DISPOSIÇÕES GERAIS","inciso","Art. 4º, VIII","Art. 4º","Art. 4º","","VIII","","","VIII - exercer a defesa dos direitos e interesses individuais, difusos, coletivos e individuais homogêneos e dos direitos do consumidor, na forma do inciso LXXIV do art. 5º da Constituição Federal;","Inciso VIII com redação dada pelo art. 1º da LC n. 132/2009.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Inciso VIII com redação dada pelo art. 1º da LC n. 132/2009."", ""pagina_inicial"": 632, ""pagina_final"": 632}]","1","LC n. 132/2009","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 4º, VIII
+Tipo: inciso
+Hierarquia: TÍTULO I - DISPOSIÇÕES GERAIS
+Dispositivo pai: Art. 4º
+Páginas: 631-632
+VIII - exercer a defesa dos direitos e interesses individuais, difusos, coletivos e individuais homogêneos e dos direitos do consumidor, na forma do inciso LXXIV do art. 5º da Constituição Federal;
+Notas vinculadas:
+Inciso VIII com redação dada pelo art. 1º da LC n. 132/2009.","VIII - exercer a defesa dos direitos e interesses individuais, difusos, coletivos e individuais homogêneos e dos direitos do consumidor, na forma do inciso LXXIV do art. 5º da Constituição Federal;","viii; direitos; individuais; inciso; complementar; janeiro; titulo; disposicoes; gerais; exercer","True","595","148"
+"12","12","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","632","632","TÍTULO I - DISPOSIÇÕES GERAIS","inciso","Art. 4º, IX","Art. 4º","Art. 4º","","IX","","","IX - impetrar habeas corpus, mandado de injunção, habeas datae mandado de segurança ou qualquer outra ação em defesa das funções institucionais e prerrogativas de seus órgãos de execução;","Inciso IX com redação dada pelo art. 1º da LC n. 132/2009.
+Ac.-TSE, de 29/9/2010, no MS n. 100250: ilegitimidade da Defensoria Pública para impetrar mandado de segurança coletivo.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Inciso IX com redação dada pelo art. 1º da LC n. 132/2009."", ""pagina_inicial"": 632, ""pagina_final"": 632}, {""ordem"": 2, ""marcador"": ""ticado"", ""texto"": ""Ac.-TSE, de 29/9/2010, no MS n. 100250: ilegitimidade da Defensoria Pública para impetrar mandado de segurança coletivo."", ""pagina_inicial"": 632, ""pagina_final"": 632}]","2","LC n. 132/2009","Ac.-TSE, de 29/9/2010, no MS n; MS n. 100250","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 4º, IX
+Tipo: inciso
+Hierarquia: TÍTULO I - DISPOSIÇÕES GERAIS
+Dispositivo pai: Art. 4º
+Páginas: 632-632
+IX - impetrar habeas corpus, mandado de injunção, habeas datae mandado de segurança ou qualquer outra ação em defesa das funções institucionais e prerrogativas de seus órgãos de execução;
+Notas vinculadas:
+Inciso IX com redação dada pelo art. 1º da LC n. 132/2009.
+Ac.-TSE, de 29/9/2010, no MS n. 100250: ilegitimidade da Defensoria Pública para impetrar mandado de segurança coletivo.","IX - impetrar habeas corpus, mandado de injunção, habeas datae mandado de segurança ou qualquer outra ação em defesa das funções institucionais e prerrogativas de seus órgãos de execução;","mandado; impetrar; habeas; seguranca; complementar; janeiro; titulo; disposicoes; gerais; corpus","True","702","175"
+"13","13","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","632","632","TÍTULO I - DISPOSIÇÕES GERAIS","inciso","Art. 4º, X","Art. 4º","Art. 4º","","X","","","X - promover a mais ampla defesa dos direitos fundamentais dos necessitados, abrangendo seus direitos individuais, coletivos, sociais, econômicos, culturais e ambientais, sendo admissíveis todas as espécies de ações capazes de propiciar sua adequada e efetiva tutela;","Inciso X com redação dada pelo art. 1º da LC n. 132/2009.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Inciso X com redação dada pelo art. 1º da LC n. 132/2009."", ""pagina_inicial"": 632, ""pagina_final"": 632}]","1","LC n. 132/2009","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 4º, X
+Tipo: inciso
+Hierarquia: TÍTULO I - DISPOSIÇÕES GERAIS
+Dispositivo pai: Art. 4º
+Páginas: 632-632
+X - promover a mais ampla defesa dos direitos fundamentais dos necessitados, abrangendo seus direitos individuais, coletivos, sociais, econômicos, culturais e ambientais, sendo admissíveis todas as espécies de ações capazes de propiciar sua adequada e efetiva tutela;
+Notas vinculadas:
+Inciso X com redação dada pelo art. 1º da LC n. 132/2009.","X - promover a mais ampla defesa dos direitos fundamentais dos necessitados, abrangendo seus direitos individuais, coletivos, sociais, econômicos, culturais e ambientais, sendo admissíveis todas as espécies de ações capazes de propiciar...","direitos; complementar; janeiro; titulo; disposicoes; gerais; promover; mais; ampla; defesa","True","659","164"
+"14","14","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","632","632","TÍTULO I - DISPOSIÇÕES GERAIS","inciso","Art. 4º, XI","Art. 4º","Art. 4º","","XI","","","XI - exercer a defesa dos interesses individuais e coletivos da criança e do adolescente, do idoso, da pessoa portadora de necessidades especiais, da mulher vítima de violência doméstica e familiar e de outros grupos sociais vulneráveis que mereçam proteção especial do Estado; [...]","Inciso XI com redação dada pelo art. 1º da LC n. 132/2009.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Inciso XI com redação dada pelo art. 1º da LC n. 132/2009."", ""pagina_inicial"": 632, ""pagina_final"": 632}]","1","LC n. 132/2009","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 4º, XI
+Tipo: inciso
+Hierarquia: TÍTULO I - DISPOSIÇÕES GERAIS
+Dispositivo pai: Art. 4º
+Páginas: 632-632
+XI - exercer a defesa dos interesses individuais e coletivos da criança e do adolescente, do idoso, da pessoa portadora de necessidades especiais, da mulher vítima de violência doméstica e familiar e de outros grupos sociais vulneráveis que mereçam proteção especial do Estado; [...]
+Notas vinculadas:
+Inciso XI com redação dada pelo art. 1º da LC n. 132/2009.","XI - exercer a defesa dos interesses individuais e coletivos da criança e do adolescente, do idoso, da pessoa portadora de necessidades especiais, da mulher vítima de violência doméstica e familiar e de outros grupos sociais vulneráveis...","complementar; janeiro; titulo; disposicoes; gerais; exercer; defesa; interesses; individuais; coletivos","True","677","169"
+"15","15","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","632","632","TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA","estrutura","TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA","","Art. 4º","","XI","","","TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA
+Tipo: estrutura
+Hierarquia: TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA
+Páginas: 632-632
+TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA","TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA","titulo; organizacao; defensoria; complementar; janeiro","True","375","93"
+"16","16","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","632","632","TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > PÚBLICA DA UNIÃO","estrutura","PÚBLICA DA UNIÃO","","Art. 4º","","XI","","","PÚBLICA DA UNIÃO","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: PÚBLICA DA UNIÃO
+Tipo: estrutura
+Hierarquia: TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > PÚBLICA DA UNIÃO
+Páginas: 632-632
+PÚBLICA DA UNIÃO","PÚBLICA DA UNIÃO","publica; uniao; complementar; janeiro; titulo; organizacao; defensoria","True","346","86"
+"17","17","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","632","632","TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO I - DA ESTRUTURA","estrutura","CAPÍTULO I - DA ESTRUTURA","","Art. 4º","","XI","","","CAPÍTULO I - DA ESTRUTURA [...] Seção IV Da Defensoria Pública da União nos estados, no Distrito Federal e nos territórios","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: CAPÍTULO I - DA ESTRUTURA
+Tipo: estrutura
+Hierarquia: TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO I - DA ESTRUTURA
+Páginas: 632-632
+CAPÍTULO I - DA ESTRUTURA [...] Seção IV Da Defensoria Pública da União nos estados, no Distrito Federal e nos territórios","CAPÍTULO I - DA ESTRUTURA [...] Seção IV Da Defensoria Pública da União nos estados, no Distrito Federal e nos territórios","capitulo; estrutura; defensoria; complementar; janeiro; titulo; organizacao; secao; publica; uniao","True","470","117"
+"18","18","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","632","632","TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO I - DA ESTRUTURA","artigo","Art. 14","","Art. 14","","","","","Art. 14. A Defensoria Pública da União atuará nos estados, no Distrito Federal e nos territórios, junto às Justiças Federal, do Trabalho, Eleitoral, Militar, Tribunais Superiores e instâncias administrativas da União.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 14
+Tipo: artigo
+Hierarquia: TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO I - DA ESTRUTURA
+Páginas: 632-632
+Art. 14. A Defensoria Pública da União atuará nos estados, no Distrito Federal e nos territórios, junto às Justiças Federal, do Trabalho, Eleitoral, Militar, Tribunais Superiores e instâncias administrativas da União.","Art. 14. A Defensoria Pública da União atuará nos estados, no Distrito Federal e nos territórios, junto às Justiças Federal, do Trabalho, Eleitoral, Militar, Tribunais Superiores e instâncias administrativas da União.","defensoria; uniao; federal; complementar; janeiro; titulo; organizacao; capitulo; estrutura; publica","True","544","136"
+"19","19","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","632","632","TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO I - DA ESTRUTURA","paragrafo","Art. 14, §1º","Art. 14","Art. 14","§1º","","","","§ 1º A Defensoria Pública da União deverá firmar convênios com as Defensorias Públicas dos estados e do Distrito Federal, para que estas, em seu nome, atuem junto aos órgãos de primeiro e segundo graus de jurisdição referidos no caput, no desempenho das funções que lhe são cometidas por esta lei complementar.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 14, §1º
+Tipo: paragrafo
+Hierarquia: TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO I - DA ESTRUTURA
+Dispositivo pai: Art. 14
+Páginas: 632-632
+§ 1º A Defensoria Pública da União deverá firmar convênios com as Defensorias Públicas dos estados e do Distrito Federal, para que estas, em seu nome, atuem junto aos órgãos de primeiro e segundo graus de jurisdição referidos no caput, no desempenho das funções que lhe são cometidas por esta lei complementar.","§ 1º A Defensoria Pública da União deverá firmar convênios com as Defensorias Públicas dos estados e do Distrito Federal, para que estas, em seu nome, atuem junto aos órgãos de primeiro e segundo graus de jurisdição referidos no caput, no...","complementar; defensoria; janeiro; titulo; organizacao; capitulo; estrutura; publica; uniao; devera","True","670","167"
+"20","20","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","632","632","TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO I - DA ESTRUTURA","paragrafo","Art. 14, §2º","Art. 14","Art. 14","§2º","","","","§ 2º Não havendo na unidade federada Defensoria Pública constituída nos moldes desta lei complementar, é autorizado o convênio com a entidade pública que desempenhar essa função, até que seja criado o órgão próprio.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 14, §2º
+Tipo: paragrafo
+Hierarquia: TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO I - DA ESTRUTURA
+Dispositivo pai: Art. 14
+Páginas: 632-632
+§ 2º Não havendo na unidade federada Defensoria Pública constituída nos moldes desta lei complementar, é autorizado o convênio com a entidade pública que desempenhar essa função, até que seja criado o órgão próprio.","§ 2º Não havendo na unidade federada Defensoria Pública constituída nos moldes desta lei complementar, é autorizado o convênio com a entidade pública que desempenhar essa função, até que seja criado o órgão próprio.","complementar; defensoria; publica; janeiro; titulo; organizacao; capitulo; estrutura; havendo; unidade","True","575","143"
+"21","21","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","632","632","TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO I - DA ESTRUTURA","paragrafo","Art. 14, §3º","Art. 14","Art. 14","§3º","","","","§ 3º A prestação de assistência judiciária pelos órgãos próprios da Defensoria Pública da União dar-se-á, preferencialmente, perante o Supremo Tribunal Federal e os Tribunais Superiores. [...]","Parágrafos 1º a 3º acrescidos pelo art. 1º da LC n. 98/1999.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Parágrafos 1º a 3º acrescidos pelo art. 1º da LC n. 98/1999."", ""pagina_inicial"": 632, ""pagina_final"": 632}]","1","LC n. 98/1999","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 14, §3º
+Tipo: paragrafo
+Hierarquia: TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO I - DA ESTRUTURA
+Dispositivo pai: Art. 14
+Páginas: 632-632
+§ 3º A prestação de assistência judiciária pelos órgãos próprios da Defensoria Pública da União dar-se-á, preferencialmente, perante o Supremo Tribunal Federal e os Tribunais Superiores. [...]
+Notas vinculadas:
+Parágrafos 1º a 3º acrescidos pelo art. 1º da LC n. 98/1999.","§ 3º A prestação de assistência judiciária pelos órgãos próprios da Defensoria Pública da União dar-se-á, preferencialmente, perante o Supremo Tribunal Federal e os Tribunais Superiores. [...]","defensoria; complementar; janeiro; titulo; organizacao; capitulo; estrutura; prestacao; assistencia; judiciaria","True","631","157"
+"22","22","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","632","632","TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO II - DA CARREIRA","estrutura","CAPÍTULO II - DA CARREIRA","","Art. 14","§3º","","","","CAPÍTULO II - DA CARREIRA [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: CAPÍTULO II - DA CARREIRA
+Tipo: estrutura
+Hierarquia: TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO II - DA CARREIRA
+Páginas: 632-632
+CAPÍTULO II - DA CARREIRA [...]","CAPÍTULO II - DA CARREIRA [...]","capitulo; carreira; complementar; janeiro; titulo; organizacao; defensoria","True","379","94"
+"23","23","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","632","633","TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO II - DA CARREIRA","artigo","Art. 20","","Art. 20","","","","","Art. 20. Os defensores públicos federais de 2ª categoria atuarão junto aos juízos federais, aos juízos do trabalho, às juntas e aos juízes eleitorais, aos juízes militares, às auditorias militares, ao Tribunal Marítimo e às instâncias administrativas.","Art. 20 com redação dada pelo art. 1º da LC n. 132/2009.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Art. 20 com redação dada pelo art. 1º da LC n. 132/2009."", ""pagina_inicial"": 633, ""pagina_final"": 633}]","1","LC n. 132/2009","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 20
+Tipo: artigo
+Hierarquia: TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO II - DA CARREIRA
+Páginas: 632-633
+Art. 20. Os defensores públicos federais de 2ª categoria atuarão junto aos juízos federais, aos juízos do trabalho, às juntas e aos juízes eleitorais, aos juízes militares, às auditorias militares, ao Tribunal Marítimo e às instâncias administrativas.
+Notas vinculadas:
+Art. 20 com redação dada pelo art. 1º da LC n. 132/2009.","Art. 20. Os defensores públicos federais de 2ª categoria atuarão junto aos juízos federais, aos juízos do trabalho, às juntas e aos juízes eleitorais, aos juízes militares, às auditorias militares, ao Tribunal Marítimo e às instâncias...","federais; juizos; juizes; militares; complementar; janeiro; titulo; organizacao; defensoria; capitulo","True","653","163"
+"24","24","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","633","633","TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO II - DA CARREIRA","artigo","Art. 21","","Art. 21","","","","","Art. 21. Os defensores públicos federais de 1ª categoria atuarão nos Tribunais Regionais Federais, nas turmas dos Juizados Especiais Federais, nos Tribunais Regionais do Trabalho e nos Tribunais Regionais Eleitorais.","Art. 21 com redação dada pelo art. 1º da LC n. 132/2009.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Art. 21 com redação dada pelo art. 1º da LC n. 132/2009."", ""pagina_inicial"": 633, ""pagina_final"": 633}]","1","LC n. 132/2009","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 21
+Tipo: artigo
+Hierarquia: TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO II - DA CARREIRA
+Páginas: 633-633
+Art. 21. Os defensores públicos federais de 1ª categoria atuarão nos Tribunais Regionais Federais, nas turmas dos Juizados Especiais Federais, nos Tribunais Regionais do Trabalho e nos Tribunais Regionais Eleitorais.
+Notas vinculadas:
+Art. 21 com redação dada pelo art. 1º da LC n. 132/2009.","Art. 21. Os defensores públicos federais de 1ª categoria atuarão nos Tribunais Regionais Federais, nas turmas dos Juizados Especiais Federais, nos Tribunais Regionais do Trabalho e nos Tribunais Regionais Eleitorais.","federais; tribunais; regionais; complementar; janeiro; titulo; organizacao; defensoria; capitulo; carreira","True","618","154"
+"25","25","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","633","633","TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO II - DA CARREIRA","artigo","Art. 22","","Art. 22","","","","","Art. 22. Os defensores públicos federais de categoria especial atuarão no Superior Tribunal de Justiça, no Tribunal Superior do Trabalho, no Tribunal Superior Eleitoral, no Superior Tribunal Militar e na Turma Nacional de Uniformização dos Juizados Especiais Federais.","Art. 22 com redação dada pelo art. 1º da LC n. 132/2009.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Art. 22 com redação dada pelo art. 1º da LC n. 132/2009."", ""pagina_inicial"": 633, ""pagina_final"": 633}]","1","LC n. 132/2009","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 22
+Tipo: artigo
+Hierarquia: TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO II - DA CARREIRA
+Páginas: 633-633
+Art. 22. Os defensores públicos federais de categoria especial atuarão no Superior Tribunal de Justiça, no Tribunal Superior do Trabalho, no Tribunal Superior Eleitoral, no Superior Tribunal Militar e na Turma Nacional de Uniformização dos Juizados Especiais Federais.
+Notas vinculadas:
+Art. 22 com redação dada pelo art. 1º da LC n. 132/2009.","Art. 22. Os defensores públicos federais de categoria especial atuarão no Superior Tribunal de Justiça, no Tribunal Superior do Trabalho, no Tribunal Superior Eleitoral, no Superior Tribunal Militar e na Turma Nacional de Uniformização dos...","superior; tribunal; federais; complementar; janeiro; titulo; organizacao; defensoria; capitulo; carreira","True","670","167"
+"26","26","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","633","633","TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO II - DA CARREIRA","paragrafo","Art. 22, Parágrafo único","Art. 22","Art. 22","Parágrafo único","","","","Parágrafo único. (Vetado). [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 22, Parágrafo único
+Tipo: paragrafo
+Hierarquia: TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO II - DA CARREIRA
+Dispositivo pai: Art. 22
+Páginas: 633-633
+Parágrafo único. (Vetado). [...]","Parágrafo único. (Vetado). [...]","paragrafo; unico; complementar; janeiro; titulo; organizacao; defensoria; capitulo; carreira; vetado","True","404","101"
+"27","27","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","633","633","TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO IV - DOS DIREITOS, DAS GARANTIAS E DAS","estrutura","CAPÍTULO IV - DOS DIREITOS, DAS GARANTIAS E DAS","","Art. 22","Parágrafo único","","","","CAPÍTULO IV - DOS DIREITOS, DAS GARANTIAS E DAS","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: CAPÍTULO IV - DOS DIREITOS, DAS GARANTIAS E DAS
+Tipo: estrutura
+Hierarquia: TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO IV - DOS DIREITOS, DAS GARANTIAS E DAS
+Páginas: 633-633
+CAPÍTULO IV - DOS DIREITOS, DAS GARANTIAS E DAS","CAPÍTULO IV - DOS DIREITOS, DAS GARANTIAS E DAS","capitulo; direitos; garantias; complementar; janeiro; titulo; organizacao; defensoria","True","439","109"
+"28","28","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","633","633","TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO IV - DOS DIREITOS, DAS GARANTIAS E DAS > PRERROGATIVAS DOS MEMBROS DA","estrutura","PRERROGATIVAS DOS MEMBROS DA","","Art. 22","Parágrafo único","","","","PRERROGATIVAS DOS MEMBROS DA","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: PRERROGATIVAS DOS MEMBROS DA
+Tipo: estrutura
+Hierarquia: TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO IV - DOS DIREITOS, DAS GARANTIAS E DAS > PRERROGATIVAS DOS MEMBROS DA
+Páginas: 633-633
+PRERROGATIVAS DOS MEMBROS DA","PRERROGATIVAS DOS MEMBROS DA","prerrogativas; membros; complementar; janeiro; titulo; organizacao; defensoria; capitulo; direitos; garantias","True","432","108"
+"29","29","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","633","633","TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO IV - DOS DIREITOS, DAS GARANTIAS E DAS > DEFENSORIA PÚBLICA DA UNIÃO","estrutura","DEFENSORIA PÚBLICA DA UNIÃO","","Art. 22","Parágrafo único","","","","DEFENSORIA PÚBLICA DA UNIÃO [...] Seção III Das garantias e das prerrogativas [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: DEFENSORIA PÚBLICA DA UNIÃO
+Tipo: estrutura
+Hierarquia: TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO IV - DOS DIREITOS, DAS GARANTIAS E DAS > DEFENSORIA PÚBLICA DA UNIÃO
+Páginas: 633-633
+DEFENSORIA PÚBLICA DA UNIÃO [...] Seção III Das garantias e das prerrogativas [...]","DEFENSORIA PÚBLICA DA UNIÃO [...] Seção III Das garantias e das prerrogativas [...]","defensoria; publica; uniao; garantias; complementar; janeiro; titulo; organizacao; capitulo; direitos","True","485","121"
+"30","30","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","633","633","TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO IV - DOS DIREITOS, DAS GARANTIAS E DAS > DEFENSORIA PÚBLICA DA UNIÃO","artigo","Art. 44","","Art. 44","","","","","Art. 44. São prerrogativas dos membros da Defensoria Pública da União:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 44
+Tipo: artigo
+Hierarquia: TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO IV - DOS DIREITOS, DAS GARANTIAS E DAS > DEFENSORIA PÚBLICA DA UNIÃO
+Páginas: 633-633
+Art. 44. São prerrogativas dos membros da Defensoria Pública da União:","Art. 44. São prerrogativas dos membros da Defensoria Pública da União:","defensoria; publica; uniao; complementar; janeiro; titulo; organizacao; capitulo; direitos; garantias","True","449","112"
+"31","31","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","633","633","TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO IV - DOS DIREITOS, DAS GARANTIAS E DAS > DEFENSORIA PÚBLICA DA UNIÃO","inciso","Art. 44, I","Art. 44","Art. 44","","I","","","I - receber, inclusive quando necessário, mediante entrega dos autos com vista, intimação pessoal em qualquer processo e grau de jurisdição ou instância administrativa, contando-se-lhes em dobro todos os prazos; [...]","Inciso I com redação dada pelo art. 1º da LC n. 132/2009.
+CPC/2015, art. 273: intimação pessoal ou por carta registrada se inviável por meio eletrônico e não houver na localidade publicação em órgão oficial.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Inciso I com redação dada pelo art. 1º da LC n. 132/2009."", ""pagina_inicial"": 633, ""pagina_final"": 633}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""CPC/2015, art. 273: intimação pessoal ou por carta registrada se inviável por meio eletrônico e não houver na localidade publicação em órgão oficial."", ""pagina_inicial"": 633, ""pagina_final"": 633}]","2","LC n. 132/2009","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 44, I
+Tipo: inciso
+Hierarquia: TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO IV - DOS DIREITOS, DAS GARANTIAS E DAS > DEFENSORIA PÚBLICA DA UNIÃO
+Dispositivo pai: Art. 44
+Páginas: 633-633
+I - receber, inclusive quando necessário, mediante entrega dos autos com vista, intimação pessoal em qualquer processo e grau de jurisdição ou instância administrativa, contando-se-lhes em dobro todos os prazos; [...]
+Notas vinculadas:
+Inciso I com redação dada pelo art. 1º da LC n. 132/2009.
+CPC/2015, art. 273: intimação pessoal ou por carta registrada se inviável por meio eletrônico e não houver na localidade publicação em órgão oficial.","I - receber, inclusive quando necessário, mediante entrega dos autos com vista, intimação pessoal em qualquer processo e grau de jurisdição ou instância administrativa, contando-se-lhes em dobro todos os prazos; [...]","defensoria; intimacao; pessoal; complementar; janeiro; titulo; organizacao; capitulo; direitos; garantias","True","850","212"
+"32","32","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","633","633","TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS","estrutura","CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS","","Art. 44","","I","","","CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS
+Tipo: estrutura
+Hierarquia: TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS
+Páginas: 633-633
+CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS","CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS","capitulo; deveres; proibicoes; complementar; janeiro; titulo; organizacao; defensoria","True","433","108"
+"33","33","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","633","633","TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS > IMPEDIMENTOS E DA RESPONSABILIDADE","estrutura","IMPEDIMENTOS E DA RESPONSABILIDADE","","Art. 44","","I","","","IMPEDIMENTOS E DA RESPONSABILIDADE","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: IMPEDIMENTOS E DA RESPONSABILIDADE
+Tipo: estrutura
+Hierarquia: TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS > IMPEDIMENTOS E DA RESPONSABILIDADE
+Páginas: 633-633
+IMPEDIMENTOS E DA RESPONSABILIDADE","IMPEDIMENTOS E DA RESPONSABILIDADE","impedimentos; responsabilidade; complementar; janeiro; titulo; organizacao; defensoria; capitulo; deveres; proibicoes","True","448","112"
+"34","34","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","633","633","TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS > FUNCIONAL","estrutura","FUNCIONAL","","Art. 44","","I","","","FUNCIONAL [...] Seção II Das proibições","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: FUNCIONAL
+Tipo: estrutura
+Hierarquia: TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS > FUNCIONAL
+Páginas: 633-633
+FUNCIONAL [...] Seção II Das proibições","FUNCIONAL [...] Seção II Das proibições","funcional; proibicoes; complementar; janeiro; titulo; organizacao; defensoria; capitulo; deveres; secao","True","403","100"
+"35","35","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","633","633","TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS > FUNCIONAL","artigo","Art. 46","","Art. 46","","","","","Art. 46. Além das proibições decorrentes do exercício de cargo público, aos membros da Defensoria Pública da União é vedado: [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 46
+Tipo: artigo
+Hierarquia: TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS > FUNCIONAL
+Páginas: 633-633
+Art. 46. Além das proibições decorrentes do exercício de cargo público, aos membros da Defensoria Pública da União é vedado: [...]","Art. 46. Além das proibições decorrentes do exercício de cargo público, aos membros da Defensoria Pública da União é vedado: [...]","defensoria; proibicoes; complementar; janeiro; titulo; organizacao; capitulo; deveres; funcional; alem","True","489","122"
+"36","36","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","633","633","TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS > FUNCIONAL","inciso","Art. 46, V","Art. 46","Art. 46","","V","","","V - exercer atividade político-partidária, enquanto atuar junto à Justiça Eleitoral. [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 46, V
+Tipo: inciso
+Hierarquia: TÍTULO II - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS > FUNCIONAL
+Dispositivo pai: Art. 46
+Páginas: 633-633
+V - exercer atividade político-partidária, enquanto atuar junto à Justiça Eleitoral. [...]","V - exercer atividade político-partidária, enquanto atuar junto à Justiça Eleitoral. [...]","complementar; janeiro; titulo; organizacao; defensoria; capitulo; deveres; proibicoes; funcional; exercer","True","477","119"
+"37","37","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","633","633","TÍTULO III - DA ORGANIZAÇÃO DA DEFENSORIA","estrutura","TÍTULO III - DA ORGANIZAÇÃO DA DEFENSORIA","","Art. 46","","V","","","TÍTULO III - DA ORGANIZAÇÃO DA DEFENSORIA","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: TÍTULO III - DA ORGANIZAÇÃO DA DEFENSORIA
+Tipo: estrutura
+Hierarquia: TÍTULO III - DA ORGANIZAÇÃO DA DEFENSORIA
+Páginas: 633-633
+TÍTULO III - DA ORGANIZAÇÃO DA DEFENSORIA","TÍTULO III - DA ORGANIZAÇÃO DA DEFENSORIA","titulo; organizacao; defensoria; complementar; janeiro","True","378","94"
+"38","38","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","633","633","TÍTULO III - DA ORGANIZAÇÃO DA DEFENSORIA > PÚBLICA DO DISTRITO FEDERAL E DOS","estrutura","PÚBLICA DO DISTRITO FEDERAL E DOS","","Art. 46","","V","","","PÚBLICA DO DISTRITO FEDERAL E DOS","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: PÚBLICA DO DISTRITO FEDERAL E DOS
+Tipo: estrutura
+Hierarquia: TÍTULO III - DA ORGANIZAÇÃO DA DEFENSORIA > PÚBLICA DO DISTRITO FEDERAL E DOS
+Páginas: 633-633
+PÚBLICA DO DISTRITO FEDERAL E DOS","PÚBLICA DO DISTRITO FEDERAL E DOS","publica; distrito; federal; complementar; janeiro; titulo; organizacao; defensoria","True","398","99"
+"39","39","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","633","633","TÍTULO III - DA ORGANIZAÇÃO DA DEFENSORIA > TERRITÓRIOS","estrutura","TERRITÓRIOS","","Art. 46","","V","","","TERRITÓRIOS [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: TERRITÓRIOS
+Tipo: estrutura
+Hierarquia: TÍTULO III - DA ORGANIZAÇÃO DA DEFENSORIA > TERRITÓRIOS
+Páginas: 633-633
+TERRITÓRIOS [...]","TERRITÓRIOS [...]","territorios; complementar; janeiro; titulo; organizacao; defensoria","True","338","84"
+"40","40","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","633","633","TÍTULO III - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS","estrutura","CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS","","Art. 46","","V","","","CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS
+Tipo: estrutura
+Hierarquia: TÍTULO III - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS
+Páginas: 633-633
+CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS","CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS","capitulo; deveres; proibicoes; complementar; janeiro; titulo; organizacao; defensoria","True","434","108"
+"41","41","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","633","633","TÍTULO III - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS > IMPEDIMENTOS E DA RESPONSABILIDADE","estrutura","IMPEDIMENTOS E DA RESPONSABILIDADE","","Art. 46","","V","","","IMPEDIMENTOS E DA RESPONSABILIDADE","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: IMPEDIMENTOS E DA RESPONSABILIDADE
+Tipo: estrutura
+Hierarquia: TÍTULO III - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS > IMPEDIMENTOS E DA RESPONSABILIDADE
+Páginas: 633-633
+IMPEDIMENTOS E DA RESPONSABILIDADE","IMPEDIMENTOS E DA RESPONSABILIDADE","impedimentos; responsabilidade; complementar; janeiro; titulo; organizacao; defensoria; capitulo; deveres; proibicoes","True","449","112"
+"42","42","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","633","634","TÍTULO III - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS > FUNCIONAL","estrutura","FUNCIONAL","","Art. 46","","V","","","FUNCIONAL [...] Seção II Das proibições","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: FUNCIONAL
+Tipo: estrutura
+Hierarquia: TÍTULO III - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS > FUNCIONAL
+Páginas: 633-634
+FUNCIONAL [...] Seção II Das proibições","FUNCIONAL [...] Seção II Das proibições","funcional; proibicoes; complementar; janeiro; titulo; organizacao; defensoria; capitulo; deveres; secao","True","404","101"
+"43","43","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","634","634","TÍTULO III - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS > FUNCIONAL","artigo","Art. 91","","Art. 91","","","","","Art. 91. Além das proibições decorrentes do exercício de cargo público, aos membros da Defensoria Pública do Distrito Federal e dos Territórios é vedado: [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 91
+Tipo: artigo
+Hierarquia: TÍTULO III - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS > FUNCIONAL
+Páginas: 634-634
+Art. 91. Além das proibições decorrentes do exercício de cargo público, aos membros da Defensoria Pública do Distrito Federal e dos Territórios é vedado: [...]","Art. 91. Além das proibições decorrentes do exercício de cargo público, aos membros da Defensoria Pública do Distrito Federal e dos Territórios é vedado: [...]","defensoria; proibicoes; complementar; janeiro; titulo; organizacao; capitulo; deveres; funcional; alem","True","519","129"
+"44","44","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","634","634","TÍTULO III - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS > FUNCIONAL","inciso","Art. 91, V","Art. 91","Art. 91","","V","","","V - exercer atividade político-partidária, enquanto atuar junto à Justiça Eleitoral. [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 91, V
+Tipo: inciso
+Hierarquia: TÍTULO III - DA ORGANIZAÇÃO DA DEFENSORIA > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS > FUNCIONAL
+Dispositivo pai: Art. 91
+Páginas: 634-634
+V - exercer atividade político-partidária, enquanto atuar junto à Justiça Eleitoral. [...]","V - exercer atividade político-partidária, enquanto atuar junto à Justiça Eleitoral. [...]","complementar; janeiro; titulo; organizacao; defensoria; capitulo; deveres; proibicoes; funcional; exercer","True","478","119"
+"45","45","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","634","634","TÍTULO IV - DAS NORMAS GERAIS PARA A","estrutura","TÍTULO IV - DAS NORMAS GERAIS PARA A","","Art. 91","","V","","","TÍTULO IV - DAS NORMAS GERAIS PARA A","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: TÍTULO IV - DAS NORMAS GERAIS PARA A
+Tipo: estrutura
+Hierarquia: TÍTULO IV - DAS NORMAS GERAIS PARA A
+Páginas: 634-634
+TÍTULO IV - DAS NORMAS GERAIS PARA A","TÍTULO IV - DAS NORMAS GERAIS PARA A","titulo; normas; gerais; complementar; janeiro","True","363","90"
+"46","46","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","634","634","TÍTULO IV - DAS NORMAS GERAIS PARA A > ORGANIZAÇÃO DA DEFENSORIA PÚBLICA","estrutura","ORGANIZAÇÃO DA DEFENSORIA PÚBLICA","","Art. 91","","V","","","ORGANIZAÇÃO DA DEFENSORIA PÚBLICA","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: ORGANIZAÇÃO DA DEFENSORIA PÚBLICA
+Tipo: estrutura
+Hierarquia: TÍTULO IV - DAS NORMAS GERAIS PARA A > ORGANIZAÇÃO DA DEFENSORIA PÚBLICA
+Páginas: 634-634
+ORGANIZAÇÃO DA DEFENSORIA PÚBLICA","ORGANIZAÇÃO DA DEFENSORIA PÚBLICA","organizacao; defensoria; publica; complementar; janeiro; titulo; normas; gerais","True","393","98"
+"47","47","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","634","634","TÍTULO IV - DAS NORMAS GERAIS PARA A > DOS ESTADOS","estrutura","DOS ESTADOS","","Art. 91","","V","","","DOS ESTADOS [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: DOS ESTADOS
+Tipo: estrutura
+Hierarquia: TÍTULO IV - DAS NORMAS GERAIS PARA A > DOS ESTADOS
+Páginas: 634-634
+DOS ESTADOS [...]","DOS ESTADOS [...]","estados; complementar; janeiro; titulo; normas; gerais","True","333","83"
+"48","48","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","634","634","TÍTULO IV - DAS NORMAS GERAIS PARA A > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS","estrutura","CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS","","Art. 91","","V","","","CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS
+Tipo: estrutura
+Hierarquia: TÍTULO IV - DAS NORMAS GERAIS PARA A > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS
+Páginas: 634-634
+CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS","CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS","capitulo; deveres; proibicoes; complementar; janeiro; titulo; normas; gerais","True","429","107"
+"49","49","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","634","634","TÍTULO IV - DAS NORMAS GERAIS PARA A > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS > IMPEDIMENTOS E DA RESPONSABILIDADE","estrutura","IMPEDIMENTOS E DA RESPONSABILIDADE","","Art. 91","","V","","","IMPEDIMENTOS E DA RESPONSABILIDADE","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: IMPEDIMENTOS E DA RESPONSABILIDADE
+Tipo: estrutura
+Hierarquia: TÍTULO IV - DAS NORMAS GERAIS PARA A > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS > IMPEDIMENTOS E DA RESPONSABILIDADE
+Páginas: 634-634
+IMPEDIMENTOS E DA RESPONSABILIDADE","IMPEDIMENTOS E DA RESPONSABILIDADE","impedimentos; responsabilidade; complementar; janeiro; titulo; normas; gerais; capitulo; deveres; proibicoes","True","444","111"
+"50","50","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","634","634","TÍTULO IV - DAS NORMAS GERAIS PARA A > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS > FUNCIONAL","estrutura","FUNCIONAL","","Art. 91","","V","","","FUNCIONAL [...] Seção II Das proibições","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: FUNCIONAL
+Tipo: estrutura
+Hierarquia: TÍTULO IV - DAS NORMAS GERAIS PARA A > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS > FUNCIONAL
+Páginas: 634-634
+FUNCIONAL [...] Seção II Das proibições","FUNCIONAL [...] Seção II Das proibições","funcional; proibicoes; complementar; janeiro; titulo; normas; gerais; capitulo; deveres; secao","True","399","99"
+"51","51","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","634","634","TÍTULO IV - DAS NORMAS GERAIS PARA A > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS > FUNCIONAL","artigo","Art. 130","","Art. 130","","","","","Art. 130. Além das proibições decorrentes do exercício de cargo público, aos membros da Defensoria Pública dos estados é vedado: [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 130
+Tipo: artigo
+Hierarquia: TÍTULO IV - DAS NORMAS GERAIS PARA A > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS > FUNCIONAL
+Páginas: 634-634
+Art. 130. Além das proibições decorrentes do exercício de cargo público, aos membros da Defensoria Pública dos estados é vedado: [...]","Art. 130. Além das proibições decorrentes do exercício de cargo público, aos membros da Defensoria Pública dos estados é vedado: [...]","proibicoes; complementar; janeiro; titulo; normas; gerais; capitulo; deveres; funcional; alem","True","490","122"
+"52","52","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","634","634","TÍTULO IV - DAS NORMAS GERAIS PARA A > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS > FUNCIONAL","inciso","Art. 130, V","Art. 130","Art. 130","","V","","","V - exercer atividade político-partidária, enquanto atuar junto à Justiça Eleitoral. [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 130, V
+Tipo: inciso
+Hierarquia: TÍTULO IV - DAS NORMAS GERAIS PARA A > CAPÍTULO V - DOS DEVERES, DAS PROIBIÇÕES, DOS > FUNCIONAL
+Dispositivo pai: Art. 130
+Páginas: 634-634
+V - exercer atividade político-partidária, enquanto atuar junto à Justiça Eleitoral. [...]","V - exercer atividade político-partidária, enquanto atuar junto à Justiça Eleitoral. [...]","complementar; janeiro; titulo; normas; gerais; capitulo; deveres; proibicoes; funcional; exercer","True","475","118"
+"53","53","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","634","634","TÍTULO V - DAS DISPOSIÇÕES FINAIS E TRANSITÓRIAS","estrutura","TÍTULO V - DAS DISPOSIÇÕES FINAIS E TRANSITÓRIAS","","Art. 130","","V","","","TÍTULO V - DAS DISPOSIÇÕES FINAIS E TRANSITÓRIAS [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: TÍTULO V - DAS DISPOSIÇÕES FINAIS E TRANSITÓRIAS
+Tipo: estrutura
+Hierarquia: TÍTULO V - DAS DISPOSIÇÕES FINAIS E TRANSITÓRIAS
+Páginas: 634-634
+TÍTULO V - DAS DISPOSIÇÕES FINAIS E TRANSITÓRIAS [...]","TÍTULO V - DAS DISPOSIÇÕES FINAIS E TRANSITÓRIAS [...]","titulo; disposicoes; finais; transitorias; complementar; janeiro","True","405","101"
+"54","54","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","634","634","TÍTULO V - DAS DISPOSIÇÕES FINAIS E TRANSITÓRIAS","artigo","Art. 148","","Art. 148","","","","","Art. 148. Esta lei complementar entra em vigor na data de sua publicação.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 148
+Tipo: artigo
+Hierarquia: TÍTULO V - DAS DISPOSIÇÕES FINAIS E TRANSITÓRIAS
+Páginas: 634-634
+Art. 148. Esta lei complementar entra em vigor na data de sua publicação.","Art. 148. Esta lei complementar entra em vigor na data de sua publicação.","complementar; janeiro; titulo; disposicoes; finais; transitorias; esta; entra; vigor; data","True","381","95"
+"55","55","Codigo_Eleitoral_2026_anotado.pdf","lei_complementar_80_1994","Lei Complementar n. 80, de 12 de janeiro de 1994","","Legislação correlata","Legislação correlata","634","634","TÍTULO V - DAS DISPOSIÇÕES FINAIS E TRANSITÓRIAS","artigo","Art. 149","","Art. 149","","","","","Art. 149. Revogam-se as disposições em contrário.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei Complementar n. 80, de 12 de janeiro de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 149
+Tipo: artigo
+Hierarquia: TÍTULO V - DAS DISPOSIÇÕES FINAIS E TRANSITÓRIAS
+Páginas: 634-634
+Art. 149. Revogam-se as disposições em contrário.","Art. 149. Revogam-se as disposições em contrário.","disposicoes; complementar; janeiro; titulo; finais; transitorias; revogam; contrario","True","357","89"

@@ -1,0 +1,276 @@
+﻿"id","ordem_doc","arquivo_fonte","norma_id","norma_titulo","norma_nome_popular","macrogrupo","grupo_sumario","pagina_inicial","pagina_final","hierarquia_normativa","tipo_dispositivo","dispositivo","dispositivo_pai","artigo","paragrafo","inciso","alinea","item","texto_dispositivo","notas_texto","notas_json","qtd_notas","referencias_normativas","referencias_jurisprudenciais","referencias_sumulas","texto_rag","resumo_curto","palavras_chave","incluir_no_rag","chars","tokens_estimados"
+"1","1","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1253","1253","","norma","Provimento-CGE n. 2 de 9 de março de 2010","","","","","","","Regulamenta a sistemática de entrega de relações de filiados pelos partidos políticos via internet, aprova o cronograma de tratamento dos dados sobre filiação partidária fornecidos pelos partidos políticos em cumprimento ao disposto no art. 19 da Lei n. 9.096/1995 para o mês de abril de 2010 e dá outras providências. O EXMO. SR. MINISTRO FELIX FISCHER, Corregedor-Geral da Justiça Eleitoral, no uso das atribuições que lhe são conferidas pelos incisos V e IX do art. 2º da Res.-TSE n. 7.651, de 24 de agosto de 1965, e pelo art. 30 da Res.-TSE n. 23.117, de 20 de agosto de 2009, RESOLVE:","Res.-TSE n. 7651/1965 revogada pelo art. 17 da Res.-TSE n. 23742/2024.
+Res.-TSE n. 23117/2009 revogada pelo art. 40 da Res.-TSE n. 23596/2019.","[{""ordem"": 1, ""marcador"": ""ticado"", ""texto"": ""Res.-TSE n. 7651/1965 revogada pelo art. 17 da Res.-TSE n. 23742/2024."", ""pagina_inicial"": 1253, ""pagina_final"": 1253}, {""ordem"": 2, ""marcador"": ""ticado"", ""texto"": ""Res.-TSE n. 23117/2009 revogada pelo art. 40 da Res.-TSE n. 23596/2019."", ""pagina_inicial"": 1253, ""pagina_final"": 1253}]","2","Lei n. 9.096/1995; Res.-TSE n. 7651/1965; Res.-TSE n. 23742/2024; Res.-TSE n. 23117/2009; Res.-TSE n. 23596/2019","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Provimento-CGE n. 2 de 9 de março de 2010
+Tipo: norma
+Páginas: 1253-1253
+Regulamenta a sistemática de entrega de relações de filiados pelos partidos políticos via internet, aprova o cronograma de tratamento dos dados sobre filiação partidária fornecidos pelos partidos políticos em cumprimento ao disposto no art. 19 da Lei n. 9.096/1995 para o mês de abril de 2010 e dá outras providências. O EXMO. SR. MINISTRO FELIX FISCHER, Corregedor-Geral da Justiça Eleitoral, no uso das atribuições que lhe são conferidas pelos incisos V e IX do art. 2º da Res.-TSE n. 7.651, de 24 de agosto de 1965, e pelo art. 30 da Res.-TSE n. 23.117, de 20 de agosto de 2009, RESOLVE:
+Notas vinculadas:
+Res.-TSE n. 7651/1965 revogada pelo art. 17 da Res.-TSE n. 23742/2024.
+Res.-TSE n. 23117/2009 revogada pelo art. 40 da Res.-TSE n. 23596/2019.","Regulamenta a sistemática de entrega de relações de filiados pelos partidos políticos via internet, aprova o cronograma de tratamento dos dados sobre filiação partidária fornecidos pelos partidos políticos em cumprimento ao disposto no...","provimento; marco; partidos; politicos; agosto; revogada; regulamenta; sistematica; entrega; relacoes","True","1024","256"
+"2","2","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1253","1253","","artigo","Art. 1º","","Art. 1º","","","","","Art. 1º Aos diretórios de partidos políticos que ainda não tiverem optado pelo uso da sistemática aprovada pela Res.-TSE n. 23.117, de 20 de agosto de 2009, destinada ao gerenciamento e à entrega das relações de filiados pela internet (Filiaweb), será assegurada a sincronização dos dados inseridos na aplicação anterior (Filex) para a nova, visando o aproveitamento das atualizações promovidas desde a última entrega feita à Justiça Eleitoral.","Res.-TSE n. 23117/2009 revogada pelo art. 40 da Res.-TSE n. 23596/2019.","[{""ordem"": 1, ""marcador"": ""ticado"", ""texto"": ""Res.-TSE n. 23117/2009 revogada pelo art. 40 da Res.-TSE n. 23596/2019."", ""pagina_inicial"": 1253, ""pagina_final"": 1253}]","1","Res.-TSE n. 23117/2009; Res.-TSE n. 23596/2019","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 1º
+Tipo: artigo
+Páginas: 1253-1253
+Art. 1º Aos diretórios de partidos políticos que ainda não tiverem optado pelo uso da sistemática aprovada pela Res.-TSE n. 23.117, de 20 de agosto de 2009, destinada ao gerenciamento e à entrega das relações de filiados pela internet (Filiaweb), será assegurada a sincronização dos dados inseridos na aplicação anterior (Filex) para a nova, visando o aproveitamento das atualizações promovidas desde a última entrega feita à Justiça Eleitoral.
+Notas vinculadas:
+Res.-TSE n. 23117/2009 revogada pelo art. 40 da Res.-TSE n. 23596/2019.","Art. 1º Aos diretórios de partidos políticos que ainda não tiverem optado pelo uso da sistemática aprovada pela Res.-TSE n. 23.117, de 20 de agosto de 2009, destinada ao gerenciamento e à entrega das relações de filiados pela internet...","entrega; provimento; marco; diretorios; partidos; politicos; ainda; tiverem; optado; sistematica","True","774","193"
+"3","3","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1253","1253","","paragrafo","Art. 1º, §1º","Art. 1º","Art. 1º","§1º","","","","§ 1º Para a operação de que trata o caput deste artigo, o representante do diretório partidário deverá gerar o arquivo de sua relação de filiados no correspondente módulo do sistema de filiação (Filex) e dirigir-se, nos prazos definidos neste provimento, ao cartório do juízo eleitoral competente.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 1º, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 1º
+Páginas: 1253-1253
+§ 1º Para a operação de que trata o caput deste artigo, o representante do diretório partidário deverá gerar o arquivo de sua relação de filiados no correspondente módulo do sistema de filiação (Filex) e dirigir-se, nos prazos definidos neste provimento, ao cartório do juízo eleitoral competente.","§ 1º Para a operação de que trata o caput deste artigo, o representante do diretório partidário deverá gerar o arquivo de sua relação de filiados no correspondente módulo do sistema de filiação (Filex) e dirigir-se, nos prazos definidos...","provimento; marco; operacao; trata; caput; deste; artigo; representante; diretorio; partidario","True","570","142"
+"4","4","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1253","1253","","paragrafo","Art. 1º, §2º","Art. 1º","Art. 1º","§2º","","","","§ 2º O cartório eleitoral providenciará a recepção da mídia no Sistema ELO, utilizando a funcionalidade “Sincroniza Filex-Filiaweb”, constante do menu Controle/Filiação.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 1º, §2º
+Tipo: paragrafo
+Dispositivo pai: Art. 1º
+Páginas: 1253-1253
+§ 2º O cartório eleitoral providenciará a recepção da mídia no Sistema ELO, utilizando a funcionalidade “Sincroniza Filex-Filiaweb”, constante do menu Controle/Filiação.","§ 2º O cartório eleitoral providenciará a recepção da mídia no Sistema ELO, utilizando a funcionalidade “Sincroniza Filex-Filiaweb”, constante do menu Controle/Filiação.","provimento; marco; cartorio; eleitoral; providenciara; recepcao; midia; sistema; utilizando; funcionalidade","True","442","110"
+"5","5","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1253","1253","","paragrafo","Art. 1º, §3º","Art. 1º","Art. 1º","§3º","","","","§ 3º A providência de que trata o § 2º deste artigo atualizará a relação interna da respectiva agremiação no Filiaweb, a qual já figurará na aplicação como submetida, viabilizando oportuno processamento pela Justiça Eleitoral, sem prejuízo do gerenciamento dos dados pelo partido até a data-limite fixada para a submissão das relações ordinárias de filiados.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 1º, §3º
+Tipo: paragrafo
+Dispositivo pai: Art. 1º
+Páginas: 1253-1253
+§ 3º A providência de que trata o § 2º deste artigo atualizará a relação interna da respectiva agremiação no Filiaweb, a qual já figurará na aplicação como submetida, viabilizando oportuno processamento pela Justiça Eleitoral, sem prejuízo do gerenciamento dos dados pelo partido até a data-limite fixada para a submissão das relações ordinárias de filiados.","§ 3º A providência de que trata o § 2º deste artigo atualizará a relação interna da respectiva agremiação no Filiaweb, a qual já figurará na aplicação como submetida, viabilizando oportuno processamento pela Justiça Eleitoral, sem prejuízo...","provimento; marco; providencia; trata; deste; artigo; atualizara; relacao; interna; respectiva","True","631","157"
+"6","6","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1253","1253","","paragrafo","Art. 1º, §4º","Art. 1º","Art. 1º","§4º","","","","§ 4º Será viabilizada a sincronização de dados até as 19 horas do último dia do prazo fixado no cronograma em anexo, considerado o horário de Brasília.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 1º, §4º
+Tipo: paragrafo
+Dispositivo pai: Art. 1º
+Páginas: 1253-1253
+§ 4º Será viabilizada a sincronização de dados até as 19 horas do último dia do prazo fixado no cronograma em anexo, considerado o horário de Brasília.","§ 4º Será viabilizada a sincronização de dados até as 19 horas do último dia do prazo fixado no cronograma em anexo, considerado o horário de Brasília.","provimento; marco; sera; viabilizada; sincronizacao; dados; horas; ultimo; prazo; fixado","True","424","106"
+"7","7","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1253","1253","","artigo","Art. 2º","","Art. 2º","","","","","Art. 2º Ultimadas as providências descritas no","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 2º
+Tipo: artigo
+Páginas: 1253-1253
+Art. 2º Ultimadas as providências descritas no","Art. 2º Ultimadas as providências descritas no","provimento; marco; ultimadas; providencias; descritas","True","286","71"
+"8","8","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1253","1253","","artigo","Art. 1º","","Art. 1º","","","","","art. 1º deste provimento, o representante do diretório deverá solicitar sua habilitação para uso do Filiaweb.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 1º
+Tipo: artigo
+Páginas: 1253-1253
+art. 1º deste provimento, o representante do diretório deverá solicitar sua habilitação para uso do Filiaweb.","art. 1º deste provimento, o representante do diretório deverá solicitar sua habilitação para uso do Filiaweb.","provimento; marco; deste; representante; diretorio; devera; solicitar; habilitacao; filiaweb","True","349","87"
+"9","9","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1253","1253","","paragrafo","Art. 1º, §1º","Art. 1º","Art. 1º","§1º","","","","§ 1º Na hipótese de ser requerida a habilitação para uso do Filiaweb por diretório diverso do municipal ou zonal, perante a Corregedoria-Geral ou as Corregedorias Regionais Eleitorais, conforme a instância partidária, ficará inviabilizada idêntica providência para os diretórios de hierarquia inferior ou cancelada eventual habilitação existente.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 1º, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 1º
+Páginas: 1253-1253
+§ 1º Na hipótese de ser requerida a habilitação para uso do Filiaweb por diretório diverso do municipal ou zonal, perante a Corregedoria-Geral ou as Corregedorias Regionais Eleitorais, conforme a instância partidária, ficará inviabilizada idêntica providência para os diretórios de hierarquia inferior ou cancelada eventual habilitação existente.","§ 1º Na hipótese de ser requerida a habilitação para uso do Filiaweb por diretório diverso do municipal ou zonal, perante a Corregedoria-Geral ou as Corregedorias Regionais Eleitorais, conforme a instância partidária, ficará inviabilizada...","habilitacao; provimento; marco; hipotese; requerida; filiaweb; diretorio; diverso; municipal; zonal","True","619","154"
+"10","10","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1253","1253","","paragrafo","Art. 1º, §2º","Art. 1º","Art. 1º","§2º","","","","§ 2º A restrição a que se refere a parte final do","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 1º, §2º
+Tipo: paragrafo
+Dispositivo pai: Art. 1º
+Páginas: 1253-1253
+§ 2º A restrição a que se refere a parte final do","§ 2º A restrição a que se refere a parte final do","provimento; marco; restricao; refere; parte; final","True","322","80"
+"11","11","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1253","1253","","paragrafo","Art. 1º, §1º","Art. 1º","Art. 1º","§1º","","","","§ 1º deste artigo atingirá apenas os municípios para os quais houver habilitação de diretório regional ou nacional.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 1º, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 1º
+Páginas: 1253-1253
+§ 1º deste artigo atingirá apenas os municípios para os quais houver habilitação de diretório regional ou nacional.","§ 1º deste artigo atingirá apenas os municípios para os quais houver habilitação de diretório regional ou nacional.","provimento; marco; deste; artigo; atingira; apenas; municipios; quais; houver; habilitacao","True","388","97"
+"12","12","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1254","1254","","artigo","Art. 3º","","Art. 3º","","","","","Art. 3º O cadastramento a que se refere o art. 7º,","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 3º
+Tipo: artigo
+Páginas: 1254-1254
+Art. 3º O cadastramento a que se refere o art. 7º,","Art. 3º O cadastramento a que se refere o art. 7º,","provimento; marco; cadastramento; refere","True","290","72"
+"13","13","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1254","1254","","paragrafo","Art. 3º, §1º","Art. 3º","Art. 3º","§1º","","","","§ 1º, da Res.-TSE n. 23.117, de 20 de agosto de 2009, será requerido por escrito, observadas as regras constantes do art. 3º deste provimento, e efetuado em nome do presidente do órgão partidário, que poderá, a seu critério, autorizar formalmente outra pessoa à obtenção de senha de acesso, com a qualificação mínima a seguir indicada: nome, documento de identidade (RG), data de nascimento e inscrição eleitoral.","Res.-TSE n. 23117/2009 revogada pelo art. 40 da Res.-TSE n. 23596/2019.","[{""ordem"": 1, ""marcador"": ""ticado"", ""texto"": ""Res.-TSE n. 23117/2009 revogada pelo art. 40 da Res.-TSE n. 23596/2019."", ""pagina_inicial"": 1254, ""pagina_final"": 1254}]","1","Res.-TSE n. 23117/2009; Res.-TSE n. 23596/2019","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 3º, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 1254-1254
+§ 1º, da Res.-TSE n. 23.117, de 20 de agosto de 2009, será requerido por escrito, observadas as regras constantes do art. 3º deste provimento, e efetuado em nome do presidente do órgão partidário, que poderá, a seu critério, autorizar formalmente outra pessoa à obtenção de senha de acesso, com a qualificação mínima a seguir indicada: nome, documento de identidade (RG), data de nascimento e inscrição eleitoral.
+Notas vinculadas:
+Res.-TSE n. 23117/2009 revogada pelo art. 40 da Res.-TSE n. 23596/2019.","§ 1º, da Res.-TSE n. 23.117, de 20 de agosto de 2009, será requerido por escrito, observadas as regras constantes do art. 3º deste provimento, e efetuado em nome do presidente do órgão partidário, que poderá, a seu critério, autorizar...","provimento; nome; marco; agosto; sera; requerido; escrito; observadas; regras; constantes","True","776","194"
+"14","14","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1254","1254","","paragrafo","Art. 3º, §1º","Art. 3º","Art. 3º","§1º","","","","§ 1º O terceiro autorizado na forma do caput deste artigo deverá comprovar sua identidade no ato do cadastramento da senha de acesso ao sistema.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 3º, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 1254-1254
+§ 1º O terceiro autorizado na forma do caput deste artigo deverá comprovar sua identidade no ato do cadastramento da senha de acesso ao sistema.","§ 1º O terceiro autorizado na forma do caput deste artigo deverá comprovar sua identidade no ato do cadastramento da senha de acesso ao sistema.","provimento; marco; terceiro; autorizado; forma; caput; deste; artigo; devera; comprovar","True","417","104"
+"15","15","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1254","1254","","paragrafo","Art. 3º, §2º","Art. 3º","Art. 3º","§2º","","","","§ 2º Para a obtenção de nova senha de acesso serão observadas as formalidades previstas neste artigo.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 3º, §2º
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 1254-1254
+§ 2º Para a obtenção de nova senha de acesso serão observadas as formalidades previstas neste artigo.","§ 2º Para a obtenção de nova senha de acesso serão observadas as formalidades previstas neste artigo.","provimento; marco; obtencao; nova; senha; acesso; serao; observadas; formalidades; previstas","True","374","93"
+"16","16","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1254","1254","","paragrafo","Art. 3º, §2º-A","Art. 3º","Art. 3º","§2º-A","","","","§ 2º-A Na hipótese de acumulação de mais de um cargo de presidente por uma mesma pessoa em níveis diferentes, a primeira habilitação será feita em seu nome e as subsequentes em nome de pessoa por ele indicada, membro do respectivo diretório a ser cadastrado.","Parágrafo 2º-A acrescido pelo art. 3º do Prov.-CGE n. 5/2010.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Parágrafo 2º-A acrescido pelo art. 3º do Prov.-CGE n. 5/2010."", ""pagina_inicial"": 1254, ""pagina_final"": 1254}]","1","Prov.-CGE n. 5/2010","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 3º, §2º-A
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 1254-1254
+§ 2º-A Na hipótese de acumulação de mais de um cargo de presidente por uma mesma pessoa em níveis diferentes, a primeira habilitação será feita em seu nome e as subsequentes em nome de pessoa por ele indicada, membro do respectivo diretório a ser cadastrado.
+Notas vinculadas:
+Parágrafo 2º-A acrescido pelo art. 3º do Prov.-CGE n. 5/2010.","§ 2º-A Na hipótese de acumulação de mais de um cargo de presidente por uma mesma pessoa em níveis diferentes, a primeira habilitação será feita em seu nome e as subsequentes em nome de pessoa por ele indicada, membro do respectivo...","pessoa; nome; provimento; marco; hipotese; acumulacao; mais; cargo; presidente; mesma","True","613","153"
+"17","17","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1254","1254","","paragrafo","Art. 3º, §3º","Art. 3º","Art. 3º","§3º","","","","§ 3º Caberá ao presidente do órgão partidário habilitado como administrador da agremiação no correspondente nível de atuação cadastrar um ou mais administradores e operadores para gerenciamento das respectivas relações de filados.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 3º, §3º
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 1254-1254
+§ 3º Caberá ao presidente do órgão partidário habilitado como administrador da agremiação no correspondente nível de atuação cadastrar um ou mais administradores e operadores para gerenciamento das respectivas relações de filados.","§ 3º Caberá ao presidente do órgão partidário habilitado como administrador da agremiação no correspondente nível de atuação cadastrar um ou mais administradores e operadores para gerenciamento das respectivas relações de filados.","provimento; marco; cabera; presidente; orgao; partidario; habilitado; administrador; agremiacao; correspondente","True","503","125"
+"18","18","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1254","1254","","paragrafo","Art. 3º, §4º","Art. 3º","Art. 3º","§4º","","","","§ 4º O prazo de validade do cadastramento coincidirá com o do órgão que representa e refletirá, inclusive, na habilitação do administrador e operadores eventualmente cadastrados pelo presidente.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 3º, §4º
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 1254-1254
+§ 4º O prazo de validade do cadastramento coincidirá com o do órgão que representa e refletirá, inclusive, na habilitação do administrador e operadores eventualmente cadastrados pelo presidente.","§ 4º O prazo de validade do cadastramento coincidirá com o do órgão que representa e refletirá, inclusive, na habilitação do administrador e operadores eventualmente cadastrados pelo presidente.","provimento; marco; prazo; validade; cadastramento; coincidira; orgao; representa; refletira; inclusive","True","467","116"
+"19","19","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1254","1254","","artigo","Art. 4º","","Art. 4º","","","","","Art. 4º A verificação da legitimidade do representante partidário, para os fins da habilitação de que trata o art. 2º deste provimento, e da vigência da composição do respectivo diretório, a partir dos dados contidos no Sistema de Gerenciamento de Informações Partidárias (SGIP), aprovado pela Res.-TSE n. 23.093, de 4 de agosto de 2009, desde que viabilizada, dispensará nova comprovação perante o órgão da Justiça Eleitoral.","Res.-TSE n. 23093/2009 revogada pelo art. 18 da Res.-TSE n. 23697/2022.","[{""ordem"": 1, ""marcador"": ""ticado"", ""texto"": ""Res.-TSE n. 23093/2009 revogada pelo art. 18 da Res.-TSE n. 23697/2022."", ""pagina_inicial"": 1254, ""pagina_final"": 1254}]","1","Res.-TSE n. 23093/2009; Res.-TSE n. 23697/2022","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 4º
+Tipo: artigo
+Páginas: 1254-1254
+Art. 4º A verificação da legitimidade do representante partidário, para os fins da habilitação de que trata o art. 2º deste provimento, e da vigência da composição do respectivo diretório, a partir dos dados contidos no Sistema de Gerenciamento de Informações Partidárias (SGIP), aprovado pela Res.-TSE n. 23.093, de 4 de agosto de 2009, desde que viabilizada, dispensará nova comprovação perante o órgão da Justiça Eleitoral.
+Notas vinculadas:
+Res.-TSE n. 23093/2009 revogada pelo art. 18 da Res.-TSE n. 23697/2022.","Art. 4º A verificação da legitimidade do representante partidário, para os fins da habilitação de que trata o art. 2º deste provimento, e da vigência da composição do respectivo diretório, a partir dos dados contidos no Sistema de...","provimento; marco; verificacao; legitimidade; representante; partidario; fins; habilitacao; trata; deste","True","756","189"
+"20","20","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1254","1254","","paragrafo","Art. 4º, §1º","Art. 4º","Art. 4º","§1º","","","","§ 1º Na hipótese do caput deste artigo, bastará ao representante do partido comprovar sua identidade e informar o número da inscrição eleitoral.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 4º, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 4º
+Páginas: 1254-1254
+§ 1º Na hipótese do caput deste artigo, bastará ao representante do partido comprovar sua identidade e informar o número da inscrição eleitoral.","§ 1º Na hipótese do caput deste artigo, bastará ao representante do partido comprovar sua identidade e informar o número da inscrição eleitoral.","provimento; marco; hipotese; caput; deste; artigo; bastara; representante; partido; comprovar","True","417","104"
+"21","21","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1254","1254","","paragrafo","Art. 4º, §2º","Art. 4º","Art. 4º","§2º","","","","§ 2º Não sendo possível a obtenção dos dados do SGIP, far-se-á necessária a apresentação dos documentos comprobatórios da legitimidade do requerente para representar o partido na respectiva instância da Justiça Eleitoral e da vigência da composição do correspondente órgão de direção partidária.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 4º, §2º
+Tipo: paragrafo
+Dispositivo pai: Art. 4º
+Páginas: 1254-1254
+§ 2º Não sendo possível a obtenção dos dados do SGIP, far-se-á necessária a apresentação dos documentos comprobatórios da legitimidade do requerente para representar o partido na respectiva instância da Justiça Eleitoral e da vigência da composição do correspondente órgão de direção partidária.","§ 2º Não sendo possível a obtenção dos dados do SGIP, far-se-á necessária a apresentação dos documentos comprobatórios da legitimidade do requerente para representar o partido na respectiva instância da Justiça Eleitoral e da vigência da...","provimento; marco; sendo; possivel; obtencao; dados; sgip; necessaria; apresentacao; documentos","True","568","142"
+"22","22","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1254","1254","","artigo","Art. 5º","","Art. 5º","","","","","Art. 5º No pedido de cadastramento de administrador regional ou nacional deverão ser indicados os municípios cujas relações de filiados o usuário pretende gerenciar.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 5º
+Tipo: artigo
+Páginas: 1254-1254
+Art. 5º No pedido de cadastramento de administrador regional ou nacional deverão ser indicados os municípios cujas relações de filiados o usuário pretende gerenciar.","Art. 5º No pedido de cadastramento de administrador regional ou nacional deverão ser indicados os municípios cujas relações de filiados o usuário pretende gerenciar.","provimento; marco; pedido; cadastramento; administrador; regional; nacional; deverao; indicados; municipios","True","405","101"
+"23","23","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1254","1254","","artigo","Art. 6º","","Art. 6º","","","","","Art. 6º Aplicar-se-á às decisões proferidas pelos juízos eleitorais nos processos de duplicidade de filiação partidária, em matéria recursal, no que couber, o disposto nos arts. 257 e seguintes do Código Eleitoral.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 6º
+Tipo: artigo
+Páginas: 1254-1254
+Art. 6º Aplicar-se-á às decisões proferidas pelos juízos eleitorais nos processos de duplicidade de filiação partidária, em matéria recursal, no que couber, o disposto nos arts. 257 e seguintes do Código Eleitoral.","Art. 6º Aplicar-se-á às decisões proferidas pelos juízos eleitorais nos processos de duplicidade de filiação partidária, em matéria recursal, no que couber, o disposto nos arts. 257 e seguintes do Código Eleitoral.","provimento; marco; aplicar; decisoes; proferidas; juizos; eleitorais; processos; duplicidade; filiacao","True","454","113"
+"24","24","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1254","1254","","artigo","Art. 7º","","Art. 7º","","","","","Art. 7º Determinada, pela autoridade judiciária competente, a reversão de cancelamento consignado no sistema de filiação, o cartório eleitoral executará a providência mediante o uso de funcionalidade específica, para o que se exigirá a identificação do número do processo em que ordenada.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 7º
+Tipo: artigo
+Páginas: 1254-1254
+Art. 7º Determinada, pela autoridade judiciária competente, a reversão de cancelamento consignado no sistema de filiação, o cartório eleitoral executará a providência mediante o uso de funcionalidade específica, para o que se exigirá a identificação do número do processo em que ordenada.","Art. 7º Determinada, pela autoridade judiciária competente, a reversão de cancelamento consignado no sistema de filiação, o cartório eleitoral executará a providência mediante o uso de funcionalidade específica, para o que se exigirá a...","provimento; marco; determinada; autoridade; judiciaria; competente; reversao; cancelamento; consignado; sistema","True","528","132"
+"25","25","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1255","1255","","artigo","Art. 8º","","Art. 8º","","","","","Art. 8º Fica aprovado o cronograma para tratamento dos dados sobre filiação partidária referentes ao mês de abril do ano em curso, constante do Anexo deste provimento, cujos prazos não serão prorrogados, observadas as regras previstas na Res.-TSE n. 23.117, de 20 de agosto de 2009.","Anexo omitido por referir-se a cronograma já encerrado.
+Res.-TSE n. 23117/2009 revogada pelo art. 40 da Res.-TSE n. 23596/2019.","[{""ordem"": 1, ""marcador"": ""ticado"", ""texto"": ""Anexo omitido por referir-se a cronograma já encerrado."", ""pagina_inicial"": 1255, ""pagina_final"": 1255}, {""ordem"": 2, ""marcador"": ""ticado"", ""texto"": ""Res.-TSE n. 23117/2009 revogada pelo art. 40 da Res.-TSE n. 23596/2019."", ""pagina_inicial"": 1255, ""pagina_final"": 1255}]","2","Res.-TSE n. 23117/2009; Res.-TSE n. 23596/2019","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 8º
+Tipo: artigo
+Páginas: 1255-1255
+Art. 8º Fica aprovado o cronograma para tratamento dos dados sobre filiação partidária referentes ao mês de abril do ano em curso, constante do Anexo deste provimento, cujos prazos não serão prorrogados, observadas as regras previstas na Res.-TSE n. 23.117, de 20 de agosto de 2009.
+Notas vinculadas:
+Anexo omitido por referir-se a cronograma já encerrado.
+Res.-TSE n. 23117/2009 revogada pelo art. 40 da Res.-TSE n. 23596/2019.","Art. 8º Fica aprovado o cronograma para tratamento dos dados sobre filiação partidária referentes ao mês de abril do ano em curso, constante do Anexo deste provimento, cujos prazos não serão prorrogados, observadas as regras previstas na...","provimento; cronograma; anexo; marco; fica; aprovado; tratamento; dados; sobre; filiacao","True","668","167"
+"26","26","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1255","1255","","artigo","Art. 9º","","Art. 9º","","","","","Art. 9º A Corregedoria-Geral da Justiça Eleitoral providenciará urgente comunicação das regras e do cronograma ora aprovados aos diretórios nacionais de partidos políticos e às Corregedorias Regionais Eleitorais.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 9º
+Tipo: artigo
+Páginas: 1255-1255
+Art. 9º A Corregedoria-Geral da Justiça Eleitoral providenciará urgente comunicação das regras e do cronograma ora aprovados aos diretórios nacionais de partidos políticos e às Corregedorias Regionais Eleitorais.","Art. 9º A Corregedoria-Geral da Justiça Eleitoral providenciará urgente comunicação das regras e do cronograma ora aprovados aos diretórios nacionais de partidos políticos e às Corregedorias Regionais Eleitorais.","provimento; marco; corregedoria; geral; justica; eleitoral; providenciara; urgente; comunicacao; regras","True","452","113"
+"27","27","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1255","1255","","paragrafo","Art. 9º, Parágrafo único","Art. 9º","Art. 9º","Parágrafo único","","","","Parágrafo único. Incumbirá às Corregedorias Regionais Eleitorais transmitir imediatas orientações aos diretórios estaduais de partidos políticos e às respectivas zonas eleitorais, cabendo às últimas a divulgação aos órgãos municipais, visando à regularidade do processamento dos dados e da aplicação das regras em vigor.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 9º, Parágrafo único
+Tipo: paragrafo
+Dispositivo pai: Art. 9º
+Páginas: 1255-1255
+Parágrafo único. Incumbirá às Corregedorias Regionais Eleitorais transmitir imediatas orientações aos diretórios estaduais de partidos políticos e às respectivas zonas eleitorais, cabendo às últimas a divulgação aos órgãos municipais, visando à regularidade do processamento dos dados e da aplicação das regras em vigor.","Parágrafo único. Incumbirá às Corregedorias Regionais Eleitorais transmitir imediatas orientações aos diretórios estaduais de partidos políticos e às respectivas zonas eleitorais, cabendo às últimas a divulgação aos órgãos municipais...","paragrafo; unico; eleitorais; provimento; marco; incumbira; corregedorias; regionais; transmitir; imediatas","True","605","151"
+"28","28","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1255","1255","","artigo","Art. 10","","Art. 10","","","","","Art. 10. Os procedimentos e normas definidos na Res.-TSE n. 23.117, de 20 de agosto de 2009, são de obrigatória e imediata observância em todo o território nacional.","Res.-TSE n. 23117/2009 revogada pelo art. 40 da Res.-TSE n. 23596/2019.","[{""ordem"": 1, ""marcador"": ""ticado"", ""texto"": ""Res.-TSE n. 23117/2009 revogada pelo art. 40 da Res.-TSE n. 23596/2019."", ""pagina_inicial"": 1255, ""pagina_final"": 1255}]","1","Res.-TSE n. 23117/2009; Res.-TSE n. 23596/2019","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 10
+Tipo: artigo
+Páginas: 1255-1255
+Art. 10. Os procedimentos e normas definidos na Res.-TSE n. 23.117, de 20 de agosto de 2009, são de obrigatória e imediata observância em todo o território nacional.
+Notas vinculadas:
+Res.-TSE n. 23117/2009 revogada pelo art. 40 da Res.-TSE n. 23596/2019.","Art. 10. Os procedimentos e normas definidos na Res.-TSE n. 23.117, de 20 de agosto de 2009, são de obrigatória e imediata observância em todo o território nacional.","provimento; marco; procedimentos; normas; definidos; agosto; obrigatoria; imediata; observancia; todo","True","495","123"
+"29","29","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1255","1255","","paragrafo","Art. 10, Parágrafo único","Art. 10","Art. 10","Parágrafo único","","","","Parágrafo único. Enquanto não habilitado para o uso do Filiaweb, o diretório partidário não poderá gerenciar os dados de sua relação de filiados constantes do sistema, promover sua submissão para processamento ou receber as comunicações pertinentes à existência de duplicidades de filiação, na forma da lei.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 10, Parágrafo único
+Tipo: paragrafo
+Dispositivo pai: Art. 10
+Páginas: 1255-1255
+Parágrafo único. Enquanto não habilitado para o uso do Filiaweb, o diretório partidário não poderá gerenciar os dados de sua relação de filiados constantes do sistema, promover sua submissão para processamento ou receber as comunicações pertinentes à existência de duplicidades de filiação, na forma da lei.","Parágrafo único. Enquanto não habilitado para o uso do Filiaweb, o diretório partidário não poderá gerenciar os dados de sua relação de filiados constantes do sistema, promover sua submissão para processamento ou receber as comunicações...","paragrafo; unico; provimento; marco; enquanto; habilitado; filiaweb; diretorio; partidario; podera","True","592","148"
+"30","30","Codigo_Eleitoral_2026_anotado.pdf","provimento_cge_2_2010","Provimento-CGE n. 2 de 9 de março de 2010","","Normas editadas pelo TSE","Provimentos-CGE","1255","1255","","artigo","Art. 11","","Art. 11","","","","","Art. 11. Este provimento entra em vigor na data de sua publicação, revogados os provimentos n. 10 e 15/2009-CGE e as disposições em contrário. Comunique-se e cumpra-se. Publique-se.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Provimento-CGE n. 2 de 9 de março de 2010
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Provimentos-CGE
+Dispositivo: Art. 11
+Tipo: artigo
+Páginas: 1255-1255
+Art. 11. Este provimento entra em vigor na data de sua publicação, revogados os provimentos n. 10 e 15/2009-CGE e as disposições em contrário. Comunique-se e cumpra-se. Publique-se.","Art. 11. Este provimento entra em vigor na data de sua publicação, revogados os provimentos n. 10 e 15/2009-CGE e as disposições em contrário. Comunique-se e cumpra-se. Publique-se.","provimento; marco; este; entra; vigor; data; publicacao; revogados; provimentos; disposicoes","True","421","105"

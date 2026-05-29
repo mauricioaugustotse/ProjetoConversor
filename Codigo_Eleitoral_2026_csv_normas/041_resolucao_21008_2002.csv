@@ -1,0 +1,82 @@
+﻿"id","ordem_doc","arquivo_fonte","norma_id","norma_titulo","norma_nome_popular","macrogrupo","grupo_sumario","pagina_inicial","pagina_final","hierarquia_normativa","tipo_dispositivo","dispositivo","dispositivo_pai","artigo","paragrafo","inciso","alinea","item","texto_dispositivo","notas_texto","notas_json","qtd_notas","referencias_normativas","referencias_jurisprudenciais","referencias_sumulas","texto_rag","resumo_curto","palavras_chave","incluir_no_rag","chars","tokens_estimados"
+"1","1","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21008_2002","Resolução n. 21.008, de 5 de março de 2002","","Normas editadas pelo TSE","Resoluções","779","779","","norma","Resolução n. 21.008, de 5 de março de 2002","","","","","","","Dispõe sobre o voto dos eleitores portadores de deficiência. O TRIBUNAL SUPERIOR ELEITORAL, usando das atribuições que lhe conferem os arts. 105 da Lei n. 9.504, de 30 de setembro de 1997, e 23, IX, do Código Eleitoral, resolve:","Dec. n. 5.296/2004: “Regulamenta as Leis n. 10.048, de 8 de novembro de 2000, que dá prioridade de atendimento às pessoas que especifica, e 10.098, de 19 de dezembro de 2000, que estabelece normas gerais e critérios básicos para a promoção da acessibilidade das pessoas portadoras de deficiência ou com mobilidade reduzida, e dá outras providências”.
+Res.-TSE n. 23.753/2026: “Institui o Programa Seu Voto Importa e estabelece diretrizes e providências para garantir o exercício do direito de voto às eleitoras e aos eleitores com deficiência ou mobilidade reduzida, bem como em outros casos expressamente previstos, que não disponham de meios próprios que viabilizem o comparecimento aos locais de votação mediante o oferecimento de transporte especial no dia da eleição”.
+Res.-TSE n. 23381/2012: “Institui o Programa de Acessibilidade da Justiça Eleitoral e dá outras providências”.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Dec. n. 5.296/2004: “Regulamenta as Leis n. 10.048, de 8 de novembro de 2000, que dá prioridade de atendimento às pessoas que especifica, e 10.098, de 19 de dezembro de 2000, que estabelece normas gerais e critérios básicos para a promoção da acessibilidade das pessoas portadoras de deficiência ou com mobilidade reduzida, e dá outras providências”."", ""pagina_inicial"": 779, ""pagina_final"": 779}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""Res.-TSE n. 23.753/2026: “Institui o Programa Seu Voto Importa e estabelece diretrizes e providências para garantir o exercício do direito de voto às eleitoras e aos eleitores com deficiência ou mobilidade reduzida, bem como em outros casos expressamente previstos, que não disponham de meios próprios que viabilizem o comparecimento aos locais de votação mediante o oferecimento de transporte especial no dia da eleição”."", ""pagina_inicial"": 779, ""pagina_final"": 779}, {""ordem"": 3, ""marcador"": ""quadrado"", ""texto"": ""Res.-TSE n. 23381/2012: “Institui o Programa de Acessibilidade da Justiça Eleitoral e dá outras providências”."", ""pagina_inicial"": 779, ""pagina_final"": 779}]","3","Lei n. 9.504; Res.-TSE n. 23381/2012","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.008, de 5 de março de 2002
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Resolução n. 21.008, de 5 de março de 2002
+Tipo: norma
+Páginas: 779-779
+Dispõe sobre o voto dos eleitores portadores de deficiência. O TRIBUNAL SUPERIOR ELEITORAL, usando das atribuições que lhe conferem os arts. 105 da Lei n. 9.504, de 30 de setembro de 1997, e 23, IX, do Código Eleitoral, resolve:
+Notas vinculadas:
+Dec. n. 5.296/2004: “Regulamenta as Leis n. 10.048, de 8 de novembro de 2000, que dá prioridade de atendimento às pessoas que especifica, e 10.098, de 19 de dezembro de 2000, que estabelece normas gerais e critérios básicos para a promoção da acessibilidade das pessoas portadoras de deficiência ou com mobilidade reduzida, e dá outras providências”.
+Res.-TSE n. 23.753/2026: “Institui o Programa Seu Voto Importa e estabelece diretrizes e providências para garantir o exercício do direito de voto às eleitoras e aos eleitores com deficiência ou mobilidade reduzida, bem como em outros casos expressamente previstos, que não disponham de meios próprios que viabilizem o comparecimento aos locais de votação mediante o oferecimento de transporte especial no dia da eleição”.
+Res.-TSE n. 23381/2012: “Institui o Programa de Acessibilidade da Justiça Eleitoral e dá outras providências”.","Dispõe sobre o voto dos eleitores portadores de deficiência. O TRIBUNAL SUPERIOR ELEITORAL, usando das atribuições que lhe conferem os arts. 105 da Lei n. 9.504, de 30 de setembro de 1997, e 23, IX, do Código Eleitoral, resolve:","voto; deficiencia; eleitoral; providencias; resolucao; marco; eleitores; pessoas; estabelece; acessibilidade","True","1399","349"
+"2","2","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21008_2002","Resolução n. 21.008, de 5 de março de 2002","","Normas editadas pelo TSE","Resoluções","779","779","","artigo","Art. 1º","","Art. 1º","","","","","Art. 1º Os juízes eleitorais, sob a coordenação dos Tribunais Regionais Eleitorais, deverão criar seções eleitorais especiais destinadas a eleitores portadores de deficiência.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.008, de 5 de março de 2002
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 1º
+Tipo: artigo
+Páginas: 779-779
+Art. 1º Os juízes eleitorais, sob a coordenação dos Tribunais Regionais Eleitorais, deverão criar seções eleitorais especiais destinadas a eleitores portadores de deficiência.","Art. 1º Os juízes eleitorais, sob a coordenação dos Tribunais Regionais Eleitorais, deverão criar seções eleitorais especiais destinadas a eleitores portadores de deficiência.","eleitorais; resolucao; marco; juizes; coordenacao; tribunais; regionais; deverao; criar; secoes","True","409","102"
+"3","3","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21008_2002","Resolução n. 21.008, de 5 de março de 2002","","Normas editadas pelo TSE","Resoluções","779","779","","paragrafo","Art. 1º, §1º","Art. 1º","Art. 1º","§1º","","","","§ 1º Nos municípios em que não for possível a criação de seção unicamente para esse fim, o juiz eleitoral poderá designar uma das seções existentes para também funcionar como seção especial para eleitores portadores de deficiência.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.008, de 5 de março de 2002
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 1º, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 1º
+Páginas: 779-779
+§ 1º Nos municípios em que não for possível a criação de seção unicamente para esse fim, o juiz eleitoral poderá designar uma das seções existentes para também funcionar como seção especial para eleitores portadores de deficiência.","§ 1º Nos municípios em que não for possível a criação de seção unicamente para esse fim, o juiz eleitoral poderá designar uma das seções existentes para também funcionar como seção especial para eleitores portadores de deficiência.","secao; resolucao; marco; municipios; possivel; criacao; unicamente; esse; juiz; eleitoral","True","498","124"
+"4","4","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21008_2002","Resolução n. 21.008, de 5 de março de 2002","","Normas editadas pelo TSE","Resoluções","779","779","","paragrafo","Art. 1º, §2º","Art. 1º","Art. 1º","§2º","","","","§ 2º As seções especiais de que cuida este artigo deverão ser instaladas em local de fácil acesso, com estacionamento próximo e instalações, inclusive sanitárias, que atendam às normas da ABNT NBR 9050.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.008, de 5 de março de 2002
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 1º, §2º
+Tipo: paragrafo
+Dispositivo pai: Art. 1º
+Páginas: 779-779
+§ 2º As seções especiais de que cuida este artigo deverão ser instaladas em local de fácil acesso, com estacionamento próximo e instalações, inclusive sanitárias, que atendam às normas da ABNT NBR 9050.","§ 2º As seções especiais de que cuida este artigo deverão ser instaladas em local de fácil acesso, com estacionamento próximo e instalações, inclusive sanitárias, que atendam às normas da ABNT NBR 9050.","resolucao; marco; secoes; especiais; cuida; este; artigo; deverao; instaladas; local","True","469","117"
+"5","5","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21008_2002","Resolução n. 21.008, de 5 de março de 2002","","Normas editadas pelo TSE","Resoluções","779","779","","artigo","Art. 2º","","Art. 2º","","","","","Art. 2º Os eleitores portadores de deficiência que desejarem votar nas seções especiais de que cuida o artigo anterior deverão solicitar transferência para aquelas seções até 151 dias antes das eleições (art. 91 da Lei n. 9.504/1997).","","[]","0","Lei n. 9.504/1997","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.008, de 5 de março de 2002
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 2º
+Tipo: artigo
+Páginas: 779-779
+Art. 2º Os eleitores portadores de deficiência que desejarem votar nas seções especiais de que cuida o artigo anterior deverão solicitar transferência para aquelas seções até 151 dias antes das eleições (art. 91 da Lei n. 9.504/1997).","Art. 2º Os eleitores portadores de deficiência que desejarem votar nas seções especiais de que cuida o artigo anterior deverão solicitar transferência para aquelas seções até 151 dias antes das eleições (art. 91 da Lei n. 9.504/1997).","secoes; resolucao; marco; eleitores; portadores; deficiencia; desejarem; votar; especiais; cuida","True","468","117"
+"6","6","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21008_2002","Resolução n. 21.008, de 5 de março de 2002","","Normas editadas pelo TSE","Resoluções","779","779","","artigo","Art. 3º","","Art. 3º","","","","","Art. 3º Até noventa dias antes das eleições, os eleitores portadores de deficiência que votam em seções especiais poderão comunicar ao juiz eleitoral, por escrito, suas restrições e necessidades, a fim de que a Justiça Eleitoral, se possível, providencie os meios e recursos destinados a facilitar-lhes o exercício do voto.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.008, de 5 de março de 2002
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º
+Tipo: artigo
+Páginas: 779-779
+Art. 3º Até noventa dias antes das eleições, os eleitores portadores de deficiência que votam em seções especiais poderão comunicar ao juiz eleitoral, por escrito, suas restrições e necessidades, a fim de que a Justiça Eleitoral, se possível, providencie os meios e recursos destinados a facilitar-lhes o exercício do voto.","Art. 3º Até noventa dias antes das eleições, os eleitores portadores de deficiência que votam em seções especiais poderão comunicar ao juiz eleitoral, por escrito, suas restrições e necessidades, a fim de que a Justiça Eleitoral, se...","eleitoral; resolucao; marco; noventa; dias; antes; eleicoes; eleitores; portadores; deficiencia","True","557","139"
+"7","7","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21008_2002","Resolução n. 21.008, de 5 de março de 2002","","Normas editadas pelo TSE","Resoluções","779","779","","paragrafo","Art. 3º, Parágrafo único","Art. 3º","Art. 3º","Parágrafo único","","","","Parágrafo único. As urnas eletrônicas, instaladas em seções especiais para eleitores portadores de deficiência visual, conterão dispositivo que lhes permita conferir o voto assinalado, sem prejuízo do sigilo do sufrágio.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.008, de 5 de março de 2002
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, Parágrafo único
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 779-779
+Parágrafo único. As urnas eletrônicas, instaladas em seções especiais para eleitores portadores de deficiência visual, conterão dispositivo que lhes permita conferir o voto assinalado, sem prejuízo do sigilo do sufrágio.","Parágrafo único. As urnas eletrônicas, instaladas em seções especiais para eleitores portadores de deficiência visual, conterão dispositivo que lhes permita conferir o voto assinalado, sem prejuízo do sigilo do sufrágio.","paragrafo; unico; resolucao; marco; urnas; eletronicas; instaladas; secoes; especiais; eleitores","True","499","124"
+"8","8","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21008_2002","Resolução n. 21.008, de 5 de março de 2002","","Normas editadas pelo TSE","Resoluções","779","779","","artigo","Art. 4º","","Art. 4º","","","","","Art. 4º Os Tribunais Regionais Eleitorais farão ampla divulgação das regras estabelecidas nesta resolução.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.008, de 5 de março de 2002
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º
+Tipo: artigo
+Páginas: 779-779
+Art. 4º Os Tribunais Regionais Eleitorais farão ampla divulgação das regras estabelecidas nesta resolução.","Art. 4º Os Tribunais Regionais Eleitorais farão ampla divulgação das regras estabelecidas nesta resolução.","resolucao; marco; tribunais; regionais; eleitorais; farao; ampla; divulgacao; regras; estabelecidas","True","340","85"
+"9","9","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21008_2002","Resolução n. 21.008, de 5 de março de 2002","","Normas editadas pelo TSE","Resoluções","779","779","","artigo","Art. 5º","","Art. 5º","","","","","Art. 5º Esta resolução entra em vigor na data de sua publicação. Sala de Sessões do Tribunal Superior Eleitoral.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.008, de 5 de março de 2002
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 5º
+Tipo: artigo
+Páginas: 779-779
+Art. 5º Esta resolução entra em vigor na data de sua publicação. Sala de Sessões do Tribunal Superior Eleitoral.","Art. 5º Esta resolução entra em vigor na data de sua publicação. Sala de Sessões do Tribunal Superior Eleitoral.","resolucao; marco; esta; entra; vigor; data; publicacao; sala; sessoes; tribunal","True","346","86"

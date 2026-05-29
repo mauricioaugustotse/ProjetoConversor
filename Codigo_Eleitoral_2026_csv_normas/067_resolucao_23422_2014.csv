@@ -1,0 +1,915 @@
+﻿"id","ordem_doc","arquivo_fonte","norma_id","norma_titulo","norma_nome_popular","macrogrupo","grupo_sumario","pagina_inicial","pagina_final","hierarquia_normativa","tipo_dispositivo","dispositivo","dispositivo_pai","artigo","paragrafo","inciso","alinea","item","texto_dispositivo","notas_texto","notas_json","qtd_notas","referencias_normativas","referencias_jurisprudenciais","referencias_sumulas","texto_rag","resumo_curto","palavras_chave","incluir_no_rag","chars","tokens_estimados"
+"1","1","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","875","875","","norma","Resolução n. 23.422, de 6 de maio de 2014","","","","","","","Estabelece normas para criação e instalação de zonas eleitorais e dá outras providências. O TRIBUNAL SUPERIOR ELEITORAL, no uso das atribuições que lhe confere o art. 23, inciso IX, do Código Eleitoral, resolve:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Resolução n. 23.422, de 6 de maio de 2014
+Tipo: norma
+Páginas: 875-875
+Estabelece normas para criação e instalação de zonas eleitorais e dá outras providências. O TRIBUNAL SUPERIOR ELEITORAL, no uso das atribuições que lhe confere o art. 23, inciso IX, do Código Eleitoral, resolve:","Estabelece normas para criação e instalação de zonas eleitorais e dá outras providências. O TRIBUNAL SUPERIOR ELEITORAL, no uso das atribuições que lhe confere o art. 23, inciso IX, do Código Eleitoral, resolve:","resolucao; maio; eleitoral; estabelece; normas; criacao; instalacao; zonas; eleitorais; outras","True","477","119"
+"2","2","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","875","875","TÍTULO I - DISPOSIÇÕES GERAIS","estrutura","TÍTULO I - DISPOSIÇÕES GERAIS","","","","","","","TÍTULO I - DISPOSIÇÕES GERAIS","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: TÍTULO I - DISPOSIÇÕES GERAIS
+Tipo: estrutura
+Hierarquia: TÍTULO I - DISPOSIÇÕES GERAIS
+Páginas: 875-875
+TÍTULO I - DISPOSIÇÕES GERAIS","TÍTULO I - DISPOSIÇÕES GERAIS","titulo; disposicoes; gerais; resolucao; maio","True","329","82"
+"3","3","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","875","875","TÍTULO I - DISPOSIÇÕES GERAIS","artigo","Art. 1º","","Art. 1º","","","","","Art. 1º A criação e a instalação de zonas eleitorais, nos termos dos arts. 23, VIII, e 30, IX, do Código Eleitoral, ficarão subordinadas ao atendimento das disposições desta resolução.","Res.-TSE n. 23520/2017: “Estabelece diretrizes para a extinção e o remanejamento de zonas eleitorais do interior dos estados”.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Res.-TSE n. 23520/2017: “Estabelece diretrizes para a extinção e o remanejamento de zonas eleitorais do interior dos estados”."", ""pagina_inicial"": 875, ""pagina_final"": 875}]","1","Res.-TSE n. 23520/2017","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 1º
+Tipo: artigo
+Hierarquia: TÍTULO I - DISPOSIÇÕES GERAIS
+Páginas: 875-875
+Art. 1º A criação e a instalação de zonas eleitorais, nos termos dos arts. 23, VIII, e 30, IX, do Código Eleitoral, ficarão subordinadas ao atendimento das disposições desta resolução.
+Notas vinculadas:
+Res.-TSE n. 23520/2017: “Estabelece diretrizes para a extinção e o remanejamento de zonas eleitorais do interior dos estados”.","Art. 1º A criação e a instalação de zonas eleitorais, nos termos dos arts. 23, VIII, e 30, IX, do Código Eleitoral, ficarão subordinadas ao atendimento das disposições desta resolução.","resolucao; disposicoes; zonas; eleitorais; maio; titulo; gerais; criacao; instalacao; termos","True","604","151"
+"4","4","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","875","875","TÍTULO I - DISPOSIÇÕES GERAIS","artigo","Art. 2º","","Art. 2º","","","","","Art. 2º A proposta de criação de zona eleitoral somente será apreciada quando demonstrada a necessidade da providência para solucionar deficiências permanentes dos serviços eleitorais na circunscrição e a impossibilidade de se alcançar o resultado pretendido com:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 2º
+Tipo: artigo
+Hierarquia: TÍTULO I - DISPOSIÇÕES GERAIS
+Páginas: 875-875
+Art. 2º A proposta de criação de zona eleitoral somente será apreciada quando demonstrada a necessidade da providência para solucionar deficiências permanentes dos serviços eleitorais na circunscrição e a impossibilidade de se alcançar o resultado pretendido com:","Art. 2º A proposta de criação de zona eleitoral somente será apreciada quando demonstrada a necessidade da providência para solucionar deficiências permanentes dos serviços eleitorais na circunscrição e a impossibilidade de se alcançar o...","resolucao; maio; titulo; disposicoes; gerais; proposta; criacao; zona; eleitoral; somente","True","538","134"
+"5","5","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","875","875","TÍTULO I - DISPOSIÇÕES GERAIS","inciso","Art. 2º, I","Art. 2º","Art. 2º","","I","","","I - a utilização de modalidades de atendimento de caráter provisório ou itinerante;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 2º, I
+Tipo: inciso
+Hierarquia: TÍTULO I - DISPOSIÇÕES GERAIS
+Dispositivo pai: Art. 2º
+Páginas: 875-875
+I - a utilização de modalidades de atendimento de caráter provisório ou itinerante;","I - a utilização de modalidades de atendimento de caráter provisório ou itinerante;","resolucao; maio; titulo; disposicoes; gerais; utilizacao; modalidades; atendimento; carater; provisorio","True","386","96"
+"6","6","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","875","875","TÍTULO I - DISPOSIÇÕES GERAIS","inciso","Art. 2º, II","Art. 2º","Art. 2º","","II","","","II - a instalação de postos de atendimento próximos aos núcleos populacionais a serem assistidos;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 2º, II
+Tipo: inciso
+Hierarquia: TÍTULO I - DISPOSIÇÕES GERAIS
+Dispositivo pai: Art. 2º
+Páginas: 875-875
+II - a instalação de postos de atendimento próximos aos núcleos populacionais a serem assistidos;","II - a instalação de postos de atendimento próximos aos núcleos populacionais a serem assistidos;","resolucao; maio; titulo; disposicoes; gerais; instalacao; postos; atendimento; proximos; nucleos","True","401","100"
+"7","7","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","875","875","TÍTULO I - DISPOSIÇÕES GERAIS","inciso","Art. 2º, III","Art. 2º","Art. 2º","","III","","","III - o remanejamento de zonas eleitorais;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 2º, III
+Tipo: inciso
+Hierarquia: TÍTULO I - DISPOSIÇÕES GERAIS
+Dispositivo pai: Art. 2º
+Páginas: 875-875
+III - o remanejamento de zonas eleitorais;","III - o remanejamento de zonas eleitorais;","resolucao; maio; titulo; disposicoes; gerais; remanejamento; zonas; eleitorais","True","347","86"
+"8","8","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","875","875","TÍTULO I - DISPOSIÇÕES GERAIS","inciso","Art. 2º, IV","Art. 2º","Art. 2º","","IV","","","IV - a mudança da sede da zona para outro endereço;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 2º, IV
+Tipo: inciso
+Hierarquia: TÍTULO I - DISPOSIÇÕES GERAIS
+Dispositivo pai: Art. 2º
+Páginas: 875-875
+IV - a mudança da sede da zona para outro endereço;","IV - a mudança da sede da zona para outro endereço;","resolucao; maio; titulo; disposicoes; gerais; mudanca; sede; zona; outro; endereco","True","355","88"
+"9","9","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","875","875","TÍTULO I - DISPOSIÇÕES GERAIS","inciso","Art. 2º, V","Art. 2º","Art. 2º","","V","","","V - a redistribuição de eleitores.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 2º, V
+Tipo: inciso
+Hierarquia: TÍTULO I - DISPOSIÇÕES GERAIS
+Dispositivo pai: Art. 2º
+Páginas: 875-875
+V - a redistribuição de eleitores.","V - a redistribuição de eleitores.","resolucao; maio; titulo; disposicoes; gerais; redistribuicao; eleitores","True","337","84"
+"10","10","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","875","875","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS","estrutura","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS","","Art. 2º","","V","","","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS
+Tipo: estrutura
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS
+Páginas: 875-875
+TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS","titulo; procedimentos; administrativos; resolucao; maio","True","365","91"
+"11","11","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","875","875","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","estrutura","CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","","Art. 2º","","V","","","CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Tipo: estrutura
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Páginas: 875-875
+CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","capitulo; requisitos; instrucao; processual; resolucao; maio; titulo; procedimentos; administrativos","True","424","106"
+"12","12","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","875","875","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","artigo","Art. 3º","","Art. 3º","","","","","Art. 3º A proposta de criação de zona eleitoral será examinada quando confirmada a insuficiência ou a inadequação das medidas enumeradas no art. 2º desta resolução pela Diretoria-Geral dos Tribunais Eleitorais ou por unidade para esse fim designada, e verificada a presença dos seguintes requisitos:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º
+Tipo: artigo
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Páginas: 875-875
+Art. 3º A proposta de criação de zona eleitoral será examinada quando confirmada a insuficiência ou a inadequação das medidas enumeradas no art. 2º desta resolução pela Diretoria-Geral dos Tribunais Eleitorais ou por unidade para esse fim designada, e verificada a presença dos seguintes requisitos:","Art. 3º A proposta de criação de zona eleitoral será examinada quando confirmada a insuficiência ou a inadequação das medidas enumeradas no art. 2º desta resolução pela Diretoria-Geral dos Tribunais Eleitorais ou por unidade para esse fim...","resolucao; requisitos; maio; titulo; procedimentos; administrativos; capitulo; instrucao; processual; proposta","True","635","158"
+"13","13","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","875","875","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","inciso","Art. 3º, I","Art. 3º","Art. 3º","","I","","","I - número mínimo de eleitores na zona eleitoral a ser criada e na remanescente, observados os seguintes parâmetros:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, I
+Tipo: inciso
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º
+Páginas: 875-875
+I - número mínimo de eleitores na zona eleitoral a ser criada e na remanescente, observados os seguintes parâmetros:","I - número mínimo de eleitores na zona eleitoral a ser criada e na remanescente, observados os seguintes parâmetros:","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; numero","True","480","120"
+"14","14","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","875","875","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","alinea","Art. 3º, I, a)","Art. 3º, I","Art. 3º","","I","a)","","a) capitais e municípios com mais de 200.000 (duzentos mil) inscritos: 100.000 (cem mil) eleitores;","Alínea a com redação dada pelo art. 1º da
+Res.-TSE n. 23512/2017.","[{""ordem"": 1, ""marcador"": ""continuação"", ""texto"": ""Alínea a com redação dada pelo art. 1º da"", ""pagina_inicial"": 875, ""pagina_final"": 875}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""Res.-TSE n. 23512/2017."", ""pagina_inicial"": 875, ""pagina_final"": 875}]","2","Res.-TSE n. 23512/2017","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, I, a)
+Tipo: alinea
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º, I
+Páginas: 875-875
+a) capitais e municípios com mais de 200.000 (duzentos mil) inscritos: 100.000 (cem mil) eleitores;
+Notas vinculadas:
+Alínea a com redação dada pelo art. 1º da
+Res.-TSE n. 23512/2017.","a) capitais e municípios com mais de 200.000 (duzentos mil) inscritos: 100.000 (cem mil) eleitores;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; capitais","True","554","138"
+"15","15","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","875","875","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","alinea","Art. 3º, I, b)","Art. 3º, I","Art. 3º","","I","b)","","b) Região Norte:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, I, b)
+Tipo: alinea
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º, I
+Páginas: 875-875
+b) Região Norte:","b) Região Norte:","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; regiao","True","387","96"
+"16","16","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","875","875","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","item","Art. 3º, I, b), 1","Art. 3º, I, b)","Art. 3º","","I","b)","1","1. municípios com densidade demográfica até 2 hab/km2: 12.000 (doze mil) eleitores;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, I, b), 1
+Tipo: item
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º, I, b)
+Páginas: 875-875
+1. municípios com densidade demográfica até 2 hab/km2: 12.000 (doze mil) eleitores;","1. municípios com densidade demográfica até 2 hab/km2: 12.000 (doze mil) eleitores;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; municipios","True","459","114"
+"17","17","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","875","875","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","item","Art. 3º, I, b), 2","Art. 3º, I, b)","Art. 3º","","I","b)","2","2. municípios com densidade demográfica entre 2 hab/km2 e 4 hab/km2: 16.000 (dezesseis mil) eleitores;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, I, b), 2
+Tipo: item
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º, I, b)
+Páginas: 875-875
+2. municípios com densidade demográfica entre 2 hab/km2 e 4 hab/km2: 16.000 (dezesseis mil) eleitores;","2. municípios com densidade demográfica entre 2 hab/km2 e 4 hab/km2: 16.000 (dezesseis mil) eleitores;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; municipios","True","478","119"
+"18","18","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","875","875","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","item","Art. 3º, I, b), 3","Art. 3º, I, b)","Art. 3º","","I","b)","3","3. municípios com densidade demográfica entre 4 hab/km2 e 10 hab/km2: 20.000 (vinte mil) eleitores;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, I, b), 3
+Tipo: item
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º, I, b)
+Páginas: 875-875
+3. municípios com densidade demográfica entre 4 hab/km2 e 10 hab/km2: 20.000 (vinte mil) eleitores;","3. municípios com densidade demográfica entre 4 hab/km2 e 10 hab/km2: 20.000 (vinte mil) eleitores;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; municipios","True","475","118"
+"19","19","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","876","876","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","item","Art. 3º, I, b), 4","Art. 3º, I, b)","Art. 3º","","I","b)","4","4. municípios com densidade demográfica superior a 10 hab/km2: 35.000 (trinta e cinco mil) eleitores;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, I, b), 4
+Tipo: item
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º, I, b)
+Páginas: 876-876
+4. municípios com densidade demográfica superior a 10 hab/km2: 35.000 (trinta e cinco mil) eleitores;","4. municípios com densidade demográfica superior a 10 hab/km2: 35.000 (trinta e cinco mil) eleitores;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; municipios","True","477","119"
+"20","20","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","876","876","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","alinea","Art. 3º, I, c)","Art. 3º, I","Art. 3º","","I","c)","","c) Região Centro-Oeste:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, I, c)
+Tipo: alinea
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º, I
+Páginas: 876-876
+c) Região Centro-Oeste:","c) Região Centro-Oeste:","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; regiao","True","394","98"
+"21","21","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","876","876","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","item","Art. 3º, I, c), 1","Art. 3º, I, c)","Art. 3º","","I","c)","1","1. municípios com densidade demográfica até 3 hab/km2: 14.000 (quatorze mil) eleitores;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, I, c), 1
+Tipo: item
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º, I, c)
+Páginas: 876-876
+1. municípios com densidade demográfica até 3 hab/km2: 14.000 (quatorze mil) eleitores;","1. municípios com densidade demográfica até 3 hab/km2: 14.000 (quatorze mil) eleitores;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; municipios","True","463","115"
+"22","22","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","876","876","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","item","Art. 3º, I, c), 2","Art. 3º, I, c)","Art. 3º","","I","c)","2","2. municípios com densidade demográfica entre 3 hab/km2 e 6 hab/km2: 17.000 (dezessete mil) eleitores;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, I, c), 2
+Tipo: item
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º, I, c)
+Páginas: 876-876
+2. municípios com densidade demográfica entre 3 hab/km2 e 6 hab/km2: 17.000 (dezessete mil) eleitores;","2. municípios com densidade demográfica entre 3 hab/km2 e 6 hab/km2: 17.000 (dezessete mil) eleitores;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; municipios","True","478","119"
+"23","23","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","876","876","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","item","Art. 3º, I, c), 3","Art. 3º, I, c)","Art. 3º","","I","c)","3","3. municípios com densidade demográfica entre 6 hab/km2 e 15 hab/km2: 25.000 (vinte e cinco mil) eleitores;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, I, c), 3
+Tipo: item
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º, I, c)
+Páginas: 876-876
+3. municípios com densidade demográfica entre 6 hab/km2 e 15 hab/km2: 25.000 (vinte e cinco mil) eleitores;","3. municípios com densidade demográfica entre 6 hab/km2 e 15 hab/km2: 25.000 (vinte e cinco mil) eleitores;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; municipios","True","483","120"
+"24","24","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","876","876","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","item","Art. 3º, I, c), 4","Art. 3º, I, c)","Art. 3º","","I","c)","4","4. municípios com densidade demográfica superior a 15 hab/km2: 30.000 (trinta mil) eleitores;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, I, c), 4
+Tipo: item
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º, I, c)
+Páginas: 876-876
+4. municípios com densidade demográfica superior a 15 hab/km2: 30.000 (trinta mil) eleitores;","4. municípios com densidade demográfica superior a 15 hab/km2: 30.000 (trinta mil) eleitores;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; municipios","True","469","117"
+"25","25","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","876","876","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","alinea","Art. 3º, I, d)","Art. 3º, I","Art. 3º","","I","d)","","d) Regiões Nordeste, Sudeste e Sul:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, I, d)
+Tipo: alinea
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º, I
+Páginas: 876-876
+d) Regiões Nordeste, Sudeste e Sul:","d) Regiões Nordeste, Sudeste e Sul:","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; regioes","True","406","101"
+"26","26","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","876","876","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","item","Art. 3º, I, d), 1","Art. 3º, I, d)","Art. 3º","","I","d)","1","1. municípios com densidade demográfica até 15 hab/km2: 17.000 (dezessete mil) eleitores;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, I, d), 1
+Tipo: item
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º, I, d)
+Páginas: 876-876
+1. municípios com densidade demográfica até 15 hab/km2: 17.000 (dezessete mil) eleitores;","1. municípios com densidade demográfica até 15 hab/km2: 17.000 (dezessete mil) eleitores;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; municipios","True","465","116"
+"27","27","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","876","876","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","item","Art. 3º, I, d), 2","Art. 3º, I, d)","Art. 3º","","I","d)","2","2. municípios com densidade demográfica entre 15 hab/km2 e 30 hab/km2: 20.000 (vinte mil) eleitores;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, I, d), 2
+Tipo: item
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º, I, d)
+Páginas: 876-876
+2. municípios com densidade demográfica entre 15 hab/km2 e 30 hab/km2: 20.000 (vinte mil) eleitores;","2. municípios com densidade demográfica entre 15 hab/km2 e 30 hab/km2: 20.000 (vinte mil) eleitores;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; municipios","True","476","119"
+"28","28","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","876","876","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","item","Art. 3º, I, d), 3","Art. 3º, I, d)","Art. 3º","","I","d)","3","3. municípios com densidade demográfica entre 30 hab/km2 e 60 hab/km2: 25.000 (vinte e cinco mil) eleitores;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, I, d), 3
+Tipo: item
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º, I, d)
+Páginas: 876-876
+3. municípios com densidade demográfica entre 30 hab/km2 e 60 hab/km2: 25.000 (vinte e cinco mil) eleitores;","3. municípios com densidade demográfica entre 30 hab/km2 e 60 hab/km2: 25.000 (vinte e cinco mil) eleitores;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; municipios","True","484","121"
+"29","29","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","876","876","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","item","Art. 3º, I, d), 4","Art. 3º, I, d)","Art. 3º","","I","d)","4","4. municípios com densidade demográfica superior a 60 hab/km2: 40.000 (quarenta mil) eleitores;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, I, d), 4
+Tipo: item
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º, I, d)
+Páginas: 876-876
+4. municípios com densidade demográfica superior a 60 hab/km2: 40.000 (quarenta mil) eleitores;","4. municípios com densidade demográfica superior a 60 hab/km2: 40.000 (quarenta mil) eleitores;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; municipios","True","471","117"
+"30","30","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","876","876","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","inciso","Art. 3º, II","Art. 3º","Art. 3º","","II","","","II - número máximo de 5 (cinco) municípios por zona eleitoral, salvo quando da aplicação do requisito decorrer prejuízo para o eleitor ou não for atingido o número mínimo de eleitores, na forma do inciso I;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, II
+Tipo: inciso
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º
+Páginas: 876-876
+II - número máximo de 5 (cinco) municípios por zona eleitoral, salvo quando da aplicação do requisito decorrer prejuízo para o eleitor ou não for atingido o número mínimo de eleitores, na forma do inciso I;","II - número máximo de 5 (cinco) municípios por zona eleitoral, salvo quando da aplicação do requisito decorrer prejuízo para o eleitor ou não for atingido o número mínimo de eleitores, na forma do inciso I;","numero; resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual","True","571","142"
+"31","31","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","876","876","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","inciso","Art. 3º, III","Art. 3º","Art. 3º","","III","","","III - existência de vara disponível, já instalada e em atividade, para designação do juiz titular no município sede da zona a ser criada;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, III
+Tipo: inciso
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º
+Páginas: 876-876
+III - existência de vara disponível, já instalada e em atividade, para designação do juiz titular no município sede da zona a ser criada;","III - existência de vara disponível, já instalada e em atividade, para designação do juiz titular no município sede da zona a ser criada;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; existencia","True","503","125"
+"32","32","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","876","876","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","inciso","Art. 3º, IV","Art. 3º","Art. 3º","","IV","","","IV - existência de infraestrutura de comunicação compatível;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, IV
+Tipo: inciso
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º
+Páginas: 876-876
+IV - existência de infraestrutura de comunicação compatível;","IV - existência de infraestrutura de comunicação compatível;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; existencia","True","425","106"
+"33","33","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","876","876","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","inciso","Art. 3º, V","Art. 3º","Art. 3º","","V","","","V - demonstração da estimativa de impacto orçamentário, nos termos da Lei de Responsabilidade Fiscal, e respectiva inclusão na proposta orçamentária do ano anterior à sua instalação, que contemple:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, V
+Tipo: inciso
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º
+Páginas: 876-876
+V - demonstração da estimativa de impacto orçamentário, nos termos da Lei de Responsabilidade Fiscal, e respectiva inclusão na proposta orçamentária do ano anterior à sua instalação, que contemple:","V - demonstração da estimativa de impacto orçamentário, nos termos da Lei de Responsabilidade Fiscal, e respectiva inclusão na proposta orçamentária do ano anterior à sua instalação, que contemple:","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; demonstracao","True","561","140"
+"34","34","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","876","876","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","alinea","Art. 3º, V, a)","Art. 3º, V","Art. 3º","","V","a)","","a) manutenção;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, V, a)
+Tipo: alinea
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º, V
+Páginas: 876-876
+a) manutenção;","a) manutenção;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; manutencao","True","385","96"
+"35","35","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","876","876","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","alinea","Art. 3º, V, b)","Art. 3º, V","Art. 3º","","V","b)","","b) pessoal, encargos e benefícios;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, V, b)
+Tipo: alinea
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º, V
+Páginas: 876-876
+b) pessoal, encargos e benefícios;","b) pessoal, encargos e benefícios;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; pessoal","True","405","101"
+"36","36","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","876","876","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","alinea","Art. 3º, V, c)","Art. 3º, V","Art. 3º","","V","c)","","c) imóvel;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, V, c)
+Tipo: alinea
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º, V
+Páginas: 876-876
+c) imóvel;","c) imóvel;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; imovel","True","381","95"
+"37","37","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","876","876","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","alinea","Art. 3º, V, d)","Art. 3º, V","Art. 3º","","V","d)","","d) mobiliário e equipamentos.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, V, d)
+Tipo: alinea
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º, V
+Páginas: 876-876
+d) mobiliário e equipamentos.","d) mobiliário e equipamentos.","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; mobiliario","True","400","100"
+"38","38","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","876","876","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","paragrafo","Art. 3º, §1º","Art. 3º","Art. 3º","§1º","","","","§ 1º Os quantitativos mínimos estabelecidos no inciso I deste artigo serão reduzidos em 10% (dez por cento) quando se tratar de criação de zonas eleitorais em localidades comprovadamente de difícil acesso, mediante fundamentada justificativa do Tribunal Regional Eleitoral, considerando-se os seguintes parâmetros:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §1º
+Tipo: paragrafo
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º
+Páginas: 876-876
+§ 1º Os quantitativos mínimos estabelecidos no inciso I deste artigo serão reduzidos em 10% (dez por cento) quando se tratar de criação de zonas eleitorais em localidades comprovadamente de difícil acesso, mediante fundamentada justificativa do Tribunal Regional Eleitoral, considerando-se os seguintes parâmetros:","§ 1º Os quantitativos mínimos estabelecidos no inciso I deste artigo serão reduzidos em 10% (dez por cento) quando se tratar de criação de zonas eleitorais em localidades comprovadamente de difícil acesso, mediante fundamentada...","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; quantitativos","True","683","170"
+"39","39","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","876","876","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","inciso","Art. 3º, §1º, I","Art. 3º, §1º","Art. 3º","§1º","I","","","I - localidades situadas, no mínimo, a 200km (duzentos quilômetros) da sede da zona eleitoral originária, se pavimentada a via de acesso;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §1º, I
+Tipo: inciso
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º, §1º
+Páginas: 876-876
+I - localidades situadas, no mínimo, a 200km (duzentos quilômetros) da sede da zona eleitoral originária, se pavimentada a via de acesso;","I - localidades situadas, no mínimo, a 200km (duzentos quilômetros) da sede da zona eleitoral originária, se pavimentada a via de acesso;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; localidades","True","511","127"
+"40","40","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","876","876","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","inciso","Art. 3º, §1º, II","Art. 3º, §1º","Art. 3º","§1º","II","","","II - localidades situadas, no mínimo, a 100km (cem quilômetros) da sede da zona eleitoral originária, se não pavimentada a via de acesso;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §1º, II
+Tipo: inciso
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º, §1º
+Páginas: 876-876
+II - localidades situadas, no mínimo, a 100km (cem quilômetros) da sede da zona eleitoral originária, se não pavimentada a via de acesso;","II - localidades situadas, no mínimo, a 100km (cem quilômetros) da sede da zona eleitoral originária, se não pavimentada a via de acesso;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; localidades","True","512","128"
+"41","41","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","876","876","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","inciso","Art. 3º, §1º, III","Art. 3º, §1º","Art. 3º","§1º","III","","","III - localidades acessíveis somente por via fluvial, cujo percurso demande, no mínimo, 4 (quatro) horas de viagem em embarcação motorizada.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §1º, III
+Tipo: inciso
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º, §1º
+Páginas: 876-876
+III - localidades acessíveis somente por via fluvial, cujo percurso demande, no mínimo, 4 (quatro) horas de viagem em embarcação motorizada.","III - localidades acessíveis somente por via fluvial, cujo percurso demande, no mínimo, 4 (quatro) horas de viagem em embarcação motorizada.","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; localidades","True","516","129"
+"42","42","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","876","876","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","paragrafo","Art. 3º, §2º","Art. 3º","Art. 3º","§2º","","","","§ 2º Quando a criação de zona eleitoral envolver dois ou mais municípios situados em faixas distintas, na forma do inciso I deste artigo, deverá ser observado o quantitativo mínimo de eleitores referente ao de maior densidade demográfica.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §2º
+Tipo: paragrafo
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º
+Páginas: 876-876
+§ 2º Quando a criação de zona eleitoral envolver dois ou mais municípios situados em faixas distintas, na forma do inciso I deste artigo, deverá ser observado o quantitativo mínimo de eleitores referente ao de maior densidade demográfica.","§ 2º Quando a criação de zona eleitoral envolver dois ou mais municípios situados em faixas distintas, na forma do inciso I deste artigo, deverá ser observado o quantitativo mínimo de eleitores referente ao de maior densidade demográfica.","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; quando","True","607","151"
+"43","43","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","877","877","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","paragrafo","Art. 3º, §3º","Art. 3º","Art. 3º","§3º","","","","§ 3º Haverá apenas uma zona eleitoral do exterior, independente do número de eleitores a ela vinculados.","Res.-TSE n. 23541/2017: Art. 2º O Tribunal Regional Eleitoral do Distrito Federal, no prazo de trinta dias da publicação desta resolução, adotará as providências necessárias à observância do § 3º do art. 3º da Res.-TSE n. 23.422/2014 inserido por esta resolução.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Res.-TSE n. 23541/2017: Art. 2º O Tribunal Regional Eleitoral do Distrito Federal, no prazo de trinta dias da publicação desta resolução, adotará as providências necessárias à observância do § 3º do art. 3º da Res.-TSE n. 23.422/2014 inserido por esta resolução."", ""pagina_inicial"": 877, ""pagina_final"": 877}]","1","Res.-TSE n. 23541/2017","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §3º
+Tipo: paragrafo
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º
+Páginas: 877-877
+§ 3º Haverá apenas uma zona eleitoral do exterior, independente do número de eleitores a ela vinculados.
+Notas vinculadas:
+Res.-TSE n. 23541/2017: Art. 2º O Tribunal Regional Eleitoral do Distrito Federal, no prazo de trinta dias da publicação desta resolução, adotará as providências necessárias à observância do § 3º do art. 3º da Res.-TSE n. 23.422/2014 inserido por esta resolução.","§ 3º Haverá apenas uma zona eleitoral do exterior, independente do número de eleitores a ela vinculados.","resolucao; eleitoral; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual","True","754","188"
+"44","44","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","877","877","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","paragrafo","Art. 3º, §4º","Art. 3º","Art. 3º","§4º","","","","§ 4º A zona eleitoral do exterior poderá contar com quadro diferenciado de pessoal, a critério do Tribunal Regional Eleitoral do Distrito Federal.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §4º
+Tipo: paragrafo
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º
+Páginas: 877-877
+§ 4º A zona eleitoral do exterior poderá contar com quadro diferenciado de pessoal, a critério do Tribunal Regional Eleitoral do Distrito Federal.","§ 4º A zona eleitoral do exterior poderá contar com quadro diferenciado de pessoal, a critério do Tribunal Regional Eleitoral do Distrito Federal.","eleitoral; resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual","True","515","128"
+"45","45","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","877","877","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","paragrafo","Art. 3º, §5º","Art. 3º","Art. 3º","§5º","","","","§ 5º A zona eleitoral do exterior poderá contar com mais funções comissionadas além das atribuídas às demais zonas eleitorais, em estrutura definida a critério do Tribunal Regional Eleitoral do Distrito Federal.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §5º
+Tipo: paragrafo
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º
+Páginas: 877-877
+§ 5º A zona eleitoral do exterior poderá contar com mais funções comissionadas além das atribuídas às demais zonas eleitorais, em estrutura definida a critério do Tribunal Regional Eleitoral do Distrito Federal.","§ 5º A zona eleitoral do exterior poderá contar com mais funções comissionadas além das atribuídas às demais zonas eleitorais, em estrutura definida a critério do Tribunal Regional Eleitoral do Distrito Federal.","eleitoral; resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual","True","580","145"
+"46","46","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","877","877","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","paragrafo","Art. 3º, §6º","Art. 3º","Art. 3º","§6º","","","","§ 6º O saldo remanescente das funções comissionadas deverá ser utilizado para a criação de novas zonas eleitorais ou postos de atendimento ao eleitor quando necessário.","Parágrafos 3º a 6º acrescidos pelo art. 1º da Res.-TSE n. 23541/2017.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Parágrafos 3º a 6º acrescidos pelo art. 1º da Res.-TSE n. 23541/2017."", ""pagina_inicial"": 877, ""pagina_final"": 877}]","1","Res.-TSE n. 23541/2017","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §6º
+Tipo: paragrafo
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 3º
+Páginas: 877-877
+§ 6º O saldo remanescente das funções comissionadas deverá ser utilizado para a criação de novas zonas eleitorais ou postos de atendimento ao eleitor quando necessário.
+Notas vinculadas:
+Parágrafos 3º a 6º acrescidos pelo art. 1º da Res.-TSE n. 23541/2017.","§ 6º O saldo remanescente das funções comissionadas deverá ser utilizado para a criação de novas zonas eleitorais ou postos de atendimento ao eleitor quando necessário.","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; saldo","True","625","156"
+"47","47","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","877","877","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","artigo","Art. 4º","","Art. 4º","","","","","Art. 4º As propostas de criação de zonas eleitorais deverão ser instruídas com a comprovação dos requisitos previstos no art. 3º desta resolução e com as seguintes informações:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º
+Tipo: artigo
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Páginas: 877-877
+Art. 4º As propostas de criação de zonas eleitorais deverão ser instruídas com a comprovação dos requisitos previstos no art. 3º desta resolução e com as seguintes informações:","Art. 4º As propostas de criação de zonas eleitorais deverão ser instruídas com a comprovação dos requisitos previstos no art. 3º desta resolução e com as seguintes informações:","resolucao; requisitos; maio; titulo; procedimentos; administrativos; capitulo; instrucao; processual; propostas","True","512","128"
+"48","48","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","877","877","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","inciso","Art. 4º, I","Art. 4º","Art. 4º","","I","","","I - mapa geográfico, detalhando:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º, I
+Tipo: inciso
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 4º
+Páginas: 877-877
+I - mapa geográfico, detalhando:","I - mapa geográfico, detalhando:","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; mapa","True","396","99"
+"49","49","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","877","877","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","alinea","Art. 4º, I, a)","Art. 4º, I","Art. 4º","","I","a)","","a) a área territorial abrangida pela zona eleitoral criada e pela remanescente, com indicação da localização das respectivas sedes;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º, I, a)
+Tipo: alinea
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 4º, I
+Páginas: 877-877
+a) a área territorial abrangida pela zona eleitoral criada e pela remanescente, com indicação da localização das respectivas sedes;","a) a área territorial abrangida pela zona eleitoral criada e pela remanescente, com indicação da localização das respectivas sedes;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; area","True","502","125"
+"50","50","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","877","877","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","alinea","Art. 4º, I, b)","Art. 4º, I","Art. 4º","","I","b)","","b) a localização dos núcleos populacionais ou dos bairros a serem assistidos pela nova zona;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º, I, b)
+Tipo: alinea
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 4º, I
+Páginas: 877-877
+b) a localização dos núcleos populacionais ou dos bairros a serem assistidos pela nova zona;","b) a localização dos núcleos populacionais ou dos bairros a serem assistidos pela nova zona;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; localizacao","True","463","115"
+"51","51","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","877","877","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","alinea","Art. 4º, I, c)","Art. 4º, I","Art. 4º","","I","c)","","c) a área territorial abrangida pelas zonas limítrofes, com indicação da localização das respectivas sedes;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º, I, c)
+Tipo: alinea
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 4º, I
+Páginas: 877-877
+c) a área territorial abrangida pelas zonas limítrofes, com indicação da localização das respectivas sedes;","c) a área territorial abrangida pelas zonas limítrofes, com indicação da localização das respectivas sedes;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; area","True","478","119"
+"52","52","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","877","877","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","inciso","Art. 4º, II","Art. 4º","Art. 4º","","II","","","II - a distância entre a sede da zona criada e das limítrofes, em quilômetros, bem como o tempo médio de viagem e o respectivo meio de transporte;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º, II
+Tipo: inciso
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 4º
+Páginas: 877-877
+II - a distância entre a sede da zona criada e das limítrofes, em quilômetros, bem como o tempo médio de viagem e o respectivo meio de transporte;","II - a distância entre a sede da zona criada e das limítrofes, em quilômetros, bem como o tempo médio de viagem e o respectivo meio de transporte;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; distancia","True","511","127"
+"53","53","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","877","877","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","inciso","Art. 4º, III","Art. 4º","Art. 4º","","III","","","III - a distância entre os núcleos populacionais a serem atendidos pela nova zona e as sedes da zona criada, da remanescente e das limítrofes, em quilômetros, bem como o tempo médio de viagem e o respectivo meio de transporte;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º, III
+Tipo: inciso
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 4º
+Páginas: 877-877
+III - a distância entre os núcleos populacionais a serem atendidos pela nova zona e as sedes da zona criada, da remanescente e das limítrofes, em quilômetros, bem como o tempo médio de viagem e o respectivo meio de transporte;","III - a distância entre os núcleos populacionais a serem atendidos pela nova zona e as sedes da zona criada, da remanescente e das limítrofes, em quilômetros, bem como o tempo médio de viagem e o respectivo meio de transporte;","zona; resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual","True","592","148"
+"54","54","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","877","877","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","inciso","Art. 4º, IV","Art. 4º","Art. 4º","","IV","","","IV - as vias de acesso e os meios de transporte utilizados para deslocamento entre os núcleos populacionais ou bairros componentes da zona eleitoral criada e da remanescente e suas respectivas sedes;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º, IV
+Tipo: inciso
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 4º
+Páginas: 877-877
+IV - as vias de acesso e os meios de transporte utilizados para deslocamento entre os núcleos populacionais ou bairros componentes da zona eleitoral criada e da remanescente e suas respectivas sedes;","IV - as vias de acesso e os meios de transporte utilizados para deslocamento entre os núcleos populacionais ou bairros componentes da zona eleitoral criada e da remanescente e suas respectivas sedes;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; vias","True","564","141"
+"55","55","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","877","877","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","inciso","Art. 4º, V","Art. 4º","Art. 4º","","V","","","V - os sistemas de energia utilizados na localidade e a respectiva condição de fornecimento;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º, V
+Tipo: inciso
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 4º
+Páginas: 877-877
+V - os sistemas de energia utilizados na localidade e a respectiva condição de fornecimento;","V - os sistemas de energia utilizados na localidade e a respectiva condição de fornecimento;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; sistemas","True","456","114"
+"56","56","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","877","877","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","inciso","Art. 4º, VI","Art. 4º","Art. 4º","","VI","","","VI - o número de municípios abrangidos pela zona criada, pela remanescente e pelas limítrofes;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º, VI
+Tipo: inciso
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 4º
+Páginas: 877-877
+VI - o número de municípios abrangidos pela zona criada, pela remanescente e pelas limítrofes;","VI - o número de municípios abrangidos pela zona criada, pela remanescente e pelas limítrofes;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; numero","True","459","114"
+"57","57","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","877","877","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","inciso","Art. 4º, VII","Art. 4º","Art. 4º","","VII","","","VII - o número de eleitores na zona eleitoral criada, na remanescente e nas limítrofes;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º, VII
+Tipo: inciso
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 4º
+Páginas: 877-877
+VII - o número de eleitores na zona eleitoral criada, na remanescente e nas limítrofes;","VII - o número de eleitores na zona eleitoral criada, na remanescente e nas limítrofes;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; numero","True","453","113"
+"58","58","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","877","877","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","inciso","Art. 4º, VIII","Art. 4º","Art. 4º","","VIII","","","VIII - a previsão de imóvel para instalação da zona, com ônus, prioritariamente, para a Justiça Eleitoral, sem prejuízo de parcerias acordadas com outros órgãos da administração pública, em relação aos encargos financeiros decorrentes do imóvel;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º, VIII
+Tipo: inciso
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 4º
+Páginas: 877-877
+VIII - a previsão de imóvel para instalação da zona, com ônus, prioritariamente, para a Justiça Eleitoral, sem prejuízo de parcerias acordadas com outros órgãos da administração pública, em relação aos encargos financeiros decorrentes do imóvel;","VIII - a previsão de imóvel para instalação da zona, com ônus, prioritariamente, para a Justiça Eleitoral, sem prejuízo de parcerias acordadas com outros órgãos da administração pública, em relação aos encargos financeiros decorrentes do...","viii; imovel; resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao","True","612","153"
+"59","59","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","877","877","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","inciso","Art. 4º, IX","Art. 4º","Art. 4º","","IX","","","IX - a previsão de servidores que integrarão a serventia eleitoral, mediante remanejamento, requisição ou aproveitamento decorrente de extinção de zona eleitoral.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º, IX
+Tipo: inciso
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 4º
+Páginas: 877-877
+IX - a previsão de servidores que integrarão a serventia eleitoral, mediante remanejamento, requisição ou aproveitamento decorrente de extinção de zona eleitoral.","IX - a previsão de servidores que integrarão a serventia eleitoral, mediante remanejamento, requisição ou aproveitamento decorrente de extinção de zona eleitoral.","eleitoral; resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual","True","527","131"
+"60","60","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","877","878","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","artigo","Art. 5º","","Art. 5º","","","","","Art. 5º A proposta de criação de zona eleitoral será analisada, no âmbito dos Tribunais Regionais Eleitorais, pelas unidades técnicas de administração, orçamento, tecnologia da informação, gestão de pessoas e pela Corregedoria Eleitoral, incumbindo-lhes manifestarem-se quanto às matérias afetas à respectiva área de atuação, na forma regulamentada pelos respectivos Tribunais Regionais Eleitorais, sem prejuízo da coleta de dados, informações, documentos ou elementos de outras áreas.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 5º
+Tipo: artigo
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Páginas: 877-878
+Art. 5º A proposta de criação de zona eleitoral será analisada, no âmbito dos Tribunais Regionais Eleitorais, pelas unidades técnicas de administração, orçamento, tecnologia da informação, gestão de pessoas e pela Corregedoria Eleitoral, incumbindo-lhes manifestarem-se quanto às matérias afetas à respectiva área de atuação, na forma regulamentada pelos respectivos Tribunais Regionais Eleitorais, sem prejuízo da coleta de dados, informações, documentos ou elementos de outras áreas.","Art. 5º A proposta de criação de zona eleitoral será analisada, no âmbito dos Tribunais Regionais Eleitorais, pelas unidades técnicas de administração, orçamento, tecnologia da informação, gestão de pessoas e pela Corregedoria Eleitoral...","eleitoral; tribunais; regionais; eleitorais; resolucao; maio; titulo; procedimentos; administrativos; capitulo","True","821","205"
+"61","61","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","878","878","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","paragrafo","Art. 5º, §1º","Art. 5º","Art. 5º","§1º","","","","§ 1º As propostas de criação de zona eleitoral serão examinadas, em sessão administrativa, pelo Tribunal Regional Eleitoral competente, após a manifestação da Procuradoria Regional Eleitoral.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 5º, §1º
+Tipo: paragrafo
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 5º
+Páginas: 878-878
+§ 1º As propostas de criação de zona eleitoral serão examinadas, em sessão administrativa, pelo Tribunal Regional Eleitoral competente, após a manifestação da Procuradoria Regional Eleitoral.","§ 1º As propostas de criação de zona eleitoral serão examinadas, em sessão administrativa, pelo Tribunal Regional Eleitoral competente, após a manifestação da Procuradoria Regional Eleitoral.","eleitoral; regional; resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao","True","560","140"
+"62","62","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","878","878","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","paragrafo","Art. 5º, §2º","Art. 5º","Art. 5º","§2º","","","","§ 2º As propostas de criação de zona eleitoral que forem apresentadas diretamente no Tribunal Superior Eleitoral serão encaminhadas ao Tribunal Regional Eleitoral competente para exame de sua viabilidade.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 5º, §2º
+Tipo: paragrafo
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 5º
+Páginas: 878-878
+§ 2º As propostas de criação de zona eleitoral que forem apresentadas diretamente no Tribunal Superior Eleitoral serão encaminhadas ao Tribunal Regional Eleitoral competente para exame de sua viabilidade.","§ 2º As propostas de criação de zona eleitoral que forem apresentadas diretamente no Tribunal Superior Eleitoral serão encaminhadas ao Tribunal Regional Eleitoral competente para exame de sua viabilidade.","eleitoral; tribunal; resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao","True","573","143"
+"63","63","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","878","878","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","artigo","Art. 6º","","Art. 6º","","","","","Art. 6º Os Tribunais Regionais Eleitorais encaminharão para autorização do Tribunal Superior Eleitoral as propostas de criação de zona eleitoral que atendam aos requisitos previstos nesta resolução.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 6º
+Tipo: artigo
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Páginas: 878-878
+Art. 6º Os Tribunais Regionais Eleitorais encaminharão para autorização do Tribunal Superior Eleitoral as propostas de criação de zona eleitoral que atendam aos requisitos previstos nesta resolução.","Art. 6º Os Tribunais Regionais Eleitorais encaminharão para autorização do Tribunal Superior Eleitoral as propostas de criação de zona eleitoral que atendam aos requisitos previstos nesta resolução.","resolucao; requisitos; eleitoral; maio; titulo; procedimentos; administrativos; capitulo; instrucao; processual","True","534","133"
+"64","64","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","878","878","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","paragrafo","Art. 6º, §1º","Art. 6º","Art. 6º","§1º","","","","§ 1º A proposta de autorização de criação de zona eleitoral será encaminhada nos próprios autos do procedimento administrativo instaurado perante o Tribunal Regional Eleitoral, com todos os documentos e anexos que o compõem.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 6º, §1º
+Tipo: paragrafo
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 6º
+Páginas: 878-878
+§ 1º A proposta de autorização de criação de zona eleitoral será encaminhada nos próprios autos do procedimento administrativo instaurado perante o Tribunal Regional Eleitoral, com todos os documentos e anexos que o compõem.","§ 1º A proposta de autorização de criação de zona eleitoral será encaminhada nos próprios autos do procedimento administrativo instaurado perante o Tribunal Regional Eleitoral, com todos os documentos e anexos que o compõem.","eleitoral; resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual","True","593","148"
+"65","65","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","878","878","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","paragrafo","Art. 6º, §2º","Art. 6º","Art. 6º","§2º","","","","§ 2º As propostas de criação de zona eleitoral serão autuadas na Classe 12 – Criação de Zona Eleitoral ou Remanejamento (CZER) e distribuídas automaticamente a um relator.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 6º, §2º
+Tipo: paragrafo
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 6º
+Páginas: 878-878
+§ 2º As propostas de criação de zona eleitoral serão autuadas na Classe 12 – Criação de Zona Eleitoral ou Remanejamento (CZER) e distribuídas automaticamente a um relator.","§ 2º As propostas de criação de zona eleitoral serão autuadas na Classe 12 – Criação de Zona Eleitoral ou Remanejamento (CZER) e distribuídas automaticamente a um relator.","criacao; zona; eleitoral; resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos","True","540","135"
+"66","66","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","878","878","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","paragrafo","Art. 6º, §3º","Art. 6º","Art. 6º","§3º","","","","§ 3º A Diretoria-Geral promoverá a consolidação das informações das unidades técnicas relativas a todas as propostas de criação de zonas eleitorais pendentes, a qual será juntada aos autos, antes da remessa aos respectivos relatores.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 6º, §3º
+Tipo: paragrafo
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 6º
+Páginas: 878-878
+§ 3º A Diretoria-Geral promoverá a consolidação das informações das unidades técnicas relativas a todas as propostas de criação de zonas eleitorais pendentes, a qual será juntada aos autos, antes da remessa aos respectivos relatores.","§ 3º A Diretoria-Geral promoverá a consolidação das informações das unidades técnicas relativas a todas as propostas de criação de zonas eleitorais pendentes, a qual será juntada aos autos, antes da remessa aos respectivos relatores.","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; diretoria","True","602","150"
+"67","67","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","878","878","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","paragrafo","Art. 6º, §4º","Art. 6º","Art. 6º","§4º","","","","§ 4º O relator ouvirá os órgãos técnicos do Tribunal Superior Eleitoral e a Procuradoria-Geral Eleitoral.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 6º, §4º
+Tipo: paragrafo
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 6º
+Páginas: 878-878
+§ 4º O relator ouvirá os órgãos técnicos do Tribunal Superior Eleitoral e a Procuradoria-Geral Eleitoral.","§ 4º O relator ouvirá os órgãos técnicos do Tribunal Superior Eleitoral e a Procuradoria-Geral Eleitoral.","eleitoral; resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual","True","474","118"
+"68","68","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","878","878","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","paragrafo","Art. 6º, §5º","Art. 6º","Art. 6º","§5º","","","","§ 5º Verificado o desatendimento das disposições previstas nesta resolução e a possibilidade de seu saneamento, o relator poderá determinar a baixa dos autos ou, se suficiente para tanto, requisitar à Presidência do respectivo Tribunal Regional Eleitoral as informações e dados necessários à complementação da instrução, fixando para isso prazo razoável, não superior a 30 (trinta) dias.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 6º, §5º
+Tipo: paragrafo
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 6º
+Páginas: 878-878
+§ 5º Verificado o desatendimento das disposições previstas nesta resolução e a possibilidade de seu saneamento, o relator poderá determinar a baixa dos autos ou, se suficiente para tanto, requisitar à Presidência do respectivo Tribunal Regional Eleitoral as informações e dados necessários à complementação da instrução, fixando para isso prazo razoável, não superior a 30 (trinta) dias.","§ 5º Verificado o desatendimento das disposições previstas nesta resolução e a possibilidade de seu saneamento, o relator poderá determinar a baixa dos autos ou, se suficiente para tanto, requisitar à Presidência do respectivo Tribunal...","resolucao; instrucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; processual; verificado","True","756","189"
+"69","69","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","878","878","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","paragrafo","Art. 6º, §6º","Art. 6º","Art. 6º","§6º","","","","§ 6º A autorização para criação de zona eleitoral será deliberada pelo Plenário do Tribunal, em sessão administrativa.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 6º, §6º
+Tipo: paragrafo
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 6º
+Páginas: 878-878
+§ 6º A autorização para criação de zona eleitoral será deliberada pelo Plenário do Tribunal, em sessão administrativa.","§ 6º A autorização para criação de zona eleitoral será deliberada pelo Plenário do Tribunal, em sessão administrativa.","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; autorizacao","True","487","121"
+"70","70","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","878","878","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","artigo","Art. 6º-A","","Art. 6º-A","","","","","Art. 6º-A A proposta de remanejamento de zonas eleitorais deverá ser instruída com a comprovação da manutenção dos quantitativos previstos nos incisos I e II do art. 3º, acompanhada das informações mencionadas no inciso I do art. 4º.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 6º-A
+Tipo: artigo
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Páginas: 878-878
+Art. 6º-A A proposta de remanejamento de zonas eleitorais deverá ser instruída com a comprovação da manutenção dos quantitativos previstos nos incisos I e II do art. 3º, acompanhada das informações mencionadas no inciso I do art. 4º.","Art. 6º-A A proposta de remanejamento de zonas eleitorais deverá ser instruída com a comprovação da manutenção dos quantitativos previstos nos incisos I e II do art. 3º, acompanhada das informações mencionadas no inciso I do art. 4º.","resolucao; maio; titulo; procedimentos; administrativos; capitulo; requisitos; instrucao; processual; proposta","True","571","142"
+"71","71","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","878","878","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL","paragrafo","Art. 6º-A, Parágrafo único","Art. 6º-A","Art. 6º-A","Parágrafo único","","","","Parágrafo único. A análise da proposta de remanejamento seguirá, no que couber, os procedimentos previstos no art. 5º.","Art. 6º-A acrescido pelo art. 1º da Res.-TSE n. 23532/2017.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Art. 6º-A acrescido pelo art. 1º da Res.-TSE n. 23532/2017."", ""pagina_inicial"": 878, ""pagina_final"": 878}]","1","Res.-TSE n. 23532/2017","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 6º-A, Parágrafo único
+Tipo: paragrafo
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO I - REQUISITOS E INSTRUÇÃO PROCESSUAL
+Dispositivo pai: Art. 6º-A
+Páginas: 878-878
+Parágrafo único. A análise da proposta de remanejamento seguirá, no que couber, os procedimentos previstos no art. 5º.
+Notas vinculadas:
+Art. 6º-A acrescido pelo art. 1º da Res.-TSE n. 23532/2017.","Parágrafo único. A análise da proposta de remanejamento seguirá, no que couber, os procedimentos previstos no art. 5º.","procedimentos; paragrafo; unico; resolucao; maio; titulo; administrativos; capitulo; requisitos; instrucao","True","581","145"
+"72","72","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","878","878","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO II - INSTALAÇÃO DAS ZONAS ELEITORAIS","estrutura","CAPÍTULO II - INSTALAÇÃO DAS ZONAS ELEITORAIS","","Art. 6º-A","Parágrafo único","","","","CAPÍTULO II - INSTALAÇÃO DAS ZONAS ELEITORAIS","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: CAPÍTULO II - INSTALAÇÃO DAS ZONAS ELEITORAIS
+Tipo: estrutura
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO II - INSTALAÇÃO DAS ZONAS ELEITORAIS
+Páginas: 878-878
+CAPÍTULO II - INSTALAÇÃO DAS ZONAS ELEITORAIS","CAPÍTULO II - INSTALAÇÃO DAS ZONAS ELEITORAIS","capitulo; instalacao; zonas; eleitorais; resolucao; maio; titulo; procedimentos; administrativos","True","421","105"
+"73","73","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","878","878","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO II - INSTALAÇÃO DAS ZONAS ELEITORAIS","artigo","Art. 7º","","Art. 7º","","","","","Art. 7º A instalação da zona eleitoral, após autorizada sua criação pelo Tribunal Superior Eleitoral, ficará condicionada ao cumprimento das seguintes providências pelo Tribunal Regional Eleitoral respectivo:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 7º
+Tipo: artigo
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO II - INSTALAÇÃO DAS ZONAS ELEITORAIS
+Páginas: 878-878
+Art. 7º A instalação da zona eleitoral, após autorizada sua criação pelo Tribunal Superior Eleitoral, ficará condicionada ao cumprimento das seguintes providências pelo Tribunal Regional Eleitoral respectivo:","Art. 7º A instalação da zona eleitoral, após autorizada sua criação pelo Tribunal Superior Eleitoral, ficará condicionada ao cumprimento das seguintes providências pelo Tribunal Regional Eleitoral respectivo:","eleitoral; instalacao; tribunal; resolucao; maio; titulo; procedimentos; administrativos; capitulo; zonas","True","543","135"
+"74","74","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","878","878","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO II - INSTALAÇÃO DAS ZONAS ELEITORAIS","inciso","Art. 7º, I","Art. 7º","Art. 7º","","I","","","I - vistoria do imóvel para avaliação do atendimento dos requisitos relativos a segurança, salubridade, acessibilidade e condições de armazenamento de equipamentos;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 7º, I
+Tipo: inciso
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO II - INSTALAÇÃO DAS ZONAS ELEITORAIS
+Dispositivo pai: Art. 7º
+Páginas: 878-878
+I - vistoria do imóvel para avaliação do atendimento dos requisitos relativos a segurança, salubridade, acessibilidade e condições de armazenamento de equipamentos;","I - vistoria do imóvel para avaliação do atendimento dos requisitos relativos a segurança, salubridade, acessibilidade e condições de armazenamento de equipamentos;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; instalacao; zonas; eleitorais; vistoria","True","527","131"
+"75","75","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","878","878","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO II - INSTALAÇÃO DAS ZONAS ELEITORAIS","inciso","Art. 7º, II","Art. 7º","Art. 7º","","II","","","II - disponibilidade de servidores, mobiliário e equipamentos suficientes ao funcionamento da zona eleitoral;","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 7º, II
+Tipo: inciso
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO II - INSTALAÇÃO DAS ZONAS ELEITORAIS
+Dispositivo pai: Art. 7º
+Páginas: 878-878
+II - disponibilidade de servidores, mobiliário e equipamentos suficientes ao funcionamento da zona eleitoral;","II - disponibilidade de servidores, mobiliário e equipamentos suficientes ao funcionamento da zona eleitoral;","resolucao; maio; titulo; procedimentos; administrativos; capitulo; instalacao; zonas; eleitorais; disponibilidade","True","473","118"
+"76","76","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","878","878","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO II - INSTALAÇÃO DAS ZONAS ELEITORAIS","inciso","Art. 7º, III","Art. 7º","Art. 7º","","III","","","III - disponibilidade orçamentária do Tribunal Regional Eleitoral respectivo, inclusive para os encargos de pessoal.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 7º, III
+Tipo: inciso
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO II - INSTALAÇÃO DAS ZONAS ELEITORAIS
+Dispositivo pai: Art. 7º
+Páginas: 878-878
+III - disponibilidade orçamentária do Tribunal Regional Eleitoral respectivo, inclusive para os encargos de pessoal.","III - disponibilidade orçamentária do Tribunal Regional Eleitoral respectivo, inclusive para os encargos de pessoal.","resolucao; maio; titulo; procedimentos; administrativos; capitulo; instalacao; zonas; eleitorais; disponibilidade","True","481","120"
+"77","77","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","879","879","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO II - INSTALAÇÃO DAS ZONAS ELEITORAIS","paragrafo","Art. 7º, §1º","Art. 7º","Art. 7º","§1º","","","","§ 1º A criação de zona eleitoral somente se aperfeiçoará com sua instalação, a qual ocorrerá exclusivamente no ano em que não se realizarem eleições.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 7º, §1º
+Tipo: paragrafo
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO II - INSTALAÇÃO DAS ZONAS ELEITORAIS
+Dispositivo pai: Art. 7º
+Páginas: 879-879
+§ 1º A criação de zona eleitoral somente se aperfeiçoará com sua instalação, a qual ocorrerá exclusivamente no ano em que não se realizarem eleições.","§ 1º A criação de zona eleitoral somente se aperfeiçoará com sua instalação, a qual ocorrerá exclusivamente no ano em que não se realizarem eleições.","instalacao; resolucao; maio; titulo; procedimentos; administrativos; capitulo; zonas; eleitorais; criacao","True","517","129"
+"78","78","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","879","879","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO II - INSTALAÇÃO DAS ZONAS ELEITORAIS","paragrafo","Art. 7º, §2º","Art. 7º","Art. 7º","§2º","","","","§ 2º É vedada a designação de juiz e a movimentação de eleitores para a nova zona eleitoral enquanto não se efetivar a sua instalação.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 7º, §2º
+Tipo: paragrafo
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO II - INSTALAÇÃO DAS ZONAS ELEITORAIS
+Dispositivo pai: Art. 7º
+Páginas: 879-879
+§ 2º É vedada a designação de juiz e a movimentação de eleitores para a nova zona eleitoral enquanto não se efetivar a sua instalação.","§ 2º É vedada a designação de juiz e a movimentação de eleitores para a nova zona eleitoral enquanto não se efetivar a sua instalação.","instalacao; resolucao; maio; titulo; procedimentos; administrativos; capitulo; zonas; eleitorais; vedada","True","502","125"
+"79","79","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","879","879","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO II - INSTALAÇÃO DAS ZONAS ELEITORAIS","paragrafo","Art. 7º, §3º","Art. 7º","Art. 7º","§3º","","","","§ 3º Deixando de ser instalada a zona eleitoral no ano em que autorizada a sua criação pelo Tribunal Superior Eleitoral, o Tribunal Regional Eleitoral deverá renovar a inclusão na proposta orçamentária, visando à instalação no ano não eleitoral subsequente.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 7º, §3º
+Tipo: paragrafo
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO II - INSTALAÇÃO DAS ZONAS ELEITORAIS
+Dispositivo pai: Art. 7º
+Páginas: 879-879
+§ 3º Deixando de ser instalada a zona eleitoral no ano em que autorizada a sua criação pelo Tribunal Superior Eleitoral, o Tribunal Regional Eleitoral deverá renovar a inclusão na proposta orçamentária, visando à instalação no ano não eleitoral subsequente.","§ 3º Deixando de ser instalada a zona eleitoral no ano em que autorizada a sua criação pelo Tribunal Superior Eleitoral, o Tribunal Regional Eleitoral deverá renovar a inclusão na proposta orçamentária, visando à instalação no ano não...","eleitoral; instalacao; tribunal; resolucao; maio; titulo; procedimentos; administrativos; capitulo; zonas","True","625","156"
+"80","80","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","879","879","TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO II - INSTALAÇÃO DAS ZONAS ELEITORAIS","paragrafo","Art. 7º, §4º","Art. 7º","Art. 7º","§4º","","","","§ 4º O Tribunal Regional Eleitoral comunicará a instalação da nova zona eleitoral à Presidência do Tribunal Superior Eleitoral no prazo de 48 (quarenta e oito) horas.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 7º, §4º
+Tipo: paragrafo
+Hierarquia: TÍTULO II - PROCEDIMENTOS ADMINISTRATIVOS > CAPÍTULO II - INSTALAÇÃO DAS ZONAS ELEITORAIS
+Dispositivo pai: Art. 7º
+Páginas: 879-879
+§ 4º O Tribunal Regional Eleitoral comunicará a instalação da nova zona eleitoral à Presidência do Tribunal Superior Eleitoral no prazo de 48 (quarenta e oito) horas.","§ 4º O Tribunal Regional Eleitoral comunicará a instalação da nova zona eleitoral à Presidência do Tribunal Superior Eleitoral no prazo de 48 (quarenta e oito) horas.","eleitoral; instalacao; tribunal; resolucao; maio; titulo; procedimentos; administrativos; capitulo; zonas","True","534","133"
+"81","81","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","879","879","TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS","estrutura","TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS","","Art. 7º","§4º","","","","TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS
+Tipo: estrutura
+Hierarquia: TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS
+Páginas: 879-879
+TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS","TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS","titulo; disposicoes; gerais; transitorias; resolucao; maio","True","380","95"
+"82","82","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","879","879","TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS","artigo","Art. 8º","","Art. 8º","","","","","Art. 8º O Tribunal Superior Eleitoral promoverá, nos anos eleitorais, a consolidação de todas as propostas remetidas pelos Tribunais Regionais Eleitorais, relativas à criação de cargos efetivos e de funções comissionadas para as chefias das zonas eleitorais, e encaminhará o respectivo anteprojeto de lei ao Congresso Nacional no mesmo exercício.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 8º
+Tipo: artigo
+Hierarquia: TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS
+Páginas: 879-879
+Art. 8º O Tribunal Superior Eleitoral promoverá, nos anos eleitorais, a consolidação de todas as propostas remetidas pelos Tribunais Regionais Eleitorais, relativas à criação de cargos efetivos e de funções comissionadas para as chefias das zonas eleitorais, e encaminhará o respectivo anteprojeto de lei ao Congresso Nacional no mesmo exercício.","Art. 8º O Tribunal Superior Eleitoral promoverá, nos anos eleitorais, a consolidação de todas as propostas remetidas pelos Tribunais Regionais Eleitorais, relativas à criação de cargos efetivos e de funções comissionadas para as chefias...","eleitorais; resolucao; maio; titulo; disposicoes; gerais; transitorias; tribunal; superior; eleitoral","True","638","159"
+"83","83","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","879","879","TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS","artigo","Art. 9º","","Art. 9º","","","","","Art. 9º A Presidência do Tribunal Superior Eleitoral expedirá norma com as diretrizes necessárias à adequação das zonas eleitorais existentes.","Caput com redação dada pelo art. 2º da Res.-TSE
+n. 23512/2017.","[{""ordem"": 1, ""marcador"": ""continuação"", ""texto"": ""Caput com redação dada pelo art. 2º da Res.-TSE"", ""pagina_inicial"": 879, ""pagina_final"": 879}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""n. 23512/2017."", ""pagina_inicial"": 879, ""pagina_final"": 879}]","2","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 9º
+Tipo: artigo
+Hierarquia: TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS
+Páginas: 879-879
+Art. 9º A Presidência do Tribunal Superior Eleitoral expedirá norma com as diretrizes necessárias à adequação das zonas eleitorais existentes.
+Notas vinculadas:
+Caput com redação dada pelo art. 2º da Res.-TSE
+n. 23512/2017.","Art. 9º A Presidência do Tribunal Superior Eleitoral expedirá norma com as diretrizes necessárias à adequação das zonas eleitorais existentes.","resolucao; maio; titulo; disposicoes; gerais; transitorias; presidencia; tribunal; superior; eleitoral","True","515","128"
+"84","84","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","879","879","TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS","paragrafo","Art. 9º, §1º","Art. 9º","Art. 9º","§1º","","","","§ 1º Em casos excepcionais, devidamente justificados, a providência do caput poderá deixar de ser efetuada, se a redistribuição impedir a atuação eficaz da Justiça Eleitoral na localidade, sujeitando-se a decisão à homologação do Tribunal Superior Eleitoral.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 9º, §1º
+Tipo: paragrafo
+Hierarquia: TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS
+Dispositivo pai: Art. 9º
+Páginas: 879-879
+§ 1º Em casos excepcionais, devidamente justificados, a providência do caput poderá deixar de ser efetuada, se a redistribuição impedir a atuação eficaz da Justiça Eleitoral na localidade, sujeitando-se a decisão à homologação do Tribunal Superior Eleitoral.","§ 1º Em casos excepcionais, devidamente justificados, a providência do caput poderá deixar de ser efetuada, se a redistribuição impedir a atuação eficaz da Justiça Eleitoral na localidade, sujeitando-se a decisão à homologação do Tribunal...","eleitoral; resolucao; maio; titulo; disposicoes; gerais; transitorias; casos; excepcionais; devidamente","True","583","145"
+"85","85","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","879","879","TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS","paragrafo","Art. 9º, §2º","Art. 9º","Art. 9º","§2º","","","","§ 2º Durante 5 (cinco) anos, as zonas eleitorais descritas no § 1º terão a evolução do quantitativo de eleitores acompanhada para verificação do cumprimento do disposto no caput, especialmente quando da proposta de criação de novas zonas no respectivo estado.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 9º, §2º
+Tipo: paragrafo
+Hierarquia: TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS
+Dispositivo pai: Art. 9º
+Páginas: 879-879
+§ 2º Durante 5 (cinco) anos, as zonas eleitorais descritas no § 1º terão a evolução do quantitativo de eleitores acompanhada para verificação do cumprimento do disposto no caput, especialmente quando da proposta de criação de novas zonas no respectivo estado.","§ 2º Durante 5 (cinco) anos, as zonas eleitorais descritas no § 1º terão a evolução do quantitativo de eleitores acompanhada para verificação do cumprimento do disposto no caput, especialmente quando da proposta de criação de novas zonas...","zonas; resolucao; maio; titulo; disposicoes; gerais; transitorias; durante; cinco; anos","True","584","146"
+"86","86","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","879","879","TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS","artigo","Art. 10","","Art. 10","","","","","Art. 10. Os servidores efetivos das zonas extintas em razão de remanejamento serão aproveitados, a critério dos respectivos Tribunais Regionais Eleitorais, por meio de concurso de remoção, em outras zonas eleitorais, e os requisitados retornarão a seus órgãos de origem.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 10
+Tipo: artigo
+Hierarquia: TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS
+Páginas: 879-879
+Art. 10. Os servidores efetivos das zonas extintas em razão de remanejamento serão aproveitados, a critério dos respectivos Tribunais Regionais Eleitorais, por meio de concurso de remoção, em outras zonas eleitorais, e os requisitados retornarão a seus órgãos de origem.","Art. 10. Os servidores efetivos das zonas extintas em razão de remanejamento serão aproveitados, a critério dos respectivos Tribunais Regionais Eleitorais, por meio de concurso de remoção, em outras zonas eleitorais, e os requisitados...","zonas; eleitorais; resolucao; maio; titulo; disposicoes; gerais; transitorias; servidores; efetivos","True","562","140"
+"87","87","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","879","879","TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS","artigo","Art. 11","","Art. 11","","","","","Art. 11. A designação de juízes para zonas que venham a ser fundidas obedecerá às regras previstas na Res.-TSE n. 21.009, de 5 de março de 2002.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 11
+Tipo: artigo
+Hierarquia: TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS
+Páginas: 879-879
+Art. 11. A designação de juízes para zonas que venham a ser fundidas obedecerá às regras previstas na Res.-TSE n. 21.009, de 5 de março de 2002.","Art. 11. A designação de juízes para zonas que venham a ser fundidas obedecerá às regras previstas na Res.-TSE n. 21.009, de 5 de março de 2002.","resolucao; maio; titulo; disposicoes; gerais; transitorias; designacao; juizes; zonas; venham","True","436","109"
+"88","88","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","879","879","TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS","artigo","Art. 12","","Art. 12","","","","","Art. 12. As funções comissionadas e gratificações eleitorais de zonas eleitorais extintas a qualquer tempo não poderão compor o quadro de pessoal da Secretaria do respectivo Tribunal, devendo permanecer reservadas, com posterior designação exclusivamente na hipótese de aprovação de criação de nova zona eleitoral.","Art. 12 com redação dada pelo art. 3º da Res.-TSE n. 23512/2017.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Art. 12 com redação dada pelo art. 3º da Res.-TSE n. 23512/2017."", ""pagina_inicial"": 879, ""pagina_final"": 879}]","1","Res.-TSE n. 23512/2017","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 12
+Tipo: artigo
+Hierarquia: TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS
+Páginas: 879-879
+Art. 12. As funções comissionadas e gratificações eleitorais de zonas eleitorais extintas a qualquer tempo não poderão compor o quadro de pessoal da Secretaria do respectivo Tribunal, devendo permanecer reservadas, com posterior designação exclusivamente na hipótese de aprovação de criação de nova zona eleitoral.
+Notas vinculadas:
+Art. 12 com redação dada pelo art. 3º da Res.-TSE n. 23512/2017.","Art. 12. As funções comissionadas e gratificações eleitorais de zonas eleitorais extintas a qualquer tempo não poderão compor o quadro de pessoal da Secretaria do respectivo Tribunal, devendo permanecer reservadas, com posterior designação...","eleitorais; resolucao; maio; titulo; disposicoes; gerais; transitorias; funcoes; comissionadas; gratificacoes","True","689","172"
+"89","89","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","879","879","TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS","artigo","Art. 13","","Art. 13","","","","","Art. 13. Na hipótese de manifestação de qualquer das unidades técnicas do Tribunal Superior Eleitoral indicativa do desatendimento de disposições desta resolução, o relator poderá determinar seja oficiada a Presidência do respectivo Tribunal Regional Eleitoral, visando à complementação da instrução, fixando para isso prazo razoável, não superior a 15 (quinze) dias.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 13
+Tipo: artigo
+Hierarquia: TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS
+Páginas: 879-879
+Art. 13. Na hipótese de manifestação de qualquer das unidades técnicas do Tribunal Superior Eleitoral indicativa do desatendimento de disposições desta resolução, o relator poderá determinar seja oficiada a Presidência do respectivo Tribunal Regional Eleitoral, visando à complementação da instrução, fixando para isso prazo razoável, não superior a 15 (quinze) dias.","Art. 13. Na hipótese de manifestação de qualquer das unidades técnicas do Tribunal Superior Eleitoral indicativa do desatendimento de disposições desta resolução, o relator poderá determinar seja oficiada a Presidência do respectivo...","resolucao; disposicoes; tribunal; superior; eleitoral; maio; titulo; gerais; transitorias; hipotese","True","659","164"
+"90","90","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","879","880","TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS","artigo","Art. 14","","Art. 14","","","","","Art. 14. A Diretoria-Geral do Tribunal Superior Eleitoral promoverá a consolidação das informações das unidades técnicas relativas a todas as propostas de criação de zonas eleitorais apresentadas no período, a qual será juntada aos autos de cada um dos processos em tramitação, antes da remessa aos respectivos relatores.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 14
+Tipo: artigo
+Hierarquia: TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS
+Páginas: 879-880
+Art. 14. A Diretoria-Geral do Tribunal Superior Eleitoral promoverá a consolidação das informações das unidades técnicas relativas a todas as propostas de criação de zonas eleitorais apresentadas no período, a qual será juntada aos autos de cada um dos processos em tramitação, antes da remessa aos respectivos relatores.","Art. 14. A Diretoria-Geral do Tribunal Superior Eleitoral promoverá a consolidação das informações das unidades técnicas relativas a todas as propostas de criação de zonas eleitorais apresentadas no período, a qual será juntada aos autos...","resolucao; maio; titulo; disposicoes; gerais; transitorias; diretoria; geral; tribunal; superior","True","613","153"
+"91","91","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","880","880","TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS","artigo","Art. 15","","Art. 15","","","","","Art. 15. A disciplina estabelecida por esta resolução será aplicada aos procedimentos em tramitação no Tribunal Superior Eleitoral não apreciados até a data de sua publicação, em relação aos quais, os respectivos relatores poderão determinar monocraticamente o retorno à origem para complementação da instrução.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 15
+Tipo: artigo
+Hierarquia: TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS
+Páginas: 880-880
+Art. 15. A disciplina estabelecida por esta resolução será aplicada aos procedimentos em tramitação no Tribunal Superior Eleitoral não apreciados até a data de sua publicação, em relação aos quais, os respectivos relatores poderão determinar monocraticamente o retorno à origem para complementação da instrução.","Art. 15. A disciplina estabelecida por esta resolução será aplicada aos procedimentos em tramitação no Tribunal Superior Eleitoral não apreciados até a data de sua publicação, em relação aos quais, os respectivos relatores poderão...","resolucao; maio; titulo; disposicoes; gerais; transitorias; disciplina; estabelecida; esta; sera","True","603","150"
+"92","92","Codigo_Eleitoral_2026_anotado.pdf","resolucao_23422_2014","Resolução n. 23.422, de 6 de maio de 2014","","Normas editadas pelo TSE","Resoluções","880","880","TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS","artigo","Art. 16","","Art. 16","","","","","Art. 16. Esta resolução entrará em vigor em 1º de janeiro de 2015; revogadas as Res.-TSE n. 19.994, de 9 de outubro de 1997; 20.041, de 4 de dezembro de 1997; 23.083, de 10 de junho de 2009; e 23.327, de 19 de agosto de 2010.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 23.422, de 6 de maio de 2014
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 16
+Tipo: artigo
+Hierarquia: TÍTULO III - DISPOSIÇÕES GERAIS E TRANSITÓRIAS
+Páginas: 880-880
+Art. 16. Esta resolução entrará em vigor em 1º de janeiro de 2015; revogadas as Res.-TSE n. 19.994, de 9 de outubro de 1997; 20.041, de 4 de dezembro de 1997; 23.083, de 10 de junho de 2009; e 23.327, de 19 de agosto de 2010.","Art. 16. Esta resolução entrará em vigor em 1º de janeiro de 2015; revogadas as Res.-TSE n. 19.994, de 9 de outubro de 1997; 20.041, de 4 de dezembro de 1997; 23.083, de 10 de junho de 2009; e 23.327, de 19 de agosto de 2010.","resolucao; maio; titulo; disposicoes; gerais; transitorias; esta; entrara; vigor; janeiro","True","517","129"

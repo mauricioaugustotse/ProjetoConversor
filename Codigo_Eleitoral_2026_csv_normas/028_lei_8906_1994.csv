@@ -1,0 +1,304 @@
+﻿"id","ordem_doc","arquivo_fonte","norma_id","norma_titulo","norma_nome_popular","macrogrupo","grupo_sumario","pagina_inicial","pagina_final","hierarquia_normativa","tipo_dispositivo","dispositivo","dispositivo_pai","artigo","paragrafo","inciso","alinea","item","texto_dispositivo","notas_texto","notas_json","qtd_notas","referencias_normativas","referencias_jurisprudenciais","referencias_sumulas","texto_rag","resumo_curto","palavras_chave","incluir_no_rag","chars","tokens_estimados"
+"1","1","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","695","695","","norma","Lei n. 8.906, de 4 de julho de 1994","","","","","","","Dispõe sobre o Estatuto da Advocacia e a Ordem dos Advogados do Brasil (OAB). O PRESIDENTE DA REPÚBLICA, faço saber que o Congresso Nacional decreta e eu sanciono a seguinte lei:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Lei n. 8.906, de 4 de julho de 1994
+Tipo: norma
+Páginas: 695-695
+Dispõe sobre o Estatuto da Advocacia e a Ordem dos Advogados do Brasil (OAB). O PRESIDENTE DA REPÚBLICA, faço saber que o Congresso Nacional decreta e eu sanciono a seguinte lei:","Dispõe sobre o Estatuto da Advocacia e a Ordem dos Advogados do Brasil (OAB). O PRESIDENTE DA REPÚBLICA, faço saber que o Congresso Nacional decreta e eu sanciono a seguinte lei:","julho; dispoe; sobre; estatuto; advocacia; ordem; advogados; brasil; presidente; republica","True","438","109"
+"2","2","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","695","695","TÍTULO I - DA ADVOCACIA","estrutura","TÍTULO I - DA ADVOCACIA","","","","","","","TÍTULO I - DA ADVOCACIA","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: TÍTULO I - DA ADVOCACIA
+Tipo: estrutura
+Hierarquia: TÍTULO I - DA ADVOCACIA
+Páginas: 695-695
+TÍTULO I - DA ADVOCACIA","TÍTULO I - DA ADVOCACIA","titulo; advocacia; julho","True","311","77"
+"3","3","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","695","695","TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA","estrutura","CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA","","","","","","","CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA
+Tipo: estrutura
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA
+Páginas: 695-695
+CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA","CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA","advocacia; capitulo; atividade; julho; titulo","True","382","95"
+"4","4","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","695","695","TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA","artigo","Art. 1º","","Art. 1º","","","","","Art. 1º São atividades privativas de advocacia:","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 1º
+Tipo: artigo
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA
+Páginas: 695-695
+Art. 1º São atividades privativas de advocacia:","Art. 1º São atividades privativas de advocacia:","advocacia; julho; titulo; capitulo; atividade; atividades; privativas","True","357","89"
+"5","5","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","695","695","TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA","inciso","Art. 1º, I","Art. 1º","Art. 1º","","I","","","I - a postulação a qualquer órgão do Poder Judiciário e aos juizados especiais; [...]","Ac.-STF, de 17/5/2006, na ADI n. 1127: inconstitucionalidade da expressão qualquer que consta deste inciso.","[{""ordem"": 1, ""marcador"": ""ticado"", ""texto"": ""Ac.-STF, de 17/5/2006, na ADI n. 1127: inconstitucionalidade da expressão qualquer que consta deste inciso."", ""pagina_inicial"": 695, ""pagina_final"": 695}]","1","","Ac.-STF, de 17/5/2006, na ADI n; ADI n. 1127","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 1º, I
+Tipo: inciso
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA
+Dispositivo pai: Art. 1º
+Páginas: 695-695
+I - a postulação a qualquer órgão do Poder Judiciário e aos juizados especiais; [...]
+Notas vinculadas:
+Ac.-STF, de 17/5/2006, na ADI n. 1127: inconstitucionalidade da expressão qualquer que consta deste inciso.","I - a postulação a qualquer órgão do Poder Judiciário e aos juizados especiais; [...]","advocacia; qualquer; julho; titulo; capitulo; atividade; postulacao; orgao; poder; judiciario","True","549","137"
+"6","6","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","695","695","TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA","paragrafo","Art. 1º, §1º","Art. 1º","Art. 1º","§1º","","","","§ 1º Não se inclui na atividade privativa de advocacia a impetração de habeas corpus em qualquer instância ou Tribunal. [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 1º, §1º
+Tipo: paragrafo
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA
+Dispositivo pai: Art. 1º
+Páginas: 695-695
+§ 1º Não se inclui na atividade privativa de advocacia a impetração de habeas corpus em qualquer instância ou Tribunal. [...]","§ 1º Não se inclui na atividade privativa de advocacia a impetração de habeas corpus em qualquer instância ou Tribunal. [...]","advocacia; atividade; julho; titulo; capitulo; inclui; privativa; impetracao; habeas; corpus","True","468","117"
+"7","7","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","695","695","TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA","artigo","Art. 2º","","Art. 2º","","","","","Art. 2º O advogado é indispensável à administração da justiça. [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 2º
+Tipo: artigo
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA
+Páginas: 695-695
+Art. 2º O advogado é indispensável à administração da justiça. [...]","Art. 2º O advogado é indispensável à administração da justiça. [...]","advocacia; julho; titulo; capitulo; atividade; advogado; indispensavel; administracao; justica","True","378","94"
+"8","8","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","695","695","TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA","paragrafo","Art. 2º, §2º","Art. 2º","Art. 2º","§2º","","","","§ 2º No processo judicial, o advogado contribui, na postulação de decisão favorável ao seu constituinte, ao convencimento do julgador, e seus atos constituem múnus público.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 2º, §2º
+Tipo: paragrafo
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA
+Dispositivo pai: Art. 2º
+Páginas: 695-695
+§ 2º No processo judicial, o advogado contribui, na postulação de decisão favorável ao seu constituinte, ao convencimento do julgador, e seus atos constituem múnus público.","§ 2º No processo judicial, o advogado contribui, na postulação de decisão favorável ao seu constituinte, ao convencimento do julgador, e seus atos constituem múnus público.","advocacia; julho; titulo; capitulo; atividade; processo; judicial; advogado; contribui; postulacao","True","515","128"
+"9","9","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","695","695","TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA","paragrafo","Art. 2º, §3º","Art. 2º","Art. 2º","§3º","","","","§ 3º No exercício da profissão, o advogado é inviolável por seus atos e manifestações, nos limites desta lei.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 2º, §3º
+Tipo: paragrafo
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA
+Dispositivo pai: Art. 2º
+Páginas: 695-695
+§ 3º No exercício da profissão, o advogado é inviolável por seus atos e manifestações, nos limites desta lei.","§ 3º No exercício da profissão, o advogado é inviolável por seus atos e manifestações, nos limites desta lei.","advocacia; julho; titulo; capitulo; atividade; exercicio; profissao; advogado; inviolavel; seus","True","452","113"
+"10","10","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","695","695","TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA","artigo","Art. 3º","","Art. 3º","","","","","Art. 3º O exercício da atividade de advocacia no território brasileiro e a denominação de advogado são privativos dos inscritos na Ordem dos Advogados do Brasil (OAB). [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 3º
+Tipo: artigo
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA
+Páginas: 695-695
+Art. 3º O exercício da atividade de advocacia no território brasileiro e a denominação de advogado são privativos dos inscritos na Ordem dos Advogados do Brasil (OAB). [...]","Art. 3º O exercício da atividade de advocacia no território brasileiro e a denominação de advogado são privativos dos inscritos na Ordem dos Advogados do Brasil (OAB). [...]","advocacia; atividade; julho; titulo; capitulo; exercicio; territorio; brasileiro; denominacao; advogado","True","483","120"
+"11","11","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","695","695","TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA","paragrafo","Art. 3º, §2º","Art. 3º","Art. 3º","§2º","","","","§ 2º O estagiário de advocacia, regularmente inscrito, pode praticar os atos previstos no","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 3º, §2º
+Tipo: paragrafo
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA
+Dispositivo pai: Art. 3º
+Páginas: 695-695
+§ 2º O estagiário de advocacia, regularmente inscrito, pode praticar os atos previstos no","§ 2º O estagiário de advocacia, regularmente inscrito, pode praticar os atos previstos no","advocacia; julho; titulo; capitulo; atividade; estagiario; regularmente; inscrito; pode; praticar","True","432","108"
+"12","12","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","695","695","TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA","artigo","Art. 1º","","Art. 1º","","","","","art. 1º, na forma do regimento geral, em conjunto com advogado e sob responsabilidade deste.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 1º
+Tipo: artigo
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA
+Páginas: 695-695
+art. 1º, na forma do regimento geral, em conjunto com advogado e sob responsabilidade deste.","art. 1º, na forma do regimento geral, em conjunto com advogado e sob responsabilidade deste.","advocacia; julho; titulo; capitulo; atividade; forma; regimento; geral; conjunto; advogado","True","402","100"
+"13","13","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","695","695","TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA","artigo","Art. 4º","","Art. 4º","","","","","Art. 4º São nulos os atos privativos de advogado praticados por pessoa não inscrita na OAB, sem prejuízo das sanções civis, penais e administrativas.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 4º
+Tipo: artigo
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA
+Páginas: 695-695
+Art. 4º São nulos os atos privativos de advogado praticados por pessoa não inscrita na OAB, sem prejuízo das sanções civis, penais e administrativas.","Art. 4º São nulos os atos privativos de advogado praticados por pessoa não inscrita na OAB, sem prejuízo das sanções civis, penais e administrativas.","advocacia; julho; titulo; capitulo; atividade; nulos; atos; privativos; advogado; praticados","True","459","114"
+"14","14","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","695","695","TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA","paragrafo","Art. 4º, Parágrafo único","Art. 4º","Art. 4º","Parágrafo único","","","","Parágrafo único. São também nulos os atos praticados por advogado impedido – no âmbito do impedimento – suspenso, licenciado ou que passar a exercer atividade incompatível com a advocacia.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 4º, Parágrafo único
+Tipo: paragrafo
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA
+Dispositivo pai: Art. 4º
+Páginas: 695-695
+Parágrafo único. São também nulos os atos praticados por advogado impedido – no âmbito do impedimento – suspenso, licenciado ou que passar a exercer atividade incompatível com a advocacia.","Parágrafo único. São também nulos os atos praticados por advogado impedido – no âmbito do impedimento – suspenso, licenciado ou que passar a exercer atividade incompatível com a advocacia.","advocacia; atividade; paragrafo; unico; julho; titulo; capitulo; tambem; nulos; atos","True","543","135"
+"15","15","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","695","695","TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA","artigo","Art. 5º","","Art. 5º","","","","","Art. 5º O advogado postula, em juízo ou fora dele, fazendo prova do mandato.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 5º
+Tipo: artigo
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA
+Páginas: 695-695
+Art. 5º O advogado postula, em juízo ou fora dele, fazendo prova do mandato.","Art. 5º O advogado postula, em juízo ou fora dele, fazendo prova do mandato.","advocacia; julho; titulo; capitulo; atividade; advogado; postula; juizo; fora; dele","True","386","96"
+"16","16","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","695","695","TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA","paragrafo","Art. 5º, §1º","Art. 5º","Art. 5º","§1º","","","","§ 1º O advogado, afirmando urgência, pode atuar sem procuração, obrigando-se a apresentá-la no prazo de quinze dias, prorrogável por igual período.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 5º, §1º
+Tipo: paragrafo
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA
+Dispositivo pai: Art. 5º
+Páginas: 695-695
+§ 1º O advogado, afirmando urgência, pode atuar sem procuração, obrigando-se a apresentá-la no prazo de quinze dias, prorrogável por igual período.","§ 1º O advogado, afirmando urgência, pode atuar sem procuração, obrigando-se a apresentá-la no prazo de quinze dias, prorrogável por igual período.","advocacia; julho; titulo; capitulo; atividade; advogado; afirmando; urgencia; pode; atuar","True","490","122"
+"17","17","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","695","695","TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA","paragrafo","Art. 5º, §2º","Art. 5º","Art. 5º","§2º","","","","§ 2º A procuração para o foro em geral habilita o advogado a praticar todos os atos judiciais, em qualquer juízo ou instância, salvo os que exijam poderes especiais.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 5º, §2º
+Tipo: paragrafo
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA
+Dispositivo pai: Art. 5º
+Páginas: 695-695
+§ 2º A procuração para o foro em geral habilita o advogado a praticar todos os atos judiciais, em qualquer juízo ou instância, salvo os que exijam poderes especiais.","§ 2º A procuração para o foro em geral habilita o advogado a praticar todos os atos judiciais, em qualquer juízo ou instância, salvo os que exijam poderes especiais.","advocacia; julho; titulo; capitulo; atividade; procuracao; foro; geral; habilita; advogado","True","508","127"
+"18","18","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","695","696","TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA","paragrafo","Art. 5º, §3º","Art. 5º","Art. 5º","§3º","","","","§ 3º O advogado que renunciar ao mandato continuará, durante os dez dias seguintes à notificação da renúncia, a representar o mandante, salvo se for substituído antes do término desse prazo.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 5º, §3º
+Tipo: paragrafo
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO I - DA ATIVIDADE DE ADVOCACIA
+Dispositivo pai: Art. 5º
+Páginas: 695-696
+§ 3º O advogado que renunciar ao mandato continuará, durante os dez dias seguintes à notificação da renúncia, a representar o mandante, salvo se for substituído antes do término desse prazo.","§ 3º O advogado que renunciar ao mandato continuará, durante os dez dias seguintes à notificação da renúncia, a representar o mandante, salvo se for substituído antes do término desse prazo.","advocacia; julho; titulo; capitulo; atividade; advogado; renunciar; mandato; continuara; durante","True","533","133"
+"19","19","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","696","696","TÍTULO I - DA ADVOCACIA > CAPÍTULO II - DOS DIREITOS DO ADVOGADO","estrutura","CAPÍTULO II - DOS DIREITOS DO ADVOGADO","","Art. 5º","§3º","","","","CAPÍTULO II - DOS DIREITOS DO ADVOGADO","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: CAPÍTULO II - DOS DIREITOS DO ADVOGADO
+Tipo: estrutura
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO II - DOS DIREITOS DO ADVOGADO
+Páginas: 696-696
+CAPÍTULO II - DOS DIREITOS DO ADVOGADO","CAPÍTULO II - DOS DIREITOS DO ADVOGADO","capitulo; direitos; advogado; julho; titulo; advocacia","True","382","95"
+"20","20","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","696","696","TÍTULO I - DA ADVOCACIA > CAPÍTULO II - DOS DIREITOS DO ADVOGADO","artigo","Art. 6º","","Art. 6º","","","","","Art. 6º Não há hierarquia nem subordinação entre advogados, magistrados e membros do Ministério Público, devendo todos tratar-se com consideração e respeito recíprocos.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 6º
+Tipo: artigo
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO II - DOS DIREITOS DO ADVOGADO
+Páginas: 696-696
+Art. 6º Não há hierarquia nem subordinação entre advogados, magistrados e membros do Ministério Público, devendo todos tratar-se com consideração e respeito recíprocos.","Art. 6º Não há hierarquia nem subordinação entre advogados, magistrados e membros do Ministério Público, devendo todos tratar-se com consideração e respeito recíprocos.","julho; titulo; advocacia; capitulo; direitos; advogado; hierarquia; subordinacao; advogados; magistrados","True","478","119"
+"21","21","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","696","696","TÍTULO I - DA ADVOCACIA > CAPÍTULO II - DOS DIREITOS DO ADVOGADO","paragrafo","Art. 6º, §1º","Art. 6º","Art. 6º","§1º","","","","§ 1º As autoridades, os servidores públicos e os serventuários da Justiça devem dispensar ao advogado, no exercício da profissão, tratamento compatível com a dignidade da advocacia e condições adequadas a seu desempenho.","Parágrafo único numerado como § 1º pelo art. 2º da Lei n. 14.508/2022.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Parágrafo único numerado como § 1º pelo art. 2º da Lei n. 14.508/2022."", ""pagina_inicial"": 696, ""pagina_final"": 696}]","1","Lei n. 14.508/2022","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 6º, §1º
+Tipo: paragrafo
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO II - DOS DIREITOS DO ADVOGADO
+Dispositivo pai: Art. 6º
+Páginas: 696-696
+§ 1º As autoridades, os servidores públicos e os serventuários da Justiça devem dispensar ao advogado, no exercício da profissão, tratamento compatível com a dignidade da advocacia e condições adequadas a seu desempenho.
+Notas vinculadas:
+Parágrafo único numerado como § 1º pelo art. 2º da Lei n. 14.508/2022.","§ 1º As autoridades, os servidores públicos e os serventuários da Justiça devem dispensar ao advogado, no exercício da profissão, tratamento compatível com a dignidade da advocacia e condições adequadas a seu desempenho.","advocacia; advogado; julho; titulo; capitulo; direitos; autoridades; servidores; publicos; serventuarios","True","652","163"
+"22","22","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","696","696","TÍTULO I - DA ADVOCACIA > CAPÍTULO II - DOS DIREITOS DO ADVOGADO","paragrafo","Art. 6º, §2º","Art. 6º","Art. 6º","§2º","","","","§ 2º Durante as audiências de instrução e julgamento realizadas no Poder Judiciário, nos procedimentos de jurisdição contenciosa ou voluntária, os advogados do autor e do requerido devem permanecer no mesmo plano topográfico e em posição equidistante em relação ao magistrado que as presidir.","Parágrafo 2º acrescido pelo art. 2º da Lei n. 14.508/2022.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Parágrafo 2º acrescido pelo art. 2º da Lei n. 14.508/2022."", ""pagina_inicial"": 696, ""pagina_final"": 696}]","1","Lei n. 14.508/2022","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 6º, §2º
+Tipo: paragrafo
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO II - DOS DIREITOS DO ADVOGADO
+Dispositivo pai: Art. 6º
+Páginas: 696-696
+§ 2º Durante as audiências de instrução e julgamento realizadas no Poder Judiciário, nos procedimentos de jurisdição contenciosa ou voluntária, os advogados do autor e do requerido devem permanecer no mesmo plano topográfico e em posição equidistante em relação ao magistrado que as presidir.
+Notas vinculadas:
+Parágrafo 2º acrescido pelo art. 2º da Lei n. 14.508/2022.","§ 2º Durante as audiências de instrução e julgamento realizadas no Poder Judiciário, nos procedimentos de jurisdição contenciosa ou voluntária, os advogados do autor e do requerido devem permanecer no mesmo plano topográfico e em posição...","julho; titulo; advocacia; capitulo; direitos; advogado; durante; audiencias; instrucao; julgamento","True","712","178"
+"23","23","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","696","696","TÍTULO I - DA ADVOCACIA > CAPÍTULO II - DOS DIREITOS DO ADVOGADO","artigo","Art. 7º","","Art. 7º","","","","","Art. 7º São direitos do advogado: [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 7º
+Tipo: artigo
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO II - DOS DIREITOS DO ADVOGADO
+Páginas: 696-696
+Art. 7º São direitos do advogado: [...]","Art. 7º São direitos do advogado: [...]","direitos; advogado; julho; titulo; advocacia; capitulo","True","349","87"
+"24","24","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","696","696","TÍTULO I - DA ADVOCACIA > CAPÍTULO II - DOS DIREITOS DO ADVOGADO","paragrafo","Art. 7º, §4º","Art. 7º","Art. 7º","§4º","","","","§ 4º O Poder Judiciário e o Poder Executivo devem instalar, em todos os juizados, fóruns, Tribunais, delegacias de polícia e presídios, salas especiais permanentes para os advogados, com uso e controle assegurados à OAB. [...]","Ac.-STF, de 17/5/2006, na ADI n. 1127: inconstitucionalidade da expressão e controle que consta deste parágrafo.","[{""ordem"": 1, ""marcador"": ""ticado"", ""texto"": ""Ac.-STF, de 17/5/2006, na ADI n. 1127: inconstitucionalidade da expressão e controle que consta deste parágrafo."", ""pagina_inicial"": 696, ""pagina_final"": 696}]","1","","Ac.-STF, de 17/5/2006, na ADI n; ADI n. 1127","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 7º, §4º
+Tipo: paragrafo
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO II - DOS DIREITOS DO ADVOGADO
+Dispositivo pai: Art. 7º
+Páginas: 696-696
+§ 4º O Poder Judiciário e o Poder Executivo devem instalar, em todos os juizados, fóruns, Tribunais, delegacias de polícia e presídios, salas especiais permanentes para os advogados, com uso e controle assegurados à OAB. [...]
+Notas vinculadas:
+Ac.-STF, de 17/5/2006, na ADI n. 1127: inconstitucionalidade da expressão e controle que consta deste parágrafo.","§ 4º O Poder Judiciário e o Poder Executivo devem instalar, em todos os juizados, fóruns, Tribunais, delegacias de polícia e presídios, salas especiais permanentes para os advogados, com uso e controle assegurados à OAB. [...]","poder; controle; julho; titulo; advocacia; capitulo; direitos; advogado; judiciario; executivo","True","700","175"
+"25","25","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","696","696","TÍTULO I - DA ADVOCACIA > CAPÍTULO VII - DAS INCOMPATIBILIDADES E","estrutura","CAPÍTULO VII - DAS INCOMPATIBILIDADES E","","Art. 7º","§4º","","","","CAPÍTULO VII - DAS INCOMPATIBILIDADES E","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: CAPÍTULO VII - DAS INCOMPATIBILIDADES E
+Tipo: estrutura
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO VII - DAS INCOMPATIBILIDADES E
+Páginas: 696-696
+CAPÍTULO VII - DAS INCOMPATIBILIDADES E","CAPÍTULO VII - DAS INCOMPATIBILIDADES E","capitulo; incompatibilidades; julho; titulo; advocacia","True","385","96"
+"26","26","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","696","696","TÍTULO I - DA ADVOCACIA > CAPÍTULO VII - DAS INCOMPATIBILIDADES E > IMPEDIMENTOS","estrutura","IMPEDIMENTOS","","Art. 7º","§4º","","","","IMPEDIMENTOS [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: IMPEDIMENTOS
+Tipo: estrutura
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO VII - DAS INCOMPATIBILIDADES E > IMPEDIMENTOS
+Páginas: 696-696
+IMPEDIMENTOS [...]","IMPEDIMENTOS [...]","impedimentos; julho; titulo; advocacia; capitulo; incompatibilidades","True","352","88"
+"27","27","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","696","696","TÍTULO I - DA ADVOCACIA > CAPÍTULO VII - DAS INCOMPATIBILIDADES E > IMPEDIMENTOS","artigo","Art. 28","","Art. 28","","","","","Art. 28. A advocacia é incompatível, mesmo em causa própria, com as seguintes atividades: [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 28
+Tipo: artigo
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO VII - DAS INCOMPATIBILIDADES E > IMPEDIMENTOS
+Páginas: 696-696
+Art. 28. A advocacia é incompatível, mesmo em causa própria, com as seguintes atividades: [...]","Art. 28. A advocacia é incompatível, mesmo em causa própria, com as seguintes atividades: [...]","advocacia; julho; titulo; capitulo; incompatibilidades; impedimentos; incompativel; mesmo; causa; propria","True","421","105"
+"28","28","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","696","696","TÍTULO I - DA ADVOCACIA > CAPÍTULO VII - DAS INCOMPATIBILIDADES E > IMPEDIMENTOS","inciso","Art. 28, II","Art. 28","Art. 28","","II","","","II - membros de órgãos do Poder Judiciário, do Ministério Público, dos Tribunais e Conselhos de Contas, dos Juizados Especiais, da justiça de paz, juízes classistas, bem como de todos os que exerçam função de julgamento em órgãos de deliberação coletiva da administração pública direta e indireta; [...]","Ac.-STF, de 17/5/2006, na ADI n. 1127: por maioria, julgou parcialmente procedente a ação, quanto a este inciso, para excluir apenas os juízes eleitorais e seus suplentes.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Ac.-STF, de 17/5/2006, na ADI n. 1127: por maioria, julgou parcialmente procedente a ação, quanto a este inciso, para excluir apenas os juízes eleitorais e seus suplentes."", ""pagina_inicial"": 696, ""pagina_final"": 696}]","1","","Ac.-STF, de 17/5/2006, na ADI n; ADI n. 1127","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 28, II
+Tipo: inciso
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO VII - DAS INCOMPATIBILIDADES E > IMPEDIMENTOS
+Dispositivo pai: Art. 28
+Páginas: 696-696
+II - membros de órgãos do Poder Judiciário, do Ministério Público, dos Tribunais e Conselhos de Contas, dos Juizados Especiais, da justiça de paz, juízes classistas, bem como de todos os que exerçam função de julgamento em órgãos de deliberação coletiva da administração pública direta e indireta; [...]
+Notas vinculadas:
+Ac.-STF, de 17/5/2006, na ADI n. 1127: por maioria, julgou parcialmente procedente a ação, quanto a este inciso, para excluir apenas os juízes eleitorais e seus suplentes.","II - membros de órgãos do Poder Judiciário, do Ministério Público, dos Tribunais e Conselhos de Contas, dos Juizados Especiais, da justiça de paz, juízes classistas, bem como de todos os que exerçam função de julgamento em órgãos de...","orgaos; juizes; julho; titulo; advocacia; capitulo; incompatibilidades; impedimentos; membros; poder","True","848","212"
+"29","29","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","696","696","TÍTULO I - DA ADVOCACIA > CAPÍTULO VII - DAS INCOMPATIBILIDADES E > IMPEDIMENTOS","inciso","Art. 28, IV","Art. 28","Art. 28","","IV","","","IV - ocupantes de cargos ou funções vinculados direta ou indiretamente a qualquer órgão do Poder Judiciário e os que exercem serviços notariais e de registro; [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 28, IV
+Tipo: inciso
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO VII - DAS INCOMPATIBILIDADES E > IMPEDIMENTOS
+Dispositivo pai: Art. 28
+Páginas: 696-696
+IV - ocupantes de cargos ou funções vinculados direta ou indiretamente a qualquer órgão do Poder Judiciário e os que exercem serviços notariais e de registro; [...]","IV - ocupantes de cargos ou funções vinculados direta ou indiretamente a qualquer órgão do Poder Judiciário e os que exercem serviços notariais e de registro; [...]","julho; titulo; advocacia; capitulo; incompatibilidades; impedimentos; ocupantes; cargos; funcoes; vinculados","True","519","129"
+"30","30","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","696","696","TÍTULO I - DA ADVOCACIA > CAPÍTULO VII - DAS INCOMPATIBILIDADES E > IMPEDIMENTOS","paragrafo","Art. 28, §1º","Art. 28","Art. 28","§1º","","","","§ 1º A incompatibilidade permanece mesmo que o ocupante do cargo ou função deixe de exercê-lo temporariamente. [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 28, §1º
+Tipo: paragrafo
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO VII - DAS INCOMPATIBILIDADES E > IMPEDIMENTOS
+Dispositivo pai: Art. 28
+Páginas: 696-696
+§ 1º A incompatibilidade permanece mesmo que o ocupante do cargo ou função deixe de exercê-lo temporariamente. [...]","§ 1º A incompatibilidade permanece mesmo que o ocupante do cargo ou função deixe de exercê-lo temporariamente. [...]","julho; titulo; advocacia; capitulo; incompatibilidades; impedimentos; incompatibilidade; permanece; mesmo; ocupante","True","475","118"
+"31","31","Codigo_Eleitoral_2026_anotado.pdf","lei_8906_1994","Lei n. 8.906, de 4 de julho de 1994","","Legislação correlata","Legislação correlata","696","697","TÍTULO I - DA ADVOCACIA > CAPÍTULO VII - DAS INCOMPATIBILIDADES E > IMPEDIMENTOS","artigo","Art. 86","","Art. 86","","","","","Art. 86. Esta lei entra em vigor na data de sua publicação. [...]","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Lei n. 8.906, de 4 de julho de 1994
+Macrogrupo: Legislação correlata
+Grupo do sumário: Legislação correlata
+Dispositivo: Art. 86
+Tipo: artigo
+Hierarquia: TÍTULO I - DA ADVOCACIA > CAPÍTULO VII - DAS INCOMPATIBILIDADES E > IMPEDIMENTOS
+Páginas: 696-697
+Art. 86. Esta lei entra em vigor na data de sua publicação. [...]","Art. 86. Esta lei entra em vigor na data de sua publicação. [...]","julho; titulo; advocacia; capitulo; incompatibilidades; impedimentos; esta; entra; vigor; data","True","391","97"

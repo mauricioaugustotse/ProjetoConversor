@@ -1,0 +1,109 @@
+﻿"id","ordem_doc","arquivo_fonte","norma_id","norma_titulo","norma_nome_popular","macrogrupo","grupo_sumario","pagina_inicial","pagina_final","hierarquia_normativa","tipo_dispositivo","dispositivo","dispositivo_pai","artigo","paragrafo","inciso","alinea","item","texto_dispositivo","notas_texto","notas_json","qtd_notas","referencias_normativas","referencias_jurisprudenciais","referencias_sumulas","texto_rag","resumo_curto","palavras_chave","incluir_no_rag","chars","tokens_estimados"
+"1","1","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21477_2003","Resolução n. 21.477, de 28 de agosto de 2003","","Normas editadas pelo TSE","Resoluções","783","783","","norma","Resolução n. 21.477, de 28 de agosto de 2003","","","","","","","Dispõe sobre a formação do agravo de instrumento contra decisão que não admitir o processamento do recurso especial. O TRIBUNAL SUPERIOR ELEITORAL, usando das atribuições que lhe confere o art. 23, XVIII, do Código Eleitoral, resolve:","CE/1965, art. 279.
+Lei n. 12.322/2010: transforma o agravo de instrumento interposto de decisão que não admite recurso extraordinário ou especial em agravo nos próprios autos; Ac.-TSE, de 22/11/2011, no AgR-AI n. 839248: incidência da Lei n. 12.322/2010 no processo eleitoral.
+V. CPC/2015, art. 1.042.
+V. Port.-TSE n. 1087/2016 e Port.-TSE n. 129/1996.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""CE/1965, art. 279."", ""pagina_inicial"": 783, ""pagina_final"": 783}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""Lei n. 12.322/2010: transforma o agravo de instrumento interposto de decisão que não admite recurso extraordinário ou especial em agravo nos próprios autos; Ac.-TSE, de 22/11/2011, no AgR-AI n. 839248: incidência da Lei n. 12.322/2010 no processo eleitoral."", ""pagina_inicial"": 783, ""pagina_final"": 783}, {""ordem"": 3, ""marcador"": ""quadrado"", ""texto"": ""V. CPC/2015, art. 1.042."", ""pagina_inicial"": 783, ""pagina_final"": 783}, {""ordem"": 4, ""marcador"": ""quadrado"", ""texto"": ""V. Port.-TSE n. 1087/2016 e Port.-TSE n. 129/1996."", ""pagina_inicial"": 783, ""pagina_final"": 783}]","4","CE/1965, art. 279; Lei n. 12.322/2010; Port.-TSE n. 1087/2016; Port.-TSE n. 129/1996","Ac.-TSE, de 22/11/2011, no AgR-AI n","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.477, de 28 de agosto de 2003
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Resolução n. 21.477, de 28 de agosto de 2003
+Tipo: norma
+Páginas: 783-783
+Dispõe sobre a formação do agravo de instrumento contra decisão que não admitir o processamento do recurso especial. O TRIBUNAL SUPERIOR ELEITORAL, usando das atribuições que lhe confere o art. 23, XVIII, do Código Eleitoral, resolve:
+Notas vinculadas:
+CE/1965, art. 279.
+Lei n. 12.322/2010: transforma o agravo de instrumento interposto de decisão que não admite recurso extraordinário ou especial em agravo nos próprios autos; Ac.-TSE, de 22/11/2011, no AgR-AI n. 839248: incidência da Lei n. 12.322/2010 no processo eleitoral.
+V. CPC/2015, art. 1.042.
+V. Port.-TSE n. 1087/2016 e Port.-TSE n. 129/1996.","Dispõe sobre a formação do agravo de instrumento contra decisão que não admitir o processamento do recurso especial. O TRIBUNAL SUPERIOR ELEITORAL, usando das atribuições que lhe confere o art. 23, XVIII, do Código Eleitoral, resolve:","agravo; eleitoral; resolucao; agosto; instrumento; decisao; recurso; especial; port; dispoe","True","877","219"
+"2","2","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21477_2003","Resolução n. 21.477, de 28 de agosto de 2003","","Normas editadas pelo TSE","Resoluções","783","783","","artigo","Art. 1º","","Art. 1º","","","","","Art. 1º Na Justiça Eleitoral, a interposição de agravo de instrumento contra decisão que não admitir o processamento de recurso especial observará o disposto no art. 279 do Código Eleitoral.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.477, de 28 de agosto de 2003
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 1º
+Tipo: artigo
+Páginas: 783-783
+Art. 1º Na Justiça Eleitoral, a interposição de agravo de instrumento contra decisão que não admitir o processamento de recurso especial observará o disposto no art. 279 do Código Eleitoral.","Art. 1º Na Justiça Eleitoral, a interposição de agravo de instrumento contra decisão que não admitir o processamento de recurso especial observará o disposto no art. 279 do Código Eleitoral.","eleitoral; resolucao; agosto; justica; interposicao; agravo; instrumento; contra; decisao; admitir","True","426","106"
+"3","3","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21477_2003","Resolução n. 21.477, de 28 de agosto de 2003","","Normas editadas pelo TSE","Resoluções","783","783","","artigo","Art. 2º","","Art. 2º","","","","","Art. 2º Incumbe às partes indicar para traslado as peças indispensáveis à perfeita compreensão da controvérsia, devendo estar, entre elas, necessariamente, o acórdão recorrido e a petição do recurso especial, bem como a comprovação da interposição tempestiva.","Súm.-STF n. 288: desprovimento do agravo quando faltar no traslado peça essencial à compreensão da controvérsia.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""Súm.-STF n. 288: desprovimento do agravo quando faltar no traslado peça essencial à compreensão da controvérsia."", ""pagina_inicial"": 783, ""pagina_final"": 783}]","1","","","Súm.-STF n. 288","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.477, de 28 de agosto de 2003
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 2º
+Tipo: artigo
+Páginas: 783-783
+Art. 2º Incumbe às partes indicar para traslado as peças indispensáveis à perfeita compreensão da controvérsia, devendo estar, entre elas, necessariamente, o acórdão recorrido e a petição do recurso especial, bem como a comprovação da interposição tempestiva.
+Notas vinculadas:
+Súm.-STF n. 288: desprovimento do agravo quando faltar no traslado peça essencial à compreensão da controvérsia.","Art. 2º Incumbe às partes indicar para traslado as peças indispensáveis à perfeita compreensão da controvérsia, devendo estar, entre elas, necessariamente, o acórdão recorrido e a petição do recurso especial, bem como a comprovação da...","traslado; compreensao; controversia; resolucao; agosto; incumbe; partes; indicar; pecas; indispensaveis","True","626","156"
+"4","4","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21477_2003","Resolução n. 21.477, de 28 de agosto de 2003","","Normas editadas pelo TSE","Resoluções","783","783","","artigo","Art. 3º","","Art. 3º","","","","","Art. 3º Na formação do instrumento de agravo, o traslado das peças obrigatórias – a decisão recorrida e a certidão de intimação –, bem como daquelas indicadas pelas partes, é de responsabilidade das Secretarias dos Tribunais Regionais, que se encarregarão de efetuar as cópias.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.477, de 28 de agosto de 2003
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º
+Tipo: artigo
+Páginas: 783-783
+Art. 3º Na formação do instrumento de agravo, o traslado das peças obrigatórias – a decisão recorrida e a certidão de intimação –, bem como daquelas indicadas pelas partes, é de responsabilidade das Secretarias dos Tribunais Regionais, que se encarregarão de efetuar as cópias.","Art. 3º Na formação do instrumento de agravo, o traslado das peças obrigatórias – a decisão recorrida e a certidão de intimação –, bem como daquelas indicadas pelas partes, é de responsabilidade das Secretarias dos Tribunais Regionais, que...","resolucao; agosto; formacao; instrumento; agravo; traslado; pecas; obrigatorias; decisao; recorrida","True","513","128"
+"5","5","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21477_2003","Resolução n. 21.477, de 28 de agosto de 2003","","Normas editadas pelo TSE","Resoluções","783","783","","paragrafo","Art. 3º, §1º","Art. 3º","Art. 3º","§1º","","","","§ 1º As Secretarias dos Tribunais Regionais Eleitorais deverão certificar-se de que todas as peças foram devidamente trasladadas, cuidando para que também a autenticação do protocolo na petição de interposição do recurso esteja legível.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.477, de 28 de agosto de 2003
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §1º
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 783-783
+§ 1º As Secretarias dos Tribunais Regionais Eleitorais deverão certificar-se de que todas as peças foram devidamente trasladadas, cuidando para que também a autenticação do protocolo na petição de interposição do recurso esteja legível.","§ 1º As Secretarias dos Tribunais Regionais Eleitorais deverão certificar-se de que todas as peças foram devidamente trasladadas, cuidando para que também a autenticação do protocolo na petição de interposição do recurso esteja legível.","resolucao; agosto; secretarias; tribunais; regionais; eleitorais; deverao; certificar; todas; pecas","True","505","126"
+"6","6","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21477_2003","Resolução n. 21.477, de 28 de agosto de 2003","","Normas editadas pelo TSE","Resoluções","783","783","","paragrafo","Art. 3º, §2º","Art. 3º","Art. 3º","§2º","","","","§ 2º As partes recolherão o valor referente às cópias das peças que indicarem, no prazo de dois dias da interposição do agravo ou da juntada das contrarrazões, independentemente de intimação, juntando o comprovante aos autos, no mesmo prazo.","V. CE/1965, art. 279, § 7º.
+Ac.-TSE, de 24/3/2011, no AgR-AI n. 11942: o não recolhimento do valor das cópias implica pena de deserção.","[{""ordem"": 1, ""marcador"": ""quadrado"", ""texto"": ""V. CE/1965, art. 279, § 7º."", ""pagina_inicial"": 783, ""pagina_final"": 783}, {""ordem"": 2, ""marcador"": ""quadrado"", ""texto"": ""Ac.-TSE, de 24/3/2011, no AgR-AI n. 11942: o não recolhimento do valor das cópias implica pena de deserção."", ""pagina_inicial"": 783, ""pagina_final"": 783}]","2","CE/1965, art. 279, § 7º","Ac.-TSE, de 24/3/2011, no AgR-AI n","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.477, de 28 de agosto de 2003
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §2º
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 783-783
+§ 2º As partes recolherão o valor referente às cópias das peças que indicarem, no prazo de dois dias da interposição do agravo ou da juntada das contrarrazões, independentemente de intimação, juntando o comprovante aos autos, no mesmo prazo.
+Notas vinculadas:
+V. CE/1965, art. 279, § 7º.
+Ac.-TSE, de 24/3/2011, no AgR-AI n. 11942: o não recolhimento do valor das cópias implica pena de deserção.","§ 2º As partes recolherão o valor referente às cópias das peças que indicarem, no prazo de dois dias da interposição do agravo ou da juntada das contrarrazões, independentemente de intimação, juntando o comprovante aos autos, no mesmo...","valor; copias; prazo; resolucao; agosto; partes; recolherao; referente; pecas; indicarem","True","664","166"
+"7","7","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21477_2003","Resolução n. 21.477, de 28 de agosto de 2003","","Normas editadas pelo TSE","Resoluções","783","783","","paragrafo","Art. 3º, §3º","Art. 3º","Art. 3º","§3º","","","","§ 3º Para os fins do parágrafo anterior, os Tribunais manterão tabela de valores à disposição dos interessados, devendo as cópias ser cobradas pelo preço de custo.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.477, de 28 de agosto de 2003
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §3º
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 783-783
+§ 3º Para os fins do parágrafo anterior, os Tribunais manterão tabela de valores à disposição dos interessados, devendo as cópias ser cobradas pelo preço de custo.","§ 3º Para os fins do parágrafo anterior, os Tribunais manterão tabela de valores à disposição dos interessados, devendo as cópias ser cobradas pelo preço de custo.","resolucao; agosto; fins; paragrafo; anterior; tribunais; manterao; tabela; valores; disposicao","True","432","108"
+"8","8","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21477_2003","Resolução n. 21.477, de 28 de agosto de 2003","","Normas editadas pelo TSE","Resoluções","783","783","","paragrafo","Art. 3º, §4º","Art. 3º","Art. 3º","§4º","","","","§ 4º Os valores recebidos pelas cópias reprográficas, quando arrecadados no mesmo ano de exercício, retornarão ao orçamento do Tribunal e serão destinados ao pagamento dos equipamentos utilizados na reprografia; quando forem referentes ao exercício anterior, serão repassados ao Tesouro Nacional.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.477, de 28 de agosto de 2003
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §4º
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 783-783
+§ 4º Os valores recebidos pelas cópias reprográficas, quando arrecadados no mesmo ano de exercício, retornarão ao orçamento do Tribunal e serão destinados ao pagamento dos equipamentos utilizados na reprografia; quando forem referentes ao exercício anterior, serão repassados ao Tesouro Nacional.","§ 4º Os valores recebidos pelas cópias reprográficas, quando arrecadados no mesmo ano de exercício, retornarão ao orçamento do Tribunal e serão destinados ao pagamento dos equipamentos utilizados na reprografia; quando forem referentes ao...","quando; exercicio; serao; resolucao; agosto; valores; recebidos; copias; reprograficas; arrecadados","True","565","141"
+"9","9","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21477_2003","Resolução n. 21.477, de 28 de agosto de 2003","","Normas editadas pelo TSE","Resoluções","784","784","","paragrafo","Art. 3º, §5º","Art. 3º","Art. 3º","§5º","","","","§ 5º As partes que desejarem poderão apresentar, no ato da interposição do agravo ou da resposta, as peças que deverão compor o instrumento, declarando o procurador a autenticidade delas.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.477, de 28 de agosto de 2003
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §5º
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 784-784
+§ 5º As partes que desejarem poderão apresentar, no ato da interposição do agravo ou da resposta, as peças que deverão compor o instrumento, declarando o procurador a autenticidade delas.","§ 5º As partes que desejarem poderão apresentar, no ato da interposição do agravo ou da resposta, as peças que deverão compor o instrumento, declarando o procurador a autenticidade delas.","resolucao; agosto; partes; desejarem; poderao; apresentar; interposicao; agravo; resposta; pecas","True","456","114"
+"10","10","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21477_2003","Resolução n. 21.477, de 28 de agosto de 2003","","Normas editadas pelo TSE","Resoluções","784","784","","paragrafo","Art. 3º, §6º","Art. 3º","Art. 3º","§6º","","","","§ 6º Não será admitida a complementação de instrumento deficiente perante o Tribunal Superior Eleitoral.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.477, de 28 de agosto de 2003
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 3º, §6º
+Tipo: paragrafo
+Dispositivo pai: Art. 3º
+Páginas: 784-784
+§ 6º Não será admitida a complementação de instrumento deficiente perante o Tribunal Superior Eleitoral.","§ 6º Não será admitida a complementação de instrumento deficiente perante o Tribunal Superior Eleitoral.","resolucao; agosto; sera; admitida; complementacao; instrumento; deficiente; perante; tribunal; superior","True","373","93"
+"11","11","Codigo_Eleitoral_2026_anotado.pdf","resolucao_21477_2003","Resolução n. 21.477, de 28 de agosto de 2003","","Normas editadas pelo TSE","Resoluções","784","784","","artigo","Art. 4º","","Art. 4º","","","","","Art. 4º Esta resolução entra em vigor na data de sua publicação. Sala de Sessões do Tribunal Superior Eleitoral.","","[]","0","","","","Documento: Código Eleitoral Anotado e Legislação Complementar 2026
+Norma: Resolução n. 21.477, de 28 de agosto de 2003
+Macrogrupo: Normas editadas pelo TSE
+Grupo do sumário: Resoluções
+Dispositivo: Art. 4º
+Tipo: artigo
+Páginas: 784-784
+Art. 4º Esta resolução entra em vigor na data de sua publicação. Sala de Sessões do Tribunal Superior Eleitoral.","Art. 4º Esta resolução entra em vigor na data de sua publicação. Sala de Sessões do Tribunal Superior Eleitoral.","resolucao; agosto; esta; entra; vigor; data; publicacao; sala; sessoes; tribunal","True","348","87"
