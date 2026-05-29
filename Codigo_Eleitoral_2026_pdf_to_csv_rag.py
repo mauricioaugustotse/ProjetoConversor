@@ -51,6 +51,8 @@ CSV_HEADER = [
     "tipo_dispositivo",
     "dispositivo",
     "dispositivo_pai",
+    "dispositivo_pai_id",
+    "dispositivo_pai_row_key",
     "artigo",
     "paragrafo",
     "inciso",
@@ -69,6 +71,8 @@ CSV_HEADER = [
     "incluir_no_rag",
     "chars",
     "tokens_estimados",
+    "row_key",
+    "csv_arquivo",
 ]
 
 SECTION_RANGES = [
@@ -347,6 +351,33 @@ def build_short_summary(text: str, max_chars: int = 240) -> str:
     return cut.rstrip(" .,;:") + "..."
 
 
+def clean_text_for_summary(text: str) -> str:
+    text = re.sub(r"\s+", " ", clean_text_for_csv(text))
+    text = re.sub(r"^Art\.\s*[\wº°.-]+(?:-[A-Z])?\s*", "", text, flags=re.IGNORECASE)
+    text = re.sub(r"^Parágrafo único\.\s*", "", text, flags=re.IGNORECASE)
+    text = re.sub(r"^§\s*\d+[º°]?(?:-[A-Z])?\.\s*", "", text, flags=re.IGNORECASE)
+    text = re.sub(r"^[IVXLCDM]+\s*[-–—]\s*", "", text)
+    text = re.sub(r"^[a-z]\)\s*", "", text)
+    text = re.sub(r"^\d+[.)]\s*", "", text)
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def first_legal_sentence(text: str) -> str:
+    cleaned = clean_text_for_summary(text)
+    if not cleaned:
+        return ""
+    parts = re.split(r"(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚÂÊÔÃÕÇ])", cleaned)
+    return (parts[0] if parts else cleaned).strip()
+
+
+def limit_text(text: str, max_chars: int = 420) -> str:
+    cleaned = re.sub(r"\s+", " ", clean_text_for_csv(text))
+    if len(cleaned) <= max_chars:
+        return cleaned
+    cut = cleaned[: max_chars - 1].rsplit(" ", 1)[0].rstrip(" ,;:")
+    return f"{cut}..."
+
+
 def build_keywords(*texts: str, max_terms: int = 10) -> str:
     words: List[str] = []
     for text in texts:
@@ -366,6 +397,33 @@ def section_for_page(page: int) -> Tuple[str, str, str]:
             break
     _, macrogroup, summary_group, popular = current
     return macrogroup, summary_group, popular
+
+
+def year_from_norm(norm: NormStart) -> str:
+    candidates = [norm.title, norm.norm_id]
+    found: List[str] = []
+    for candidate in candidates:
+        found.extend(re.findall(r"(?:19|20)\d{2}", candidate or ""))
+    return found[-1] if found else ""
+
+
+def canonical_norm_label(norm: NormStart) -> str:
+    if norm.popular_name:
+        return norm.popular_name
+    title = clean_text_for_csv(norm.title)
+    year = year_from_norm(norm)
+    if norm.norm_id == "constituicao_federal_1988" or title.lower().startswith("constituição federal"):
+        return "Constituição Federal"
+    if title.startswith("Súmula"):
+        return title
+    match = re.match(r"^(?P<prefix>.+?\bn\.)\s*(?P<num>[\d.]+)(?:\s*,?\s+de\b.*)?$", title, flags=re.IGNORECASE)
+    if match and year:
+        prefix = clean_text_for_csv(match.group("prefix"))
+        number = clean_text_for_csv(match.group("num"))
+        prefix = re.sub(r"(?i)^Lei Complementar n\.$", "LC n.", prefix)
+        prefix = re.sub(r"(?i)^Emenda Constitucional n\.$", "EC n.", prefix)
+        return f"{prefix} {number}/{year}"
+    return title
 
 
 def year_from_portuguese_date(text: str) -> str:
@@ -766,9 +824,31 @@ def references_from_text(text: str) -> Tuple[str, str, str]:
     ]
     return (
         "; ".join(unique_matches(normalized, normative_patterns)),
-        "; ".join(unique_matches(normalized, jurisprudence_patterns)),
+        extract_jurisprudence_references(normalized),
         "; ".join(unique_matches(normalized, sumula_patterns)),
     )
+
+
+def extract_jurisprudence_references(text: str) -> str:
+    normalized = clean_text_for_csv(text)
+    if not normalized:
+        return ""
+    patterns = [
+        r"Ac\.-(?:TSE|STF|STJ)\s+n\.\s*[\d./-]+",
+        r"Ac\.-(?:TSE|STF|STJ)(?:,\s*de\s*\d{1,2}/\d{1,2}/\d{4})?,\s*(?:no|na|nos|nas)\s*[^:;.]{1,100}?\bn\.\s*[\d./-]+",
+        r"\b(?:ADI|ADC|ADPF|ADO|ARE|HC|MS|MI|RE|REspe|AgR-REspe|REspEl|AgR-REspEl|RO|RMS|PA|CtaEl|Cta|Rp|Rcl|Pet|AI)\s+n\.\s*[\d./-]+",
+        r"\bTema\s+n\.\s*\d+",
+        r"\bTema\s+\d+\b",
+        r"\bRepercussão Geral no RE\s+n\.\s*[\d./-]+",
+    ]
+    found = unique_matches(normalized, patterns)
+    filtered: List[str] = []
+    for value in found:
+        value_key = value.lower()
+        if any(value_key != other.lower() and value_key in other.lower() for other in found):
+            continue
+        filtered.append(value)
+    return "; ".join(filtered)
 
 
 def unique_matches(text: str, patterns: Sequence[str]) -> List[str]:
@@ -789,8 +869,9 @@ def build_text_rag(row: ParsedRow) -> str:
         f"Documento: {DOCUMENT_TITLE}",
         f"Norma: {row.norm.title}",
     ]
-    if row.norm.popular_name:
-        parts.append(f"Nome popular: {row.norm.popular_name}")
+    popular_name = canonical_norm_label(row.norm)
+    if popular_name:
+        parts.append(f"Nome popular/citação curta: {popular_name}")
     parts.extend(
         [
             f"Macrogrupo: {row.norm.macrogroup}",
@@ -812,18 +893,58 @@ def build_text_rag(row: ParsedRow) -> str:
     return clean_text_for_csv("\n".join(parts))
 
 
+def build_row_summary(row: ParsedRow, refs_juris: str = "") -> str:
+    norm_label = canonical_norm_label(row.norm)
+    sentence = first_legal_sentence(row.texto_dispositivo) or first_legal_sentence(row.notas_texto)
+    if row.tipo_dispositivo == "norma":
+        prefix = f"Norma {norm_label}"
+    elif row.tipo_dispositivo == "estrutura":
+        prefix = f"Estrutura da {norm_label}"
+    elif row.tipo_dispositivo == "sumula":
+        prefix = f"Enunciado {row.dispositivo}"
+    elif row.tipo_dispositivo in {"inciso", "alinea", "item"} and row.dispositivo_pai:
+        prefix = f"{row.dispositivo}, subordinado a {row.dispositivo_pai}"
+    else:
+        prefix = row.dispositivo or norm_label
+
+    if sentence and sentence.lower() != clean_text_for_csv(row.dispositivo).lower():
+        summary = f"{prefix}: {sentence}"
+    else:
+        summary = prefix
+
+    flags: List[str] = []
+    combined = f"{row.texto_dispositivo} {row.notas_texto}".lower()
+    if re.search(r"\b(revogado|revogada|cancelada|cancelado|vetado|vetada)\b", combined):
+        flags.append("há marcação de revogação/cancelamento/veto")
+    if row.notes:
+        flags.append(f"{len(row.notes)} nota(s) vinculada(s)")
+    if refs_juris:
+        flags.append("jurisprudência extraída das notas")
+    if flags:
+        summary = f"{summary} | " + "; ".join(flags)
+    return limit_text(summary)
+
+
 def row_to_csv_dict(row: ParsedRow, row_id: int, source_name: str = DEFAULT_INPUT_NAME) -> Dict[str, Any]:
     notes_json = [note.as_dict(index) for index, note in enumerate(row.notes, start=1) if note.text]
     combined_text = "\n".join([row.texto_dispositivo, row.notas_texto])
-    refs_norm, refs_juris, refs_sumulas = references_from_text(combined_text)
-    rag_text = build_text_rag(row)
+    refs_norm, _, refs_sumulas = references_from_text(combined_text)
+    refs_juris = extract_jurisprudence_references(row.notas_texto)
+    popular_name = canonical_norm_label(row.norm)
+    summary = build_row_summary(row, refs_juris)
+    rag_parts = [build_text_rag(row)]
+    if summary:
+        rag_parts.extend(["", f"Resumo: {summary}"])
+    if refs_juris:
+        rag_parts.extend(["", f"Referências jurisprudenciais: {refs_juris}"])
+    rag_text = clean_text_for_csv("\n".join(part for part in rag_parts if part))
     return {
         "id": row_id,
         "ordem_doc": row_id,
         "arquivo_fonte": source_name,
         "norma_id": row.norm.norm_id,
         "norma_titulo": row.norm.title,
-        "norma_nome_popular": row.norm.popular_name,
+        "norma_nome_popular": popular_name,
         "macrogrupo": row.norm.macrogroup,
         "grupo_sumario": row.norm.summary_group,
         "pagina_inicial": row.page_start,
@@ -832,6 +953,8 @@ def row_to_csv_dict(row: ParsedRow, row_id: int, source_name: str = DEFAULT_INPU
         "tipo_dispositivo": row.tipo_dispositivo,
         "dispositivo": row.dispositivo,
         "dispositivo_pai": row.dispositivo_pai,
+        "dispositivo_pai_id": "",
+        "dispositivo_pai_row_key": "",
         "artigo": row.artigo,
         "paragrafo": row.paragrafo,
         "inciso": row.inciso,
@@ -845,12 +968,43 @@ def row_to_csv_dict(row: ParsedRow, row_id: int, source_name: str = DEFAULT_INPU
         "referencias_jurisprudenciais": refs_juris,
         "referencias_sumulas": refs_sumulas,
         "texto_rag": rag_text,
-        "resumo_curto": build_short_summary(row.texto_dispositivo or row.notas_texto),
+        "resumo_curto": summary,
         "palavras_chave": build_keywords(row.norm.title, row.hierarchy, row.dispositivo, combined_text),
         "incluir_no_rag": True,
         "chars": len(rag_text),
         "tokens_estimados": estimate_tokens(rag_text),
+        "row_key": "",
+        "csv_arquivo": "",
     }
+
+
+def enrich_csv_rows_with_links(norm: NormStart, rows: List[Dict[str, Any]]) -> None:
+    csv_name = filename_for_norm(norm)
+    stem = Path(csv_name).stem
+    for row in rows:
+        row["csv_arquivo"] = csv_name
+        row["row_key"] = f"{stem}:{row.get('id')}"
+
+    rows_by_dispositivo = {
+        clean_text_for_csv(str(row.get("dispositivo", ""))).lower(): row
+        for row in rows
+        if clean_text_for_csv(str(row.get("dispositivo", "")))
+    }
+    for row in rows:
+        parent = clean_text_for_csv(str(row.get("dispositivo_pai", ""))).lower()
+        parent_row = rows_by_dispositivo.get(parent) if parent else None
+        if parent_row:
+            row["dispositivo_pai_id"] = parent_row.get("id", "")
+            row["dispositivo_pai_row_key"] = parent_row.get("row_key", "")
+            if row.get("texto_rag"):
+                row["texto_rag"] = clean_text_for_csv(
+                    f"{row['texto_rag']}\nID do dispositivo pai: {row['dispositivo_pai_row_key']}"
+                )
+                row["chars"] = len(str(row["texto_rag"]))
+                row["tokens_estimados"] = estimate_tokens(str(row["texto_rag"]))
+        else:
+            row["dispositivo_pai_id"] = ""
+            row["dispositivo_pai_row_key"] = ""
 
 
 def create_row(
@@ -1023,6 +1177,7 @@ def extract_document_rows_by_norm(input_file: str) -> Tuple[List[NormStart], Dic
             for row_index, row in enumerate(parsed_rows, start=1)
         ]
         if csv_rows:
+            enrich_csv_rows_with_links(norm, csv_rows)
             rows_by_norm[norm.norm_id] = csv_rows
 
     return starts, rows_by_norm

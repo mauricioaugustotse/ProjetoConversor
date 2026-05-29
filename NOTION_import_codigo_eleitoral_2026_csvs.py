@@ -40,6 +40,8 @@ CSV_COLUMNS = [
     "tipo_dispositivo",
     "dispositivo",
     "dispositivo_pai",
+    "dispositivo_pai_id",
+    "dispositivo_pai_row_key",
     "artigo",
     "paragrafo",
     "inciso",
@@ -66,6 +68,7 @@ NUMBER_COLUMNS = {
     "pagina_inicial",
     "pagina_final",
     "qtd_notas",
+    "dispositivo_pai_id",
     "chars",
     "tokens_estimados",
 }

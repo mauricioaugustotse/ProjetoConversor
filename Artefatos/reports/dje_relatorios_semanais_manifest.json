@@ -1,5 +1,5 @@
 {
-  "updated_at_utc": "2026-05-22T11:15:27.417620+00:00",
+  "updated_at_utc": "2026-05-29T12:25:31.165979+00:00",
   "processed_files": {
     "/mnt/c/Users/mauri/ProjetoConversor/DJE/jurisprudencia (1).csv": {
       "path": "/mnt/c/Users/mauri/ProjetoConversor/DJE/jurisprudencia (1).csv",
@@ -229,36 +229,36 @@
     },
     "C:\\Users\\mauri\\ProjetoConversor\\DJE\\jurisprudencia (1).csv": {
       "path": "C:\\Users\\mauri\\ProjetoConversor\\DJE\\jurisprudencia (1).csv",
-      "sha256": "dcb24da29a0cdc9feaa99f6086bc9e4b12fe1af325edff528d3b9628a41b7a9e",
-      "size": 270190,
-      "mtime": 1779448134.1962402,
-      "processed_at_utc": "2026-05-22T11:15:27.413752+00:00",
-      "combined_csv": "C:\\Users\\mauri\\ProjetoConversor\\Artefatos\\dados\\csv\\DJE_gui_20260522_080915_consolidado.csv",
+      "sha256": "5863f2fdb612c27ccb9256ad7c862bece34f8d36572e72a0f6f66e786c78ef54",
+      "size": 191317,
+      "mtime": 1780057165.4974167,
+      "processed_at_utc": "2026-05-29T12:25:31.162028+00:00",
+      "combined_csv": "C:\\Users\\mauri\\ProjetoConversor\\Artefatos\\dados\\csv\\DJE_gui_20260529_091949_consolidado.csv",
       "periods": [
+        "DJe do TSE - 16/03/2026 a 20/03/2026",
         "DJe do TSE - 06/04/2026 a 10/04/2026",
-        "DJe do TSE - 13/04/2026 a 17/04/2026",
         "DJe do TSE - 20/04/2026 a 24/04/2026",
-        "DJe do TSE - 27/04/2026 a 01/05/2026",
         "DJe do TSE - 04/05/2026 a 08/05/2026",
         "DJe do TSE - 11/05/2026 a 15/05/2026",
-        "DJe do TSE - 18/05/2026 a 22/05/2026"
+        "DJe do TSE - 18/05/2026 a 22/05/2026",
+        "DJe do TSE - 25/05/2026 a 29/05/2026"
       ]
     },
     "C:\\Users\\mauri\\ProjetoConversor\\DJE\\jurisprudencia.csv": {
       "path": "C:\\Users\\mauri\\ProjetoConversor\\DJE\\jurisprudencia.csv",
-      "sha256": "bbcff21175eb0788071cc15d20edeef698165eab52c6b34090fa5336621a7894",
-      "size": 924374,
-      "mtime": 1779448117.9287584,
-      "processed_at_utc": "2026-05-22T11:15:27.416924+00:00",
-      "combined_csv": "C:\\Users\\mauri\\ProjetoConversor\\Artefatos\\dados\\csv\\DJE_gui_20260522_080915_consolidado.csv",
+      "sha256": "87d896f40749dde30b14f3d594c554a043686a401c8ff0432d8e9d649190a193",
+      "size": 978345,
+      "mtime": 1780057140.3909009,
+      "processed_at_utc": "2026-05-29T12:25:31.165310+00:00",
+      "combined_csv": "C:\\Users\\mauri\\ProjetoConversor\\Artefatos\\dados\\csv\\DJE_gui_20260529_091949_consolidado.csv",
       "periods": [
+        "DJe do TSE - 16/03/2026 a 20/03/2026",
         "DJe do TSE - 06/04/2026 a 10/04/2026",
-        "DJe do TSE - 13/04/2026 a 17/04/2026",
         "DJe do TSE - 20/04/2026 a 24/04/2026",
-        "DJe do TSE - 27/04/2026 a 01/05/2026",
         "DJe do TSE - 04/05/2026 a 08/05/2026",
         "DJe do TSE - 11/05/2026 a 15/05/2026",
-        "DJe do TSE - 18/05/2026 a 22/05/2026"
+        "DJe do TSE - 18/05/2026 a 22/05/2026",
+        "DJe do TSE - 25/05/2026 a 29/05/2026"
       ]
     }
   },
@@ -521,6 +521,40 @@
         "DJe do TSE - 04/05/2026 a 08/05/2026",
         "DJe do TSE - 11/05/2026 a 15/05/2026",
         "DJe do TSE - 18/05/2026 a 22/05/2026"
+      ]
+    },
+    "5863f2fdb612c27ccb9256ad7c862bece34f8d36572e72a0f6f66e786c78ef54": {
+      "path": "C:\\Users\\mauri\\ProjetoConversor\\DJE\\jurisprudencia (1).csv",
+      "sha256": "5863f2fdb612c27ccb9256ad7c862bece34f8d36572e72a0f6f66e786c78ef54",
+      "size": 191317,
+      "mtime": 1780057165.4974167,
+      "processed_at_utc": "2026-05-29T12:25:31.162028+00:00",
+      "combined_csv": "C:\\Users\\mauri\\ProjetoConversor\\Artefatos\\dados\\csv\\DJE_gui_20260529_091949_consolidado.csv",
+      "periods": [
+        "DJe do TSE - 16/03/2026 a 20/03/2026",
+        "DJe do TSE - 06/04/2026 a 10/04/2026",
+        "DJe do TSE - 20/04/2026 a 24/04/2026",
+        "DJe do TSE - 04/05/2026 a 08/05/2026",
+        "DJe do TSE - 11/05/2026 a 15/05/2026",
+        "DJe do TSE - 18/05/2026 a 22/05/2026",
+        "DJe do TSE - 25/05/2026 a 29/05/2026"
+      ]
+    },
+    "87d896f40749dde30b14f3d594c554a043686a401c8ff0432d8e9d649190a193": {
+      "path": "C:\\Users\\mauri\\ProjetoConversor\\DJE\\jurisprudencia.csv",
+      "sha256": "87d896f40749dde30b14f3d594c554a043686a401c8ff0432d8e9d649190a193",
+      "size": 978345,
+      "mtime": 1780057140.3909009,
+      "processed_at_utc": "2026-05-29T12:25:31.165310+00:00",
+      "combined_csv": "C:\\Users\\mauri\\ProjetoConversor\\Artefatos\\dados\\csv\\DJE_gui_20260529_091949_consolidado.csv",
+      "periods": [
+        "DJe do TSE - 16/03/2026 a 20/03/2026",
+        "DJe do TSE - 06/04/2026 a 10/04/2026",
+        "DJe do TSE - 20/04/2026 a 24/04/2026",
+        "DJe do TSE - 04/05/2026 a 08/05/2026",
+        "DJe do TSE - 11/05/2026 a 15/05/2026",
+        "DJe do TSE - 18/05/2026 a 22/05/2026",
+        "DJe do TSE - 25/05/2026 a 29/05/2026"
       ]
     }
   }

@@ -1,7 +1,7 @@
 {
   "version": 1,
   "strategy_version": 10,
-  "updated_at": "2026-05-22T11:14:52.349029+00:00",
+  "updated_at": "2026-05-29T12:24:51.041430+00:00",
   "entries": {
     "8e982b4ad42597f84c533228e5c858bc278bfc0d": {
       "status": "no_match",
@@ -7049,6 +7049,41 @@
       "tre": "",
       "gerais": [],
       "updated_at": "2026-05-22T11:14:52.349025+00:00"
+    },
+    "bd74b10141f789a6a2779b9b0576b2d395a6a2c4": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-05-29T12:24:51.041281+00:00"
+    },
+    "c744123d0393c2084f68ce7dcf665b81a6921d3c": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-05-29T12:24:51.041341+00:00"
+    },
+    "f6908580633afe70f4f20a84bf17915374785c3f": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-05-29T12:24:51.041371+00:00"
+    },
+    "00886a8122e7dbc6b889911fa0c26451b4e71370": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-05-29T12:24:51.041395+00:00"
+    },
+    "4aef9149ac928da7b6514c7b9263fccc039e36e0": {
+      "status": "no_match",
+      "tse": "",
+      "tre": "",
+      "gerais": [],
+      "updated_at": "2026-05-29T12:24:51.041415+00:00"
     }
   }
 }

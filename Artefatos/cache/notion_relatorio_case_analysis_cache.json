@@ -16854,8 +16854,1223 @@
         "display_score": 9,
         "ranking_reason": ""
       }
+    },
+    "numero_unico:0600383-72.2024.6.16.0085": {
+      "model": "gpt-5.5",
+      "case_id": "0600383-72.2024.6.16.0085",
+      "page_id": "36f72195-5c64-811a-9478-ea0b3939ba97",
+      "processo": "0600383-72.2024.6.16.0085",
+      "content_hash": "b565dec91cff9014eded107e8f2e16674ca8168bde3b199ef7751ac94dd65117",
+      "cached_at_utc": "2026-05-29T12:24:16.570614+00:00",
+      "analysis": {
+        "case_id": "0600383-72.2024.6.16.0085",
+        "title": "Vedação de repasse do FEFC entre candidatos de partidos distintos sem coligação proporcional",
+        "relevance_score": 8,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "Marcelo Teiji Ohashi"
+        ],
+        "parties": [],
+        "lawyers_signal": "Consta a atuação de Luisa Sapiecinski Guedes. Não há sinal de recorrência da advogada no período informado.",
+        "what_happened": "O TSE examinou agravo em recurso especial eleitoral relativo à prestação de contas de campanha de Marcelo Teiji Ohashi ao cargo de vereador em Porto Rico/PR nas Eleições 2024. O acórdão regional havia mantido a desaprovação das contas por recebimento de doação com recursos do FEFC oriunda de candidato de partido não coligado, com recolhimento ao Tesouro Nacional.",
+        "legal_grounds": "A decisão adotou a orientação do TSE, compatível com a ADI 7214/DF, de que é ilícito o repasse de recursos do FEFC entre candidatos de partidos distintos não coligados. Também afastou a mitigação por proporcionalidade e razoabilidade diante do percentual relevante da irregularidade e da ausência de comprovação documental suficiente.",
+        "consequence": "Permaneceu a desaprovação das contas de campanha e a determinação de recolhimento de valores ao Tesouro Nacional por irregularidade grave na utilização de recursos do FEFC.",
+        "strategic_comment": "O caso tem interesse federal por envolver o FEFC e uma tese replicável para campanhas proporcionais: recursos públicos de campanha não podem circular entre candidatos de partidos distintos sem coligação aplicável. A decisão reforça risco relevante para partidos, candidatos e contabilidades de campanha que operem transferências cruzadas de FEFC com base apenas em alianças majoritárias ou em leitura flexível da coligação.",
+        "why_relevant": "A relevância decorre do uso de recursos do FEFC, tema de impacto nacional para partidos e campanhas. Embora o caso tenha origem municipal, a tese orienta a conformidade de repasses entre candidaturas e partidos em todo o país, especialmente em cenários com coligações majoritárias e disputas proporcionais.",
+        "source_notes": [
+          "Processo 0600383-72.2024.6.16.0085, classe AREspEl, Eleições 2024, Porto Rico/PR.",
+          "Os dados estruturados indicam relatoria do Min. Dias Toffoli, mas o trecho da decisão menciona o Min. Nunes Marques como relator. A análise não resolve essa divergência.",
+          "Não há partido identificado nominalmente nos dados fornecidos."
+        ],
+        "page_id": "36f72195-5c64-811a-9478-ea0b3939ba97",
+        "display_score": 8,
+        "ranking_reason": ""
+      }
+    },
+    "numero_processo:60038372": {
+      "model": "gpt-5.5",
+      "case_id": "0600383-72.2024.6.16.0085",
+      "page_id": "36f72195-5c64-811a-9478-ea0b3939ba97",
+      "processo": "0600383-72.2024.6.16.0085",
+      "content_hash": "b565dec91cff9014eded107e8f2e16674ca8168bde3b199ef7751ac94dd65117",
+      "cached_at_utc": "2026-05-29T12:24:16.570614+00:00",
+      "analysis": {
+        "case_id": "0600383-72.2024.6.16.0085",
+        "title": "Vedação de repasse do FEFC entre candidatos de partidos distintos sem coligação proporcional",
+        "relevance_score": 8,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "Marcelo Teiji Ohashi"
+        ],
+        "parties": [],
+        "lawyers_signal": "Consta a atuação de Luisa Sapiecinski Guedes. Não há sinal de recorrência da advogada no período informado.",
+        "what_happened": "O TSE examinou agravo em recurso especial eleitoral relativo à prestação de contas de campanha de Marcelo Teiji Ohashi ao cargo de vereador em Porto Rico/PR nas Eleições 2024. O acórdão regional havia mantido a desaprovação das contas por recebimento de doação com recursos do FEFC oriunda de candidato de partido não coligado, com recolhimento ao Tesouro Nacional.",
+        "legal_grounds": "A decisão adotou a orientação do TSE, compatível com a ADI 7214/DF, de que é ilícito o repasse de recursos do FEFC entre candidatos de partidos distintos não coligados. Também afastou a mitigação por proporcionalidade e razoabilidade diante do percentual relevante da irregularidade e da ausência de comprovação documental suficiente.",
+        "consequence": "Permaneceu a desaprovação das contas de campanha e a determinação de recolhimento de valores ao Tesouro Nacional por irregularidade grave na utilização de recursos do FEFC.",
+        "strategic_comment": "O caso tem interesse federal por envolver o FEFC e uma tese replicável para campanhas proporcionais: recursos públicos de campanha não podem circular entre candidatos de partidos distintos sem coligação aplicável. A decisão reforça risco relevante para partidos, candidatos e contabilidades de campanha que operem transferências cruzadas de FEFC com base apenas em alianças majoritárias ou em leitura flexível da coligação.",
+        "why_relevant": "A relevância decorre do uso de recursos do FEFC, tema de impacto nacional para partidos e campanhas. Embora o caso tenha origem municipal, a tese orienta a conformidade de repasses entre candidaturas e partidos em todo o país, especialmente em cenários com coligações majoritárias e disputas proporcionais.",
+        "source_notes": [
+          "Processo 0600383-72.2024.6.16.0085, classe AREspEl, Eleições 2024, Porto Rico/PR.",
+          "Os dados estruturados indicam relatoria do Min. Dias Toffoli, mas o trecho da decisão menciona o Min. Nunes Marques como relator. A análise não resolve essa divergência.",
+          "Não há partido identificado nominalmente nos dados fornecidos."
+        ],
+        "page_id": "36f72195-5c64-811a-9478-ea0b3939ba97",
+        "display_score": 8,
+        "ranking_reason": ""
+      }
+    },
+    "page_id:36f72195-5c64-811a-9478-ea0b3939ba97": {
+      "model": "gpt-5.5",
+      "case_id": "0600383-72.2024.6.16.0085",
+      "page_id": "36f72195-5c64-811a-9478-ea0b3939ba97",
+      "processo": "0600383-72.2024.6.16.0085",
+      "content_hash": "b565dec91cff9014eded107e8f2e16674ca8168bde3b199ef7751ac94dd65117",
+      "cached_at_utc": "2026-05-29T12:24:16.570614+00:00",
+      "analysis": {
+        "case_id": "0600383-72.2024.6.16.0085",
+        "title": "Vedação de repasse do FEFC entre candidatos de partidos distintos sem coligação proporcional",
+        "relevance_score": 8,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "Marcelo Teiji Ohashi"
+        ],
+        "parties": [],
+        "lawyers_signal": "Consta a atuação de Luisa Sapiecinski Guedes. Não há sinal de recorrência da advogada no período informado.",
+        "what_happened": "O TSE examinou agravo em recurso especial eleitoral relativo à prestação de contas de campanha de Marcelo Teiji Ohashi ao cargo de vereador em Porto Rico/PR nas Eleições 2024. O acórdão regional havia mantido a desaprovação das contas por recebimento de doação com recursos do FEFC oriunda de candidato de partido não coligado, com recolhimento ao Tesouro Nacional.",
+        "legal_grounds": "A decisão adotou a orientação do TSE, compatível com a ADI 7214/DF, de que é ilícito o repasse de recursos do FEFC entre candidatos de partidos distintos não coligados. Também afastou a mitigação por proporcionalidade e razoabilidade diante do percentual relevante da irregularidade e da ausência de comprovação documental suficiente.",
+        "consequence": "Permaneceu a desaprovação das contas de campanha e a determinação de recolhimento de valores ao Tesouro Nacional por irregularidade grave na utilização de recursos do FEFC.",
+        "strategic_comment": "O caso tem interesse federal por envolver o FEFC e uma tese replicável para campanhas proporcionais: recursos públicos de campanha não podem circular entre candidatos de partidos distintos sem coligação aplicável. A decisão reforça risco relevante para partidos, candidatos e contabilidades de campanha que operem transferências cruzadas de FEFC com base apenas em alianças majoritárias ou em leitura flexível da coligação.",
+        "why_relevant": "A relevância decorre do uso de recursos do FEFC, tema de impacto nacional para partidos e campanhas. Embora o caso tenha origem municipal, a tese orienta a conformidade de repasses entre candidaturas e partidos em todo o país, especialmente em cenários com coligações majoritárias e disputas proporcionais.",
+        "source_notes": [
+          "Processo 0600383-72.2024.6.16.0085, classe AREspEl, Eleições 2024, Porto Rico/PR.",
+          "Os dados estruturados indicam relatoria do Min. Dias Toffoli, mas o trecho da decisão menciona o Min. Nunes Marques como relator. A análise não resolve essa divergência.",
+          "Não há partido identificado nominalmente nos dados fornecidos."
+        ],
+        "page_id": "36f72195-5c64-811a-9478-ea0b3939ba97",
+        "display_score": 8,
+        "ranking_reason": ""
+      }
+    },
+    "case_id:0600383-72.2024.6.16.0085": {
+      "model": "gpt-5.5",
+      "case_id": "0600383-72.2024.6.16.0085",
+      "page_id": "36f72195-5c64-811a-9478-ea0b3939ba97",
+      "processo": "0600383-72.2024.6.16.0085",
+      "content_hash": "b565dec91cff9014eded107e8f2e16674ca8168bde3b199ef7751ac94dd65117",
+      "cached_at_utc": "2026-05-29T12:24:16.570614+00:00",
+      "analysis": {
+        "case_id": "0600383-72.2024.6.16.0085",
+        "title": "Vedação de repasse do FEFC entre candidatos de partidos distintos sem coligação proporcional",
+        "relevance_score": 8,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "Marcelo Teiji Ohashi"
+        ],
+        "parties": [],
+        "lawyers_signal": "Consta a atuação de Luisa Sapiecinski Guedes. Não há sinal de recorrência da advogada no período informado.",
+        "what_happened": "O TSE examinou agravo em recurso especial eleitoral relativo à prestação de contas de campanha de Marcelo Teiji Ohashi ao cargo de vereador em Porto Rico/PR nas Eleições 2024. O acórdão regional havia mantido a desaprovação das contas por recebimento de doação com recursos do FEFC oriunda de candidato de partido não coligado, com recolhimento ao Tesouro Nacional.",
+        "legal_grounds": "A decisão adotou a orientação do TSE, compatível com a ADI 7214/DF, de que é ilícito o repasse de recursos do FEFC entre candidatos de partidos distintos não coligados. Também afastou a mitigação por proporcionalidade e razoabilidade diante do percentual relevante da irregularidade e da ausência de comprovação documental suficiente.",
+        "consequence": "Permaneceu a desaprovação das contas de campanha e a determinação de recolhimento de valores ao Tesouro Nacional por irregularidade grave na utilização de recursos do FEFC.",
+        "strategic_comment": "O caso tem interesse federal por envolver o FEFC e uma tese replicável para campanhas proporcionais: recursos públicos de campanha não podem circular entre candidatos de partidos distintos sem coligação aplicável. A decisão reforça risco relevante para partidos, candidatos e contabilidades de campanha que operem transferências cruzadas de FEFC com base apenas em alianças majoritárias ou em leitura flexível da coligação.",
+        "why_relevant": "A relevância decorre do uso de recursos do FEFC, tema de impacto nacional para partidos e campanhas. Embora o caso tenha origem municipal, a tese orienta a conformidade de repasses entre candidaturas e partidos em todo o país, especialmente em cenários com coligações majoritárias e disputas proporcionais.",
+        "source_notes": [
+          "Processo 0600383-72.2024.6.16.0085, classe AREspEl, Eleições 2024, Porto Rico/PR.",
+          "Os dados estruturados indicam relatoria do Min. Dias Toffoli, mas o trecho da decisão menciona o Min. Nunes Marques como relator. A análise não resolve essa divergência.",
+          "Não há partido identificado nominalmente nos dados fornecidos."
+        ],
+        "page_id": "36f72195-5c64-811a-9478-ea0b3939ba97",
+        "display_score": 8,
+        "ranking_reason": ""
+      }
+    },
+    "content_hash:b565dec91cff9014eded107e8f2e16674ca8168bde3b199ef7751ac94dd65117": {
+      "model": "gpt-5.5",
+      "case_id": "0600383-72.2024.6.16.0085",
+      "page_id": "36f72195-5c64-811a-9478-ea0b3939ba97",
+      "processo": "0600383-72.2024.6.16.0085",
+      "content_hash": "b565dec91cff9014eded107e8f2e16674ca8168bde3b199ef7751ac94dd65117",
+      "cached_at_utc": "2026-05-29T12:24:16.570614+00:00",
+      "analysis": {
+        "case_id": "0600383-72.2024.6.16.0085",
+        "title": "Vedação de repasse do FEFC entre candidatos de partidos distintos sem coligação proporcional",
+        "relevance_score": 8,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "Marcelo Teiji Ohashi"
+        ],
+        "parties": [],
+        "lawyers_signal": "Consta a atuação de Luisa Sapiecinski Guedes. Não há sinal de recorrência da advogada no período informado.",
+        "what_happened": "O TSE examinou agravo em recurso especial eleitoral relativo à prestação de contas de campanha de Marcelo Teiji Ohashi ao cargo de vereador em Porto Rico/PR nas Eleições 2024. O acórdão regional havia mantido a desaprovação das contas por recebimento de doação com recursos do FEFC oriunda de candidato de partido não coligado, com recolhimento ao Tesouro Nacional.",
+        "legal_grounds": "A decisão adotou a orientação do TSE, compatível com a ADI 7214/DF, de que é ilícito o repasse de recursos do FEFC entre candidatos de partidos distintos não coligados. Também afastou a mitigação por proporcionalidade e razoabilidade diante do percentual relevante da irregularidade e da ausência de comprovação documental suficiente.",
+        "consequence": "Permaneceu a desaprovação das contas de campanha e a determinação de recolhimento de valores ao Tesouro Nacional por irregularidade grave na utilização de recursos do FEFC.",
+        "strategic_comment": "O caso tem interesse federal por envolver o FEFC e uma tese replicável para campanhas proporcionais: recursos públicos de campanha não podem circular entre candidatos de partidos distintos sem coligação aplicável. A decisão reforça risco relevante para partidos, candidatos e contabilidades de campanha que operem transferências cruzadas de FEFC com base apenas em alianças majoritárias ou em leitura flexível da coligação.",
+        "why_relevant": "A relevância decorre do uso de recursos do FEFC, tema de impacto nacional para partidos e campanhas. Embora o caso tenha origem municipal, a tese orienta a conformidade de repasses entre candidaturas e partidos em todo o país, especialmente em cenários com coligações majoritárias e disputas proporcionais.",
+        "source_notes": [
+          "Processo 0600383-72.2024.6.16.0085, classe AREspEl, Eleições 2024, Porto Rico/PR.",
+          "Os dados estruturados indicam relatoria do Min. Dias Toffoli, mas o trecho da decisão menciona o Min. Nunes Marques como relator. A análise não resolve essa divergência.",
+          "Não há partido identificado nominalmente nos dados fornecidos."
+        ],
+        "page_id": "36f72195-5c64-811a-9478-ea0b3939ba97",
+        "display_score": 8,
+        "ranking_reason": ""
+      }
+    },
+    "numero_unico:0600384-91.2024.6.17.0000": {
+      "model": "gpt-5.5",
+      "case_id": "0600384-91.2024.6.17.0000",
+      "page_id": "36f72195-5c64-81cc-afac-d2fdd657d385",
+      "processo": "0600384-91.2024.6.17.0000",
+      "content_hash": "853b7b215b66eee26d8c95d2e47d65b0fd4474f93beed8f81ffac52a0a61d52f",
+      "cached_at_utc": "2026-05-29T12:24:16.983527+00:00",
+      "analysis": {
+        "case_id": "0600384-91.2024.6.17.0000",
+        "title": "Conta bancária específica e extratos em contas anuais de diretório estadual da REDE/PE",
+        "relevance_score": 8,
+        "risk_level": "alto",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "REDE/PE"
+        ],
+        "lawyers_signal": "Atuação de MARCELO DE OLIVEIRA CUMARU. Não há sinal de recorrência do advogado no período informado.",
+        "what_happened": "A REDE/PE e outros agravantes contestaram a inadmissão de recurso especial eleitoral contra acórdão do TRE/PE que desaprovou as contas anuais do diretório estadual. O TSE negou seguimento ao agravo e preservou o entendimento regional de que a falta de conta bancária específica de doações de campanha e de extratos inviabilizou a fiscalização contábil.",
+        "legal_grounds": "A decisão considerou grave a ausência de abertura de conta bancária específica para doações de campanha e a consequente ausência dos extratos correspondentes, por comprometerem a confiabilidade da escrituração contábil. O TSE entendeu que o acórdão regional estava em consonância com a jurisprudência da Corte e aplicou a Súmula-TSE nº 30. Afastou a incidência dos princípios da proporcionalidade e da razoabilidade para reduzir ou afastar as sanções.",
+        "consequence": "O TSE manteve a desaprovação das contas do diretório estadual da REDE/PE relativas ao exercício financeiro de 2023, com determinação de recolhimento de valores ao Tesouro Nacional e aplicação de multa.",
+        "strategic_comment": "O caso tem relevância federal-partidária porque reafirma rigor na prestação de contas de diretórios estaduais e trata de requisito bancário essencial à rastreabilidade financeira. A decisão sinaliza baixa tolerância do TSE a falhas que impedem controle de receitas, ainda que o caso derive de contas estaduais. Para consultoria legislativa, interessa como parâmetro de governança partidária, desenho de obrigações contábeis e sanções por falhas formais com impacto material na fiscalização.",
+        "why_relevant": "A matéria envolve prestação de contas de diretório estadual, tema de interesse institucional para partidos políticos. A decisão reforça que a ausência de conta bancária específica e de extratos pode caracterizar irregularidade grave suficiente para desaprovação das contas, recolhimento ao Tesouro Nacional e multa.",
+        "source_notes": [
+          "Processo 0600384-91.2024.6.17.0000, AREspEl, decisão monocrática de 27/05/2026, relator Ministro André Mendonça.",
+          "Caso referente à prestação de contas anual de partido político, diretório estadual, exercício financeiro de 2023.",
+          "Dados fornecidos indicam REDE Sustentabilidade estadual como parte agravante."
+        ],
+        "page_id": "36f72195-5c64-81cc-afac-d2fdd657d385",
+        "display_score": 8,
+        "ranking_reason": ""
+      }
+    },
+    "numero_processo:60038491": {
+      "model": "gpt-5.5",
+      "case_id": "0600384-91.2024.6.17.0000",
+      "page_id": "36f72195-5c64-81cc-afac-d2fdd657d385",
+      "processo": "0600384-91.2024.6.17.0000",
+      "content_hash": "853b7b215b66eee26d8c95d2e47d65b0fd4474f93beed8f81ffac52a0a61d52f",
+      "cached_at_utc": "2026-05-29T12:24:16.983527+00:00",
+      "analysis": {
+        "case_id": "0600384-91.2024.6.17.0000",
+        "title": "Conta bancária específica e extratos em contas anuais de diretório estadual da REDE/PE",
+        "relevance_score": 8,
+        "risk_level": "alto",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "REDE/PE"
+        ],
+        "lawyers_signal": "Atuação de MARCELO DE OLIVEIRA CUMARU. Não há sinal de recorrência do advogado no período informado.",
+        "what_happened": "A REDE/PE e outros agravantes contestaram a inadmissão de recurso especial eleitoral contra acórdão do TRE/PE que desaprovou as contas anuais do diretório estadual. O TSE negou seguimento ao agravo e preservou o entendimento regional de que a falta de conta bancária específica de doações de campanha e de extratos inviabilizou a fiscalização contábil.",
+        "legal_grounds": "A decisão considerou grave a ausência de abertura de conta bancária específica para doações de campanha e a consequente ausência dos extratos correspondentes, por comprometerem a confiabilidade da escrituração contábil. O TSE entendeu que o acórdão regional estava em consonância com a jurisprudência da Corte e aplicou a Súmula-TSE nº 30. Afastou a incidência dos princípios da proporcionalidade e da razoabilidade para reduzir ou afastar as sanções.",
+        "consequence": "O TSE manteve a desaprovação das contas do diretório estadual da REDE/PE relativas ao exercício financeiro de 2023, com determinação de recolhimento de valores ao Tesouro Nacional e aplicação de multa.",
+        "strategic_comment": "O caso tem relevância federal-partidária porque reafirma rigor na prestação de contas de diretórios estaduais e trata de requisito bancário essencial à rastreabilidade financeira. A decisão sinaliza baixa tolerância do TSE a falhas que impedem controle de receitas, ainda que o caso derive de contas estaduais. Para consultoria legislativa, interessa como parâmetro de governança partidária, desenho de obrigações contábeis e sanções por falhas formais com impacto material na fiscalização.",
+        "why_relevant": "A matéria envolve prestação de contas de diretório estadual, tema de interesse institucional para partidos políticos. A decisão reforça que a ausência de conta bancária específica e de extratos pode caracterizar irregularidade grave suficiente para desaprovação das contas, recolhimento ao Tesouro Nacional e multa.",
+        "source_notes": [
+          "Processo 0600384-91.2024.6.17.0000, AREspEl, decisão monocrática de 27/05/2026, relator Ministro André Mendonça.",
+          "Caso referente à prestação de contas anual de partido político, diretório estadual, exercício financeiro de 2023.",
+          "Dados fornecidos indicam REDE Sustentabilidade estadual como parte agravante."
+        ],
+        "page_id": "36f72195-5c64-81cc-afac-d2fdd657d385",
+        "display_score": 8,
+        "ranking_reason": ""
+      }
+    },
+    "page_id:36f72195-5c64-81cc-afac-d2fdd657d385": {
+      "model": "gpt-5.5",
+      "case_id": "0600384-91.2024.6.17.0000",
+      "page_id": "36f72195-5c64-81cc-afac-d2fdd657d385",
+      "processo": "0600384-91.2024.6.17.0000",
+      "content_hash": "853b7b215b66eee26d8c95d2e47d65b0fd4474f93beed8f81ffac52a0a61d52f",
+      "cached_at_utc": "2026-05-29T12:24:16.983527+00:00",
+      "analysis": {
+        "case_id": "0600384-91.2024.6.17.0000",
+        "title": "Conta bancária específica e extratos em contas anuais de diretório estadual da REDE/PE",
+        "relevance_score": 8,
+        "risk_level": "alto",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "REDE/PE"
+        ],
+        "lawyers_signal": "Atuação de MARCELO DE OLIVEIRA CUMARU. Não há sinal de recorrência do advogado no período informado.",
+        "what_happened": "A REDE/PE e outros agravantes contestaram a inadmissão de recurso especial eleitoral contra acórdão do TRE/PE que desaprovou as contas anuais do diretório estadual. O TSE negou seguimento ao agravo e preservou o entendimento regional de que a falta de conta bancária específica de doações de campanha e de extratos inviabilizou a fiscalização contábil.",
+        "legal_grounds": "A decisão considerou grave a ausência de abertura de conta bancária específica para doações de campanha e a consequente ausência dos extratos correspondentes, por comprometerem a confiabilidade da escrituração contábil. O TSE entendeu que o acórdão regional estava em consonância com a jurisprudência da Corte e aplicou a Súmula-TSE nº 30. Afastou a incidência dos princípios da proporcionalidade e da razoabilidade para reduzir ou afastar as sanções.",
+        "consequence": "O TSE manteve a desaprovação das contas do diretório estadual da REDE/PE relativas ao exercício financeiro de 2023, com determinação de recolhimento de valores ao Tesouro Nacional e aplicação de multa.",
+        "strategic_comment": "O caso tem relevância federal-partidária porque reafirma rigor na prestação de contas de diretórios estaduais e trata de requisito bancário essencial à rastreabilidade financeira. A decisão sinaliza baixa tolerância do TSE a falhas que impedem controle de receitas, ainda que o caso derive de contas estaduais. Para consultoria legislativa, interessa como parâmetro de governança partidária, desenho de obrigações contábeis e sanções por falhas formais com impacto material na fiscalização.",
+        "why_relevant": "A matéria envolve prestação de contas de diretório estadual, tema de interesse institucional para partidos políticos. A decisão reforça que a ausência de conta bancária específica e de extratos pode caracterizar irregularidade grave suficiente para desaprovação das contas, recolhimento ao Tesouro Nacional e multa.",
+        "source_notes": [
+          "Processo 0600384-91.2024.6.17.0000, AREspEl, decisão monocrática de 27/05/2026, relator Ministro André Mendonça.",
+          "Caso referente à prestação de contas anual de partido político, diretório estadual, exercício financeiro de 2023.",
+          "Dados fornecidos indicam REDE Sustentabilidade estadual como parte agravante."
+        ],
+        "page_id": "36f72195-5c64-81cc-afac-d2fdd657d385",
+        "display_score": 8,
+        "ranking_reason": ""
+      }
+    },
+    "case_id:0600384-91.2024.6.17.0000": {
+      "model": "gpt-5.5",
+      "case_id": "0600384-91.2024.6.17.0000",
+      "page_id": "36f72195-5c64-81cc-afac-d2fdd657d385",
+      "processo": "0600384-91.2024.6.17.0000",
+      "content_hash": "853b7b215b66eee26d8c95d2e47d65b0fd4474f93beed8f81ffac52a0a61d52f",
+      "cached_at_utc": "2026-05-29T12:24:16.983527+00:00",
+      "analysis": {
+        "case_id": "0600384-91.2024.6.17.0000",
+        "title": "Conta bancária específica e extratos em contas anuais de diretório estadual da REDE/PE",
+        "relevance_score": 8,
+        "risk_level": "alto",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "REDE/PE"
+        ],
+        "lawyers_signal": "Atuação de MARCELO DE OLIVEIRA CUMARU. Não há sinal de recorrência do advogado no período informado.",
+        "what_happened": "A REDE/PE e outros agravantes contestaram a inadmissão de recurso especial eleitoral contra acórdão do TRE/PE que desaprovou as contas anuais do diretório estadual. O TSE negou seguimento ao agravo e preservou o entendimento regional de que a falta de conta bancária específica de doações de campanha e de extratos inviabilizou a fiscalização contábil.",
+        "legal_grounds": "A decisão considerou grave a ausência de abertura de conta bancária específica para doações de campanha e a consequente ausência dos extratos correspondentes, por comprometerem a confiabilidade da escrituração contábil. O TSE entendeu que o acórdão regional estava em consonância com a jurisprudência da Corte e aplicou a Súmula-TSE nº 30. Afastou a incidência dos princípios da proporcionalidade e da razoabilidade para reduzir ou afastar as sanções.",
+        "consequence": "O TSE manteve a desaprovação das contas do diretório estadual da REDE/PE relativas ao exercício financeiro de 2023, com determinação de recolhimento de valores ao Tesouro Nacional e aplicação de multa.",
+        "strategic_comment": "O caso tem relevância federal-partidária porque reafirma rigor na prestação de contas de diretórios estaduais e trata de requisito bancário essencial à rastreabilidade financeira. A decisão sinaliza baixa tolerância do TSE a falhas que impedem controle de receitas, ainda que o caso derive de contas estaduais. Para consultoria legislativa, interessa como parâmetro de governança partidária, desenho de obrigações contábeis e sanções por falhas formais com impacto material na fiscalização.",
+        "why_relevant": "A matéria envolve prestação de contas de diretório estadual, tema de interesse institucional para partidos políticos. A decisão reforça que a ausência de conta bancária específica e de extratos pode caracterizar irregularidade grave suficiente para desaprovação das contas, recolhimento ao Tesouro Nacional e multa.",
+        "source_notes": [
+          "Processo 0600384-91.2024.6.17.0000, AREspEl, decisão monocrática de 27/05/2026, relator Ministro André Mendonça.",
+          "Caso referente à prestação de contas anual de partido político, diretório estadual, exercício financeiro de 2023.",
+          "Dados fornecidos indicam REDE Sustentabilidade estadual como parte agravante."
+        ],
+        "page_id": "36f72195-5c64-81cc-afac-d2fdd657d385",
+        "display_score": 8,
+        "ranking_reason": ""
+      }
+    },
+    "content_hash:853b7b215b66eee26d8c95d2e47d65b0fd4474f93beed8f81ffac52a0a61d52f": {
+      "model": "gpt-5.5",
+      "case_id": "0600384-91.2024.6.17.0000",
+      "page_id": "36f72195-5c64-81cc-afac-d2fdd657d385",
+      "processo": "0600384-91.2024.6.17.0000",
+      "content_hash": "853b7b215b66eee26d8c95d2e47d65b0fd4474f93beed8f81ffac52a0a61d52f",
+      "cached_at_utc": "2026-05-29T12:24:16.983527+00:00",
+      "analysis": {
+        "case_id": "0600384-91.2024.6.17.0000",
+        "title": "Conta bancária específica e extratos em contas anuais de diretório estadual da REDE/PE",
+        "relevance_score": 8,
+        "risk_level": "alto",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "REDE/PE"
+        ],
+        "lawyers_signal": "Atuação de MARCELO DE OLIVEIRA CUMARU. Não há sinal de recorrência do advogado no período informado.",
+        "what_happened": "A REDE/PE e outros agravantes contestaram a inadmissão de recurso especial eleitoral contra acórdão do TRE/PE que desaprovou as contas anuais do diretório estadual. O TSE negou seguimento ao agravo e preservou o entendimento regional de que a falta de conta bancária específica de doações de campanha e de extratos inviabilizou a fiscalização contábil.",
+        "legal_grounds": "A decisão considerou grave a ausência de abertura de conta bancária específica para doações de campanha e a consequente ausência dos extratos correspondentes, por comprometerem a confiabilidade da escrituração contábil. O TSE entendeu que o acórdão regional estava em consonância com a jurisprudência da Corte e aplicou a Súmula-TSE nº 30. Afastou a incidência dos princípios da proporcionalidade e da razoabilidade para reduzir ou afastar as sanções.",
+        "consequence": "O TSE manteve a desaprovação das contas do diretório estadual da REDE/PE relativas ao exercício financeiro de 2023, com determinação de recolhimento de valores ao Tesouro Nacional e aplicação de multa.",
+        "strategic_comment": "O caso tem relevância federal-partidária porque reafirma rigor na prestação de contas de diretórios estaduais e trata de requisito bancário essencial à rastreabilidade financeira. A decisão sinaliza baixa tolerância do TSE a falhas que impedem controle de receitas, ainda que o caso derive de contas estaduais. Para consultoria legislativa, interessa como parâmetro de governança partidária, desenho de obrigações contábeis e sanções por falhas formais com impacto material na fiscalização.",
+        "why_relevant": "A matéria envolve prestação de contas de diretório estadual, tema de interesse institucional para partidos políticos. A decisão reforça que a ausência de conta bancária específica e de extratos pode caracterizar irregularidade grave suficiente para desaprovação das contas, recolhimento ao Tesouro Nacional e multa.",
+        "source_notes": [
+          "Processo 0600384-91.2024.6.17.0000, AREspEl, decisão monocrática de 27/05/2026, relator Ministro André Mendonça.",
+          "Caso referente à prestação de contas anual de partido político, diretório estadual, exercício financeiro de 2023.",
+          "Dados fornecidos indicam REDE Sustentabilidade estadual como parte agravante."
+        ],
+        "page_id": "36f72195-5c64-81cc-afac-d2fdd657d385",
+        "display_score": 8,
+        "ranking_reason": ""
+      }
+    },
+    "numero_unico:0600369-21.2024.6.06.0068": {
+      "model": "gpt-5.5",
+      "case_id": "0600369-21.2024.6.06.0068",
+      "page_id": "36f72195-5c64-8107-b3dc-f9933285a28a",
+      "processo": "0600369-21.2024.6.06.0068",
+      "content_hash": "7ef8548c341b3527729db1453e6eacf24f9dce7e227ce84e4cf66947b8a03590",
+      "cached_at_utc": "2026-05-29T12:24:18.668140+00:00",
+      "analysis": {
+        "case_id": "0600369-21.2024.6.06.0068",
+        "title": "Fraude à cota de gênero em chapa proporcional municipal e prova robusta",
+        "relevance_score": 6,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "MDB/CE",
+          "Federação Brasil da Esperança (FE Brasil) - Araripe/CE"
+        ],
+        "lawyers_signal": "Não há advogado recorrente no período entre os patronos indicados para este processo.",
+        "what_happened": "O MDB municipal de Araripe/CE agravou contra a inadmissão de recurso especial em AIJE que alegava fraude à cota de gênero na chapa proporcional da FE Brasil nas eleições de 2024. O TSE manteve a conclusão do TRE/CE de que não havia prova robusta de candidatura fictícia, pois foram reconhecidos atos de campanha e prestação de contas com movimentação financeira.",
+        "legal_grounds": "A decisão aplicou o art. 10, § 3º, da Lei nº 9.504/1997 e a Súmula 73 do TSE, exigindo prova robusta para caracterizar fraude à cota de gênero. Também adotou óbice ao reexame do conjunto fático-probatório, pois o TRE/CE reconheceu atos de campanha e prestação de contas com movimentação financeira.",
+        "consequence": "O TSE negou seguimento ao agravo em recurso especial eleitoral. Com isso, manteve o acórdão do TRE/CE e a sentença de improcedência da AIJE, sem cassação do DRAP e sem reconhecimento de candidatura feminina fictícia.",
+        "strategic_comment": "O caso é relevante para o acompanhamento federal por reafirmar o padrão probatório da Súmula 73 do TSE em fraude à cota de gênero. Embora a controvérsia seja municipal, a tese impacta partidos, federações e chapas proporcionais em todo o país, especialmente na avaliação de candidaturas femininas com baixa votação, contas apresentadas e atos mínimos de campanha.",
+        "why_relevant": "A decisão interessa a partidos e federações porque preserva a exigência de prova objetiva e consistente para cassação de DRAP por fraude à cota de gênero. O impacto imediato é local, mas o parâmetro decisório é replicável em litígios proporcionais de 2024.",
+        "source_notes": [
+          "Processo julgado no período informado, com decisão em 2026-05-28.",
+          "Os dados estruturados indicam relatoria do Min. Dias Toffoli, mas o trecho da decisão menciona o Min. Nunes Marques como relator.",
+          "A identificação partidária explícita fornecida é MDB/CE; a FE Brasil aparece como federação municipal em Araripe/CE."
+        ],
+        "page_id": "36f72195-5c64-8107-b3dc-f9933285a28a",
+        "display_score": 6,
+        "ranking_reason": ""
+      }
+    },
+    "numero_processo:60036921": {
+      "model": "gpt-5.5",
+      "case_id": "0600369-21.2024.6.06.0068",
+      "page_id": "36f72195-5c64-8107-b3dc-f9933285a28a",
+      "processo": "0600369-21.2024.6.06.0068",
+      "content_hash": "7ef8548c341b3527729db1453e6eacf24f9dce7e227ce84e4cf66947b8a03590",
+      "cached_at_utc": "2026-05-29T12:24:18.668140+00:00",
+      "analysis": {
+        "case_id": "0600369-21.2024.6.06.0068",
+        "title": "Fraude à cota de gênero em chapa proporcional municipal e prova robusta",
+        "relevance_score": 6,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "MDB/CE",
+          "Federação Brasil da Esperança (FE Brasil) - Araripe/CE"
+        ],
+        "lawyers_signal": "Não há advogado recorrente no período entre os patronos indicados para este processo.",
+        "what_happened": "O MDB municipal de Araripe/CE agravou contra a inadmissão de recurso especial em AIJE que alegava fraude à cota de gênero na chapa proporcional da FE Brasil nas eleições de 2024. O TSE manteve a conclusão do TRE/CE de que não havia prova robusta de candidatura fictícia, pois foram reconhecidos atos de campanha e prestação de contas com movimentação financeira.",
+        "legal_grounds": "A decisão aplicou o art. 10, § 3º, da Lei nº 9.504/1997 e a Súmula 73 do TSE, exigindo prova robusta para caracterizar fraude à cota de gênero. Também adotou óbice ao reexame do conjunto fático-probatório, pois o TRE/CE reconheceu atos de campanha e prestação de contas com movimentação financeira.",
+        "consequence": "O TSE negou seguimento ao agravo em recurso especial eleitoral. Com isso, manteve o acórdão do TRE/CE e a sentença de improcedência da AIJE, sem cassação do DRAP e sem reconhecimento de candidatura feminina fictícia.",
+        "strategic_comment": "O caso é relevante para o acompanhamento federal por reafirmar o padrão probatório da Súmula 73 do TSE em fraude à cota de gênero. Embora a controvérsia seja municipal, a tese impacta partidos, federações e chapas proporcionais em todo o país, especialmente na avaliação de candidaturas femininas com baixa votação, contas apresentadas e atos mínimos de campanha.",
+        "why_relevant": "A decisão interessa a partidos e federações porque preserva a exigência de prova objetiva e consistente para cassação de DRAP por fraude à cota de gênero. O impacto imediato é local, mas o parâmetro decisório é replicável em litígios proporcionais de 2024.",
+        "source_notes": [
+          "Processo julgado no período informado, com decisão em 2026-05-28.",
+          "Os dados estruturados indicam relatoria do Min. Dias Toffoli, mas o trecho da decisão menciona o Min. Nunes Marques como relator.",
+          "A identificação partidária explícita fornecida é MDB/CE; a FE Brasil aparece como federação municipal em Araripe/CE."
+        ],
+        "page_id": "36f72195-5c64-8107-b3dc-f9933285a28a",
+        "display_score": 6,
+        "ranking_reason": ""
+      }
+    },
+    "page_id:36f72195-5c64-8107-b3dc-f9933285a28a": {
+      "model": "gpt-5.5",
+      "case_id": "0600369-21.2024.6.06.0068",
+      "page_id": "36f72195-5c64-8107-b3dc-f9933285a28a",
+      "processo": "0600369-21.2024.6.06.0068",
+      "content_hash": "7ef8548c341b3527729db1453e6eacf24f9dce7e227ce84e4cf66947b8a03590",
+      "cached_at_utc": "2026-05-29T12:24:18.668140+00:00",
+      "analysis": {
+        "case_id": "0600369-21.2024.6.06.0068",
+        "title": "Fraude à cota de gênero em chapa proporcional municipal e prova robusta",
+        "relevance_score": 6,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "MDB/CE",
+          "Federação Brasil da Esperança (FE Brasil) - Araripe/CE"
+        ],
+        "lawyers_signal": "Não há advogado recorrente no período entre os patronos indicados para este processo.",
+        "what_happened": "O MDB municipal de Araripe/CE agravou contra a inadmissão de recurso especial em AIJE que alegava fraude à cota de gênero na chapa proporcional da FE Brasil nas eleições de 2024. O TSE manteve a conclusão do TRE/CE de que não havia prova robusta de candidatura fictícia, pois foram reconhecidos atos de campanha e prestação de contas com movimentação financeira.",
+        "legal_grounds": "A decisão aplicou o art. 10, § 3º, da Lei nº 9.504/1997 e a Súmula 73 do TSE, exigindo prova robusta para caracterizar fraude à cota de gênero. Também adotou óbice ao reexame do conjunto fático-probatório, pois o TRE/CE reconheceu atos de campanha e prestação de contas com movimentação financeira.",
+        "consequence": "O TSE negou seguimento ao agravo em recurso especial eleitoral. Com isso, manteve o acórdão do TRE/CE e a sentença de improcedência da AIJE, sem cassação do DRAP e sem reconhecimento de candidatura feminina fictícia.",
+        "strategic_comment": "O caso é relevante para o acompanhamento federal por reafirmar o padrão probatório da Súmula 73 do TSE em fraude à cota de gênero. Embora a controvérsia seja municipal, a tese impacta partidos, federações e chapas proporcionais em todo o país, especialmente na avaliação de candidaturas femininas com baixa votação, contas apresentadas e atos mínimos de campanha.",
+        "why_relevant": "A decisão interessa a partidos e federações porque preserva a exigência de prova objetiva e consistente para cassação de DRAP por fraude à cota de gênero. O impacto imediato é local, mas o parâmetro decisório é replicável em litígios proporcionais de 2024.",
+        "source_notes": [
+          "Processo julgado no período informado, com decisão em 2026-05-28.",
+          "Os dados estruturados indicam relatoria do Min. Dias Toffoli, mas o trecho da decisão menciona o Min. Nunes Marques como relator.",
+          "A identificação partidária explícita fornecida é MDB/CE; a FE Brasil aparece como federação municipal em Araripe/CE."
+        ],
+        "page_id": "36f72195-5c64-8107-b3dc-f9933285a28a",
+        "display_score": 6,
+        "ranking_reason": ""
+      }
+    },
+    "case_id:0600369-21.2024.6.06.0068": {
+      "model": "gpt-5.5",
+      "case_id": "0600369-21.2024.6.06.0068",
+      "page_id": "36f72195-5c64-8107-b3dc-f9933285a28a",
+      "processo": "0600369-21.2024.6.06.0068",
+      "content_hash": "7ef8548c341b3527729db1453e6eacf24f9dce7e227ce84e4cf66947b8a03590",
+      "cached_at_utc": "2026-05-29T12:24:18.668140+00:00",
+      "analysis": {
+        "case_id": "0600369-21.2024.6.06.0068",
+        "title": "Fraude à cota de gênero em chapa proporcional municipal e prova robusta",
+        "relevance_score": 6,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "MDB/CE",
+          "Federação Brasil da Esperança (FE Brasil) - Araripe/CE"
+        ],
+        "lawyers_signal": "Não há advogado recorrente no período entre os patronos indicados para este processo.",
+        "what_happened": "O MDB municipal de Araripe/CE agravou contra a inadmissão de recurso especial em AIJE que alegava fraude à cota de gênero na chapa proporcional da FE Brasil nas eleições de 2024. O TSE manteve a conclusão do TRE/CE de que não havia prova robusta de candidatura fictícia, pois foram reconhecidos atos de campanha e prestação de contas com movimentação financeira.",
+        "legal_grounds": "A decisão aplicou o art. 10, § 3º, da Lei nº 9.504/1997 e a Súmula 73 do TSE, exigindo prova robusta para caracterizar fraude à cota de gênero. Também adotou óbice ao reexame do conjunto fático-probatório, pois o TRE/CE reconheceu atos de campanha e prestação de contas com movimentação financeira.",
+        "consequence": "O TSE negou seguimento ao agravo em recurso especial eleitoral. Com isso, manteve o acórdão do TRE/CE e a sentença de improcedência da AIJE, sem cassação do DRAP e sem reconhecimento de candidatura feminina fictícia.",
+        "strategic_comment": "O caso é relevante para o acompanhamento federal por reafirmar o padrão probatório da Súmula 73 do TSE em fraude à cota de gênero. Embora a controvérsia seja municipal, a tese impacta partidos, federações e chapas proporcionais em todo o país, especialmente na avaliação de candidaturas femininas com baixa votação, contas apresentadas e atos mínimos de campanha.",
+        "why_relevant": "A decisão interessa a partidos e federações porque preserva a exigência de prova objetiva e consistente para cassação de DRAP por fraude à cota de gênero. O impacto imediato é local, mas o parâmetro decisório é replicável em litígios proporcionais de 2024.",
+        "source_notes": [
+          "Processo julgado no período informado, com decisão em 2026-05-28.",
+          "Os dados estruturados indicam relatoria do Min. Dias Toffoli, mas o trecho da decisão menciona o Min. Nunes Marques como relator.",
+          "A identificação partidária explícita fornecida é MDB/CE; a FE Brasil aparece como federação municipal em Araripe/CE."
+        ],
+        "page_id": "36f72195-5c64-8107-b3dc-f9933285a28a",
+        "display_score": 6,
+        "ranking_reason": ""
+      }
+    },
+    "content_hash:7ef8548c341b3527729db1453e6eacf24f9dce7e227ce84e4cf66947b8a03590": {
+      "model": "gpt-5.5",
+      "case_id": "0600369-21.2024.6.06.0068",
+      "page_id": "36f72195-5c64-8107-b3dc-f9933285a28a",
+      "processo": "0600369-21.2024.6.06.0068",
+      "content_hash": "7ef8548c341b3527729db1453e6eacf24f9dce7e227ce84e4cf66947b8a03590",
+      "cached_at_utc": "2026-05-29T12:24:18.668140+00:00",
+      "analysis": {
+        "case_id": "0600369-21.2024.6.06.0068",
+        "title": "Fraude à cota de gênero em chapa proporcional municipal e prova robusta",
+        "relevance_score": 6,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": true,
+        "public_figures": [],
+        "parties": [
+          "MDB/CE",
+          "Federação Brasil da Esperança (FE Brasil) - Araripe/CE"
+        ],
+        "lawyers_signal": "Não há advogado recorrente no período entre os patronos indicados para este processo.",
+        "what_happened": "O MDB municipal de Araripe/CE agravou contra a inadmissão de recurso especial em AIJE que alegava fraude à cota de gênero na chapa proporcional da FE Brasil nas eleições de 2024. O TSE manteve a conclusão do TRE/CE de que não havia prova robusta de candidatura fictícia, pois foram reconhecidos atos de campanha e prestação de contas com movimentação financeira.",
+        "legal_grounds": "A decisão aplicou o art. 10, § 3º, da Lei nº 9.504/1997 e a Súmula 73 do TSE, exigindo prova robusta para caracterizar fraude à cota de gênero. Também adotou óbice ao reexame do conjunto fático-probatório, pois o TRE/CE reconheceu atos de campanha e prestação de contas com movimentação financeira.",
+        "consequence": "O TSE negou seguimento ao agravo em recurso especial eleitoral. Com isso, manteve o acórdão do TRE/CE e a sentença de improcedência da AIJE, sem cassação do DRAP e sem reconhecimento de candidatura feminina fictícia.",
+        "strategic_comment": "O caso é relevante para o acompanhamento federal por reafirmar o padrão probatório da Súmula 73 do TSE em fraude à cota de gênero. Embora a controvérsia seja municipal, a tese impacta partidos, federações e chapas proporcionais em todo o país, especialmente na avaliação de candidaturas femininas com baixa votação, contas apresentadas e atos mínimos de campanha.",
+        "why_relevant": "A decisão interessa a partidos e federações porque preserva a exigência de prova objetiva e consistente para cassação de DRAP por fraude à cota de gênero. O impacto imediato é local, mas o parâmetro decisório é replicável em litígios proporcionais de 2024.",
+        "source_notes": [
+          "Processo julgado no período informado, com decisão em 2026-05-28.",
+          "Os dados estruturados indicam relatoria do Min. Dias Toffoli, mas o trecho da decisão menciona o Min. Nunes Marques como relator.",
+          "A identificação partidária explícita fornecida é MDB/CE; a FE Brasil aparece como federação municipal em Araripe/CE."
+        ],
+        "page_id": "36f72195-5c64-8107-b3dc-f9933285a28a",
+        "display_score": 6,
+        "ranking_reason": ""
+      }
+    },
+    "numero_unico:0600308-07.2024.6.13.0153": {
+      "model": "gpt-5.5",
+      "case_id": "0600308-07.2024.6.13.0153",
+      "page_id": "36f72195-5c64-8158-a2f5-ed988f182da3",
+      "processo": "0600308-07.2024.6.13.0153",
+      "content_hash": "a44e84d2f9b86699b88f29b859dcb33ab3b7b1f114556170d62cee2a6387b8e7",
+      "cached_at_utc": "2026-05-29T12:24:19.341716+00:00",
+      "analysis": {
+        "case_id": "0600308-07.2024.6.13.0153",
+        "title": "Fraude à cota de gênero em AIJE com cassação do DRAP e inelegibilidade de dirigentes",
+        "relevance_score": 7,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Anderson Fernandes",
+          "Emiliano Luiz dos Reis Leal",
+          "João Marcos Fidelis de Almeida"
+        ],
+        "parties": [],
+        "lawyers_signal": "Atuaram José Sad Junior, Bruno de Mendonça Pereira Cunha e Kelry Ciscotto Silva Pais. Não há indicação de recorrência desses advogados no período informado.",
+        "what_happened": "O TSE negou seguimento a agravo em recurso especial eleitoral interposto por Anderson Fernandes, Emiliano Luiz dos Reis Leal e João Marcos Fidelis de Almeida contra decisão que inadmitira recurso especial. Permaneceu o acórdão do TRE/MG que reformou sentença de improcedência e reconheceu fraude à cota de gênero nas eleições de 2024 em Juiz de Fora/MG.",
+        "legal_grounds": "A decisão aplicou as Súmulas 24 e 73 do TSE. O fundamento central foi a impossibilidade de reexaminar, em recurso especial, o conjunto fático-probatório definido pelo TRE/MG, que apontou prova coesa da fraude e presença dos elementos caracterizadores da burla à cota de gênero.",
+        "consequence": "O TSE manteve o acórdão regional que reconheceu a fraude à cota de gênero, preservando a cassação do DRAP e a declaração de inelegibilidade dos dirigentes partidários diretamente envolvidos.",
+        "strategic_comment": "O caso é relevante para a agenda federal por consolidar, no TSE, a responsabilização de dirigentes partidários em fraude à cota de gênero quando o acórdão regional fixa prova coesa. Embora tenha origem municipal, o efeito institucional é replicável: partidos e dirigentes podem sofrer consequências severas quando o DRAP é usado para viabilizar candidaturas femininas fictícias.",
+        "why_relevant": "A relevância é alta, mas não máxima, porque o caso é municipal e não envolve autoridade federal identificada. Ainda assim, trata de cota de gênero, DRAP, cassação coletiva e inelegibilidade de dirigentes partidários, temas com impacto direto sobre organização partidária e estratégia nacional de conformidade eleitoral.",
+        "source_notes": [
+          "Processo 0600308-07.2024.6.13.0153, AREspEl, decisão monocrática de 27/05/2026.",
+          "Eleição de 2024, Juiz de Fora/MG, relatoria do Min. André Mendonça.",
+          "Partidos não foram nominalmente identificados nos dados fornecidos."
+        ],
+        "page_id": "36f72195-5c64-8158-a2f5-ed988f182da3",
+        "display_score": 7,
+        "ranking_reason": ""
+      }
+    },
+    "numero_processo:60030807": {
+      "model": "gpt-5.5",
+      "case_id": "0600308-07.2024.6.13.0153",
+      "page_id": "36f72195-5c64-8158-a2f5-ed988f182da3",
+      "processo": "0600308-07.2024.6.13.0153",
+      "content_hash": "a44e84d2f9b86699b88f29b859dcb33ab3b7b1f114556170d62cee2a6387b8e7",
+      "cached_at_utc": "2026-05-29T12:24:19.341716+00:00",
+      "analysis": {
+        "case_id": "0600308-07.2024.6.13.0153",
+        "title": "Fraude à cota de gênero em AIJE com cassação do DRAP e inelegibilidade de dirigentes",
+        "relevance_score": 7,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Anderson Fernandes",
+          "Emiliano Luiz dos Reis Leal",
+          "João Marcos Fidelis de Almeida"
+        ],
+        "parties": [],
+        "lawyers_signal": "Atuaram José Sad Junior, Bruno de Mendonça Pereira Cunha e Kelry Ciscotto Silva Pais. Não há indicação de recorrência desses advogados no período informado.",
+        "what_happened": "O TSE negou seguimento a agravo em recurso especial eleitoral interposto por Anderson Fernandes, Emiliano Luiz dos Reis Leal e João Marcos Fidelis de Almeida contra decisão que inadmitira recurso especial. Permaneceu o acórdão do TRE/MG que reformou sentença de improcedência e reconheceu fraude à cota de gênero nas eleições de 2024 em Juiz de Fora/MG.",
+        "legal_grounds": "A decisão aplicou as Súmulas 24 e 73 do TSE. O fundamento central foi a impossibilidade de reexaminar, em recurso especial, o conjunto fático-probatório definido pelo TRE/MG, que apontou prova coesa da fraude e presença dos elementos caracterizadores da burla à cota de gênero.",
+        "consequence": "O TSE manteve o acórdão regional que reconheceu a fraude à cota de gênero, preservando a cassação do DRAP e a declaração de inelegibilidade dos dirigentes partidários diretamente envolvidos.",
+        "strategic_comment": "O caso é relevante para a agenda federal por consolidar, no TSE, a responsabilização de dirigentes partidários em fraude à cota de gênero quando o acórdão regional fixa prova coesa. Embora tenha origem municipal, o efeito institucional é replicável: partidos e dirigentes podem sofrer consequências severas quando o DRAP é usado para viabilizar candidaturas femininas fictícias.",
+        "why_relevant": "A relevância é alta, mas não máxima, porque o caso é municipal e não envolve autoridade federal identificada. Ainda assim, trata de cota de gênero, DRAP, cassação coletiva e inelegibilidade de dirigentes partidários, temas com impacto direto sobre organização partidária e estratégia nacional de conformidade eleitoral.",
+        "source_notes": [
+          "Processo 0600308-07.2024.6.13.0153, AREspEl, decisão monocrática de 27/05/2026.",
+          "Eleição de 2024, Juiz de Fora/MG, relatoria do Min. André Mendonça.",
+          "Partidos não foram nominalmente identificados nos dados fornecidos."
+        ],
+        "page_id": "36f72195-5c64-8158-a2f5-ed988f182da3",
+        "display_score": 7,
+        "ranking_reason": ""
+      }
+    },
+    "page_id:36f72195-5c64-8158-a2f5-ed988f182da3": {
+      "model": "gpt-5.5",
+      "case_id": "0600308-07.2024.6.13.0153",
+      "page_id": "36f72195-5c64-8158-a2f5-ed988f182da3",
+      "processo": "0600308-07.2024.6.13.0153",
+      "content_hash": "a44e84d2f9b86699b88f29b859dcb33ab3b7b1f114556170d62cee2a6387b8e7",
+      "cached_at_utc": "2026-05-29T12:24:19.341716+00:00",
+      "analysis": {
+        "case_id": "0600308-07.2024.6.13.0153",
+        "title": "Fraude à cota de gênero em AIJE com cassação do DRAP e inelegibilidade de dirigentes",
+        "relevance_score": 7,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Anderson Fernandes",
+          "Emiliano Luiz dos Reis Leal",
+          "João Marcos Fidelis de Almeida"
+        ],
+        "parties": [],
+        "lawyers_signal": "Atuaram José Sad Junior, Bruno de Mendonça Pereira Cunha e Kelry Ciscotto Silva Pais. Não há indicação de recorrência desses advogados no período informado.",
+        "what_happened": "O TSE negou seguimento a agravo em recurso especial eleitoral interposto por Anderson Fernandes, Emiliano Luiz dos Reis Leal e João Marcos Fidelis de Almeida contra decisão que inadmitira recurso especial. Permaneceu o acórdão do TRE/MG que reformou sentença de improcedência e reconheceu fraude à cota de gênero nas eleições de 2024 em Juiz de Fora/MG.",
+        "legal_grounds": "A decisão aplicou as Súmulas 24 e 73 do TSE. O fundamento central foi a impossibilidade de reexaminar, em recurso especial, o conjunto fático-probatório definido pelo TRE/MG, que apontou prova coesa da fraude e presença dos elementos caracterizadores da burla à cota de gênero.",
+        "consequence": "O TSE manteve o acórdão regional que reconheceu a fraude à cota de gênero, preservando a cassação do DRAP e a declaração de inelegibilidade dos dirigentes partidários diretamente envolvidos.",
+        "strategic_comment": "O caso é relevante para a agenda federal por consolidar, no TSE, a responsabilização de dirigentes partidários em fraude à cota de gênero quando o acórdão regional fixa prova coesa. Embora tenha origem municipal, o efeito institucional é replicável: partidos e dirigentes podem sofrer consequências severas quando o DRAP é usado para viabilizar candidaturas femininas fictícias.",
+        "why_relevant": "A relevância é alta, mas não máxima, porque o caso é municipal e não envolve autoridade federal identificada. Ainda assim, trata de cota de gênero, DRAP, cassação coletiva e inelegibilidade de dirigentes partidários, temas com impacto direto sobre organização partidária e estratégia nacional de conformidade eleitoral.",
+        "source_notes": [
+          "Processo 0600308-07.2024.6.13.0153, AREspEl, decisão monocrática de 27/05/2026.",
+          "Eleição de 2024, Juiz de Fora/MG, relatoria do Min. André Mendonça.",
+          "Partidos não foram nominalmente identificados nos dados fornecidos."
+        ],
+        "page_id": "36f72195-5c64-8158-a2f5-ed988f182da3",
+        "display_score": 7,
+        "ranking_reason": ""
+      }
+    },
+    "case_id:0600308-07.2024.6.13.0153": {
+      "model": "gpt-5.5",
+      "case_id": "0600308-07.2024.6.13.0153",
+      "page_id": "36f72195-5c64-8158-a2f5-ed988f182da3",
+      "processo": "0600308-07.2024.6.13.0153",
+      "content_hash": "a44e84d2f9b86699b88f29b859dcb33ab3b7b1f114556170d62cee2a6387b8e7",
+      "cached_at_utc": "2026-05-29T12:24:19.341716+00:00",
+      "analysis": {
+        "case_id": "0600308-07.2024.6.13.0153",
+        "title": "Fraude à cota de gênero em AIJE com cassação do DRAP e inelegibilidade de dirigentes",
+        "relevance_score": 7,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Anderson Fernandes",
+          "Emiliano Luiz dos Reis Leal",
+          "João Marcos Fidelis de Almeida"
+        ],
+        "parties": [],
+        "lawyers_signal": "Atuaram José Sad Junior, Bruno de Mendonça Pereira Cunha e Kelry Ciscotto Silva Pais. Não há indicação de recorrência desses advogados no período informado.",
+        "what_happened": "O TSE negou seguimento a agravo em recurso especial eleitoral interposto por Anderson Fernandes, Emiliano Luiz dos Reis Leal e João Marcos Fidelis de Almeida contra decisão que inadmitira recurso especial. Permaneceu o acórdão do TRE/MG que reformou sentença de improcedência e reconheceu fraude à cota de gênero nas eleições de 2024 em Juiz de Fora/MG.",
+        "legal_grounds": "A decisão aplicou as Súmulas 24 e 73 do TSE. O fundamento central foi a impossibilidade de reexaminar, em recurso especial, o conjunto fático-probatório definido pelo TRE/MG, que apontou prova coesa da fraude e presença dos elementos caracterizadores da burla à cota de gênero.",
+        "consequence": "O TSE manteve o acórdão regional que reconheceu a fraude à cota de gênero, preservando a cassação do DRAP e a declaração de inelegibilidade dos dirigentes partidários diretamente envolvidos.",
+        "strategic_comment": "O caso é relevante para a agenda federal por consolidar, no TSE, a responsabilização de dirigentes partidários em fraude à cota de gênero quando o acórdão regional fixa prova coesa. Embora tenha origem municipal, o efeito institucional é replicável: partidos e dirigentes podem sofrer consequências severas quando o DRAP é usado para viabilizar candidaturas femininas fictícias.",
+        "why_relevant": "A relevância é alta, mas não máxima, porque o caso é municipal e não envolve autoridade federal identificada. Ainda assim, trata de cota de gênero, DRAP, cassação coletiva e inelegibilidade de dirigentes partidários, temas com impacto direto sobre organização partidária e estratégia nacional de conformidade eleitoral.",
+        "source_notes": [
+          "Processo 0600308-07.2024.6.13.0153, AREspEl, decisão monocrática de 27/05/2026.",
+          "Eleição de 2024, Juiz de Fora/MG, relatoria do Min. André Mendonça.",
+          "Partidos não foram nominalmente identificados nos dados fornecidos."
+        ],
+        "page_id": "36f72195-5c64-8158-a2f5-ed988f182da3",
+        "display_score": 7,
+        "ranking_reason": ""
+      }
+    },
+    "content_hash:a44e84d2f9b86699b88f29b859dcb33ab3b7b1f114556170d62cee2a6387b8e7": {
+      "model": "gpt-5.5",
+      "case_id": "0600308-07.2024.6.13.0153",
+      "page_id": "36f72195-5c64-8158-a2f5-ed988f182da3",
+      "processo": "0600308-07.2024.6.13.0153",
+      "content_hash": "a44e84d2f9b86699b88f29b859dcb33ab3b7b1f114556170d62cee2a6387b8e7",
+      "cached_at_utc": "2026-05-29T12:24:19.341716+00:00",
+      "analysis": {
+        "case_id": "0600308-07.2024.6.13.0153",
+        "title": "Fraude à cota de gênero em AIJE com cassação do DRAP e inelegibilidade de dirigentes",
+        "relevance_score": 7,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Anderson Fernandes",
+          "Emiliano Luiz dos Reis Leal",
+          "João Marcos Fidelis de Almeida"
+        ],
+        "parties": [],
+        "lawyers_signal": "Atuaram José Sad Junior, Bruno de Mendonça Pereira Cunha e Kelry Ciscotto Silva Pais. Não há indicação de recorrência desses advogados no período informado.",
+        "what_happened": "O TSE negou seguimento a agravo em recurso especial eleitoral interposto por Anderson Fernandes, Emiliano Luiz dos Reis Leal e João Marcos Fidelis de Almeida contra decisão que inadmitira recurso especial. Permaneceu o acórdão do TRE/MG que reformou sentença de improcedência e reconheceu fraude à cota de gênero nas eleições de 2024 em Juiz de Fora/MG.",
+        "legal_grounds": "A decisão aplicou as Súmulas 24 e 73 do TSE. O fundamento central foi a impossibilidade de reexaminar, em recurso especial, o conjunto fático-probatório definido pelo TRE/MG, que apontou prova coesa da fraude e presença dos elementos caracterizadores da burla à cota de gênero.",
+        "consequence": "O TSE manteve o acórdão regional que reconheceu a fraude à cota de gênero, preservando a cassação do DRAP e a declaração de inelegibilidade dos dirigentes partidários diretamente envolvidos.",
+        "strategic_comment": "O caso é relevante para a agenda federal por consolidar, no TSE, a responsabilização de dirigentes partidários em fraude à cota de gênero quando o acórdão regional fixa prova coesa. Embora tenha origem municipal, o efeito institucional é replicável: partidos e dirigentes podem sofrer consequências severas quando o DRAP é usado para viabilizar candidaturas femininas fictícias.",
+        "why_relevant": "A relevância é alta, mas não máxima, porque o caso é municipal e não envolve autoridade federal identificada. Ainda assim, trata de cota de gênero, DRAP, cassação coletiva e inelegibilidade de dirigentes partidários, temas com impacto direto sobre organização partidária e estratégia nacional de conformidade eleitoral.",
+        "source_notes": [
+          "Processo 0600308-07.2024.6.13.0153, AREspEl, decisão monocrática de 27/05/2026.",
+          "Eleição de 2024, Juiz de Fora/MG, relatoria do Min. André Mendonça.",
+          "Partidos não foram nominalmente identificados nos dados fornecidos."
+        ],
+        "page_id": "36f72195-5c64-8158-a2f5-ed988f182da3",
+        "display_score": 7,
+        "ranking_reason": ""
+      }
+    },
+    "numero_unico:0606466-60.2022.6.26.0000": {
+      "model": "gpt-5.5",
+      "case_id": "0606466-60.2022.6.26.0000",
+      "page_id": "36f72195-5c64-81b4-9db4-f807b90c986d",
+      "processo": "0606466-60.2022.6.26.0000",
+      "content_hash": "78449986db36ce95e0cef84876ecf9b4068c35d5a2250aa8504936bb5d934251",
+      "cached_at_utc": "2026-05-29T12:24:19.365383+00:00",
+      "analysis": {
+        "case_id": "0606466-60.2022.6.26.0000",
+        "title": "Contas de candidato estadual com FEFC sem comprovação e dívida de campanha não assumida pelo partido",
+        "relevance_score": 7,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "Garry Deralus"
+        ],
+        "parties": [],
+        "lawyers_signal": "Lucas Bortolozzo Clemente aparece como advogado no caso e consta entre os advogados recorrentes do período, com 2 citações.",
+        "what_happened": "Garry Deralus agravou contra decisão que inadmitiu recurso especial eleitoral. O recurso buscava reverter acórdão do TRE/SP que desaprovou suas contas de campanha para deputado estadual nas Eleições 2022. O TSE manteve o entendimento regional de que havia falhas relevantes na comprovação de despesas custeadas com FEFC, divergências ou omissões na conta específica do fundo e dívida de campanha sem quitação ou assunção partidária.",
+        "legal_grounds": "A decisão aplicou a orientação do TSE de que gastos com recursos do FEFC exigem comprovação documental idônea, especialmente em despesas com pessoal e serviços. Também considerou relevantes as divergências e omissões na movimentação da conta do FEFC e a existência de dívida de campanha não quitada nem assumida pelo partido, circunstâncias aptas a justificar a desaprovação das contas e o recolhimento de valores ao Tesouro Nacional.",
+        "consequence": "O TSE manteve a desaprovação das contas de campanha e a determinação de recolhimento de R$ 89.700,00 ao Tesouro Nacional, negando seguimento ao agravo contra a inadmissão do recurso especial eleitoral.",
+        "strategic_comment": "O caso tem relevância político-eleitoral por reafirmar padrão rigoroso de controle sobre recursos do FEFC. Embora envolva candidatura estadual individual, a tese interessa a partidos e campanhas porque reforça a necessidade de contratos, documentos e detalhamento de serviços custeados com verba pública, além da regularização formal de dívidas de campanha.",
+        "why_relevant": "A decisão é relevante para a fiscalização do financiamento público eleitoral, pois envolve o FEFC e consolida consequência patrimonial direta por falhas de comprovação. O impacto é mais institucional do que pessoal: orienta candidatos e estruturas partidárias sobre documentação de despesas com pessoal, controle de contas bancárias de campanha e tratamento de dívidas eleitorais.",
+        "source_notes": [
+          "Processo 0606466-60.2022.6.26.0000, AREspEl, decisão de 26/05/2026, Eleições 2022, São Paulo/SP.",
+          "O caso trata de prestação de contas de candidato a deputado estadual.",
+          "Os dados fornecidos indicam divergência de relatoria: o campo estruturado aponta Min. Dias Toffoli, enquanto o trecho da decisão menciona Ministro Nunes Marques."
+        ],
+        "page_id": "36f72195-5c64-81b4-9db4-f807b90c986d",
+        "display_score": 7,
+        "ranking_reason": ""
+      }
+    },
+    "numero_processo:60646660": {
+      "model": "gpt-5.5",
+      "case_id": "0606466-60.2022.6.26.0000",
+      "page_id": "36f72195-5c64-81b4-9db4-f807b90c986d",
+      "processo": "0606466-60.2022.6.26.0000",
+      "content_hash": "78449986db36ce95e0cef84876ecf9b4068c35d5a2250aa8504936bb5d934251",
+      "cached_at_utc": "2026-05-29T12:24:19.365383+00:00",
+      "analysis": {
+        "case_id": "0606466-60.2022.6.26.0000",
+        "title": "Contas de candidato estadual com FEFC sem comprovação e dívida de campanha não assumida pelo partido",
+        "relevance_score": 7,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "Garry Deralus"
+        ],
+        "parties": [],
+        "lawyers_signal": "Lucas Bortolozzo Clemente aparece como advogado no caso e consta entre os advogados recorrentes do período, com 2 citações.",
+        "what_happened": "Garry Deralus agravou contra decisão que inadmitiu recurso especial eleitoral. O recurso buscava reverter acórdão do TRE/SP que desaprovou suas contas de campanha para deputado estadual nas Eleições 2022. O TSE manteve o entendimento regional de que havia falhas relevantes na comprovação de despesas custeadas com FEFC, divergências ou omissões na conta específica do fundo e dívida de campanha sem quitação ou assunção partidária.",
+        "legal_grounds": "A decisão aplicou a orientação do TSE de que gastos com recursos do FEFC exigem comprovação documental idônea, especialmente em despesas com pessoal e serviços. Também considerou relevantes as divergências e omissões na movimentação da conta do FEFC e a existência de dívida de campanha não quitada nem assumida pelo partido, circunstâncias aptas a justificar a desaprovação das contas e o recolhimento de valores ao Tesouro Nacional.",
+        "consequence": "O TSE manteve a desaprovação das contas de campanha e a determinação de recolhimento de R$ 89.700,00 ao Tesouro Nacional, negando seguimento ao agravo contra a inadmissão do recurso especial eleitoral.",
+        "strategic_comment": "O caso tem relevância político-eleitoral por reafirmar padrão rigoroso de controle sobre recursos do FEFC. Embora envolva candidatura estadual individual, a tese interessa a partidos e campanhas porque reforça a necessidade de contratos, documentos e detalhamento de serviços custeados com verba pública, além da regularização formal de dívidas de campanha.",
+        "why_relevant": "A decisão é relevante para a fiscalização do financiamento público eleitoral, pois envolve o FEFC e consolida consequência patrimonial direta por falhas de comprovação. O impacto é mais institucional do que pessoal: orienta candidatos e estruturas partidárias sobre documentação de despesas com pessoal, controle de contas bancárias de campanha e tratamento de dívidas eleitorais.",
+        "source_notes": [
+          "Processo 0606466-60.2022.6.26.0000, AREspEl, decisão de 26/05/2026, Eleições 2022, São Paulo/SP.",
+          "O caso trata de prestação de contas de candidato a deputado estadual.",
+          "Os dados fornecidos indicam divergência de relatoria: o campo estruturado aponta Min. Dias Toffoli, enquanto o trecho da decisão menciona Ministro Nunes Marques."
+        ],
+        "page_id": "36f72195-5c64-81b4-9db4-f807b90c986d",
+        "display_score": 7,
+        "ranking_reason": ""
+      }
+    },
+    "page_id:36f72195-5c64-81b4-9db4-f807b90c986d": {
+      "model": "gpt-5.5",
+      "case_id": "0606466-60.2022.6.26.0000",
+      "page_id": "36f72195-5c64-81b4-9db4-f807b90c986d",
+      "processo": "0606466-60.2022.6.26.0000",
+      "content_hash": "78449986db36ce95e0cef84876ecf9b4068c35d5a2250aa8504936bb5d934251",
+      "cached_at_utc": "2026-05-29T12:24:19.365383+00:00",
+      "analysis": {
+        "case_id": "0606466-60.2022.6.26.0000",
+        "title": "Contas de candidato estadual com FEFC sem comprovação e dívida de campanha não assumida pelo partido",
+        "relevance_score": 7,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "Garry Deralus"
+        ],
+        "parties": [],
+        "lawyers_signal": "Lucas Bortolozzo Clemente aparece como advogado no caso e consta entre os advogados recorrentes do período, com 2 citações.",
+        "what_happened": "Garry Deralus agravou contra decisão que inadmitiu recurso especial eleitoral. O recurso buscava reverter acórdão do TRE/SP que desaprovou suas contas de campanha para deputado estadual nas Eleições 2022. O TSE manteve o entendimento regional de que havia falhas relevantes na comprovação de despesas custeadas com FEFC, divergências ou omissões na conta específica do fundo e dívida de campanha sem quitação ou assunção partidária.",
+        "legal_grounds": "A decisão aplicou a orientação do TSE de que gastos com recursos do FEFC exigem comprovação documental idônea, especialmente em despesas com pessoal e serviços. Também considerou relevantes as divergências e omissões na movimentação da conta do FEFC e a existência de dívida de campanha não quitada nem assumida pelo partido, circunstâncias aptas a justificar a desaprovação das contas e o recolhimento de valores ao Tesouro Nacional.",
+        "consequence": "O TSE manteve a desaprovação das contas de campanha e a determinação de recolhimento de R$ 89.700,00 ao Tesouro Nacional, negando seguimento ao agravo contra a inadmissão do recurso especial eleitoral.",
+        "strategic_comment": "O caso tem relevância político-eleitoral por reafirmar padrão rigoroso de controle sobre recursos do FEFC. Embora envolva candidatura estadual individual, a tese interessa a partidos e campanhas porque reforça a necessidade de contratos, documentos e detalhamento de serviços custeados com verba pública, além da regularização formal de dívidas de campanha.",
+        "why_relevant": "A decisão é relevante para a fiscalização do financiamento público eleitoral, pois envolve o FEFC e consolida consequência patrimonial direta por falhas de comprovação. O impacto é mais institucional do que pessoal: orienta candidatos e estruturas partidárias sobre documentação de despesas com pessoal, controle de contas bancárias de campanha e tratamento de dívidas eleitorais.",
+        "source_notes": [
+          "Processo 0606466-60.2022.6.26.0000, AREspEl, decisão de 26/05/2026, Eleições 2022, São Paulo/SP.",
+          "O caso trata de prestação de contas de candidato a deputado estadual.",
+          "Os dados fornecidos indicam divergência de relatoria: o campo estruturado aponta Min. Dias Toffoli, enquanto o trecho da decisão menciona Ministro Nunes Marques."
+        ],
+        "page_id": "36f72195-5c64-81b4-9db4-f807b90c986d",
+        "display_score": 7,
+        "ranking_reason": ""
+      }
+    },
+    "case_id:0606466-60.2022.6.26.0000": {
+      "model": "gpt-5.5",
+      "case_id": "0606466-60.2022.6.26.0000",
+      "page_id": "36f72195-5c64-81b4-9db4-f807b90c986d",
+      "processo": "0606466-60.2022.6.26.0000",
+      "content_hash": "78449986db36ce95e0cef84876ecf9b4068c35d5a2250aa8504936bb5d934251",
+      "cached_at_utc": "2026-05-29T12:24:19.365383+00:00",
+      "analysis": {
+        "case_id": "0606466-60.2022.6.26.0000",
+        "title": "Contas de candidato estadual com FEFC sem comprovação e dívida de campanha não assumida pelo partido",
+        "relevance_score": 7,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "Garry Deralus"
+        ],
+        "parties": [],
+        "lawyers_signal": "Lucas Bortolozzo Clemente aparece como advogado no caso e consta entre os advogados recorrentes do período, com 2 citações.",
+        "what_happened": "Garry Deralus agravou contra decisão que inadmitiu recurso especial eleitoral. O recurso buscava reverter acórdão do TRE/SP que desaprovou suas contas de campanha para deputado estadual nas Eleições 2022. O TSE manteve o entendimento regional de que havia falhas relevantes na comprovação de despesas custeadas com FEFC, divergências ou omissões na conta específica do fundo e dívida de campanha sem quitação ou assunção partidária.",
+        "legal_grounds": "A decisão aplicou a orientação do TSE de que gastos com recursos do FEFC exigem comprovação documental idônea, especialmente em despesas com pessoal e serviços. Também considerou relevantes as divergências e omissões na movimentação da conta do FEFC e a existência de dívida de campanha não quitada nem assumida pelo partido, circunstâncias aptas a justificar a desaprovação das contas e o recolhimento de valores ao Tesouro Nacional.",
+        "consequence": "O TSE manteve a desaprovação das contas de campanha e a determinação de recolhimento de R$ 89.700,00 ao Tesouro Nacional, negando seguimento ao agravo contra a inadmissão do recurso especial eleitoral.",
+        "strategic_comment": "O caso tem relevância político-eleitoral por reafirmar padrão rigoroso de controle sobre recursos do FEFC. Embora envolva candidatura estadual individual, a tese interessa a partidos e campanhas porque reforça a necessidade de contratos, documentos e detalhamento de serviços custeados com verba pública, além da regularização formal de dívidas de campanha.",
+        "why_relevant": "A decisão é relevante para a fiscalização do financiamento público eleitoral, pois envolve o FEFC e consolida consequência patrimonial direta por falhas de comprovação. O impacto é mais institucional do que pessoal: orienta candidatos e estruturas partidárias sobre documentação de despesas com pessoal, controle de contas bancárias de campanha e tratamento de dívidas eleitorais.",
+        "source_notes": [
+          "Processo 0606466-60.2022.6.26.0000, AREspEl, decisão de 26/05/2026, Eleições 2022, São Paulo/SP.",
+          "O caso trata de prestação de contas de candidato a deputado estadual.",
+          "Os dados fornecidos indicam divergência de relatoria: o campo estruturado aponta Min. Dias Toffoli, enquanto o trecho da decisão menciona Ministro Nunes Marques."
+        ],
+        "page_id": "36f72195-5c64-81b4-9db4-f807b90c986d",
+        "display_score": 7,
+        "ranking_reason": ""
+      }
+    },
+    "content_hash:78449986db36ce95e0cef84876ecf9b4068c35d5a2250aa8504936bb5d934251": {
+      "model": "gpt-5.5",
+      "case_id": "0606466-60.2022.6.26.0000",
+      "page_id": "36f72195-5c64-81b4-9db4-f807b90c986d",
+      "processo": "0606466-60.2022.6.26.0000",
+      "content_hash": "78449986db36ce95e0cef84876ecf9b4068c35d5a2250aa8504936bb5d934251",
+      "cached_at_utc": "2026-05-29T12:24:19.365383+00:00",
+      "analysis": {
+        "case_id": "0606466-60.2022.6.26.0000",
+        "title": "Contas de candidato estadual com FEFC sem comprovação e dívida de campanha não assumida pelo partido",
+        "relevance_score": 7,
+        "risk_level": "medio",
+        "includes_public_figure": true,
+        "includes_party": false,
+        "public_figures": [
+          "Garry Deralus"
+        ],
+        "parties": [],
+        "lawyers_signal": "Lucas Bortolozzo Clemente aparece como advogado no caso e consta entre os advogados recorrentes do período, com 2 citações.",
+        "what_happened": "Garry Deralus agravou contra decisão que inadmitiu recurso especial eleitoral. O recurso buscava reverter acórdão do TRE/SP que desaprovou suas contas de campanha para deputado estadual nas Eleições 2022. O TSE manteve o entendimento regional de que havia falhas relevantes na comprovação de despesas custeadas com FEFC, divergências ou omissões na conta específica do fundo e dívida de campanha sem quitação ou assunção partidária.",
+        "legal_grounds": "A decisão aplicou a orientação do TSE de que gastos com recursos do FEFC exigem comprovação documental idônea, especialmente em despesas com pessoal e serviços. Também considerou relevantes as divergências e omissões na movimentação da conta do FEFC e a existência de dívida de campanha não quitada nem assumida pelo partido, circunstâncias aptas a justificar a desaprovação das contas e o recolhimento de valores ao Tesouro Nacional.",
+        "consequence": "O TSE manteve a desaprovação das contas de campanha e a determinação de recolhimento de R$ 89.700,00 ao Tesouro Nacional, negando seguimento ao agravo contra a inadmissão do recurso especial eleitoral.",
+        "strategic_comment": "O caso tem relevância político-eleitoral por reafirmar padrão rigoroso de controle sobre recursos do FEFC. Embora envolva candidatura estadual individual, a tese interessa a partidos e campanhas porque reforça a necessidade de contratos, documentos e detalhamento de serviços custeados com verba pública, além da regularização formal de dívidas de campanha.",
+        "why_relevant": "A decisão é relevante para a fiscalização do financiamento público eleitoral, pois envolve o FEFC e consolida consequência patrimonial direta por falhas de comprovação. O impacto é mais institucional do que pessoal: orienta candidatos e estruturas partidárias sobre documentação de despesas com pessoal, controle de contas bancárias de campanha e tratamento de dívidas eleitorais.",
+        "source_notes": [
+          "Processo 0606466-60.2022.6.26.0000, AREspEl, decisão de 26/05/2026, Eleições 2022, São Paulo/SP.",
+          "O caso trata de prestação de contas de candidato a deputado estadual.",
+          "Os dados fornecidos indicam divergência de relatoria: o campo estruturado aponta Min. Dias Toffoli, enquanto o trecho da decisão menciona Ministro Nunes Marques."
+        ],
+        "page_id": "36f72195-5c64-81b4-9db4-f807b90c986d",
+        "display_score": 7,
+        "ranking_reason": ""
+      }
+    },
+    "numero_unico:0600909-76.2026.6.00.0000": {
+      "model": "gpt-5.5",
+      "case_id": "0600909-76.2026.6.00.0000",
+      "page_id": "36f72195-5c64-810a-b790-c9b494574d1b",
+      "processo": "0600909-76.2026.6.00.0000",
+      "content_hash": "36bddb01a8cb4cda8b24d0878a89e56589d87e19095f6871fc24f916c6a0876a",
+      "cached_at_utc": "2026-05-29T12:24:22.934120+00:00",
+      "analysis": {
+        "case_id": "0600909-76.2026.6.00.0000",
+        "title": "Fraude à cota de gênero no Avante de Iranduba e execução imediata do acórdão após instância ordinária",
+        "relevance_score": 7,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Eudes Fernandes da Silva Gayo",
+          "Reginaldo dos Santos Silva"
+        ],
+        "parties": [
+          "Avante municipal de Iranduba/AM"
+        ],
+        "lawyers_signal": "Não há advogado marcado como recorrente no período para este processo, embora a decisão registre oito patronos atuantes.",
+        "what_happened": "Eudes Fernandes da Silva Gayo ajuizou tutela antecipada antecedente no TSE para revogar o efeito suspensivo concedido pela Presidência do TRE/AM ao recurso especial de Reginaldo dos Santos Silva. O acórdão regional havia mantido sentença de procedência em AIJE por fraude à cota de gênero na chapa proporcional do Avante em Iranduba/AM nas eleições de 2024. O relator deferiu a liminar e restabeleceu a execução integral do acórdão regional.",
+        "legal_grounds": "O relator considerou ausente plausibilidade jurídica para manter a suspensão integral dos efeitos do acórdão regional. Adotou o entendimento de que a controvérsia sobre inelegibilidade de dirigente partidário não afasta os consectários lógicos da fraude à cota de gênero, como cassação do DRAP, nulidade dos votos e retotalização. Também aplicou a orientação de que decisões com cassação de diploma devem ser cumpridas após o esgotamento das instâncias ordinárias, momento em que cessa o efeito suspensivo ope legis.",
+        "consequence": "A liminar foi deferida para restabelecer integralmente os efeitos do acórdão do TRE/AM e determinar sua execução imediata. Com isso, voltaram a produzir efeitos, conforme os dados fornecidos, a cassação do DRAP, dos registros e diplomas vinculados, a nulidade dos votos e a retotalização decorrentes do reconhecimento de fraude à cota de gênero.",
+        "strategic_comment": "O caso é municipal, mas tem interesse eleitoral mais amplo porque reafirma a executividade imediata, após o fim das instâncias ordinárias, de acórdão que reconhece fraude à cota de gênero. A decisão reduz o espaço para suspensão global de efeitos quando a impugnação recursal ataca apenas aspecto específico, como inelegibilidade de dirigente partidário, preservando consequências institucionais sobre a lista proporcional do partido.",
+        "why_relevant": "A relevância está na combinação entre fraude à cota de gênero, efeitos sobre DRAP e votação proporcional de partido, e definição sobre o momento de execução de cassação eleitoral. Embora o caso seja municipal, a tese é replicável para chapas proporcionais e para estratégias recursais partidárias em casos de fraude de gênero.",
+        "source_notes": [
+          "Processo 0600909-76.2026.6.00.0000, decisão monocrática de 27/05/2026, relatoria do Min. Ricardo Villas Bôas Cueva.",
+          "O caso decorre de AIJE sobre fraude à cota de gênero na chapa proporcional do Partido Avante em Iranduba/AM nas eleições de 2024.",
+          "O trecho fornecido identifica Reginaldo dos Santos Silva como presidente do Avante municipal e candidato a vereador eleito em 2024."
+        ],
+        "page_id": "36f72195-5c64-810a-b790-c9b494574d1b",
+        "display_score": 7,
+        "ranking_reason": ""
+      }
+    },
+    "numero_processo:60090976": {
+      "model": "gpt-5.5",
+      "case_id": "0600909-76.2026.6.00.0000",
+      "page_id": "36f72195-5c64-810a-b790-c9b494574d1b",
+      "processo": "0600909-76.2026.6.00.0000",
+      "content_hash": "36bddb01a8cb4cda8b24d0878a89e56589d87e19095f6871fc24f916c6a0876a",
+      "cached_at_utc": "2026-05-29T12:24:22.934120+00:00",
+      "analysis": {
+        "case_id": "0600909-76.2026.6.00.0000",
+        "title": "Fraude à cota de gênero no Avante de Iranduba e execução imediata do acórdão após instância ordinária",
+        "relevance_score": 7,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Eudes Fernandes da Silva Gayo",
+          "Reginaldo dos Santos Silva"
+        ],
+        "parties": [
+          "Avante municipal de Iranduba/AM"
+        ],
+        "lawyers_signal": "Não há advogado marcado como recorrente no período para este processo, embora a decisão registre oito patronos atuantes.",
+        "what_happened": "Eudes Fernandes da Silva Gayo ajuizou tutela antecipada antecedente no TSE para revogar o efeito suspensivo concedido pela Presidência do TRE/AM ao recurso especial de Reginaldo dos Santos Silva. O acórdão regional havia mantido sentença de procedência em AIJE por fraude à cota de gênero na chapa proporcional do Avante em Iranduba/AM nas eleições de 2024. O relator deferiu a liminar e restabeleceu a execução integral do acórdão regional.",
+        "legal_grounds": "O relator considerou ausente plausibilidade jurídica para manter a suspensão integral dos efeitos do acórdão regional. Adotou o entendimento de que a controvérsia sobre inelegibilidade de dirigente partidário não afasta os consectários lógicos da fraude à cota de gênero, como cassação do DRAP, nulidade dos votos e retotalização. Também aplicou a orientação de que decisões com cassação de diploma devem ser cumpridas após o esgotamento das instâncias ordinárias, momento em que cessa o efeito suspensivo ope legis.",
+        "consequence": "A liminar foi deferida para restabelecer integralmente os efeitos do acórdão do TRE/AM e determinar sua execução imediata. Com isso, voltaram a produzir efeitos, conforme os dados fornecidos, a cassação do DRAP, dos registros e diplomas vinculados, a nulidade dos votos e a retotalização decorrentes do reconhecimento de fraude à cota de gênero.",
+        "strategic_comment": "O caso é municipal, mas tem interesse eleitoral mais amplo porque reafirma a executividade imediata, após o fim das instâncias ordinárias, de acórdão que reconhece fraude à cota de gênero. A decisão reduz o espaço para suspensão global de efeitos quando a impugnação recursal ataca apenas aspecto específico, como inelegibilidade de dirigente partidário, preservando consequências institucionais sobre a lista proporcional do partido.",
+        "why_relevant": "A relevância está na combinação entre fraude à cota de gênero, efeitos sobre DRAP e votação proporcional de partido, e definição sobre o momento de execução de cassação eleitoral. Embora o caso seja municipal, a tese é replicável para chapas proporcionais e para estratégias recursais partidárias em casos de fraude de gênero.",
+        "source_notes": [
+          "Processo 0600909-76.2026.6.00.0000, decisão monocrática de 27/05/2026, relatoria do Min. Ricardo Villas Bôas Cueva.",
+          "O caso decorre de AIJE sobre fraude à cota de gênero na chapa proporcional do Partido Avante em Iranduba/AM nas eleições de 2024.",
+          "O trecho fornecido identifica Reginaldo dos Santos Silva como presidente do Avante municipal e candidato a vereador eleito em 2024."
+        ],
+        "page_id": "36f72195-5c64-810a-b790-c9b494574d1b",
+        "display_score": 7,
+        "ranking_reason": ""
+      }
+    },
+    "page_id:36f72195-5c64-810a-b790-c9b494574d1b": {
+      "model": "gpt-5.5",
+      "case_id": "0600909-76.2026.6.00.0000",
+      "page_id": "36f72195-5c64-810a-b790-c9b494574d1b",
+      "processo": "0600909-76.2026.6.00.0000",
+      "content_hash": "36bddb01a8cb4cda8b24d0878a89e56589d87e19095f6871fc24f916c6a0876a",
+      "cached_at_utc": "2026-05-29T12:24:22.934120+00:00",
+      "analysis": {
+        "case_id": "0600909-76.2026.6.00.0000",
+        "title": "Fraude à cota de gênero no Avante de Iranduba e execução imediata do acórdão após instância ordinária",
+        "relevance_score": 7,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Eudes Fernandes da Silva Gayo",
+          "Reginaldo dos Santos Silva"
+        ],
+        "parties": [
+          "Avante municipal de Iranduba/AM"
+        ],
+        "lawyers_signal": "Não há advogado marcado como recorrente no período para este processo, embora a decisão registre oito patronos atuantes.",
+        "what_happened": "Eudes Fernandes da Silva Gayo ajuizou tutela antecipada antecedente no TSE para revogar o efeito suspensivo concedido pela Presidência do TRE/AM ao recurso especial de Reginaldo dos Santos Silva. O acórdão regional havia mantido sentença de procedência em AIJE por fraude à cota de gênero na chapa proporcional do Avante em Iranduba/AM nas eleições de 2024. O relator deferiu a liminar e restabeleceu a execução integral do acórdão regional.",
+        "legal_grounds": "O relator considerou ausente plausibilidade jurídica para manter a suspensão integral dos efeitos do acórdão regional. Adotou o entendimento de que a controvérsia sobre inelegibilidade de dirigente partidário não afasta os consectários lógicos da fraude à cota de gênero, como cassação do DRAP, nulidade dos votos e retotalização. Também aplicou a orientação de que decisões com cassação de diploma devem ser cumpridas após o esgotamento das instâncias ordinárias, momento em que cessa o efeito suspensivo ope legis.",
+        "consequence": "A liminar foi deferida para restabelecer integralmente os efeitos do acórdão do TRE/AM e determinar sua execução imediata. Com isso, voltaram a produzir efeitos, conforme os dados fornecidos, a cassação do DRAP, dos registros e diplomas vinculados, a nulidade dos votos e a retotalização decorrentes do reconhecimento de fraude à cota de gênero.",
+        "strategic_comment": "O caso é municipal, mas tem interesse eleitoral mais amplo porque reafirma a executividade imediata, após o fim das instâncias ordinárias, de acórdão que reconhece fraude à cota de gênero. A decisão reduz o espaço para suspensão global de efeitos quando a impugnação recursal ataca apenas aspecto específico, como inelegibilidade de dirigente partidário, preservando consequências institucionais sobre a lista proporcional do partido.",
+        "why_relevant": "A relevância está na combinação entre fraude à cota de gênero, efeitos sobre DRAP e votação proporcional de partido, e definição sobre o momento de execução de cassação eleitoral. Embora o caso seja municipal, a tese é replicável para chapas proporcionais e para estratégias recursais partidárias em casos de fraude de gênero.",
+        "source_notes": [
+          "Processo 0600909-76.2026.6.00.0000, decisão monocrática de 27/05/2026, relatoria do Min. Ricardo Villas Bôas Cueva.",
+          "O caso decorre de AIJE sobre fraude à cota de gênero na chapa proporcional do Partido Avante em Iranduba/AM nas eleições de 2024.",
+          "O trecho fornecido identifica Reginaldo dos Santos Silva como presidente do Avante municipal e candidato a vereador eleito em 2024."
+        ],
+        "page_id": "36f72195-5c64-810a-b790-c9b494574d1b",
+        "display_score": 7,
+        "ranking_reason": ""
+      }
+    },
+    "case_id:0600909-76.2026.6.00.0000": {
+      "model": "gpt-5.5",
+      "case_id": "0600909-76.2026.6.00.0000",
+      "page_id": "36f72195-5c64-810a-b790-c9b494574d1b",
+      "processo": "0600909-76.2026.6.00.0000",
+      "content_hash": "36bddb01a8cb4cda8b24d0878a89e56589d87e19095f6871fc24f916c6a0876a",
+      "cached_at_utc": "2026-05-29T12:24:22.934120+00:00",
+      "analysis": {
+        "case_id": "0600909-76.2026.6.00.0000",
+        "title": "Fraude à cota de gênero no Avante de Iranduba e execução imediata do acórdão após instância ordinária",
+        "relevance_score": 7,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Eudes Fernandes da Silva Gayo",
+          "Reginaldo dos Santos Silva"
+        ],
+        "parties": [
+          "Avante municipal de Iranduba/AM"
+        ],
+        "lawyers_signal": "Não há advogado marcado como recorrente no período para este processo, embora a decisão registre oito patronos atuantes.",
+        "what_happened": "Eudes Fernandes da Silva Gayo ajuizou tutela antecipada antecedente no TSE para revogar o efeito suspensivo concedido pela Presidência do TRE/AM ao recurso especial de Reginaldo dos Santos Silva. O acórdão regional havia mantido sentença de procedência em AIJE por fraude à cota de gênero na chapa proporcional do Avante em Iranduba/AM nas eleições de 2024. O relator deferiu a liminar e restabeleceu a execução integral do acórdão regional.",
+        "legal_grounds": "O relator considerou ausente plausibilidade jurídica para manter a suspensão integral dos efeitos do acórdão regional. Adotou o entendimento de que a controvérsia sobre inelegibilidade de dirigente partidário não afasta os consectários lógicos da fraude à cota de gênero, como cassação do DRAP, nulidade dos votos e retotalização. Também aplicou a orientação de que decisões com cassação de diploma devem ser cumpridas após o esgotamento das instâncias ordinárias, momento em que cessa o efeito suspensivo ope legis.",
+        "consequence": "A liminar foi deferida para restabelecer integralmente os efeitos do acórdão do TRE/AM e determinar sua execução imediata. Com isso, voltaram a produzir efeitos, conforme os dados fornecidos, a cassação do DRAP, dos registros e diplomas vinculados, a nulidade dos votos e a retotalização decorrentes do reconhecimento de fraude à cota de gênero.",
+        "strategic_comment": "O caso é municipal, mas tem interesse eleitoral mais amplo porque reafirma a executividade imediata, após o fim das instâncias ordinárias, de acórdão que reconhece fraude à cota de gênero. A decisão reduz o espaço para suspensão global de efeitos quando a impugnação recursal ataca apenas aspecto específico, como inelegibilidade de dirigente partidário, preservando consequências institucionais sobre a lista proporcional do partido.",
+        "why_relevant": "A relevância está na combinação entre fraude à cota de gênero, efeitos sobre DRAP e votação proporcional de partido, e definição sobre o momento de execução de cassação eleitoral. Embora o caso seja municipal, a tese é replicável para chapas proporcionais e para estratégias recursais partidárias em casos de fraude de gênero.",
+        "source_notes": [
+          "Processo 0600909-76.2026.6.00.0000, decisão monocrática de 27/05/2026, relatoria do Min. Ricardo Villas Bôas Cueva.",
+          "O caso decorre de AIJE sobre fraude à cota de gênero na chapa proporcional do Partido Avante em Iranduba/AM nas eleições de 2024.",
+          "O trecho fornecido identifica Reginaldo dos Santos Silva como presidente do Avante municipal e candidato a vereador eleito em 2024."
+        ],
+        "page_id": "36f72195-5c64-810a-b790-c9b494574d1b",
+        "display_score": 7,
+        "ranking_reason": ""
+      }
+    },
+    "content_hash:36bddb01a8cb4cda8b24d0878a89e56589d87e19095f6871fc24f916c6a0876a": {
+      "model": "gpt-5.5",
+      "case_id": "0600909-76.2026.6.00.0000",
+      "page_id": "36f72195-5c64-810a-b790-c9b494574d1b",
+      "processo": "0600909-76.2026.6.00.0000",
+      "content_hash": "36bddb01a8cb4cda8b24d0878a89e56589d87e19095f6871fc24f916c6a0876a",
+      "cached_at_utc": "2026-05-29T12:24:22.934120+00:00",
+      "analysis": {
+        "case_id": "0600909-76.2026.6.00.0000",
+        "title": "Fraude à cota de gênero no Avante de Iranduba e execução imediata do acórdão após instância ordinária",
+        "relevance_score": 7,
+        "risk_level": "alto",
+        "includes_public_figure": true,
+        "includes_party": true,
+        "public_figures": [
+          "Eudes Fernandes da Silva Gayo",
+          "Reginaldo dos Santos Silva"
+        ],
+        "parties": [
+          "Avante municipal de Iranduba/AM"
+        ],
+        "lawyers_signal": "Não há advogado marcado como recorrente no período para este processo, embora a decisão registre oito patronos atuantes.",
+        "what_happened": "Eudes Fernandes da Silva Gayo ajuizou tutela antecipada antecedente no TSE para revogar o efeito suspensivo concedido pela Presidência do TRE/AM ao recurso especial de Reginaldo dos Santos Silva. O acórdão regional havia mantido sentença de procedência em AIJE por fraude à cota de gênero na chapa proporcional do Avante em Iranduba/AM nas eleições de 2024. O relator deferiu a liminar e restabeleceu a execução integral do acórdão regional.",
+        "legal_grounds": "O relator considerou ausente plausibilidade jurídica para manter a suspensão integral dos efeitos do acórdão regional. Adotou o entendimento de que a controvérsia sobre inelegibilidade de dirigente partidário não afasta os consectários lógicos da fraude à cota de gênero, como cassação do DRAP, nulidade dos votos e retotalização. Também aplicou a orientação de que decisões com cassação de diploma devem ser cumpridas após o esgotamento das instâncias ordinárias, momento em que cessa o efeito suspensivo ope legis.",
+        "consequence": "A liminar foi deferida para restabelecer integralmente os efeitos do acórdão do TRE/AM e determinar sua execução imediata. Com isso, voltaram a produzir efeitos, conforme os dados fornecidos, a cassação do DRAP, dos registros e diplomas vinculados, a nulidade dos votos e a retotalização decorrentes do reconhecimento de fraude à cota de gênero.",
+        "strategic_comment": "O caso é municipal, mas tem interesse eleitoral mais amplo porque reafirma a executividade imediata, após o fim das instâncias ordinárias, de acórdão que reconhece fraude à cota de gênero. A decisão reduz o espaço para suspensão global de efeitos quando a impugnação recursal ataca apenas aspecto específico, como inelegibilidade de dirigente partidário, preservando consequências institucionais sobre a lista proporcional do partido.",
+        "why_relevant": "A relevância está na combinação entre fraude à cota de gênero, efeitos sobre DRAP e votação proporcional de partido, e definição sobre o momento de execução de cassação eleitoral. Embora o caso seja municipal, a tese é replicável para chapas proporcionais e para estratégias recursais partidárias em casos de fraude de gênero.",
+        "source_notes": [
+          "Processo 0600909-76.2026.6.00.0000, decisão monocrática de 27/05/2026, relatoria do Min. Ricardo Villas Bôas Cueva.",
+          "O caso decorre de AIJE sobre fraude à cota de gênero na chapa proporcional do Partido Avante em Iranduba/AM nas eleições de 2024.",
+          "O trecho fornecido identifica Reginaldo dos Santos Silva como presidente do Avante municipal e candidato a vereador eleito em 2024."
+        ],
+        "page_id": "36f72195-5c64-810a-b790-c9b494574d1b",
+        "display_score": 7,
+        "ranking_reason": ""
+      }
+    },
+    "numero_unico:0600917-53.2026.6.00.0000": {
+      "model": "gpt-5.5",
+      "case_id": "0600917-53.2026.6.00.0000",
+      "page_id": "36f72195-5c64-81c1-a888-e1f4a81e3d0b",
+      "processo": "0600917-53.2026.6.00.0000",
+      "content_hash": "9060454a5a0017860965c03f229cabbb1515c47bfc81523d77f0954e193af102",
+      "cached_at_utc": "2026-05-29T12:24:24.033710+00:00",
+      "analysis": {
+        "case_id": "0600917-53.2026.6.00.0000",
+        "title": "Fraude à cota de gênero em AIJE municipal e limites da tutela cautelar antecedente no TSE",
+        "relevance_score": 5,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": false,
+        "public_figures": [],
+        "parties": [],
+        "lawyers_signal": "Atuação de MARCO ANTONIO DA SILVA. Não há sinal de recorrência no período informado.",
+        "what_happened": "Requerentes buscaram tutela cautelar antecedente vinculada a recurso especial eleitoral em AIJE sobre fraude à cota de gênero nas eleições proporcionais de 2024 em Ilha Comprida/SP. O TSE negou seguimento à tutela cautelar antecedente por falta de plausibilidade jurídica, mantendo, em análise sumária, as conclusões do TRE/SP.",
+        "legal_grounds": "O fundamento central foi a ausência de plausibilidade jurídica para concessão cautelar. A decisão registrou que o juízo de admissibilidade do recurso especial ainda estava pendente na Presidência do TRE/SP, com referência ao art. 1.029, § 5º, III, do CPC, e que a competência do TSE ainda não estava inaugurada. Em obiter dictum, considerou as premissas fático-probatórias fixadas pelo TRE/SP e afastou reexame de prova, nos termos da Súmula 24/TSE.",
+        "consequence": "A tutela cautelar antecedente não avançou no TSE. Permaneceu, em juízo sumário, o acórdão regional que reconheceu candidatura feminina fictícia e aplicou efeitos sobre DRAP, diplomas e votos.",
+        "strategic_comment": "O caso tem relevância média por envolver fraude à cota de gênero, tema de impacto recorrente sobre chapas proporcionais e organização partidária. A utilidade estratégica está menos em inovação jurídica e mais na confirmação operacional de dois vetores: cautelar no TSE exige plausibilidade robusta e a discussão sobre candidatura fictícia não reabre prova em recurso especial. Como o caso é municipal e sem partido identificado, não há, pelos dados disponíveis, impacto federal ou partidário nacional material.",
+        "why_relevant": "A decisão reafirma a deferência do TSE às premissas fático-probatórias das instâncias ordinárias em casos de fraude à cota de gênero e preserva os efeitos graves reconhecidos regionalmente sobre DRAP, diplomas e votos. A relevância político-eleitoral é limitada pelo âmbito municipal e pela ausência de partido identificado, mas o tema tem potencial replicável em chapas proporcionais.",
+        "source_notes": [
+          "Processo 0600917-53.2026.6.00.0000, Tutela Cautelar Antecedente, decisão monocrática de 27/05/2026.",
+          "Município de Ilha Comprida/SP, eleições de 2024.",
+          "Tema informado: AIJE por fraude à cota de gênero nas eleições proporcionais.",
+          "Partidos não identificados nos dados fornecidos."
+        ],
+        "page_id": "36f72195-5c64-81c1-a888-e1f4a81e3d0b",
+        "display_score": 5,
+        "ranking_reason": ""
+      }
+    },
+    "numero_processo:60091753": {
+      "model": "gpt-5.5",
+      "case_id": "0600917-53.2026.6.00.0000",
+      "page_id": "36f72195-5c64-81c1-a888-e1f4a81e3d0b",
+      "processo": "0600917-53.2026.6.00.0000",
+      "content_hash": "9060454a5a0017860965c03f229cabbb1515c47bfc81523d77f0954e193af102",
+      "cached_at_utc": "2026-05-29T12:24:24.033710+00:00",
+      "analysis": {
+        "case_id": "0600917-53.2026.6.00.0000",
+        "title": "Fraude à cota de gênero em AIJE municipal e limites da tutela cautelar antecedente no TSE",
+        "relevance_score": 5,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": false,
+        "public_figures": [],
+        "parties": [],
+        "lawyers_signal": "Atuação de MARCO ANTONIO DA SILVA. Não há sinal de recorrência no período informado.",
+        "what_happened": "Requerentes buscaram tutela cautelar antecedente vinculada a recurso especial eleitoral em AIJE sobre fraude à cota de gênero nas eleições proporcionais de 2024 em Ilha Comprida/SP. O TSE negou seguimento à tutela cautelar antecedente por falta de plausibilidade jurídica, mantendo, em análise sumária, as conclusões do TRE/SP.",
+        "legal_grounds": "O fundamento central foi a ausência de plausibilidade jurídica para concessão cautelar. A decisão registrou que o juízo de admissibilidade do recurso especial ainda estava pendente na Presidência do TRE/SP, com referência ao art. 1.029, § 5º, III, do CPC, e que a competência do TSE ainda não estava inaugurada. Em obiter dictum, considerou as premissas fático-probatórias fixadas pelo TRE/SP e afastou reexame de prova, nos termos da Súmula 24/TSE.",
+        "consequence": "A tutela cautelar antecedente não avançou no TSE. Permaneceu, em juízo sumário, o acórdão regional que reconheceu candidatura feminina fictícia e aplicou efeitos sobre DRAP, diplomas e votos.",
+        "strategic_comment": "O caso tem relevância média por envolver fraude à cota de gênero, tema de impacto recorrente sobre chapas proporcionais e organização partidária. A utilidade estratégica está menos em inovação jurídica e mais na confirmação operacional de dois vetores: cautelar no TSE exige plausibilidade robusta e a discussão sobre candidatura fictícia não reabre prova em recurso especial. Como o caso é municipal e sem partido identificado, não há, pelos dados disponíveis, impacto federal ou partidário nacional material.",
+        "why_relevant": "A decisão reafirma a deferência do TSE às premissas fático-probatórias das instâncias ordinárias em casos de fraude à cota de gênero e preserva os efeitos graves reconhecidos regionalmente sobre DRAP, diplomas e votos. A relevância político-eleitoral é limitada pelo âmbito municipal e pela ausência de partido identificado, mas o tema tem potencial replicável em chapas proporcionais.",
+        "source_notes": [
+          "Processo 0600917-53.2026.6.00.0000, Tutela Cautelar Antecedente, decisão monocrática de 27/05/2026.",
+          "Município de Ilha Comprida/SP, eleições de 2024.",
+          "Tema informado: AIJE por fraude à cota de gênero nas eleições proporcionais.",
+          "Partidos não identificados nos dados fornecidos."
+        ],
+        "page_id": "36f72195-5c64-81c1-a888-e1f4a81e3d0b",
+        "display_score": 5,
+        "ranking_reason": ""
+      }
+    },
+    "page_id:36f72195-5c64-81c1-a888-e1f4a81e3d0b": {
+      "model": "gpt-5.5",
+      "case_id": "0600917-53.2026.6.00.0000",
+      "page_id": "36f72195-5c64-81c1-a888-e1f4a81e3d0b",
+      "processo": "0600917-53.2026.6.00.0000",
+      "content_hash": "9060454a5a0017860965c03f229cabbb1515c47bfc81523d77f0954e193af102",
+      "cached_at_utc": "2026-05-29T12:24:24.033710+00:00",
+      "analysis": {
+        "case_id": "0600917-53.2026.6.00.0000",
+        "title": "Fraude à cota de gênero em AIJE municipal e limites da tutela cautelar antecedente no TSE",
+        "relevance_score": 5,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": false,
+        "public_figures": [],
+        "parties": [],
+        "lawyers_signal": "Atuação de MARCO ANTONIO DA SILVA. Não há sinal de recorrência no período informado.",
+        "what_happened": "Requerentes buscaram tutela cautelar antecedente vinculada a recurso especial eleitoral em AIJE sobre fraude à cota de gênero nas eleições proporcionais de 2024 em Ilha Comprida/SP. O TSE negou seguimento à tutela cautelar antecedente por falta de plausibilidade jurídica, mantendo, em análise sumária, as conclusões do TRE/SP.",
+        "legal_grounds": "O fundamento central foi a ausência de plausibilidade jurídica para concessão cautelar. A decisão registrou que o juízo de admissibilidade do recurso especial ainda estava pendente na Presidência do TRE/SP, com referência ao art. 1.029, § 5º, III, do CPC, e que a competência do TSE ainda não estava inaugurada. Em obiter dictum, considerou as premissas fático-probatórias fixadas pelo TRE/SP e afastou reexame de prova, nos termos da Súmula 24/TSE.",
+        "consequence": "A tutela cautelar antecedente não avançou no TSE. Permaneceu, em juízo sumário, o acórdão regional que reconheceu candidatura feminina fictícia e aplicou efeitos sobre DRAP, diplomas e votos.",
+        "strategic_comment": "O caso tem relevância média por envolver fraude à cota de gênero, tema de impacto recorrente sobre chapas proporcionais e organização partidária. A utilidade estratégica está menos em inovação jurídica e mais na confirmação operacional de dois vetores: cautelar no TSE exige plausibilidade robusta e a discussão sobre candidatura fictícia não reabre prova em recurso especial. Como o caso é municipal e sem partido identificado, não há, pelos dados disponíveis, impacto federal ou partidário nacional material.",
+        "why_relevant": "A decisão reafirma a deferência do TSE às premissas fático-probatórias das instâncias ordinárias em casos de fraude à cota de gênero e preserva os efeitos graves reconhecidos regionalmente sobre DRAP, diplomas e votos. A relevância político-eleitoral é limitada pelo âmbito municipal e pela ausência de partido identificado, mas o tema tem potencial replicável em chapas proporcionais.",
+        "source_notes": [
+          "Processo 0600917-53.2026.6.00.0000, Tutela Cautelar Antecedente, decisão monocrática de 27/05/2026.",
+          "Município de Ilha Comprida/SP, eleições de 2024.",
+          "Tema informado: AIJE por fraude à cota de gênero nas eleições proporcionais.",
+          "Partidos não identificados nos dados fornecidos."
+        ],
+        "page_id": "36f72195-5c64-81c1-a888-e1f4a81e3d0b",
+        "display_score": 5,
+        "ranking_reason": ""
+      }
+    },
+    "case_id:0600917-53.2026.6.00.0000": {
+      "model": "gpt-5.5",
+      "case_id": "0600917-53.2026.6.00.0000",
+      "page_id": "36f72195-5c64-81c1-a888-e1f4a81e3d0b",
+      "processo": "0600917-53.2026.6.00.0000",
+      "content_hash": "9060454a5a0017860965c03f229cabbb1515c47bfc81523d77f0954e193af102",
+      "cached_at_utc": "2026-05-29T12:24:24.033710+00:00",
+      "analysis": {
+        "case_id": "0600917-53.2026.6.00.0000",
+        "title": "Fraude à cota de gênero em AIJE municipal e limites da tutela cautelar antecedente no TSE",
+        "relevance_score": 5,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": false,
+        "public_figures": [],
+        "parties": [],
+        "lawyers_signal": "Atuação de MARCO ANTONIO DA SILVA. Não há sinal de recorrência no período informado.",
+        "what_happened": "Requerentes buscaram tutela cautelar antecedente vinculada a recurso especial eleitoral em AIJE sobre fraude à cota de gênero nas eleições proporcionais de 2024 em Ilha Comprida/SP. O TSE negou seguimento à tutela cautelar antecedente por falta de plausibilidade jurídica, mantendo, em análise sumária, as conclusões do TRE/SP.",
+        "legal_grounds": "O fundamento central foi a ausência de plausibilidade jurídica para concessão cautelar. A decisão registrou que o juízo de admissibilidade do recurso especial ainda estava pendente na Presidência do TRE/SP, com referência ao art. 1.029, § 5º, III, do CPC, e que a competência do TSE ainda não estava inaugurada. Em obiter dictum, considerou as premissas fático-probatórias fixadas pelo TRE/SP e afastou reexame de prova, nos termos da Súmula 24/TSE.",
+        "consequence": "A tutela cautelar antecedente não avançou no TSE. Permaneceu, em juízo sumário, o acórdão regional que reconheceu candidatura feminina fictícia e aplicou efeitos sobre DRAP, diplomas e votos.",
+        "strategic_comment": "O caso tem relevância média por envolver fraude à cota de gênero, tema de impacto recorrente sobre chapas proporcionais e organização partidária. A utilidade estratégica está menos em inovação jurídica e mais na confirmação operacional de dois vetores: cautelar no TSE exige plausibilidade robusta e a discussão sobre candidatura fictícia não reabre prova em recurso especial. Como o caso é municipal e sem partido identificado, não há, pelos dados disponíveis, impacto federal ou partidário nacional material.",
+        "why_relevant": "A decisão reafirma a deferência do TSE às premissas fático-probatórias das instâncias ordinárias em casos de fraude à cota de gênero e preserva os efeitos graves reconhecidos regionalmente sobre DRAP, diplomas e votos. A relevância político-eleitoral é limitada pelo âmbito municipal e pela ausência de partido identificado, mas o tema tem potencial replicável em chapas proporcionais.",
+        "source_notes": [
+          "Processo 0600917-53.2026.6.00.0000, Tutela Cautelar Antecedente, decisão monocrática de 27/05/2026.",
+          "Município de Ilha Comprida/SP, eleições de 2024.",
+          "Tema informado: AIJE por fraude à cota de gênero nas eleições proporcionais.",
+          "Partidos não identificados nos dados fornecidos."
+        ],
+        "page_id": "36f72195-5c64-81c1-a888-e1f4a81e3d0b",
+        "display_score": 5,
+        "ranking_reason": ""
+      }
+    },
+    "content_hash:9060454a5a0017860965c03f229cabbb1515c47bfc81523d77f0954e193af102": {
+      "model": "gpt-5.5",
+      "case_id": "0600917-53.2026.6.00.0000",
+      "page_id": "36f72195-5c64-81c1-a888-e1f4a81e3d0b",
+      "processo": "0600917-53.2026.6.00.0000",
+      "content_hash": "9060454a5a0017860965c03f229cabbb1515c47bfc81523d77f0954e193af102",
+      "cached_at_utc": "2026-05-29T12:24:24.033710+00:00",
+      "analysis": {
+        "case_id": "0600917-53.2026.6.00.0000",
+        "title": "Fraude à cota de gênero em AIJE municipal e limites da tutela cautelar antecedente no TSE",
+        "relevance_score": 5,
+        "risk_level": "medio",
+        "includes_public_figure": false,
+        "includes_party": false,
+        "public_figures": [],
+        "parties": [],
+        "lawyers_signal": "Atuação de MARCO ANTONIO DA SILVA. Não há sinal de recorrência no período informado.",
+        "what_happened": "Requerentes buscaram tutela cautelar antecedente vinculada a recurso especial eleitoral em AIJE sobre fraude à cota de gênero nas eleições proporcionais de 2024 em Ilha Comprida/SP. O TSE negou seguimento à tutela cautelar antecedente por falta de plausibilidade jurídica, mantendo, em análise sumária, as conclusões do TRE/SP.",
+        "legal_grounds": "O fundamento central foi a ausência de plausibilidade jurídica para concessão cautelar. A decisão registrou que o juízo de admissibilidade do recurso especial ainda estava pendente na Presidência do TRE/SP, com referência ao art. 1.029, § 5º, III, do CPC, e que a competência do TSE ainda não estava inaugurada. Em obiter dictum, considerou as premissas fático-probatórias fixadas pelo TRE/SP e afastou reexame de prova, nos termos da Súmula 24/TSE.",
+        "consequence": "A tutela cautelar antecedente não avançou no TSE. Permaneceu, em juízo sumário, o acórdão regional que reconheceu candidatura feminina fictícia e aplicou efeitos sobre DRAP, diplomas e votos.",
+        "strategic_comment": "O caso tem relevância média por envolver fraude à cota de gênero, tema de impacto recorrente sobre chapas proporcionais e organização partidária. A utilidade estratégica está menos em inovação jurídica e mais na confirmação operacional de dois vetores: cautelar no TSE exige plausibilidade robusta e a discussão sobre candidatura fictícia não reabre prova em recurso especial. Como o caso é municipal e sem partido identificado, não há, pelos dados disponíveis, impacto federal ou partidário nacional material.",
+        "why_relevant": "A decisão reafirma a deferência do TSE às premissas fático-probatórias das instâncias ordinárias em casos de fraude à cota de gênero e preserva os efeitos graves reconhecidos regionalmente sobre DRAP, diplomas e votos. A relevância político-eleitoral é limitada pelo âmbito municipal e pela ausência de partido identificado, mas o tema tem potencial replicável em chapas proporcionais.",
+        "source_notes": [
+          "Processo 0600917-53.2026.6.00.0000, Tutela Cautelar Antecedente, decisão monocrática de 27/05/2026.",
+          "Município de Ilha Comprida/SP, eleições de 2024.",
+          "Tema informado: AIJE por fraude à cota de gênero nas eleições proporcionais.",
+          "Partidos não identificados nos dados fornecidos."
+        ],
+        "page_id": "36f72195-5c64-81c1-a888-e1f4a81e3d0b",
+        "display_score": 5,
+        "ranking_reason": ""
+      }
     }
   },
   "version": 1,
-  "updated_at_utc": "2026-05-22T11:14:41.578547+00:00"
+  "updated_at_utc": "2026-05-29T12:24:24.034308+00:00"
 }
