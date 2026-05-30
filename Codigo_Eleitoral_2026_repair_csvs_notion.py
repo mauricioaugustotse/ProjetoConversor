@@ -31,6 +31,7 @@ UPDATE_PROPERTIES = [
     "referencias_jurisprudenciais",
     "resumo_curto",
     "texto_rag",
+    "dispositivo_pai",
     "chars",
     "tokens_estimados",
     "dispositivo_pai_id",
@@ -135,6 +136,8 @@ def build_summary(row: Mapping[str, str]) -> str:
     sentence = first_legal_sentence(text) or first_legal_sentence(row.get("notas_texto", ""))
     if kind == "norma":
         prefix = f"Norma {norm}"
+    elif kind in {"estrutura", "artigo", "paragrafo", "inciso", "alinea", "item"} and parent:
+        prefix = f"{dispositivo}, subordinado a {parent}"
     elif kind == "estrutura":
         prefix = f"Estrutura da {norm}"
     elif kind == "sumula":
@@ -143,8 +146,6 @@ def build_summary(row: Mapping[str, str]) -> str:
         prefix = f"{dispositivo}"
     elif kind == "paragrafo":
         prefix = f"{dispositivo}"
-    elif kind in {"inciso", "alinea", "item"} and parent:
-        prefix = f"{dispositivo}, subordinado a {parent}"
     else:
         prefix = dispositivo or norm
 
@@ -249,6 +250,35 @@ def read_csv_rows(csv_path: Path) -> Tuple[List[str], List[Dict[str, str]]]:
     return fieldnames, rows
 
 
+def hierarchy_parent(hierarchy: str) -> str:
+    parts = [part.strip() for part in normalize_ws(hierarchy).split(" > ") if part.strip()]
+    if len(parts) <= 1:
+        return ""
+    return " > ".join(parts[:-1])
+
+
+def set_parent(row: Dict[str, str], parent_row: Optional[Mapping[str, str]], csv_name: str) -> bool:
+    before = (
+        normalize_ws(row.get("dispositivo_pai")),
+        normalize_ws(row.get("dispositivo_pai_id")),
+        normalize_ws(row.get("dispositivo_pai_row_key")),
+    )
+    if parent_row and parent_row is not row:
+        row["dispositivo_pai"] = normalize_ws(parent_row.get("dispositivo"))
+        row["dispositivo_pai_id"] = normalize_ws(parent_row.get("id"))
+        row["dispositivo_pai_row_key"] = csv_row_key(csv_name, parent_row)
+    else:
+        row["dispositivo_pai"] = ""
+        row["dispositivo_pai_id"] = ""
+        row["dispositivo_pai_row_key"] = ""
+    after = (
+        normalize_ws(row.get("dispositivo_pai")),
+        normalize_ws(row.get("dispositivo_pai_id")),
+        normalize_ws(row.get("dispositivo_pai_row_key")),
+    )
+    return before != after
+
+
 def write_csv_rows(csv_path: Path, fieldnames: Sequence[str], rows: Sequence[Mapping[str, str]]) -> None:
     with csv_path.open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=list(fieldnames), extrasaction="ignore")
@@ -262,11 +292,19 @@ def repair_file(csv_path: Path) -> Tuple[int, int, int, int]:
         if column not in fieldnames:
             fieldnames.append(column)
 
+    for row in rows:
+        row["csv_arquivo"] = csv_path.name
+        row["row_key"] = csv_row_key(csv_path.name, row)
+
     display_to_row = {
         normalize_ws(row.get("dispositivo")).lower(): row
         for row in rows
         if normalize_ws(row.get("dispositivo"))
     }
+    norm_row = next((row for row in rows if normalize_ws(row.get("tipo_dispositivo")) == "norma"), None)
+    if norm_row is None:
+        norm_row = next((row for row in rows if normalize_ws(row.get("tipo_dispositivo")) == "sumula"), None)
+    structure_by_hierarchy: Dict[str, Dict[str, str]] = {}
 
     popular_filled = 0
     refs_changed = 0
@@ -275,21 +313,33 @@ def repair_file(csv_path: Path) -> Tuple[int, int, int, int]:
 
     for row in rows:
         before_popular = normalize_ws(row.get("norma_nome_popular"))
-        row["csv_arquivo"] = csv_path.name
-        row["row_key"] = csv_row_key(csv_path.name, row)
         row["norma_nome_popular"] = repaired_popular_name(row)
         if not before_popular and row["norma_nome_popular"]:
             popular_filled += 1
 
-        parent_text = normalize_ws(row.get("dispositivo_pai"))
-        parent_row = display_to_row.get(parent_text.lower()) if parent_text else None
-        if parent_row:
-            row["dispositivo_pai_id"] = normalize_ws(parent_row.get("id"))
-            row["dispositivo_pai_row_key"] = csv_row_key(csv_path.name, parent_row)
+        tipo = normalize_ws(row.get("tipo_dispositivo"))
+        parent_row: Optional[Mapping[str, str]] = None
+        if tipo == "estrutura":
+            hierarchy = normalize_ws(row.get("hierarquia_normativa"))
+            parent_row = structure_by_hierarchy.get(hierarchy_parent(hierarchy)) or norm_row
+        elif tipo == "artigo":
+            hierarchy = normalize_ws(row.get("hierarquia_normativa"))
+            parent_row = structure_by_hierarchy.get(hierarchy) or norm_row
+        elif tipo == "paragrafo" and not normalize_ws(row.get("dispositivo_pai")):
+            parent_row = display_to_row.get(normalize_ws(row.get("artigo")).lower()) or norm_row
+        elif tipo in {"paragrafo", "inciso", "alinea", "item"}:
+            parent_text = normalize_ws(row.get("dispositivo_pai"))
+            parent_row = display_to_row.get(parent_text.lower()) if parent_text else None
+
+        if set_parent(row, parent_row, csv_path.name):
             parent_links += 1
-        else:
-            row["dispositivo_pai_id"] = ""
-            row["dispositivo_pai_row_key"] = ""
+        elif normalize_ws(row.get("dispositivo_pai_row_key")):
+            parent_links += 1
+
+        if tipo == "estrutura":
+            hierarchy = normalize_ws(row.get("hierarquia_normativa"))
+            if hierarchy:
+                structure_by_hierarchy[hierarchy] = row
 
         new_refs = extract_jurisprudence_references(row.get("notas_texto", ""))
         if normalize_ws(row.get("referencias_jurisprudenciais")) != new_refs:
@@ -376,6 +426,7 @@ def build_page_update_properties(
         "referencias_jurisprudenciais": notion_import.rich_text_property(row.get("referencias_jurisprudenciais", ""), max_chars=max_rich_text_chars),
         "resumo_curto": notion_import.rich_text_property(row.get("resumo_curto", ""), max_chars=max_rich_text_chars),
         "texto_rag": notion_import.rich_text_property(row.get("texto_rag", ""), max_chars=max_rich_text_chars),
+        "dispositivo_pai": notion_import.rich_text_property(row.get("dispositivo_pai", ""), max_chars=max_rich_text_chars),
         "chars": notion_import.number_property(row.get("chars", "")),
         "tokens_estimados": notion_import.number_property(row.get("tokens_estimados", "")),
         "dispositivo_pai_id": notion_import.number_property(row.get("dispositivo_pai_id", "")),
@@ -397,6 +448,8 @@ def update_notion_rows(
     rate_rps: float,
     max_rich_text_chars: int,
     limit: int,
+    only_types: Optional[set[str]] = None,
+    only_row_keys: Optional[set[str]] = None,
 ) -> Dict[str, int]:
     checkpoint = json.loads(checkpoint_path.read_text(encoding="utf-8"))
     data_source_id = normalize_ws(checkpoint.get("data_source_id"))
@@ -413,7 +466,15 @@ def update_notion_rows(
     )
     ensure_notion_schema(client, data_source_id)
 
-    rows = list(iter_repaired_rows(csv_dir, limit=limit))
+    rows: List[Dict[str, str]] = []
+    for row in iter_repaired_rows(csv_dir):
+        if only_types and normalize_ws(row.get("tipo_dispositivo")) not in only_types:
+            continue
+        if only_row_keys and normalize_ws(row.get("row_key")) not in only_row_keys:
+            continue
+        rows.append(row)
+        if limit > 0 and len(rows) >= limit:
+            break
     total = len(rows)
     updated = 0
     missing_pages = 0
@@ -462,6 +523,10 @@ def validate_csvs(csv_dir: Path) -> Dict[str, int]:
         "missing_popular": 0,
         "missing_parent_key": 0,
         "parent_rows": 0,
+        "article_rows": 0,
+        "article_rows_with_parent": 0,
+        "structure_rows": 0,
+        "structure_rows_with_parent": 0,
         "juris_with_bare_n": 0,
     }
     for csv_path in sorted(csv_dir.glob("*.csv")):
@@ -470,6 +535,14 @@ def validate_csvs(csv_dir: Path) -> Dict[str, int]:
             totals["rows"] += 1
             if not normalize_ws(row.get("norma_nome_popular")):
                 totals["missing_popular"] += 1
+            if normalize_ws(row.get("tipo_dispositivo")) == "artigo":
+                totals["article_rows"] += 1
+                if normalize_ws(row.get("dispositivo_pai_row_key")):
+                    totals["article_rows_with_parent"] += 1
+            if normalize_ws(row.get("tipo_dispositivo")) == "estrutura":
+                totals["structure_rows"] += 1
+                if normalize_ws(row.get("dispositivo_pai_row_key")):
+                    totals["structure_rows_with_parent"] += 1
             if normalize_ws(row.get("dispositivo_pai")):
                 totals["parent_rows"] += 1
                 if not normalize_ws(row.get("dispositivo_pai_row_key")):
@@ -487,6 +560,8 @@ def parse_args(argv: Optional[Sequence[str]] = None) -> argparse.Namespace:
     parser.add_argument("--notion-only", action="store_true")
     parser.add_argument("--limit", type=int, default=0)
     parser.add_argument("--limit-files", type=int, default=0)
+    parser.add_argument("--types", default="", help="Atualiza apenas tipos separados por virgula, ex.: estrutura,artigo.")
+    parser.add_argument("--row-keys-file", type=Path, default=None, help="Atualiza apenas row_keys listados no arquivo, um por linha.")
     parser.add_argument("--workers", type=int, default=4)
     parser.add_argument("--rate-rps", type=float, default=2.8)
     parser.add_argument("--max-rich-text-chars", type=int, default=30000)
@@ -507,10 +582,24 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     validation = validate_csvs(args.csv_dir)
     LOGGER.info("Validacao CSV: %s", json.dumps(validation, ensure_ascii=False, sort_keys=True))
-    if validation["missing_popular"] or validation["missing_parent_key"] or validation["juris_with_bare_n"]:
+    if (
+        validation["missing_popular"]
+        or validation["missing_parent_key"]
+        or validation["juris_with_bare_n"]
+        or validation["article_rows"] != validation["article_rows_with_parent"]
+        or validation["structure_rows"] != validation["structure_rows_with_parent"]
+    ):
         raise RuntimeError("Validacao CSV encontrou pendencias.")
 
     if not args.csv_only:
+        only_types = {normalize_ws(item) for item in str(args.types or "").split(",") if normalize_ws(item)}
+        only_row_keys: Optional[set[str]] = None
+        if args.row_keys_file:
+            only_row_keys = {
+                normalize_ws(line)
+                for line in args.row_keys_file.read_text(encoding="utf-8").splitlines()
+                if normalize_ws(line)
+            }
         result = update_notion_rows(
             args.csv_dir,
             args.checkpoint,
@@ -518,6 +607,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             rate_rps=max(0.1, float(args.rate_rps or 0.0)),
             max_rich_text_chars=max(2000, int(args.max_rich_text_chars or 0)),
             limit=max(0, int(args.limit or 0)),
+            only_types=only_types or None,
+            only_row_keys=only_row_keys,
         )
         LOGGER.info("Notion reparado: %s", json.dumps(result, ensure_ascii=False, sort_keys=True))
     return 0

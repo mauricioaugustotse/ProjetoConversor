@@ -898,12 +898,12 @@ def build_row_summary(row: ParsedRow, refs_juris: str = "") -> str:
     sentence = first_legal_sentence(row.texto_dispositivo) or first_legal_sentence(row.notas_texto)
     if row.tipo_dispositivo == "norma":
         prefix = f"Norma {norm_label}"
+    elif row.tipo_dispositivo in {"estrutura", "artigo", "paragrafo", "inciso", "alinea", "item"} and row.dispositivo_pai:
+        prefix = f"{row.dispositivo}, subordinado a {row.dispositivo_pai}"
     elif row.tipo_dispositivo == "estrutura":
         prefix = f"Estrutura da {norm_label}"
     elif row.tipo_dispositivo == "sumula":
         prefix = f"Enunciado {row.dispositivo}"
-    elif row.tipo_dispositivo in {"inciso", "alinea", "item"} and row.dispositivo_pai:
-        prefix = f"{row.dispositivo}, subordinado a {row.dispositivo_pai}"
     else:
         prefix = row.dispositivo or norm_label
 
@@ -990,21 +990,90 @@ def enrich_csv_rows_with_links(norm: NormStart, rows: List[Dict[str, Any]]) -> N
         for row in rows
         if clean_text_for_csv(str(row.get("dispositivo", "")))
     }
-    for row in rows:
-        parent = clean_text_for_csv(str(row.get("dispositivo_pai", ""))).lower()
-        parent_row = rows_by_dispositivo.get(parent) if parent else None
-        if parent_row:
+    norm_row = next((row for row in rows if clean_text_for_csv(str(row.get("tipo_dispositivo"))) == "norma"), None)
+    if norm_row is None:
+        norm_row = next((row for row in rows if clean_text_for_csv(str(row.get("tipo_dispositivo"))) == "sumula"), None)
+    structure_by_hierarchy: Dict[str, Dict[str, Any]] = {}
+
+    def parent_hierarchy(hierarchy: str) -> str:
+        parts = [part.strip() for part in clean_text_for_csv(hierarchy).split(" > ") if part.strip()]
+        if len(parts) <= 1:
+            return ""
+        return " > ".join(parts[:-1])
+
+    def assign_parent(row: Dict[str, Any], parent_row: Optional[Dict[str, Any]]) -> None:
+        if parent_row and parent_row is not row:
+            row["dispositivo_pai"] = parent_row.get("dispositivo", "")
             row["dispositivo_pai_id"] = parent_row.get("id", "")
             row["dispositivo_pai_row_key"] = parent_row.get("row_key", "")
-            if row.get("texto_rag"):
-                row["texto_rag"] = clean_text_for_csv(
-                    f"{row['texto_rag']}\nID do dispositivo pai: {row['dispositivo_pai_row_key']}"
-                )
-                row["chars"] = len(str(row["texto_rag"]))
-                row["tokens_estimados"] = estimate_tokens(str(row["texto_rag"]))
         else:
+            row["dispositivo_pai"] = ""
             row["dispositivo_pai_id"] = ""
             row["dispositivo_pai_row_key"] = ""
+
+    def rebuild_summary(row: Dict[str, Any]) -> str:
+        tipo = clean_text_for_csv(str(row.get("tipo_dispositivo", "")))
+        dispositivo = clean_text_for_csv(str(row.get("dispositivo", "")))
+        parent = clean_text_for_csv(str(row.get("dispositivo_pai", "")))
+        sentence = first_legal_sentence(str(row.get("texto_dispositivo", ""))) or first_legal_sentence(str(row.get("notas_texto", "")))
+        norm_label = clean_text_for_csv(str(row.get("norma_nome_popular", ""))) or canonical_norm_label(norm)
+        if tipo == "norma":
+            prefix = f"Norma {norm_label}"
+        elif tipo in {"estrutura", "artigo", "paragrafo", "inciso", "alinea", "item"} and parent:
+            prefix = f"{dispositivo}, subordinado a {parent}"
+        elif tipo == "estrutura":
+            prefix = f"Estrutura da {norm_label}"
+        elif tipo == "sumula":
+            prefix = f"Enunciado {dispositivo}"
+        else:
+            prefix = dispositivo or norm_label
+        summary = f"{prefix}: {sentence}" if sentence and sentence.lower() != dispositivo.lower() else prefix
+        flags: List[str] = []
+        combined = f"{row.get('texto_dispositivo', '')} {row.get('notas_texto', '')}".lower()
+        if re.search(r"\b(revogado|revogada|cancelada|cancelado|vetado|vetada)\b", combined):
+            flags.append("há marcação de revogação/cancelamento/veto")
+        try:
+            notes_count = int(float(str(row.get("qtd_notas") or "0")))
+        except ValueError:
+            notes_count = 0
+        if notes_count:
+            flags.append(f"{notes_count} nota(s) vinculada(s)")
+        if clean_text_for_csv(str(row.get("referencias_jurisprudenciais", ""))):
+            flags.append("jurisprudência extraída das notas")
+        if flags:
+            summary = f"{summary} | " + "; ".join(flags)
+        return limit_text(summary)
+
+    for row in rows:
+        tipo = clean_text_for_csv(str(row.get("tipo_dispositivo")))
+        parent_row: Optional[Dict[str, Any]] = None
+        if tipo == "estrutura":
+            hierarchy = clean_text_for_csv(str(row.get("hierarquia_normativa", "")))
+            parent_row = structure_by_hierarchy.get(parent_hierarchy(hierarchy)) or norm_row
+        elif tipo == "artigo":
+            hierarchy = clean_text_for_csv(str(row.get("hierarquia_normativa", "")))
+            parent_row = structure_by_hierarchy.get(hierarchy) or norm_row
+        elif tipo == "paragrafo" and not clean_text_for_csv(str(row.get("dispositivo_pai", ""))):
+            parent_row = rows_by_dispositivo.get(clean_text_for_csv(str(row.get("artigo", ""))).lower()) or norm_row
+        elif tipo in {"paragrafo", "inciso", "alinea", "item"}:
+            parent = clean_text_for_csv(str(row.get("dispositivo_pai", ""))).lower()
+            parent_row = rows_by_dispositivo.get(parent) if parent else None
+        assign_parent(row, parent_row)
+        if tipo == "estrutura":
+            hierarchy = clean_text_for_csv(str(row.get("hierarquia_normativa", "")))
+            if hierarchy:
+                structure_by_hierarchy[hierarchy] = row
+        row["resumo_curto"] = rebuild_summary(row)
+        if row.get("texto_rag") and row.get("dispositivo_pai_row_key"):
+            extra_parts: List[str] = []
+            if "Dispositivo pai:" not in str(row["texto_rag"]):
+                extra_parts.append(f"Dispositivo pai: {row['dispositivo_pai']}")
+            if "ID do dispositivo pai:" not in str(row["texto_rag"]):
+                extra_parts.append(f"ID do dispositivo pai: {row['dispositivo_pai_row_key']}")
+            if extra_parts:
+                row["texto_rag"] = clean_text_for_csv(f"{row['texto_rag']}\n" + "\n".join(extra_parts))
+            row["chars"] = len(str(row["texto_rag"]))
+            row["tokens_estimados"] = estimate_tokens(str(row["texto_rag"]))
 
 
 def create_row(
