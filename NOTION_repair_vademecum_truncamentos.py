@@ -32,10 +32,21 @@ PLANALTO_URLS = {
     "lei_4737_1965": "https://www.planalto.gov.br/ccivil_03/leis/l4737compilado.htm",
     "lei_9504_1997": "https://www.planalto.gov.br/ccivil_03/leis/l9504.htm",
     "lei_10406_2002": "https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm",
+    "lei_13105_2015": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105compilada.htm",
+    "decreto_lei_1001_1969": "https://www.planalto.gov.br/ccivil_03/decreto-lei/del1001.htm",
+    "decreto_lei_1002_1969": "https://www.planalto.gov.br/ccivil_03/decreto-lei/del1002compilado.htm",
+    "decreto_lei_2848_1940": "https://www.planalto.gov.br/ccivil_03/decreto-lei/del2848compilado.htm",
+    "decreto_lei_3689_1941": "https://www.planalto.gov.br/ccivil_03/decreto-lei/del3689compilado.htm",
     "decreto_lei_5452_1943": "https://www.planalto.gov.br/ccivil_03/decreto-lei/del5452.htm",
     "lei_9503_1997": "https://www.planalto.gov.br/ccivil_03/leis/l9503compilado.htm",
     "lei_15190": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/l15190.htm",
 }
+
+LOCAL_CSV_SOURCES = {
+    "regimento_interno_camara_deputados": Path("REGIMENTO INTERNO DA CÂMARA DOS DEPUTADOS.csv"),
+}
+
+REPAIR_CHECKPOINT_NAMESPACE = "truncation_repair_v2"
 
 MANUAL_REPAIRS = {
     "disp:decreto_lei_5452_1943:clt:94": (
@@ -126,7 +137,7 @@ def fix_annotation_parentheses(text: str) -> str:
 
 def source_label_from_text(text: str) -> str:
     value = display_norm(text)
-    match = re.match(r"^(Art\.\s*\d+(?:\.\d+)?[A-Z]?(?:-[A-Z])?)\s*[ºo]?\s*[\.-]?", value)
+    match = re.match(r"^(Art\.\s*\d+(?:\.\d+)*[A-Z]?(?:-[A-Z])?)\s*[ºo]?\s*[\.-]?", value)
     if match:
         return device_part_key(match.group(1))
     if re.match(r"^Parágrafo único", value, flags=re.IGNORECASE):
@@ -143,6 +154,33 @@ def source_label_from_text(text: str) -> str:
     return ""
 
 
+def row_device_parts(row: Mapping[str, str]) -> List[str]:
+    hierarchy = normalize_ws(row.get("hierarquia_normativa"))
+    match = re.search(r"Art\.\s*\d+(?:\.\d+)*[A-Z]?(?:-[A-Z])?\s*[ºo]?", hierarchy)
+    if match:
+        tail = hierarchy[match.start() :]
+    else:
+        tail = hierarchy
+    tail = tail.replace(" > ", ", ")
+    parts = [device_part_key(part) for part in tail.split(",") if normalize_ws(part)]
+    return [part for part in parts if part]
+
+
+def is_amending_article_text(text: str) -> bool:
+    clean = ascii_key(text)
+    return any(
+        phrase in clean
+        for phrase in [
+            "passa a vigorar",
+            "passam a vigorar",
+            "acrescido do seguinte",
+            "acrescida do seguinte",
+            "seguinte redacao",
+            "vigorar com a seguinte",
+        ]
+    )
+
+
 class PlanaltoSource:
     def __init__(self, url: str) -> None:
         self.url = url
@@ -154,6 +192,7 @@ class PlanaltoSource:
         response.raise_for_status()
         text = response.content.decode("latin1", errors="ignore")
         root = html.fromstring(text)
+        paragraphs: List[Tuple[str, str]] = []
         current_article = ""
         for element in root.xpath("//p"):
             if element.xpath("ancestor-or-self::strike"):
@@ -162,12 +201,27 @@ class PlanaltoSource:
             if len(paragraph) < 15:
                 continue
             label = source_label_from_text(paragraph)
+            paragraphs.append((label, fix_annotation_parentheses(paragraph)))
             if not label:
                 continue
             if label.startswith("Art."):
                 current_article = label
             if current_article:
                 self.by_article_and_label[(current_article, label)].append(fix_annotation_parentheses(paragraph))
+        self._add_amending_article_blocks(paragraphs)
+
+    def _add_amending_article_blocks(self, paragraphs: Sequence[Tuple[str, str]]) -> None:
+        for index, (label, paragraph) in enumerate(paragraphs):
+            if not label.startswith("Art.") or not is_amending_article_text(paragraph):
+                continue
+            block = [paragraph]
+            for next_label, next_paragraph in paragraphs[index + 1 :]:
+                if next_label.startswith("Art."):
+                    break
+                block.append(next_paragraph)
+            candidate = fix_annotation_parentheses("\n".join(block))
+            if len(candidate) > len(paragraph):
+                self.by_article_and_label[(label, label)].append(candidate)
 
     def choose(self, article: str, label: str, current_text: str) -> str:
         candidates = self.by_article_and_label.get((article, label), [])
@@ -179,6 +233,10 @@ class PlanaltoSource:
         for candidate in candidates:
             candidate_cmp = comparison_key(candidate)
             score = SequenceMatcher(None, current_cmp[:1400], candidate_cmp[:1400]).ratio()
+            if current_cmp and candidate_cmp.startswith(current_cmp):
+                score += 3.0
+            elif current_cmp and current_cmp in candidate_cmp:
+                score += 2.0
             if candidate_cmp[:80] and candidate_cmp[:80] in current_cmp:
                 score += 1.0
             if current_cmp[:80] and current_cmp[:80] in candidate_cmp:
@@ -190,6 +248,29 @@ class PlanaltoSource:
         return best
 
 
+class LocalCsvSource:
+    def __init__(self, path: Path) -> None:
+        self.path = path
+        self.by_device: Dict[str, str] = {}
+        self._load()
+
+    def _load(self) -> None:
+        with self.path.open("r", encoding="utf-8-sig", newline="") as handle:
+            reader = csv.DictReader(handle)
+            for row in reader:
+                device = display_norm(row.get("Nome (Artigo)", ""))
+                text = normalize_text_block(row.get("Texto do Artigo", ""))
+                if "\n\n" in text:
+                    text = text.split("\n\n", 1)[1]
+                if device and text:
+                    self.by_device[comparison_key(device)] = text
+
+    def choose(self, parts: Sequence[str]) -> str:
+        if not parts:
+            return ""
+        return self.by_device.get(comparison_key(", ".join(parts)), "")
+
+
 def official_candidate(row: Mapping[str, str], sources: Dict[str, PlanaltoSource]) -> str:
     norma_id = normalize_ws(row.get("norma_id"))
     url = PLANALTO_URLS.get(norma_id)
@@ -199,7 +280,7 @@ def official_candidate(row: Mapping[str, str], sources: Dict[str, PlanaltoSource
         LOGGER.info("Carregando fonte oficial: %s", url)
         sources[norma_id] = PlanaltoSource(url)
     source = sources[norma_id]
-    parts = [device_part_key(part) for part in normalize_ws(row.get("hierarquia_normativa")).split(",") if normalize_ws(part)]
+    parts = row_device_parts(row)
     if not parts:
         return ""
     article = parts[0]
@@ -217,16 +298,54 @@ def official_candidate(row: Mapping[str, str], sources: Dict[str, PlanaltoSource
     return fix_annotation_parentheses("\n".join(component for component in components if component))
 
 
-def build_repaired_text(row: Mapping[str, str], sources: Dict[str, PlanaltoSource]) -> Tuple[str, str]:
+def local_candidate(row: Mapping[str, str], sources: Dict[str, LocalCsvSource]) -> str:
+    norma_id = normalize_ws(row.get("norma_id"))
+    path = LOCAL_CSV_SOURCES.get(norma_id)
+    if not path:
+        return ""
+    if not path.exists():
+        LOGGER.warning("Fonte local nao encontrada: %s", path)
+        return ""
+    if norma_id not in sources:
+        LOGGER.info("Carregando fonte local: %s", path)
+        sources[norma_id] = LocalCsvSource(path)
+    return normalize_text_block(sources[norma_id].choose(row_device_parts(row)))
+
+
+def should_replace(current: str, candidate: str) -> bool:
+    if not candidate:
+        return False
+    current_cmp = comparison_key(current)
+    candidate_cmp = comparison_key(candidate)
+    if not current_cmp:
+        return True
+    if current_cmp == candidate_cmp:
+        return False
+    prefix_score = SequenceMatcher(None, current_cmp[:300], candidate_cmp[:300]).ratio()
+    return len(candidate_cmp) > len(current_cmp) + 10 and prefix_score >= 0.72
+
+
+def build_repaired_text(
+    row: Mapping[str, str],
+    official_sources: Dict[str, PlanaltoSource],
+    local_sources: Dict[str, LocalCsvSource],
+) -> Tuple[str, str]:
     row_key = normalize_ws(row.get("row_key"))
     current = normalize_text_block(row.get("texto_em_vigor"))
     if row_key in MANUAL_REPAIRS:
         return normalize_text_block(MANUAL_REPAIRS[row_key]), "manual"
-    if normalize_ws(row.get("alerta_qualidade")) == "possivel_truncamento_referencia_final":
-        return current, "falso_positivo_referencia_final"
-    candidate = official_candidate(row, sources)
-    if candidate and len(candidate) >= len(current):
+    candidate = official_candidate(row, official_sources)
+    if should_replace(current, candidate):
         return candidate, "fonte_oficial"
+    if candidate:
+        return current, "validado_fonte_oficial"
+    candidate = local_candidate(row, local_sources)
+    if should_replace(current, candidate):
+        return candidate, "fonte_local"
+    if candidate:
+        return current, "validado_fonte_local"
+    if normalize_ws(row.get("alerta_qualidade")) == "possivel_truncamento_referencia_final":
+        return current, "falso_positivo_referencia_final_sem_fonte"
     repaired = fix_annotation_parentheses(current)
     if len(repaired) > len(current) or repaired != current:
         return repaired, "balanceamento_parenteses"
@@ -300,7 +419,7 @@ def update_notion_rows(
 ) -> Dict[str, int]:
     checkpoint = vademecum.read_checkpoint(checkpoint_path)
     created_pages = checkpoint.get("created_pages") or {}
-    repair_checkpoint = checkpoint.setdefault("truncation_repair_v1", {})
+    repair_checkpoint = checkpoint.setdefault(REPAIR_CHECKPOINT_NAMESPACE, {})
     updated = repair_checkpoint.setdefault("updated_row_keys", {})
     pending: List[Tuple[str, str]] = []
     for row_key in changed_keys:
@@ -358,44 +477,62 @@ def validate(rows: Sequence[Mapping[str, str]]) -> Dict[str, int]:
 
 
 def repair_csv(path: Path, *, report_path: Path) -> Tuple[List[Dict[str, str]], List[str], Dict[str, Any]]:
+    previous_report_keys: set[str] = set()
+    if report_path.exists():
+        try:
+            previous_report = json.loads(report_path.read_text(encoding="utf-8"))
+            previous_report_keys = {
+                normalize_ws(detail.get("row_key"))
+                for detail in previous_report.get("details", [])
+                if normalize_ws(detail.get("row_key"))
+            }
+        except Exception as exc:
+            LOGGER.warning("Nao foi possivel reaproveitar chaves do relatorio anterior: %s", exc)
     rows = read_rows(path)
-    sources: Dict[str, PlanaltoSource] = {}
+    official_sources: Dict[str, PlanaltoSource] = {}
+    local_sources: Dict[str, LocalCsvSource] = {}
     changed_keys: List[str] = []
     methods: Dict[str, int] = defaultdict(int)
     details: List[Dict[str, str]] = []
     for row in rows:
-        if row.get("qualidade_texto") != "verificar":
+        row_key = normalize_ws(row.get("row_key"))
+        if row.get("qualidade_texto") != "verificar" and row_key not in previous_report_keys:
             continue
         old_text = normalize_text_block(row.get("texto_em_vigor"))
-        new_text, method = build_repaired_text(row, sources)
+        new_text, method = build_repaired_text(row, official_sources, local_sources)
         methods[method] += 1
         old_alert = row.get("alerta_qualidade", "")
+        old_quality = row.get("qualidade_texto", "")
         recompute_row(row, new_text)
-        if (
+        changed = (
             new_text != old_text
-            or row.get("qualidade_texto") != "verificar"
+            or row.get("qualidade_texto") != old_quality
             or normalize_ws(row.get("alerta_qualidade")) != normalize_ws(old_alert)
-        ):
+        )
+        if changed:
             changed_keys.append(row["row_key"])
-            details.append(
-                {
-                    "row_key": row["row_key"],
-                    "norma_nome_popular": row.get("norma_nome_popular", ""),
-                    "hierarquia_normativa": row.get("hierarquia_normativa", ""),
-                    "metodo": method,
-                    "old_chars": str(len(old_text)),
-                    "new_chars": str(len(new_text)),
-                    "old_alerta": old_alert,
-                    "new_alerta": row.get("alerta_qualidade", ""),
-                    "new_qualidade": row.get("qualidade_texto", ""),
-                }
-            )
+        details.append(
+            {
+                "row_key": row["row_key"],
+                "norma_nome_popular": row.get("norma_nome_popular", ""),
+                "hierarquia_normativa": row.get("hierarquia_normativa", ""),
+                "metodo": method,
+                "changed": "true" if changed else "false",
+                "old_chars": str(len(old_text)),
+                "new_chars": str(len(new_text)),
+                "old_alerta": old_alert,
+                "new_alerta": row.get("alerta_qualidade", ""),
+                "new_qualidade": row.get("qualidade_texto", ""),
+            }
+        )
     report = {
+        "audited_rows": len(details),
         "changed_rows": len(changed_keys),
         "methods": dict(sorted(methods.items())),
         "validation": validate(rows),
         "details": details,
         "official_sources": PLANALTO_URLS,
+        "local_sources": {key: str(value) for key, value in LOCAL_CSV_SOURCES.items()},
     }
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True), encoding="utf-8")
     write_rows(path, rows)
@@ -446,9 +583,9 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         checkpoint_every=max(1, int(args.checkpoint_every or 1)),
     )
     checkpoint = vademecum.read_checkpoint(args.checkpoint)
-    checkpoint.setdefault("truncation_repair_v1", {})["result"] = result
-    checkpoint["truncation_repair_v1"]["report_path"] = str(args.report)
-    checkpoint["truncation_repair_v1"]["completed_at"] = notion_import.now_iso()
+    checkpoint.setdefault(REPAIR_CHECKPOINT_NAMESPACE, {})["result"] = result
+    checkpoint[REPAIR_CHECKPOINT_NAMESPACE]["report_path"] = str(args.report)
+    checkpoint[REPAIR_CHECKPOINT_NAMESPACE]["completed_at"] = notion_import.now_iso()
     vademecum.write_checkpoint(args.checkpoint, checkpoint)
     LOGGER.info("Resultado Notion: %s", json.dumps(result, ensure_ascii=False, sort_keys=True))
     return 0
