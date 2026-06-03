@@ -41,7 +41,7 @@ function Invoke-StreamingProcess {
     $psi.FileName = $ExecutablePath
     $psi.Arguments = Join-Arguments -Args $Arguments
     $psi.RedirectStandardOutput = $true
-    $psi.RedirectStandardError = $false
+    $psi.RedirectStandardError = $true
     $psi.UseShellExecute = $false
     $psi.CreateNoWindow = $true
 
@@ -51,6 +51,8 @@ function Invoke-StreamingProcess {
     if (-not $process.Start()) {
         throw ("Could not start command: {0}" -f (Split-Path -Leaf $ExecutablePath))
     }
+
+    $stderrTask = $process.StandardError.ReadToEndAsync()
 
     while ($true) {
         $line = $process.StandardOutput.ReadLine()
@@ -65,6 +67,16 @@ function Invoke-StreamingProcess {
     }
 
     $process.WaitForExit()
+
+    $stderrText = $stderrTask.Result
+    if (-not [string]::IsNullOrWhiteSpace($stderrText)) {
+        foreach ($line in ($stderrText -split "\r?\n")) {
+            if (-not [string]::IsNullOrWhiteSpace($line)) {
+                $lines.Add($line)
+                Write-ProgressLine -Line $line
+            }
+        }
+    }
 
     if ($process.ExitCode -ne 0) {
         throw ("Command failed with exit code {0}: {1}" -f $process.ExitCode, (Split-Path -Leaf $ExecutablePath))
@@ -308,6 +320,7 @@ try {
     Write-ProgressLine -Line "Cutting locally with ffmpeg from the downloaded source window."
     Write-ProgressLine -Line ("Precise local cut: {0} for {1}." -f $localStartText, $durationText)
     Write-ProgressLine -Line "Using timestamp reset to keep audio and video synchronized."
+    Write-ProgressLine -Line "Normalizing audio loudness without changing audio/video timing."
 
     $ffmpegArgs = @(
         "-hide_banner",
@@ -324,12 +337,13 @@ try {
         "-sn",
         "-dn",
         "-vf", "setpts=PTS-STARTPTS",
-        "-af", "aresample=async=1:first_pts=0",
+        "-af", "aresample=async=1:first_pts=0,loudnorm=I=-16:TP=-1.5:LRA=11",
         "-c:v", "libx264",
         "-preset", "veryfast",
         "-crf", "18",
         "-pix_fmt", "yuv420p",
         "-c:a", "aac",
+        "-ar", "48000",
         "-b:a", "160k",
         "-movflags", "+faststart",
         "-avoid_negative_ts", "make_zero",
