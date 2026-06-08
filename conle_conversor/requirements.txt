@@ -1,0 +1,5 @@
+# Dependências do Conversor Notion -> Informação Técnica (CONLE)
+# Instalar no Python do Windows:  py -m pip install -r conle_conversor/requirements.txt
+requests>=2.31
+python-docx>=1.1
+openai>=1.40

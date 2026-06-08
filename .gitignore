@@ -21,3 +21,11 @@ __pycache__/
 .venv*/
 venv/
 env/
+
+# Cache de embeddings do RAG (grande — ~1,3 GB — e contém o texto das bases internas)
+conle_gerador/.rag_cache/
+# Resultado intermediário do gerador (gravado antes de enviar ao Notion)
+conle_gerador/.ultimo_resultado.json
+# Arquivos temporários/scratch de trabalho na raiz (_dump_*, _teste_*, _gerado*, _lc*, etc.)
+/_*
+_saida_teste/
