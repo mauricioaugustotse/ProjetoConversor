@@ -18,6 +18,13 @@ from . import config_gerador as cfg
 API = "https://api.notion.com/v1"
 
 
+def _url_valida(href) -> bool:
+    """URL aceitável para um link do Notion: http(s) sem espaços. Evita o 400
+    'Invalid URL for link' quando o redator gera um link com placeholder/sentinela
+    (ex.: [ADC nº 29](LINK?)) ou URL malformada."""
+    return bool(href) and re.fullmatch(r"https?://\S+", str(href).strip()) is not None
+
+
 # ===================== markdown inline -> rich_text =====================
 def _emit(text: str, ann: dict, href, segs: list) -> None:
     while text:
@@ -64,8 +71,8 @@ def md_to_rich(md: str) -> List[dict]:
             continue
         for chunk in _chunks(text):
             rt: Dict[str, Any] = {"type": "text", "text": {"content": chunk}}
-            if href:
-                rt["text"]["link"] = {"url": href}
+            if href and _url_valida(href):
+                rt["text"]["link"] = {"url": href.strip()}
             rt["annotations"] = {
                 "bold": ann["bold"], "italic": ann["italic"],
                 "strikethrough": False, "underline": False, "code": False, "color": "default",
@@ -134,10 +141,31 @@ def _headers() -> dict:
     }
 
 
+def _sanitizar_links(obj) -> int:
+    """Remove, recursivamente, links com URL inválida de QUALQUER rich_text da estrutura
+    (parágrafos, células de tabela, filhos). Rede de segurança final contra o 400 do Notion —
+    funciona inclusive em blocos já montados (ex.: regravação do último resultado)."""
+    n = 0
+    if isinstance(obj, dict):
+        t = obj.get("text")
+        if isinstance(t, dict) and isinstance(t.get("link"), dict) and not _url_valida(t["link"].get("url")):
+            t.pop("link", None)
+            n += 1
+        for v in obj.values():
+            n += _sanitizar_links(v)
+    elif isinstance(obj, list):
+        for it in obj:
+            n += _sanitizar_links(it)
+    return n
+
+
 def escrever_pagina(page_id: str, blocos: List[dict], *, progress=None) -> int:
     """Append dos blocos na página (lotes de 90). Página deve estar vazia.
     Retorna o total de blocos escritos."""
     log = progress or (lambda _m: None)
+    removidos = _sanitizar_links(blocos)
+    if removidos:
+        log(f"   {removidos} link(s) com URL inválida convertido(s) em texto (evita erro do Notion).")
     sess = requests.Session()
     sess.headers.update(_headers())
     total = 0

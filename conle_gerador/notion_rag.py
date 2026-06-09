@@ -347,18 +347,19 @@ def indexar(bases: Optional[List[str]] = None, *, limite: Optional[int] = None,
                 continue
             titulo = _titulo_pagina(pg)
             url = _urls_da_pagina(pg)
-            meta = _meta_da_pagina(pg, titulo, txt)
+            # NÃO reaproveitar o nome `meta` (é o dict global do _meta.json): usar meta_pg
+            meta_pg = _meta_da_pagina(pg, titulo, txt)
             h = hashlib.sha1(txt.encode("utf-8")).hexdigest()
             old = existing.get(pg["id"])
             if old and old.get("hash") == h and old.get("vetor"):
                 rec = dict(old)
                 rec["url"] = url  # recaptura url + metadados de governança sem custo de embedding
-                rec.update(meta)
+                rec.update(meta_pg)
                 registros[pg["id"]] = rec
             else:
                 registros[pg["id"]] = {"page_id": pg["id"], "fonte": base["label"],
                                         "titulo": titulo, "texto": txt[:8000],
-                                        "url": url, "hash": h, "vetor": None, **meta}
+                                        "url": url, "hash": h, "vetor": None, **meta_pg}
                 novos_textos.append(txt[:8000])
                 novos_keys.append(pg["id"])
 

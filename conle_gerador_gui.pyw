@@ -60,6 +60,13 @@ class GeradorGUI(tk.Tk):
         st.configure("TButton", font=("Segoe UI", 9), padding=4)
 
     # --------------------------------------------------------------- widgets
+    _CAT_SUFIXO = {"normativo": " · normas", "jurisprudencia": " · jurisp.", "desconhecida": " · ⚠ nova"}
+
+    def _label_base(self, chave, base, n):
+        """Rótulo do checkbox de uma base: nome · categoria + estado de indexação."""
+        status = f" ({n})" if n else " (não indexada)"
+        return (base.get("label") or chave) + self._CAT_SUFIXO.get(base.get("categoria", ""), "") + status
+
     def _montar_widgets(self):
         topo = ttk.Frame(self, padding=(18, 16, 18, 4))
         topo.pack(fill="x")
@@ -101,17 +108,17 @@ class GeradorGUI(tk.Tk):
                 meta = _json.loads(mp.read_text(encoding="utf-8"))
         except Exception:
             pass
-        _CAT = {"normativo": " · normas", "jurisprudencia": " · jurisp.", "desconhecida": " · ⚠ nova"}
         # conhecidas primeiro (na ordem do BASES_RAG), depois as demais
         ordem = [k for k in cfg.BASES_RAG if k in reg] + [k for k in reg if k not in cfg.BASES_RAG]
+        self._chk_bases = {}
         for chave in ordem:
             base = reg[chave]
             n = (meta.get(chave) or {}).get("n")
-            status = f" ({n})" if n else " (não indexada)"
-            label = (base.get("label") or chave) + _CAT.get(base.get("categoria", ""), "") + status
             v = tk.BooleanVar(value=chave in cfg.BASES_PADRAO)
-            ttk.Checkbutton(fontes, text=label, variable=v).pack(anchor="w")
+            chk = ttk.Checkbutton(fontes, text=self._label_base(chave, base, n), variable=v)
+            chk.pack(anchor="w")
             self.var_bases[chave] = v
+            self._chk_bases[chave] = (chk, base)
         ttk.Separator(fontes).pack(fill="x", pady=6)
         self.var_camara = tk.BooleanVar(value=True)
         self.var_web = tk.BooleanVar(value=True)
@@ -246,6 +253,12 @@ class GeradorGUI(tk.Tk):
         self._parar()
         self._append_log("")
         self._append_log("✓ Indexação concluída: " + ", ".join(f"{k}={v}" for k, v in resumo.items()))
+        # reflete o estado EFETIVO na interface: atualiza o rótulo de cada base indexada
+        for chave, n in resumo.items():
+            tup = getattr(self, "_chk_bases", {}).get(chave)
+            if tup:
+                chk, base = tup
+                chk.config(text=self._label_base(chave, base, n))
         messagebox.showinfo("Indexação", "Bases indexadas:\n" + "\n".join(f"{k}: {v} trechos" for k, v in resumo.items()))
 
     def _fim_erro(self, msg):
