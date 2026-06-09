@@ -103,18 +103,26 @@ PONTILHADO = "." * 102
 BLOCO_RESOLUCAO_INTRO = (
     "O inciso IV do art. 6º e o § 4º do art. 12 da Resolução determinam:"
 )
-BLOCO_RESOLUCAO_TRANSCRICAO = [
+_RES_ART6 = [
     "Art. 6º Aos Consultores e Assessores Legislativos compete realizar os fins "
     "institucionais da Assessoria, previstos no art. 2º, incisos I a VII, e, destacadamente:",
     PONTILHADO,
     "IV – informar, preliminarmente, o solicitante, quando for o caso, da inviabilidade "
     "constitucional, jurídica, legal ou regimental, técnica, financeira ou orçamentária de "
     "proposição que lhes tenha sido distribuída para relatar ou elaborar.",
+]
+_RES_ART12_P4 = [
     PONTILHADO,
     "[Art. 12] § 4º Recebido pedido de elaboração de minuta de projeto coincidente com o "
     "conteúdo de outro em tramitação, deve o Consultor ou Assessor, preliminarmente, informar "
     "a existência deste ao interessado e encaminhar-lhe exemplar ou cópia do respectivo avulso.",
 ]
+# Transcrição completa (com o § 4º do art. 12) — usada quando HÁ risco de apensação.
+BLOCO_RESOLUCAO_TRANSCRICAO = _RES_ART6 + _RES_ART12_P4
+# Sem o § 4º do art. 12 — usada quando NÃO há proposições correlatas (sem risco de apensação).
+BLOCO_RESOLUCAO_TRANSCRICAO_SEM_APENSACAO = list(_RES_ART6)
+# Intro do bloco, nas duas variantes (concorda em número com o que é transcrito).
+BLOCO_RESOLUCAO_INTRO_SEM_APENSACAO = "O inciso IV do art. 6º da Resolução determina:"
 
 # Fecho padrão da IT (também costuma constar na própria página do Notion)
 FECHO_IT_LINHA_1 = "Era o que tínhamos a informar."

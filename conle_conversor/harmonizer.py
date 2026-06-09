@@ -12,6 +12,7 @@ O corpo técnico permanece fiel ao Notion; a IA atua só nesta abertura.
 from __future__ import annotations
 
 import json
+import re
 from dataclasses import dataclass
 
 from . import config
@@ -29,16 +30,22 @@ SYSTEM_PROMPT = """Você é Consultor Legislativo da Câmara dos Deputados e red
 de uma Informação Técnica (IT) da Consultoria Legislativa, no padrão exato da casa.
 
 A IT abre com o vocativo "Senhor(a) Deputado(a)," e, em seguida, traz:
-1) ENCAMINHAMENTO: um único parágrafo que começa por "Com relação à sua solicitação ..." \
-descrevendo o que o parlamentar pediu e que termina, obrigatoriamente, com a fórmula: \
-"prestamos os seguintes esclarecimentos, em estrita observância às determinações da Resolução \
-da Câmara dos Deputados nº 48, de 1993, que regula os trabalhos desta Consultoria Legislativa." \
-Pode haver 1 ou 2 frases adicionais, após essa fórmula, detalhando a iniciativa.
+1) ENCAMINHAMENTO: um único parágrafo que começa por "Com relação à sua solicitação ..." e \
+descreve a solicitação DE FORMA CONCRETA E ESPECÍFICA — nomeando o TIPO EXATO da proposição em \
+anexo (use exatamente o "Tipo de proposição em anexo" informado: ex. "Projeto de Lei \
+Complementar", "Proposta de Emenda à Constituição") e o OBJETO REAL do pedido (o que se cria ou \
+altera, em qual norma, e com que finalidade). É PROIBIDO usar formulações genéricas como \
+"elaboração de projeto de lei/proposta", "a presente proposta" ou "etc": adeque SEMPRE ao caso \
+concreto desta IT. O parágrafo termina, obrigatoriamente, com a fórmula: "prestamos os seguintes \
+esclarecimentos, em estrita observância às determinações da Resolução da Câmara dos Deputados \
+nº 48, de 1993, que regula os trabalhos desta Consultoria Legislativa." Pode haver 1 ou 2 frases \
+adicionais, após essa fórmula, detalhando a iniciativa.
 2) TRANSIÇÃO: um único parágrafo, iniciado por "No caso desta solicitação," que anuncia, de \
-forma objetiva, o que a minuta em anexo propõe e o que a IT examinará.
+forma objetiva e CONCRETA, o que a minuta em anexo propõe e o que a IT examinará.
 
-Também produza o TEOR: uma síntese de 1 a 2 frases da DEMANDA ORIGINAL do parlamentar (o que \
-foi pedido, em linguagem direta), para constar do cabeçalho do documento.
+Também produza o TEOR: uma síntese de 1 a 2 frases da DEMANDA ORIGINAL do parlamentar, CONCRETA \
+(o tipo de proposição e o objeto específico do pedido, em linguagem direta), para o cabeçalho do \
+documento — nunca genérica.
 
 Estilo: português formal, técnico-jurídico, impessoal (1ª pessoa do plural: "prestamos", \
 "examinamos"), coeso e conciso. NÃO use markdown. NÃO invente nomes de deputado, números de \
@@ -61,11 +68,27 @@ Financiamento de Campanha ao desempenho de prefeituras geridas pelos partidos.""
 def _fallback(objeto: str, introducao: str, tipo_extenso: str) -> Abertura:
     obj = " ".join((objeto or "").split())
     teor = obj[:400].rstrip(" .,;—-") + ("…" if len(obj) > 400 else "")
-    encaminhamento = (
-        "Com relação à sua solicitação, prestamos os seguintes esclarecimentos, em estrita "
-        "observância às determinações da Resolução da Câmara dos Deputados nº 48, de 1993, que "
-        "regula os trabalhos desta Consultoria Legislativa."
-    )
+    # encaminhamento CONCRETO mesmo sem IA: nomeia o tipo exato e o objeto da solicitação
+    tipo_low = (tipo_extenso or "proposição").lower()
+    # usa o 1º eixo do objeto (antes do 1º travessão) e nunca corta no meio de uma palavra
+    primeiro = re.split(r"\s+[—–]\s+", obj, maxsplit=1)[0]
+    obj_curto = primeiro[:240]
+    if len(primeiro) > 240:
+        obj_curto = obj_curto.rsplit(" ", 1)[0]
+    obj_curto = obj_curto.rstrip(" .,;—–-")
+    if obj_curto:
+        encaminhamento = (
+            f"Com relação à sua solicitação de elaboração de {tipo_low} — {obj_curto} —, "
+            "prestamos os seguintes esclarecimentos, em estrita observância às determinações da "
+            "Resolução da Câmara dos Deputados nº 48, de 1993, que regula os trabalhos desta "
+            "Consultoria Legislativa."
+        )
+    else:
+        encaminhamento = (
+            f"Com relação à sua solicitação de elaboração de {tipo_low}, prestamos os seguintes "
+            "esclarecimentos, em estrita observância às determinações da Resolução da Câmara dos "
+            "Deputados nº 48, de 1993, que regula os trabalhos desta Consultoria Legislativa."
+        )
     primeira = ""
     if introducao:
         primeira = introducao.strip().split("\n")[0].split(". ")[0].strip()

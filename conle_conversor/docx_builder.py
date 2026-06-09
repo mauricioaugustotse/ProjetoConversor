@@ -100,6 +100,31 @@ def _limpar_hyperlinks_orfaos(doc) -> int:
     return len(orfas)
 
 
+_RE_PROP_CAMARA = re.compile(r"\b(?:PL|PLP|PEC|PRC|PDL|PLV|MPV)\s*n?[ºo°.]*\s*\d", re.IGNORECASE)
+
+
+def _plain_blocks(blocks: List[Block]) -> str:
+    partes: List[str] = []
+    for b in blocks:
+        if b.rich:
+            partes.append(plain(b.rich))
+        if b.type == "table":
+            for row in b.extra.get("rows", []):
+                for cell in row:
+                    partes.append(plain(cell))
+        if b.children:
+            partes.append(_plain_blocks(b.children))
+    return "\n".join(partes)
+
+
+def _tem_risco_apensacao(blocks: List[Block]) -> bool:
+    """Há risco de apensação quando a IT cita proposições correlatas concretas em tramitação
+    na Câmara (a Seção 6 lista projetos com número: PL/PLP/PEC… nº/ano). Sem correlatas, o
+    § 4º do art. 12 da Resolução (projeto coincidente com outro em tramitação) não se aplica
+    e é omitido da abertura."""
+    return bool(_RE_PROP_CAMARA.search(_plain_blocks(blocks)))
+
+
 # ---------------------------------------------------------------------------
 # corpo da IT
 # ---------------------------------------------------------------------------
@@ -220,8 +245,15 @@ def build_it(sep: PaginaSeparada, abertura: Abertura, meta: MetaDocumento) -> Do
 
     _p(doc, S.CORPO, text=meta.vocativo)
     _p(doc, S.CORPO, text=abertura.encaminhamento)
-    _p(doc, S.CORPO, text=config.BLOCO_RESOLUCAO_INTRO)
-    for linha in config.BLOCO_RESOLUCAO_TRANSCRICAO:
+    # o § 4º do art. 12 (projeto coincidente com outro em tramitação) só entra se houver
+    # risco de apensação — i.e., se a IT cita proposições correlatas concretas
+    if _tem_risco_apensacao(sep.it_blocks):
+        _p(doc, S.CORPO, text=config.BLOCO_RESOLUCAO_INTRO)
+        transcricao = config.BLOCO_RESOLUCAO_TRANSCRICAO
+    else:
+        _p(doc, S.CORPO, text=config.BLOCO_RESOLUCAO_INTRO_SEM_APENSACAO)
+        transcricao = config.BLOCO_RESOLUCAO_TRANSCRICAO_SEM_APENSACAO
+    for linha in transcricao:
         _p(doc, S.TRANSCRICAO, text=linha)
     _p(doc, S.CORPO, text=abertura.transicao)
 
