@@ -10,6 +10,8 @@ from typing import List, Optional
 from docx import Document
 from docx.shared import Pt, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.opc.constants import RELATIONSHIP_TYPE
+from docx.oxml.ns import qn
 
 from . import config
 from .config import S
@@ -83,6 +85,19 @@ def _looks_like_header(rows) -> bool:
         return False
     first = rows[0]
     return all(any(rt.bold for rt in cell) for cell in first if cell)
+
+
+def _limpar_hyperlinks_orfaos(doc) -> int:
+    """Remove relationships de hyperlink NÃO referenciadas por nenhum w:hyperlink do corpo
+    (sujeira herdada do template .docx). Preserva os links reais e as rels de outros tipos."""
+    usados = {hl.get(qn("r:id")) for hl in doc.element.iter(qn("w:hyperlink"))}
+    usados.discard(None)
+    rels = doc.part.rels
+    orfas = [rId for rId, rel in list(rels.items())
+             if rel.reltype == RELATIONSHIP_TYPE.HYPERLINK and rId not in usados]
+    for rId in orfas:
+        del rels[rId]
+    return len(orfas)
 
 
 # ---------------------------------------------------------------------------
@@ -216,6 +231,7 @@ def build_it(sep: PaginaSeparada, abertura: Abertura, meta: MetaDocumento) -> Do
     _p(doc, S.ASSINATURA, text=meta.consultor)
     _p(doc, S.ASSINATURA, text=meta.consultor_cargo)
     _p(doc, S.SISCONLE, text=meta.sisconle_txt)
+    _limpar_hyperlinks_orfaos(doc)
     return doc
 
 
@@ -283,4 +299,5 @@ def build_proposicao(sep: PaginaSeparada, meta: MetaDocumento) -> Document:
     _p(doc, S.FECHO, text=meta.fecho_prop_txt(tipo.local_fecho))
     _p(doc, S.ASSINATURA, text=meta.assinatura_prop)
     _p(doc, S.SISCONLE, text=meta.sisconle_txt)
+    _limpar_hyperlinks_orfaos(doc)
     return doc

@@ -62,6 +62,11 @@ BASES_RAG = {
         "id": "43dc0feb-e1ea-447f-a5fa-8c9b21670ce7",
         "titulo": "Vademecum - RAG consolidado",
         "label": "Vademécum",
+        "categoria": "normativo",
+        # "conteúdo primeiro": o texto distintivo do dispositivo vai ao início do embedding;
+        # contexto (norma/hierarquia) ao fim. props_texto é fallback se faltar conteúdo.
+        "props_conteudo": ["dispositivo", "texto_dispositivo", "resumo_curto", "notas_texto", "palavras_chave"],
+        "props_contexto": ["norma_nome_popular", "hierarquia_normativa"],
         "props_texto": ["texto_rag", "norma_titulo", "hierarquia_normativa",
                          "texto_dispositivo", "palavras_chave"],
         "flag_rag": "incluir_no_rag",
@@ -70,6 +75,9 @@ BASES_RAG = {
         "id": "6eff337f-d025-4513-b5a3-003ff34b419d",
         "titulo": "Resolucoes TSE - RAG consolidado",
         "label": "Resoluções TSE",
+        "categoria": "normativo",
+        "props_conteudo": ["dispositivo", "texto_em_vigor", "texto_dispositivo", "resumo_curto", "palavras_chave"],
+        "props_contexto": ["norma_nome_popular", "hierarquia_normativa"],
         "props_texto": ["texto_rag", "norma_titulo", "hierarquia_normativa", "texto_dispositivo"],
         "flag_rag": "incluir_no_rag",
     },
@@ -77,31 +85,50 @@ BASES_RAG = {
         "id": "66da171f-0acd-42af-8875-0860265f5d23",
         "titulo": "Codigo Eleitoral 2026 anotado - dispositivos",
         "label": "Código Eleitoral 2026 anotado",
+        "categoria": "normativo",
+        "props_conteudo": ["dispositivo", "texto_dispositivo", "resumo_curto", "palavras_chave"],
+        "props_contexto": ["norma_nome_popular", "hierarquia_normativa"],
         "props_texto": ["texto_rag", "norma_titulo", "hierarquia_normativa", "texto_dispositivo"],
         "flag_rag": "incluir_no_rag",
+    },
+    # Jurisprudência do TSE estruturada: cada linha tem link oficial (link_1) + análise rica.
+    "temas": {
+        "id": "30a72195-5c64-80a9-b5f1-c958107d9d0e",
+        "titulo": "temas",
+        "label": "Jurisprudência TSE (temas)",
+        "categoria": "jurisprudencia",
+        "props_conteudo": ["tema", "tese", "punchline", "texto_original", "contexto"],
+        "props_contexto": ["relator", "ramo", "subramo"],
+        "props_texto": ["tema", "tese", "punchline", "contexto", "texto_original", "relator"],
+        "flag_rag": None,
+    },
+    # Plenário do TSE (deliberações analisadas) — só os campos JURÍDICOS vão ao embedding;
+    # notícias/advogados/partes ficam de fora (ruído).
+    "sess_es": {
+        "id": None,                 # resolvido por título "sessões" (evita ambiguidade data_source x database id)
+        "titulo": "sessões",
+        "label": "Sessões do plenário (TSE)",
+        "categoria": "jurisprudencia",
+        "props_conteudo": ["tema", "punchline", "analise_do_conteudo_juridico", "raciocinio_juridico",
+                            "fundamentacao_normativa", "precedentes_citados"],
+        "props_contexto": ["resultado", "votacao", "relator", "classe_processo", "numero_processo"],
+        "props_texto": None,
+        "flag_rag": None,
     },
     "dje": {
         "id": None,                 # resolvido por título
         "titulo": "DJe",
         "label": "DJe (jurisprudência)",
-        "props_texto": None,        # auto-detecta props de texto
-        "flag_rag": None,
-    },
-    # Jurisprudência do TSE estruturada: cada linha tem link oficial (link_1) + análise
-    # rica (tese/contexto/punchline/texto_original) — fonte ideal para CITAR e LINKAR
-    # precedentes com a referência correta.
-    "temas": {
-        "id": "30a72195-5c64-80a9-b5f1-c958107d9d0e",
-        "titulo": "temas",
-        "label": "Jurisprudência TSE (temas)",
-        "props_texto": ["tema", "tese", "punchline", "contexto", "texto_original",
-                         "ramo", "subramo", "relator", "tipo_de_processo", "numero_processo"],
+        "categoria": "jurisprudencia",
+        "props_conteudo": ["tema", "punchline", "textoEmenta", "referenciasLegislativas"],
+        "props_contexto": ["relator", "siglaClasse", "numeroProcesso"],
+        "props_texto": None,
         "flag_rag": None,
     },
 }
 
-# Bases ligadas por padrão na GUI (DJe fica opcional por ser grande).
-BASES_PADRAO = ["vademecum", "resolucoes_tse", "codigo_eleitoral", "temas"]
+# Bases ligadas por padrão na GUI (DJe fica opcional; sessões agora incluída, curada).
+BASES_PADRAO = ["vademecum", "resolucoes_tse", "codigo_eleitoral", "temas", "sess_es"]
 
 # Nunca indexar/consultar bases cujo título contenha estes termos.
 EXCLUIR_TITULOS = ("BACKUP",)
@@ -169,8 +196,10 @@ def descobrir_bases(forcar: bool = False) -> dict:
         chave = _slug(titulo)
         if chave in reg:
             chave = chave + "_" + dbid[:4]
+        # base NOVA/desconhecida: opt-in manual — não entra com flag automática nem no padrão,
+        # e fica fora da allowlist jurídica (não polui o top-k do redator sem decisão explícita).
         reg[chave] = {"id": dbid, "titulo": titulo, "label": titulo[:42],
-                      "props_texto": None, "flag_rag": "incluir_no_rag"}
+                      "categoria": "desconhecida", "props_texto": None, "flag_rag": None}
     _BASES_CACHE = reg
     return reg
 

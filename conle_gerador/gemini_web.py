@@ -78,3 +78,22 @@ def pesquisar(
     data = r.json()
     texto = _extract_text(data)
     return {"texto": texto, "fontes": _extract_urls(data), "ok": bool(texto), "erro": ""}
+
+
+def pesquisar_lote(
+    perguntas: List[str], *, foco: Optional[str] = None, model: Optional[str] = None,
+    timeout: int = 80,
+) -> Dict[str, Any]:
+    """Agrupa VÁRIAS perguntas numa ÚNICA chamada grounded. ECONOMIA: o grounding (Google
+    Search) é cobrado por REQUISIÇÃO, não por pergunta — uma chamada com N perguntas custa
+    como uma, não como N. Retorna {"texto", "fontes", "ok", "erro"}."""
+    perguntas = [p.strip() for p in (perguntas or []) if p and p.strip()]
+    if not perguntas:
+        return {"texto": "", "fontes": [], "ok": False, "erro": "sem perguntas"}
+    bloco = "\n".join(f"{i}. {p}" for i, p in enumerate(perguntas, 1))
+    query = (
+        "Responda às perguntas abaixo de forma OBJETIVA e CURTA, uma resposta NUMERADA por "
+        "pergunta (use a busca para fatos atuais), citando normas/decisões com números e datas "
+        "e as fontes oficiais. Se não encontrar algo, diga que não encontrou.\n\n" + bloco
+    )
+    return pesquisar(query, foco=foco, model=model, timeout=timeout)

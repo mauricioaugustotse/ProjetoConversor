@@ -29,3 +29,5 @@ conle_gerador/.ultimo_resultado.json
 # Arquivos temporários/scratch de trabalho na raiz (_dump_*, _teste_*, _gerado*, _lc*, etc.)
 /_*
 _saida_teste/
+conle_gerador/.cache_camara/
+conle_gerador/.cache_links.json

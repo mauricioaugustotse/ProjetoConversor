@@ -73,9 +73,6 @@ class GeradorGUI(tk.Tk):
         ttk.Label(corpo, text="Demanda do parlamentar:", font=("Segoe UI Semibold", 10)).pack(anchor="w")
         self.txt_demanda = scrolledtext.ScrolledText(corpo, height=6, font=("Segoe UI", 10), wrap="word")
         self.txt_demanda.pack(fill="x", pady=(2, 8))
-        self.txt_demanda.insert("1.0",
-            "Ex.: O Senhor deputado solicita, com base no esboço anexo, elaboração de PEC para alterar "
-            "a Constituição Federal para promover a paridade de gênero nas chapas majoritárias…")
 
         ttk.Label(corpo, text="Página EM BRANCO do Notion (URL ou ID):", font=("Segoe UI Semibold", 10)).pack(anchor="w")
         self.var_url = tk.StringVar()
@@ -95,10 +92,23 @@ class GeradorGUI(tk.Tk):
             reg = cfg.descobrir_bases()
         except Exception:
             reg = cfg.BASES_RAG
+        # contagem da última indexação por base (feedback de status)
+        meta = {}
+        try:
+            import json as _json
+            mp = cfg.RAG_CACHE_DIR / "_meta.json"
+            if mp.exists():
+                meta = _json.loads(mp.read_text(encoding="utf-8"))
+        except Exception:
+            pass
+        _CAT = {"normativo": " · normas", "jurisprudencia": " · jurisp.", "desconhecida": " · ⚠ nova"}
         # conhecidas primeiro (na ordem do BASES_RAG), depois as demais
         ordem = [k for k in cfg.BASES_RAG if k in reg] + [k for k in reg if k not in cfg.BASES_RAG]
         for chave in ordem:
-            label = reg[chave].get("label") or chave
+            base = reg[chave]
+            n = (meta.get(chave) or {}).get("n")
+            status = f" ({n})" if n else " (não indexada)"
+            label = (base.get("label") or chave) + _CAT.get(base.get("categoria", ""), "") + status
             v = tk.BooleanVar(value=chave in cfg.BASES_PADRAO)
             ttk.Checkbutton(fontes, text=label, variable=v).pack(anchor="w")
             self.var_bases[chave] = v
@@ -118,6 +128,10 @@ class GeradorGUI(tk.Tk):
         ttk.Label(opc, text="Recomendado: gpt-5.5. O 'pro' é ~7× mais lento e caro,", style="Sub.TLabel").pack(anchor="w", pady=(6, 0))
         ttk.Label(opc, text="com qualidade equivalente para esta tarefa.", style="Sub.TLabel").pack(anchor="w")
         ttk.Label(opc, text="A pesquisa web usa sempre o Gemini (econômico).", style="Sub.TLabel").pack(anchor="w")
+        ttk.Separator(opc).pack(fill="x", pady=8)
+        self.var_vigente = tk.BooleanVar(value=True)
+        ttk.Checkbutton(opc, text="Apenas direito vigente", variable=self.var_vigente).pack(anchor="w")
+        ttk.Label(opc, text="Exclui normas revogadas e súmulas canceladas.", style="Sub.TLabel").pack(anchor="w")
         ttk.Separator(opc).pack(fill="x", pady=8)
         ttk.Button(opc, text="Indexar bases RAG (1ª vez / atualizar)", command=self._on_indexar).pack(fill="x")
         ttk.Label(opc, text="Necessário antes do 1º uso do RAG.", style="Sub.TLabel").pack(anchor="w")
@@ -156,7 +170,7 @@ class GeradorGUI(tk.Tk):
             return
         demanda = self.txt_demanda.get("1.0", "end").strip()
         url = self.var_url.get().strip()
-        if not demanda or demanda.startswith("Ex.:"):
+        if not demanda:
             messagebox.showwarning("Atenção", "Descreva a demanda do parlamentar.")
             return
         if not url:
@@ -166,7 +180,7 @@ class GeradorGUI(tk.Tk):
             demanda=demanda, page_url=url,
             usar_rag=bool(self._bases_sel()), usar_camara=self.var_camara.get(),
             usar_web=self.var_web.get(), bases_rag=self._bases_sel(),
-            model=self.var_modelo.get(),
+            somente_vigente=self.var_vigente.get(), model=self.var_modelo.get(),
         )
         self._iniciar()
         threading.Thread(target=self._worker_gerar, kwargs=params, daemon=True).start()

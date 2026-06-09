@@ -68,6 +68,10 @@ def _plain_prop(p: dict) -> str:
         return "" if v is None else str(v)
     if t == "url":
         return p.get("url") or ""
+    if t == "date":
+        return ((p.get("date") or {}) or {}).get("start", "") or ""
+    if t == "status":
+        return (p.get("status") or {}).get("name", "") or ""
     return ""
 
 
@@ -115,6 +119,11 @@ def _resolver(base: dict):
         pid = (all_props.get(nome) or {}).get("id")
         if pid and pid not in prop_ids:
             prop_ids.append(pid)
+    # colunas de conteúdo/contexto (montagem "conteúdo primeiro")
+    for nome in (base.get("props_conteudo") or []) + (base.get("props_contexto") or []):
+        pid = (all_props.get(nome) or {}).get("id")
+        if pid and pid not in prop_ids:
+            prop_ids.append(pid)
     for nome, p in all_props.items():
         if p.get("type") == "title" and p.get("id") and p["id"] not in prop_ids:
             prop_ids.append(p["id"])
@@ -122,7 +131,8 @@ def _resolver(base: dict):
     # senão o filter_properties as descartaria e perderíamos os links oficiais.
     for nome, p in all_props.items():
         eh_url = p.get("type") == "url" or any(k in nome.lower() for k in ("link", "url", "fonte_page", "href"))
-        if eh_url and p.get("id") and p["id"] not in prop_ids:
+        eh_meta = nome.lower() in _META_COLS
+        if (eh_url or eh_meta) and p.get("id") and p["id"] not in prop_ids:
             prop_ids.append(p["id"])
     return db_id, props, flag, prop_ids
 
@@ -163,6 +173,61 @@ def _query_all(db_id: str, flag: Optional[str], *, prop_ids=None, desde: Optiona
 _DOMINIOS_OFICIAIS = ("planalto.gov.br", "stf.jus.br", "tse.jus.br", "stj.jus.br",
                       "camara.leg.br", "senado.leg.br", "jus.br", "gov.br")
 
+# Colunas de governança a baixar (além das de texto/url) para filtro/rerank/recência.
+_META_COLS = {
+    "usar_como_texto_vigente", "classe_vigencia_texto", "status_alteracao", "alerta_vigencia",
+    "prioridade_rag", "qualidade_texto", "alerta_qualidade",
+    "data_sessao", "data_julgamento", "data", "datadecisao", "anoeleicao", "norma_ano",
+}
+
+
+def _meta_da_pagina(page: dict, titulo: str, texto: str) -> dict:
+    """Extrai sinais de governança da linha: vigência (bool), prioridade, qualidade e data.
+    Combina colunas estruturadas (quando existem) com heurística textual (cancelada/revogado)."""
+    pr = page.get("properties") or {}
+
+    def g(nome: str) -> str:
+        p = pr.get(nome)
+        return _plain_prop(p).strip() if p else ""
+
+    def gb(nome: str):
+        p = pr.get(nome)
+        if p and p.get("type") == "checkbox":
+            return bool(p.get("checkbox"))
+        v = g(nome).lower()
+        return True if v in ("true", "sim") else (False if v in ("false", "nao", "não") else None)
+
+    vigente = True
+    if gb("usar_como_texto_vigente") is False:
+        vigente = False
+    cls = g("classe_vigencia_texto").lower()
+    if cls and cls not in ("oficial_em_vigor", "estrutura", "norma"):
+        vigente = False
+    st = g("status_alteracao").lower()
+    if any(k in st for k in ("revogad", "alterado_substitu", "substituid")):
+        vigente = False
+    # marcadores FORMAIS de revogação/cancelamento (com parêntese) em qualquer posição do texto
+    blob = (titulo + " " + (texto or "")).lower()
+    if "(cancelad" in blob or re.search(r"\(\s*revogad", blob):
+        vigente = False
+
+    prioridade = (g("prioridade_rag") or "principal").lower()
+    qualidade = (g("qualidade_texto") or "ok").lower()
+    if g("alerta_qualidade").strip():
+        qualidade = "alerta"
+
+    data = ""
+    for c in ("data_sessao", "data_julgamento", "data", "dataDecisao"):
+        v = g(c)
+        if v:
+            data = v[:10]
+            break
+    if not data:
+        ano = g("anoEleicao") or g("norma_ano")
+        if ano.strip():
+            data = ano.strip()[:4]
+    return {"vigente": vigente, "prioridade": prioridade, "qualidade": qualidade, "data": data}
+
 
 def _urls_da_pagina(page: dict) -> str:
     """Extrai a melhor URL das colunas da linha (props type=url + hrefs em rich_text),
@@ -179,34 +244,46 @@ def _urls_da_pagina(page: dict) -> str:
             # colunas tipo link_1/link_2 guardam a URL como TEXTO puro
             txt = "".join(x.get("plain_text", "") for x in p.get(t, []) or [])
             urls.extend(re.findall(r"https?://[^\s)\]\"']+", txt))
+    _IGNORAR = ("youtube.com", "youtu.be", "facebook.", "instagram.", "twitter.", "//x.com")
     seen: List[str] = []
     for u in urls:
-        if u and u not in seen:
+        if u and u not in seen and not any(d in u.lower() for d in _IGNORAR):
             seen.append(u)
     seen.sort(key=lambda u: 0 if any(d in u for d in _DOMINIOS_OFICIAIS) else 1)
     return seen[0] if seen else ""
 
 
-def _texto_da_pagina(page: dict, props: List[str]) -> str:
+def _texto_da_pagina(page: dict, base: dict) -> str:
+    """Monta o texto a EMBEDDAR. Se a base define `props_conteudo`, usa a estratégia
+    'conteúdo primeiro' (texto distintivo no início; metadados de contexto ao fim),
+    o que melhora a densidade do embedding. Senão, cai no `texto_rag`/`props_texto`."""
     pr = page.get("properties") or {}
-    # `texto_rag` (quando presente) já consolida documento/norma/dispositivo p/ retrieval.
+
+    def val(nome: str) -> str:
+        p = pr.get(nome)
+        return _plain_prop(p).strip() if p else ""
+
+    conteudo = base.get("props_conteudo")
+    if conteudo:
+        partes = [v for v in (val(c) for c in conteudo) if v]
+        texto = "\n".join(partes).strip()
+        ctx = [f"{c}: {val(c)}" for c in (base.get("props_contexto") or []) if val(c)]
+        if ctx:
+            texto += "\n[" + " | ".join(ctx) + "]"
+        if len(texto) >= 20:
+            return texto[:8000]
+
+    props = base.get("props_texto")
+    if not props:
+        props = [n for n, p in pr.items() if p.get("type") in ("title", "rich_text")]
     if "texto_rag" in props:
         p = pr.get("texto_rag")
         if p:
             t = _plain_prop(p).strip()
             if len(t) >= 20:
                 return t[:8000]
-    partes: List[str] = []
-    for nome in props:
-        if nome == "texto_rag":
-            continue
-        p = pr.get(nome)
-        if not p:
-            continue
-        txt = _plain_prop(p).strip()
-        if txt:
-            partes.append(txt)
-    return "\n".join(partes).strip()
+    partes = [val(n) for n in props if n != "texto_rag"]
+    return "\n".join(v for v in partes if v).strip()[:8000]
 
 
 # ---------------------------------------------------------------- indexação
@@ -264,21 +341,24 @@ def indexar(bases: Optional[List[str]] = None, *, limite: Optional[int] = None,
         novos_textos: List[str] = []
         novos_keys: List[str] = []
         for pg in pages:
-            txt = _texto_da_pagina(pg, props)
+            txt = _texto_da_pagina(pg, base)
             if not txt:
                 registros.pop(pg["id"], None)
                 continue
+            titulo = _titulo_pagina(pg)
             url = _urls_da_pagina(pg)
+            meta = _meta_da_pagina(pg, titulo, txt)
             h = hashlib.sha1(txt.encode("utf-8")).hexdigest()
             old = existing.get(pg["id"])
             if old and old.get("hash") == h and old.get("vetor"):
                 rec = dict(old)
-                rec["url"] = url  # captura/atualiza a URL reaproveitando o vetor (sem custo)
+                rec["url"] = url  # recaptura url + metadados de governança sem custo de embedding
+                rec.update(meta)
                 registros[pg["id"]] = rec
             else:
                 registros[pg["id"]] = {"page_id": pg["id"], "fonte": base["label"],
-                                        "titulo": _titulo_pagina(pg), "texto": txt[:8000],
-                                        "url": url, "hash": h, "vetor": None}
+                                        "titulo": titulo, "texto": txt[:8000],
+                                        "url": url, "hash": h, "vetor": None, **meta}
                 novos_textos.append(txt[:8000])
                 novos_keys.append(pg["id"])
 
@@ -312,6 +392,21 @@ class Trecho:
     texto: str
     score: float
     url: str = ""
+    vigente: bool = True
+    prioridade: str = "principal"
+    data: str = ""
+
+
+# Pesos de re-ranking por prioridade_rag (curadoria já existente nas bases).
+_PESO_PRIORIDADE = {"principal": 1.0, "secundario": 0.9, "comparativo": 0.8, "contexto": 0.8,
+                    "auditoria": 0.45, "revisar": 0.5, "": 0.9}
+
+
+def _ajuste_score(r: dict) -> float:
+    p = _PESO_PRIORIDADE.get((r.get("prioridade") or "principal"), 0.9)
+    if (r.get("qualidade") or "ok") != "ok":
+        p *= 0.85
+    return p
 
 
 def _load_cache(bases: List[str]) -> List[dict]:
@@ -330,9 +425,12 @@ def _load_cache(bases: List[str]) -> List[dict]:
     return recs
 
 
-def buscar(query: str, *, k: int = 8, bases: Optional[List[str]] = None) -> List[Trecho]:
+def buscar(query: str, *, k: int = 8, bases: Optional[List[str]] = None,
+           somente_vigente: bool = True) -> List[Trecho]:
     bases = bases or cfg.BASES_PADRAO
     recs = _load_cache(bases)
+    if somente_vigente:
+        recs = [r for r in recs if r.get("vigente", True)]  # exclui revogados/cancelados/redação anterior
     if not recs:
         return []
     qv = llm.embed([query])[0]
@@ -341,20 +439,21 @@ def buscar(query: str, *, k: int = 8, bases: Optional[List[str]] = None) -> List
         q = _np.array(qv, dtype="float32")
         M /= (_np.linalg.norm(M, axis=1, keepdims=True) + 1e-9)
         q /= (_np.linalg.norm(q) + 1e-9)
-        sims = M @ q
-        ordem = sims.argsort()[::-1][:k]
-        return [Trecho(recs[i]["fonte"], recs[i]["titulo"], recs[i]["texto"], float(sims[i]),
-                       recs[i].get("url", "")) for i in ordem]
-    # fallback python puro
-    qn = math.sqrt(sum(x * x for x in qv)) + 1e-9
-    scored = []
-    for r in recs:
-        v = r["vetor"]
-        dot = sum(a * b for a, b in zip(qv, v))
-        vn = math.sqrt(sum(b * b for b in v)) + 1e-9
-        scored.append((dot / (qn * vn), r))
-    scored.sort(key=lambda x: x[0], reverse=True)
-    return [Trecho(r["fonte"], r["titulo"], r["texto"], float(s), r.get("url", "")) for s, r in scored[:k]]
+        sims = (M @ q).tolist()
+    else:
+        qn = math.sqrt(sum(x * x for x in qv)) + 1e-9
+        sims = []
+        for r in recs:
+            v = r["vetor"]
+            dot = sum(a * b for a, b in zip(qv, v))
+            vn = math.sqrt(sum(b * b for b in v)) + 1e-9
+            sims.append(dot / (qn * vn))
+    # re-ranking: score_final = cosseno x peso(prioridade_rag/qualidade)
+    scored = sorted(((sims[i] * _ajuste_score(recs[i]), sims[i], recs[i]) for i in range(len(recs))),
+                    key=lambda x: x[0], reverse=True)
+    return [Trecho(r["fonte"], r["titulo"], r["texto"], float(cos), r.get("url", ""),
+                   r.get("vigente", True), r.get("prioridade", "principal"), r.get("data", ""))
+            for _sc, cos, r in scored[:k]]
 
 
 def _main() -> int:
