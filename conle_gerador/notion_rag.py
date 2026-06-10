@@ -181,9 +181,11 @@ _META_COLS = {
 }
 
 
-def _meta_da_pagina(page: dict, titulo: str, texto: str) -> dict:
+def _meta_da_pagina(page: dict, titulo: str, texto: str, *, categoria: str = "normativo") -> dict:
     """Extrai sinais de governança da linha: vigência (bool), prioridade, qualidade e data.
-    Combina colunas estruturadas (quando existem) com heurística textual (cancelada/revogado)."""
+    Combina colunas estruturadas (quando existem) com heurística textual (cancelada/revogado).
+    A heurística textual só vale para bases NORMATIVAS — em jurisprudência, a ementa/tese cita
+    literalmente que OUTRA norma/súmula foi "(revogada)"/"(cancelada)" sem que o precedente o seja."""
     pr = page.get("properties") or {}
 
     def g(nome: str) -> str:
@@ -206,10 +208,12 @@ def _meta_da_pagina(page: dict, titulo: str, texto: str) -> dict:
     st = g("status_alteracao").lower()
     if any(k in st for k in ("revogad", "alterado_substitu", "substituid")):
         vigente = False
-    # marcadores FORMAIS de revogação/cancelamento (com parêntese) em qualquer posição do texto
-    blob = (titulo + " " + (texto or "")).lower()
-    if "(cancelad" in blob or re.search(r"\(\s*revogad", blob):
-        vigente = False
+    # marcadores FORMAIS de revogação/cancelamento (com parêntese) — SÓ em bases normativas:
+    # na jurisprudência, "(revogada)"/"(cancelada)" na ementa refere-se a OUTRA norma, não ao julgado
+    if categoria == "normativo":
+        blob = (titulo + " " + (texto or "")).lower()
+        if "(cancelad" in blob or re.search(r"\(\s*revogad", blob):
+            vigente = False
 
     prioridade = (g("prioridade_rag") or "principal").lower()
     qualidade = (g("qualidade_texto") or "ok").lower()
@@ -226,7 +230,32 @@ def _meta_da_pagina(page: dict, titulo: str, texto: str) -> dict:
         ano = g("anoEleicao") or g("norma_ano")
         if ano.strip():
             data = ano.strip()[:4]
-    return {"vigente": vigente, "prioridade": prioridade, "qualidade": qualidade, "data": data}
+
+    # ÂNCORA estruturada da jurisprudência (relator/resultado/processo) — dá ao redator a
+    # referência exata para citar sem "precedente sem âncora" e reduz a 2ª passada de links.
+    def gv(*nomes: str) -> str:
+        for nm in nomes:
+            v = g(nm)
+            if v:
+                return v
+        return ""
+
+    ancora = ""
+    if categoria == "jurisprudencia":
+        partes = []
+        rel = gv("relator")
+        res = gv("resultado")
+        proc = gv("numero_processo", "numeroProcesso", "numeroUnico", "numerounico")
+        if rel:
+            partes.append(f"Rel. {rel}")
+        if res:
+            partes.append(f"resultado: {res}")
+        if proc:
+            partes.append(f"proc. {proc}")
+        ancora = " | ".join(partes)
+
+    return {"vigente": vigente, "prioridade": prioridade, "qualidade": qualidade,
+            "data": data, "ancora": ancora}
 
 
 def _urls_da_pagina(page: dict) -> str:
@@ -348,7 +377,7 @@ def indexar(bases: Optional[List[str]] = None, *, limite: Optional[int] = None,
             titulo = _titulo_pagina(pg)
             url = _urls_da_pagina(pg)
             # NÃO reaproveitar o nome `meta` (é o dict global do _meta.json): usar meta_pg
-            meta_pg = _meta_da_pagina(pg, titulo, txt)
+            meta_pg = _meta_da_pagina(pg, titulo, txt, categoria=base.get("categoria", "normativo"))
             h = hashlib.sha1(txt.encode("utf-8")).hexdigest()
             old = existing.get(pg["id"])
             if old and old.get("hash") == h and old.get("vetor"):
@@ -362,6 +391,24 @@ def indexar(bases: Optional[List[str]] = None, *, limite: Optional[int] = None,
                                         "url": url, "hash": h, "vetor": None, **meta_pg}
                 novos_textos.append(txt[:8000])
                 novos_keys.append(pg["id"])
+
+        # EXPURGO SEGURO: tira do índice o que não está mais vigente (flag RAG desmarcada, página
+        # deletada). Só roda com um retrato CONFIÁVEL do conjunto vigente — NUNCA em amostragem
+        # (`limite`, em que `pages` vem truncado) nem com varredura vazia (falha de rede), pois
+        # qualquer um desses apagaria registros válidos do cache.
+        if limite:
+            vigentes = None  # amostragem de teste: não mexe no índice existente
+        elif desde:          # incremental: varre só os ids vigentes à parte (leve)
+            ids_props = [p for p in (prop_ids or [])[:1]] or None
+            vigentes = {pg["id"] for pg in _query_all(db_id, flag, prop_ids=ids_props, desde=None)}
+        else:                # completa (sem limite): `pages` já é o conjunto vigente atual
+            vigentes = {pg["id"] for pg in pages}
+        if vigentes:  # retrato não-vazio — só então é seguro expurgar
+            expurgados = [pid for pid in list(registros) if pid not in vigentes]
+            for pid in expurgados:
+                registros.pop(pid, None)
+            if expurgados:
+                log(f"[{base['label']}] expurgados {len(expurgados)} registros retirados do RAG (flag/deleção).")
 
         if novos_textos:
             log(f"[{base['label']}] gerando embeddings de {len(novos_textos)} novos/alterados (reaproveita {len(registros) - len(novos_textos)})...")
@@ -391,11 +438,13 @@ class Trecho:
     fonte: str
     titulo: str
     texto: str
-    score: float
+    score: float          # score FINAL (cosseno × curadoria × recência), p/ rerank global no gerador
     url: str = ""
     vigente: bool = True
     prioridade: str = "principal"
     data: str = ""
+    page_id: str = ""     # identidade real da linha — dedup confiável no top-k
+    ancora: str = ""      # jurisprudência: relator/resultado/processo p/ citação ancorada
 
 
 # Pesos de re-ranking por prioridade_rag (curadoria já existente nas bases).
@@ -403,10 +452,16 @@ _PESO_PRIORIDADE = {"principal": 1.0, "secundario": 0.9, "comparativo": 0.8, "co
                     "auditoria": 0.45, "revisar": 0.5, "": 0.9}
 
 
-def _ajuste_score(r: dict) -> float:
+def _ajuste_score(r: dict, *, ano_atual: int = 0) -> float:
     p = _PESO_PRIORIDADE.get((r.get("prioridade") or "principal"), 0.9)
     if (r.get("qualidade") or "ok") != "ok":
         p *= 0.85
+    # leve PRÊMIO de recência (nunca penaliza o antigo): até ~8% para o muito recente, decaindo
+    # suave — faz a tese/norma mais atual subir sem derrubar precedente antigo ainda válido.
+    data = (r.get("data") or "")[:4]
+    if ano_atual and data.isdigit():
+        anos = max(0, ano_atual - int(data))
+        p *= 1.0 + 0.08 * math.exp(-anos / 6.0)
     return p
 
 
@@ -449,12 +504,14 @@ def buscar(query: str, *, k: int = 8, bases: Optional[List[str]] = None,
             dot = sum(a * b for a, b in zip(qv, v))
             vn = math.sqrt(sum(b * b for b in v)) + 1e-9
             sims.append(dot / (qn * vn))
-    # re-ranking: score_final = cosseno x peso(prioridade_rag/qualidade)
-    scored = sorted(((sims[i] * _ajuste_score(recs[i]), sims[i], recs[i]) for i in range(len(recs))),
-                    key=lambda x: x[0], reverse=True)
-    return [Trecho(r["fonte"], r["titulo"], r["texto"], float(cos), r.get("url", ""),
-                   r.get("vigente", True), r.get("prioridade", "principal"), r.get("data", ""))
-            for _sc, cos, r in scored[:k]]
+    # re-ranking: score_final = cosseno x peso(prioridade_rag/qualidade) x recência
+    ano_atual = datetime.now(timezone.utc).year
+    scored = sorted(((sims[i] * _ajuste_score(recs[i], ano_atual=ano_atual), recs[i])
+                     for i in range(len(recs))), key=lambda x: x[0], reverse=True)
+    return [Trecho(r["fonte"], r["titulo"], r["texto"], float(sc), r.get("url", ""),
+                   r.get("vigente", True), r.get("prioridade", "principal"), r.get("data", ""),
+                   r.get("page_id", ""), r.get("ancora", ""))
+            for sc, r in scored[:k]]
 
 
 def _main() -> int:

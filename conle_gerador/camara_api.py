@@ -59,15 +59,19 @@ def buscar_proposicoes(
     if sigla:
         params["siglaTipo"] = sigla
     if ano_min:
-        params["ano"] = list(range(ano_min, 2027))
+        params["ano"] = list(range(ano_min, datetime.date.today().year + 1))
     try:
         return _get("/proposicoes", params).get("dados", []) or []
     except Exception:
         return []
 
 
-def _cache_ler(sigla: str, anos: List[int]) -> Optional[List[dict]]:
-    cp = _CACHE_DIR / f"{sigla}_{min(anos)}_{max(anos)}.json"
+def _cache_path(sigla: str, anos: List[int], tag: str):
+    return _CACHE_DIR / f"{sigla}_{min(anos)}_{max(anos)}_{tag}.json"
+
+
+def _cache_ler(sigla: str, anos: List[int], tag: str) -> Optional[List[dict]]:
+    cp = _cache_path(sigla, anos, tag)
     try:
         if cp.exists():
             d = json.loads(cp.read_text(encoding="utf-8"))
@@ -78,46 +82,56 @@ def _cache_ler(sigla: str, anos: List[int]) -> Optional[List[dict]]:
     return None
 
 
-def _cache_gravar(sigla: str, anos: List[int], dados: List[dict]) -> None:
+def _cache_gravar(sigla: str, anos: List[int], dados: List[dict], tag: str) -> None:
     try:
         _CACHE_DIR.mkdir(exist_ok=True)
-        cp = _CACHE_DIR / f"{sigla}_{min(anos)}_{max(anos)}.json"
-        cp.write_text(json.dumps({"ts": time.time(), "dados": dados}, ensure_ascii=False),
-                      encoding="utf-8")
+        _cache_path(sigla, anos, tag).write_text(
+            json.dumps({"ts": time.time(), "dados": dados}, ensure_ascii=False), encoding="utf-8")
     except Exception:
         pass
 
 
 def listar_por_periodo(
-    sigla: str, anos: List[int], *, cap: int = 4000, por_pagina: int = 100, usar_cache: bool = True,
+    sigla: str, anos: List[int], *, marc: Optional[List[str]] = None,
+    cap_por_ano: int = 6000, cap_total: int = 25000, por_pagina: int = 100, usar_cache: bool = True,
 ) -> List[dict]:
-    """Lista TODAS as proposições de uma espécie (siglaTipo) no período, paginando.
-    É a base da busca por veículo normativo: o `keywords` da API não faz busca textual
-    de ementa (índice de termos controlados, incompleto), então recuperamos a espécie
-    inteira e filtramos a ementa localmente (estratégia confiável p/ risco de apensação).
-    O resultado é cacheado em disco por meio dia (a varredura é o gargalo da Seção 6)."""
+    """Lista as proposições de uma espécie (siglaTipo) no período, paginando.
+    É a base da busca por veículo normativo: o `keywords` da API não faz busca textual de ementa
+    (índice de termos controlados, incompleto), então recuperamos a espécie e filtramos a ementa
+    localmente. Quando `marc` (marcadores da norma-alvo) é dado, o filtro roda DENTRO da varredura,
+    antes de acumular — assim só as proposições que alteram a norma entram em `out` e o teto não é
+    gasto com páginas irrelevantes. O teto é POR ANO (cap_por_ano), garantindo que cada ano do
+    lookback seja visitado (antes, um cap global esgotava nos anos recentes e perdia o histórico).
+    O resultado é cacheado por meio dia, com chave que inclui o filtro de norma."""
+    anos = list(anos)
+    tag = ("n" + "-".join(marc)) if marc else "all"
     if usar_cache:
-        cached = _cache_ler(sigla, list(anos))
+        cached = _cache_ler(sigla, anos, tag)
         if cached is not None:
             return cached
     out: List[dict] = []
+    baixadas_total = 0  # teto GLOBAL de segurança: anos são DESC, então corta só os mais antigos
     for ano in anos:
-        pagina = 1
+        pagina, baixadas_ano = 1, 0
         while True:
             params = {"siglaTipo": sigla, "ano": ano, "itens": por_pagina,
                       "pagina": pagina, "ordem": "DESC", "ordenarPor": "id"}
             try:
-                dd = _get("/proposicoes", params).get("dados", []) or []
+                bruto = _get("/proposicoes", params).get("dados", []) or []
             except Exception:
-                dd = []
-            out += dd
-            if len(dd) < por_pagina or len(out) >= cap:
+                bruto = []
+            baixadas_ano += len(bruto)
+            baixadas_total += len(bruto)
+            out += [it for it in bruto if _casa_marcadores(it.get("ementa") or "", marc)] if marc else bruto
+            if len(bruto) < por_pagina or baixadas_ano >= cap_por_ano:
                 break
             pagina += 1
-        if len(out) >= cap:
+        if baixadas_total >= cap_total:  # protege contra explosão em espécies volumosas (PL)
             break
-    if usar_cache and out:
-        _cache_gravar(sigla, list(anos), out)
+    # grava no cache MESMO se vazio (cache negativo): norma sem correlatas não deve re-varrer a
+    # espécie inteira a cada execução; o TTL de 12h limita o risco de cachear um vazio transitório.
+    if usar_cache:
+        _cache_gravar(sigla, anos, out, tag)
     return out
 
 
@@ -157,16 +171,22 @@ def _marcadores_norma(norma_alvo: str) -> List[str]:
         return []
     tipo = "complementar" if "complementar" in s else ("lei" if "lei" in s else None)
     numero = None
-    for n in re.findall(r"\d[\d.]*", s):
-        d = re.sub(r"\D", "", n)
-        if not (len(d) == 4 and d[:2] in ("19", "20")):  # descarta o ano
-            numero = d
-            break
+    # 1) o número costuma PRECEDER o ano ("<número>/<ano>" ou "<número>-<ano>"): isso desambigua
+    #    leis cujo número cai na faixa de ano (ex.: Lei nº 2.000/2010 -> número 2000, não ano)
+    m = re.search(r"(\d[\d.]*)\s*[/-]\s*(?:19|20)\d{2}\b", s)
+    if m:
+        numero = re.sub(r"\D", "", m.group(1))
+    else:  # 2) fallback: primeiro token que não pareça um ano isolado
+        for n in re.findall(r"\d[\d.]*", s):
+            d = re.sub(r"\D", "", n)
+            if not (len(d) == 4 and d[:2] in ("19", "20")):
+                numero = d
+                break
     if not numero:
         return []
     if int(numero) >= 1000:  # número distintivo basta (Lei 9.504, 8.429...)
         return [numero]
-    return [m for m in (tipo, numero) if m]  # número baixo (LC 64) precisa do tipo
+    return [x for x in (tipo, numero) if x]  # número baixo (LC 64) precisa do tipo
 
 
 def _casa_marcadores(ementa: str, marc: List[str]) -> bool:
@@ -205,7 +225,7 @@ def proposicoes_correlatas(
     # 1) veículo normativo: a espécie inteira no período, filtrando ementa pela norma-alvo
     if sigla and marc:
         _log(f"Câmara: varrendo {sigla} ({anos[-1]}–{anos[0]}) para alterações da norma-alvo…")
-        for it in listar_por_periodo(sigla, anos):
+        for it in listar_por_periodo(sigla, anos, marc=marc):  # filtro de norma DENTRO da varredura
             pid = it.get("id")
             if pid and pid not in candidatos:
                 candidatos[pid] = it
@@ -221,16 +241,17 @@ def proposicoes_correlatas(
     # distinguem as candidatas — sem isso, o desempate por ano expulsaria as do recorte (ambiental).
     casam = [it for it in candidatos.values() if _casa_marcadores(it.get("ementa") or "", marc)]
     n_casam = max(1, len(casam))
-    _ements = {id(it): _ementa_norm(it.get("ementa") or "") for it in candidatos.values()}
+    # indexa por id da proposição (pid), não por id() do objeto (à prova de refatoração/GC)
+    _ements = {it.get("id"): _ementa_norm(it.get("ementa") or "") for it in candidatos.values()}
 
     def _freq(t: str) -> int:
-        return sum(1 for it in casam if re.search(rf"\b{re.escape(t)}\b", _ements[id(it)]))
+        return sum(1 for it in casam if re.search(rf"\b{re.escape(t)}\b", _ements[it.get("id")]))
 
     termos_prox = [t for t in set(termos_tema) if t and _freq(t) <= 0.45 * n_casam]
 
     scored = []
     for it in candidatos.values():
-        e = _ements[id(it)]
+        e = _ements[it.get("id")]
         casa_norma = _casa_marcadores(it.get("ementa") or "", marc)
         nt = sum(1 for t in termos_prox if re.search(rf"\b{re.escape(t)}\b", e))
         score = (5.0 if casa_norma else 0.0) + nt

@@ -46,6 +46,8 @@ def _fmt_rag(trechos) -> str:
     linhas = []
     for t in trechos:
         meta = []
+        if getattr(t, "ancora", ""):
+            meta.append(t.ancora)  # jurisprudência: Rel. X | resultado Y | proc. Z
         if getattr(t, "data", ""):
             meta.append(f"data {t.data}")
         if getattr(t, "url", ""):
@@ -85,14 +87,29 @@ def _cat_fonte(label: str) -> str:
 
 
 def _cota_por_categoria(trechos, *, n_total: int = 14, max_juris: int = 6):
-    """Garante convivência: jurisprudência (temas/sessões/DJe) não pode engolir o top-k —
-    no máximo `max_juris` trechos; o restante é normativo; completa se sobrar espaço."""
-    juris = [t for t in trechos if _cat_fonte(t.fonte) == "jurisprudencia"][:max_juris]
-    norm = [t for t in trechos if _cat_fonte(t.fonte) != "jurisprudencia"]
-    out = norm[: n_total - len(juris)] + juris
-    if len(out) < n_total:
-        out += [t for t in trechos if t not in out][: n_total - len(out)]
-    return out[:n_total]
+    """Seleção do top-k por RELEVÂNCIA (rerank global por score), com a cota como TETO: a
+    jurisprudência (temas/sessões/DJe) entra no máximo `max_juris` vezes para não engolir o
+    normativo. Antes a seleção seguia a ORDEM das consultas (um trecho fraco da 1ª consulta
+    excluía um forte da última); agora ordena pelo score final do RAG."""
+    ordenados = sorted(trechos, key=lambda t: getattr(t, "score", 0.0), reverse=True)
+    out, n_juris = [], 0
+    for t in ordenados:
+        if len(out) >= n_total:
+            break
+        if _cat_fonte(t.fonte) == "jurisprudencia":
+            if n_juris >= max_juris:
+                continue
+            n_juris += 1
+        out.append(t)
+    if len(out) < n_total:  # faltou normativo — completa com a jurisprudência além da cota
+        vistos = {id(t) for t in out}
+        for t in ordenados:
+            if len(out) >= n_total:
+                break
+            if id(t) not in vistos:
+                out.append(t)
+                vistos.add(id(t))
+    return out
 
 
 def coletar_contexto(
@@ -106,22 +123,25 @@ def coletar_contexto(
     somente_vigente: bool = True,
     log: Callable = print,
 ) -> Dict[str, Any]:
-    ctx: Dict[str, Any] = {"rag": [], "camara": [], "web": [], "links": None}
+    ctx: Dict[str, Any] = {"rag": [], "camara": [], "web": []}
 
     if usar_rag:
         # consultas: as gerais + dirigidas aos dispositivos (legislação) e julgados (jurisprudência),
         # para que a fundamentação cubra os DOIS eixos com profundidade ("valorizar as tintas").
-        consultas = list(analise.get("consultas_rag") or [])
-        consultas += [f"dispositivo legal: {d}" for d in (analise.get("dispositivos_chave") or [])[:3]]
-        consultas += [f"jurisprudência/tese: {j}" for j in (analise.get("julgados_chave") or [])[:3]]
+        # reserva slots para as consultas DIRIGIDAS (dispositivos/julgados): elas vêm depois das
+        # gerais e, sem reserva, o corte da lista as eliminava — justo os dois eixos a cobrir.
+        gerais = [q for q in (analise.get("consultas_rag") or []) if q and str(q).strip()][:4]
+        dirigidas = ([f"dispositivo legal: {d}" for d in (analise.get("dispositivos_chave") or [])[:2]]
+                     + [f"jurisprudência/tese: {j}" for j in (analise.get("julgados_chave") or [])[:2]])
+        consultas = gerais + dirigidas
         if not consultas:
             consultas = [analise.get("tema", "")]
         vistos = set()
         trechos = []
-        for q in consultas[:7]:
+        for q in consultas:
             log(f"RAG: consultando bases internas — “{q[:60]}”")
             for t in notion_rag.buscar(q, k=6, bases=bases_rag, somente_vigente=somente_vigente):
-                chave = (t.titulo, t.texto[:40])
+                chave = t.page_id or (t.titulo, t.texto[:40])  # dedup por identidade real (page_id)
                 if chave not in vistos:
                     vistos.add(chave)
                     trechos.append(t)
@@ -155,17 +175,14 @@ def coletar_contexto(
 
 
 def _contexto_txt(ctx: dict) -> str:
-    links = ctx.get("links") or {}
-    if links.get("texto"):
-        links_txt = links["texto"] + "\nFontes: " + "; ".join(links.get("fontes", [])[:8])
-    else:
-        links_txt = "(sem coleta dedicada de links — use a TABELA DE LINKS oficiais e o que houver na pesquisa web)"
     return (
         "=== TRECHOS DAS BASES INTERNAS (RAG) ===\n" + _fmt_rag(ctx.get("rag", [])) +
         "\n\n=== PROPOSIÇÕES NA CÂMARA (API oficial) ===\n" + _fmt_camara(ctx.get("camara", [])) +
         "\n\n=== PESQUISA WEB (Gemini grounded) ===\n" + _fmt_web(ctx.get("web", [])) +
-        "\n\n=== REFERÊNCIAS COM LINKS OFICIAIS (use estas URLs para linkar a 1ª menção de cada "
-        "precedente e norma; não invente URLs) ===\n" + links_txt
+        "\n\n=== LINKS OFICIAIS — para linkar a 1ª menção de cada precedente/norma (nunca invente "
+        "URL) ===\nUse os \"[LINK OFICIAL: ...]\" dos trechos do RAG, a TABELA DE LINKS do Planalto e "
+        "as URLs da pesquisa web acima; quando faltar a URL de um precedente, marque-o com [LINK?] — "
+        "é resolvido automaticamente na etapa de enriquecimento."
     )
 
 
@@ -230,7 +247,10 @@ _RE_LINKQ = re.compile(
 
 
 def _norm_ref(s: str) -> str:
-    """Chave canônica de uma referência: 'ADC nº 29' -> 'adc29'; 'Súmula 41 do TSE' -> 'sumula41tse'."""
+    """Chave canônica de uma referência: 'ADC nº 29' -> 'adc29'; 'Súmula nº 41 do TSE' -> 'sumula41tse'.
+    MANTÉM o sufixo do tribunal: 'Súmula nº 41 do TSE' e 'Súmula nº 41 do STF' são precedentes DISTINTOS
+    (com URLs distintas) e não podem colapsar — o modelo cita súmula sempre com o tribunal (regra de
+    citação), então o ganho de remover o sufixo não compensa o risco de link cruzado entre tribunais."""
     s = (s or "").lower()
     s = re.sub(r"n[ºo°.]+", " ", s)
     s = re.sub(r"\b(?:de|da|do)\b", " ", s)
@@ -345,9 +365,11 @@ def _buscar_links_oficiais(refs: List[str], tema: str, log: Callable) -> Dict[st
         for ln in r["texto"].splitlines():
             if "=>" in ln and "http" in ln:
                 nome, url = ln.split("=>", 1)
+                ids = _RE_REF.findall(nome)  # extrai a referência canônica (descarta numeração/prefixo do modelo)
+                ch = _norm_ref(ids[0]) if ids else ""
                 u = re.search(r"https?://\S+", url)
-                if u:
-                    novos[_norm_ref(nome)] = u.group(0).rstrip(".,;)]")
+                if ch and u:  # só grava chaves de referência REAL — não envenena o cache
+                    novos[ch] = u.group(0).rstrip(".,;)]")
     _links_cache_gravar(novos)
     mapa.update(novos)
     return mapa
@@ -387,11 +409,14 @@ def _enriquecer_links(dicts: List[dict], ctx: dict, analise: dict,
         def repl_q(m):  # resolve "NOME [LINK?]"
             nome = m.group(1).strip()
             ids = _RE_REF.findall(nome)
-            ch = _norm_ref(ids[0] if ids else nome)
+            alvo = ids[0] if ids else nome  # a referência reconhecível (a 1ª, p/ refs compostas)
+            ch = _norm_ref(alvo)
             url = mapa.get(ch)
             if url and ch not in linkados:
                 linkados.add(ch); n_ok[0] += 1
-                return f"[{nome}]({url})"
+                # linka SÓ a referência reconhecida; em "ADC nº 29 e nº 30", o "e nº 30" (sem tipo,
+                # não casável) fica fora da âncora — evita o link único errado englobando ambas
+                return nome.replace(alvo, f"[{alvo}]({url})", 1) if alvo != nome else f"[{nome}]({url})"
             return nome  # sem URL (ou já linkado antes): remove o sentinela
         s = _RE_LINKQ.sub(repl_q, s)
 
@@ -493,13 +518,17 @@ def montar_blocos(analise: dict, it: dict, sec6: dict, minuta: dict, tipo, ano: 
     B.append(nw.bloco_callout(epigrafe, emoji="📜", cor="gray_background"))
     B.append(nw.bloco_paragraph(tipo.preambulo))
     for item in minuta.get("articulado") or []:
-        texto = str(item.get("texto") or "").strip()
+        # tolera o LLM desviando do formato {tipo, texto} e emitindo strings cruas no articulado
+        # (senão item.get quebraria com AttributeError e perderia toda a geração já paga)
+        if isinstance(item, str):
+            texto, tipo_item = item.strip(), "paragraph"
+        elif isinstance(item, dict):
+            texto, tipo_item = str(item.get("texto") or "").strip(), item.get("tipo")
+        else:
+            continue
         if not texto:
             continue
-        if item.get("tipo") == "quote":
-            B.append(nw.bloco_quote(texto))
-        else:
-            B.append(nw.bloco_paragraph(texto))
+        B.append(nw.bloco_quote(texto) if tipo_item == "quote" else nw.bloco_paragraph(texto))
 
     # ---- 9. Justificativa ----
     B.append(nw.bloco_heading(2, "9. JUSTIFICATIVA"))
@@ -587,9 +616,24 @@ def gerar(
         fut_it = ex.submit(redigir_it, demanda, analise, ctx, model=model, log=log)
         fut_s6 = (ex.submit(redigir_secao6, analise, ctx.get("camara", []), model=model, log=log)
                   if usar_camara else None)
-        it = fut_it.result()
-        sec6 = fut_s6.result() if fut_s6 else {}
+        # não deixar a falha de uma redação abortar tudo e perder as chamadas já pagas:
+        # captura, segue com o que houver e sinaliza no resultado
+        try:
+            it = fut_it.result()
+        except Exception as e:  # noqa: BLE001
+            log(f"   redação do corpo da IT falhou: {e}")
+            it, avisos = {}, avisos + ["A redação do corpo da IT falhou — a página pode estar incompleta."]
+        try:
+            sec6 = fut_s6.result() if fut_s6 else {}
+        except Exception as e:  # noqa: BLE001
+            log(f"   redação da Seção 6 falhou: {e}")
+            sec6 = {}
     minuta = redigir_minuta(demanda, analise, ctx, tipo, it=it, model=model, log=log)
+    # alerta de seção vazia (parse/truncamento do modelo): evita gravar em silêncio
+    if not it:
+        avisos.append("Corpo da IT vazio (possível truncamento/JSON inválido do modelo) — revise a página.")
+    if not minuta:
+        avisos.append("Minuta vazia (possível truncamento/JSON inválido do modelo) — revise a página.")
 
     # 2ª passada de links: linka precedentes citados sem link/marcados [LINK?] no corpo e na Seção 6
     # (a minuta/justificativa NÃO leva links, por regra). Dirigida pelo que o redator efetivamente citou.

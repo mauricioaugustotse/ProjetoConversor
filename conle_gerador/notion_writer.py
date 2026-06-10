@@ -180,6 +180,11 @@ def escrever_pagina(page_id: str, blocos: List[dict], *, progress=None) -> int:
             if r.status_code >= 400:
                 raise RuntimeError(f"Notion append -> {r.status_code}: {r.text[:400]}")
             break
+        else:
+            # as 4 tentativas se esgotaram em 429/5xx — NÃO mascarar como sucesso
+            raise RuntimeError(
+                f"Notion append falhou após 4 tentativas no lote {i // 90 + 1} "
+                f"(blocos {i}..{i + len(lote)}): último status {r.status_code}: {r.text[:300]}")
         total += len(lote)
         log(f"   gravados {total}/{len(blocos)} blocos...")
         time.sleep(0.34)

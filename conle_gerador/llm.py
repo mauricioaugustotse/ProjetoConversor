@@ -58,19 +58,31 @@ def chat(
     # json_object da Responses API exige a palavra 'json' DENTRO do input.
     base = {"model": model,
             "input": [{"role": "system", "content": system},
-                      {"role": "user", "content": user}],
-            "max_output_tokens": max_output_tokens}
+                      {"role": "user", "content": user}]}
     if json_mode:
         base["text"] = {"format": {"type": "json_object"}}
 
     temp = temperature
+    tokens = max_output_tokens
+    bump_feito = False
     last = None
     for i in range(max_retries):
         try:
             kwargs = dict(base)
+            kwargs["max_output_tokens"] = tokens
             if temp is not None:
                 kwargs["temperature"] = temp
             resp = client.responses.create(**kwargs)
+            # truncamento por limite de tokens: a resposta vem 'incomplete' e o JSON sai cortado
+            # (viraria seção vazia em silêncio) — re-chama JÁ com o dobro de tokens, sem gastar uma
+            # iteração de retry (senão um bump na última iteração cairia fora do loop e lançaria erro).
+            det = getattr(resp, "incomplete_details", None)
+            reason = (getattr(det, "reason", "") or "") if det is not None else ""
+            if getattr(resp, "status", "") == "incomplete" and "max_output" in reason and not bump_feito:
+                bump_feito = True
+                tokens = min(tokens * 2, 32000)
+                kwargs["max_output_tokens"] = tokens
+                resp = client.responses.create(**kwargs)
             content = getattr(resp, "output_text", "") or ""
             return _parse_json(content) if json_mode else content.strip()
         except Exception as exc:  # noqa: BLE001
