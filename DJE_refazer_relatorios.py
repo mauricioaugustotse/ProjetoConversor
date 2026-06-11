@@ -184,10 +184,16 @@ def snapshot_report_json(plan: ReportPagePlan) -> Dict[str, Any]:
 
 
 def audit_page(plan: ReportPagePlan, payload: Dict[str, Any], *, data_source_id: str) -> Dict[str, Any]:
-    existing = importer.query_existing_pages_by_period(
+    # Mesma query do gerador (todas as paginas do periodo), e nao a indexada por
+    # chave numeroUnico/numeroProcesso, que subconta paginas sem essas propriedades.
+    base_cases = report.query_cases_by_period(
         data_source_id, plan.start.isoformat(), plan.end.isoformat()
     )
-    base_ids = set(existing.values())
+    base_ids = {
+        report._normalize_notion_id(str(case.page_id))
+        for case in base_cases
+        if gui._normalize_ws(case.page_id)
+    }
     analyzed_ids = {
         report._normalize_notion_id(str(item.get("page_id") or item.get("case_id") or ""))
         for item in (payload.get("analyses") or [])
