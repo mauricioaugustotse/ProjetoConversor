@@ -27,6 +27,7 @@ $script:compressQueueTotal = 0
 $script:compressQueueDone = 0
 $script:compressQueueFailures = @()
 $script:compressQueueCommon = $null
+$script:compressCancelRequested = $false
 $script:sessionLogFile = Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath ("mp4_compress_gui_{0}.log" -f (Get-Date -Format "yyyyMMdd_HHmmss"))
 
 function Add-ToProcessPathIfExists {
@@ -1238,6 +1239,7 @@ function Start-GuiCompressionProcess {
         throw "Ja existe uma compressao em andamento."
     }
 
+    $script:compressCancelRequested = $false
     $hostPath = Resolve-RunnerHostPath
     $targetText = $TargetMb.ToString("0.###", [System.Globalization.CultureInfo]::InvariantCulture)
     $heightText = if ($null -eq $MaxHeightValue) { "0" } else { ([int]$MaxHeightValue).ToString() }
@@ -1326,6 +1328,13 @@ function Start-GuiCompressionProcess {
     $process.add_Exited({
             param($sender, $eventArgs)
             try {
+                if ($script:compressCancelRequested) {
+                    # Cancelamento intencional: nao contar como falha nem
+                    # sobrescrever o status 'Cancelado.' definido pelo botao.
+                    $script:activeProcess = $null
+                    return
+                }
+
                 $exitCode = 1
                 try {
                     $exitCode = $sender.ExitCode
@@ -1824,8 +1833,25 @@ function Start-GuiMode {
                     $jobs += @{ Input = $files[0]; Output = $outputPath }
                 }
                 else {
+                    # Nomes distintos podem normalizar para a mesma saida
+                    # (ex.: 'video.mp4' e 'vídeo.mp4'); sufixa _2, _3...
+                    $usedOutputs = @{}
                     foreach ($file in $files) {
-                        $jobs += @{ Input = $file; Output = (Get-DefaultOutputName -InputPath $file -TargetMb $targetMbParsed) }
+                        $outputPath = Get-DefaultOutputName -InputPath $file -TargetMb $targetMbParsed
+                        $candidate = $outputPath
+                        $n = 2
+                        while ($usedOutputs.ContainsKey($candidate.ToLowerInvariant())) {
+                            $dir = Split-Path -Path $outputPath -Parent
+                            $base = [System.IO.Path]::GetFileNameWithoutExtension($outputPath)
+                            $ext = [System.IO.Path]::GetExtension($outputPath)
+                            $candidate = Join-Path -Path $dir -ChildPath ("{0}_{1}{2}" -f $base, $n, $ext)
+                            $n++
+                        }
+                        if ($candidate -ne $outputPath) {
+                            Append-UiLog -Target $txtLog -Line ("Saida renomeada para evitar colisao: {0}" -f $candidate)
+                        }
+                        $usedOutputs[$candidate.ToLowerInvariant()] = $true
+                        $jobs += @{ Input = $file; Output = $candidate }
                     }
                 }
 
@@ -1860,6 +1886,7 @@ function Start-GuiMode {
     $btnCancel.Add_Click({
             if ($script:activeProcess -and -not $script:activeProcess.HasExited) {
                 try {
+                    $script:compressCancelRequested = $true
                     $script:compressQueue = @()
                     Stop-CompressionProcessTree -Process $script:activeProcess
                     Append-UiLog -Target $txtLog -Line "Processo cancelado pelo usuario (fila limpa)."
@@ -1893,6 +1920,7 @@ function Start-GuiMode {
                 }
 
                 try {
+                    $script:compressCancelRequested = $true
                     $script:compressQueue = @()
                     Stop-CompressionProcessTree -Process $script:activeProcess
                 }
