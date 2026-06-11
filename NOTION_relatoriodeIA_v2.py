@@ -2336,6 +2336,24 @@ def apply_target_office_floor(case: CaseRecord, analysis: CaseAnalysis) -> CaseA
     return replace(analysis, relevance_score=new_relevance, display_score=new_display, risk_level=new_risk)
 
 
+def sanitize_analysis_parties(case: CaseRecord, analysis: CaseAnalysis) -> CaseAnalysis:
+    # O modelo as vezes coloca nomes de PESSOAS em 'parties'. Mantem apenas o que
+    # o validador deterministico reconhece como legenda partidaria; na falta,
+    # recua para os partidos extraidos da base (case.partidos).
+    if not analysis.parties:
+        return analysis
+    valid = infer_parties_from_entries(analysis.parties, case.sigla_uf)
+    if not valid:
+        valid = list(case.partidos)
+    if list(valid) == list(analysis.parties):
+        return analysis
+    return replace(
+        analysis,
+        parties=_unique_preserve_order(valid),
+        includes_party=bool(valid) or bool(case.partidos),
+    )
+
+
 def finalize_case_analyses(
     cases: Sequence[CaseRecord],
     analysis_by_case_id: Mapping[str, CaseAnalysis],
@@ -2345,7 +2363,8 @@ def finalize_case_analyses(
         key = case_resume_key(case)
         if key not in analysis_by_case_id:
             continue
-        out.append(apply_target_office_floor(case, analysis_by_case_id[key]))
+        analysis = sanitize_analysis_parties(case, analysis_by_case_id[key])
+        out.append(apply_target_office_floor(case, analysis))
     return out
 
 
@@ -3084,6 +3103,8 @@ def build_case_analysis_prompt(start_iso: str, end_iso: str) -> str:
         f"Analise processos do período exato {period_text}. "
         "Use apenas os dados fornecidos. Não invente fatos, partidos, cargos ou consequências. "
         "Identifique partidos de modo conservador. Se não estiver explícito, diga menos. "
+        "No campo 'parties', liste APENAS legendas partidárias (sigla ou nome oficial de partido, federação ou coligação) — "
+        "NUNCA nomes de pessoas físicas; pessoas vão em public_figures. Sem partido explícito, devolva lista vazia. "
         "A unidade de análise é o processo judicial. Para cada processo, explique o que ocorreu, "
         "os fundamentos jurídicos adotados, a consequência aplicada e a relevância político-eleitoral. "
         "Considere como sinais máximos de relevância: Presidente da República, Vice-Presidente, governadores, senadores, "
@@ -4310,13 +4331,6 @@ def build_case_toggle_heading(index: int, case: CaseRecord, analysis: CaseAnalys
     )
 
 
-def tse_jurisprudencia_url(case: CaseRecord) -> str:
-    digits = re.sub(r"\D+", "", _normalize_ws(case.numero_unico))
-    if len(digits) < 7:
-        return ""
-    return f"https://jurisprudencia.tse.jus.br/#/pesquisa?texto={digits}"
-
-
 def build_case_toggle_children(case: CaseRecord, analysis: CaseAnalysis) -> List[Dict[str, Any]]:
     meta_line = (
         f"**Processo:** {case.process_label()} | **Classe:** {case.sigla_classe or case.descricao_classe or '-'} | "
@@ -4330,15 +4344,15 @@ def build_case_toggle_children(case: CaseRecord, analysis: CaseAnalysis) -> List
         for url in extract_http_urls(analysis.source_notes + case.noticias)
         if not notion_case_url or url.casefold() != notion_case_url.casefold()
     ]
+    # Apenas links reais (noticias confirmadas pela busca Gemini gravadas na base
+    # e a pagina do caso). Link sintetico de busca no TSE foi removido: a SPA de
+    # jurisprudencia ignora o fragmento e abria sempre a home.
     refs_segments: List[str] = []
     for url in external_references:
         domain = _normalize_ws(urlparse(url).netloc).replace("www.", "") or "link"
         refs_segments.append(f"[Notícia: {domain}]({url})")
     if notion_case_url:
         refs_segments.append(f"[Página do caso (Notion)]({notion_case_url})")
-    tse_url = tse_jurisprudencia_url(case)
-    if tse_url:
-        refs_segments.append(f"[Buscar no TSE]({tse_url})")
     refs_line = " | ".join(refs_segments)
 
     blocks: List[Dict[str, Any]] = [
