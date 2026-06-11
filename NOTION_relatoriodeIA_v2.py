@@ -62,13 +62,13 @@ ANALYSIS_CACHE_FILE = SCRIPT_DIR / "Artefatos" / "cache" / "notion_relatorio_cas
 
 DEFAULT_SOURCE_DATABASE_URL = "https://www.notion.so/328721955c648020988af0654c3554a2?v=cfbaf74128e14ad1a210db1be8fc68c1"
 DEFAULT_NOTION_VERSION = "2025-09-03"
-DEFAULT_OPENAI_MODEL = "gpt-5.5"
+DEFAULT_OPENAI_MODEL = "gpt-5.4-nano"
 DEFAULT_MAX_CASES_PER_BATCH = 1
 DEFAULT_OPENAI_MAX_WORKERS = 12
 DEFAULT_OPENAI_TARGET_RPM = 360
 DEFAULT_OPENAI_BATCH_CHAR_BUDGET = 14000
-DEFAULT_MAX_OPENAI_CASES = 20
-DEFAULT_OPENAI_TRIAGE_THRESHOLD = 45
+DEFAULT_MAX_OPENAI_CASES = 1000
+DEFAULT_OPENAI_TRIAGE_THRESHOLD = 0
 MAX_OPENAI_LIGHT_BATCH_WORKERS = 12
 MAX_OPENAI_HEAVY_BATCH_WORKERS = 2
 DEFAULT_HTTP_POOL_SIZE = 32
@@ -108,9 +108,10 @@ VERBOSE_HEARTBEAT_INTERVAL_S = 5.0
 SECTION_EXECUTIVE_TITLE = "1. Leitura executiva e alertas"
 SECTION_CASES_TITLE = "2. Casos prioritários"
 SECTION_NOTES_TITLE = "3. Casos detalhados"
-SECTION_LAWYERS_TITLE = "4. Advogados recorrentes nos casos detalhados"
-SECTION_METHODOLOGY_TITLE = "5. Metodologia"
-SECTION_METHODOLOGY_WITHOUT_LAWYERS_TITLE = "4. Metodologia"
+SECTION_INVENTORY_TITLE = "4. Demais casos do período"
+SECTION_LAWYERS_TITLE = "5. Advogados recorrentes nos casos detalhados"
+SECTION_METHODOLOGY_TITLE = "6. Metodologia"
+SECTION_METHODOLOGY_WITHOUT_LAWYERS_TITLE = "5. Metodologia"
 CASE_SECTION_TITLES = (
     SECTION_CASES_TITLE,
     "2. Casos selecionados",
@@ -124,10 +125,15 @@ NOTES_SECTION_TITLES = (
     "5. Notas por processo",
     "5. Comentários por processo",
 )
+INVENTORY_SECTION_TITLES = (SECTION_INVENTORY_TITLE,)
+LAWYERS_SECTION_TITLES = (
+    SECTION_LAWYERS_TITLE,
+    "4. Advogados recorrentes nos casos detalhados",
+)
 METHODOLOGY_SECTION_TITLES = (
     SECTION_METHODOLOGY_TITLE,
     SECTION_METHODOLOGY_WITHOUT_LAWYERS_TITLE,
-    "6. Metodologia",
+    "4. Metodologia",
 )
 
 NOTION_BASE_URL = "https://api.notion.com"
@@ -1098,13 +1104,27 @@ def _finish_report_fragment(text: str) -> str:
     return cleaned
 
 
+def _drop_leading_lowercase_fragment(text: str) -> str:
+    value = _normalize_ws(text)
+    if not value or not value[:1].islower():
+        return value
+    match = re.match(r"^[^.!?]{1,80}[.!?]\s+(?=[A-ZÀ-Ý])", value)
+    if not match:
+        return value
+    prefix = value[: match.end()].rstrip()
+    if BOUNDARY_ABBREVIATION_RE.search(prefix):
+        return value
+    remainder = value[match.end() :].strip()
+    return remainder if len(remainder) >= 40 else value
+
+
 def _compact_report_field_text(
     text: Any,
     max_chars: int,
     *,
     overflow_chars: int = 180,
 ) -> str:
-    source = _normalize_ws(text)
+    source = _drop_leading_lowercase_fragment(_normalize_ws(text))
     if max_chars <= 0 or len(source) <= max_chars:
         cleaned = _trim_suspicious_summary_tail(source) or source
         return _finish_report_fragment(cleaned)
@@ -1123,7 +1143,9 @@ def _compact_report_field_text(
     fallback = truncate_text(source, max_chars, suffix="")
     fallback = _trim_suspicious_summary_tail(fallback) or fallback
     fallback = fallback.rstrip(" .;,:")
-    return f"{fallback}..." if fallback else ""
+    if " " in fallback:
+        fallback = fallback[: fallback.rfind(" ")].rstrip(" .;,:")
+    return _finish_report_fragment(fallback) if fallback else ""
 
 
 def normalize_summary_snippet(text: Any, *, max_chars: Optional[int] = None) -> str:
@@ -2179,6 +2201,13 @@ def risk_display_label(risk_level: str) -> str:
     return RISK_DISPLAY_LABELS.get(_normalize_ws(risk_level).casefold(), _normalize_ws(risk_level).upper() or "BAIXO")
 
 
+RISK_EMOJIS = {"critico": "🔴", "alto": "🟠", "medio": "🟡", "baixo": "🟢"}
+
+
+def risk_emoji(risk_level: str) -> str:
+    return RISK_EMOJIS.get(_normalize_ws(risk_level).casefold(), "⚪")
+
+
 def analysis_display_score(item: CaseAnalysis) -> int:
     raw = item.display_score or item.relevance_score
     return max(1, min(10, int(raw)))
@@ -3029,7 +3058,12 @@ def build_case_analysis_prompt(start_iso: str, end_iso: str) -> str:
         "Use como foco o tema jurídico-eleitoral do caso. Quando couber, preserve apenas referências essenciais para identificar o instituto, como AIJE, AIME, art. 30-A ou art. 41-A. "
         "Não deixe o título terminar com caudas abertas, artigos incompletos, súmulas soltas, parênteses abertos ou fragmentos sem conclusão. "
         "Quando usar expressão indispensável em inglês, marque-a em itálico Markdown com asteriscos simples. "
-        "Não use reticências em nenhum campo. Feche cada frase com conclusão completa, sem '...'."
+        "Não use reticências em nenhum campo. Feche cada frase com conclusão completa, sem '...'. "
+        "Quando a decisão firmar tese nova, promover virada jurisprudencial ou superar entendimento consolidado do TSE, "
+        "sinalize isso explicitamente no início de strategic_comment com o prefixo 'Tese nova:' ou 'Virada:'. "
+        "Quando o caso tocar matéria objeto de legislação eleitoral em tramitação ou debate no Congresso Nacional "
+        "(reforma eleitoral, FEFC/Fundo Partidário, cotas, fidelidade partidária, inelegibilidades, federações), "
+        "aponte em strategic_comment o impacto potencial para o trabalho legislativo da Câmara dos Deputados."
     )
 
 
@@ -3584,7 +3618,10 @@ def summarize_report(
         "Limites rígidos: até 3 executive_highlights, 2 party_alerts, 1 lawyer_signal e 2 watchpoints. "
         "Se não houver alerta material em uma categoria, devolva lista vazia. "
         "Não invente fatos. Use linguagem executiva, densa e objetiva. "
-        "Quando usar expressão indispensável em inglês, marque-a em itálico Markdown com asteriscos simples."
+        "Quando usar expressão indispensável em inglês, marque-a em itálico Markdown com asteriscos simples. "
+        "Dê prioridade, em executive_highlights e watchpoints, a teses novas, viradas jurisprudenciais e decisões "
+        "com impacto em matéria eleitoral em tramitação ou debate no Congresso Nacional; quando existirem, "
+        "esses itens vêm antes dos demais."
     )
     try:
         response = openai_json_call(
@@ -3925,7 +3962,7 @@ def create_table(
 
 
 def score_label(score: int, risk_level: str) -> str:
-    return f"{max(1, min(10, int(score)))}/10 | {risk_display_label(risk_level)}"
+    return f"{risk_emoji(risk_level)} {max(1, min(10, int(score)))}/10 | {risk_display_label(risk_level)}"
 
 
 def callout_color_for_risk(risk_level: str) -> str:
@@ -3933,7 +3970,7 @@ def callout_color_for_risk(risk_level: str) -> str:
     if value == "critico":
         return "red_background"
     if value == "alto":
-        return "yellow_background"
+        return "orange_background"
     if value == "medio":
         return "blue_background"
     return "gray_background"
@@ -4228,6 +4265,13 @@ def build_case_toggle_heading(index: int, case: CaseRecord, analysis: CaseAnalys
     )
 
 
+def tse_jurisprudencia_url(case: CaseRecord) -> str:
+    digits = re.sub(r"\D+", "", _normalize_ws(case.numero_unico))
+    if len(digits) < 7:
+        return ""
+    return f"https://jurisprudencia.tse.jus.br/#/pesquisa?texto={digits}"
+
+
 def build_case_toggle_children(case: CaseRecord, analysis: CaseAnalysis) -> List[Dict[str, Any]]:
     meta_line = (
         f"**Processo:** {case.process_label()} | **Classe:** {case.sigla_classe or case.descricao_classe or '-'} | "
@@ -4241,8 +4285,16 @@ def build_case_toggle_children(case: CaseRecord, analysis: CaseAnalysis) -> List
         for url in extract_http_urls(analysis.source_notes + case.noticias)
         if not notion_case_url or url.casefold() != notion_case_url.casefold()
     ]
-    references = external_references + ([notion_case_url] if notion_case_url else [])
-    refs_line = " | ".join(f"[fonte {idx}]({url})" for idx, url in enumerate(references, start=1))
+    refs_segments: List[str] = []
+    for url in external_references:
+        domain = _normalize_ws(urlparse(url).netloc).replace("www.", "") or "link"
+        refs_segments.append(f"[Notícia: {domain}]({url})")
+    if notion_case_url:
+        refs_segments.append(f"[Página do caso (Notion)]({notion_case_url})")
+    tse_url = tse_jurisprudencia_url(case)
+    if tse_url:
+        refs_segments.append(f"[Buscar no TSE]({tse_url})")
+    refs_line = " | ".join(refs_segments)
 
     blocks: List[Dict[str, Any]] = [
         build_callout_block(
@@ -4310,6 +4362,91 @@ def build_published_toggle_blocks(
     return toggle_blocks
 
 
+def build_inventory_rows(
+    cases: Sequence[CaseRecord],
+    analyses: Sequence[CaseAnalysis],
+) -> List[List[str]]:
+    published_keys = {case_resume_key(case) for case, _analysis in build_publishable_case_pairs(cases, analyses)}
+    analysis_map = {analysis_resume_key(analysis): analysis for analysis in analyses}
+    leftovers = [case for case in cases if case_resume_key(case) not in published_keys]
+
+    def _sort_key(case: CaseRecord) -> tuple:
+        analysis = analysis_map.get(case_resume_key(case))
+        if analysis is not None:
+            return analysis_sort_key(analysis)
+        return (99, 0, case.process_label().casefold())
+
+    leftovers.sort(key=_sort_key)
+    rows: List[List[str]] = []
+    for case in leftovers:
+        analysis = analysis_map.get(case_resume_key(case))
+        if analysis is not None:
+            risk_cell = f"{risk_emoji(analysis.risk_level)} {analysis_display_score(analysis)}/10"
+            theme_source = analysis.title or case.tema or case.punchline
+        else:
+            risk_cell = "⚪ -"
+            theme_source = case.tema or case.punchline
+        process_cell = (
+            f"[{case.process_label()}]({case.source_url})" if _normalize_ws(case.source_url) else case.process_label()
+        )
+        rows.append(
+            [
+                process_cell,
+                _normalize_ws(case.sigla_classe or case.descricao_classe) or "-",
+                _normalize_ws(case.local_label()) or "-",
+                _compact_report_field_text(theme_source, 130),
+                risk_cell,
+            ]
+        )
+    return rows
+
+
+def append_inventory_section(
+    page_id: str,
+    cases: Sequence[CaseRecord],
+    analyses: Sequence[CaseAnalysis],
+) -> int:
+    rows = build_inventory_rows(cases, analyses)
+    if not rows:
+        return 0
+    append_block_children(
+        page_id,
+        [
+            build_heading_2_block(SECTION_INVENTORY_TITLE),
+            build_paragraph_block(
+                f"Inventário dos {len(rows)} demais processos do período, em ordem de risco. "
+                "Garante que nenhum caso da base fique fora do relatório."
+            ),
+        ],
+    )
+    create_table(page_id, ["Processo", "Classe", "Local", "Tema", "Risco"], rows)
+    return len(rows)
+
+
+def build_period_stats_blocks(
+    cases: Sequence[CaseRecord],
+    published_count: int,
+) -> List[Dict[str, Any]]:
+    total = len(cases)
+    if not total:
+        return []
+    with_party = sum(1 for case in cases if case.partidos)
+    class_counter = Counter(
+        _normalize_ws(case.sigla_classe or case.descricao_classe)
+        for case in cases
+        if _normalize_ws(case.sigla_classe or case.descricao_classe)
+    )
+    uf_counter = Counter(case.sigla_uf for case in cases if case.sigla_uf)
+    text = f"**{total} processo(s) no período** | {published_count} em destaque | {with_party} com partido identificado."
+    top_classes = ", ".join(f"{name} ({count})" for name, count in class_counter.most_common(6))
+    if top_classes:
+        text += f"\nClasses mais frequentes: {top_classes}."
+    top_ufs = ", ".join(f"{name} ({count})" for name, count in uf_counter.most_common(6))
+    if top_ufs:
+        text += f"\nUFs: {top_ufs}."
+    return [build_callout_block(text, icon="📊", color="gray_background")]
+
+
 def append_published_sections(
     page_id: str,
     cases: Sequence[CaseRecord],
@@ -4374,7 +4511,7 @@ def parse_toggle_heading_text(title_text: str) -> Dict[str, str]:
     if len(parts) < 5:
         return {}
     first = parts[0]
-    first_match = re.match(r"^(?P<index>\d+)\.\s*(?P<score_num>\d+/\d+)$", first)
+    first_match = re.match(r"^(?P<index>\d+)\.\s*(?:[^\d\s]+\s+)?(?P<score_num>\d+/\d+)$", first)
     if not first_match:
         return {}
 
@@ -4930,6 +5067,7 @@ def repair_published_sections(
             delete_block(block_id)
 
     created_stats = append_published_sections(page_id, cases, analyses, after_block_id=previous_block_id)
+    inventory_rows_created = append_inventory_section(page_id, cases, analyses)
     if lawyer_blocks:
         append_block_children(page_id, lawyer_blocks)
     append_block_children(page_id, methodology_blocks)
@@ -4937,6 +5075,7 @@ def repair_published_sections(
         "deleted_blocks": len(to_delete),
         "case_rows_created": int(created_stats.get("case_rows_created", 0)),
         "toggle_blocks_created": int(created_stats.get("toggle_blocks_created", 0)),
+        "inventory_rows_created": inventory_rows_created,
         "lawyer_blocks_created": len(lawyer_blocks),
         "dry_run": False,
     }
@@ -4977,6 +5116,7 @@ def render_report_page(
             "Filtro editorial: interesse federal, altos cargos e partidos políticos."
         ),
         build_callout_block(summary.overview_callout, icon="💡", color="blue_background"),
+        *build_period_stats_blocks(cases, len(published_pairs)),
         build_divider_block(),
         build_heading_2_block(SECTION_EXECUTIVE_TITLE),
     ]
@@ -4987,6 +5127,8 @@ def render_report_page(
     published_stats = append_published_sections(page_id, cases, analyses)
     created_toggles = int(published_stats.get("toggle_blocks_created", 0))
 
+    inventory_rows_created = append_inventory_section(page_id, cases, analyses)
+
     lawyer_blocks = build_recurring_lawyer_section_blocks(cases, analyses)
     if lawyer_blocks:
         append_block_children(page_id, lawyer_blocks)
@@ -4995,6 +5137,7 @@ def render_report_page(
     return {
         "toggle_blocks_created": created_toggles,
         "case_rows_created": int(published_stats.get("case_rows_created", 0)),
+        "inventory_rows_created": inventory_rows_created,
         "executive_alert_count": len(executive_alerts),
         "lawyer_blocks_created": len(lawyer_blocks),
         "metrics": {

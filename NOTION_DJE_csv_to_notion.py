@@ -385,6 +385,17 @@ def row_unique_key(row: Mapping[str, str]) -> str:
     return ""
 
 
+def row_unique_keys(row: Mapping[str, str]) -> List[str]:
+    keys: List[str] = []
+    numero_unico = _digits(row.get("numeroUnico"))
+    if numero_unico:
+        keys.append(f"numeroUnico:{numero_unico}")
+    numero_processo = _digits(row.get("numeroProcesso"))
+    if numero_processo:
+        keys.append(f"numeroProcesso:{numero_processo}")
+    return keys
+
+
 def _page_unique_keys(page_obj: Mapping[str, Any]) -> List[str]:
     props = page_obj.get("properties") or {}
     numero_unico = _digits(report._property_rich_text(props.get("numeroUnico", {})))
@@ -509,11 +520,11 @@ def import_csv_to_notion(
     skipped = 0
     errors: List[Dict[str, Any]] = []
     for index, row in enumerate(rows, start=1):
-        key = row_unique_key(row)
+        keys = row_unique_keys(row)
         parsed_date = parse_csv_date(row.get("dataDecisao"), date_order=effective_date_order)
-        if not key or parsed_date is None:
+        if not keys or parsed_date is None:
             skipped += 1
-            errors.append({"row": index, "reason": "sem chave unica ou dataDecisao valida", "key": key})
+            errors.append({"row": index, "reason": "sem chave unica ou dataDecisao valida", "key": keys[0] if keys else ""})
             continue
         properties = build_page_properties(
             row,
@@ -521,7 +532,7 @@ def import_csv_to_notion(
             date_order=effective_date_order,
             max_rich_text_chars=max_rich_text_chars,
         )
-        page_id = existing.get(key, "")
+        page_id = next((existing[k] for k in keys if existing.get(k)), "")
         if page_id:
             if mode == "create-only":
                 unchanged += 1
@@ -539,7 +550,8 @@ def import_csv_to_notion(
                 created_page = create_page(data_source_id, properties)
                 created_id = report._normalize_notion_id(str(created_page.get("id", "")))
                 if created_id:
-                    existing[key] = created_id
+                    for k in keys:
+                        existing[k] = created_id
             created += 1
 
     payload = {

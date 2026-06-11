@@ -36,8 +36,8 @@ THEME_OPENAI_MAX_WORKERS = int(os.getenv("DJE_THEME_OPENAI_MAX_WORKERS", "4") or
 THEME_OPENAI_BATCH_SIZE = int(os.getenv("DJE_THEME_OPENAI_BATCH_SIZE", "25") or "25")
 THEME_OPENAI_TARGET_RPM = int(os.getenv("DJE_THEME_OPENAI_TARGET_RPM", "120") or "120")
 THEME_OPENAI_TIMEOUT = int(os.getenv("DJE_THEME_OPENAI_TIMEOUT", "60") or "60")
-REPORT_MAX_OPENAI_CASES = int(os.getenv("DJE_REPORT_MAX_OPENAI_CASES", "12") or "12")
-REPORT_OPENAI_TRIAGE_THRESHOLD = int(os.getenv("DJE_REPORT_OPENAI_TRIAGE_THRESHOLD", "55") or "55")
+REPORT_MAX_OPENAI_CASES = int(os.getenv("DJE_REPORT_MAX_OPENAI_CASES", "1000") or "1000")
+REPORT_OPENAI_TRIAGE_THRESHOLD = int(os.getenv("DJE_REPORT_OPENAI_TRIAGE_THRESHOLD", "0") or "0")
 
 
 @dataclass(frozen=True)
@@ -174,6 +174,39 @@ def is_new_csv(path: Path) -> bool:
         return True
 
 
+def mark_report_generated(period: WeeklyPeriod, *, case_count: int) -> None:
+    manifest = read_manifest()
+    generated = dict(manifest.get("generated_reports") or {})
+    generated[period.title] = {
+        "case_count": int(case_count),
+        "generated_at_utc": utc_now_iso(),
+    }
+    manifest["generated_reports"] = generated
+    manifest["updated_at_utc"] = utc_now_iso()
+    write_manifest(manifest)
+
+
+def existing_report_is_stale(period: WeeklyPeriod, *, current_count: int) -> bool:
+    manifest = read_manifest()
+    generated = manifest.get("generated_reports") or {}
+    entry = generated.get(period.title)
+    if not isinstance(entry, Mapping):
+        return True
+    try:
+        return int(entry.get("case_count", -1)) != int(current_count)
+    except Exception:
+        return True
+
+
+def count_cases_in_period(data_source_id: str, period: WeeklyPeriod) -> int:
+    existing = importer.query_existing_pages_by_period(
+        data_source_id,
+        period.start.isoformat(),
+        period.end.isoformat(),
+    )
+    return len(set(existing.values()))
+
+
 def parse_treated_csv_date(value: Any) -> Optional[date]:
     return importer.parse_csv_date(value, date_order="mdy")
 
@@ -191,11 +224,10 @@ def read_treated_rows(path: Path) -> List[Dict[str, str]]:
 
 
 def week_for_decision_day(day: date) -> WeeklyPeriod:
-    if day.weekday() >= 5:
-        start = day + timedelta(days=7 - day.weekday())
-    else:
-        start = day - timedelta(days=day.weekday())
-    return WeeklyPeriod(start=start, end=start + timedelta(days=4))
+    # Semana civil completa (seg-dom): decisoes de sabado/domingo pertencem
+    # a semana que termina naquele domingo, e a query do relatorio cobre os 7 dias.
+    start = day - timedelta(days=day.weekday())
+    return WeeklyPeriod(start=start, end=start + timedelta(days=6))
 
 
 def periods_from_treated_csv(path: Path) -> List[WeeklyPeriod]:
@@ -292,6 +324,7 @@ def process_import_and_generate(
     database_url: str,
     reports_parent_url: str,
     log: Any,
+    force_regenerate: bool = False,
 ) -> None:
     if not files:
         raise RuntimeError("Nenhum CSV selecionado.")
@@ -393,12 +426,19 @@ def process_import_and_generate(
     InitArgs.openai_triage_threshold = openai_triage_threshold
     report.initialize_clients(InitArgs)
 
+    database_id = report.extract_notion_id_from_url(database_url)
+    data_source_id = report.retrieve_database_and_datasource_id(database_id)
+
     log("Periodos detectados: " + "; ".join(period.title for period in periods))
     for period in periods:
         page_url, created = ensure_report_page(parent_page_id, period.title, overwrite_existing=False)
-        if not created:
-            log(f"Relatorio ja existe; pulando: {period.title}")
+        current_count = count_cases_in_period(data_source_id, period)
+        if not created and not force_regenerate and not existing_report_is_stale(period, current_count=current_count):
+            log(f"Relatorio ja existe e esta atualizado; pulando: {period.title}")
             continue
+        if not created:
+            reason = "regeneracao forcada" if force_regenerate else "casos novos detectados na base"
+            log(f"Relatorio existente sera regenerado ({reason}): {period.title}")
         report_cmd = [
             sys.executable,
             "NOTION_relatoriodeIA_v2.py",
@@ -423,6 +463,7 @@ def process_import_and_generate(
             "--verbose",
         ]
         run_command(report_cmd, log=log)
+        mark_report_generated(period, case_count=current_count)
 
     mark_files_processed(files, combined_csv=combined_csv, periods=periods)
     log("Fluxo concluido.")
@@ -471,6 +512,12 @@ def launch_gui() -> None:
     ttk.Entry(top, textvariable=database_url_var).grid(row=1, column=1, columnspan=2, sticky="ew", padx=8, pady=(8, 0))
     ttk.Label(top, text="Pagina-mae dos relatorios").grid(row=2, column=0, sticky="w", pady=(8, 0))
     ttk.Entry(top, textvariable=parent_url_var).grid(row=2, column=1, columnspan=2, sticky="ew", padx=8, pady=(8, 0))
+    force_regen_var = tk.BooleanVar(value=False)
+    ttk.Checkbutton(
+        top,
+        text="Regerar relatorios existentes (mesmo sem casos novos)",
+        variable=force_regen_var,
+    ).grid(row=3, column=1, sticky="w", padx=8, pady=(8, 0))
 
     files_box = ttk.LabelFrame(main, text="CSVs", padding=8)
     files_box.grid(row=1, column=0, sticky="ew", pady=(10, 0))
@@ -576,6 +623,8 @@ def launch_gui() -> None:
         busy.set(True)
         status_var.set("Executando...")
 
+        force_regenerate = bool(force_regen_var.get())
+
         def worker() -> None:
             try:
                 process_import_and_generate(
@@ -583,6 +632,7 @@ def launch_gui() -> None:
                     database_url=database_url_var.get().strip(),
                     reports_parent_url=parent_url_var.get().strip(),
                     log=log,
+                    force_regenerate=force_regenerate,
                 )
                 root.after(0, lambda: status_var.set("Concluido."))
             except Exception as exc:  # pylint: disable=broad-except
