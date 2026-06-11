@@ -36,6 +36,7 @@ conle_gerador/.cache_links.json
 /dje/
 /Boletins TRF1/
 /stf/
+/stj/
 # Estado de execucao local (caches, checkpoints, reports, logs, csv gerados)
 Artefatos/cache/
 Artefatos/checkpoints/
