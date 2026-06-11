@@ -22,6 +22,11 @@ $script:compressCancelButton = $null
 $script:compressOutputPath = $null
 $script:compressResultFilePath = $null
 $script:lastSuggestedOutput = $null
+$script:compressQueue = @()
+$script:compressQueueTotal = 0
+$script:compressQueueDone = 0
+$script:compressQueueFailures = @()
+$script:compressQueueCommon = $null
 $script:sessionLogFile = Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath ("mp4_compress_gui_{0}.log" -f (Get-Date -Format "yyyyMMdd_HHmmss"))
 
 function Add-ToProcessPathIfExists {
@@ -337,10 +342,50 @@ function Escape-Argument {
     param([Parameter(Mandatory = $true)][string]$Value)
 
     if ($Value -match '[\s"]') {
-        return '"' + ($Value -replace '"', '\\"') + '"'
+        return '"' + ($Value -replace '"', '\"') + '"'
     }
 
     return $Value
+}
+
+function Stop-ChildProcessTree {
+    param([Parameter(Mandatory = $true)][int]$ParentProcessId)
+
+    $children = @(
+        Get-CimInstance Win32_Process -Filter ("ParentProcessId = {0}" -f $ParentProcessId) -ErrorAction SilentlyContinue
+    )
+
+    foreach ($child in $children) {
+        $childId = [int]$child.ProcessId
+        Stop-ChildProcessTree -ParentProcessId $childId
+
+        try {
+            Stop-Process -Id $childId -Force -ErrorAction SilentlyContinue
+        }
+        catch {
+            # Ignore cancellation races when a child exits on its own.
+        }
+    }
+}
+
+function Stop-CompressionProcessTree {
+    param([Parameter(Mandatory = $true)][System.Diagnostics.Process]$Process)
+
+    if ($Process.HasExited) {
+        return
+    }
+
+    # Mata primeiro os netos (ffmpeg) para nao deixar encodes orfaos rodando.
+    Stop-ChildProcessTree -ParentProcessId $Process.Id
+
+    try {
+        if (-not $Process.WaitForExit(5000)) {
+            Stop-Process -Id $Process.Id -Force -ErrorAction SilentlyContinue
+        }
+    }
+    catch {
+        # Ignore cancellation races.
+    }
 }
 
 function Join-Arguments {
@@ -627,6 +672,42 @@ function Get-AudioBitrateKbpsOrZero {
     return 0.0
 }
 
+function Get-AudioCodecNameOrNull {
+    param(
+        [Parameter(Mandatory = $true)][string]$FilePath,
+        [Parameter(Mandatory = $true)][string]$FfmpegPath,
+        [AllowNull()][string]$FfprobePath
+    )
+
+    if (-not [string]::IsNullOrWhiteSpace($FfprobePath)) {
+        $probeResult = Invoke-NativeCapture -Executable $FfprobePath -Arguments @(
+            "-v", "error",
+            "-select_streams", "a:0",
+            "-show_entries", "stream=codec_name",
+            "-of", "default=nk=1:nw=1",
+            "--", $FilePath
+        )
+
+        foreach ($line in $probeResult.Lines) {
+            $name = $line.Trim().ToLowerInvariant()
+            if (-not [string]::IsNullOrWhiteSpace($name)) {
+                return $name
+            }
+        }
+    }
+
+    $ffmpegProbeLines = Get-MediaProbeLinesViaFfmpeg -FfmpegPath $FfmpegPath -FilePath $FilePath
+    $audioLine = $ffmpegProbeLines | Where-Object { $_ -match 'Stream #.*Audio:\s*([a-z0-9_]+)' } | Select-Object -First 1
+    if ($null -ne $audioLine) {
+        $match = [regex]::Match($audioLine, 'Audio:\s*([a-z0-9_]+)')
+        if ($match.Success) {
+            return $match.Groups[1].Value.ToLowerInvariant()
+        }
+    }
+
+    return $null
+}
+
 function Get-MinimumTargetEstimateInfo {
     param([Parameter(Mandatory = $true)][string]$FilePath)
 
@@ -755,9 +836,18 @@ function Invoke-TargetCompression {
 
         $hasAudio = Test-InputHasAudio -FilePath $InputPath -FfmpegPath $ffmpegPath -FfprobePath $ffprobePath
         $audioBitrateK = 96
+        $audioCopyMode = $false
         $audioBytes = 0L
 
         if ($hasAudio) {
+            # Se a origem ja e AAC economico, copiar evita re-encode (perda dupla)
+            # e libera o orcamento real para o video.
+            $sourceAudioCodec = Get-AudioCodecNameOrNull -FilePath $InputPath -FfmpegPath $ffmpegPath -FfprobePath $ffprobePath
+            $sourceAudioKbps = Get-AudioBitrateKbpsOrZero -FilePath $InputPath -FfmpegPath $ffmpegPath -FfprobePath $ffprobePath
+            if ($sourceAudioCodec -eq "aac" -and $sourceAudioKbps -gt 0 -and $sourceAudioKbps -le 112) {
+                $audioCopyMode = $true
+                $audioBitrateK = [int][Math]::Ceiling($sourceAudioKbps)
+            }
             $audioBytes = [int64][Math]::Ceiling(($durationSec * $audioBitrateK * 1000.0) / 8.0)
         }
 
@@ -826,7 +916,12 @@ function Invoke-TargetCompression {
         }
 
         if ($hasAudio) {
-            Write-LogLine -Log $Log -Line ("- Audio: AAC {0} kbps para compatibilidade com Windows" -f $audioBitrateK)
+            if ($audioCopyMode) {
+                Write-LogLine -Log $Log -Line ("- Audio: original AAC {0} kbps copiado sem re-encode (sem perda adicional)" -f $audioBitrateK)
+            }
+            else {
+                Write-LogLine -Log $Log -Line ("- Audio: AAC {0} kbps para compatibilidade com Windows" -f $audioBitrateK)
+            }
         }
         else {
             Write-LogLine -Log $Log -Line "- Audio: sem audio"
@@ -840,6 +935,8 @@ function Invoke-TargetCompression {
                 Remove-Item -LiteralPath $tempVideo -Force -ErrorAction SilentlyContinue
             }
 
+            # Perfil High com CABAC/B-frames: ~20-30% mais qualidade por MB que o
+            # baseline antigo; decodifica em qualquer aparelho pos-2010.
             $pass1Args = @(
                 "-y",
                 "-i", $InputPath,
@@ -847,11 +944,8 @@ function Invoke-TargetCompression {
                 "-an",
                 "-c:v", "libx264",
                 "-preset", "slow",
-                "-tune", "fastdecode",
-                "-profile:v", "baseline",
-                "-level:v", "3.1",
-                "-bf", "0",
-                "-refs", "1",
+                "-profile:v", "high",
+                "-level:v", "4.0",
                 "-b:v", ("{0}k" -f $currentBitrateK),
                 "-pass", "1",
                 "-passlogfile", $passLog,
@@ -873,11 +967,8 @@ function Invoke-TargetCompression {
                 "-an",
                 "-c:v", "libx264",
                 "-preset", "slow",
-                "-tune", "fastdecode",
-                "-profile:v", "baseline",
-                "-level:v", "3.1",
-                "-bf", "0",
-                "-refs", "1",
+                "-profile:v", "high",
+                "-level:v", "4.0",
                 "-b:v", ("{0}k" -f $currentBitrateK),
                 "-pass", "2",
                 "-passlogfile", $passLog,
@@ -901,12 +992,20 @@ function Invoke-TargetCompression {
                 "-map_metadata", "-1",
                 "-map_chapters", "-1",
                 "-c:v", "copy",
-                "-tag:v", "avc1",
-                "-c:a", "aac",
-                "-b:a", ("{0}k" -f $audioBitrateK),
-                "-ac", "2",
-                "-ar", "44100"
+                "-tag:v", "avc1"
             )
+
+            if ($audioCopyMode) {
+                $muxArgs += @("-c:a", "copy")
+            }
+            else {
+                $muxArgs += @(
+                    "-c:a", "aac",
+                    "-b:a", ("{0}k" -f $audioBitrateK),
+                    "-ac", "2",
+                    "-ar", "44100"
+                )
+            }
 
             if ([System.IO.Path]::GetExtension($finalOutputPath).ToLowerInvariant() -eq ".mp4") {
                 $muxArgs += @("-movflags", "+faststart", "-brand", "mp42")
@@ -1236,13 +1335,11 @@ function Start-GuiCompressionProcess {
                 }
 
                 $script:activeProcess = $null
-                Set-UiButtonEnabled -Target $script:compressStartButton -Enabled $true
-                Set-UiButtonEnabled -Target $script:compressCancelButton -Enabled $false
+                $script:compressQueueDone++
 
                 if ($exitCode -eq 0) {
-                    Set-UiLabelText -Target $script:compressStatusLabel -Text "Concluido com sucesso."
                     Append-UiLog -Target $script:compressLogBox -Line ""
-                    Append-UiLog -Target $script:compressLogBox -Line "Processo finalizado com sucesso."
+                    Append-UiLog -Target $script:compressLogBox -Line ("Arquivo {0}/{1} finalizado com sucesso." -f $script:compressQueueDone, [Math]::Max(1, $script:compressQueueTotal))
                     $effectiveOutput = $script:compressOutputPath
                     if (Test-Path -LiteralPath $script:compressResultFilePath) {
                         try {
@@ -1260,9 +1357,6 @@ function Start-GuiCompressionProcess {
                             Remove-Item -LiteralPath $script:compressResultFilePath -Force -ErrorAction SilentlyContinue
                         }
                     }
-                    else {
-                        Append-UiLog -Target $script:compressLogBox -Line ("Arquivo final esperado em: {0}" -f $script:compressOutputPath)
-                    }
 
                     if (-not (Test-Path -LiteralPath $effectiveOutput)) {
                         $mkvFallback = [System.IO.Path]::ChangeExtension($effectiveOutput, ".mkv")
@@ -1270,20 +1364,39 @@ function Start-GuiCompressionProcess {
                             Append-UiLog -Target $script:compressLogBox -Line ("Arquivo final salvo em (fallback): {0}" -f $mkvFallback)
                         }
                         else {
-                            Set-UiLabelText -Target $script:compressStatusLabel -Text "Terminou sem arquivo final."
                             Append-UiLog -Target $script:compressLogBox -Line "ATENCAO: processo terminou sem arquivo de saida detectado."
-                            Append-UiLog -Target $script:compressLogBox -Line ("Log de sessao: {0}" -f $script:sessionLogFile)
+                            $script:compressQueueFailures += $script:compressOutputPath
                         }
                     }
                 }
                 else {
-                    Set-UiLabelText -Target $script:compressStatusLabel -Text "Falhou. Veja o log abaixo."
                     Append-UiLog -Target $script:compressLogBox -Line ""
-                    Append-UiLog -Target $script:compressLogBox -Line "Processo terminou com erro."
-                    Append-UiLog -Target $script:compressLogBox -Line ("Log de sessao: {0}" -f $script:sessionLogFile)
+                    Append-UiLog -Target $script:compressLogBox -Line ("Arquivo {0}/{1} terminou com erro (exit {2})." -f $script:compressQueueDone, [Math]::Max(1, $script:compressQueueTotal), $exitCode)
+                    $script:compressQueueFailures += $script:compressOutputPath
                     if (Test-Path -LiteralPath $script:compressResultFilePath) {
                         Remove-Item -LiteralPath $script:compressResultFilePath -Force -ErrorAction SilentlyContinue
                     }
+                }
+
+                if (@($script:compressQueue).Count -gt 0) {
+                    Start-NextQueuedCompression
+                    return
+                }
+
+                Set-UiButtonEnabled -Target $script:compressStartButton -Enabled $true
+                Set-UiButtonEnabled -Target $script:compressCancelButton -Enabled $false
+
+                $failureCount = @($script:compressQueueFailures).Count
+                if ($failureCount -eq 0) {
+                    Set-UiLabelText -Target $script:compressStatusLabel -Text ("Concluido: {0} arquivo(s) comprimido(s)." -f $script:compressQueueDone)
+                    Append-UiLog -Target $script:compressLogBox -Line ""
+                    Append-UiLog -Target $script:compressLogBox -Line ("Lote concluido: {0} arquivo(s) comprimido(s) com sucesso." -f $script:compressQueueDone)
+                }
+                else {
+                    Set-UiLabelText -Target $script:compressStatusLabel -Text ("Concluido com {0} falha(s). Veja o log." -f $failureCount)
+                    Append-UiLog -Target $script:compressLogBox -Line ""
+                    Append-UiLog -Target $script:compressLogBox -Line ("Lote concluido: {0} ok, {1} falha(s)." -f ($script:compressQueueDone - $failureCount), $failureCount)
+                    Append-UiLog -Target $script:compressLogBox -Line ("Log de sessao: {0}" -f $script:sessionLogFile)
                 }
             }
             catch {
@@ -1305,6 +1418,53 @@ function Start-GuiCompressionProcess {
     $process.BeginErrorReadLine()
 }
 
+function Start-NextQueuedCompression {
+    if (@($script:compressQueue).Count -eq 0) {
+        return
+    }
+
+    $job = $script:compressQueue[0]
+    $script:compressQueue = @($script:compressQueue | Select-Object -Skip 1)
+    $common = $script:compressQueueCommon
+
+    Set-UiLabelText -Target $script:compressStatusLabel -Text ("Comprimindo arquivo {0}/{1}: {2}" -f ($script:compressQueueDone + 1), $script:compressQueueTotal, (Split-Path -Leaf $job.Input))
+    Append-UiLog -Target $script:compressLogBox -Line ""
+    Append-UiLog -Target $script:compressLogBox -Line ("===== Arquivo {0}/{1}: {2} =====" -f ($script:compressQueueDone + 1), $script:compressQueueTotal, $job.Input)
+
+    Start-GuiCompressionProcess `
+        -ScriptPath $common.ScriptPath `
+        -InputPath $job.Input `
+        -TargetMb $common.TargetMb `
+        -MaxHeightValue $common.MaxHeight `
+        -FpsValue $common.Fps `
+        -OutputPath $job.Output `
+        -LogBox $script:compressLogBox `
+        -StatusLabel $script:compressStatusLabel `
+        -StartButton $script:compressStartButton `
+        -CancelButton $script:compressCancelButton
+}
+
+function Get-InputFileListFromText {
+    param([Parameter(Mandatory = $true)][AllowEmptyString()][string]$Text)
+
+    $files = @()
+    $seen = @{}
+    foreach ($line in ($Text -split "\r?\n")) {
+        $path = $line.Trim().Trim('"')
+        if ([string]::IsNullOrWhiteSpace($path)) {
+            continue
+        }
+        $key = $path.ToLowerInvariant()
+        if ($seen.ContainsKey($key)) {
+            continue
+        }
+        $seen[$key] = $true
+        $files += $path
+    }
+
+    return @($files)
+}
+
 function Start-GuiMode {
     Add-Type -AssemblyName System.Windows.Forms
     Add-Type -AssemblyName System.Drawing
@@ -1317,13 +1477,16 @@ function Start-GuiMode {
     $form.MaximizeBox = $true
 
     $lblInput = New-Object System.Windows.Forms.Label
-    $lblInput.Text = "Arquivo MP4 de entrada:"
+    $lblInput.Text = "Arquivos de video (um por linha; arraste arquivos para o campo ou use Adicionar):"
     $lblInput.Location = New-Object System.Drawing.Point(15, 16)
     $lblInput.AutoSize = $true
 
     $txtInput = New-Object System.Windows.Forms.TextBox
     $txtInput.Location = New-Object System.Drawing.Point(15, 38)
-    $txtInput.Size = New-Object System.Drawing.Size(840, 24)
+    $txtInput.Size = New-Object System.Drawing.Size(840, 76)
+    $txtInput.Multiline = $true
+    $txtInput.ScrollBars = "Vertical"
+    $txtInput.AllowDrop = $true
     $txtInput.Anchor = "Top, Left, Right"
 
     if (-not [string]::IsNullOrWhiteSpace($InputFile)) {
@@ -1331,18 +1494,18 @@ function Start-GuiMode {
     }
 
     $btnInput = New-Object System.Windows.Forms.Button
-    $btnInput.Text = "Selecionar..."
-    $btnInput.Location = New-Object System.Drawing.Point(865, 36)
+    $btnInput.Text = "Adicionar..."
+    $btnInput.Location = New-Object System.Drawing.Point(865, 38)
     $btnInput.Size = New-Object System.Drawing.Size(90, 28)
     $btnInput.Anchor = "Top, Right"
 
     $lblTarget = New-Object System.Windows.Forms.Label
-    $lblTarget.Text = "Tamanho alvo (MB):"
-    $lblTarget.Location = New-Object System.Drawing.Point(15, 78)
+    $lblTarget.Text = "Tamanho alvo por arquivo (MB):"
+    $lblTarget.Location = New-Object System.Drawing.Point(15, 124)
     $lblTarget.AutoSize = $true
 
     $txtTarget = New-Object System.Windows.Forms.TextBox
-    $txtTarget.Location = New-Object System.Drawing.Point(15, 100)
+    $txtTarget.Location = New-Object System.Drawing.Point(15, 146)
     $txtTarget.Size = New-Object System.Drawing.Size(150, 24)
 
     $targetDefault = Get-DefaultTargetFromInputOrFallback -Fallback $TargetSizeMB
@@ -1350,11 +1513,11 @@ function Start-GuiMode {
 
     $lblHeight = New-Object System.Windows.Forms.Label
     $lblHeight.Text = "Altura maxima (px):"
-    $lblHeight.Location = New-Object System.Drawing.Point(190, 78)
+    $lblHeight.Location = New-Object System.Drawing.Point(210, 124)
     $lblHeight.AutoSize = $true
 
     $txtHeight = New-Object System.Windows.Forms.TextBox
-    $txtHeight.Location = New-Object System.Drawing.Point(190, 100)
+    $txtHeight.Location = New-Object System.Drawing.Point(210, 146)
     $txtHeight.Size = New-Object System.Drawing.Size(150, 24)
     $normalizedInitialHeight = Normalize-MaxHeight -Value $MaxHeight
     if ($null -eq $normalizedInitialHeight) {
@@ -1366,11 +1529,11 @@ function Start-GuiMode {
 
     $lblFps = New-Object System.Windows.Forms.Label
     $lblFps.Text = "FPS:"
-    $lblFps.Location = New-Object System.Drawing.Point(365, 78)
+    $lblFps.Location = New-Object System.Drawing.Point(385, 124)
     $lblFps.AutoSize = $true
 
     $txtFps = New-Object System.Windows.Forms.TextBox
-    $txtFps.Location = New-Object System.Drawing.Point(365, 100)
+    $txtFps.Location = New-Object System.Drawing.Point(385, 146)
     $txtFps.Size = New-Object System.Drawing.Size(120, 24)
     $normalizedInitialFps = Normalize-Fps -Value $Fps
     if ($null -eq $normalizedInitialFps) {
@@ -1382,55 +1545,56 @@ function Start-GuiMode {
 
     $lblMinEstimate = New-Object System.Windows.Forms.Label
     $lblMinEstimate.Text = "Minimo estimado: selecione um arquivo."
-    $lblMinEstimate.Location = New-Object System.Drawing.Point(15, 132)
+    $lblMinEstimate.Location = New-Object System.Drawing.Point(15, 178)
     $lblMinEstimate.AutoSize = $true
 
     $lblHints = New-Object System.Windows.Forms.Label
-    $lblHints.Text = "Dica: use 0 em Altura/FPS para manter original. Audio sai em AAC 96 kbps para compatibilidade."
-    $lblHints.Location = New-Object System.Drawing.Point(15, 152)
+    $lblHints.Text = "Dica: 0 em Altura/FPS mantem o original. Video em H.264 High 2-pass; audio AAC e copiado sem re-encode quando ja for economico."
+    $lblHints.Location = New-Object System.Drawing.Point(15, 198)
     $lblHints.AutoSize = $true
 
     $lblOutput = New-Object System.Windows.Forms.Label
-    $lblOutput.Text = "Arquivo de saida (MP4 ou MKV):"
-    $lblOutput.Location = New-Object System.Drawing.Point(15, 180)
+    $lblOutput.Text = "Arquivo de saida (usado apenas com 1 arquivo; em lote a saida e automatica ao lado de cada video):"
+    $lblOutput.Location = New-Object System.Drawing.Point(15, 226)
     $lblOutput.AutoSize = $true
 
     $txtOutput = New-Object System.Windows.Forms.TextBox
-    $txtOutput.Location = New-Object System.Drawing.Point(15, 202)
+    $txtOutput.Location = New-Object System.Drawing.Point(15, 248)
     $txtOutput.Size = New-Object System.Drawing.Size(725, 24)
     $txtOutput.Anchor = "Top, Left, Right"
 
     $btnSuggest = New-Object System.Windows.Forms.Button
     $btnSuggest.Text = "Sugerir"
-    $btnSuggest.Location = New-Object System.Drawing.Point(750, 200)
+    $btnSuggest.Location = New-Object System.Drawing.Point(750, 246)
     $btnSuggest.Size = New-Object System.Drawing.Size(95, 28)
     $btnSuggest.Anchor = "Top, Right"
 
     $btnOutput = New-Object System.Windows.Forms.Button
     $btnOutput.Text = "Salvar como..."
-    $btnOutput.Location = New-Object System.Drawing.Point(855, 200)
+    $btnOutput.Location = New-Object System.Drawing.Point(855, 246)
     $btnOutput.Size = New-Object System.Drawing.Size(100, 28)
     $btnOutput.Anchor = "Top, Right"
 
     $btnStart = New-Object System.Windows.Forms.Button
     $btnStart.Text = "Comprimir"
-    $btnStart.Location = New-Object System.Drawing.Point(15, 244)
+    $btnStart.Location = New-Object System.Drawing.Point(15, 290)
     $btnStart.Size = New-Object System.Drawing.Size(130, 34)
 
     $btnCancel = New-Object System.Windows.Forms.Button
     $btnCancel.Text = "Cancelar"
-    $btnCancel.Location = New-Object System.Drawing.Point(155, 244)
+    $btnCancel.Location = New-Object System.Drawing.Point(155, 290)
     $btnCancel.Size = New-Object System.Drawing.Size(120, 34)
     $btnCancel.Enabled = $false
 
     $lblStatus = New-Object System.Windows.Forms.Label
     $lblStatus.Text = "Pronto."
-    $lblStatus.Location = New-Object System.Drawing.Point(15, 288)
-    $lblStatus.AutoSize = $true
+    $lblStatus.Location = New-Object System.Drawing.Point(290, 298)
+    $lblStatus.Size = New-Object System.Drawing.Size(665, 22)
+    $lblStatus.Anchor = "Top, Left, Right"
 
     $txtLog = New-Object System.Windows.Forms.TextBox
-    $txtLog.Location = New-Object System.Drawing.Point(15, 314)
-    $txtLog.Size = New-Object System.Drawing.Size(940, 330)
+    $txtLog.Location = New-Object System.Drawing.Point(15, 334)
+    $txtLog.Size = New-Object System.Drawing.Size(940, 310)
     $txtLog.Multiline = $true
     $txtLog.ScrollBars = "Vertical"
     $txtLog.ReadOnly = $true
@@ -1460,13 +1624,22 @@ function Start-GuiMode {
 
     $setSuggestedOutput = {
         try {
-            $inputPath = $txtInput.Text.Trim().Trim('"')
-            if ([string]::IsNullOrWhiteSpace($inputPath)) {
+            $files = Get-InputFileListFromText -Text $txtInput.Text
+            if (@($files).Count -ne 1) {
+                # Em lote a saida e automatica por arquivo.
+                $txtOutput.Text = ""
+                $script:lastSuggestedOutput = $null
+                $txtOutput.Enabled = (@($files).Count -le 1)
+                $btnSuggest.Enabled = $txtOutput.Enabled
+                $btnOutput.Enabled = $txtOutput.Enabled
                 return
             }
 
+            $txtOutput.Enabled = $true
+            $btnSuggest.Enabled = $true
+            $btnOutput.Enabled = $true
             $targetMbParsed = Parse-PositiveDouble -Raw $txtTarget.Text -FieldName "Tamanho alvo"
-            $suggestedOutput = Get-DefaultOutputName -InputPath $inputPath -TargetMb $targetMbParsed
+            $suggestedOutput = Get-DefaultOutputName -InputPath $files[0] -TargetMb $targetMbParsed
             $txtOutput.Text = $suggestedOutput
             $script:lastSuggestedOutput = $suggestedOutput
         }
@@ -1490,11 +1663,14 @@ function Start-GuiMode {
 
     $updateMinimumEstimate = {
         try {
-            $inputPath = $txtInput.Text.Trim().Trim('"')
-            if ([string]::IsNullOrWhiteSpace($inputPath) -or -not (Test-Path -LiteralPath $inputPath)) {
+            $files = @(Get-InputFileListFromText -Text $txtInput.Text | Where-Object { Test-Path -LiteralPath $_ })
+            if ($files.Count -eq 0) {
                 $lblMinEstimate.Text = "Minimo estimado: selecione um arquivo."
                 return
             }
+
+            $inputPath = $files[0]
+            $suffix = if ($files.Count -gt 1) { " | {0} arquivo(s) na fila" -f $files.Count } else { "" }
 
             $lblMinEstimate.Text = "Minimo estimado: calculando..."
             $form.UseWaitCursor = $true
@@ -1508,7 +1684,7 @@ function Start-GuiMode {
                 "desconhecido/sem audio"
             }
 
-            $lblMinEstimate.Text = ("Minimo estimado: ~{0:N2} MB | Recomendado >= {1:N2} MB | Audio: {2}" -f ([double]$estimate.MinimumMb), ([double]$estimate.RecommendedMb), $audioText)
+            $lblMinEstimate.Text = ("Minimo estimado (1o arquivo): ~{0:N2} MB | Recomendado >= {1:N2} MB | Audio: {2}{3}" -f ([double]$estimate.MinimumMb), ([double]$estimate.RecommendedMb), $audioText, $suffix)
         }
         catch {
             $lblMinEstimate.Text = "Minimo estimado: nao foi possivel calcular."
@@ -1530,20 +1706,44 @@ function Start-GuiMode {
     Append-UiLog -Target $txtLog -Line "Interface iniciada."
     Append-UiLog -Target $txtLog -Line ("Log de sessao: {0}" -f $script:sessionLogFile)
 
+    $appendInputFiles = {
+        param([string[]]$NewPaths)
+
+        $existing = Get-InputFileListFromText -Text $txtInput.Text
+        $merged = @($existing) + @($NewPaths)
+        $txtInput.Text = ((Get-InputFileListFromText -Text ($merged -join [Environment]::NewLine)) -join [Environment]::NewLine)
+        & $setSuggestedOutput
+        & $updateMinimumEstimate
+    }
+
     $btnInput.Add_Click({
             $dialog = New-Object System.Windows.Forms.OpenFileDialog
             $dialog.Filter = "Video MP4|*.mp4|Video files|*.mp4;*.mkv;*.mov;*.webm|All files|*.*"
-            $dialog.Multiselect = $false
-
-            if (-not [string]::IsNullOrWhiteSpace($txtInput.Text) -and (Test-Path -LiteralPath $txtInput.Text.Trim().Trim('"'))) {
-                $dialog.FileName = $txtInput.Text.Trim().Trim('"')
-            }
+            $dialog.Multiselect = $true
 
             $result = $dialog.ShowDialog()
             if ($result -eq [System.Windows.Forms.DialogResult]::OK) {
-                $txtInput.Text = $dialog.FileName
-                & $setSuggestedOutput
-                & $updateMinimumEstimate
+                & $appendInputFiles $dialog.FileNames
+            }
+        })
+
+    $txtInput.Add_DragEnter({
+            param($sender, $e)
+            if ($e.Data.GetDataPresent([System.Windows.Forms.DataFormats]::FileDrop)) {
+                $e.Effect = [System.Windows.Forms.DragDropEffects]::Copy
+            }
+        })
+
+    $txtInput.Add_DragDrop({
+            param($sender, $e)
+            try {
+                $paths = @($e.Data.GetData([System.Windows.Forms.DataFormats]::FileDrop))
+                if ($paths.Count -gt 0) {
+                    & $appendInputFiles $paths
+                }
+            }
+            catch {
+                # Ignore drop errors.
             }
         })
 
@@ -1589,13 +1789,14 @@ function Start-GuiMode {
 
     $btnStart.Add_Click({
             try {
-                $inputPath = $txtInput.Text.Trim().Trim('"')
-                if ([string]::IsNullOrWhiteSpace($inputPath)) {
-                    throw "Informe o arquivo de entrada."
+                $files = @(Get-InputFileListFromText -Text $txtInput.Text)
+                if ($files.Count -eq 0) {
+                    throw "Informe ao menos um arquivo de entrada (um por linha)."
                 }
 
-                if (-not (Test-Path -LiteralPath $inputPath)) {
-                    throw "Arquivo nao encontrado: $inputPath"
+                $missing = @($files | Where-Object { -not (Test-Path -LiteralPath $_) })
+                if ($missing.Count -gt 0) {
+                    throw ("Arquivo(s) nao encontrado(s):`n- " + ($missing -join "`n- "))
                 }
 
                 $targetMbParsed = Parse-PositiveDouble -Raw $txtTarget.Text -FieldName "Tamanho alvo"
@@ -1605,33 +1806,46 @@ function Start-GuiMode {
                 $heightParsed = Normalize-MaxHeight -Value $heightParsed
                 $fpsParsed = Normalize-Fps -Value $fpsParsed
 
-                $outputPath = $txtOutput.Text.Trim().Trim('"')
-                if ([string]::IsNullOrWhiteSpace($outputPath)) {
-                    $outputPath = Get-DefaultOutputName -InputPath $inputPath -TargetMb $targetMbParsed
-                    $txtOutput.Text = $outputPath
+                $jobs = @()
+                if ($files.Count -eq 1) {
+                    $outputPath = $txtOutput.Text.Trim().Trim('"')
+                    if ([string]::IsNullOrWhiteSpace($outputPath)) {
+                        $outputPath = Get-DefaultOutputName -InputPath $files[0] -TargetMb $targetMbParsed
+                        $txtOutput.Text = $outputPath
+                    }
+                    elseif (
+                        -not [string]::IsNullOrWhiteSpace($script:lastSuggestedOutput) -and
+                        [string]::Equals($outputPath, $script:lastSuggestedOutput, [System.StringComparison]::OrdinalIgnoreCase)
+                    ) {
+                        $outputPath = Get-DefaultOutputName -InputPath $files[0] -TargetMb $targetMbParsed
+                        $txtOutput.Text = $outputPath
+                        $script:lastSuggestedOutput = $outputPath
+                    }
+                    $jobs += @{ Input = $files[0]; Output = $outputPath }
                 }
-                elseif (
-                    -not [string]::IsNullOrWhiteSpace($script:lastSuggestedOutput) -and
-                    [string]::Equals($outputPath, $script:lastSuggestedOutput, [System.StringComparison]::OrdinalIgnoreCase)
-                ) {
-                    $outputPath = Get-DefaultOutputName -InputPath $inputPath -TargetMb $targetMbParsed
-                    $txtOutput.Text = $outputPath
-                    $script:lastSuggestedOutput = $outputPath
+                else {
+                    foreach ($file in $files) {
+                        $jobs += @{ Input = $file; Output = (Get-DefaultOutputName -InputPath $file -TargetMb $targetMbParsed) }
+                    }
                 }
 
-                Append-UiLog -Target $txtLog -Line ("Saida configurada para: {0}" -f $outputPath)
+                $script:compressQueue = @($jobs)
+                $script:compressQueueTotal = $jobs.Count
+                $script:compressQueueDone = 0
+                $script:compressQueueFailures = @()
+                $script:compressQueueCommon = @{
+                    ScriptPath = $PSCommandPath
+                    TargetMb   = $targetMbParsed
+                    MaxHeight  = $heightParsed
+                    Fps        = $fpsParsed
+                }
+                $script:compressLogBox = $txtLog
+                $script:compressStatusLabel = $lblStatus
+                $script:compressStartButton = $btnStart
+                $script:compressCancelButton = $btnCancel
 
-                Start-GuiCompressionProcess `
-                    -ScriptPath $PSCommandPath `
-                    -InputPath $inputPath `
-                    -TargetMb $targetMbParsed `
-                    -MaxHeightValue $heightParsed `
-                    -FpsValue $fpsParsed `
-                    -OutputPath $outputPath `
-                    -LogBox $txtLog `
-                    -StatusLabel $lblStatus `
-                    -StartButton $btnStart `
-                    -CancelButton $btnCancel
+                Append-UiLog -Target $txtLog -Line ("Fila montada: {0} arquivo(s), alvo {1} MB cada." -f $jobs.Count, $targetMbParsed)
+                Start-NextQueuedCompression
             }
             catch {
                 [System.Windows.Forms.MessageBox]::Show(
@@ -1646,8 +1860,9 @@ function Start-GuiMode {
     $btnCancel.Add_Click({
             if ($script:activeProcess -and -not $script:activeProcess.HasExited) {
                 try {
-                    $script:activeProcess.Kill()
-                    Append-UiLog -Target $txtLog -Line "Processo cancelado pelo usuario."
+                    $script:compressQueue = @()
+                    Stop-CompressionProcessTree -Process $script:activeProcess
+                    Append-UiLog -Target $txtLog -Line "Processo cancelado pelo usuario (fila limpa)."
                     Set-UiLabelText -Target $lblStatus -Text "Cancelado."
                     Set-UiButtonEnabled -Target $btnStart -Enabled $true
                     Set-UiButtonEnabled -Target $btnCancel -Enabled $false
@@ -1678,7 +1893,8 @@ function Start-GuiMode {
                 }
 
                 try {
-                    $script:activeProcess.Kill()
+                    $script:compressQueue = @()
+                    Stop-CompressionProcessTree -Process $script:activeProcess
                 }
                 catch {
                     # Ignore close-time errors.
