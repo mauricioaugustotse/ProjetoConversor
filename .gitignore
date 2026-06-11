@@ -31,3 +31,15 @@ conle_gerador/.ultimo_resultado.json
 _saida_teste/
 conle_gerador/.cache_camara/
 conle_gerador/.cache_links.json
+
+# Insumos locais pesados (exports de tribunais e boletins) - nao versionar
+/dje/
+/Boletins TRF1/
+/stf/
+# Estado de execucao local (caches, checkpoints, reports, logs, csv gerados)
+Artefatos/cache/
+Artefatos/checkpoints/
+Artefatos/reports/
+Artefatos/logs/
+Artefatos/intermediarios/
+Artefatos/dados/csv/
