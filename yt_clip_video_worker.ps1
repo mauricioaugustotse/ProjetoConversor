@@ -1,17 +1,23 @@
-param(
+﻿param(
     [Parameter(Mandatory = $true)][string]$YtDlpPath,
     [switch]$UsePythonModule,
     [Parameter(Mandatory = $true)][string]$FfmpegPath,
     [Parameter(Mandatory = $true)][string]$Url,
-    [Parameter(Mandatory = $true)][string]$Start,
-    [Parameter(Mandatory = $true)][string]$End,
+    # Lista de trechos no formato canonico "HH:MM:SS.mmm-HH:MM:SS.mmm" separados por ";".
+    [AllowEmptyString()][string]$Segments = "",
+    # Compatibilidade com chamadas antigas de trecho unico.
+    [AllowEmptyString()][string]$Start = "",
+    [AllowEmptyString()][string]$End = "",
+    [switch]$JoinSegments,
     [Parameter(Mandatory = $true)][string]$OutputDir,
-    [AllowEmptyString()][string]$ClipSuffix = "",
-    [AllowEmptyString()][string]$ProgressLogFile = ""
+    [AllowEmptyString()][string]$ProgressLogFile = "",
+    [int]$MaxParallel = 3
 )
 
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
+
+$script:CrossfadeSeconds = 0.5
 
 function Write-ProgressLine {
     param([Parameter(Mandatory = $true)][AllowEmptyString()][string]$Line)
@@ -30,10 +36,30 @@ function Write-ProgressLine {
     }
 }
 
+function Escape-Argument {
+    param([Parameter(Mandatory = $true)][AllowEmptyString()][string]$Value)
+
+    if ($Value.Length -eq 0) {
+        return '""'
+    }
+
+    if ($Value -match '[\s"]') {
+        return '"' + ($Value -replace '"', '\"') + '"'
+    }
+
+    return $Value
+}
+
+function Join-Arguments {
+    param([Parameter(Mandatory = $true)][AllowEmptyString()][string[]]$Args)
+    return ($Args | ForEach-Object { Escape-Argument -Value $_ }) -join " "
+}
+
 function Invoke-StreamingProcess {
     param(
         [Parameter(Mandatory = $true)][string]$ExecutablePath,
-        [Parameter(Mandatory = $true)][AllowEmptyString()][string[]]$Arguments
+        [Parameter(Mandatory = $true)][AllowEmptyString()][string[]]$Arguments,
+        [AllowEmptyString()][string]$LinePrefix = ""
     )
 
     $lines = New-Object System.Collections.Generic.List[string]
@@ -62,7 +88,7 @@ function Invoke-StreamingProcess {
 
         if (-not [string]::IsNullOrWhiteSpace($line)) {
             $lines.Add($line)
-            Write-ProgressLine -Line $line
+            Write-ProgressLine -Line ($LinePrefix + $line)
         }
     }
 
@@ -73,7 +99,7 @@ function Invoke-StreamingProcess {
         foreach ($line in ($stderrText -split "\r?\n")) {
             if (-not [string]::IsNullOrWhiteSpace($line)) {
                 $lines.Add($line)
-                Write-ProgressLine -Line $line
+                Write-ProgressLine -Line ($LinePrefix + $line)
             }
         }
     }
@@ -83,25 +109,6 @@ function Invoke-StreamingProcess {
     }
 
     return $lines.ToArray()
-}
-
-function Escape-Argument {
-    param([Parameter(Mandatory = $true)][AllowEmptyString()][string]$Value)
-
-    if ($Value.Length -eq 0) {
-        return '""'
-    }
-
-    if ($Value -match '[\s"]') {
-        return '"' + ($Value -replace '"', '\"') + '"'
-    }
-
-    return $Value
-}
-
-function Join-Arguments {
-    param([Parameter(Mandatory = $true)][AllowEmptyString()][string[]]$Args)
-    return ($Args | ForEach-Object { Escape-Argument -Value $_ }) -join " "
 }
 
 function Convert-TimecodeToSeconds {
@@ -133,6 +140,21 @@ function Format-SecondsForFfmpeg {
         $minutes,
         $seconds
     )
+}
+
+function Format-SecondsForFileName {
+    param([Parameter(Mandatory = $true)][double]$TotalSeconds)
+
+    $rounded = [Math]::Round($TotalSeconds)
+    $hours = [int][Math]::Floor($rounded / 3600)
+    $minutes = [int][Math]::Floor(($rounded % 3600) / 60)
+    $seconds = [int]($rounded % 60)
+
+    if ($hours -gt 0) {
+        return ("{0:00}h{1:00}m{2:00}s" -f $hours, $minutes, $seconds)
+    }
+
+    return ("{0:00}m{1:00}s" -f $minutes, $seconds)
 }
 
 function Get-QueryParameter {
@@ -218,6 +240,184 @@ function Normalize-YouTubeUrl {
     return "https://www.youtube.com/watch?v={0}" -f [System.Uri]::EscapeDataString($videoId)
 }
 
+function Build-YtDlpSectionArgs {
+    param(
+        [Parameter(Mandatory = $true)][string]$DownloadSection,
+        [Parameter(Mandatory = $true)][string]$TargetDir
+    )
+
+    $argsList = @()
+    if ($UsePythonModule) {
+        $argsList += @("-m", "yt_dlp")
+    }
+
+    $argsList += @(
+        "--newline",
+        "--no-playlist",
+        "--force-overwrites",
+        "--download-sections", $DownloadSection,
+        "--force-keyframes-at-cuts",
+        "--replace-in-metadata", "title", "\s*[|｜]\s*.+$", "",
+        "--replace-in-metadata", "title", "\s*[：:]\s*", " - ",
+        "--replace-in-metadata", "title", "[/\\]+", "-",
+        "--paths", $TargetDir,
+        "--windows-filenames",
+        "--ffmpeg-location", $FfmpegPath,
+        "--print", "after_move:filepath",
+        "-o", "%(title)s.%(ext)s",
+        "-f", "bv*[height<=720][ext=mp4][vcodec^=avc1]+ba[ext=m4a]/b[height<=720][ext=mp4][vcodec^=avc1][acodec!=none]/18/bv*[ext=mp4][vcodec^=avc1]+ba[ext=m4a]/b[ext=mp4][vcodec^=avc1]",
+        "--merge-output-format", "mp4",
+        $Url
+    )
+
+    return $argsList
+}
+
+function Find-DownloadedMp4 {
+    param(
+        [Parameter(Mandatory = $true)][string[]]$OutputLines,
+        [Parameter(Mandatory = $true)][string]$TargetDir
+    )
+
+    $sourcePath = $OutputLines |
+        Where-Object { ($_ -match '\.mp4$') -and (Test-Path -LiteralPath $_) } |
+        Select-Object -Last 1
+
+    if ([string]::IsNullOrWhiteSpace($sourcePath)) {
+        $sourcePath = Get-ChildItem -LiteralPath $TargetDir -File -Filter "*.mp4" -ErrorAction SilentlyContinue |
+            Sort-Object -Property LastWriteTime -Descending |
+            Select-Object -First 1 -ExpandProperty FullName
+    }
+
+    return $sourcePath
+}
+
+function Invoke-FfmpegCut {
+    param(
+        [Parameter(Mandatory = $true)][string]$SourcePath,
+        [Parameter(Mandatory = $true)][double]$LocalStartSeconds,
+        [Parameter(Mandatory = $true)][double]$DurationSeconds,
+        [Parameter(Mandatory = $true)][string]$TargetPath,
+        [AllowEmptyString()][string]$LinePrefix = ""
+    )
+
+    $localStartText = Format-SecondsForFfmpeg -TotalSeconds $LocalStartSeconds
+    $durationText = Format-SecondsForFfmpeg -TotalSeconds $DurationSeconds
+
+    $ffmpegArgs = @(
+        "-hide_banner",
+        "-loglevel", "error",
+        "-progress", "pipe:1",
+        "-nostats",
+        "-nostdin",
+        "-y",
+        "-i", $SourcePath,
+        "-ss", $localStartText,
+        "-t", $durationText,
+        "-map", "0:v:0",
+        "-map", "0:a:0?",
+        "-sn",
+        "-dn",
+        "-vf", "setpts=PTS-STARTPTS",
+        "-af", "aresample=async=1:first_pts=0,loudnorm=I=-16:TP=-1.5:LRA=11",
+        "-c:v", "libx264",
+        "-preset", "veryfast",
+        "-crf", "18",
+        "-pix_fmt", "yuv420p",
+        "-c:a", "aac",
+        "-ar", "48000",
+        "-b:a", "160k",
+        "-movflags", "+faststart",
+        "-avoid_negative_ts", "make_zero",
+        $TargetPath
+    )
+
+    Invoke-StreamingProcess -ExecutablePath $FfmpegPath -Arguments $ffmpegArgs -LinePrefix $LinePrefix | Out-Null
+
+    if (-not (Test-Path -LiteralPath $TargetPath)) {
+        throw "ffmpeg finished but the MP4 was not found: $TargetPath"
+    }
+}
+
+function Join-ClipsWithCrossfade {
+    param(
+        [Parameter(Mandatory = $true)][object[]]$Clips,
+        [Parameter(Mandatory = $true)][string]$TargetPath
+    )
+
+    if ($Clips.Count -lt 2) {
+        throw "Join requires at least 2 clips."
+    }
+
+    $fade = $script:CrossfadeSeconds
+    $ffmpegArgs = @(
+        "-hide_banner",
+        "-loglevel", "error",
+        "-progress", "pipe:1",
+        "-nostats",
+        "-nostdin",
+        "-y"
+    )
+
+    foreach ($clip in $Clips) {
+        $ffmpegArgs += @("-i", $clip.Path)
+    }
+
+    # Encadeia xfade (video) e acrossfade (audio): a cada transicao o offset e a
+    # duracao acumulada menos o tempo de fade.
+    $videoChain = New-Object System.Collections.Generic.List[string]
+    $audioChain = New-Object System.Collections.Generic.List[string]
+    $accumulated = [double]$Clips[0].Duration
+    $prevV = "[0:v]"
+    $prevA = "[0:a]"
+
+    for ($i = 1; $i -lt $Clips.Count; $i++) {
+        $offset = [Math]::Max(0.0, $accumulated - $fade)
+        $offsetText = $offset.ToString("0.###", [System.Globalization.CultureInfo]::InvariantCulture)
+        $fadeText = $fade.ToString("0.###", [System.Globalization.CultureInfo]::InvariantCulture)
+        $outV = "[vx$i]"
+        $outA = "[ax$i]"
+        $videoChain.Add(("{0}[{1}:v]xfade=transition=fade:duration={2}:offset={3}{4}" -f $prevV, $i, $fadeText, $offsetText, $outV))
+        $audioChain.Add(("{0}[{1}:a]acrossfade=d={2}{3}" -f $prevA, $i, $fadeText, $outA))
+        $prevV = $outV
+        $prevA = $outA
+        $accumulated = $accumulated + ([double]$Clips[$i].Duration) - $fade
+    }
+
+    $filterComplex = (($videoChain + $audioChain) -join ";")
+
+    $ffmpegArgs += @(
+        "-filter_complex", $filterComplex,
+        "-map", $prevV.Trim('[', ']') ,
+        "-map", $prevA.Trim('[', ']'),
+        "-c:v", "libx264",
+        "-preset", "veryfast",
+        "-crf", "18",
+        "-pix_fmt", "yuv420p",
+        "-c:a", "aac",
+        "-ar", "48000",
+        "-b:a", "160k",
+        "-movflags", "+faststart",
+        $TargetPath
+    )
+
+    # -map espera o nome do pad entre colchetes.
+    for ($i = 0; $i -lt $ffmpegArgs.Count; $i++) {
+        if ($ffmpegArgs[$i] -eq "-map" -and ($i + 1) -lt $ffmpegArgs.Count -and $ffmpegArgs[$i + 1] -notmatch '^\[') {
+            $ffmpegArgs[$i + 1] = "[" + $ffmpegArgs[$i + 1] + "]"
+        }
+    }
+
+    Write-ProgressLine -Line ("Juntando {0} trechos com transicao suave de {1}s..." -f $Clips.Count, $fade)
+    Invoke-StreamingProcess -ExecutablePath $FfmpegPath -Arguments $ffmpegArgs | Out-Null
+
+    if (-not (Test-Path -LiteralPath $TargetPath)) {
+        throw "ffmpeg finished but the joined MP4 was not found: $TargetPath"
+    }
+}
+
+# --- Validacao de entrada -----------------------------------------------------
+
 if (-not (Test-Path -LiteralPath $YtDlpPath)) {
     throw "yt-dlp executable was not found: $YtDlpPath"
 }
@@ -238,138 +438,221 @@ catch {
     exit 1
 }
 
-$tempDir = Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath ("yt_clip_window_{0}" -f ([System.Guid]::NewGuid().ToString("N")))
-New-Item -ItemType Directory -Path $tempDir -Force | Out-Null
+$segmentTexts = @()
+if (-not [string]::IsNullOrWhiteSpace($Segments)) {
+    $segmentTexts = @($Segments.Split(";") | Where-Object { -not [string]::IsNullOrWhiteSpace($_) })
+}
+elseif (-not [string]::IsNullOrWhiteSpace($Start) -and -not [string]::IsNullOrWhiteSpace($End)) {
+    $segmentTexts = @("{0}-{1}" -f $Start, $End)
+}
 
-try {
-    Write-ProgressLine -Line "Downloading a synced source MP4 window to a temporary folder before cutting locally."
-    Write-ProgressLine -Line "Temporary folder: $tempDir"
+if ($segmentTexts.Count -eq 0) {
+    Write-ProgressLine -Line "ERROR: no segments provided (use -Segments or -Start/-End)."
+    exit 1
+}
 
-    $startSeconds = Convert-TimecodeToSeconds -Value $Start
-    $endSeconds = Convert-TimecodeToSeconds -Value $End
-    $durationSeconds = $endSeconds - $startSeconds
-    if ($durationSeconds -le 0) {
-        throw "Invalid cut duration calculated from $Start to $End."
+$specs = @()
+$index = 0
+foreach ($text in $segmentTexts) {
+    $index++
+    $bounds = $text.Trim().Split("-")
+    if ($bounds.Count -ne 2) {
+        Write-ProgressLine -Line ("ERROR: invalid segment spec: {0}" -f $text)
+        exit 1
+    }
+
+    $startSeconds = Convert-TimecodeToSeconds -Value $bounds[0]
+    $endSeconds = Convert-TimecodeToSeconds -Value $bounds[1]
+    $duration = $endSeconds - $startSeconds
+    if ($duration -le 0) {
+        Write-ProgressLine -Line ("ERROR: segment {0} has non-positive duration ({1})." -f $index, $text)
+        exit 1
     }
 
     $paddingSeconds = 30.0
-    $windowStartSeconds = [Math]::Max(0, $startSeconds - $paddingSeconds)
-    $windowEndSeconds = $endSeconds + $paddingSeconds
-    $localStartSeconds = $startSeconds - $windowStartSeconds
+    $windowStart = [Math]::Max(0, $startSeconds - $paddingSeconds)
 
-    $windowStartText = Format-SecondsForFfmpeg -TotalSeconds $windowStartSeconds
-    $windowEndText = Format-SecondsForFfmpeg -TotalSeconds $windowEndSeconds
-    $localStartText = Format-SecondsForFfmpeg -TotalSeconds $localStartSeconds
-    $durationText = Format-SecondsForFfmpeg -TotalSeconds $durationSeconds
-    $downloadSection = "*{0}-{1}" -f $windowStartText, $windowEndText
+    $specs += [PSCustomObject]@{
+        Index         = $index
+        StartSeconds  = $startSeconds
+        EndSeconds    = $endSeconds
+        Duration      = $duration
+        WindowStart   = $windowStart
+        WindowEnd     = $endSeconds + $paddingSeconds
+        LocalStart    = $startSeconds - $windowStart
+        Label         = "{0}-{1}" -f (Format-SecondsForFileName -TotalSeconds $startSeconds), (Format-SecondsForFileName -TotalSeconds $endSeconds)
+        TempDir       = $null
+        StdoutFile    = $null
+        Process       = $null
+        SourcePath    = $null
+        ClipPath      = $null
+        Done          = $false
+    }
+}
 
-    Write-ProgressLine -Line "Downloading only a small source window instead of the full video."
-    Write-ProgressLine -Line ("Requested clip: {0} to {1} ({2})." -f $Start, $End, $durationText)
-    Write-ProgressLine -Line ("Source window: {0} to {1}; final cut starts {2} inside that window." -f $windowStartText, $windowEndText, $localStartText)
+$total = $specs.Count
+$joinRequested = [bool]$JoinSegments
+if ($joinRequested -and $total -lt 2) {
+    Write-ProgressLine -Line "Apenas 1 trecho valido: a juncao foi ignorada."
+    $joinRequested = $false
+}
 
-    $ytDlpArgs = @()
-    if ($UsePythonModule) {
-        $ytDlpArgs += @("-m", "yt_dlp")
+$effectiveParallel = [Math]::Max(1, [Math]::Min($MaxParallel, $total))
+Write-ProgressLine -Line ("Processando {0} trecho(s); downloads em paralelo: ate {1}." -f $total, $effectiveParallel)
+
+$rootTempDir = Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath ("yt_clip_multi_{0}" -f ([System.Guid]::NewGuid().ToString("N")))
+New-Item -ItemType Directory -Path $rootTempDir -Force | Out-Null
+
+try {
+    # --- Fase 1: downloads das janelas (paralelo limitado) --------------------
+    $pending = New-Object System.Collections.Generic.Queue[object]
+    foreach ($spec in $specs) {
+        $pending.Enqueue($spec)
+    }
+    $active = New-Object System.Collections.Generic.List[object]
+    $completedDownloads = 0
+
+    while ($pending.Count -gt 0 -or $active.Count -gt 0) {
+        while ($pending.Count -gt 0 -and $active.Count -lt $effectiveParallel) {
+            $spec = $pending.Dequeue()
+            $spec.TempDir = Join-Path -Path $rootTempDir -ChildPath ("seg{0:00}" -f $spec.Index)
+            New-Item -ItemType Directory -Path $spec.TempDir -Force | Out-Null
+            $spec.StdoutFile = Join-Path -Path $spec.TempDir -ChildPath "yt_dlp_output.log"
+
+            $section = "*{0}-{1}" -f (Format-SecondsForFfmpeg -TotalSeconds $spec.WindowStart), (Format-SecondsForFfmpeg -TotalSeconds $spec.WindowEnd)
+            $argText = Join-Arguments -Args (Build-YtDlpSectionArgs -DownloadSection $section -TargetDir $spec.TempDir)
+
+            Write-ProgressLine -Line ("[trecho {0}/{1}] Baixando janela {2} ate {3}..." -f $spec.Index, $total, (Format-SecondsForFfmpeg -TotalSeconds $spec.WindowStart), (Format-SecondsForFfmpeg -TotalSeconds $spec.WindowEnd))
+
+            $psi = New-Object System.Diagnostics.ProcessStartInfo
+            $psi.FileName = $YtDlpPath
+            $psi.Arguments = $argText
+            $psi.RedirectStandardOutput = $true
+            $psi.RedirectStandardError = $true
+            $psi.UseShellExecute = $false
+            $psi.CreateNoWindow = $true
+
+            $process = New-Object System.Diagnostics.Process
+            $process.StartInfo = $psi
+            if (-not $process.Start()) {
+                throw ("[trecho {0}] Could not start yt-dlp." -f $spec.Index)
+            }
+
+            # Stdout/stderr de cada processo vao para buffers proprios (evita entrelacar logs).
+            $spec | Add-Member -NotePropertyName StdoutTask -NotePropertyValue ($process.StandardOutput.ReadToEndAsync()) -Force
+            $spec | Add-Member -NotePropertyName StderrTask -NotePropertyValue ($process.StandardError.ReadToEndAsync()) -Force
+            $spec.Process = $process
+            $active.Add($spec)
+        }
+
+        Start-Sleep -Milliseconds 400
+
+        for ($i = $active.Count - 1; $i -ge 0; $i--) {
+            $spec = $active[$i]
+            if (-not $spec.Process.HasExited) {
+                continue
+            }
+
+            $exitCode = $spec.Process.ExitCode
+            $stdoutText = $spec.StdoutTask.Result
+            $stderrText = $spec.StderrTask.Result
+            try {
+                [System.IO.File]::WriteAllText($spec.StdoutFile, $stdoutText + [Environment]::NewLine + $stderrText, [System.Text.Encoding]::UTF8)
+            }
+            catch {
+                # Log file is best-effort.
+            }
+
+            if ($exitCode -ne 0) {
+                $tail = (($stderrText -split "\r?\n" | Where-Object { -not [string]::IsNullOrWhiteSpace($_) }) | Select-Object -Last 3) -join " | "
+                throw ("[trecho {0}/{1}] yt-dlp falhou (exit {2}): {3}" -f $spec.Index, $total, $exitCode, $tail)
+            }
+
+            $outputLines = @(($stdoutText + "`n" + $stderrText) -split "\r?\n" | Where-Object { -not [string]::IsNullOrWhiteSpace($_) })
+            $spec.SourcePath = Find-DownloadedMp4 -OutputLines $outputLines -TargetDir $spec.TempDir
+            if ([string]::IsNullOrWhiteSpace($spec.SourcePath) -or -not (Test-Path -LiteralPath $spec.SourcePath)) {
+                throw ("[trecho {0}/{1}] MP4 temporario nao encontrado apos o download." -f $spec.Index, $total)
+            }
+
+            $active.RemoveAt($i)
+            $completedDownloads++
+            Write-ProgressLine -Line ("[trecho {0}/{1}] Download concluido." -f $spec.Index, $total)
+            Write-ProgressLine -Line ("ETAPA {0}/{1}" -f $completedDownloads, ($total * 2))
+        }
     }
 
-    $ytDlpArgs += @(
-        "--newline",
-        "--no-playlist",
-        "--force-overwrites",
-        "--download-sections", $downloadSection,
-        "--force-keyframes-at-cuts",
-        "--replace-in-metadata", "title", "\s*[|｜]\s*.+$", "",
-        "--replace-in-metadata", "title", "\s*[：:]\s*", " - ",
-        "--replace-in-metadata", "title", "[/\\]+", "-",
-        "--paths", $tempDir,
-        "--windows-filenames",
-        "--ffmpeg-location", $FfmpegPath,
-        "--print", "after_move:filepath",
-        "-o", "%(title)s.%(ext)s",
-        "-f", "bv*[height<=720][ext=mp4][vcodec^=avc1]+ba[ext=m4a]/b[height<=720][ext=mp4][vcodec^=avc1][acodec!=none]/18/bv*[ext=mp4][vcodec^=avc1]+ba[ext=m4a]/b[ext=mp4][vcodec^=avc1]",
-        "--merge-output-format", "mp4",
-        $Url
-    )
+    # --- Fase 2: cortes precisos (sequencial; ffmpeg e rapido) -----------------
+    $clips = @()
+    $baseName = $null
+    foreach ($spec in ($specs | Sort-Object -Property Index)) {
+        if ($null -eq $baseName) {
+            $baseName = [System.IO.Path]::GetFileNameWithoutExtension($spec.SourcePath)
+        }
 
-    $downloadLines = Invoke-StreamingProcess -ExecutablePath $YtDlpPath -Arguments $ytDlpArgs
+        $clipFileName = if ($joinRequested) {
+            "clip_{0:00}.mp4" -f $spec.Index
+        }
+        elseif ($total -gt 1) {
+            "{0} [{1:00} - {2}].mp4" -f $baseName, $spec.Index, $spec.Label
+        }
+        else {
+            "{0} [{1}].mp4" -f $baseName, $spec.Label
+        }
 
-    $sourcePath = $downloadLines |
-        Where-Object { ($_ -match '\.mp4$') -and (Test-Path -LiteralPath $_) } |
-        Select-Object -Last 1
+        $clipTargetDir = if ($joinRequested) { $rootTempDir } else { $OutputDir }
+        $clipPath = Join-Path -Path $clipTargetDir -ChildPath $clipFileName
 
-    if ([string]::IsNullOrWhiteSpace($sourcePath)) {
-        $sourcePath = Get-ChildItem -LiteralPath $tempDir -File -Filter "*.mp4" |
-            Sort-Object -Property LastWriteTime -Descending |
-            Select-Object -First 1 -ExpandProperty FullName
+        Write-ProgressLine -Line ("[trecho {0}/{1}] Cortando {2} (duracao {3})..." -f $spec.Index, $total, $spec.Label, (Format-SecondsForFfmpeg -TotalSeconds $spec.Duration))
+        Invoke-FfmpegCut `
+            -SourcePath $spec.SourcePath `
+            -LocalStartSeconds $spec.LocalStart `
+            -DurationSeconds $spec.Duration `
+            -TargetPath $clipPath `
+            -LinePrefix ("[trecho {0}/{1}] " -f $spec.Index, $total)
+
+        $spec.ClipPath = $clipPath
+        $clips += [PSCustomObject]@{ Path = $clipPath; Duration = $spec.Duration }
+
+        if (-not $joinRequested) {
+            Write-ProgressLine -Line ("[trecho {0}/{1}] Arquivo final criado:" -f $spec.Index, $total)
+            Write-ProgressLine -Line $clipPath
+        }
+        Write-ProgressLine -Line ("ETAPA {0}/{1}" -f ($total + $spec.Index), ($total * 2))
     }
 
-    if ([string]::IsNullOrWhiteSpace($sourcePath) -or -not (Test-Path -LiteralPath $sourcePath)) {
-        throw "Could not locate the temporary MP4 downloaded by yt-dlp."
+    # --- Fase 3 (opcional): juncao com crossfade -------------------------------
+    if ($joinRequested) {
+        $joinedName = "{0} [montagem {1} trechos].mp4" -f $baseName, $total
+        $joinedPath = Join-Path -Path $OutputDir -ChildPath $joinedName
+        Join-ClipsWithCrossfade -Clips $clips -TargetPath $joinedPath
+        Write-ProgressLine -Line "Arquivo final criado:"
+        Write-ProgressLine -Line $joinedPath
     }
 
-    $baseName = [System.IO.Path]::GetFileNameWithoutExtension($sourcePath)
-    $safeClipSuffix = $ClipSuffix.Trim()
-    $finalFileName = if ([string]::IsNullOrWhiteSpace($safeClipSuffix)) {
-        $baseName + ".mp4"
-    }
-    else {
-        "{0} [{1}].mp4" -f $baseName, $safeClipSuffix
-    }
-    $finalPath = Join-Path -Path $OutputDir -ChildPath $finalFileName
-
-    Write-ProgressLine -Line "Cutting locally with ffmpeg from the downloaded source window."
-    Write-ProgressLine -Line ("Precise local cut: {0} for {1}." -f $localStartText, $durationText)
-    Write-ProgressLine -Line "Using timestamp reset to keep audio and video synchronized."
-    Write-ProgressLine -Line "Normalizing audio loudness without changing audio/video timing."
-
-    $ffmpegArgs = @(
-        "-hide_banner",
-        "-loglevel", "error",
-        "-progress", "pipe:1",
-        "-nostats",
-        "-nostdin",
-        "-y",
-        "-i", $sourcePath,
-        "-ss", $localStartText,
-        "-t", $durationText,
-        "-map", "0:v:0",
-        "-map", "0:a:0?",
-        "-sn",
-        "-dn",
-        "-vf", "setpts=PTS-STARTPTS",
-        "-af", "aresample=async=1:first_pts=0,loudnorm=I=-16:TP=-1.5:LRA=11",
-        "-c:v", "libx264",
-        "-preset", "veryfast",
-        "-crf", "18",
-        "-pix_fmt", "yuv420p",
-        "-c:a", "aac",
-        "-ar", "48000",
-        "-b:a", "160k",
-        "-movflags", "+faststart",
-        "-avoid_negative_ts", "make_zero",
-        $finalPath
-    )
-
-    Invoke-StreamingProcess -ExecutablePath $FfmpegPath -Arguments $ffmpegArgs | Out-Null
-
-    if (-not (Test-Path -LiteralPath $finalPath)) {
-        throw "ffmpeg finished but the final MP4 was not found: $finalPath"
-    }
-
-    Write-ProgressLine -Line "Final MP4 created:"
-    Write-ProgressLine -Line $finalPath
+    Write-ProgressLine -Line ("Concluido: {0} trecho(s) processado(s)." -f $total)
 }
 catch {
     Write-ProgressLine -Line ("ERROR: {0}" -f $_.Exception.Message)
     exit 1
 }
 finally {
+    foreach ($spec in $specs) {
+        if ($null -ne $spec.Process -and -not $spec.Process.HasExited) {
+            try {
+                Stop-Process -Id $spec.Process.Id -Force -ErrorAction SilentlyContinue
+            }
+            catch {
+                # Ignore cleanup races.
+            }
+        }
+    }
+
     try {
-        if (Test-Path -LiteralPath $tempDir) {
-            Remove-Item -LiteralPath $tempDir -Recurse -Force
+        if (Test-Path -LiteralPath $rootTempDir) {
+            Remove-Item -LiteralPath $rootTempDir -Recurse -Force
         }
     }
     catch {
-        Write-ProgressLine -Line "Warning: could not remove temporary folder: $tempDir"
+        Write-ProgressLine -Line "Warning: could not remove temporary folder: $rootTempDir"
     }
 }

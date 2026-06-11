@@ -1,4 +1,4 @@
-Set-StrictMode -Version Latest
+﻿Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
 Add-Type -AssemblyName System.Windows.Forms
@@ -18,89 +18,136 @@ $script:downloadPollFile = $null
 $script:downloadPollPosition = 0
 $script:sessionLogFile = Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath ("yt_clip_gui_{0}.log" -f (Get-Date -Format "yyyyMMdd_HHmmss"))
 
-function Parse-IntegerPart {
-    param(
-        [Parameter(Mandatory = $true)][string]$Value,
-        [Parameter(Mandatory = $true)][string]$PartName
-    )
+# ---------------------------------------------------------------------------
+# Parsing tolerante de tempos e trechos
+# ---------------------------------------------------------------------------
 
-    $clean = $Value.Trim()
-    if ($clean -notmatch '^\d+$') {
-        throw "Invalid $PartName value: '$Value'."
+function Parse-FlexibleTimeToSeconds {
+    # Aceita SS, MM:SS, HH:MM:SS e variantes "sujas": digitos colados (1:0056 =
+    # 1:00:56, 813 apos ':' = 8:13), zeros ausentes (01:8:13) e fracoes (1:02.5).
+    param([Parameter(Mandatory = $true)][string]$Text)
+
+    $clean = $Text.Trim() -replace '[hH]', ':' -replace '[mM]', ':' -replace '[sS]$', ''
+    $clean = $clean -replace '[^\d:.,]', ''
+    $clean = $clean.Trim(':')
+    if ([string]::IsNullOrWhiteSpace($clean)) {
+        throw "tempo vazio"
     }
 
-    return [int]$clean
-}
-
-function Parse-DoublePart {
-    param(
-        [Parameter(Mandatory = $true)][string]$Value,
-        [Parameter(Mandatory = $true)][string]$PartName
-    )
-
-    $clean = $Value.Trim().Replace(',', '.')
-    [double]$number = 0
-
-    $ok = [double]::TryParse(
-        $clean,
-        [System.Globalization.NumberStyles]::Float,
-        [System.Globalization.CultureInfo]::InvariantCulture,
-        [ref]$number
-    )
-
-    if (-not $ok) {
-        throw "Invalid $PartName value: '$Value'."
+    $rawParts = @($clean.Split(':') | Where-Object { $_ -ne '' })
+    if ($rawParts.Count -eq 0) {
+        throw "tempo vazio"
     }
 
-    if ($number -lt 0) {
-        throw "$PartName cannot be negative."
-    }
-
-    return $number
-}
-
-function Convert-TimeInputToSeconds {
-    param([Parameter(Mandatory = $true)][string]$InputText)
-
-    if ([string]::IsNullOrWhiteSpace($InputText)) {
-        throw "Time field is empty."
-    }
-
-    $parts = $InputText.Trim().Split(':')
-
-    switch ($parts.Count) {
-        1 {
-            return Parse-DoublePart -Value $parts[0] -PartName "seconds"
+    $parts = New-Object System.Collections.Generic.List[string]
+    for ($i = 0; $i -lt $rawParts.Count; $i++) {
+        $piece = $rawParts[$i]
+        $intPart = $piece
+        $fracSuffix = ""
+        if ($piece -match '^(\d+)[\.,](\d+)$') {
+            $intPart = $Matches[1]
+            $fracSuffix = "." + $Matches[2]
         }
+        elseif ($piece -notmatch '^\d+$') {
+            throw ("valor invalido: '{0}'" -f $piece)
+        }
+
+        if ($i -gt 0 -and $intPart.Length -eq 4) {
+            # "0056" depois de ':' = minutos+segundos colados.
+            $parts.Add($intPart.Substring(0, 2))
+            $parts.Add($intPart.Substring(2) + $fracSuffix)
+        }
+        elseif ($i -gt 0 -and $intPart.Length -eq 3) {
+            # "813" depois de ':' = M+SS colados.
+            $parts.Add($intPart.Substring(0, 1))
+            $parts.Add($intPart.Substring(1) + $fracSuffix)
+        }
+        else {
+            $parts.Add($intPart + $fracSuffix)
+        }
+    }
+
+    if ($parts.Count -gt 3) {
+        throw ("formato de tempo invalido: '{0}'" -f $Text.Trim())
+    }
+
+    $values = @()
+    for ($i = 0; $i -lt $parts.Count; $i++) {
+        [double]$number = 0
+        $ok = [double]::TryParse(
+            $parts[$i],
+            [System.Globalization.NumberStyles]::Float,
+            [System.Globalization.CultureInfo]::InvariantCulture,
+            [ref]$number
+        )
+        if (-not $ok -or $number -lt 0) {
+            throw ("valor invalido: '{0}'" -f $parts[$i])
+        }
+        $values += $number
+    }
+
+    switch ($values.Count) {
+        1 { return $values[0] }
         2 {
-            $minutes = Parse-IntegerPart -Value $parts[0] -PartName "minutes"
-            $seconds = Parse-DoublePart -Value $parts[1] -PartName "seconds"
-
-            if ($seconds -ge 60) {
-                throw "For MM:SS, seconds must be lower than 60."
-            }
-
-            return ($minutes * 60) + $seconds
+            if ($values[1] -ge 60) { throw ("segundos devem ser < 60 em '{0}'" -f $Text.Trim()) }
+            return ($values[0] * 60) + $values[1]
         }
         3 {
-            $hours = Parse-IntegerPart -Value $parts[0] -PartName "hours"
-            $minutes = Parse-IntegerPart -Value $parts[1] -PartName "minutes"
-            $seconds = Parse-DoublePart -Value $parts[2] -PartName "seconds"
-
-            if ($minutes -ge 60) {
-                throw "For HH:MM:SS, minutes must be lower than 60."
-            }
-
-            if ($seconds -ge 60) {
-                throw "For HH:MM:SS, seconds must be lower than 60."
-            }
-
-            return ($hours * 3600) + ($minutes * 60) + $seconds
-        }
-        default {
-            throw "Invalid time format. Use HH:MM:SS, MM:SS or SS."
+            if ($values[1] -ge 60) { throw ("minutos devem ser < 60 em '{0}'" -f $Text.Trim()) }
+            if ($values[2] -ge 60) { throw ("segundos devem ser < 60 em '{0}'" -f $Text.Trim()) }
+            return ($values[0] * 3600) + ($values[1] * 60) + $values[2]
         }
     }
+}
+
+function Parse-SegmentLine {
+    # Aceita "inicio - fim", "inicio a fim", "inicio-fim", travessoes etc.
+    param([Parameter(Mandatory = $true)][string]$Line)
+
+    $norm = $Line.Trim()
+    $norm = $norm -replace '[–—]', '-'
+    $norm = $norm -replace '(?i)\s+(?:a|à|ate|até)\s+', ' - '
+
+    $pieces = @($norm -split '-' | ForEach-Object { $_.Trim() } | Where-Object { $_ -ne '' })
+    if ($pieces.Count -ne 2) {
+        throw "use o formato 'inicio - fim' (ex.: 1:07:12 - 1:07:31)"
+    }
+
+    $startSeconds = Parse-FlexibleTimeToSeconds -Text $pieces[0]
+    $endSeconds = Parse-FlexibleTimeToSeconds -Text $pieces[1]
+
+    if ($endSeconds -le $startSeconds) {
+        throw ("fim ({0}) deve ser maior que o inicio ({1})" -f $pieces[1], $pieces[0])
+    }
+
+    return [PSCustomObject]@{
+        StartSeconds = $startSeconds
+        EndSeconds   = $endSeconds
+        Original     = $Line.Trim()
+    }
+}
+
+function Parse-SegmentsText {
+    # Retorna @{ Segments = lista; Errors = lista de "linha N: motivo" }.
+    param([Parameter(Mandatory = $true)][AllowEmptyString()][string]$Text)
+
+    $segments = @()
+    $errors = @()
+    $lineNumber = 0
+    foreach ($line in ($Text -split "\r?\n")) {
+        $lineNumber++
+        if ([string]::IsNullOrWhiteSpace($line)) {
+            continue
+        }
+        try {
+            $segments += Parse-SegmentLine -Line $line
+        }
+        catch {
+            $errors += ("linha {0} ('{1}'): {2}" -f $lineNumber, $line.Trim(), $_.Exception.Message)
+        }
+    }
+
+    return [PSCustomObject]@{ Segments = $segments; Errors = $errors }
 }
 
 function Format-SecondsForYtDlp {
@@ -149,23 +196,9 @@ function Format-SecondsForFileName {
     return ("{0:00}m{1:00}s" -f $minutes, $seconds)
 }
 
-function Convert-TitleToOutputBaseName {
-    param([Parameter(Mandatory = $true)][string]$Title)
-
-    $clean = $Title.Trim()
-    $clean = $clean -replace '\s*[|｜]\s*.+$', ''
-    $clean = $clean -replace '\s*[：:]\s*', ' - '
-    $clean = $clean -replace '[<>"/\\?*\x00-\x1F]', ' '
-    $clean = $clean -replace '\s+', ' '
-    $clean = $clean -replace '\s+-\s+', ' - '
-    $clean = $clean.Trim().TrimEnd('.', ' ')
-
-    if ([string]::IsNullOrWhiteSpace($clean)) {
-        return "youtube_clip"
-    }
-
-    return $clean
-}
+# ---------------------------------------------------------------------------
+# URL e utilidades de processo (inalteradas em essencia)
+# ---------------------------------------------------------------------------
 
 function Get-QueryParameter {
     param(
@@ -203,13 +236,13 @@ function Normalize-YouTubeUrl {
 
     $raw = $InputText.Trim()
     if ([string]::IsNullOrWhiteSpace($raw)) {
-        throw "URL cannot be empty."
+        throw "Informe a URL do video."
     }
 
     [System.Uri]$uri = $null
     $isUri = [System.Uri]::TryCreate($raw, [System.UriKind]::Absolute, [ref]$uri)
     if (-not $isUri -or (@("http", "https") -notcontains $uri.Scheme.ToLowerInvariant())) {
-        throw "Please provide a valid URL, for example https://www.youtube.com/watch?v=... or https://youtu.be/..."
+        throw "Informe uma URL valida, por exemplo https://www.youtube.com/watch?v=... ou https://youtu.be/..."
     }
 
     $urlHost = $uri.Host.ToLowerInvariant()
@@ -217,7 +250,7 @@ function Normalize-YouTubeUrl {
     $isYoutubeHost = ($urlHost -eq "youtube.com") -or $urlHost.EndsWith(".youtube.com")
 
     if (-not ($isShortHost -or $isYoutubeHost)) {
-        throw "Please provide a YouTube video URL."
+        throw "Informe uma URL de video do YouTube."
     }
 
     $videoId = $null
@@ -244,60 +277,10 @@ function Normalize-YouTubeUrl {
     }
 
     if ($videoId -notmatch '^[A-Za-z0-9_-]{11}$') {
-        throw "Please provide a direct YouTube video URL (watch?v=..., youtu.be/..., /shorts/...). Channel, playlist, and home URLs are not supported."
+        throw "Informe a URL direta de um video (watch?v=..., youtu.be/..., /shorts/...). URLs de canal, playlist ou home nao sao suportadas."
     }
 
     return "https://www.youtube.com/watch?v={0}" -f [System.Uri]::EscapeDataString($videoId)
-}
-
-function Invoke-ToolCaptureSingleLine {
-    param(
-        [Parameter(Mandatory = $true)][string]$ExecutablePath,
-        [Parameter(Mandatory = $true)][AllowEmptyString()][string[]]$Arguments,
-        [int]$TimeoutMilliseconds = 30000
-    )
-
-    $psi = New-Object System.Diagnostics.ProcessStartInfo
-    $psi.FileName = $ExecutablePath
-    $psi.Arguments = Join-Arguments -Args $Arguments
-    $psi.RedirectStandardOutput = $true
-    $psi.RedirectStandardError = $true
-    $psi.UseShellExecute = $false
-    $psi.CreateNoWindow = $true
-    $process = New-Object System.Diagnostics.Process
-    $process.StartInfo = $psi
-
-    if (-not $process.Start()) {
-        throw "Nao foi possivel iniciar comando auxiliar."
-    }
-
-    $stdoutTask = $process.StandardOutput.ReadToEndAsync()
-    $stderrTask = $process.StandardError.ReadToEndAsync()
-
-    if (-not $process.WaitForExit($TimeoutMilliseconds)) {
-        try {
-            $process.Kill()
-        }
-        catch {
-            # Ignore cleanup errors.
-        }
-        throw "Tempo esgotado ao consultar titulo do YouTube."
-    }
-
-    $stdout = $stdoutTask.Result
-    $stderr = $stderrTask.Result
-
-    if ($process.ExitCode -ne 0) {
-        $message = if ([string]::IsNullOrWhiteSpace($stderr)) { $stdout } else { $stderr }
-        throw ("Falha ao consultar titulo do YouTube: {0}" -f $message.Trim())
-    }
-
-    $line = ($stdout -split "\r?\n" | Where-Object { -not [string]::IsNullOrWhiteSpace($_) } | Select-Object -First 1)
-    if ([string]::IsNullOrWhiteSpace($line)) {
-        throw "yt-dlp nao retornou titulo do YouTube."
-    }
-
-    return $line.Trim()
 }
 
 function Escape-Argument {
@@ -499,37 +482,25 @@ function Complete-YtDlpDownload {
             Set-ProgressPercent -Target $script:downloadProgressBar -Value 100
         }
 
-        Set-StatusText -Target $script:downloadStatusLabel -Text "Done. Clip downloaded successfully."
+        Set-StatusText -Target $script:downloadStatusLabel -Text "Concluido com sucesso."
         Append-Log -Target $script:downloadLogBox -Line ""
-        Append-Log -Target $script:downloadLogBox -Line "Download finished successfully."
+        Append-Log -Target $script:downloadLogBox -Line "Processo finalizado com sucesso."
 
         if (-not [string]::IsNullOrWhiteSpace($script:downloadActualPath) -and (Test-Path -LiteralPath $script:downloadActualPath)) {
-            Append-Log -Target $script:downloadLogBox -Line ("Arquivo final encontrado: {0}" -f $script:downloadActualPath)
-        }
-        elseif (-not [string]::IsNullOrWhiteSpace($script:downloadExpectedPath)) {
-            if (Test-Path -LiteralPath $script:downloadExpectedPath) {
-                Append-Log -Target $script:downloadLogBox -Line ("Arquivo final encontrado: {0}" -f $script:downloadExpectedPath)
-            }
-            else {
-                Append-Log -Target $script:downloadLogBox -Line ("ATENCAO: caminho esperado nao encontrado: {0}" -f $script:downloadExpectedPath)
-                Append-Log -Target $script:downloadLogBox -Line "Verifique mensagens acima para saber se o yt-dlp salvou com outro nome."
-            }
+            Append-Log -Target $script:downloadLogBox -Line ("Ultimo arquivo gerado: {0}" -f $script:downloadActualPath)
         }
 
-        Append-Log -Target $script:downloadLogBox -Line "Window kept open. You can close it when finished reviewing the log."
+        Append-Log -Target $script:downloadLogBox -Line "A janela permanece aberta para revisar o log."
     }
     else {
         if ($null -ne $script:downloadProgressBar) {
             Set-ProgressMarquee -Target $script:downloadProgressBar -Enabled $false
         }
 
-        Set-StatusText -Target $script:downloadStatusLabel -Text "Failed. Check log for details."
+        Set-StatusText -Target $script:downloadStatusLabel -Text "Falhou. Veja o log para detalhes."
         Append-Log -Target $script:downloadLogBox -Line ""
-        Append-Log -Target $script:downloadLogBox -Line ("Download failed with exit code {0}." -f $ExitCode)
-        if (-not [string]::IsNullOrWhiteSpace($script:downloadExpectedPath)) {
-            Append-Log -Target $script:downloadLogBox -Line ("Arquivo esperado seria: {0}" -f $script:downloadExpectedPath)
-        }
-        Append-Log -Target $script:downloadLogBox -Line "Window kept open so you can review the error above."
+        Append-Log -Target $script:downloadLogBox -Line ("Processo falhou com codigo {0}." -f $ExitCode)
+        Append-Log -Target $script:downloadLogBox -Line "A janela permanece aberta para revisar o erro acima."
     }
 }
 
@@ -541,16 +512,27 @@ function Handle-DownloadOutputLine {
     }
 
     $cleanLine = $Line.Trim()
+
+    # Metricas internas do ffmpeg (-progress) nao agregam nada ao usuario.
+    if ($cleanLine -match '^(?:\[trecho \d+/\d+\] )?(?:frame=|fps=|stream_\d|bitrate=|total_size=|out_time|dup_frames=|drop_frames=|speed=|progress=continue)') {
+        return
+    }
+
     Append-Log -Target $script:downloadLogBox -Line $cleanLine
 
-    if ($cleanLine -match '\[download\]\s+([0-9]+(?:\.[0-9]+)?)%') {
+    if ($cleanLine -match '^ETAPA\s+(\d+)/(\d+)$') {
+        $done = [int]$matches[1]
+        $totalSteps = [Math]::Max(1, [int]$matches[2])
+        Set-ProgressPercent -Target $script:downloadProgressBar -Value ([int][Math]::Floor(($done * 100.0) / $totalSteps))
+    }
+    elseif ($cleanLine -match '\[download\]\s+([0-9]+(?:\.[0-9]+)?)%') {
         Set-ProgressPercent -Target $script:downloadProgressBar -Value ([int][Math]::Round([double]::Parse($matches[1], [System.Globalization.CultureInfo]::InvariantCulture)))
     }
-    elseif ($cleanLine -like "Cutting locally*") {
+    elseif ($cleanLine -like "Juntando*") {
         Set-ProgressMarquee -Target $script:downloadProgressBar -Enabled $true
     }
     elseif ($cleanLine -eq "progress=end") {
-        Set-ProgressPercent -Target $script:downloadProgressBar -Value 100
+        # ffmpeg terminou uma etapa; a barra avanca pelas linhas ETAPA.
     }
 
     if (($cleanLine -match '\.(mp4|mp3|mkv|webm)$') -and (Test-Path -LiteralPath $cleanLine)) {
@@ -794,14 +776,14 @@ function Start-YtDlpDownload {
     )
 
     if ($script:activeProcess -and -not $script:activeProcess.HasExited) {
-        throw "A download is already running."
+        throw "Ja existe um processamento em andamento."
     }
 
     $argumentText = Join-Arguments -Args $Arguments
     $executableName = Split-Path -Leaf $ExecutablePath
     Append-Log -Target $LogBox -Line ""
     Append-Log -Target $LogBox -Line ("> {0} {1}" -f $executableName, $argumentText)
-    Append-Log -Target $LogBox -Line "Starting download. Keep this window open to follow progress."
+    Append-Log -Target $LogBox -Line "Iniciando. Mantenha a janela aberta para acompanhar o progresso."
     if (-not [string]::IsNullOrWhiteSpace($ExpectedOutputPath)) {
         Append-Log -Target $LogBox -Line ("Arquivo final esperado: {0}" -f $ExpectedOutputPath)
     }
@@ -815,7 +797,7 @@ function Start-YtDlpDownload {
         catch {
             throw "Could not create process log file: $PollLogFile"
         }
-        Append-Log -Target $LogBox -Line ("Process progress log: {0}" -f $PollLogFile)
+        Append-Log -Target $LogBox -Line ("Log de progresso do processo: {0}" -f $PollLogFile)
     }
 
     $psi = New-Object System.Diagnostics.ProcessStartInfo
@@ -869,14 +851,14 @@ function Start-YtDlpDownload {
 
     $started = $process.Start()
     if (-not $started) {
-        throw "Could not start yt-dlp process."
+        throw "Could not start process."
     }
 
     $script:activeProcess = $process
     Set-ButtonState -Target $DownloadButton -Enabled $false
     Set-ButtonState -Target $CancelButton -Enabled $true
     Set-ProgressMarquee -Target $ProgressBar -Enabled $true
-    Set-StatusText -Target $StatusLabel -Text "Downloading clip... keep this window open to follow progress."
+    Set-StatusText -Target $StatusLabel -Text "Processando... acompanhe o progresso pelo log."
 
     $timer = New-Object System.Windows.Forms.Timer
     $timer.Interval = 1000
@@ -902,97 +884,122 @@ function Start-YtDlpDownload {
     }
 }
 
+# ---------------------------------------------------------------------------
+# Interface
+# ---------------------------------------------------------------------------
+
 $form = New-Object System.Windows.Forms.Form
-$form.Text = "YouTube Clip Downloader"
+$form.Text = "Recortar YouTube — multi-trechos"
 $form.StartPosition = "CenterScreen"
-$form.Size = New-Object System.Drawing.Size(860, 620)
-$form.MinimumSize = New-Object System.Drawing.Size(860, 620)
+$form.Size = New-Object System.Drawing.Size(900, 760)
+$form.MinimumSize = New-Object System.Drawing.Size(900, 700)
 $form.MaximizeBox = $true
 
+$grpSource = New-Object System.Windows.Forms.GroupBox
+$grpSource.Text = "Video"
+$grpSource.Location = New-Object System.Drawing.Point(12, 10)
+$grpSource.Size = New-Object System.Drawing.Size(860, 58)
+$grpSource.Anchor = "Top, Left, Right"
+
 $lblUrl = New-Object System.Windows.Forms.Label
-$lblUrl.Text = "YouTube URL:"
-$lblUrl.Location = New-Object System.Drawing.Point(15, 18)
+$lblUrl.Text = "URL:"
+$lblUrl.Location = New-Object System.Drawing.Point(12, 25)
 $lblUrl.AutoSize = $true
 
 $txtUrl = New-Object System.Windows.Forms.TextBox
-$txtUrl.Location = New-Object System.Drawing.Point(15, 40)
-$txtUrl.Size = New-Object System.Drawing.Size(810, 24)
+$txtUrl.Location = New-Object System.Drawing.Point(50, 22)
+$txtUrl.Size = New-Object System.Drawing.Size(795, 24)
 $txtUrl.Anchor = "Top, Left, Right"
 
-$lblStart = New-Object System.Windows.Forms.Label
-$lblStart.Text = "Start (HH:MM:SS or MM:SS):"
-$lblStart.Location = New-Object System.Drawing.Point(15, 78)
-$lblStart.AutoSize = $true
+$grpSource.Controls.AddRange(@($lblUrl, $txtUrl))
 
-$txtStart = New-Object System.Windows.Forms.TextBox
-$txtStart.Location = New-Object System.Drawing.Point(15, 100)
-$txtStart.Size = New-Object System.Drawing.Size(180, 24)
+$grpSegments = New-Object System.Windows.Forms.GroupBox
+$grpSegments.Text = "Trechos (um por linha) — aceita 1:07:12 - 1:07:31  |  1:20:26 a 1:20:53  |  1:0056 (digitos colados)"
+$grpSegments.Location = New-Object System.Drawing.Point(12, 74)
+$grpSegments.Size = New-Object System.Drawing.Size(860, 190)
+$grpSegments.Anchor = "Top, Left, Right"
 
-$lblEnd = New-Object System.Windows.Forms.Label
-$lblEnd.Text = "End (HH:MM:SS or MM:SS):"
-$lblEnd.Location = New-Object System.Drawing.Point(220, 78)
-$lblEnd.AutoSize = $true
+$txtSegments = New-Object System.Windows.Forms.TextBox
+$txtSegments.Location = New-Object System.Drawing.Point(12, 22)
+$txtSegments.Size = New-Object System.Drawing.Size(833, 130)
+$txtSegments.Multiline = $true
+$txtSegments.ScrollBars = "Vertical"
+$txtSegments.AcceptsReturn = $true
+$txtSegments.Font = New-Object System.Drawing.Font("Consolas", 10)
+$txtSegments.Anchor = "Top, Left, Right"
 
-$txtEnd = New-Object System.Windows.Forms.TextBox
-$txtEnd.Location = New-Object System.Drawing.Point(220, 100)
-$txtEnd.Size = New-Object System.Drawing.Size(180, 24)
+$lblSegmentsInfo = New-Object System.Windows.Forms.Label
+$lblSegmentsInfo.Text = "Nenhum trecho informado."
+$lblSegmentsInfo.Location = New-Object System.Drawing.Point(12, 158)
+$lblSegmentsInfo.Size = New-Object System.Drawing.Size(833, 24)
+$lblSegmentsInfo.Anchor = "Top, Left, Right"
+
+$grpSegments.Controls.AddRange(@($txtSegments, $lblSegmentsInfo))
+
+$grpOutput = New-Object System.Windows.Forms.GroupBox
+$grpOutput.Text = "Saida"
+$grpOutput.Location = New-Object System.Drawing.Point(12, 270)
+$grpOutput.Size = New-Object System.Drawing.Size(860, 118)
+$grpOutput.Anchor = "Top, Left, Right"
 
 $lblMode = New-Object System.Windows.Forms.Label
-$lblMode.Text = "Output:"
-$lblMode.Location = New-Object System.Drawing.Point(430, 78)
+$lblMode.Text = "Formato:"
+$lblMode.Location = New-Object System.Drawing.Point(12, 27)
 $lblMode.AutoSize = $true
 
 $cmbMode = New-Object System.Windows.Forms.ComboBox
-$cmbMode.Location = New-Object System.Drawing.Point(430, 100)
+$cmbMode.Location = New-Object System.Drawing.Point(75, 24)
 $cmbMode.Size = New-Object System.Drawing.Size(230, 24)
 $cmbMode.DropDownStyle = "DropDownList"
-[void]$cmbMode.Items.Add("Video MP4 (image + audio)")
-[void]$cmbMode.Items.Add("Audio MP3 only")
+[void]$cmbMode.Items.Add("Video MP4 (imagem + audio)")
+[void]$cmbMode.Items.Add("Somente audio MP3")
 $cmbMode.SelectedIndex = 0
 
+$chkJoin = New-Object System.Windows.Forms.CheckBox
+$chkJoin.Text = "Juntar todos os trechos em um so video (transicao suave de 0,5s)"
+$chkJoin.Location = New-Object System.Drawing.Point(330, 25)
+$chkJoin.Size = New-Object System.Drawing.Size(515, 24)
+$chkJoin.Anchor = "Top, Left, Right"
+
 $lblOutput = New-Object System.Windows.Forms.Label
-$lblOutput.Text = "Output folder:"
-$lblOutput.Location = New-Object System.Drawing.Point(15, 140)
+$lblOutput.Text = "Pasta de saida:"
+$lblOutput.Location = New-Object System.Drawing.Point(12, 60)
 $lblOutput.AutoSize = $true
 
 $txtOutput = New-Object System.Windows.Forms.TextBox
-$txtOutput.Location = New-Object System.Drawing.Point(15, 162)
-$txtOutput.Size = New-Object System.Drawing.Size(730, 24)
+$txtOutput.Location = New-Object System.Drawing.Point(12, 80)
+$txtOutput.Size = New-Object System.Drawing.Size(745, 24)
 $txtOutput.Anchor = "Top, Left, Right"
-
-$defaultOut = Join-Path -Path $env:USERPROFILE -ChildPath "Downloads"
-$txtOutput.Text = $defaultOut
+$txtOutput.Text = (Join-Path -Path $env:USERPROFILE -ChildPath "Downloads")
 
 $btnBrowse = New-Object System.Windows.Forms.Button
-$btnBrowse.Text = "Browse..."
-$btnBrowse.Location = New-Object System.Drawing.Point(755, 160)
-$btnBrowse.Size = New-Object System.Drawing.Size(70, 28)
+$btnBrowse.Text = "Procurar..."
+$btnBrowse.Location = New-Object System.Drawing.Point(765, 78)
+$btnBrowse.Size = New-Object System.Drawing.Size(80, 28)
 $btnBrowse.Anchor = "Top, Right"
 
-$lblHint = New-Object System.Windows.Forms.Label
-$lblHint.Text = "Examples: 34 (seconds), 01:10, 00:34:00"
-$lblHint.Location = New-Object System.Drawing.Point(15, 198)
-$lblHint.AutoSize = $true
+$grpOutput.Controls.AddRange(@($lblMode, $cmbMode, $chkJoin, $lblOutput, $txtOutput, $btnBrowse))
 
 $btnDownload = New-Object System.Windows.Forms.Button
-$btnDownload.Text = "Download clip"
-$btnDownload.Location = New-Object System.Drawing.Point(15, 228)
-$btnDownload.Size = New-Object System.Drawing.Size(140, 34)
+$btnDownload.Text = "Baixar trechos"
+$btnDownload.Location = New-Object System.Drawing.Point(12, 398)
+$btnDownload.Size = New-Object System.Drawing.Size(150, 34)
 
 $btnCancel = New-Object System.Windows.Forms.Button
-$btnCancel.Text = "Cancel"
-$btnCancel.Location = New-Object System.Drawing.Point(165, 228)
+$btnCancel.Text = "Cancelar"
+$btnCancel.Location = New-Object System.Drawing.Point(172, 398)
 $btnCancel.Size = New-Object System.Drawing.Size(110, 34)
 $btnCancel.Enabled = $false
 
 $lblStatus = New-Object System.Windows.Forms.Label
-$lblStatus.Text = "Ready."
-$lblStatus.Location = New-Object System.Drawing.Point(15, 274)
-$lblStatus.AutoSize = $true
+$lblStatus.Text = "Pronto."
+$lblStatus.Location = New-Object System.Drawing.Point(295, 406)
+$lblStatus.Size = New-Object System.Drawing.Size(577, 22)
+$lblStatus.Anchor = "Top, Left, Right"
 
 $progressDownload = New-Object System.Windows.Forms.ProgressBar
-$progressDownload.Location = New-Object System.Drawing.Point(15, 300)
-$progressDownload.Size = New-Object System.Drawing.Size(810, 18)
+$progressDownload.Location = New-Object System.Drawing.Point(12, 440)
+$progressDownload.Size = New-Object System.Drawing.Size(860, 18)
 $progressDownload.Anchor = "Top, Left, Right"
 $progressDownload.Minimum = 0
 $progressDownload.Maximum = 100
@@ -1000,26 +1007,17 @@ $progressDownload.Value = 0
 $progressDownload.Style = [System.Windows.Forms.ProgressBarStyle]::Continuous
 
 $txtLog = New-Object System.Windows.Forms.TextBox
-$txtLog.Location = New-Object System.Drawing.Point(15, 328)
-$txtLog.Size = New-Object System.Drawing.Size(810, 242)
+$txtLog.Location = New-Object System.Drawing.Point(12, 466)
+$txtLog.Size = New-Object System.Drawing.Size(860, 240)
 $txtLog.Multiline = $true
 $txtLog.ScrollBars = "Vertical"
 $txtLog.ReadOnly = $true
 $txtLog.Anchor = "Top, Bottom, Left, Right"
 
 $form.Controls.AddRange(@(
-        $lblUrl,
-        $txtUrl,
-        $lblStart,
-        $txtStart,
-        $lblEnd,
-        $txtEnd,
-        $lblMode,
-        $cmbMode,
-        $lblOutput,
-        $txtOutput,
-        $btnBrowse,
-        $lblHint,
+        $grpSource,
+        $grpSegments,
+        $grpOutput,
         $btnDownload,
         $btnCancel,
         $lblStatus,
@@ -1027,8 +1025,46 @@ $form.Controls.AddRange(@(
         $txtLog
     ))
 
-Append-Log -Target $txtLog -Line "GUI started."
-Append-Log -Target $txtLog -Line ("Session log file: " + $script:sessionLogFile)
+Append-Log -Target $txtLog -Line "GUI iniciada (multi-trechos)."
+Append-Log -Target $txtLog -Line ("Log da sessao: " + $script:sessionLogFile)
+
+$updateSegmentsInfo = {
+    try {
+        $parsed = Parse-SegmentsText -Text $txtSegments.Text
+        $count = @($parsed.Segments).Count
+        $errorCount = @($parsed.Errors).Count
+        if ($count -eq 0 -and $errorCount -eq 0) {
+            $lblSegmentsInfo.Text = "Nenhum trecho informado."
+            $lblSegmentsInfo.ForeColor = [System.Drawing.Color]::Black
+        }
+        elseif ($errorCount -gt 0) {
+            $lblSegmentsInfo.Text = ("{0} trecho(s) valido(s); {1} linha(s) com erro: {2}" -f $count, $errorCount, $parsed.Errors[0])
+            $lblSegmentsInfo.ForeColor = [System.Drawing.Color]::Firebrick
+        }
+        else {
+            $totalSeconds = 0.0
+            foreach ($seg in $parsed.Segments) {
+                $totalSeconds += ($seg.EndSeconds - $seg.StartSeconds)
+            }
+            $lblSegmentsInfo.Text = ("{0} trecho(s) valido(s); duracao total {1}." -f $count, (Format-SecondsForYtDlp -TotalSeconds $totalSeconds))
+            $lblSegmentsInfo.ForeColor = [System.Drawing.Color]::DarkGreen
+        }
+    }
+    catch {
+        $lblSegmentsInfo.Text = "Nao foi possivel analisar os trechos."
+        $lblSegmentsInfo.ForeColor = [System.Drawing.Color]::Firebrick
+    }
+}
+
+$txtSegments.Add_TextChanged($updateSegmentsInfo)
+
+$cmbMode.Add_SelectedIndexChanged({
+        $isVideo = ($cmbMode.SelectedIndex -eq 0)
+        $chkJoin.Enabled = $isVideo
+        if (-not $isVideo) {
+            $chkJoin.Checked = $false
+        }
+    })
 
 $btnBrowse.Add_Click({
         $dialog = New-Object System.Windows.Forms.FolderBrowserDialog
@@ -1053,13 +1089,13 @@ $btnCancel.Add_Click({
                 Set-ButtonState -Target $btnDownload -Enabled $true
                 Set-ButtonState -Target $btnCancel -Enabled $false
                 Set-ProgressMarquee -Target $progressDownload -Enabled $false
-                Append-Log -Target $txtLog -Line "Process cancelled by user."
-                Set-StatusText -Target $lblStatus -Text "Cancelled."
+                Append-Log -Target $txtLog -Line "Processo cancelado pelo usuario."
+                Set-StatusText -Target $lblStatus -Text "Cancelado."
             }
             catch {
                 [System.Windows.Forms.MessageBox]::Show(
-                    "Could not cancel the process: $($_.Exception.Message)",
-                    "yt clip",
+                    "Nao foi possivel cancelar o processo: $($_.Exception.Message)",
+                    "Recortar YouTube",
                     [System.Windows.Forms.MessageBoxButtons]::OK,
                     [System.Windows.Forms.MessageBoxIcon]::Warning
                 ) | Out-Null
@@ -1095,42 +1131,39 @@ $btnDownload.Add_Click({
                 $ytDlpPath = Resolve-CommandPathOrThrow `
                     -CommandName "yt-dlp" `
                     -CandidatePaths $ytDlpCandidates `
-                    -ErrorHint "yt-dlp not found. Install with: winget install yt-dlp.yt-dlp"
+                    -ErrorHint "yt-dlp nao encontrado. Instale com: winget install yt-dlp.yt-dlp"
             }
 
             $ffmpegPath = Resolve-CommandPathOrThrow `
                     -CommandName "ffmpeg" `
                     -CandidatePaths $ffmpegCandidates `
-                    -ErrorHint "ffmpeg not found. Install with: winget install Gyan.FFmpeg"
+                    -ErrorHint "ffmpeg nao encontrado. Instale com: winget install Gyan.FFmpeg"
 
             $url = Normalize-YouTubeUrl -InputText $txtUrl.Text
 
-            $startSeconds = Convert-TimeInputToSeconds -InputText $txtStart.Text
-            $endSeconds = Convert-TimeInputToSeconds -InputText $txtEnd.Text
-
-            if ($endSeconds -le $startSeconds) {
-                throw "End time must be greater than start time."
+            $parsed = Parse-SegmentsText -Text $txtSegments.Text
+            if (@($parsed.Errors).Count -gt 0) {
+                throw ("Corrija os trechos antes de baixar:`n- " + ($parsed.Errors -join "`n- "))
+            }
+            $segments = @($parsed.Segments)
+            if ($segments.Count -eq 0) {
+                throw "Informe ao menos um trecho (um por linha), por exemplo: 1:07:12 - 1:07:31"
             }
 
             $outputDir = $txtOutput.Text.Trim()
             if ([string]::IsNullOrWhiteSpace($outputDir)) {
-                throw "Output folder cannot be empty."
+                throw "A pasta de saida nao pode ser vazia."
             }
 
             if (-not (Test-Path -LiteralPath $outputDir)) {
                 New-Item -ItemType Directory -Path $outputDir -Force | Out-Null
             }
 
-            $startText = Format-SecondsForYtDlp -TotalSeconds $startSeconds
-            $endText = Format-SecondsForYtDlp -TotalSeconds $endSeconds
-            $section = "*$startText-$endText"
-            $clipSuffix = "{0}-{1}" -f (Format-SecondsForFileName -TotalSeconds $startSeconds), (Format-SecondsForFileName -TotalSeconds $endSeconds)
-            $expectedOutputPath = ""
-
             if ($cmbMode.SelectedIndex -eq 0) {
+                # --- Video MP4 via worker multi-trechos ---
                 $workerPath = Join-Path -Path $PSScriptRoot -ChildPath "yt_clip_video_worker.ps1"
                 if (-not (Test-Path -LiteralPath $workerPath)) {
-                    throw "Video worker script not found: $workerPath"
+                    throw "Worker de video nao encontrado: $workerPath"
                 }
                 $workerLogFile = Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath ("yt_clip_worker_{0}.log" -f (Get-Date -Format "yyyyMMdd_HHmmss"))
 
@@ -1139,6 +1172,12 @@ $btnDownload.Add_Click({
                     $powershellPath = "powershell.exe"
                 }
 
+                $segmentSpecs = @(
+                    $segments | ForEach-Object {
+                        "{0}-{1}" -f (Format-SecondsForYtDlp -TotalSeconds $_.StartSeconds), (Format-SecondsForYtDlp -TotalSeconds $_.EndSeconds)
+                    }
+                ) -join ";"
+
                 $workerArgs = @(
                     "-NoProfile",
                     "-ExecutionPolicy", "Bypass",
@@ -1146,16 +1185,21 @@ $btnDownload.Add_Click({
                     "-YtDlpPath", $ytDlpPath,
                     "-FfmpegPath", $ffmpegPath,
                     "-Url", $url,
-                    "-Start", $startText,
-                    "-End", $endText,
+                    "-Segments", $segmentSpecs,
                     "-OutputDir", $outputDir,
-                    "-ClipSuffix", $clipSuffix,
+                    "-MaxParallel", "3",
                     "-ProgressLogFile", $workerLogFile
                 )
+
+                if ($chkJoin.Checked -and $segments.Count -ge 2) {
+                    $workerArgs += "-JoinSegments"
+                }
 
                 if ($ytDlpPrefixArgs.Count -gt 0) {
                     $workerArgs += "-UsePythonModule"
                 }
+
+                Append-Log -Target $txtLog -Line ("Processando {0} trecho(s) em MP4{1}." -f $segments.Count, $(if ($chkJoin.Checked -and $segments.Count -ge 2) { " + montagem unica com transicao" } else { "" }))
 
                 Start-YtDlpDownload `
                     -ExecutablePath $powershellPath `
@@ -1165,29 +1209,46 @@ $btnDownload.Add_Click({
                     -DownloadButton $btnDownload `
                     -CancelButton $btnCancel `
                     -ProgressBar $progressDownload `
-                    -ExpectedOutputPath $expectedOutputPath `
+                    -ExpectedOutputPath "" `
                     -PollLogFile $workerLogFile
             }
             else {
+                # --- MP3: uma execucao do yt-dlp com N secoes ---
                 $ytDlpArgs = @(
                     "--newline",
                     "--no-playlist",
                     "--force-overwrites",
                     "--replace-in-metadata", "title", "\s*[|｜]\s*.+$", "",
                     "--replace-in-metadata", "title", "\s*[：:]\s*", " - ",
-                    "--replace-in-metadata", "title", "[/\\]+", "-",
-                    "--download-sections", $section,
+                    "--replace-in-metadata", "title", "[/\\]+", "-"
+                )
+
+                foreach ($seg in $segments) {
+                    $section = "*{0}-{1}" -f (Format-SecondsForYtDlp -TotalSeconds $seg.StartSeconds), (Format-SecondsForYtDlp -TotalSeconds $seg.EndSeconds)
+                    $ytDlpArgs += @("--download-sections", $section)
+                }
+
+                $outputTemplate = if ($segments.Count -gt 1) {
+                    "%(title)s [trecho %(section_start)s-%(section_end)s].%(ext)s"
+                }
+                else {
+                    $suffix = "{0}-{1}" -f (Format-SecondsForFileName -TotalSeconds $segments[0].StartSeconds), (Format-SecondsForFileName -TotalSeconds $segments[0].EndSeconds)
+                    "%(title)s [{0}].%(ext)s" -f $suffix
+                }
+
+                $ytDlpArgs += @(
                     "--paths", $outputDir,
                     "--windows-filenames",
                     "--ffmpeg-location", $ffmpegPath,
                     "--print", "after_move:filepath",
-                    "-o", ("%(title)s [{0}].%(ext)s" -f $clipSuffix),
+                    "-o", $outputTemplate,
                     "-x",
                     "--audio-format", "mp3",
-                    "--audio-quality", "0"
+                    "--audio-quality", "0",
+                    $url
                 )
 
-                $ytDlpArgs += $url
+                Append-Log -Target $txtLog -Line ("Processando {0} trecho(s) em MP3." -f $segments.Count)
 
                 Start-YtDlpDownload `
                     -ExecutablePath $ytDlpPath `
@@ -1197,18 +1258,18 @@ $btnDownload.Add_Click({
                     -DownloadButton $btnDownload `
                     -CancelButton $btnCancel `
                     -ProgressBar $progressDownload `
-                    -ExpectedOutputPath $expectedOutputPath
+                    -ExpectedOutputPath ""
             }
         }
         catch {
-            Append-Log -Target $txtLog -Line ("ERROR: {0}" -f $_.Exception.Message)
-            Set-StatusText -Target $lblStatus -Text "Error. Check log for details."
+            Append-Log -Target $txtLog -Line ("ERRO: {0}" -f $_.Exception.Message)
+            Set-StatusText -Target $lblStatus -Text "Erro. Veja o log para detalhes."
             Set-ButtonState -Target $btnDownload -Enabled $true
             Set-ButtonState -Target $btnCancel -Enabled $false
             Set-ProgressMarquee -Target $progressDownload -Enabled $false
             [System.Windows.Forms.MessageBox]::Show(
                 $_.Exception.Message,
-                "Validation error",
+                "Validacao",
                 [System.Windows.Forms.MessageBoxButtons]::OK,
                 [System.Windows.Forms.MessageBoxIcon]::Error
             ) | Out-Null
@@ -1218,8 +1279,8 @@ $btnDownload.Add_Click({
 $form.Add_FormClosing({
         if ($script:activeProcess -and -not $script:activeProcess.HasExited) {
             [System.Windows.Forms.MessageBox]::Show(
-                "A download is running. Use Cancel before closing this window.",
-                "yt clip",
+                "Ha um processamento em andamento. Use Cancelar antes de fechar a janela.",
+                "Recortar YouTube",
                 [System.Windows.Forms.MessageBoxButtons]::OK,
                 [System.Windows.Forms.MessageBoxIcon]::Information
             ) | Out-Null
