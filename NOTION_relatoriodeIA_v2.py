@@ -2316,7 +2316,17 @@ TARGET_OFFICE_MIN_SCORE = 8
 
 
 def is_target_office_case(case: CaseRecord, analysis: CaseAnalysis) -> bool:
-    return bool(FEDERAL_HIGH_OFFICE_RE.search(_publication_signal_text(case, analysis)))
+    # Inclui assuntos e classe: o cargo-alvo muitas vezes so aparece no assunto
+    # taxonomico da base (ex.: "Cargo - Governador").
+    signal = _safe_join(
+        [
+            _publication_signal_text(case, analysis),
+            _safe_join(case.assuntos),
+            case.descricao_classe,
+        ],
+        sep=" | ",
+    )
+    return bool(FEDERAL_HIGH_OFFICE_RE.search(signal))
 
 
 def apply_target_office_floor(case: CaseRecord, analysis: CaseAnalysis) -> CaseAnalysis:
@@ -2427,7 +2437,14 @@ def build_publishable_case_pairs(
             continue
         pairs.append((case, analysis))
     pairs.sort(key=lambda item: publication_sort_key(item[0], item[1]))
-    return pairs[:MAX_PUBLISHED_CASES]
+    # Casos-alvo (altos cargos da Republica) nunca ficam fora dos destaques:
+    # entram todos, e o teto so limita os demais.
+    target_pairs = [pair for pair in pairs if is_target_office_case(pair[0], pair[1])]
+    other_pairs = [pair for pair in pairs if pair not in target_pairs]
+    limit = max(MAX_PUBLISHED_CASES, len(target_pairs))
+    combined = (target_pairs + other_pairs)[:limit]
+    combined.sort(key=lambda item: publication_sort_key(item[0], item[1]))
+    return combined
 
 
 def build_focused_reportable_case_pairs(
