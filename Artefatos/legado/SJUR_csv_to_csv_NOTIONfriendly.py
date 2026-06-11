@@ -27,7 +27,7 @@ import unicodedata
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
-from datetime import date
+from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any, Callable, Dict, Iterable, Optional, Sequence
 from urllib.parse import urlparse
@@ -115,6 +115,11 @@ PERPLEXITY_PAGE_FETCH_TIMEOUT = 12
 PERPLEXITY_PAGE_TEXT_MAX_CHARS = 18000
 PERPLEXITY_PROGRESS_LOG_INTERVAL_SECONDS = 1.5
 PERPLEXITY_CACHE_FILENAME = f".sjur_perplexity_news_cache.v{PERPLEXITY_NEWS_STRATEGY_VERSION}.json"
+# TTLs do cache de noticias: "filled" e permanente; "no_match" e reavaliado apos o TTL
+# (a noticia pode ser publicada depois da decisao); erro retryable expira rapido.
+NEWS_CACHE_NO_MATCH_TTL_DAYS = 7
+NEWS_CACHE_RETRYABLE_TTL_HOURS = 24
+NEWS_PROMPT_VALUE_MAX_CHARS = 360
 LOGGER = logging.getLogger("SJUR_csv_to_csv_NOTIONfriendly")
 SCRIPT_DIR = Path(__file__).resolve().parents[2]
 ARTIFACTS_ROOT = (SCRIPT_DIR / "Artefatos").resolve()
@@ -1152,6 +1157,19 @@ class GerenciadorRequisicoes:
             )
             if not isinstance(result, dict):
                 return None
+            usage = result.get("usageMetadata")
+            if isinstance(usage, dict):
+                prompt_tokens = int(usage.get("promptTokenCount", 0) or 0)
+                output_tokens = int(usage.get("candidatesTokenCount", 0) or 0)
+                self.news_tokens_prompt_total = getattr(self, "news_tokens_prompt_total", 0) + prompt_tokens
+                self.news_tokens_output_total = getattr(self, "news_tokens_output_total", 0) + output_tokens
+                LOGGER.debug(
+                    "[Gemini noticias] tokens: prompt=%d saida=%d | acumulado prompt=%d saida=%d",
+                    prompt_tokens,
+                    output_tokens,
+                    self.news_tokens_prompt_total,
+                    self.news_tokens_output_total,
+                )
             parsed = self._extract_json_object(self._extract_gemini_text(result))
             if not parsed:
                 return None
@@ -2711,6 +2729,19 @@ def normalize_news_cache_entry(raw: object) -> Optional[dict[str, object]]:
     }
 
 
+def _news_cache_entry_age_days(cache_entry: dict) -> float:
+    raw = _normalize_lookup_text(cache_entry.get("updated_at", ""))
+    if not raw:
+        return float("inf")
+    try:
+        stamp = datetime.fromisoformat(raw.replace("Z", "+00:00"))
+    except ValueError:
+        return float("inf")
+    if stamp.tzinfo is None:
+        stamp = stamp.replace(tzinfo=timezone.utc)
+    return max(0.0, (datetime.now(timezone.utc) - stamp).total_seconds() / 86400.0)
+
+
 def _cache_entry_can_skip_lookup(
     cache_entry: object,
     *,
@@ -2724,9 +2755,9 @@ def _cache_entry_can_skip_lookup(
         return False
     status = _normalize_lookup_text(cache_entry.get("status", "")).lower()
     if status == "no_match":
-        return True
+        return _news_cache_entry_age_days(cache_entry) <= NEWS_CACHE_NO_MATCH_TTL_DAYS
     if status == "error_retryable" and treat_retryable_as_terminal:
-        return True
+        return _news_cache_entry_age_days(cache_entry) <= NEWS_CACHE_RETRYABLE_TTL_HOURS / 24.0
     if status != "filled":
         return False
     tse = _normalize_tse_news_url(cache_entry.get("tse", ""))
@@ -3138,6 +3169,16 @@ Regras obrigatorias:
 """
 
 
+def _compact_prompt_value(value: object, max_chars: int = NEWS_PROMPT_VALUE_MAX_CHARS) -> str:
+    text = SPACE_RE.sub(" ", str(value or "")).strip()
+    if len(text) <= max_chars:
+        return text
+    cut = text[:max_chars]
+    if " " in cut:
+        cut = cut[: cut.rfind(" ")]
+    return cut.strip(" ,;:")
+
+
 def gerar_prompt_noticias(page_data: dict[str, object], *, max_general_urls: int) -> str:
     domains_str = ", ".join(VEICULOS_DOMINIOS)
     partes = str(page_data.get("partes", "") or "")
@@ -3147,6 +3188,32 @@ def gerar_prompt_noticias(page_data: dict[str, object], *, max_general_urls: int
     texto_ementa_contexto = str(page_data.get("texto_ementa_contexto", "") or "")
     texto_decisao_contexto = str(page_data.get("texto_decisao_contexto", "") or "")
     hints = build_news_query_hints(page_data)
+    # Compactacao na renderizacao do prompt (economia de tokens). A chave do cache
+    # usa o payload integro de build_news_lookup_request, entao nada e invalidado.
+    contexto_campos = [
+        ("numeroUnico", page_data.get("numero_unico", "")),
+        ("dataDecisao", page_data.get("data_decisao", "")),
+        ("tribunal", page_data.get("tribunal", "")),
+        ("origem", page_data.get("origem", "")),
+        ("siglaUF", page_data.get("sigla_uf", "")),
+        ("nomeMunicipio", page_data.get("nome_municipio", "")),
+        ("descricaoClasse", page_data.get("descricao_classe", "")),
+        ("nomeTipoProcesso", page_data.get("nome_tipo_processo", "")),
+        ("assuntos", page_data.get("assuntos", "")),
+        ("partes", partes),
+        ("advogados", advogados),
+        ("relator", page_data.get("relator", "")),
+        ("tema", tema),
+        ("punchline", punchline),
+        ("textoEmentaContexto", texto_ementa_contexto),
+        ("textoDecisaoContexto", texto_decisao_contexto),
+    ]
+    contexto_linhas = "\n".join(
+        f"{nome}: {valor_compacto}"
+        for nome, valor in contexto_campos
+        for valor_compacto in [_compact_prompt_value(valor)]
+        if valor_compacto
+    )
     return f"""Encontre noticias sobre o MESMO caso eleitoral abaixo e responda APENAS em JSON.
 
 Objetivo:
@@ -3181,22 +3248,7 @@ Regras de resposta:
 9. Para "gerais", pode retornar 1 ou 2 links quando ambos forem claramente aderentes e nao duplicados.
 
 Contexto principal:
-numeroUnico: {page_data.get("numero_unico", "")}
-dataDecisao: {page_data.get("data_decisao", "")}
-tribunal: {page_data.get("tribunal", "")}
-origem: {page_data.get("origem", "")}
-siglaUF: {page_data.get("sigla_uf", "")}
-nomeMunicipio: {page_data.get("nome_municipio", "")}
-descricaoClasse: {page_data.get("descricao_classe", "")}
-nomeTipoProcesso: {page_data.get("nome_tipo_processo", "")}
-assuntos: {page_data.get("assuntos", "")}
-partes: {partes}
-advogados: {advogados}
-relator: {page_data.get("relator", "")}
-tema: {tema}
-punchline: {punchline}
-textoEmentaContexto: {texto_ementa_contexto}
-textoDecisaoContexto: {texto_decisao_contexto}
+{contexto_linhas}
 
 Formato JSON obrigatorio:
 {{
@@ -3760,6 +3812,13 @@ async def enriquecer_rows_com_urls_async(
                 await asyncio.sleep(config.delay_between_batches)
     finally:
         if gerenciador is not None:
+            tokens_prompt = int(getattr(gerenciador, "news_tokens_prompt_total", 0) or 0)
+            tokens_output = int(getattr(gerenciador, "news_tokens_output_total", 0) or 0)
+            if tokens_prompt or tokens_output:
+                logger(
+                    f"[{provider_label}] Tokens consumidos na busca de noticias: "
+                    f"prompt={tokens_prompt} | saida={tokens_output}"
+                )
             gerenciador.close()
     return metrics
 
