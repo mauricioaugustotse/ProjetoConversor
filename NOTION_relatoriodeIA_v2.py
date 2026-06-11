@@ -26,7 +26,7 @@ import unicodedata
 import uuid
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from dataclasses import asdict, dataclass, field
+from dataclasses import asdict, dataclass, field, replace
 from datetime import date, datetime
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Mapping, Optional, Sequence
@@ -86,7 +86,7 @@ MAX_LAWYER_SIGNALS = 1
 MAX_WATCHPOINTS = 2
 MAX_STRATEGIC_ALERT_SECTION_ITEMS = 3
 MAX_ALERT_TEXT_CHARS = 260
-MAX_PUBLISHED_CASES = 8
+MAX_PUBLISHED_CASES = 12
 MAX_TABLE_WHAT_HAPPENED_CHARS = 240
 MAX_TABLE_CONSEQUENCE_CHARS = 200
 MAX_TOGGLE_WHY_RELEVANT_CHARS = 360
@@ -2306,7 +2306,47 @@ def compute_federal_interest_score(case: CaseRecord, analysis: CaseAnalysis) -> 
 
 
 def is_federal_strategic_interest(case: CaseRecord, analysis: CaseAnalysis) -> bool:
+    if is_target_office_case(case, analysis):
+        return True
     return compute_federal_interest_score(case, analysis) >= FEDERAL_INTEREST_MIN_SCORE
+
+
+RISK_FLOOR_ORDER = {"baixo": 0, "medio": 1, "alto": 2, "critico": 3}
+TARGET_OFFICE_MIN_SCORE = 8
+
+
+def is_target_office_case(case: CaseRecord, analysis: CaseAnalysis) -> bool:
+    return bool(FEDERAL_HIGH_OFFICE_RE.search(_publication_signal_text(case, analysis)))
+
+
+def apply_target_office_floor(case: CaseRecord, analysis: CaseAnalysis) -> CaseAnalysis:
+    # Rede determinística: processo com alto cargo da República (Presidente, Vice,
+    # governadores, senadores, deputados federais, ministros de Estado) nunca fica
+    # abaixo de 8/alto, mesmo quando o modelo subavalia (ex.: improcedência mantida).
+    if analysis.public_figures and not analysis.includes_public_figure:
+        analysis = replace(analysis, includes_public_figure=True)
+    if not is_target_office_case(case, analysis):
+        return analysis
+    new_relevance = max(int(analysis.relevance_score or 0), TARGET_OFFICE_MIN_SCORE)
+    new_display = max(int(analysis.display_score or analysis.relevance_score or 0), TARGET_OFFICE_MIN_SCORE)
+    risk = _normalize_ws(analysis.risk_level).casefold()
+    new_risk = analysis.risk_level if RISK_FLOOR_ORDER.get(risk, 0) >= RISK_FLOOR_ORDER["alto"] else "alto"
+    if (new_relevance, new_display, new_risk) == (analysis.relevance_score, analysis.display_score, analysis.risk_level):
+        return analysis
+    return replace(analysis, relevance_score=new_relevance, display_score=new_display, risk_level=new_risk)
+
+
+def finalize_case_analyses(
+    cases: Sequence[CaseRecord],
+    analysis_by_case_id: Mapping[str, CaseAnalysis],
+) -> List[CaseAnalysis]:
+    out: List[CaseAnalysis] = []
+    for case in cases:
+        key = case_resume_key(case)
+        if key not in analysis_by_case_id:
+            continue
+        out.append(apply_target_office_floor(case, analysis_by_case_id[key]))
+    return out
 
 
 def compute_institutional_party_scope_score(case: CaseRecord, analysis: CaseAnalysis) -> int:
@@ -3052,6 +3092,11 @@ def build_case_analysis_prompt(start_iso: str, end_iso: str) -> str:
         "Casos municipais rotineiros de prefeito, vice-prefeito ou vereador só devem receber nota alta se trouxerem tese replicável "
         "para partidos políticos ou efeito institucional claro além do município. "
         "Reserve notas 8 a 10 para casos com interesse federal/partidário material; temas locais sem esse vetor devem ficar em baixo ou médio. "
+        "REGRA INDEROGÁVEL: processo que envolva Presidente da República, Vice-Presidente, governador, vice-governador, "
+        "senador, deputado federal ou ministro de Estado (como parte, investigado ou beneficiário direto) recebe relevance_score "
+        "mínimo 8 e risk_level mínimo 'alto', MESMO quando a decisão mantém improcedência, nega seguimento ou é processualmente "
+        "desfavorável ao autor — o desfecho não reduz a relevância para a consultoria legislativa. "
+        "Defina includes_public_figure=true sempre que public_figures não estiver vazio. "
         "No campo 'title', escreva um microtítulo temático curto e intuitivo do caso, em estilo nominal, idealmente entre 90 e 120 caracteres e no máximo com 130 caracteres. "
         "Evite narrativa processual. Não comece com expressões como 'em decisão monocrática', 'o pedido de', "
         "'interposto contra acórdão', 'deu provimento', 'negou seguimento' ou fórmulas semelhantes. "
@@ -3306,7 +3351,7 @@ def analyze_cases(
             analysis_by_case_id[case_resume_key(case)] = fallback_case_analysis(case, lawyer_counter)
         if progress_callback is not None:
             progress_callback(analysis_by_case_id, 0, 0)
-        return [analysis_by_case_id[case_resume_key(case)] for case in cases if case_resume_key(case) in analysis_by_case_id]
+        return finalize_case_analyses(cases, analysis_by_case_id)
 
     system_prompt = build_case_analysis_prompt(start_iso, end_iso)
 
@@ -3396,7 +3441,7 @@ def analyze_cases(
     )
     total_batches = len(batches)
     if total_batches == 0:
-        return [analysis_by_case_id[case_resume_key(case)] for case in cases if case_resume_key(case) in analysis_by_case_id]
+        return finalize_case_analyses(cases, analysis_by_case_id)
 
     max_chars_batch = max(
         (
@@ -3512,7 +3557,7 @@ def analyze_cases(
                 )
                 if progress_callback is not None:
                     progress_callback(analysis_by_case_id, completed_batches, total_batches)
-    return [analysis_by_case_id[case_resume_key(case)] for case in cases if case_resume_key(case) in analysis_by_case_id]
+    return finalize_case_analyses(cases, analysis_by_case_id)
 
 
 def fallback_report_summary(
@@ -4494,6 +4539,8 @@ def build_methodology_blocks(title: str = SECTION_METHODOLOGY_TITLE) -> List[Dic
             "Relatório gerado a partir da base DJe consolidada no Notion, filtrada por dataDecisao no período exato solicitado. "
             "A unidade de análise é o processo judicial. A IA produziu a leitura estratégica com filtro editorial de interesse federal: "
             "altos cargos da República, partidos políticos, direção partidária, financiamento público, contas partidárias e teses com efeito replicável. "
+            "Regra determinística de cobertura: processo que envolva Presidente, Vice-Presidente, governador, senador, deputado federal "
+            "ou ministro de Estado recebe prioridade mínima 8/alto e entra nos destaques, independentemente do desfecho. "
             "Casos municipais rotineiros foram rebaixados ou excluídos quando não havia esse vetor material. Quando a base não trazia elemento explícito, "
             "o texto manteve linguagem conservadora.",
             icon="💡",

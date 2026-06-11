@@ -518,6 +518,14 @@ def launch_gui() -> None:
         text="Regerar relatorios existentes (mesmo sem casos novos)",
         variable=force_regen_var,
     ).grid(row=3, column=1, sticky="w", padx=8, pady=(8, 0))
+    ttk.Label(
+        top,
+        text=(
+            f"Config: semana civil seg-dom | modelo {report.DEFAULT_OPENAI_MODEL} | "
+            "todos os casos da semana analisados | altos cargos da Republica sempre em destaque"
+        ),
+        foreground="#555555",
+    ).grid(row=4, column=0, columnspan=3, sticky="w", pady=(8, 0))
 
     files_box = ttk.LabelFrame(main, text="CSVs", padding=8)
     files_box.grid(row=1, column=0, sticky="ew", pady=(10, 0))
@@ -643,6 +651,47 @@ def launch_gui() -> None:
 
         threading.Thread(target=worker, daemon=True).start()
 
+    def run_maintenance(extra_args: Sequence[str], descricao: str) -> None:
+        if busy.get():
+            return
+        busy.set(True)
+        status_var.set(descricao + "...")
+
+        def worker() -> None:
+            try:
+                run_command(
+                    [
+                        sys.executable,
+                        "-X",
+                        "utf8",
+                        "DJE_refazer_relatorios.py",
+                        "--parent-page-url",
+                        parent_url_var.get().strip() or DEFAULT_REPORTS_PARENT_URL,
+                        "--database-url",
+                        database_url_var.get().strip() or report.DEFAULT_SOURCE_DATABASE_URL,
+                        *extra_args,
+                    ],
+                    log=log,
+                )
+                root.after(0, lambda: status_var.set("Concluido."))
+            except Exception as exc:  # pylint: disable=broad-except
+                log(f"ERRO: {exc}")
+                root.after(0, lambda: status_var.set("Falhou."))
+            finally:
+                root.after(0, lambda: busy.set(False))
+
+        threading.Thread(target=worker, daemon=True).start()
+
+    ttk.Button(
+        bottom,
+        text="Auditar relatorios (dry-run)",
+        command=lambda: run_maintenance(["--dry-run"], "Auditando relatorios"),
+    ).pack(side="left", padx=(12, 0))
+    ttk.Button(
+        bottom,
+        text="Refazer todos os relatorios",
+        command=lambda: run_maintenance([], "Refazendo relatorios"),
+    ).pack(side="left", padx=(8, 0))
     ttk.Button(bottom, text="Processar, importar e gerar relatorios", command=run_selected).pack(side="right")
 
     refresh_files()

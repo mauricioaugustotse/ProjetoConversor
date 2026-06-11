@@ -204,6 +204,25 @@ def audit_page(plan: ReportPagePlan, payload: Dict[str, Any], *, data_source_id:
     published = int(publish_stats.get("case_rows_created", 0) or 0)
     inventory = int(publish_stats.get("inventory_rows_created", 0) or 0)
     missing = sorted(base_ids - analyzed_ids)
+    # Varredura do alvo: nenhum caso com alto cargo da Republica pode ficar
+    # abaixo do piso 8/alto (e, portanto, fora dos destaques).
+    target_total = 0
+    target_below_floor: List[str] = []
+    for item in payload.get("analyses") or []:
+        if not isinstance(item, dict):
+            continue
+        signal = " | ".join(
+            str(item.get(key, "") or "")
+            for key in ("title", "what_happened", "why_relevant", "legal_grounds", "strategic_comment")
+        )
+        signal += " | " + " | ".join(str(x) for x in (item.get("public_figures") or []))
+        if not report.FEDERAL_HIGH_OFFICE_RE.search(signal):
+            continue
+        target_total += 1
+        score = int(item.get("relevance_score", 0) or 0)
+        risk = str(item.get("risk_level", "") or "").casefold()
+        if score < 8 or risk not in {"alto", "critico"}:
+            target_below_floor.append(str(item.get("case_id") or item.get("page_id") or "?"))
     audit = {
         "base_count": len(base_ids),
         "report_case_count": int(payload.get("case_count", 0) or 0),
@@ -212,13 +231,79 @@ def audit_page(plan: ReportPagePlan, payload: Dict[str, Any], *, data_source_id:
         "inventory_count": inventory,
         "page_coverage": published + inventory,
         "missing_case_ids": missing,
+        "target_office_total": target_total,
+        "target_office_below_floor": target_below_floor,
     }
     audit["complete"] = (
         not missing
+        and not target_below_floor
         and audit["base_count"] == audit["report_case_count"]
         and (audit["base_count"] == 0 or audit["page_coverage"] >= audit["base_count"])
     )
     return audit
+
+
+def _case_target_signal(case: Any) -> str:
+    return " | ".join(
+        [
+            gui._normalize_ws(case.tema),
+            gui._normalize_ws(case.punchline),
+            " ; ".join(case.partes or []),
+            " ; ".join(case.assuntos or []),
+        ]
+    )
+
+
+def varredura_alvo(
+    plans: List[ReportPagePlan],
+    *,
+    data_source_id: str,
+    database_url: str,
+    model: str,
+    fix: bool,
+) -> List[Dict[str, Any]]:
+    """Para cada relatorio existente, detecta casos com alto cargo da Republica
+    (FEDERAL_HIGH_OFFICE_RE) presentes na base mas fora da tabela de destaques.
+    Com fix=True, regenera apenas as paginas com omissao."""
+    resultados: List[Dict[str, Any]] = []
+    for plan in plans:
+        if plan.kind not in {"weekly", "monthly"} or not plan.start or not plan.end:
+            continue
+        cases = report.query_cases_by_period(data_source_id, plan.start.isoformat(), plan.end.isoformat())
+        alvo = [case for case in cases if report.FEDERAL_HIGH_OFFICE_RE.search(_case_target_signal(case))]
+        if not alvo:
+            resultados.append({"title": plan.current_title, "alvo": 0, "omitidos": [], "regenerado": False})
+            print(f"[ok] {plan.current_title}: sem casos-alvo no periodo")
+            continue
+        published = report.load_cases_from_published_summary_table(plan.page_id)
+        published_ids = {report._normalize_notion_id(str(c.page_id)) for c in published if gui._normalize_ws(c.page_id)}
+        omitidos = [
+            case
+            for case in alvo
+            if report._normalize_notion_id(str(case.page_id)) not in published_ids
+        ]
+        item = {
+            "title": plan.current_title,
+            "alvo": len(alvo),
+            "omitidos": [case.process_label() for case in omitidos],
+            "regenerado": False,
+        }
+        if omitidos:
+            print(
+                f"[OMISSAO] {plan.current_title}: {len(omitidos)}/{len(alvo)} caso(s)-alvo fora dos destaques: "
+                + "; ".join(case.process_label() for case in omitidos[:6])
+            )
+            if fix:
+                regenerate_page(plan, database_url=database_url, model=model, log=print)
+                snapshot_report_json(plan)
+                item["regenerado"] = True
+        else:
+            print(f"[ok] {plan.current_title}: {len(alvo)} caso(s)-alvo, todos nos destaques")
+        resultados.append(item)
+    payload = {"finished_at_utc": utc_now_iso(), "resultados": resultados}
+    write_json_atomic(REFAZER_DIR / "varredura_alvo.json", payload)
+    print(f"\nVarredura salva em: {REFAZER_DIR / 'varredura_alvo.json'}")
+    return resultados
 
 
 def load_previous_audit() -> Dict[str, Any]:
@@ -257,12 +342,12 @@ def write_audit(plans: List[ReportPagePlan]) -> None:
         "",
         f"Gerado em {payload['finished_at_utc']} (UTC).",
         "",
-        "| Relatório | Período | Status | Base | Analisados | Destaques | Inventário | Faltando |",
-        "|---|---|---|---:|---:|---:|---:|---:|",
+        "| Relatório | Período | Status | Base | Analisados | Destaques | Inventário | Faltando | Alvo | Alvo<8 |",
+        "|---|---|---|---:|---:|---:|---:|---:|---:|---:|",
     ]
     for item in payload["pages"]:
         lines.append(
-            "| {title} | {period} | {status} | {base} | {analyzed} | {published} | {inventory} | {missing} |".format(
+            "| {title} | {period} | {status} | {base} | {analyzed} | {published} | {inventory} | {missing} | {alvo} | {alvo_baixo} |".format(
                 title=item.get("target_title") or item.get("current_title"),
                 period=item.get("period") or "-",
                 status=item.get("status"),
@@ -271,6 +356,8 @@ def write_audit(plans: List[ReportPagePlan]) -> None:
                 published=item.get("published_count", "-"),
                 inventory=item.get("inventory_count", "-"),
                 missing=len(item.get("missing_case_ids") or []),
+                alvo=item.get("target_office_total", "-"),
+                alvo_baixo=len(item.get("target_office_below_floor") or []),
             )
         )
     pendentes = [item for item in payload["pages"] if item.get("status") not in {"ok", "skipped"}]
@@ -293,6 +380,12 @@ def main() -> int:
     parser.add_argument("--audit-only", action="store_true", help="So audita as paginas usando snapshots existentes.")
     parser.add_argument("--skip-done", action="store_true", help="Pula paginas com status ok na auditoria anterior.")
     parser.add_argument("--archive-unrecognized", action="store_true", help="Arquiva paginas de titulo nao reconhecido.")
+    parser.add_argument(
+        "--varredura-alvo",
+        action="store_true",
+        help="So varre os relatorios procurando altos cargos fora dos destaques (nao regenera nada sem --fix).",
+    )
+    parser.add_argument("--fix", action="store_true", help="Com --varredura-alvo: regenera as paginas com omissao detectada.")
     args = parser.parse_args()
 
     class InitArgs:
@@ -332,6 +425,16 @@ def main() -> int:
             if plan is not keeper:
                 plan.kind = "duplicate"
                 plan.actions.append("archive_duplicate")
+
+    if args.varredura_alvo:
+        varredura_alvo(
+            [plan for plan in plans if plan.kind in {"weekly", "monthly"}],
+            data_source_id=data_source_id,
+            database_url=args.database_url,
+            model=args.model,
+            fix=bool(args.fix),
+        )
+        return 0
 
     previous = load_previous_audit()
     done_titles = {
