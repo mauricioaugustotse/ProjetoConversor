@@ -353,7 +353,8 @@ def regenerar_somente_desatualizados(
             print(f"[ok] {plan.current_title}: {current} casos (sem mudanca)")
             continue
         desatualizadas += 1
-        print(f"[DESATUALIZADA] {plan.current_title}: base={current} vs manifesto={previous} — regenerando...")
+        motivo = "sem entrada no manifesto" if previous is None else f"base={current} vs manifesto={previous}"
+        print(f"[DESATUALIZADA] {plan.current_title}: {motivo} — regenerando...")
         if dry_run:
             continue
         regenerate_page(plan, database_url=database_url, model=model, log=print)
@@ -571,6 +572,8 @@ def main() -> int:
             if not args.rename_only:
                 plan.audit = audit_page(plan, payload, data_source_id=data_source_id)
                 plan.status = "ok" if plan.audit.get("complete") else "incomplete"
+                if "regenerated" in plan.actions:
+                    _mark_weekly_manifest(plan, case_count=int(plan.audit.get("base_count", 0) or 0))
             else:
                 plan.status = "renamed_only"
         except Exception as exc:

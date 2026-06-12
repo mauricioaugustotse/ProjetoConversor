@@ -396,7 +396,9 @@ def _page_unique_keys(page_obj: Mapping[str, Any]) -> List[str]:
     props = page_obj.get("properties") or {}
     numero_unico = _digits(report._property_rich_text(props.get("numeroUnico", {})))
     numero_processo = _digits(report._property_number_text(props.get("numeroProcesso", {})))
-    decision_date_iso = report._property_date_start(props.get("dataDecisao", {}))
+    # [:10] normaliza datetimes eventuais ('YYYY-MM-DDT...') para casar com o
+    # isoformat() de date usado na chave da linha.
+    decision_date_iso = report._property_date_start(props.get("dataDecisao", {}))[:10]
     suffix = f"|{decision_date_iso}" if decision_date_iso else ""
     keys: List[str] = []
     if numero_unico:
@@ -432,6 +434,9 @@ def query_existing_pages_by_period(data_source_id: str, start_iso: str, end_iso:
                     {"property": "dataDecisao", "date": {"on_or_before": end_iso}},
                 ]
             },
+            # Ordem deterministica: o emparelhamento linha<->pagina e posicional,
+            # entao reimports precisam ver as paginas na mesma ordem de criacao.
+            "sorts": [{"timestamp": "created_time", "direction": "ascending"}],
         }
         if cursor:
             body["start_cursor"] = cursor
@@ -501,6 +506,31 @@ def import_csv_to_notion(
             name,
             skipped_count,
         )
+
+    # Linhas com mesma chave processo+data E mesmo teor sao a MESMA decisao
+    # repetida (exports do DJe com periodos sobrepostos) — mantem so a primeira.
+    # Teores diferentes no mesmo dia (decisao + despacho) continuam separados.
+    seen_fingerprints: set = set()
+    deduped_rows: List[Dict[str, str]] = []
+    rows_deduped = 0
+    for row in rows:
+        parsed = parse_csv_date(row.get("dataDecisao"), date_order=effective_date_order)
+        teor = _normalize_ws(row.get("textoDecisao"))
+        fingerprint = "|".join(
+            [
+                _digits(row.get("numeroUnico")) or _digits(row.get("numeroProcesso")),
+                parsed.isoformat() if parsed else "",
+                hashlib.sha256(teor.encode("utf-8")).hexdigest(),
+            ]
+        )
+        if teor and fingerprint in seen_fingerprints:
+            rows_deduped += 1
+            continue
+        seen_fingerprints.add(fingerprint)
+        deduped_rows.append(row)
+    rows = deduped_rows
+    if rows_deduped:
+        logger.info("Linhas identicas (processo+data+teor) descartadas do CSV: %d", rows_deduped)
 
     existing = query_existing_pages_by_period(data_source_id, start_iso, end_iso)
     logger.info(

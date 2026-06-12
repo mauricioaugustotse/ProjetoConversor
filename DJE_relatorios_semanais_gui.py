@@ -465,8 +465,6 @@ def process_import_and_generate(
         run_command(report_cmd, log=log)
         mark_report_generated(period, case_count=current_count)
 
-    mark_files_processed(files, combined_csv=combined_csv, periods=periods)
-
     # Etapa final automatica: garante que altos cargos e casos marcados
     # 'Dep. Federal' estejam nos destaques — apenas nas semanas processadas
     # nesta execucao (economia: nao varre a colecao inteira).
@@ -489,6 +487,11 @@ def process_import_and_generate(
             ],
             log=log,
         )
+
+    # So marca os CSVs como processados quando TODO o fluxo (inclusive a
+    # varredura) concluiu: uma falha no meio preserva o pending_run e a
+    # re-execucao retoma barato, sem reconsolidar nem repetir chamadas de IA.
+    mark_files_processed(files, combined_csv=combined_csv, periods=periods)
     log("Fluxo concluido.")
 
 
