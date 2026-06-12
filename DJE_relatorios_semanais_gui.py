@@ -24,7 +24,7 @@ from Artefatos.scripts.openai_progress_utils import utc_now_iso, write_json_atom
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent
-DEFAULT_CSV_DIR = PROJECT_ROOT / "DJE"
+DEFAULT_CSV_DIR = PROJECT_ROOT / "dje"
 DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "Artefatos" / "dados" / "csv"
 DEFAULT_REPORTS_PARENT_PAGE_ID = "31772195-5c64-803f-902d-d2cb8600b4dd"
 DEFAULT_REPORTS_PARENT_URL = f"https://www.notion.so/{DEFAULT_REPORTS_PARENT_PAGE_ID.replace('-', '')}"
@@ -476,127 +476,320 @@ def launch_gui() -> None:
     except ModuleNotFoundError as exc:
         raise RuntimeError("Tkinter nao esta disponivel neste Python.") from exc
 
+    import webbrowser
+
     root = tk.Tk()
-    root.title("DJE/TSE - Relatorios semanais")
-    root.geometry("1080x720")
-    root.minsize(900, 560)
+    root.title("DJe/TSE — Relatórios semanais")
+    root.geometry("1120x800")
+    root.minsize(980, 660)
 
     csv_dir_var = tk.StringVar(value=str(DEFAULT_CSV_DIR))
     database_url_var = tk.StringVar(value=report.DEFAULT_SOURCE_DATABASE_URL)
     parent_url_var = tk.StringVar(value=DEFAULT_REPORTS_PARENT_URL)
-    status_var = tk.StringVar(value="")
-    selected: Dict[str, tk.BooleanVar] = {}
+    status_var = tk.StringVar(value="Pronto.")
+    count_var = tk.StringVar(value="Nenhum CSV carregado.")
+    force_regen_var = tk.BooleanVar(value=False)
+    show_advanced_var = tk.BooleanVar(value=False)
     log_queue: "queue.Queue[str]" = queue.Queue()
     busy = tk.BooleanVar(value=False)
+    row_state: Dict[str, Dict[str, Any]] = {}
 
     main = ttk.Frame(root, padding=12)
     main.pack(fill="both", expand=True)
     main.columnconfigure(0, weight=1)
-    main.rowconfigure(2, weight=1)
+    main.rowconfigure(1, weight=2)
+    main.rowconfigure(4, weight=3)
 
-    top = ttk.LabelFrame(main, text="Entradas", padding=10)
-    top.grid(row=0, column=0, sticky="ew")
-    top.columnconfigure(1, weight=1)
+    # ------------------------------------------------------------------ 1) Arquivos
+    src_box = ttk.LabelFrame(main, text="1) Arquivos do DJe (CSV)", padding=10)
+    src_box.grid(row=0, column=0, sticky="ew")
+    src_box.columnconfigure(1, weight=1)
 
-    ttk.Label(top, text="Pasta DJE").grid(row=0, column=0, sticky="w")
-    ttk.Entry(top, textvariable=csv_dir_var).grid(row=0, column=1, sticky="ew", padx=8)
+    ttk.Label(src_box, text="Pasta:").grid(row=0, column=0, sticky="w")
+    ttk.Entry(src_box, textvariable=csv_dir_var).grid(row=0, column=1, sticky="ew", padx=8)
+
+    tree_box = ttk.Frame(main)
+    tree_box.grid(row=1, column=0, sticky="nsew", pady=(8, 0))
+    tree_box.columnconfigure(0, weight=1)
+    tree_box.rowconfigure(0, weight=1)
+
+    tree = ttk.Treeview(
+        tree_box,
+        columns=("status", "modificado", "tamanho"),
+        show="tree headings",
+        selectmode="none",
+        height=9,
+    )
+    tree.heading("#0", text="Arquivo  (clique para marcar/desmarcar)")
+    tree.heading("status", text="Situação")
+    tree.heading("modificado", text="Modificado em")
+    tree.heading("tamanho", text="Tamanho")
+    tree.column("#0", width=460, anchor="w")
+    tree.column("status", width=130, anchor="center")
+    tree.column("modificado", width=150, anchor="center")
+    tree.column("tamanho", width=90, anchor="e")
+    tree.grid(row=0, column=0, sticky="nsew")
+    tree.tag_configure("novo", foreground="#0a6b22")
+    tree.tag_configure("processado", foreground="#666666")
+
+    tree_scroll = ttk.Scrollbar(tree_box, orient="vertical", command=tree.yview)
+    tree_scroll.grid(row=0, column=1, sticky="ns")
+    tree.configure(yscrollcommand=tree_scroll.set)
+
+    def _update_count() -> None:
+        total = len(row_state)
+        marcados = sum(1 for info in row_state.values() if info["selected"])
+        novos = sum(1 for info in row_state.values() if info["new"])
+        count_var.set(f"{total} CSV(s) na pasta | {novos} novo(s) | {marcados} selecionado(s) para processar")
+
+    def _set_row_mark(item_id: str, value: bool) -> None:
+        info = row_state.get(item_id)
+        if not info:
+            return
+        info["selected"] = value
+        prefix = "☑" if value else "☐"
+        tree.item(item_id, text=f"{prefix}  {info['name']}")
+
+    def refresh_files() -> None:
+        for item_id in tree.get_children(""):
+            tree.delete(item_id)
+        row_state.clear()
+        base = Path(csv_dir_var.get()).expanduser()
+        if not base.exists():
+            count_var.set("Pasta nao encontrada.")
+            return
+        paths = sorted((p for p in base.glob("*.csv") if p.is_file()), key=lambda p: p.stat().st_mtime, reverse=True)
+        for path in paths:
+            novo = is_new_csv(path)
+            stat = path.stat()
+            item_id = tree.insert(
+                "",
+                "end",
+                text="",
+                values=(
+                    "novo" if novo else "ja processado",
+                    datetime.fromtimestamp(stat.st_mtime).strftime("%d/%m/%Y %H:%M"),
+                    f"{stat.st_size / (1024 * 1024):.1f} MB",
+                ),
+                tags=("novo" if novo else "processado",),
+            )
+            row_state[item_id] = {"path": str(path.resolve()), "name": path.name, "new": novo, "selected": False}
+            _set_row_mark(item_id, novo)
+        _update_count()
+
+    def _on_tree_click(event: Any) -> None:
+        item_id = tree.identify_row(event.y)
+        if item_id in row_state:
+            _set_row_mark(item_id, not row_state[item_id]["selected"])
+            _update_count()
+
+    tree.bind("<Button-1>", _on_tree_click)
+
+    def select_only_new() -> None:
+        for item_id, info in row_state.items():
+            _set_row_mark(item_id, info["new"])
+        _update_count()
+
+    def select_all() -> None:
+        for item_id in row_state:
+            _set_row_mark(item_id, True)
+        _update_count()
+
+    def select_none() -> None:
+        for item_id in row_state:
+            _set_row_mark(item_id, False)
+        _update_count()
 
     def browse_dir() -> None:
-        path = filedialog.askdirectory(title="Selecione a pasta com CSVs", initialdir=csv_dir_var.get())
+        path = filedialog.askdirectory(title="Selecione a pasta com os CSVs do DJe", initialdir=csv_dir_var.get())
         if path:
             csv_dir_var.set(path)
             refresh_files()
 
-    ttk.Button(top, text="Selecionar...", command=browse_dir).grid(row=0, column=2, sticky="e")
-    ttk.Label(top, text="Base Notion").grid(row=1, column=0, sticky="w", pady=(8, 0))
-    ttk.Entry(top, textvariable=database_url_var).grid(row=1, column=1, columnspan=2, sticky="ew", padx=8, pady=(8, 0))
-    ttk.Label(top, text="Pagina-mae dos relatorios").grid(row=2, column=0, sticky="w", pady=(8, 0))
-    ttk.Entry(top, textvariable=parent_url_var).grid(row=2, column=1, columnspan=2, sticky="ew", padx=8, pady=(8, 0))
-    force_regen_var = tk.BooleanVar(value=False)
-    ttk.Checkbutton(
-        top,
-        text="Regerar relatorios existentes (mesmo sem casos novos)",
-        variable=force_regen_var,
-    ).grid(row=3, column=1, sticky="w", padx=8, pady=(8, 0))
-    ttk.Label(
-        top,
-        text=(
-            f"Config: semana civil seg-dom | modelo {report.DEFAULT_OPENAI_MODEL} | "
-            "todos os casos da semana analisados | altos cargos da Republica sempre em destaque"
-        ),
-        foreground="#555555",
-    ).grid(row=4, column=0, columnspan=3, sticky="w", pady=(8, 0))
+    ttk.Button(src_box, text="Escolher pasta...", command=browse_dir).grid(row=0, column=2)
+    ttk.Button(src_box, text="Atualizar lista", command=refresh_files).grid(row=0, column=3, padx=(8, 0))
 
-    files_box = ttk.LabelFrame(main, text="CSVs", padding=8)
-    files_box.grid(row=1, column=0, sticky="ew", pady=(10, 0))
-    files_box.columnconfigure(0, weight=1)
-    toolbar = ttk.Frame(files_box)
-    toolbar.grid(row=0, column=0, sticky="ew")
-    files_frame = ttk.Frame(files_box)
-    files_frame.grid(row=1, column=0, sticky="ew", pady=(8, 0))
+    sel_bar = ttk.Frame(main)
+    sel_bar.grid(row=2, column=0, sticky="ew", pady=(6, 0))
+    ttk.Button(sel_bar, text="Marcar novos", command=select_only_new).pack(side="left")
+    ttk.Button(sel_bar, text="Marcar todos", command=select_all).pack(side="left", padx=(8, 0))
+    ttk.Button(sel_bar, text="Desmarcar tudo", command=select_none).pack(side="left", padx=(8, 0))
+    ttk.Label(sel_bar, textvariable=count_var, foreground="#444444").pack(side="left", padx=(16, 0))
+
+    # ------------------------------------------------------------------ 2) Acoes
+    actions = ttk.LabelFrame(main, text="2) Ações", padding=10)
+    actions.grid(row=3, column=0, sticky="ew", pady=(10, 0))
+    actions.columnconfigure(5, weight=1)
+
+    action_buttons: List[Any] = []
 
     def log(message: str) -> None:
         log_queue.put(message)
 
-    def refresh_files() -> None:
-        for child in files_frame.winfo_children():
-            child.destroy()
-        selected.clear()
-        base = Path(csv_dir_var.get()).expanduser()
-        if not base.exists():
-            ttk.Label(files_frame, text="Pasta nao encontrada.").grid(row=0, column=0, sticky="w")
+    def set_busy(value: bool, status_text: str = "") -> None:
+        busy.set(value)
+        state = "disabled" if value else "normal"
+        for button in action_buttons:
+            button.configure(state=state)
+        if value:
+            progress.start(12)
+        else:
+            progress.stop()
+            progress["value"] = 0
+        if status_text:
+            status_var.set(status_text)
+
+    def _run_in_thread(target: Any, done_message: str) -> None:
+        def worker() -> None:
+            try:
+                target()
+                root.after(0, lambda: set_busy(False, done_message))
+            except Exception as exc:  # pylint: disable=broad-except
+                log(f"ERRO: {exc}")
+                root.after(0, lambda: set_busy(False, "Falhou. Veja o log."))
+            finally:
+                root.after(0, refresh_files)
+
+        threading.Thread(target=worker, daemon=True).start()
+
+    def run_selected() -> None:
+        if busy.get():
             return
-        paths = sorted(path for path in base.glob("*.csv") if path.is_file())
+        paths = [Path(info["path"]) for info in row_state.values() if info["selected"]]
         if not paths:
-            ttk.Label(files_frame, text="Nenhum CSV encontrado.").grid(row=0, column=0, sticky="w")
+            messagebox.showinfo("Nada selecionado", "Marque ao menos um CSV na lista (clique na linha).")
             return
-        for row, path in enumerate(paths):
-            var = tk.BooleanVar(value=is_new_csv(path))
-            selected[str(path.resolve())] = var
-            label = path.name + ("  [novo]" if var.get() else "  [ja processado]")
-            ttk.Checkbutton(files_frame, text=label, variable=var).grid(row=row, column=0, sticky="w", padx=4, pady=2)
-        status_var.set(f"{sum(1 for item in selected.values() if item.get())} CSV(s) selecionado(s).")
+        try:
+            report.extract_notion_id_from_url(database_url_var.get())
+            report.extract_notion_id_from_url(parent_url_var.get())
+        except Exception as exc:
+            messagebox.showerror("Configuracao", str(exc))
+            return
 
-    def select_all() -> None:
-        for var in selected.values():
-            var.set(True)
-
-    def select_new() -> None:
-        for path, var in selected.items():
-            var.set(is_new_csv(Path(path)))
-
-    def add_csvs() -> None:
-        paths = filedialog.askopenfilenames(
-            title="Selecione CSVs",
-            initialdir=csv_dir_var.get(),
-            filetypes=[("CSV", "*.csv"), ("Todos os arquivos", "*.*")],
+        force_regenerate = bool(force_regen_var.get())
+        set_busy(True, f"Processando {len(paths)} CSV(s)...")
+        _run_in_thread(
+            lambda: process_import_and_generate(
+                paths,
+                database_url=database_url_var.get().strip(),
+                reports_parent_url=parent_url_var.get().strip(),
+                log=log,
+                force_regenerate=force_regenerate,
+            ),
+            "Concluido.",
         )
-        for raw in paths:
-            path = str(Path(raw).resolve())
-            if path not in selected:
-                selected[path] = tk.BooleanVar(value=True)
-                ttk.Checkbutton(files_frame, text=Path(path).name, variable=selected[path]).grid(
-                    row=len(selected), column=0, sticky="w", padx=4, pady=2
-                )
 
-    ttk.Button(toolbar, text="Atualizar lista", command=refresh_files).pack(side="left")
-    ttk.Button(toolbar, text="Selecionar novos", command=select_new).pack(side="left", padx=(8, 0))
-    ttk.Button(toolbar, text="Selecionar todos", command=select_all).pack(side="left", padx=(8, 0))
-    ttk.Button(toolbar, text="Adicionar CSVs...", command=add_csvs).pack(side="left", padx=(8, 0))
+    def run_maintenance(extra_args: Sequence[str], descricao: str) -> None:
+        if busy.get():
+            return
+        set_busy(True, descricao + "...")
+        command = [
+            sys.executable,
+            "-X",
+            "utf8",
+            "DJE_refazer_relatorios.py",
+            "--parent-page-url",
+            parent_url_var.get().strip() or DEFAULT_REPORTS_PARENT_URL,
+            "--database-url",
+            database_url_var.get().strip() or report.DEFAULT_SOURCE_DATABASE_URL,
+            *extra_args,
+        ]
+        _run_in_thread(lambda: run_command(command, log=log), "Concluido.")
 
-    log_box = ttk.LabelFrame(main, text="Execucao", padding=8)
-    log_box.grid(row=2, column=0, sticky="nsew", pady=(10, 0))
-    log_box.rowconfigure(0, weight=1)
-    log_box.columnconfigure(0, weight=1)
-    log_widget = tk.Text(log_box, height=18, wrap="word", state="disabled")
-    log_widget.grid(row=0, column=0, sticky="nsew")
-    scroll = ttk.Scrollbar(log_box, orient="vertical", command=log_widget.yview)
-    scroll.grid(row=0, column=1, sticky="ns")
-    log_widget.configure(yscrollcommand=scroll.set)
+    btn_process = ttk.Button(actions, text="▶  Processar selecionados e gerar relatórios", command=run_selected)
+    btn_process.grid(row=0, column=0, sticky="w")
+    action_buttons.append(btn_process)
 
-    bottom = ttk.Frame(main)
-    bottom.grid(row=3, column=0, sticky="ew", pady=(10, 0))
-    ttk.Label(bottom, textvariable=status_var).pack(side="left")
+    chk_regen = ttk.Checkbutton(actions, text="Regerar relatórios existentes", variable=force_regen_var)
+    chk_regen.grid(row=0, column=1, sticky="w", padx=(14, 0))
+
+    btn_audit = ttk.Button(
+        actions,
+        text="Auditar relatórios",
+        command=lambda: run_maintenance(["--dry-run"], "Auditando relatorios"),
+    )
+    btn_audit.grid(row=0, column=2, sticky="w", padx=(14, 0))
+    action_buttons.append(btn_audit)
+
+    btn_alvo = ttk.Button(
+        actions,
+        text="Varredura do alvo (corrigir)",
+        command=lambda: run_maintenance(["--varredura-alvo", "--fix"], "Varrendo altos cargos"),
+    )
+    btn_alvo.grid(row=0, column=3, sticky="w", padx=(8, 0))
+    action_buttons.append(btn_alvo)
+
+    btn_refazer = ttk.Button(
+        actions,
+        text="Refazer todos",
+        command=lambda: run_maintenance([], "Refazendo relatorios"),
+    )
+    btn_refazer.grid(row=0, column=4, sticky="w", padx=(8, 0))
+    action_buttons.append(btn_refazer)
+
+    links_bar = ttk.Frame(actions)
+    links_bar.grid(row=1, column=0, columnspan=6, sticky="w", pady=(8, 0))
+    ttk.Button(
+        links_bar,
+        text="Abrir relatórios no Notion",
+        command=lambda: webbrowser.open(parent_url_var.get().strip() or DEFAULT_REPORTS_PARENT_URL),
+    ).pack(side="left")
+    ttk.Button(
+        links_bar,
+        text="Abrir base de casos no Notion",
+        command=lambda: webbrowser.open(database_url_var.get().strip() or report.DEFAULT_SOURCE_DATABASE_URL),
+    ).pack(side="left", padx=(8, 0))
+    ttk.Checkbutton(links_bar, text="Configurações avançadas", variable=show_advanced_var).pack(side="left", padx=(20, 0))
+
+    ttk.Label(
+        actions,
+        text=(
+            f"Semana civil seg-dom | modelo {report.DEFAULT_OPENAI_MODEL} | todos os casos analisados | "
+            "altos cargos da República sempre em destaque | só CSVs novos precisam ser processados"
+        ),
+        foreground="#555555",
+    ).grid(row=2, column=0, columnspan=6, sticky="w", pady=(8, 0))
+
+    adv = ttk.Frame(actions)
+    adv.columnconfigure(1, weight=1)
+    ttk.Label(adv, text="Base Notion:").grid(row=0, column=0, sticky="w")
+    ttk.Entry(adv, textvariable=database_url_var).grid(row=0, column=1, sticky="ew", padx=8)
+    ttk.Label(adv, text="Página-mãe dos relatórios:").grid(row=1, column=0, sticky="w", pady=(6, 0))
+    ttk.Entry(adv, textvariable=parent_url_var).grid(row=1, column=1, sticky="ew", padx=8, pady=(6, 0))
+
+    def _toggle_advanced(*_args: Any) -> None:
+        if show_advanced_var.get():
+            adv.grid(row=3, column=0, columnspan=6, sticky="ew", pady=(8, 0))
+        else:
+            adv.grid_remove()
+
+    show_advanced_var.trace_add("write", _toggle_advanced)
+
+    # ------------------------------------------------------------------ 3) Execucao
+    run_box = ttk.LabelFrame(main, text="3) Execução", padding=10)
+    run_box.grid(row=4, column=0, sticky="nsew", pady=(10, 0))
+    run_box.columnconfigure(0, weight=1)
+    run_box.rowconfigure(2, weight=1)
+
+    progress = ttk.Progressbar(run_box, mode="indeterminate")
+    progress.grid(row=0, column=0, columnspan=2, sticky="ew")
+
+    status_bar = ttk.Frame(run_box)
+    status_bar.grid(row=1, column=0, columnspan=2, sticky="ew", pady=(6, 4))
+    ttk.Label(status_bar, textvariable=status_var, font=("Segoe UI", 9, "bold")).pack(side="left")
+
+    def clear_log() -> None:
+        log_widget.configure(state="normal")
+        log_widget.delete("1.0", "end")
+        log_widget.configure(state="disabled")
+
+    ttk.Button(status_bar, text="Limpar log", command=clear_log).pack(side="right")
+
+    log_widget = tk.Text(run_box, height=12, wrap="word", state="disabled")
+    log_widget.grid(row=2, column=0, sticky="nsew")
+    log_scroll = ttk.Scrollbar(run_box, orient="vertical", command=log_widget.yview)
+    log_scroll.grid(row=2, column=1, sticky="ns")
+    log_widget.configure(yscrollcommand=log_scroll.set)
 
     def drain_log() -> None:
         drained = False
@@ -613,86 +806,6 @@ def launch_gui() -> None:
         if drained:
             root.update_idletasks()
         root.after(150, drain_log)
-
-    def run_selected() -> None:
-        if busy.get():
-            return
-        paths = [Path(path) for path, var in selected.items() if var.get()]
-        if not paths:
-            messagebox.showerror("Sem CSV", "Selecione ao menos um CSV.")
-            return
-        try:
-            report.extract_notion_id_from_url(database_url_var.get())
-            report.extract_notion_id_from_url(parent_url_var.get())
-        except Exception as exc:
-            messagebox.showerror("Configuracao", str(exc))
-            return
-
-        busy.set(True)
-        status_var.set("Executando...")
-
-        force_regenerate = bool(force_regen_var.get())
-
-        def worker() -> None:
-            try:
-                process_import_and_generate(
-                    paths,
-                    database_url=database_url_var.get().strip(),
-                    reports_parent_url=parent_url_var.get().strip(),
-                    log=log,
-                    force_regenerate=force_regenerate,
-                )
-                root.after(0, lambda: status_var.set("Concluido."))
-            except Exception as exc:  # pylint: disable=broad-except
-                log(f"ERRO: {exc}")
-                root.after(0, lambda: status_var.set("Falhou."))
-            finally:
-                root.after(0, lambda: busy.set(False))
-
-        threading.Thread(target=worker, daemon=True).start()
-
-    def run_maintenance(extra_args: Sequence[str], descricao: str) -> None:
-        if busy.get():
-            return
-        busy.set(True)
-        status_var.set(descricao + "...")
-
-        def worker() -> None:
-            try:
-                run_command(
-                    [
-                        sys.executable,
-                        "-X",
-                        "utf8",
-                        "DJE_refazer_relatorios.py",
-                        "--parent-page-url",
-                        parent_url_var.get().strip() or DEFAULT_REPORTS_PARENT_URL,
-                        "--database-url",
-                        database_url_var.get().strip() or report.DEFAULT_SOURCE_DATABASE_URL,
-                        *extra_args,
-                    ],
-                    log=log,
-                )
-                root.after(0, lambda: status_var.set("Concluido."))
-            except Exception as exc:  # pylint: disable=broad-except
-                log(f"ERRO: {exc}")
-                root.after(0, lambda: status_var.set("Falhou."))
-            finally:
-                root.after(0, lambda: busy.set(False))
-
-        threading.Thread(target=worker, daemon=True).start()
-
-    ttk.Button(
-        bottom,
-        text="Auditar relatorios (dry-run)",
-        command=lambda: run_maintenance(["--dry-run"], "Auditando relatorios"),
-    ).pack(side="left", padx=(12, 0))
-    ttk.Button(
-        bottom,
-        text="Refazer todos os relatorios",
-        command=lambda: run_maintenance([], "Refazendo relatorios"),
-    ).pack(side="left", padx=(8, 0))
-    ttk.Button(bottom, text="Processar, importar e gerar relatorios", command=run_selected).pack(side="right")
 
     refresh_files()
     drain_log()
