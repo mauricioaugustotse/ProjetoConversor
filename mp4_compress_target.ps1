@@ -1,4 +1,4 @@
-param(
+﻿param(
     [string]$InputFile,
     [double]$TargetSizeMB,
     [Nullable[int]]$MaxHeight,
@@ -28,6 +28,10 @@ $script:compressQueueDone = 0
 $script:compressQueueFailures = @()
 $script:compressQueueCommon = $null
 $script:compressCancelRequested = $false
+$script:compressStdoutFile = $null
+$script:compressStderrFile = $null
+$script:compressPollPosition = 0
+$script:compressProgressBar = $null
 $script:sessionLogFile = Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath ("mp4_compress_gui_{0}.log" -f (Get-Date -Format "yyyyMMdd_HHmmss"))
 
 function Add-ToProcessPathIfExists {
@@ -1270,13 +1274,12 @@ function Start-GuiCompressionProcess {
     Append-UiLog -Target $LogBox -Line ("> " + (Quote-ForDisplay -Text $hostPath) + " " + $argumentText)
     Append-UiLog -Target $LogBox -Line ""
 
-    $psi = New-Object System.Diagnostics.ProcessStartInfo
-    $psi.FileName = $hostPath
-    $psi.Arguments = $argumentText
-    $psi.RedirectStandardOutput = $true
-    $psi.RedirectStandardError = $true
-    $psi.UseShellExecute = $false
-    $psi.CreateNoWindow = $true
+    # A saida do filho vai para arquivos de log e a GUI le por polling em um
+    # timer da UI thread. Os handlers .NET antigos (add_OutputDataReceived/
+    # add_Exited) rodavam em threads sem runspace do PowerShell e podiam
+    # derrubar a janela inteira no meio da compressao.
+    $stdoutFile = Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath ("mp4_compress_out_{0}.log" -f [Guid]::NewGuid().ToString("N"))
+    $stderrFile = Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath ("mp4_compress_err_{0}.log" -f [Guid]::NewGuid().ToString("N"))
 
     $script:compressLogBox = $LogBox
     $script:compressStatusLabel = $StatusLabel
@@ -1284,147 +1287,214 @@ function Start-GuiCompressionProcess {
     $script:compressCancelButton = $CancelButton
     $script:compressOutputPath = $OutputPath
     $script:compressResultFilePath = $resultFilePath
+    $script:compressStdoutFile = $stdoutFile
+    $script:compressStderrFile = $stderrFile
+    $script:compressPollPosition = 0
 
-    $process = New-Object System.Diagnostics.Process
-    $process.StartInfo = $psi
-    $process.EnableRaisingEvents = $true
+    $process = Start-Process `
+        -FilePath $hostPath `
+        -ArgumentList $argumentText `
+        -PassThru `
+        -WindowStyle Hidden `
+        -RedirectStandardOutput $stdoutFile `
+        -RedirectStandardError $stderrFile
 
-    $process.add_OutputDataReceived({
-            param($sender, $eventArgs)
-            try {
-                if (-not [string]::IsNullOrWhiteSpace($eventArgs.Data)) {
-                    Append-UiLog -Target $script:compressLogBox -Line $eventArgs.Data
-                    try {
-                        [Console]::WriteLine($eventArgs.Data)
-                    }
-                    catch {
-                        # Ignore console write errors.
-                    }
-                }
-            }
-            catch {
-                # Ignore callback errors to avoid closing the GUI host.
-            }
-        })
-
-    $process.add_ErrorDataReceived({
-            param($sender, $eventArgs)
-            try {
-                if (-not [string]::IsNullOrWhiteSpace($eventArgs.Data)) {
-                    Append-UiLog -Target $script:compressLogBox -Line $eventArgs.Data
-                    try {
-                        [Console]::WriteLine($eventArgs.Data)
-                    }
-                    catch {
-                        # Ignore console write errors.
-                    }
-                }
-            }
-            catch {
-                # Ignore callback errors to avoid closing the GUI host.
-            }
-        })
-
-    $process.add_Exited({
-            param($sender, $eventArgs)
-            try {
-                if ($script:compressCancelRequested) {
-                    # Cancelamento intencional: nao contar como falha nem
-                    # sobrescrever o status 'Cancelado.' definido pelo botao.
-                    $script:activeProcess = $null
-                    return
-                }
-
-                $exitCode = 1
-                try {
-                    $exitCode = $sender.ExitCode
-                }
-                catch {
-                    # Keep non-zero code.
-                }
-
-                $script:activeProcess = $null
-                $script:compressQueueDone++
-
-                if ($exitCode -eq 0) {
-                    Append-UiLog -Target $script:compressLogBox -Line ""
-                    Append-UiLog -Target $script:compressLogBox -Line ("Arquivo {0}/{1} finalizado com sucesso." -f $script:compressQueueDone, [Math]::Max(1, $script:compressQueueTotal))
-                    $effectiveOutput = $script:compressOutputPath
-                    if (Test-Path -LiteralPath $script:compressResultFilePath) {
-                        try {
-                            $resultJson = Get-Content -LiteralPath $script:compressResultFilePath -Raw -Encoding UTF8
-                            $resultObj = $resultJson | ConvertFrom-Json
-                            if ($null -ne $resultObj -and -not [string]::IsNullOrWhiteSpace($resultObj.outputPath)) {
-                                $effectiveOutput = [string]$resultObj.outputPath
-                                Append-UiLog -Target $script:compressLogBox -Line ("Arquivo final salvo em: {0}" -f $effectiveOutput)
-                            }
-                        }
-                        catch {
-                            Append-UiLog -Target $script:compressLogBox -Line "Nao foi possivel ler o arquivo de resultado final."
-                        }
-                        finally {
-                            Remove-Item -LiteralPath $script:compressResultFilePath -Force -ErrorAction SilentlyContinue
-                        }
-                    }
-
-                    if (-not (Test-Path -LiteralPath $effectiveOutput)) {
-                        $mkvFallback = [System.IO.Path]::ChangeExtension($effectiveOutput, ".mkv")
-                        if (Test-Path -LiteralPath $mkvFallback) {
-                            Append-UiLog -Target $script:compressLogBox -Line ("Arquivo final salvo em (fallback): {0}" -f $mkvFallback)
-                        }
-                        else {
-                            Append-UiLog -Target $script:compressLogBox -Line "ATENCAO: processo terminou sem arquivo de saida detectado."
-                            $script:compressQueueFailures += $script:compressOutputPath
-                        }
-                    }
-                }
-                else {
-                    Append-UiLog -Target $script:compressLogBox -Line ""
-                    Append-UiLog -Target $script:compressLogBox -Line ("Arquivo {0}/{1} terminou com erro (exit {2})." -f $script:compressQueueDone, [Math]::Max(1, $script:compressQueueTotal), $exitCode)
-                    $script:compressQueueFailures += $script:compressOutputPath
-                    if (Test-Path -LiteralPath $script:compressResultFilePath) {
-                        Remove-Item -LiteralPath $script:compressResultFilePath -Force -ErrorAction SilentlyContinue
-                    }
-                }
-
-                if (@($script:compressQueue).Count -gt 0) {
-                    Start-NextQueuedCompression
-                    return
-                }
-
-                Set-UiButtonEnabled -Target $script:compressStartButton -Enabled $true
-                Set-UiButtonEnabled -Target $script:compressCancelButton -Enabled $false
-
-                $failureCount = @($script:compressQueueFailures).Count
-                if ($failureCount -eq 0) {
-                    Set-UiLabelText -Target $script:compressStatusLabel -Text ("Concluido: {0} arquivo(s) comprimido(s)." -f $script:compressQueueDone)
-                    Append-UiLog -Target $script:compressLogBox -Line ""
-                    Append-UiLog -Target $script:compressLogBox -Line ("Lote concluido: {0} arquivo(s) comprimido(s) com sucesso." -f $script:compressQueueDone)
-                }
-                else {
-                    Set-UiLabelText -Target $script:compressStatusLabel -Text ("Concluido com {0} falha(s). Veja o log." -f $failureCount)
-                    Append-UiLog -Target $script:compressLogBox -Line ""
-                    Append-UiLog -Target $script:compressLogBox -Line ("Lote concluido: {0} ok, {1} falha(s)." -f ($script:compressQueueDone - $failureCount), $failureCount)
-                    Append-UiLog -Target $script:compressLogBox -Line ("Log de sessao: {0}" -f $script:sessionLogFile)
-                }
-            }
-            catch {
-                # Ignore callback errors to avoid closing the GUI host.
-            }
-        })
-
-    $started = $process.Start()
-    if (-not $started) {
+    if ($null -eq $process) {
         throw "Nao foi possivel iniciar o processo de compressao."
     }
+
+    # Toca o handle agora: sem isso, ExitCode fica inacessivel apos o termino
+    # e o poll registraria falha falsa em compressoes bem-sucedidas.
+    $null = $process.Handle
 
     $script:activeProcess = $process
     Set-UiButtonEnabled -Target $StartButton -Enabled $false
     Set-UiButtonEnabled -Target $CancelButton -Enabled $true
-    Set-UiLabelText -Target $StatusLabel -Text "Comprimindo..."
+    Set-CompressProgressRunning -Running $true
+}
 
-    $process.BeginOutputReadLine()
-    $process.BeginErrorReadLine()
+function Set-CompressProgressRunning {
+    param([Parameter(Mandatory = $true)][bool]$Running)
+
+    if ($null -eq $script:compressProgressBar) {
+        return
+    }
+
+    try {
+        if ($Running) {
+            $script:compressProgressBar.Style = [System.Windows.Forms.ProgressBarStyle]::Marquee
+            $script:compressProgressBar.MarqueeAnimationSpeed = 30
+        }
+        else {
+            $script:compressProgressBar.MarqueeAnimationSpeed = 0
+            $script:compressProgressBar.Style = [System.Windows.Forms.ProgressBarStyle]::Continuous
+            $script:compressProgressBar.Value = 0
+        }
+    }
+    catch {
+        # Ignore UI updates while the form is closing.
+    }
+}
+
+function Read-CompressionOutputChunk {
+    if ([string]::IsNullOrWhiteSpace($script:compressStdoutFile)) {
+        return
+    }
+
+    if (-not (Test-Path -LiteralPath $script:compressStdoutFile)) {
+        return
+    }
+
+    $stream = $null
+    $reader = $null
+    try {
+        $stream = [System.IO.File]::Open(
+            $script:compressStdoutFile,
+            [System.IO.FileMode]::Open,
+            [System.IO.FileAccess]::Read,
+            [System.IO.FileShare]::ReadWrite
+        )
+        [void]$stream.Seek($script:compressPollPosition, [System.IO.SeekOrigin]::Begin)
+        $reader = New-Object System.IO.StreamReader($stream, [System.Text.Encoding]::Default, $true, 4096, $true)
+        $text = $reader.ReadToEnd()
+        $script:compressPollPosition = $stream.Position
+    }
+    catch {
+        return
+    }
+    finally {
+        if ($null -ne $reader) {
+            $reader.Dispose()
+        }
+        if ($null -ne $stream) {
+            $stream.Dispose()
+        }
+    }
+
+    if ([string]::IsNullOrWhiteSpace($text)) {
+        return
+    }
+
+    foreach ($line in ($text -split "\r?\n")) {
+        if (-not [string]::IsNullOrWhiteSpace($line)) {
+            Append-UiLog -Target $script:compressLogBox -Line $line.TrimEnd()
+        }
+    }
+}
+
+function Complete-CurrentCompression {
+    param([Parameter(Mandatory = $true)][int]$ExitCode)
+
+    Read-CompressionOutputChunk
+
+    if ($ExitCode -ne 0 -and -not [string]::IsNullOrWhiteSpace($script:compressStderrFile) -and (Test-Path -LiteralPath $script:compressStderrFile)) {
+        $errLines = @(Get-Content -LiteralPath $script:compressStderrFile -ErrorAction SilentlyContinue | Where-Object { -not [string]::IsNullOrWhiteSpace($_) })
+        foreach ($line in ($errLines | Select-Object -First 15)) {
+            Append-UiLog -Target $script:compressLogBox -Line $line
+        }
+    }
+
+    foreach ($tmp in @($script:compressStdoutFile, $script:compressStderrFile)) {
+        if (-not [string]::IsNullOrWhiteSpace($tmp)) {
+            Remove-Item -LiteralPath $tmp -Force -ErrorAction SilentlyContinue
+        }
+    }
+    $script:compressStdoutFile = $null
+    $script:compressStderrFile = $null
+    $script:activeProcess = $null
+
+    if ($script:compressCancelRequested) {
+        Set-CompressProgressRunning -Running $false
+        return
+    }
+
+    $script:compressQueueDone++
+
+    if ($ExitCode -eq 0) {
+        Append-UiLog -Target $script:compressLogBox -Line ""
+        Append-UiLog -Target $script:compressLogBox -Line ("Arquivo {0}/{1} finalizado com sucesso." -f $script:compressQueueDone, [Math]::Max(1, $script:compressQueueTotal))
+        $effectiveOutput = $script:compressOutputPath
+        if (Test-Path -LiteralPath $script:compressResultFilePath) {
+            try {
+                $resultJson = Get-Content -LiteralPath $script:compressResultFilePath -Raw -Encoding UTF8
+                $resultObj = $resultJson | ConvertFrom-Json
+                if ($null -ne $resultObj -and -not [string]::IsNullOrWhiteSpace($resultObj.outputPath)) {
+                    $effectiveOutput = [string]$resultObj.outputPath
+                    Append-UiLog -Target $script:compressLogBox -Line ("Arquivo final salvo em: {0}" -f $effectiveOutput)
+                }
+            }
+            catch {
+                Append-UiLog -Target $script:compressLogBox -Line "Nao foi possivel ler o arquivo de resultado final."
+            }
+            finally {
+                Remove-Item -LiteralPath $script:compressResultFilePath -Force -ErrorAction SilentlyContinue
+            }
+        }
+
+        if (-not (Test-Path -LiteralPath $effectiveOutput)) {
+            $mkvFallback = [System.IO.Path]::ChangeExtension($effectiveOutput, ".mkv")
+            if (Test-Path -LiteralPath $mkvFallback) {
+                Append-UiLog -Target $script:compressLogBox -Line ("Arquivo final salvo em (fallback): {0}" -f $mkvFallback)
+            }
+            else {
+                Append-UiLog -Target $script:compressLogBox -Line "ATENCAO: processo terminou sem arquivo de saida detectado."
+                $script:compressQueueFailures += $script:compressOutputPath
+            }
+        }
+    }
+    else {
+        Append-UiLog -Target $script:compressLogBox -Line ""
+        Append-UiLog -Target $script:compressLogBox -Line ("Arquivo {0}/{1} terminou com erro (exit {2})." -f $script:compressQueueDone, [Math]::Max(1, $script:compressQueueTotal), $ExitCode)
+        $script:compressQueueFailures += $script:compressOutputPath
+        if (Test-Path -LiteralPath $script:compressResultFilePath) {
+            Remove-Item -LiteralPath $script:compressResultFilePath -Force -ErrorAction SilentlyContinue
+        }
+    }
+
+    if (@($script:compressQueue).Count -gt 0) {
+        Start-NextQueuedCompression
+        return
+    }
+
+    Set-UiButtonEnabled -Target $script:compressStartButton -Enabled $true
+    Set-UiButtonEnabled -Target $script:compressCancelButton -Enabled $false
+    Set-CompressProgressRunning -Running $false
+
+    $failureCount = @($script:compressQueueFailures).Count
+    if ($failureCount -eq 0) {
+        Set-UiLabelText -Target $script:compressStatusLabel -Text ("Concluido: {0} arquivo(s) comprimido(s)." -f $script:compressQueueDone)
+        Append-UiLog -Target $script:compressLogBox -Line ""
+        Append-UiLog -Target $script:compressLogBox -Line ("Lote concluido: {0} arquivo(s) comprimido(s) com sucesso." -f $script:compressQueueDone)
+    }
+    else {
+        Set-UiLabelText -Target $script:compressStatusLabel -Text ("Concluido com {0} falha(s). Veja o log." -f $failureCount)
+        Append-UiLog -Target $script:compressLogBox -Line ""
+        Append-UiLog -Target $script:compressLogBox -Line ("Lote concluido: {0} ok, {1} falha(s)." -f ($script:compressQueueDone - $failureCount), $failureCount)
+        Append-UiLog -Target $script:compressLogBox -Line ("Log de sessao: {0}" -f $script:sessionLogFile)
+    }
+}
+
+function Invoke-CompressionPoll {
+    if ($null -eq $script:activeProcess) {
+        return
+    }
+
+    try {
+        Read-CompressionOutputChunk
+        if ($script:activeProcess.HasExited) {
+            $exitCode = 1
+            try {
+                $exitCode = $script:activeProcess.ExitCode
+            }
+            catch {
+                # Keep non-zero code.
+            }
+            Complete-CurrentCompression -ExitCode $exitCode
+        }
+    }
+    catch {
+        # Nunca deixe o polling derrubar a UI.
+    }
 }
 
 function Start-NextQueuedCompression {
@@ -1601,9 +1671,18 @@ function Start-GuiMode {
     $lblStatus.Size = New-Object System.Drawing.Size(665, 22)
     $lblStatus.Anchor = "Top, Left, Right"
 
+    $progressCompress = New-Object System.Windows.Forms.ProgressBar
+    $progressCompress.Location = New-Object System.Drawing.Point(15, 332)
+    $progressCompress.Size = New-Object System.Drawing.Size(940, 16)
+    $progressCompress.Anchor = "Top, Left, Right"
+    $progressCompress.Minimum = 0
+    $progressCompress.Maximum = 100
+    $progressCompress.Style = [System.Windows.Forms.ProgressBarStyle]::Continuous
+    $script:compressProgressBar = $progressCompress
+
     $txtLog = New-Object System.Windows.Forms.TextBox
-    $txtLog.Location = New-Object System.Drawing.Point(15, 334)
-    $txtLog.Size = New-Object System.Drawing.Size(940, 310)
+    $txtLog.Location = New-Object System.Drawing.Point(15, 356)
+    $txtLog.Size = New-Object System.Drawing.Size(940, 288)
     $txtLog.Multiline = $true
     $txtLog.ScrollBars = "Vertical"
     $txtLog.ReadOnly = $true
@@ -1628,6 +1707,7 @@ function Start-GuiMode {
             $btnStart,
             $btnCancel,
             $lblStatus,
+            $progressCompress,
             $txtLog
         ))
 
@@ -1893,6 +1973,7 @@ function Start-GuiMode {
                     Set-UiLabelText -Target $lblStatus -Text "Cancelado."
                     Set-UiButtonEnabled -Target $btnStart -Enabled $true
                     Set-UiButtonEnabled -Target $btnCancel -Enabled $false
+                    Set-CompressProgressRunning -Running $false
                 }
                 catch {
                     [System.Windows.Forms.MessageBox]::Show(
@@ -1927,6 +2008,25 @@ function Start-GuiMode {
                 catch {
                     # Ignore close-time errors.
                 }
+            }
+        })
+
+    # Polling na UI thread: drena o log do filho e detecta o termino sem
+    # depender de handlers .NET em threads sem runspace.
+    $pollTimer = New-Object System.Windows.Forms.Timer
+    $pollTimer.Interval = 700
+    $pollTimer.Add_Tick({
+            Invoke-CompressionPoll
+        })
+    $pollTimer.Start()
+
+    $form.Add_FormClosed({
+            try {
+                $pollTimer.Stop()
+                $pollTimer.Dispose()
+            }
+            catch {
+                # Ignore timer cleanup errors.
             }
         })
 
