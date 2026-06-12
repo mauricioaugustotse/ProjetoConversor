@@ -365,6 +365,13 @@ def process_import_and_generate(
             str(THEME_OPENAI_TIMEOUT),
             "--verbose",
             "--gerar-tema-punchline-chatgpt",
+            # Assuntos canonicos em toda linha: regras deterministicas + fallback
+            # OpenAI restrito a taxonomia controlada, max 2 etiquetas.
+            "--enriquecer-assuntos-openai",
+            "--assuntos-taxonomy-mode",
+            "controlled",
+            "--assuntos-max-itens",
+            "2",
         ]
         log(f"Gerando tema/punchline com OpenAI economico: {theme_model}")
         if previous_combined is not None:
