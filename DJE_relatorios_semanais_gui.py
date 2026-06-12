@@ -204,7 +204,7 @@ def count_cases_in_period(data_source_id: str, period: WeeklyPeriod) -> int:
         period.start.isoformat(),
         period.end.isoformat(),
     )
-    return len(set(existing.values()))
+    return len({page_id for page_ids in existing.values() for page_id in page_ids})
 
 
 def parse_treated_csv_date(value: Any) -> Optional[date]:
@@ -480,8 +480,37 @@ def launch_gui() -> None:
 
     root = tk.Tk()
     root.title("DJe/TSE — Relatórios semanais")
-    root.geometry("1120x800")
-    root.minsize(980, 660)
+    root.geometry("920x680")
+    root.minsize(840, 580)
+
+    def _add_tooltip(widget: Any, text: str) -> None:
+        tip: Dict[str, Any] = {"win": None}
+
+        def _show(_event: Any) -> None:
+            if tip["win"] is not None:
+                return
+            win = tk.Toplevel(widget)
+            win.wm_overrideredirect(True)
+            win.wm_geometry(f"+{widget.winfo_rootx() + 10}+{widget.winfo_rooty() + widget.winfo_height() + 6}")
+            tk.Label(
+                win,
+                text=text,
+                justify="left",
+                background="#ffffe0",
+                relief="solid",
+                borderwidth=1,
+                wraplength=420,
+                font=("Segoe UI", 9),
+            ).pack(ipadx=6, ipady=4)
+            tip["win"] = win
+
+        def _hide(_event: Any) -> None:
+            if tip["win"] is not None:
+                tip["win"].destroy()
+                tip["win"] = None
+
+        widget.bind("<Enter>", _show)
+        widget.bind("<Leave>", _hide)
 
     csv_dir_var = tk.StringVar(value=str(DEFAULT_CSV_DIR))
     database_url_var = tk.StringVar(value=report.DEFAULT_SOURCE_DATABASE_URL)
@@ -518,16 +547,16 @@ def launch_gui() -> None:
         columns=("status", "modificado", "tamanho"),
         show="tree headings",
         selectmode="none",
-        height=9,
+        height=7,
     )
-    tree.heading("#0", text="Arquivo  (clique para marcar/desmarcar)")
+    tree.heading("#0", text="Arquivo  (clique para marcar)")
     tree.heading("status", text="Situação")
     tree.heading("modificado", text="Modificado em")
     tree.heading("tamanho", text="Tamanho")
-    tree.column("#0", width=460, anchor="w")
-    tree.column("status", width=130, anchor="center")
-    tree.column("modificado", width=150, anchor="center")
-    tree.column("tamanho", width=90, anchor="e")
+    tree.column("#0", width=330, minwidth=220, anchor="w")
+    tree.column("status", width=105, minwidth=90, anchor="center", stretch=False)
+    tree.column("modificado", width=125, minwidth=110, anchor="center", stretch=False)
+    tree.column("tamanho", width=75, minwidth=65, anchor="e", stretch=False)
     tree.grid(row=0, column=0, sticky="nsew")
     tree.tag_configure("novo", foreground="#0a6b22")
     tree.tag_configure("processado", foreground="#666666")
@@ -696,28 +725,49 @@ def launch_gui() -> None:
         ]
         _run_in_thread(lambda: run_command(command, log=log), "Concluido.")
 
-    btn_process = ttk.Button(actions, text="▶  Processar selecionados e gerar relatórios", command=run_selected)
+    btn_process = ttk.Button(actions, text="▶  Gerar relatórios", command=run_selected)
     btn_process.grid(row=0, column=0, sticky="w")
     action_buttons.append(btn_process)
+    _add_tooltip(
+        btn_process,
+        "Fluxo principal: consolida os CSVs marcados na lista, atualiza a base no Notion\n"
+        "e cria/atualiza os relatórios semanais. Use sempre que baixar CSVs novos do DJe.",
+    )
 
-    chk_regen = ttk.Checkbutton(actions, text="Regerar relatórios existentes", variable=force_regen_var)
+    chk_regen = ttk.Checkbutton(actions, text="Regerar existentes", variable=force_regen_var)
     chk_regen.grid(row=0, column=1, sticky="w", padx=(14, 0))
+    _add_tooltip(
+        chk_regen,
+        "Marque para reescrever também as semanas que já têm relatório,\n"
+        "mesmo sem casos novos na base.",
+    )
 
     btn_audit = ttk.Button(
         actions,
-        text="Auditar relatórios",
+        text="Auditar (só verificar)",
         command=lambda: run_maintenance(["--dry-run"], "Auditando relatorios"),
     )
     btn_audit.grid(row=0, column=2, sticky="w", padx=(14, 0))
     action_buttons.append(btn_audit)
+    _add_tooltip(
+        btn_audit,
+        "Apenas verifica: compara cada relatório com a base e lista pendências no log.\n"
+        "Não altera nada no Notion.",
+    )
 
     btn_alvo = ttk.Button(
         actions,
-        text="Varredura do alvo (corrigir)",
+        text="Corrigir omissões do alvo",
         command=lambda: run_maintenance(["--varredura-alvo", "--fix"], "Varrendo altos cargos"),
     )
     btn_alvo.grid(row=0, column=3, sticky="w", padx=(8, 0))
     action_buttons.append(btn_alvo)
+    _add_tooltip(
+        btn_alvo,
+        "Procura processos de altos cargos da República — ou marcados com o checkbox\n"
+        "'Dep. Federal' na base — que ficaram fora dos destaques, e refaz somente\n"
+        "as semanas com omissão.",
+    )
 
     btn_refazer = ttk.Button(
         actions,
@@ -726,6 +776,11 @@ def launch_gui() -> None:
     )
     btn_refazer.grid(row=0, column=4, sticky="w", padx=(8, 0))
     action_buttons.append(btn_refazer)
+    _add_tooltip(
+        btn_refazer,
+        "Apaga e regenera TODOS os relatórios semanais do zero.\n"
+        "Demorado (horas); use apenas após mudanças grandes.",
+    )
 
     links_bar = ttk.Frame(actions)
     links_bar.grid(row=1, column=0, columnspan=6, sticky="w", pady=(8, 0))
@@ -744,8 +799,8 @@ def launch_gui() -> None:
     ttk.Label(
         actions,
         text=(
-            f"Semana civil seg-dom | modelo {report.DEFAULT_OPENAI_MODEL} | todos os casos analisados | "
-            "altos cargos da República sempre em destaque | só CSVs novos precisam ser processados"
+            f"Semana seg-dom | modelo {report.DEFAULT_OPENAI_MODEL} | altos cargos e casos marcados "
+            "'Dep. Federal' sempre em destaque | passe o mouse nos botões para ver o que cada um faz"
         ),
         foreground="#555555",
     ).grid(row=2, column=0, columnspan=6, sticky="w", pady=(8, 0))

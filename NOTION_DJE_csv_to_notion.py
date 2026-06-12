@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 import re
 from dataclasses import asdict, dataclass, field
@@ -375,24 +376,19 @@ def count_new_high_cardinality_options(
     return counts
 
 
-def row_unique_key(row: Mapping[str, str]) -> str:
-    numero_unico = _digits(row.get("numeroUnico"))
-    if numero_unico:
-        return f"numeroUnico:{numero_unico}"
-    numero_processo = _digits(row.get("numeroProcesso"))
-    if numero_processo:
-        return f"numeroProcesso:{numero_processo}"
-    return ""
-
-
-def row_unique_keys(row: Mapping[str, str]) -> List[str]:
+# A unidade real da base e a DECISAO: um processo pode ter varias decisoes em
+# datas distintas e MAIS DE UMA decisao no mesmo dia (ex.: decisao + despacho).
+# Chave composta numero+dataDecisao; o emparelhamento linha<->pagina e feito por
+# LISTA (cada linha do CSV consome uma pagina da chave; esgotou, cria nova).
+def row_unique_keys(row: Mapping[str, str], decision_date_iso: str = "") -> List[str]:
+    suffix = f"|{decision_date_iso}" if decision_date_iso else ""
     keys: List[str] = []
     numero_unico = _digits(row.get("numeroUnico"))
     if numero_unico:
-        keys.append(f"numeroUnico:{numero_unico}")
+        keys.append(f"numeroUnico:{numero_unico}{suffix}")
     numero_processo = _digits(row.get("numeroProcesso"))
     if numero_processo:
-        keys.append(f"numeroProcesso:{numero_processo}")
+        keys.append(f"numeroProcesso:{numero_processo}{suffix}")
     return keys
 
 
@@ -400,11 +396,13 @@ def _page_unique_keys(page_obj: Mapping[str, Any]) -> List[str]:
     props = page_obj.get("properties") or {}
     numero_unico = _digits(report._property_rich_text(props.get("numeroUnico", {})))
     numero_processo = _digits(report._property_number_text(props.get("numeroProcesso", {})))
+    decision_date_iso = report._property_date_start(props.get("dataDecisao", {}))
+    suffix = f"|{decision_date_iso}" if decision_date_iso else ""
     keys: List[str] = []
     if numero_unico:
-        keys.append(f"numeroUnico:{numero_unico}")
+        keys.append(f"numeroUnico:{numero_unico}{suffix}")
     if numero_processo:
-        keys.append(f"numeroProcesso:{numero_processo}")
+        keys.append(f"numeroProcesso:{numero_processo}{suffix}")
     return keys
 
 
@@ -423,7 +421,7 @@ def _row_date_range(rows: Sequence[Mapping[str, str]], *, date_order: str) -> tu
 def query_existing_pages_by_period(data_source_id: str, start_iso: str, end_iso: str) -> Dict[str, str]:
     if not start_iso or not end_iso:
         return {}
-    existing: Dict[str, str] = {}
+    existing: Dict[str, List[str]] = {}
     cursor = ""
     while True:
         body: Dict[str, Any] = {
@@ -443,7 +441,7 @@ def query_existing_pages_by_period(data_source_id: str, start_iso: str, end_iso:
                 continue
             page_id = report._normalize_notion_id(str(item.get("id", "")))
             for key in _page_unique_keys(item):
-                existing[key] = page_id
+                existing.setdefault(key, []).append(page_id)
         if not payload.get("has_more"):
             break
         cursor = _normalize_ws(payload.get("next_cursor"))
@@ -511,7 +509,7 @@ def import_csv_to_notion(
         len(rows),
         start_iso or "?",
         end_iso or "?",
-        len(set(existing.values())),
+        len({pid for ids in existing.values() for pid in ids}),
     )
 
     created = 0
@@ -519,9 +517,13 @@ def import_csv_to_notion(
     unchanged = 0
     skipped = 0
     errors: List[Dict[str, Any]] = []
+    # Cada linha do CSV consome no maximo UMA pagina da chave (processo+data);
+    # linhas excedentes criam paginas novas — assim multiplas decisoes do mesmo
+    # dia coexistem sem se sobrescreverem.
+    consumed_ids: set = set()
     for index, row in enumerate(rows, start=1):
-        keys = row_unique_keys(row)
         parsed_date = parse_csv_date(row.get("dataDecisao"), date_order=effective_date_order)
+        keys = row_unique_keys(row, decision_date_iso=(parsed_date.isoformat() if parsed_date else ""))
         if not keys or parsed_date is None:
             skipped += 1
             errors.append({"row": index, "reason": "sem chave unica ou dataDecisao valida", "key": keys[0] if keys else ""})
@@ -532,8 +534,12 @@ def import_csv_to_notion(
             date_order=effective_date_order,
             max_rich_text_chars=max_rich_text_chars,
         )
-        page_id = next((existing[k] for k in keys if existing.get(k)), "")
+        page_id = next(
+            (pid for key in keys for pid in existing.get(key, []) if pid not in consumed_ids),
+            "",
+        )
         if page_id:
+            consumed_ids.add(page_id)
             if mode == "create-only":
                 unchanged += 1
                 continue
@@ -550,8 +556,7 @@ def import_csv_to_notion(
                 created_page = create_page(data_source_id, properties)
                 created_id = report._normalize_notion_id(str(created_page.get("id", "")))
                 if created_id:
-                    for k in keys:
-                        existing[k] = created_id
+                    consumed_ids.add(created_id)
             created += 1
 
     payload = {

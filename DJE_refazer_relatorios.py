@@ -270,7 +270,11 @@ def varredura_alvo(
         if plan.kind not in {"weekly", "monthly"} or not plan.start or not plan.end:
             continue
         cases = report.query_cases_by_period(data_source_id, plan.start.isoformat(), plan.end.isoformat())
-        alvo = [case for case in cases if report.FEDERAL_HIGH_OFFICE_RE.search(_case_target_signal(case))]
+        alvo = [
+            case
+            for case in cases
+            if getattr(case, "dep_federal", False) or report.FEDERAL_HIGH_OFFICE_RE.search(_case_target_signal(case))
+        ]
         if not alvo:
             resultados.append({"title": plan.current_title, "alvo": 0, "omitidos": [], "regenerado": False})
             print(f"[ok] {plan.current_title}: sem casos-alvo no periodo")

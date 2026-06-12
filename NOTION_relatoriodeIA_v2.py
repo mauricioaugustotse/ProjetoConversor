@@ -482,6 +482,9 @@ class CaseRecord:
     punchline: str = ""
     texto_decisao: str = ""
     noticias: List[str] = field(default_factory=list)
+    # Curadoria manual na base: checkbox "Dep. Federal" marca caso de interesse
+    # direto do consultor; entra nos destaques independentemente da analise.
+    dep_federal: bool = False
 
     def process_label(self) -> str:
         return self.numero_unico or self.numero_processo or self.case_id
@@ -1596,7 +1599,8 @@ def save_checkpoint(run_key: str, payload: Dict[str, Any]) -> None:
 
 
 def case_record_from_dict(payload: Dict[str, Any]) -> CaseRecord:
-    return CaseRecord(**payload)
+    allowed_fields = set(CaseRecord.__dataclass_fields__.keys())
+    return CaseRecord(**{key: value for key, value in dict(payload).items() if key in allowed_fields})
 
 
 def case_analysis_from_dict(payload: Dict[str, Any]) -> CaseAnalysis:
@@ -2100,6 +2104,7 @@ def build_case_record(page_obj: Dict[str, Any]) -> CaseRecord:
         punchline=_property_rich_text(props.get("punchline", {})),
         texto_decisao=texto_decisao,
         noticias=noticias,
+        dep_federal=bool(((props.get("Dep. Federal") or {}).get("checkbox"))),
     )
 
 
@@ -2316,6 +2321,9 @@ TARGET_OFFICE_MIN_SCORE = 8
 
 
 def is_target_office_case(case: CaseRecord, analysis: CaseAnalysis) -> bool:
+    # Curadoria manual tem precedencia absoluta.
+    if case.dep_federal:
+        return True
     # Inclui assuntos e classe: o cargo-alvo muitas vezes so aparece no assunto
     # taxonomico da base (ex.: "Cargo - Governador").
     signal = _safe_join(
