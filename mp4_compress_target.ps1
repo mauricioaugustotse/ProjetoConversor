@@ -32,6 +32,9 @@ $script:compressStdoutFile = $null
 $script:compressStderrFile = $null
 $script:compressPollPosition = 0
 $script:compressProgressBar = $null
+$script:compressProgressDuration = 0.0
+$script:compressProgressBase = 0
+$script:compressProgressSpan = 48
 $script:sessionLogFile = Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath ("mp4_compress_gui_{0}.log" -f (Get-Date -Format "yyyyMMdd_HHmmss"))
 
 function Add-ToProcessPathIfExists {
@@ -836,6 +839,8 @@ function Invoke-TargetCompression {
         }
 
         $durationSec = Get-FileDurationSeconds -FilePath $InputPath -FfmpegPath $ffmpegPath -FfprobePath $ffprobePath
+        # Linha tecnica consumida pela GUI para calcular o percentual da barra.
+        Write-LogLine -Log $Log -Line ("PROGRESSO_DURACAO={0}" -f $durationSec.ToString("0.###", [System.Globalization.CultureInfo]::InvariantCulture))
         $inputBytes = (Get-Item -LiteralPath $InputPath).Length
         $targetBytes = [int64][Math]::Floor($TargetMb * 1024 * 1024)
 
@@ -1321,13 +1326,11 @@ function Set-CompressProgressRunning {
     }
 
     try {
+        $script:compressProgressBar.Style = [System.Windows.Forms.ProgressBarStyle]::Continuous
         if ($Running) {
-            $script:compressProgressBar.Style = [System.Windows.Forms.ProgressBarStyle]::Marquee
-            $script:compressProgressBar.MarqueeAnimationSpeed = 30
-        }
-        else {
-            $script:compressProgressBar.MarqueeAnimationSpeed = 0
-            $script:compressProgressBar.Style = [System.Windows.Forms.ProgressBarStyle]::Continuous
+            $script:compressProgressDuration = 0.0
+            $script:compressProgressBase = 0
+            $script:compressProgressSpan = 48
             $script:compressProgressBar.Value = 0
         }
     }
@@ -1376,9 +1379,60 @@ function Read-CompressionOutputChunk {
     }
 
     foreach ($line in ($text -split "\r?\n")) {
-        if (-not [string]::IsNullOrWhiteSpace($line)) {
-            Append-UiLog -Target $script:compressLogBox -Line $line.TrimEnd()
+        if ([string]::IsNullOrWhiteSpace($line)) {
+            continue
         }
+
+        $clean = $line.TrimEnd()
+
+        # Progresso real: duracao anunciada pelo filho + fases do pipeline
+        # (pass1 0-48%, pass2 48-96%, mux 96-100%) + linhas time= do ffmpeg.
+        if ($clean -match '^PROGRESSO_DURACAO=([\d\.]+)$') {
+            [double]$durationParsed = 0
+            if ([double]::TryParse($Matches[1], [System.Globalization.NumberStyles]::Float, [System.Globalization.CultureInfo]::InvariantCulture, [ref]$durationParsed)) {
+                $script:compressProgressDuration = $durationParsed
+            }
+            continue
+        }
+
+        if ($clean -match '^\[Encode video pass 1') {
+            $script:compressProgressBase = 0
+            $script:compressProgressSpan = 48
+            Set-CompressProgressValue -Value 0
+        }
+        elseif ($clean -match '^\[Encode video pass 2') {
+            $script:compressProgressBase = 48
+            $script:compressProgressSpan = 48
+            Set-CompressProgressValue -Value 48
+        }
+        elseif ($clean -match '^\[Mux final') {
+            $script:compressProgressBase = 96
+            $script:compressProgressSpan = 4
+            Set-CompressProgressValue -Value 96
+        }
+        elseif ($script:compressProgressDuration -gt 0 -and $clean -match 'time=(\d{2}):(\d{2}):(\d{2})') {
+            $elapsed = ([int]$Matches[1] * 3600) + ([int]$Matches[2] * 60) + [int]$Matches[3]
+            $fraction = [Math]::Min(1.0, $elapsed / $script:compressProgressDuration)
+            Set-CompressProgressValue -Value ([int]($script:compressProgressBase + ($fraction * $script:compressProgressSpan)))
+        }
+
+        Append-UiLog -Target $script:compressLogBox -Line $clean
+    }
+}
+
+function Set-CompressProgressValue {
+    param([Parameter(Mandatory = $true)][int]$Value)
+
+    if ($null -eq $script:compressProgressBar) {
+        return
+    }
+
+    try {
+        $clamped = [Math]::Max(0, [Math]::Min(100, $Value))
+        $script:compressProgressBar.Value = $clamped
+    }
+    catch {
+        # Ignore UI updates while the form is closing.
     }
 }
 
@@ -1411,6 +1465,7 @@ function Complete-CurrentCompression {
     $script:compressQueueDone++
 
     if ($ExitCode -eq 0) {
+        Set-CompressProgressValue -Value 100
         Append-UiLog -Target $script:compressLogBox -Line ""
         Append-UiLog -Target $script:compressLogBox -Line ("Arquivo {0}/{1} finalizado com sucesso." -f $script:compressQueueDone, [Math]::Max(1, $script:compressQueueTotal))
         $effectiveOutput = $script:compressOutputPath
@@ -1547,6 +1602,7 @@ function Get-InputFileListFromText {
 function Start-GuiMode {
     Add-Type -AssemblyName System.Windows.Forms
     Add-Type -AssemblyName System.Drawing
+    [System.Windows.Forms.Application]::EnableVisualStyles()
 
     $form = New-Object System.Windows.Forms.Form
     $form.Text = "MP4 Compressor por Tamanho"
