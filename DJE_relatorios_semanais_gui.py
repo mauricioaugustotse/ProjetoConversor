@@ -466,6 +466,29 @@ def process_import_and_generate(
         mark_report_generated(period, case_count=current_count)
 
     mark_files_processed(files, combined_csv=combined_csv, periods=periods)
+
+    # Etapa final automatica: garante que altos cargos e casos marcados
+    # 'Dep. Federal' estejam nos destaques — apenas nas semanas processadas
+    # nesta execucao (economia: nao varre a colecao inteira).
+    for period in periods:
+        log(f"Etapa final: varredura do alvo em {period.title}...")
+        run_command(
+            [
+                sys.executable,
+                "-X",
+                "utf8",
+                "DJE_refazer_relatorios.py",
+                "--parent-page-url",
+                reports_parent_url,
+                "--database-url",
+                database_url,
+                "--varredura-alvo",
+                "--fix",
+                "--only-title",
+                period.title,
+            ],
+            log=log,
+        )
     log("Fluxo concluido.")
 
 
@@ -480,8 +503,8 @@ def launch_gui() -> None:
 
     root = tk.Tk()
     root.title("DJe/TSE — Relatórios semanais")
-    root.geometry("920x680")
-    root.minsize(840, 580)
+    root.geometry("880x620")
+    root.minsize(780, 540)
 
     def _add_tooltip(widget: Any, text: str) -> None:
         tip: Dict[str, Any] = {"win": None}
@@ -640,15 +663,20 @@ def launch_gui() -> None:
 
     sel_bar = ttk.Frame(main)
     sel_bar.grid(row=2, column=0, sticky="ew", pady=(6, 0))
-    ttk.Button(sel_bar, text="Marcar novos", command=select_only_new).pack(side="left")
-    ttk.Button(sel_bar, text="Marcar todos", command=select_all).pack(side="left", padx=(8, 0))
-    ttk.Button(sel_bar, text="Desmarcar tudo", command=select_none).pack(side="left", padx=(8, 0))
+    btn_sel_new = ttk.Button(sel_bar, text="Marcar novos", command=select_only_new)
+    btn_sel_new.pack(side="left")
+    _add_tooltip(btn_sel_new, "Marca apenas os CSVs que ainda não foram processados (situação 'novo').\nÉ a escolha do dia a dia.")
+    btn_sel_all = ttk.Button(sel_bar, text="Marcar todos", command=select_all)
+    btn_sel_all.pack(side="left", padx=(8, 0))
+    _add_tooltip(btn_sel_all, "Marca todos os CSVs da pasta, inclusive os já processados.")
+    btn_sel_none = ttk.Button(sel_bar, text="Desmarcar tudo", command=select_none)
+    btn_sel_none.pack(side="left", padx=(8, 0))
     ttk.Label(sel_bar, textvariable=count_var, foreground="#444444").pack(side="left", padx=(16, 0))
 
     # ------------------------------------------------------------------ 2) Acoes
     actions = ttk.LabelFrame(main, text="2) Ações", padding=10)
     actions.grid(row=3, column=0, sticky="ew", pady=(10, 0))
-    actions.columnconfigure(5, weight=1)
+    actions.columnconfigure(6, weight=1)
 
     action_buttons: List[Any] = []
 
@@ -736,6 +764,8 @@ def launch_gui() -> None:
 
     chk_regen = ttk.Checkbutton(actions, text="Regerar existentes", variable=force_regen_var)
     chk_regen.grid(row=0, column=1, sticky="w", padx=(14, 0))
+
+    ttk.Label(actions, text="Manutenção:", foreground="#555555").grid(row=1, column=0, sticky="w", pady=(10, 0))
     _add_tooltip(
         chk_regen,
         "Marque para reescrever também as semanas que já têm relatório,\n"
@@ -747,7 +777,7 @@ def launch_gui() -> None:
         text="Auditar (só verificar)",
         command=lambda: run_maintenance(["--dry-run"], "Auditando relatorios"),
     )
-    btn_audit.grid(row=0, column=2, sticky="w", padx=(14, 0))
+    btn_audit.grid(row=1, column=1, sticky="w", padx=(14, 0), pady=(10, 0))
     action_buttons.append(btn_audit)
     _add_tooltip(
         btn_audit,
@@ -760,7 +790,7 @@ def launch_gui() -> None:
         text="Corrigir omissões do alvo",
         command=lambda: run_maintenance(["--varredura-alvo", "--fix"], "Varrendo altos cargos"),
     )
-    btn_alvo.grid(row=0, column=3, sticky="w", padx=(8, 0))
+    btn_alvo.grid(row=1, column=2, sticky="w", padx=(8, 0), pady=(10, 0))
     action_buttons.append(btn_alvo)
     _add_tooltip(
         btn_alvo,
@@ -769,12 +799,26 @@ def launch_gui() -> None:
         "as semanas com omissão.",
     )
 
+    btn_stale = ttk.Button(
+        actions,
+        text="Atualizar desatualizados",
+        command=lambda: run_maintenance(["--somente-desatualizados"], "Atualizando semanas desatualizadas"),
+    )
+    btn_stale.grid(row=1, column=3, sticky="w", padx=(8, 0), pady=(10, 0))
+    action_buttons.append(btn_stale)
+    _add_tooltip(
+        btn_stale,
+        "Regenera apenas as semanas cuja quantidade de casos na base mudou desde\n"
+        "o último relatório (ex.: após edições/correções na base). Econômico:\n"
+        "reaproveita as análises já feitas.",
+    )
+
     btn_refazer = ttk.Button(
         actions,
         text="Refazer todos",
         command=lambda: run_maintenance([], "Refazendo relatorios"),
     )
-    btn_refazer.grid(row=0, column=4, sticky="w", padx=(8, 0))
+    btn_refazer.grid(row=1, column=4, sticky="w", padx=(8, 0), pady=(10, 0))
     action_buttons.append(btn_refazer)
     _add_tooltip(
         btn_refazer,
@@ -783,7 +827,7 @@ def launch_gui() -> None:
     )
 
     links_bar = ttk.Frame(actions)
-    links_bar.grid(row=1, column=0, columnspan=6, sticky="w", pady=(8, 0))
+    links_bar.grid(row=2, column=0, columnspan=7, sticky="w", pady=(8, 0))
     ttk.Button(
         links_bar,
         text="Abrir relatórios no Notion",
@@ -803,7 +847,7 @@ def launch_gui() -> None:
             "'Dep. Federal' sempre em destaque | passe o mouse nos botões para ver o que cada um faz"
         ),
         foreground="#555555",
-    ).grid(row=2, column=0, columnspan=6, sticky="w", pady=(8, 0))
+    ).grid(row=3, column=0, columnspan=7, sticky="w", pady=(8, 0))
 
     adv = ttk.Frame(actions)
     adv.columnconfigure(1, weight=1)
@@ -814,7 +858,7 @@ def launch_gui() -> None:
 
     def _toggle_advanced(*_args: Any) -> None:
         if show_advanced_var.get():
-            adv.grid(row=3, column=0, columnspan=6, sticky="ew", pady=(8, 0))
+            adv.grid(row=4, column=0, columnspan=7, sticky="ew", pady=(8, 0))
         else:
             adv.grid_remove()
 
@@ -861,6 +905,18 @@ def launch_gui() -> None:
         if drained:
             root.update_idletasks()
         root.after(150, drain_log)
+
+    def _on_close() -> None:
+        if busy.get():
+            confirmar = messagebox.askyesno(
+                "Execução em andamento",
+                "Há um processamento em andamento. Fechar agora pode deixar um relatório pela metade.\n\nFechar mesmo assim?",
+            )
+            if not confirmar:
+                return
+        root.destroy()
+
+    root.protocol("WM_DELETE_WINDOW", _on_close)
 
     refresh_files()
     drain_log()

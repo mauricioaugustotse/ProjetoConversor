@@ -138,6 +138,18 @@ def archive_page(page_id: str) -> None:
     report.notion_request("PATCH", f"/v1/pages/{page_id}", json_body={"archived": True})
 
 
+def _mark_weekly_manifest(plan: ReportPagePlan, *, case_count: int) -> None:
+    # Mantem o manifesto da GUI em dia para o staleness nao regenerar a mesma
+    # semana de novo sem necessidade.
+    if plan.kind != "weekly" or not plan.start or not plan.end:
+        return
+    try:
+        period = gui.WeeklyPeriod(start=plan.start, end=plan.end)
+        gui.mark_report_generated(period, case_count=case_count)
+    except Exception:
+        pass
+
+
 def regenerate_page(plan: ReportPagePlan, *, database_url: str, model: str, log: Any) -> None:
     page_url = report._notion_page_url_from_id(plan.page_id)
     cmd = [
@@ -300,6 +312,7 @@ def varredura_alvo(
             if fix:
                 regenerate_page(plan, database_url=database_url, model=model, log=print)
                 snapshot_report_json(plan)
+                _mark_weekly_manifest(plan, case_count=len(cases))
                 item["regenerado"] = True
         else:
             print(f"[ok] {plan.current_title}: {len(alvo)} caso(s)-alvo, todos nos destaques")
@@ -308,6 +321,45 @@ def varredura_alvo(
     write_json_atomic(REFAZER_DIR / "varredura_alvo.json", payload)
     print(f"\nVarredura salva em: {REFAZER_DIR / 'varredura_alvo.json'}")
     return resultados
+
+
+def regenerar_somente_desatualizados(
+    plans: List[ReportPagePlan],
+    *,
+    data_source_id: str,
+    database_url: str,
+    model: str,
+    dry_run: bool,
+) -> None:
+    """Regenera apenas as semanas cuja contagem de casos na base divergiu do
+    manifesto (ex.: decisoes restauradas/importadas depois do relatorio),
+    reaproveitando o cache de analises para nao reanalisar o que ja foi feito."""
+    manifest = gui.read_manifest()
+    generated = manifest.get("generated_reports") or {}
+    desatualizadas = 0
+    for plan in plans:
+        if plan.kind != "weekly" or not plan.start or not plan.end:
+            continue
+        cases = report.query_cases_by_period(data_source_id, plan.start.isoformat(), plan.end.isoformat())
+        current = len(cases)
+        entry = generated.get(plan.target_title or plan.current_title)
+        previous = None
+        if isinstance(entry, dict):
+            try:
+                previous = int(entry.get("case_count"))
+            except Exception:
+                previous = None
+        if previous is not None and previous == current:
+            print(f"[ok] {plan.current_title}: {current} casos (sem mudanca)")
+            continue
+        desatualizadas += 1
+        print(f"[DESATUALIZADA] {plan.current_title}: base={current} vs manifesto={previous} — regenerando...")
+        if dry_run:
+            continue
+        regenerate_page(plan, database_url=database_url, model=model, log=print)
+        snapshot_report_json(plan)
+        _mark_weekly_manifest(plan, case_count=current)
+    print(f"\nSemanas desatualizadas: {desatualizadas}" + (" (dry-run, nada regenerado)" if dry_run else ""))
 
 
 def load_previous_audit() -> Dict[str, Any]:
@@ -390,6 +442,11 @@ def main() -> int:
         help="So varre os relatorios procurando altos cargos fora dos destaques (nao regenera nada sem --fix).",
     )
     parser.add_argument("--fix", action="store_true", help="Com --varredura-alvo: regenera as paginas com omissao detectada.")
+    parser.add_argument(
+        "--somente-desatualizados",
+        action="store_true",
+        help="Regenera apenas semanas cuja contagem de casos na base divergiu do manifesto (economico).",
+    )
     args = parser.parse_args()
 
     class InitArgs:
@@ -429,6 +486,16 @@ def main() -> int:
             if plan is not keeper:
                 plan.kind = "duplicate"
                 plan.actions.append("archive_duplicate")
+
+    if args.somente_desatualizados:
+        regenerar_somente_desatualizados(
+            [plan for plan in plans if plan.kind == "weekly"],
+            data_source_id=data_source_id,
+            database_url=args.database_url,
+            model=args.model,
+            dry_run=bool(args.dry_run),
+        )
+        return 0
 
     if args.varredura_alvo:
         varredura_alvo(
