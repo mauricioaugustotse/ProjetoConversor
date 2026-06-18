@@ -14,11 +14,17 @@ from .docx_builder import build_it, build_proposicao
 from .harmonizer import gerar_abertura
 from .meta import MetaDocumento
 from .notion_api import fetch_page
-from .notion_parser import parse_blocks
+from .notion_parser import parse_blocks, flatten_blocks
 from .splitter import split_page, PaginaSeparada
 
 
 _INVALIDOS = re.compile(r'[\\/:*?"<>|]+')
+# Prefixo de sigla de proposição no início do título da página (ex.: "PL - ",
+# "PLP – "): redundante porque o conversor já prefixa "IT - "/"PL - " no nome do
+# arquivo. Removê-lo evita nomes como "PL - PL - …" e "IT - PL - …".
+_SIGLA_PREFIXO = re.compile(
+    r"^(PLP|PEC|PRC|PDL|PDC|PLV|MPV|PL)\s*[-–—:]\s*", re.IGNORECASE
+)
 
 
 def _sanitize(nome: str, limite: int = 150) -> str:
@@ -30,6 +36,7 @@ def _sanitize(nome: str, limite: int = 150) -> str:
 def _tema(titulo: str) -> str:
     base = re.split(r"[—–-]\s*minuta", titulo, flags=re.IGNORECASE)[0]
     base = base.split("—")[0].split("–")[0]
+    base = _SIGLA_PREFIXO.sub("", base.strip(" -–—"))
     return _sanitize(base.strip(" -–—"))
 
 
@@ -97,7 +104,7 @@ def converter(
     log("Conectando ao Notion e baixando a página…")
     page_id, titulo, raw = fetch_page(url)
     log(f"Página: “{titulo}”. Processando blocos…")
-    blocks = parse_blocks(raw)
+    blocks = flatten_blocks(parse_blocks(raw))
     sep = split_page(blocks, titulo)
     log(f"Tipo de proposição identificado: {sep.tipo.sigla} ({sep.tipo.nome_extenso}).")
 

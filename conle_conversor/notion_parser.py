@@ -2,7 +2,7 @@
 """Normaliza os blocos brutos do Notion em uma estrutura intermediária (IR)."""
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from typing import Any, Dict, List, Optional
 
 
@@ -84,6 +84,8 @@ def parse_blocks(raw_blocks: List[Dict[str, Any]]) -> List[Block]:
             out.append(Block(type="divider"))
         elif t == "image":
             out.append(Block(type="image", extra={"image": data}))
+        elif t == "equation":
+            out.append(Block(type="equation", extra={"expression": data.get("expression", "")}))
         elif t in TEXTUAL:
             out.append(
                 Block(
@@ -102,4 +104,24 @@ def parse_blocks(raw_blocks: List[Dict[str, Any]]) -> List[Block]:
                     children=parse_blocks(raw_children),
                 )
             )
+    return out
+
+
+def flatten_blocks(blocks: List[Block]) -> List[Block]:
+    """Lineariza a árvore de blocos em pré-ordem (pai antes dos filhos).
+
+    O conversor trata a página como uma sequência linear de blocos, mas o Notion
+    permite aninhar (indentar) blocos sob outro — e seções inteiras (incl. a
+    minuta) podem acabar como `children` de um parágrafo. Sem achatar, tanto o
+    splitter quanto o renderizador percorreriam só o nível raiz e perderiam todo
+    o conteúdo aninhado. Tabelas guardam suas linhas em `extra` (não têm children
+    no IR) e, portanto, não são afetadas.
+    """
+    out: List[Block] = []
+    for b in blocks:
+        if b.children:
+            out.append(replace(b, children=[]))
+            out.extend(flatten_blocks(b.children))
+        else:
+            out.append(b)
     return out

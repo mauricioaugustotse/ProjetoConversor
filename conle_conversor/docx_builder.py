@@ -61,6 +61,19 @@ def _add_quote_as_transcricao(doc, rich: List[RichText]):
         _p(doc, S.TRANSCRICAO, rich=linha)
 
 
+def _add_equation(doc, block: Block):
+    """Fórmula em bloco (Notion equation). Sem suporte a OMML, renderiza a
+    expressão LaTeX como texto centralizado — coerente com o LaTeX que já
+    aparece inline no corpo destes documentos."""
+    expr = (block.extra.get("expression") or "").strip()
+    if not expr:
+        return
+    para = _p(doc, S.CORPO, text=expr)
+    para.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    para.paragraph_format.first_line_indent = Pt(0)
+    return para
+
+
 def _add_table(doc, block: Block):
     rows = block.extra.get("rows", [])
     if not rows:
@@ -150,6 +163,8 @@ def _render_it_blocks(doc, blocks: List[Block]):
                 _p(doc, S.CORPO, rich=b.rich)
         elif b.type == "table":
             _add_table(doc, b)
+        elif b.type == "equation":
+            _add_equation(doc, b)
         elif b.type == "divider":
             continue
         else:
@@ -298,6 +313,8 @@ def _render_articulado(doc, blocks: List[Block], tipo: TipoProposicao):
             _p(doc, S.CORPO, rich=b.rich)
         elif b.type == "table":
             _add_table(doc, b)
+        elif b.type == "equation":
+            _add_equation(doc, b)
 
 
 def _render_justificativa(doc, blocks: List[Block]):
@@ -311,6 +328,8 @@ def _render_justificativa(doc, blocks: List[Block]):
             _add_bullet(doc, b.rich)
         elif b.type == "table":
             _add_table(doc, b)
+        elif b.type == "equation":
+            _add_equation(doc, b)
         elif plain(b.rich).strip():
             _p(doc, S.CORPO, rich=b.rich)
 
