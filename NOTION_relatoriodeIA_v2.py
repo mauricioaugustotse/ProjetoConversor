@@ -456,6 +456,7 @@ class RunInputs:
     end_date_iso: str
     force_clear: bool = False
     dry_run: bool = False
+    delayed_cases_file: str = ""
 
 
 @dataclass
@@ -2470,6 +2471,72 @@ def build_focused_reportable_case_pairs(
         if not is_federal_strategic_interest(case, analysis):
             continue
         pairs.append((case, analysis))
+    pairs.sort(key=lambda item: publication_sort_key(item[0], item[1]))
+    return pairs
+
+
+def load_delayed_cases(path: str, *, exclude_keys: Optional[set] = None) -> List[CaseRecord]:
+    """Materializa, por page_id, as decisões de semanas anteriores recém-importadas.
+
+    O arquivo é gerado pelo orquestrador a partir do relatório do import
+    (lista de objetos {page_id, dataDecisao, numeroUnico} sob a chave "cases").
+    Busca cada página pelo id (mesmo padrão de load_cases_from_published_summary_table)
+    e tolera páginas apagadas/arquivadas. ``exclude_keys`` descarta casos que já
+    entrariam pela query normal da semana (defesa contra dupla contagem)."""
+    raw_path = _normalize_ws(path)
+    if not raw_path:
+        return []
+    file_path = Path(raw_path)
+    if not file_path.is_file():
+        LOGGER.warning("Arquivo de casos atrasados não encontrado: %s", file_path)
+        return []
+    try:
+        payload = json.loads(file_path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        LOGGER.warning("Falha ao ler casos atrasados de %s: %s", file_path, exc)
+        return []
+    entries = payload.get("cases") if isinstance(payload, dict) else payload
+    if not isinstance(entries, list):
+        return []
+    exclude = set(exclude_keys or set())
+    seen_ids: set = set()
+    out: List[CaseRecord] = []
+    for entry in entries:
+        if isinstance(entry, dict):
+            page_id = _normalize_notion_id(str(entry.get("page_id", "")))
+        else:
+            page_id = _normalize_notion_id(str(entry))
+        if not page_id or page_id in seen_ids:
+            continue
+        seen_ids.add(page_id)
+        try:
+            case = build_case_record(notion_request("GET", f"/v1/pages/{page_id}"))
+        except Exception as exc:
+            LOGGER.debug("Caso atrasado %s indisponível (apagado/arquivado?): %s", page_id, exc)
+            continue
+        if case_resume_key(case) in exclude:
+            continue
+        out.append(case)
+    return out
+
+
+def build_delayed_target_pairs(
+    cases: Sequence[CaseRecord],
+    analyses: Sequence[CaseAnalysis],
+) -> List[tuple[CaseRecord, CaseAnalysis]]:
+    """Pares (caso, análise) dos atrasados que merecem destaque: casos-alvo
+    (altos cargos da República / checkbox Dep. Federal) OU risco crítico/alto.
+    As análises já vêm com o piso de alvo aplicado (finalize_case_analyses,
+    chamado dentro de analyze_cases)."""
+    case_map = {case_resume_key(case): case for case in cases}
+    pairs: List[tuple[CaseRecord, CaseAnalysis]] = []
+    for analysis in analyses:
+        case = case_map.get(analysis_resume_key(analysis))
+        if case is None:
+            continue
+        risk = _normalize_ws(analysis.risk_level).casefold()
+        if is_target_office_case(case, analysis) or risk in {"critico", "alto"}:
+            pairs.append((case, analysis))
     pairs.sort(key=lambda item: publication_sort_key(item[0], item[1]))
     return pairs
 
@@ -4571,6 +4638,64 @@ def append_published_sections(
     }
 
 
+def append_delayed_cases_section(
+    page_id: str,
+    pairs: Sequence[tuple[CaseRecord, CaseAnalysis]],
+    *,
+    after_block_id: str = "",
+) -> Dict[str, int]:
+    """Seção 'Casos atrasados': decisões de semanas anteriores que só entraram na
+    base nesta atualização, restritas a casos-alvo ou de risco crítico/alto.
+    Heading SEM número para não colidir com os matchers das seções fixas 1..6.
+    Sem pares, não escreve nada (defesa dupla com o orquestrador)."""
+    if not pairs:
+        return {"delayed_rows_created": 0, "delayed_toggles_created": 0}
+    intro_blocks = [
+        build_heading_2_block("⏳ Casos atrasados (decisões de semanas anteriores)"),
+        build_paragraph_block(
+            f"{len(pairs)} caso(s)-alvo ou de risco crítico/alto cuja decisão é de semana anterior, "
+            "mas que só entrou na base nesta atualização. Listados aqui para não exigir a regeneração "
+            "dos relatórios das semanas de origem."
+        ),
+    ]
+    created_intro = append_block_children(page_id, intro_blocks, after_block_id=after_block_id)
+    last_after_id = _normalize_ws(created_intro[-1].get("id")) if created_intro else _normalize_ws(after_block_id)
+
+    rows: List[List[str]] = []
+    for idx, (case, analysis) in enumerate(pairs, start=1):
+        subjects = _safe_join(analysis.parties + analysis.public_figures, sep="; ") or _safe_join(case.partidos, sep="; ") or "-"
+        rows.append(
+            [
+                str(idx),
+                f"{_normalize_ws(case.data_decisao) or '-'} · {score_label(analysis_display_score(analysis), analysis.risk_level)}",
+                f"{case.process_label()} | {case.local_label()}",
+                f"[Abrir]({case.source_url})" if case.source_url else "-",
+                _compact_report_field_text(analysis.what_happened or case.tema, MAX_TABLE_WHAT_HAPPENED_CHARS),
+                _compact_report_field_text(analysis.consequence or subjects, MAX_TABLE_CONSEQUENCE_CHARS),
+            ]
+        )
+    table_id = create_table(
+        page_id,
+        ["#", "Decisão / prioridade", "Processo / local", "Link", "Ponto crítico", "Efeito"],
+        rows,
+        after_block_id=last_after_id,
+    )
+    toggle_blocks = [
+        build_toggle_block(
+            build_case_toggle_heading(idx, case, analysis),
+            children=build_case_toggle_children(case, analysis),
+        )
+        for idx, (case, analysis) in enumerate(pairs, start=1)
+    ]
+    append_block_children(
+        page_id,
+        toggle_blocks,
+        after_block_id=table_id,
+        max_children_per_request=MAX_NOTION_TOGGLES_PER_APPEND,
+    )
+    return {"delayed_rows_created": len(rows), "delayed_toggles_created": len(toggle_blocks)}
+
+
 def build_methodology_blocks(title: str = SECTION_METHODOLOGY_TITLE) -> List[Dict[str, Any]]:
     return [
         build_heading_2_block(title),
@@ -5178,6 +5303,7 @@ def render_report_page(
     source_database_url: str,
     party_counter: Counter[str],
     lawyer_counter: Counter[str],
+    delayed_pairs: Sequence[tuple[CaseRecord, CaseAnalysis]] = (),
 ) -> Dict[str, Any]:
     focused_pairs = build_focused_reportable_case_pairs(cases, analyses)
     ranked = [analysis for _case, analysis in focused_pairs]
@@ -5210,6 +5336,11 @@ def render_report_page(
     blocks.extend(build_bulleted_block(text) for text in executive_alerts)
     append_block_children(page_id, blocks)
 
+    # Seção opcional de "casos atrasados" (decisões de semanas anteriores que só
+    # chegaram neste import). Renderizada entre a leitura executiva e os casos
+    # prioritários; ausente quando não há atrasados a destacar.
+    delayed_stats = append_delayed_cases_section(page_id, list(delayed_pairs))
+
     published_stats = append_published_sections(page_id, cases, analyses)
     created_toggles = int(published_stats.get("toggle_blocks_created", 0))
 
@@ -5224,6 +5355,8 @@ def render_report_page(
         "toggle_blocks_created": created_toggles,
         "case_rows_created": int(published_stats.get("case_rows_created", 0)),
         "inventory_rows_created": inventory_rows_created,
+        "delayed_rows_created": int(delayed_stats.get("delayed_rows_created", 0)),
+        "delayed_toggles_created": int(delayed_stats.get("delayed_toggles_created", 0)),
         "executive_alert_count": len(executive_alerts),
         "lawyer_blocks_created": len(lawyer_blocks),
         "metrics": {
@@ -5326,6 +5459,16 @@ def build_arg_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="Busca notícias via Gemini apenas para os casos publicados no relatório semanal.",
     )
+    parser.add_argument(
+        "--delayed-cases-file",
+        default="",
+        help=(
+            "Opcional: caminho de um JSON com decisões de semanas anteriores recém-importadas "
+            "(lista de {page_id, dataDecisao}). Quando informado, abre no relatório a seção "
+            "'Casos atrasados' com os casos-alvo ou de risco crítico/alto desse delta, "
+            "evitando regenerar as semanas antigas."
+        ),
+    )
     parser.add_argument("--gemini-api-key", default="", help="API key do Gemini/Google AI Studio para busca seletiva de notícias.")
     parser.add_argument("--gemini-key-file", default="Chave_Gemini.txt", help="Arquivo local com a chave do Gemini.")
     parser.add_argument("--gemini-model", default="", help="Modelo Gemini para busca seletiva de notícias.")
@@ -5386,6 +5529,7 @@ def build_inputs_from_args_or_gui(args: argparse.Namespace) -> RunInputs:
         end_date_iso=end_date_iso,
         force_clear=bool(args.force_clear),
         dry_run=bool(args.dry_run),
+        delayed_cases_file=_normalize_ws(getattr(args, "delayed_cases_file", "")),
     )
 
 
@@ -5971,6 +6115,49 @@ def main() -> int:
         },
     )
 
+    # Casos atrasados: decisões de semanas anteriores recém-importadas (delta),
+    # restritas a alvo ou risco crítico/alto. Processa SÓ o delta (poucos casos),
+    # evitando regenerar as semanas antigas inteiras.
+    delayed_pairs: List[tuple[CaseRecord, CaseAnalysis]] = []
+    if _normalize_ws(inputs.delayed_cases_file):
+        existing_keys = {case_resume_key(case) for case in cases}
+        delayed_cases = load_delayed_cases(inputs.delayed_cases_file, exclude_keys=existing_keys)
+        if delayed_cases:
+            LOGGER.info("[Atrasados] %d decisão(ões) de semanas anteriores recebidas para triagem.", len(delayed_cases))
+            delayed_party_counter: Counter[str] = Counter()
+            delayed_lawyer_counter: Counter[str] = Counter()
+            for case in delayed_cases:
+                delayed_party_counter.update(case.partidos)
+                delayed_lawyer_counter.update(case.advogados)
+            delayed_analyses = analyze_cases(
+                delayed_cases,
+                start_iso=inputs.start_date_iso,
+                end_iso=inputs.end_date_iso,
+                party_counter=delayed_party_counter,
+                lawyer_counter=delayed_lawyer_counter,
+                max_cases_per_batch=max(1, int(args.max_cases_per_batch or DEFAULT_MAX_CASES_PER_BATCH)),
+                openai_max_workers=max(1, int(args.openai_max_workers or DEFAULT_OPENAI_MAX_WORKERS)),
+                max_openai_cases=max(0, int(args.max_openai_cases)),
+                openai_triage_threshold=int(args.openai_triage_threshold),
+                analysis_cache_enabled=not bool(args.disable_analysis_cache or args.refresh_analysis),
+            )
+            delayed_pairs = build_delayed_target_pairs(delayed_cases, delayed_analyses)
+            payload_report["delayed_target_cases"] = [
+                {
+                    "page_id": case.page_id,
+                    "processo": case.process_label(),
+                    "data_decisao": case.data_decisao,
+                    "risk_level": analysis.risk_level,
+                    "is_target_office": is_target_office_case(case, analysis),
+                }
+                for case, analysis in delayed_pairs
+            ]
+            LOGGER.info(
+                "[Atrasados] %d caso(s) na seção (alvo ou risco crítico/alto) de %d recebido(s).",
+                len(delayed_pairs),
+                len(delayed_cases),
+            )
+
     if page_id and not inputs.dry_run:
         LOGGER.info("[Stage 5/5] Publicando relatório no Notion...")
         publish_stats = render_report_page(
@@ -5983,6 +6170,7 @@ def main() -> int:
             source_database_url=inputs.source_database_url,
             party_counter=reportable_party_counter,
             lawyer_counter=reportable_lawyer_counter,
+            delayed_pairs=delayed_pairs,
         )
         payload_report["publish_stats"] = publish_stats
     else:

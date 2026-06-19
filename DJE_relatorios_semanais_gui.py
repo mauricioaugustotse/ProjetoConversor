@@ -29,6 +29,7 @@ DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "Artefatos" / "dados" / "csv"
 DEFAULT_REPORTS_PARENT_PAGE_ID = "31772195-5c64-803f-902d-d2cb8600b4dd"
 DEFAULT_REPORTS_PARENT_URL = f"https://www.notion.so/{DEFAULT_REPORTS_PARENT_PAGE_ID.replace('-', '')}"
 MANIFEST_FILE = PROJECT_ROOT / "Artefatos" / "reports" / "dje_relatorios_semanais_manifest.json"
+INTERMEDIARIOS_DIR = PROJECT_ROOT / "Artefatos" / "intermediarios"
 PIPELINE_VERSION = 3
 URL_PRESERVE_COLUMNS = ("noticia_TSE", "noticia_TRE", "noticia_geral_1", "noticia_geral_2")
 THEME_PUNCHLINE_MODEL = os.getenv("DJE_THEME_PUNCHLINE_MODEL", "gpt-5.4-nano") or "gpt-5.4-nano"
@@ -133,13 +134,26 @@ def find_pending_combined_csv(
 
 def mark_pending_run(paths: Sequence[Path], *, combined_csv: Path, periods: Sequence[WeeklyPeriod]) -> None:
     manifest = read_manifest()
-    manifest["pending_run"] = {
+    previous = manifest.get("pending_run") or {}
+    new_signature = _files_signature_map(paths)
+    pending: Dict[str, Any] = {
         "pipeline_version": PIPELINE_VERSION,
-        "input_files": _files_signature_map(paths),
+        "input_files": new_signature,
         "combined_csv": str(combined_csv.resolve()),
         "periods": [period.title for period in periods],
         "updated_at_utc": utc_now_iso(),
     }
+    # Preserva o arquivo de casos atrasados entre retomadas da MESMA execucao
+    # (mesmas assinaturas de entrada): numa reexecucao o import faz update e nao
+    # recria as paginas, entao o delta atrasado precisa vir do pending anterior.
+    if (
+        isinstance(previous, Mapping)
+        and isinstance(previous.get("input_files"), Mapping)
+        and _same_file_signatures(new_signature, previous.get("input_files"))
+        and previous.get("delayed_cases_file")
+    ):
+        pending["delayed_cases_file"] = previous.get("delayed_cases_file")
+    manifest["pending_run"] = pending
     manifest["updated_at_utc"] = utc_now_iso()
     write_manifest(manifest)
 
@@ -239,6 +253,93 @@ def periods_from_treated_csv(path: Path) -> List[WeeklyPeriod]:
         period = week_for_decision_day(parsed)
         periods[(period.start, period.end)] = period
     return sorted(periods.values(), key=lambda item: item.start)
+
+
+def read_import_created_pages() -> List[Dict[str, str]]:
+    """Le a lista de paginas efetivamente criadas no ultimo import (delta real)."""
+    try:
+        with importer.IMPORT_REPORT_FILE.open("r", encoding="utf-8") as handle:
+            payload = json.load(handle)
+    except Exception:
+        return []
+    items = payload.get("created_pages") if isinstance(payload, Mapping) else None
+    if not isinstance(items, list):
+        return []
+    out: List[Dict[str, str]] = []
+    for item in items:
+        if isinstance(item, Mapping) and item.get("page_id"):
+            out.append(
+                {
+                    "page_id": str(item.get("page_id")),
+                    "dataDecisao": str(item.get("dataDecisao") or ""),
+                    "numeroUnico": str(item.get("numeroUnico") or ""),
+                }
+            )
+    return out
+
+
+def select_delayed_created_pages(
+    created_pages: Sequence[Mapping[str, str]],
+    *,
+    principal_start: date,
+) -> List[Dict[str, str]]:
+    """Mantem so as paginas criadas cuja dataDecisao e anterior a semana principal."""
+    delayed: List[Dict[str, str]] = []
+    for item in created_pages:
+        raw = str(item.get("dataDecisao") or "").strip()
+        try:
+            decided = date.fromisoformat(raw[:10])
+        except ValueError:
+            continue
+        if decided < principal_start:
+            delayed.append(dict(item))
+    return delayed
+
+
+def write_delayed_cases_file(
+    delayed: Sequence[Mapping[str, str]],
+    *,
+    principal: WeeklyPeriod,
+) -> Optional[Path]:
+    """Grava o arquivo intermediario de casos atrasados consumido pelo gerador."""
+    if not delayed:
+        return None
+    INTERMEDIARIOS_DIR.mkdir(parents=True, exist_ok=True)
+    target = INTERMEDIARIOS_DIR / f"delayed_cases_{datetime.now():%Y%m%d_%H%M%S}.json"
+    payload = {
+        "generated_at_utc": utc_now_iso(),
+        "principal_period": principal.title,
+        "principal_start": principal.start.isoformat(),
+        "cases": [dict(item) for item in delayed],
+    }
+    write_json_atomic(target, payload)
+    return target
+
+
+def get_pending_delayed_cases_file() -> Optional[Path]:
+    """Recupera o arquivo de atrasados preservado no pending_run (retomada barata)."""
+    manifest = read_manifest()
+    pending = manifest.get("pending_run") or {}
+    if not isinstance(pending, Mapping):
+        return None
+    raw = str(pending.get("delayed_cases_file") or "").strip()
+    if not raw:
+        return None
+    path = Path(raw)
+    return path if path.is_file() else None
+
+
+def set_pending_delayed_cases_file(path: Path) -> None:
+    """Registra no pending_run o arquivo de atrasados desta execucao."""
+    manifest = read_manifest()
+    pending = manifest.get("pending_run")
+    if not isinstance(pending, Mapping):
+        return
+    updated = dict(pending)
+    updated["delayed_cases_file"] = str(path.resolve())
+    manifest["pending_run"] = updated
+    manifest["updated_at_utc"] = utc_now_iso()
+    write_manifest(manifest)
 
 
 def _child_page_title(block: Mapping[str, Any]) -> str:
@@ -415,6 +516,30 @@ def process_import_and_generate(
         log=log,
     )
 
+    # Apos o import, identifica o "delta atrasado": decisoes recem-criadas cuja
+    # dataDecisao e de semana anterior a principal. Esses casos (alvo ou risco
+    # critico/alto) serao destacados na semana principal, sem regenerar as
+    # semanas antigas. Em retomada, reaproveita o arquivo do pending_run, pois o
+    # import faz update na 2a passagem e nao recria as paginas.
+    principal = periods[-1]
+    delayed_file = get_pending_delayed_cases_file()
+    if delayed_file is not None:
+        log(f"Reaproveitando casos atrasados de execucao anterior: {delayed_file}")
+    else:
+        delayed_entries = select_delayed_created_pages(
+            read_import_created_pages(), principal_start=principal.start
+        )
+        if delayed_entries:
+            delayed_file = write_delayed_cases_file(delayed_entries, principal=principal)
+            if delayed_file is not None:
+                set_pending_delayed_cases_file(delayed_file)
+            log(
+                f"Casos atrasados detectados (delta de semanas anteriores): {len(delayed_entries)} "
+                f"decisao(oes) -> serao destacados em {principal.title}."
+            )
+        else:
+            log("Nenhuma decisao de semana anterior neste import; sem secao de atrasados.")
+
     parent_page_id = report.extract_notion_id_from_url(reports_parent_url)
 
     class InitArgs:
@@ -437,15 +562,48 @@ def process_import_and_generate(
     data_source_id = report.retrieve_database_and_datasource_id(database_id)
 
     log("Periodos detectados: " + "; ".join(period.title for period in periods))
+    anteriores = periods[:-1]
+    if anteriores:
+        log(
+            f"Semana principal: {principal.title} | semanas anteriores no lote: "
+            f"{len(anteriores)} (nao serao regeneradas; casos-alvo atrasados vao para a principal)."
+        )
+    generated_periods: List[WeeklyPeriod] = []
     for period in periods:
+        is_principal = period == principal
         page_url, created = ensure_report_page(parent_page_id, period.title, overwrite_existing=False)
         current_count = count_cases_in_period(data_source_id, period)
-        if not created and not force_regenerate and not existing_report_is_stale(period, current_count=current_count):
-            log(f"Relatorio ja existe e esta atualizado; pulando: {period.title}")
-            continue
-        if not created:
-            reason = "regeneracao forcada" if force_regenerate else "casos novos detectados na base"
-            log(f"Relatorio existente sera regenerado ({reason}): {period.title}")
+        stale = existing_report_is_stale(period, current_count=current_count)
+
+        if is_principal:
+            # A principal e (re)gerada quando ha novidade na base OU quando ha
+            # casos atrasados a destacar (mesmo que a contagem dela nao mude).
+            if not created and not force_regenerate and not stale and delayed_file is None:
+                log(f"Relatorio ja existe e esta atualizado; pulando: {period.title}")
+                continue
+            if not created:
+                if force_regenerate:
+                    reason = "regeneracao forcada"
+                elif stale:
+                    reason = "casos novos detectados na base"
+                else:
+                    reason = "casos atrasados a destacar"
+                log(f"Relatorio principal sera (re)gerado ({reason}): {period.title}")
+        else:
+            # Semanas anteriores: NAO regenerar as ja existentes (objetivo desta
+            # estrategia — evita o gargalo). So as inexistentes (1a vez) ou um
+            # force explicito sao geradas; as demais apenas atualizam a contagem
+            # no manifesto para nao reaparecerem como desatualizadas.
+            if not created and not force_regenerate:
+                if stale:
+                    log(f"Semana anterior preservada (casos atrasados irao para {principal.title}): {period.title}")
+                else:
+                    log(f"Semana anterior ja atualizada; nada a fazer: {period.title}")
+                mark_report_generated(period, case_count=current_count)
+                continue
+            reason = "primeira geracao da semana" if created else "regeneracao forcada"
+            log(f"Relatorio de semana anterior sera gerado ({reason}): {period.title}")
+
         report_cmd = [
             sys.executable,
             "NOTION_relatoriodeIA_v2.py",
@@ -469,13 +627,21 @@ def process_import_and_generate(
             "--enrich-news-gemini",
             "--verbose",
         ]
+        if is_principal and delayed_file is not None:
+            report_cmd.extend(["--delayed-cases-file", str(delayed_file)])
         run_command(report_cmd, log=log)
         mark_report_generated(period, case_count=current_count)
+        generated_periods.append(period)
 
     # Etapa final automatica: garante que altos cargos e casos marcados
-    # 'Dep. Federal' estejam nos destaques — apenas nas semanas processadas
-    # nesta execucao (economia: nao varre a colecao inteira).
-    for period in periods:
+    # 'Dep. Federal' estejam nos destaques — apenas nas semanas efetivamente
+    # (re)geradas nesta execucao. A principal-com-atrasados e excluida: ela ja
+    # foi gerada com a secao de atrasados, e a varredura --fix a regeneraria sem
+    # o arquivo, descartando a secao.
+    for period in generated_periods:
+        if period == principal and delayed_file is not None:
+            log(f"Varredura do alvo dispensada na principal (secao de atrasados ja publicada): {period.title}")
+            continue
         log(f"Etapa final: varredura do alvo em {period.title}...")
         run_command(
             [

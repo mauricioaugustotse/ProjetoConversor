@@ -551,6 +551,10 @@ def import_csv_to_notion(
     # linhas excedentes criam paginas novas — assim multiplas decisoes do mesmo
     # dia coexistem sem se sobrescreverem.
     consumed_ids: set = set()
+    # Paginas efetivamente criadas neste import (delta real). Serve para o
+    # orquestrador identificar "casos atrasados" (decisoes de semanas
+    # anteriores que so chegaram agora) sem reprocessar as semanas inteiras.
+    created_pages: List[Dict[str, str]] = []
     for index, row in enumerate(rows, start=1):
         parsed_date = parse_csv_date(row.get("dataDecisao"), date_order=effective_date_order)
         keys = row_unique_keys(row, decision_date_iso=(parsed_date.isoformat() if parsed_date else ""))
@@ -587,6 +591,13 @@ def import_csv_to_notion(
                 created_id = report._normalize_notion_id(str(created_page.get("id", "")))
                 if created_id:
                     consumed_ids.add(created_id)
+                    created_pages.append(
+                        {
+                            "page_id": created_id,
+                            "dataDecisao": parsed_date.isoformat(),
+                            "numeroUnico": _digits(row.get("numeroUnico")),
+                        }
+                    )
             created += 1
 
     payload = {
@@ -604,6 +615,7 @@ def import_csv_to_notion(
         "dry_run": dry_run,
         "start_date_iso": start_iso,
         "end_date_iso": end_iso,
+        "created_pages": created_pages,
         "errors": errors[:50],
         "skipped_new_high_cardinality_options": skipped_high_cardinality,
     }
