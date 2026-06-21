@@ -1,0 +1,271 @@
+﻿{
+    "CreatedAt":  "2026-06-19T11:59:05.1272358-03:00",
+    "Exclusion":  "Bluetooth/BTH/BTHENUM/BTHLE/APXENUM/Galaxy Buds/Samsung Soundbar/Bose/JBL/S23/Hands-Free/A2DP/AVRCP",
+    "Targets":  [
+                    {
+                        "Status":  "Unknown",
+                        "Class":  "MEDIA",
+                        "FriendlyName":  "HD Audio Driver for Display Audio",
+                        "InstanceId":  "HDAUDIO\\SUBFUNC_01\u0026VEN_8086\u0026DEV_281F\u0026NID_0001\u0026SUBSYS_00000000\u0026REV_1000\\6\u00261375DF25\u00261\u00260002\u002600000015",
+                        "Problem":  45,
+                        "ConfigManagerErrorCode":  45
+                    },
+                    {
+                        "Status":  "Unknown",
+                        "Class":  "MEDIA",
+                        "FriendlyName":  "HD Audio Driver for Display Audio",
+                        "InstanceId":  "HDAUDIO\\SUBFUNC_01\u0026VEN_8086\u0026DEV_281F\u0026NID_0001\u0026SUBSYS_00000000\u0026REV_1000\\6\u00261375DF25\u00261\u00260002\u002600000017",
+                        "Problem":  45,
+                        "ConfigManagerErrorCode":  45
+                    },
+                    {
+                        "Status":  "Unknown",
+                        "Class":  "MEDIA",
+                        "FriendlyName":  "HD Audio Driver for Display Audio",
+                        "InstanceId":  "HDAUDIO\\SUBFUNC_01\u0026VEN_8086\u0026DEV_281F\u0026NID_0001\u0026SUBSYS_00000000\u0026REV_1000\\6\u00261375DF25\u00261\u00260002\u00260000001D",
+                        "Problem":  45,
+                        "ConfigManagerErrorCode":  45
+                    },
+                    {
+                        "Status":  "Unknown",
+                        "Class":  "MEDIA",
+                        "FriendlyName":  "HD Audio Driver for Display Audio",
+                        "InstanceId":  "HDAUDIO\\SUBFUNC_01\u0026VEN_8086\u0026DEV_281F\u0026NID_0001\u0026SUBSYS_00000000\u0026REV_1000\\6\u00261375DF25\u00261\u00260002\u00260000001F",
+                        "Problem":  45,
+                        "ConfigManagerErrorCode":  45
+                    },
+                    {
+                        "Status":  "Unknown",
+                        "Class":  "MEDIA",
+                        "FriendlyName":  "HD Audio Driver for Display Audio",
+                        "InstanceId":  "HDAUDIO\\SUBFUNC_01\u0026VEN_8086\u0026DEV_281F\u0026NID_0001\u0026SUBSYS_00000000\u0026REV_1000\\6\u00261375DF25\u00261\u00260002\u002600000029",
+                        "Problem":  45,
+                        "ConfigManagerErrorCode":  45
+                    },
+                    {
+                        "Status":  "Unknown",
+                        "Class":  "MEDIA",
+                        "FriendlyName":  "HD Audio Driver for Display Audio",
+                        "InstanceId":  "HDAUDIO\\SUBFUNC_01\u0026VEN_8086\u0026DEV_281F\u0026NID_0001\u0026SUBSYS_00000000\u0026REV_1000\\6\u00261375DF25\u00261\u00260002\u00260000002B",
+                        "Problem":  45,
+                        "ConfigManagerErrorCode":  45
+                    },
+                    {
+                        "Status":  "OK",
+                        "Class":  "MEDIA",
+                        "FriendlyName":  "Tecnologia Intel® Smart Sound para microfones digitais",
+                        "InstanceId":  "INTELAUDIO\\CTLR_DEV_51CA\u0026LINKTYPE_02\u0026DEVTYPE_00\u0026VEN_8086\u0026DEV_AE20\u0026SUBSYS_144DC884\u0026REV_10EC\\5\u0026CCDD992\u00260\u00260000",
+                        "Problem":  0,
+                        "ConfigManagerErrorCode":  0
+                    },
+                    {
+                        "Status":  "OK",
+                        "Class":  "MEDIA",
+                        "FriendlyName":  "Realtek(R) Audio",
+                        "InstanceId":  "INTELAUDIO\\FUNC_01\u0026VEN_10EC\u0026DEV_0256\u0026SUBSYS_144DC884\u0026REV_1000\\5\u0026CCDD992\u00260\u00260001",
+                        "Problem":  0,
+                        "ConfigManagerErrorCode":  0
+                    },
+                    {
+                        "Status":  "Unknown",
+                        "Class":  "MEDIA",
+                        "FriendlyName":  "HD Audio Driver for Display Audio",
+                        "InstanceId":  "INTELAUDIO\\SGPC_FUNC_01\u0026VEN_8086\u0026DEV_281F\u0026SUBSYS_80860101\u0026REV_1000\\5\u0026CCDD992\u00260\u00260201",
+                        "Problem":  45,
+                        "ConfigManagerErrorCode":  45
+                    },
+                    {
+                        "Status":  "OK",
+                        "Class":  "MEDIA",
+                        "FriendlyName":  "USB Audio",
+                        "InstanceId":  "USB\\VID_3654\u0026PID_5678\u0026MI_00\\6\u002611060345\u00260\u00260000",
+                        "Problem":  0,
+                        "ConfigManagerErrorCode":  0
+                    },
+                    {
+                        "Status":  "OK",
+                        "Class":  "HIDClass",
+                        "FriendlyName":  "Dispositivo de Entrada USB",
+                        "InstanceId":  "USB\\VID_3654\u0026PID_5678\u0026MI_03\\6\u002611060345\u00260\u00260003",
+                        "Problem":  0,
+                        "ConfigManagerErrorCode":  0
+                    },
+                    {
+                        "Status":  "OK",
+                        "Class":  "USB",
+                        "FriendlyName":  "USB Composite Device",
+                        "InstanceId":  "USB\\VID_3654\u0026PID_5678\\2023.06.20",
+                        "Problem":  0,
+                        "ConfigManagerErrorCode":  0
+                    }
+                ],
+    "AudioEndpointsBefore":  [
+                                 {
+                                     "Status":  "Unknown",
+                                     "Class":  "AudioEndpoint",
+                                     "FriendlyName":  "Fones de ouvido (Realtek(R) Audio)",
+                                     "InstanceId":  "SWD\\MMDEVAPI\\{0.0.0.00000000}.{A26044C2-22D7-4EE8-9B07-56C1C9BCCFF9}",
+                                     "Problem":  45,
+                                     "ConfigManagerErrorCode":  45
+                                 },
+                                 {
+                                     "Status":  "Unknown",
+                                     "Class":  "AudioEndpoint",
+                                     "FriendlyName":  "Microfone (Realtek(R) Audio)",
+                                     "InstanceId":  "SWD\\MMDEVAPI\\{0.0.1.00000000}.{DD8DE0ED-CB47-4C33-B2CF-C47A3F5F7BC6}",
+                                     "Problem":  45,
+                                     "ConfigManagerErrorCode":  45
+                                 },
+                                 {
+                                     "Status":  "OK",
+                                     "Class":  "AudioEndpoint",
+                                     "FriendlyName":  "Grupo de microfones (Tecnologia Intel® Smart Sound para microfones digitais)",
+                                     "InstanceId":  "SWD\\MMDEVAPI\\{0.0.1.00000000}.{48297F3D-C07A-401C-961B-0AC5CF7FD55B}",
+                                     "Problem":  0,
+                                     "ConfigManagerErrorCode":  0
+                                 },
+                                 {
+                                     "Status":  "OK",
+                                     "Class":  "AudioEndpoint",
+                                     "FriendlyName":  "Alto-falantes (USB Audio)",
+                                     "InstanceId":  "SWD\\MMDEVAPI\\{0.0.0.00000000}.{ACE6F36D-7FD5-488E-A771-399812CCAABF}",
+                                     "Problem":  0,
+                                     "ConfigManagerErrorCode":  0
+                                 },
+                                 {
+                                     "Status":  "OK",
+                                     "Class":  "AudioEndpoint",
+                                     "FriendlyName":  "Alto-falantes (Realtek(R) Audio)",
+                                     "InstanceId":  "SWD\\MMDEVAPI\\{0.0.0.00000000}.{FAC74263-3460-4BF5-8DA6-0DBFF4310257}",
+                                     "Problem":  0,
+                                     "ConfigManagerErrorCode":  0
+                                 },
+                                 {
+                                     "Status":  "OK",
+                                     "Class":  "AudioEndpoint",
+                                     "FriendlyName":  "Microfone (USB Audio)",
+                                     "InstanceId":  "SWD\\MMDEVAPI\\{0.0.1.00000000}.{DAE6B87F-057A-4D81-B30D-F9139915AD4B}",
+                                     "Problem":  0,
+                                     "ConfigManagerErrorCode":  0
+                                 }
+                             ],
+    "DriversBefore":  [
+                          {
+                              "DeviceName":  "Realtek Audio Effects Component",
+                              "Manufacturer":  "Realtek",
+                              "DriverProviderName":  "Realtek",
+                              "DriverVersion":  "13.570.1221.308",
+                              "DriverDate":  "\/Date(1716854400000)\/",
+                              "InfName":  "oem189.inf",
+                              "DeviceID":  "SWD\\DRIVERENUM\\{12D32D00-C5BF-4A3B-A030-EBA5AB6FD0DD}#REALTEKINTAPO\u00266\u002621625669\u00260"
+                          },
+                          {
+                              "DeviceName":  "Tecnologia Intel® Smart Sound para microfones digitais",
+                              "Manufacturer":  "Intel(R) Corporation",
+                              "DriverProviderName":  "Intel(R) Corporation",
+                              "DriverVersion":  "10.29.0.9677",
+                              "DriverDate":  "\/Date(1692921600000)\/",
+                              "InfName":  "oem132.inf",
+                              "DeviceID":  "INTELAUDIO\\CTLR_DEV_51CA\u0026LINKTYPE_02\u0026DEVTYPE_00\u0026VEN_8086\u0026DEV_AE20\u0026SUBSYS_144DC884\u0026REV_10EC\\5\u0026CCDD992\u00260\u00260000"
+                          },
+                          {
+                              "DeviceName":  "Realtek Audio Universal Service",
+                              "Manufacturer":  "Realtek",
+                              "DriverProviderName":  "Realtek",
+                              "DriverVersion":  "1.0.764.0",
+                              "DriverDate":  "\/Date(1716854400000)\/",
+                              "InfName":  "oem31.inf",
+                              "DeviceID":  "SWD\\DRIVERENUM\\{C3A63EDD-2D27-4B66-B155-5E94B43D926A}#REALTEKSRV\u00266\u0026BDD159A\u00260"
+                          },
+                          {
+                              "DeviceName":  "Generic software component",
+                              "Manufacturer":  "Microsoft",
+                              "DriverProviderName":  "Microsoft",
+                              "DriverVersion":  "10.0.26100.1",
+                              "DriverDate":  "\/Date(1150848000000)\/",
+                              "InfName":  "c_swcomponent.inf",
+                              "DeviceID":  "SWD\\DRIVERENUM\\{C3A63EDD-2D27-4B66-B155-5E94B43D926A}#REALTEKOVWRAPN\u00266\u0026BDD159A\u00260"
+                          },
+                          {
+                              "DeviceName":  "Realtek OVWrap2 Component",
+                              "Manufacturer":  "Realtek",
+                              "DriverProviderName":  "Realtek",
+                              "DriverVersion":  "11.0.6000.37",
+                              "DriverDate":  "\/Date(1700438400000)\/",
+                              "InfName":  "oem162.inf",
+                              "DeviceID":  "SWD\\DRIVERENUM\\{C3A63EDD-2D27-4B66-B155-5E94B43D926A}#REALTEKOVWRAP2\u00266\u0026BDD159A\u00260"
+                          },
+                          {
+                              "DeviceName":  "Realtek Hardware Support Application",
+                              "Manufacturer":  "Realtek",
+                              "DriverProviderName":  "Realtek",
+                              "DriverVersion":  "11.0.6000.331",
+                              "DriverDate":  "\/Date(1716768000000)\/",
+                              "InfName":  "oem251.inf",
+                              "DeviceID":  "SWD\\DRIVERENUM\\{C3A63EDD-2D27-4B66-B155-5E94B43D926A}#REALTEKHSA\u00266\u0026BDD159A\u00260"
+                          },
+                          {
+                              "DeviceName":  "Realtek Audio Effects Component",
+                              "Manufacturer":  "Realtek",
+                              "DriverProviderName":  "Realtek",
+                              "DriverVersion":  "13.570.1221.308",
+                              "DriverDate":  "\/Date(1716854400000)\/",
+                              "InfName":  "oem189.inf",
+                              "DeviceID":  "SWD\\DRIVERENUM\\{C3A63EDD-2D27-4B66-B155-5E94B43D926A}#REALTEKAPO\u00266\u0026BDD159A\u00260"
+                          },
+                          {
+                              "DeviceName":  "Realtek High Definition Audio",
+                              "Manufacturer":  "Microsoft",
+                              "DriverProviderName":  "Realtek Semiconductor Corp.",
+                              "DriverVersion":  "6.0.9689.1",
+                              "DriverDate":  "\/Date(1716854400000)\/",
+                              "InfName":  "oem37.inf",
+                              "DeviceID":  "INTELAUDIO\\FUNC_01\u0026VEN_10EC\u0026DEV_0256\u0026SUBSYS_144DC884\u0026REV_1000\\5\u0026CCDD992\u00260\u00260001"
+                          },
+                          {
+                              "DeviceName":  "Verificação da detecção da Tecnologia Intel® Smart Sound",
+                              "Manufacturer":  "Intel(R) Corporation",
+                              "DriverProviderName":  "Intel(R) Corporation",
+                              "DriverVersion":  "1.0.3045.0",
+                              "DriverDate":  "\/Date(1686873600000)\/",
+                              "InfName":  "oem190.inf",
+                              "DeviceID":  "{DD8E82AE-334B-49A2-AEAE-AEB0FD5C40DD}\\DETECTIONVERIFICATION\\5\u0026CCDD992\u00260\u00260"
+                          },
+                          {
+                              "DeviceName":  "OED da Tecnologia Intel® Smart Sound",
+                              "Manufacturer":  "Intel(R) Corporation",
+                              "DriverProviderName":  "Intel(R) Corporation",
+                              "DriverVersion":  "10.29.0.9677",
+                              "DriverDate":  "\/Date(1692921600000)\/",
+                              "InfName":  "oem53.inf",
+                              "DeviceID":  "INTELAUDIO\\DSP_CTLR_DEV_51CA\u0026VEN_8086\u0026DEV_0222\u0026SUBSYS_C884144D\u0026REV_0001\\4\u00263B107CE0\u00260\u00260800"
+                          },
+                          {
+                              "DeviceName":  "Barramento da Tecnologia Intel® Smart Sound",
+                              "Manufacturer":  "Intel(R) Corporation",
+                              "DriverProviderName":  "Intel(R) Corporation",
+                              "DriverVersion":  "10.29.0.9677",
+                              "DriverDate":  "\/Date(1692921600000)\/",
+                              "InfName":  "oem126.inf",
+                              "DeviceID":  "PCI\\VEN_8086\u0026DEV_51CA\u0026SUBSYS_C884144D\u0026REV_01\\3\u002611583659\u00260\u0026FB"
+                          },
+                          {
+                              "DeviceName":  "USB Audio Device",
+                              "Manufacturer":  "Microsoft",
+                              "DriverProviderName":  "Microsoft",
+                              "DriverVersion":  "10.0.26100.8521",
+                              "DriverDate":  "\/Date(1778889600000)\/",
+                              "InfName":  "wdma_usb.inf",
+                              "DeviceID":  "USB\\VID_3654\u0026PID_5678\u0026MI_00\\6\u002611060345\u00260\u00260000"
+                          },
+                          {
+                              "DeviceName":  "Realtek USB 2.0 Card Reader",
+                              "Manufacturer":  "Realtek Semiconductor Corp.",
+                              "DriverProviderName":  "Realtek Semiconductor Corp.",
+                              "DriverVersion":  "10.0.26100.31289",
+                              "DriverDate":  "\/Date(1735171200000)\/",
+                              "InfName":  "oem41.inf",
+                              "DeviceID":  "USB\\VID_0BDA\u0026PID_0129\\20100201396000000"
+                          }
+                      ]
+}

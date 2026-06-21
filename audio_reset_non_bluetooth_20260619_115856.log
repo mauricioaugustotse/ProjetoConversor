@@ -1,0 +1,136 @@
+﻿[2026-06-19 11:58:56] Starting non-Bluetooth audio reset.
+[2026-06-19 11:58:56] DeepReinstall=False
+[2026-06-19 11:58:56] IsAdministrator=True
+[2026-06-19 11:59:05] Snapshot saved: C:\Users\mauri\ProjetoConversor\audio_reset_non_bluetooth_snapshot_20260619_115856.json
+[2026-06-19 11:59:05] Targets:
+[2026-06-19 11:59:05]   Unknown | MEDIA | HD Audio Driver for Display Audio | HDAUDIO\SUBFUNC_01&VEN_8086&DEV_281F&NID_0001&SUBSYS_00000000&REV_1000\6&1375DF25&1&0002&00000015
+[2026-06-19 11:59:05]   Unknown | MEDIA | HD Audio Driver for Display Audio | HDAUDIO\SUBFUNC_01&VEN_8086&DEV_281F&NID_0001&SUBSYS_00000000&REV_1000\6&1375DF25&1&0002&00000017
+[2026-06-19 11:59:05]   Unknown | MEDIA | HD Audio Driver for Display Audio | HDAUDIO\SUBFUNC_01&VEN_8086&DEV_281F&NID_0001&SUBSYS_00000000&REV_1000\6&1375DF25&1&0002&0000001D
+[2026-06-19 11:59:05]   Unknown | MEDIA | HD Audio Driver for Display Audio | HDAUDIO\SUBFUNC_01&VEN_8086&DEV_281F&NID_0001&SUBSYS_00000000&REV_1000\6&1375DF25&1&0002&0000001F
+[2026-06-19 11:59:05]   Unknown | MEDIA | HD Audio Driver for Display Audio | HDAUDIO\SUBFUNC_01&VEN_8086&DEV_281F&NID_0001&SUBSYS_00000000&REV_1000\6&1375DF25&1&0002&00000029
+[2026-06-19 11:59:05]   Unknown | MEDIA | HD Audio Driver for Display Audio | HDAUDIO\SUBFUNC_01&VEN_8086&DEV_281F&NID_0001&SUBSYS_00000000&REV_1000\6&1375DF25&1&0002&0000002B
+[2026-06-19 11:59:05]   OK | MEDIA | Tecnologia Intel® Smart Sound para microfones digitais | INTELAUDIO\CTLR_DEV_51CA&LINKTYPE_02&DEVTYPE_00&VEN_8086&DEV_AE20&SUBSYS_144DC884&REV_10EC\5&CCDD992&0&0000
+[2026-06-19 11:59:05]   OK | MEDIA | Realtek(R) Audio | INTELAUDIO\FUNC_01&VEN_10EC&DEV_0256&SUBSYS_144DC884&REV_1000\5&CCDD992&0&0001
+[2026-06-19 11:59:05]   Unknown | MEDIA | HD Audio Driver for Display Audio | INTELAUDIO\SGPC_FUNC_01&VEN_8086&DEV_281F&SUBSYS_80860101&REV_1000\5&CCDD992&0&0201
+[2026-06-19 11:59:05]   OK | MEDIA | USB Audio | USB\VID_3654&PID_5678&MI_00\6&11060345&0&0000
+[2026-06-19 11:59:05]   OK | HIDClass | Dispositivo de Entrada USB | USB\VID_3654&PID_5678&MI_03\6&11060345&0&0003
+[2026-06-19 11:59:05]   OK | USB | USB Composite Device | USB\VID_3654&PID_5678\2023.06.20
+[2026-06-19 11:59:05] Removing phantom/non-present device: HD Audio Driver for Display Audio
+[2026-06-19 11:59:05] pnputil /remove-device HDAUDIO\SUBFUNC_01&VEN_8086&DEV_281F&NID_0001&SUBSYS_00000000&REV_1000\6&1375DF25&1&0002&00000015
+[2026-06-19 11:59:06]   Utilitário PnP da Microsoft
+[2026-06-19 11:59:06]   
+[2026-06-19 11:59:06]   Removendo o dispositivo:           HDAUDIO\SUBFUNC_01&VEN_8086&DEV_281F&NID_0001&SUBSYS_00000000&REV_1000\6&1375df25&1&0002&00000015
+[2026-06-19 11:59:06]   Dispositivo removido com êxito.
+[2026-06-19 11:59:06]   
+[2026-06-19 11:59:06]   exit=0
+[2026-06-19 11:59:06] Removing phantom/non-present device: HD Audio Driver for Display Audio
+[2026-06-19 11:59:06] pnputil /remove-device HDAUDIO\SUBFUNC_01&VEN_8086&DEV_281F&NID_0001&SUBSYS_00000000&REV_1000\6&1375DF25&1&0002&00000017
+[2026-06-19 11:59:07]   Utilitário PnP da Microsoft
+[2026-06-19 11:59:07]   
+[2026-06-19 11:59:07]   Removendo o dispositivo:           HDAUDIO\SUBFUNC_01&VEN_8086&DEV_281F&NID_0001&SUBSYS_00000000&REV_1000\6&1375df25&1&0002&00000017
+[2026-06-19 11:59:07]   Dispositivo removido com êxito.
+[2026-06-19 11:59:07]   
+[2026-06-19 11:59:07]   exit=0
+[2026-06-19 11:59:07] Removing phantom/non-present device: HD Audio Driver for Display Audio
+[2026-06-19 11:59:07] pnputil /remove-device HDAUDIO\SUBFUNC_01&VEN_8086&DEV_281F&NID_0001&SUBSYS_00000000&REV_1000\6&1375DF25&1&0002&0000001D
+[2026-06-19 11:59:08]   Utilitário PnP da Microsoft
+[2026-06-19 11:59:08]   
+[2026-06-19 11:59:08]   Removendo o dispositivo:           HDAUDIO\SUBFUNC_01&VEN_8086&DEV_281F&NID_0001&SUBSYS_00000000&REV_1000\6&1375df25&1&0002&0000001D
+[2026-06-19 11:59:08]   Dispositivo removido com êxito.
+[2026-06-19 11:59:08]   
+[2026-06-19 11:59:08]   exit=0
+[2026-06-19 11:59:08] Removing phantom/non-present device: HD Audio Driver for Display Audio
+[2026-06-19 11:59:08] pnputil /remove-device HDAUDIO\SUBFUNC_01&VEN_8086&DEV_281F&NID_0001&SUBSYS_00000000&REV_1000\6&1375DF25&1&0002&0000001F
+[2026-06-19 11:59:09]   Utilitário PnP da Microsoft
+[2026-06-19 11:59:09]   
+[2026-06-19 11:59:09]   Removendo o dispositivo:           HDAUDIO\SUBFUNC_01&VEN_8086&DEV_281F&NID_0001&SUBSYS_00000000&REV_1000\6&1375df25&1&0002&0000001F
+[2026-06-19 11:59:09]   Dispositivo removido com êxito.
+[2026-06-19 11:59:09]   
+[2026-06-19 11:59:09]   exit=0
+[2026-06-19 11:59:09] Removing phantom/non-present device: HD Audio Driver for Display Audio
+[2026-06-19 11:59:09] pnputil /remove-device HDAUDIO\SUBFUNC_01&VEN_8086&DEV_281F&NID_0001&SUBSYS_00000000&REV_1000\6&1375DF25&1&0002&00000029
+[2026-06-19 11:59:10]   Utilitário PnP da Microsoft
+[2026-06-19 11:59:10]   
+[2026-06-19 11:59:10]   Removendo o dispositivo:           HDAUDIO\SUBFUNC_01&VEN_8086&DEV_281F&NID_0001&SUBSYS_00000000&REV_1000\6&1375df25&1&0002&00000029
+[2026-06-19 11:59:10]   Dispositivo removido com êxito.
+[2026-06-19 11:59:10]   
+[2026-06-19 11:59:10]   exit=0
+[2026-06-19 11:59:10] Removing phantom/non-present device: HD Audio Driver for Display Audio
+[2026-06-19 11:59:10] pnputil /remove-device HDAUDIO\SUBFUNC_01&VEN_8086&DEV_281F&NID_0001&SUBSYS_00000000&REV_1000\6&1375DF25&1&0002&0000002B
+[2026-06-19 11:59:11]   Utilitário PnP da Microsoft
+[2026-06-19 11:59:11]   
+[2026-06-19 11:59:11]   Removendo o dispositivo:           HDAUDIO\SUBFUNC_01&VEN_8086&DEV_281F&NID_0001&SUBSYS_00000000&REV_1000\6&1375df25&1&0002&0000002B
+[2026-06-19 11:59:11]   Dispositivo removido com êxito.
+[2026-06-19 11:59:11]   
+[2026-06-19 11:59:11]   exit=0
+[2026-06-19 11:59:11] Removing phantom/non-present device: HD Audio Driver for Display Audio
+[2026-06-19 11:59:11] pnputil /remove-device INTELAUDIO\SGPC_FUNC_01&VEN_8086&DEV_281F&SUBSYS_80860101&REV_1000\5&CCDD992&0&0201
+[2026-06-19 11:59:12]   Utilitário PnP da Microsoft
+[2026-06-19 11:59:12]   
+[2026-06-19 11:59:12]   Removendo o dispositivo:           INTELAUDIO\SGPC_FUNC_01&VEN_8086&DEV_281F&SUBSYS_80860101&REV_1000\5&ccdd992&0&0201
+[2026-06-19 11:59:12]   Dispositivo removido com êxito.
+[2026-06-19 11:59:12]   
+[2026-06-19 11:59:12]   exit=0
+[2026-06-19 11:59:12] Restarting present device: Tecnologia Intel® Smart Sound para microfones digitais
+[2026-06-19 11:59:12] pnputil /restart-device INTELAUDIO\CTLR_DEV_51CA&LINKTYPE_02&DEVTYPE_00&VEN_8086&DEV_AE20&SUBSYS_144DC884&REV_10EC\5&CCDD992&0&0000
+[2026-06-19 11:59:13]   Utilitário PnP da Microsoft
+[2026-06-19 11:59:13]   
+[2026-06-19 11:59:13]   Reiniciando o dispositivo:         INTELAUDIO\CTLR_DEV_51CA&LINKTYPE_02&DEVTYPE_00&VEN_8086&DEV_AE20&SUBSYS_144DC884&REV_10EC\5&ccdd992&0&0000
+[2026-06-19 11:59:13]   O dispositivo foi reiniciado com êxito.
+[2026-06-19 11:59:13]   
+[2026-06-19 11:59:13]   exit=0
+[2026-06-19 11:59:13] Restarting present device: Realtek(R) Audio
+[2026-06-19 11:59:13] pnputil /restart-device INTELAUDIO\FUNC_01&VEN_10EC&DEV_0256&SUBSYS_144DC884&REV_1000\5&CCDD992&0&0001
+[2026-06-19 11:59:16]   Utilitário PnP da Microsoft
+[2026-06-19 11:59:16]   
+[2026-06-19 11:59:16]   Reiniciando o dispositivo:         INTELAUDIO\FUNC_01&VEN_10EC&DEV_0256&SUBSYS_144DC884&REV_1000\5&ccdd992&0&0001
+[2026-06-19 11:59:16]   O dispositivo foi reiniciado com êxito.
+[2026-06-19 11:59:16]   
+[2026-06-19 11:59:16]   exit=0
+[2026-06-19 11:59:16] Restarting present device: USB Audio
+[2026-06-19 11:59:16] pnputil /restart-device USB\VID_3654&PID_5678&MI_00\6&11060345&0&0000
+[2026-06-19 11:59:18]   Utilitário PnP da Microsoft
+[2026-06-19 11:59:18]   
+[2026-06-19 11:59:18]   Reiniciando o dispositivo:         USB\VID_3654&PID_5678&MI_00\6&11060345&0&0000
+[2026-06-19 11:59:18]   O dispositivo foi reiniciado com êxito.
+[2026-06-19 11:59:18]   
+[2026-06-19 11:59:18]   exit=0
+[2026-06-19 11:59:18] Restarting present device: Dispositivo de Entrada USB
+[2026-06-19 11:59:18] pnputil /restart-device USB\VID_3654&PID_5678&MI_03\6&11060345&0&0003
+[2026-06-19 11:59:19]   Utilitário PnP da Microsoft
+[2026-06-19 11:59:19]   
+[2026-06-19 11:59:19]   Reiniciando o dispositivo:         USB\VID_3654&PID_5678&MI_03\6&11060345&0&0003
+[2026-06-19 11:59:19]   O dispositivo foi reiniciado com êxito.
+[2026-06-19 11:59:19]   
+[2026-06-19 11:59:19]   exit=0
+[2026-06-19 11:59:19] Restarting present device: USB Composite Device
+[2026-06-19 11:59:19] pnputil /restart-device USB\VID_3654&PID_5678\2023.06.20
+[2026-06-19 11:59:20]   Utilitário PnP da Microsoft
+[2026-06-19 11:59:20]   
+[2026-06-19 11:59:20]   Reiniciando o dispositivo:         USB\VID_3654&PID_5678\2023.06.20
+[2026-06-19 11:59:20]   O dispositivo foi reiniciado com êxito.
+[2026-06-19 11:59:20]   
+[2026-06-19 11:59:20]   exit=0
+[2026-06-19 11:59:20] Scanning for hardware changes.
+[2026-06-19 11:59:20] pnputil /scan-devices
+[2026-06-19 11:59:23]   Utilitário PnP da Microsoft
+[2026-06-19 11:59:23]   
+[2026-06-19 11:59:23]   Verificando se há alterações de hardware do dispositivo.
+[2026-06-19 11:59:23]   Verificação concluída.
+[2026-06-19 11:59:23]   
+[2026-06-19 11:59:23]   exit=0
+[2026-06-19 11:59:23] Restarting Windows Audio service.
+[2026-06-19 11:59:24] Windows Audio service restarted.
+[2026-06-19 11:59:26] Post-reset MEDIA devices:
+[2026-06-19 11:59:26]   OK | MEDIA | Realtek(R) Audio | INTELAUDIO\FUNC_01&VEN_10EC&DEV_0256&SUBSYS_144DC884&REV_1000\5&CCDD992&0&0001
+[2026-06-19 11:59:26]   OK | MEDIA | USB Audio | USB\VID_3654&PID_5678&MI_00\6&11060345&0&0000
+[2026-06-19 11:59:26]   OK | MEDIA | Tecnologia Intel® Smart Sound para microfones digitais | INTELAUDIO\CTLR_DEV_51CA&LINKTYPE_02&DEVTYPE_00&VEN_8086&DEV_AE20&SUBSYS_144DC884&REV_10EC\5&CCDD992&0&0000
+[2026-06-19 11:59:26] Post-reset AudioEndpoint devices:
+[2026-06-19 11:59:26]   Unknown | AudioEndpoint | Fones de ouvido (Realtek(R) Audio) | SWD\MMDEVAPI\{0.0.0.00000000}.{A26044C2-22D7-4EE8-9B07-56C1C9BCCFF9}
+[2026-06-19 11:59:26]   Unknown | AudioEndpoint | Microfone (Realtek(R) Audio) | SWD\MMDEVAPI\{0.0.1.00000000}.{DD8DE0ED-CB47-4C33-B2CF-C47A3F5F7BC6}
+[2026-06-19 11:59:26]   OK | AudioEndpoint | Grupo de microfones (Tecnologia Intel® Smart Sound para microfones digitais) | SWD\MMDEVAPI\{0.0.1.00000000}.{48297F3D-C07A-401C-961B-0AC5CF7FD55B}
+[2026-06-19 11:59:26]   OK | AudioEndpoint | Alto-falantes (USB Audio) | SWD\MMDEVAPI\{0.0.0.00000000}.{ACE6F36D-7FD5-488E-A771-399812CCAABF}
+[2026-06-19 11:59:26]   OK | AudioEndpoint | Alto-falantes (Realtek(R) Audio) | SWD\MMDEVAPI\{0.0.0.00000000}.{FAC74263-3460-4BF5-8DA6-0DBFF4310257}
+[2026-06-19 11:59:26]   OK | AudioEndpoint | Microfone (USB Audio) | SWD\MMDEVAPI\{0.0.1.00000000}.{DAE6B87F-057A-4D81-B30D-F9139915AD4B}
+[2026-06-19 11:59:26] Completed. Log: C:\Users\mauri\ProjetoConversor\audio_reset_non_bluetooth_20260619_115856.log
+[2026-06-19 11:59:26] Snapshot: C:\Users\mauri\ProjetoConversor\audio_reset_non_bluetooth_snapshot_20260619_115856.json

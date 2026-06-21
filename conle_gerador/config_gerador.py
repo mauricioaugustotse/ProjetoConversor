@@ -125,10 +125,24 @@ BASES_RAG = {
         "props_texto": None,
         "flag_rag": None,
     },
+    # Biblioteca CONLE "Livros e artigos" — obras limpas/estruturadas (interseccionalidade,
+    # Cartilha AGU 2024, TSE perfil racial, NT 30 anos de cotas, Eleições 2026/Senado, Entre Nós
+    # e o relatório IDP/LIA — todos CONSOLIDADOS aqui), 1 linha por chunk + coluna "obra".
+    # (O database separado "LIA Integridade - RAG" foi arquivado; a base "lia" foi removida.)
+    "livros": {
+        "id": "38572195-5c64-819a-80aa-c7d58de8bef2",
+        "titulo": "Livros e artigos - RAG",
+        "label": "Livros e artigos (biblioteca)",
+        "categoria": "doutrina",
+        "props_conteudo": ["subsecao", "texto_rag"],
+        "props_contexto": ["obra", "secao", "artigos", "jurisdicoes"],
+        "props_texto": ["texto_rag", "obra", "secao", "subsecao", "artigos"],
+        "flag_rag": "incluir_no_rag",
+    },
 }
 
 # Bases ligadas por padrão na GUI (DJe fica opcional; sessões agora incluída, curada).
-BASES_PADRAO = ["vademecum", "resolucoes_tse", "codigo_eleitoral", "temas", "sess_es"]
+BASES_PADRAO = ["vademecum", "resolucoes_tse", "codigo_eleitoral", "temas", "sess_es", "livros"]
 
 # Nunca indexar/consultar bases cujo título contenha estes termos.
 EXCLUIR_TITULOS = ("BACKUP",)
