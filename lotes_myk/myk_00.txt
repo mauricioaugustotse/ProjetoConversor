@@ -1,0 +1,70 @@
+﻿1	MYKONOS	Acerto de valores da entrada.xlsx
+2	MYKONOS	Anexo A - formalização de compra e venda - Reserva Mykonos SQNW 109 unidade 505.docx
+3	MYKONOS	Anexo A - Formalização de compra e venda - Reserva Mykonos un. 505.pdf
+4	MYKONOS	Atualização de dados cadastrais Reserva Mykonos - UH 505 - 2026-05-22.pdf
+5	MYKONOS	Boleto - engenharia Caixa Econômica (2026-01-21).pdf
+6	MYKONOS	Boleto - FGTS avaliação Mykonos (2026-05-14).pdf
+7	MYKONOS	Boleto avaliação de bens CAIXA - Mykonos - 2026-01-21 - R$ 750,00.pdf
+8	MYKONOS	Boleto avaliação funding FGTS Mykonos - venc 2026-05-21.pdf
+9	MYKONOS	Boleto chaves Mykonos GEOPI - R$ 325,597 - venc. 2026-05-22.pdf
+10	MYKONOS	Boleto custas de cartório RGI Mykonos - Uniproof - venc 2026-07-01 - R$ 3.226,98.pdf
+11	MYKONOS	Boleto ITBI MYKONOS - nº 03 06 2026-948-0000089 - valor pactuado R$ 1.584.166,15.pdf
+12	MYKONOS	Boleto POUPEX - FGTS (2026-05-14).pdf
+13	MYKONOS	Boleto Poupex - Tarifa de utilização do FGTS Pró-Cotista e CCI - 2026-05-04 - R$ 1.121,97.pdf
+14	MYKONOS	Boleto sinal R$ 105.942,00 UH 505 - Mykonos - 2026-01-12.pdf
+15	MYKONOS	Boleto Sinal R$ 52.627,00 UH 505 Mykonos - 2026-01-12.pdf
+16	MYKONOS	CAIXA - Autorização forma de pagamento prestações habitacionais MO3844 assinado.pdf
+17	MYKONOS	Certidão cartório 3º Ofício Brasília - compra e venda FHE (substituição) - Mykonos.pdf
+18	MYKONOS	Certidão positiva com efeito de negativa - IPTU e TLP - Mykonos - 2026.pdf
+19	MYKONOS	Certidão simplificada - Cartório Marcelo Ribas (RTD) - Mykonos.pdf
+20	MYKONOS	Certidão simplificada - RTD Cartório Marcelo Ribas - Mykonos (Poupex).pdf
+21	MYKONOS	Comprovante de Inscrição CNPJ - Fundação Habitacional do Exército (FHE) 00.643.742-0001-35.pdf
+22	MYKONOS	Comprovante de pagamento ITBI - Mykonos - 2026.pdf
+23	MYKONOS	Comprovante de pagamento R$ 325.597,15 - UH 505 - FHE - 2026-05-18.pdf
+24	MYKONOS	Comprovante de pagamento R$ 52.627,00 UH 505 - FHE CAIXA (2026-01-12) - Mykonos.pdf
+25	MYKONOS	Comprovante pagamento avaliação POUPEX MYKONOS - Maurício.pdf
+26	MYKONOS	Comprovante Pagamento Mykonos R$ 52.627,00 UH 505.pdf
+27	MYKONOS	Comprovante pagamento R$ 105.942,00 UH 505 - FHE Mykonos - 2026-01-12.pdf
+28	MYKONOS	Comprovante Pix cartório RGI Uniproof - Mykonos - 2026-06-25 - R$ 3.226,98.pdf
+29	MYKONOS	Comprovante situação cadastral CPF - Ana Carolina - 2026-01-19.pdf
+30	MYKONOS	Considerações sobre cálculos de resgate da Funpresp-Jud.docx
+31	MYKONOS	Conta-corrente Maurício - CAIXA (2025-11-17).pdf
+32	MYKONOS	Conta-salário Caixa - autorização de inclusão - MAURÍCIO.pdf
+33	MYKONOS	Contracheque - Ana Carolina - IGESDF - 03-2026 (atualizado).pdf
+34	MYKONOS	Contracheque Ana Carolina - IGESDF (Médica Cardiologista) - 2025-11.pdf
+35	MYKONOS	Contracheque Ana Carolina IGESDF - 10-2025.pdf
+36	MYKONOS	Contracheque Câmara dos Deputados - Maurício - consultor legislativo (atualizado).pdf
+37	MYKONOS	Contracheque Maurício - Câmara dos Deputados (Consultor Legislativo).pdf
+38	MYKONOS	Contrato de compra e venda Mykonos assinado - Pró-Cotista - 05130003107470-1.pdf
+39	MYKONOS	Contrato de promessa de compra e venda UH 505 Mykonos - FHE (parte 2).pdf
+40	MYKONOS	Contrato promessa de compra e venda - UH 505 Reserva Mykonos (parte 1).pdf
+41	MYKONOS	CTPS Digital - Ana Carolina - emissão 2023-02-25.pdf
+42	MYKONOS	Declaração de 1ª aquisição imobiliária SFH MYKONOS - assinada - Maurício e Ana Carolina.pdf
+43	MYKONOS	Declaração de Ausência de Vínculo FHE - Ana Carolina (FORMGEOPI1-003 v.01).docx
+44	MYKONOS	Declaração de ausência de vínculo FHE - Ana Carolina (FORMGEOPI1-003) - Mykonos.pdf
+45	MYKONOS	Declaração de ausência de vínculo FHE - Maurício (FORMGEOPI1-003) - Mykonos.pdf
+46	MYKONOS	Declaração de ausência de vínculo FHE - Maurício.docx
+47	MYKONOS	Declaração de conhecimento dos critérios de prioridade FHE 2026 - Mykonos.pdf
+48	MYKONOS	Declaração de Conhecimento sobre Critérios de Prioridade da FHE 2026 - Maurício e Ana Carolina.docx
+49	MYKONOS	Declaração Funcional Câmara dos Deputados - Maurício - posse 2025-12-08 (p. Caixa).pdf
+50	MYKONOS	Declaração pagamento com recursos próprios - Mykonos.pdf
+51	MYKONOS	DEFIS 2024 - Meira Clínica Médica LTDA (exercício 2025) - Mykonos.pdf
+52	MYKONOS	DEFIS 2024 - recibo de entrega - Meira Clínica Médica - Mykonos.pdf
+53	MYKONOS	DEFIS 2025 - Meira Clínica Médica LTDA - ano-calendário 2025.pdf
+54	MYKONOS	Demonstrativo de cálculo do ITBI MYKONOS - nº 03 06 2026-948-0000089.pdf
+55	MYKONOS	Demonstrativo de Pagamento de Salário IGESDF 10-2025 - Ana Carolina Miguel - CPF 090.941.686-93 - Matrícula 14931.pdf
+56	MYKONOS	Demonstrativo de pagamento salário IGESDF 09-2025 - Ana Carolina (contrato 14931).pdf
+57	MYKONOS	Estatuto da FHE - Portaria 986 de 18-09-2020 - DOU (contrato social).pdf
+58	MYKONOS	Extrato Conta Corrente - MEIRA C M EIRELI (2025-09-19).pdf
+59	MYKONOS	Extrato Conta Corrente - MEIRA C M EIRELI (últimos 6 meses).pdf
+60	MYKONOS	Extrato conta corrente PJ Meira C M Eireli - 2025-11 - Mykonos (2).pdf
+61	MYKONOS	Extrato de conta corrente PJ - Meira C M Eireli - nov-dez 2025.pdf
+62	MYKONOS	Extrato FGTS - Ana Carolina Miguel Meira e Silva - IGESDF 2023.pdf
+63	MYKONOS	Extrato Funpresp-Jud - CNPB 2013.0017-38 (Maurício).pdf
+64	MYKONOS	Extrato PJ 5 - Meira C M Eireli, conta corrente julho-agosto 2025.pdf
+65	MYKONOS	Extrato PJ Meira C M Eireli - Mykonos - junho-julho 2025.pdf
+66	MYKONOS	Extrato PJ Meira C M Eireli - set-out 2025.pdf
+67	MYKONOS	Extrato Previdenciário Funpresp-Jud - MAURÍCIO 2026-01-08.pdf
+68	MYKONOS	Fatura Telefônica Vivo - Mykonos - venc. 2025-05-26 - R$ 152,12.pdf
+69	MYKONOS	Fatura Vivo Total venc. 2026-04-27 - R$ 380 (Mykonos).pdf
+70	MYKONOS	Formulário atualização cadastral - Mykonos UH 505 - amortização R$ 325.597,15 (2026-05-22).pdf

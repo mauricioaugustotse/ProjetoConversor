@@ -1,0 +1,36 @@
+﻿Guillon
+Guillon\Jacir Garcia e Cecília Maria de Souza
+Guillon\Jose Antonio de Souza
+Guillon\Kamilla
+Inventário
+LE
+Problema Aeed
+Problema Aeed\Cancelar acesso_arquivos
+Problema Aeed\Res TSE  GSTI - Chamado 322643 Respondido_arquivos
+Processos
+Processos\Azul
+Processos\Unidas
+Tce_ms
+Totalização
+Totalização\relatoriosPF-TSE
+TSE
+TSE\13.23%
+TSE\Acerto de Contas
+TSE\AGEL
+TSE\Arquivos de Chat do Microsoft Teams
+TSE\Atestados
+TSE\Capturas de tela
+TSE\Certificados
+TSE\Consultas Populares
+TSE\Cursos
+TSE\FC's
+TSE\Licença Capacitação
+TSE\Notion
+TSE\Novo Código Eleitoral
+TSE\Planilha gerencial SEGJUR
+TSE\Posse
+TSE\Provimentos e vacâncias
+TSE\Reforma da Previdência
+TSE\Resoluções (Covid-19)
+TSE\SEDEG
+TSE\Voto Impresso

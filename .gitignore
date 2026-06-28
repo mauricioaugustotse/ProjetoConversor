@@ -44,3 +44,8 @@ Artefatos/reports/
 Artefatos/logs/
 Artefatos/intermediarios/
 Artefatos/dados/csv/
+
+# Dumps de texto extraido de documentos (grandes; podem conter segredos colados no conteudo)
+conteudo_doc/*.tsv
+# Arquivo de lote que continha credencial capturada do conteudo
+lotes_ren/lote_011.txt

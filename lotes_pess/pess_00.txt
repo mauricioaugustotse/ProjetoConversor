@@ -1,0 +1,40 @@
+﻿1	01 - Pessoal e identidade	Carteira de ID - DF.jpeg
+2	01 - Pessoal e identidade	CNH-e - Maurício Augusto Chiaramonte Vieira.pdf
+3	01 - Pessoal e identidade	RG - DF - MAURÍCIO.jpg
+4	01 - Pessoal e identidade	RG DF - Maurício Augusto Chiaramonte Vieira (e-Identidade).pdf
+5	01 - Pessoal e identidade\OAB	Certidão Criminal Negativa Justiça Federal TRF1 nº 2453410 2026 - Maurício (OAB).pdf
+6	01 - Pessoal e identidade\OAB	Certidão Criminal Negativa TJDFT - até 2026-01-02.pdf
+7	01 - Pessoal e identidade\OAB	Certidão criminal negativa TRF6 - 2026-01-02 - OAB.pdf
+8	01 - Pessoal e identidade\OAB	Certidão de Quitação Eleitoral TSE - Maurício - 2026-01-02 (OAB).pdf
+9	01 - Pessoal e identidade\OAB	Certificado de Dispensa de Incorporação - Maurício (militar).pdf
+10	01 - Pessoal e identidade\OAB	Comprovante de endereço - fatura Telefônica 12-2025 - SQSW 105 - OAB.pdf
+11	01 - Pessoal e identidade\OAB	Comprovante de Situação Cadastral no CPF - Maurício - 2026-01-02 (OAB).pdf
+12	01 - Pessoal e identidade\OAB	e-Título eleitoral com QR Code - Maurício Augusto Chiaramonte Vieira (emissão 2020-03-05).pdf
+13	01 - Pessoal e identidade\OAB	RG Maurício - app e-Identidade - OAB.pdf
+14	03 - Financeiro\BRB	Certidão de casamento - Maurício e Ana Carolina - 2021.pdf
+15	03 - Financeiro\BRB	Comprovante de residência - fatura Claro - venc. 2024-10-20.pdf
+16	03 - Financeiro\BRB	Relatório de Conferência de Margens - Exército - Mario Augusto Vieira - CPF 769.510.067-68.pdf
+17	03 - Financeiro\BRB\Ana Carolina	CTPS digital - Ana Carolina Miguel Meira e Silva - emitida 2023-02-25.pdf
+18	03 - Financeiro\BRB\Ana Carolina	Identidade e CPF - Ana Carolina Miguel Meira e Silva.pdf
+19	03 - Financeiro\BRB\Maurício	RG - Maurício (App e-Identidade) - BRB.pdf.pdf
+20	03 - Financeiro\IRPF\2023	Declaração de Ajuste Anual IRPF exercício 2024 ano-base 2023 - Mauricio (CPF 025.332.581-13).pdf
+21	03 - Financeiro\IRPF\2023	Declaração IRPF 2024 ano-base 2023 - Ana Carolina Miguel - CPF 090.941.686-93.pdf
+22	03 - Financeiro\IRPF\2023	Recibo de entrega IRPF exercício 2024 ano-base 2023 - Ana Carolina (CPF 090.941.686-93).pdf
+23	03 - Financeiro\IRPF\2024	Declaração de Ajuste Anual IRPF 2025 ano-base 2024 - CPF 025.332.581-13.pdf
+24	03 - Financeiro\IRPF\2024\CAROL	IRPF 2024 ano-calend 2023 - Ana Carolina (CPF 090.941.686-93).pdf
+25	03 - Financeiro\IRPF\2025	IRPF 2026 ano-calendário 2025 - Declaração de Ajuste Anual - Maurício (CPF 025.332.581-13).pdf
+26	03 - Financeiro\IRPF\2025	Recibo de entrega IRPF exercício 2026 ano-base 2025 - Mauricio (CPF 025.332.581-13).pdf
+27	04 - Imóveis\MYKONOS	Certidão de casamento - Maurício e Ana Carolina - matrícula 156976 (Cartório Colorado, 2021).pdf
+28	04 - Imóveis\MYKONOS	Comprovante de endereço - fatura Telefônica Vivo - 2026-01 - APTO Mykonos.pdf
+29	04 - Imóveis\MYKONOS	Comprovante de Situação Cadastral no CPF - Maurício - 2026-01-02.pdf
+30	04 - Imóveis\MYKONOS	Comprovante situação cadastral CPF - Ana Carolina - 2026-01-19.pdf
+31	04 - Imóveis\MYKONOS	CTPS Digital - Ana Carolina - emissão 2023-02-25.pdf
+32	04 - Imóveis\MYKONOS	Demonstrativo de Pagamento de Salário IGESDF 10-2025 - Ana Carolina Miguel - CPF 090.941.686-93 - Matrícula 14931.pdf
+33	05 - Jurídico e trabalho\GUILLON\JOSE ANTONIO DE SOUZA	Comprovante Situação Cadastral CPF - José Antonio de Sousa - 2017-10-31.pdf
+34	05 - Jurídico e trabalho\GUILLON\KAMILLA	CTPS.pdf
+35	05 - Jurídico e trabalho\PROCESSOS\Azul	CNH de Anne Catherine Miguel Meira - DETRAN-MG.pdf
+36	05 - Jurídico e trabalho\TSE	Certidão de Tempo de Serviço Militar - EsPCEx - nº 64510.011573 2023-96.pdf
+37	05 - Jurídico e trabalho\TSE\13.23%	Comprovante de endereço - fatura Neoenergia - Maurício (SQS 409, Asa Sul).pdf
+38	05 - Jurídico e trabalho\TSE\POSSE	16 - Certidão de quitação eleitoral - Maurício Augusto Chiaramonte Vieira - 2016-05-02.pdf
+39	05 - Jurídico e trabalho\TSE\POSSE	Certidão de quitação eleitoral nº 2 - Maurício Augusto - 2016-05-02.pdf
+40	05 - Jurídico e trabalho\TSE\POSSE	Declaração de antecedentes criminais - posse TSE.pdf

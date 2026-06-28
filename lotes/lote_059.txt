@@ -1,0 +1,250 @@
+﻿14751	L13105compilada.csv
+14752	L13105compilada.md
+14753	L15190.csv
+14754	L15190.md
+14755	L5172COMPILADO.csv
+14756	L5172COMPILADO.md
+14757	L8078compilado.csv
+14758	L8078compilado.md
+14759	L9503Compilado.csv
+14760	L9503Compilado.md
+14761	L9504compilado.csv
+14762	L9504compilado.md
+14763	Lcp64compilado.csv
+14764	Lcp64compilado.md
+14765	Anexo.pdf
+14766	GOF.pdf
+14767	LRF + NRF.pdf
+14768	Meu processo.txt
+14769	NLL.pdf
+14770	PLO.pdf
+14771	Autógrafo(1).pdf
+14772	Autógrafo.pdf
+14773	CE - COMPILADO - PROJETO DE LEI COMPLEMENTAR N° 112, DE 2021 - Prismarnney, Carla, Mateus, Rodrigo e Camila.docx
+14774	Estudo Escrito - Novo Código Eleitoral - MAURÍCIO e VÍTOR(1).docx
+14775	Estudo Escrito - Novo Código Eleitoral - MAURÍCIO e VÍTOR.docx
+14776	GRESTA, Roberta - Candidatura sub judice.docx
+14777	Pontos destacados.docx
+14778	Pontos destacados.pdf
+14779	Projeto de Lei Complementar 112 de 2021 - Compilado e comentado(1).docx
+14780	Projeto de Lei Complementar 112 de 2021 - Compilado e comentado.docx
+14781	Propostas para o Senado.docx
+14782	Painel Gerencial - BASE.html
+14783	Painel Gerencial - GEMINI.html
+14784	Painel gerencial SEGJUR.docx
+14785	Planilha gerencial (10).html
+14786	Planilha gerencial (11).html
+14787	Planilha gerencial (12).html
+14788	Planilha gerencial (13).html
+14789	Planilha gerencial (8).html
+14790	Planilha gerencial (9).html
+14791	Sincronização em nuvem.docx
+14792	Banco 1932-1933-1934 (com gráficos).xlsx
+14793	Banco 1932-1933-1934(1).xlsx
+14794	Banco 1932-1933-1934.xlsx
+14795	Banco 1933 (dividido).xlsx
+14796	GerenciamentoDeRiscoAcoesDT.xlsx
+14797	GerenciamentodeRiscoDayTradeAtualizado.xlsx
+14798	GerenciamentoSwingTrade.xlsb
+14799	Planilha - Controle dos Trades - v5.xlsm
+14800	Inst 0600213-79 - DF - suspensão dos cancelamento em revisão do eleitorado.pdf
+14801	PROVIMENTO Nº 1 - CGE, DE 23 DE JANEIRO DE 2019. — Tribunal Superior Eleitoral.html
+14802	anchor.html
+14803	anchor.html
+14804	anchor.html
+14805	anchor.html
+14806	Apuração de votos e eleições extraordinárias.txt
+14807	apuração de votos e eleições extraordinárias_2.csv
+14808	apuração de votos e eleições extraordinárias_3.csv
+14809	apuração de votos e eleições extraordinárias_3_final.csv
+14810	apuração de votos e eleições extraordinárias_3_notion.csv
+14811	Captacao_de_sufragio_notion_final.csv
+14812	Captação de Sufrágio.csv
+14813	Captação de Sufrágio.txt
+14814	Captação de Sufrágio_notion.csv
+14815	coligação e convenção.csv
+14816	Coligação e convenção.txt
+14817	coligação e convenção_notion.csv
+14818	coligação e convenção_notion_final.csv
+14819	coligação e convenção_notion_final_invertido.csv
+14820	Comprovacao_de_receitas_e_gastos_partidarios_notion_final.csv
+14821	Comprovação de receitas e gastos partidários.csv
+14822	Comprovação de receitas e gastos partidários.txt
+14823	Comprovação de receitas e gastos partidários_notion.csv
+14824	Condutas vedadas a agentes públicos.txt
+14825	condutas_vedadas_a_agentes_publicos.csv
+14826	condutas_vedadas_a_agentes_publicos_notion_final.csv
+14827	condutas_vedadas_a_agentes_publicos_notion_final_invertido.csv
+14828	Contas_de_Campanha_Eleitoral.csv
+14829	Contas_de_Campanha_Eleitoral.txt
+14830	Contas_de_Campanha_Eleitoral_notion.csv
+14831	Contas_de_Campanha_Eleitoral_notion_final.csv
+14832	Contas_de_Campanha_Eleitoral_notion_final_invertido.csv
+14833	crimes_eleitorais_e_processo_penal.csv
+14834	crimes_eleitorais_e_processo_penal.txt
+14835	crimes_eleitorais_e_processo_penal_notion.csv
+14836	Desincompatibilizacao_e_afastamento.csv
+14837	Desincompatibilizacao_e_afastamento.txt
+14838	Desincompatibilizacao_e_afastamento_notion.csv
+14839	diplomacao.csv
+14840	diplomacao.txt
+14841	diplomacao_notion.csv
+14842	Direito de resposta na propaganda eleitoral.csv
+14843	Direito de resposta na propaganda eleitoral.txt
+14844	Direito de resposta na propaganda eleitoral_notion.csv
+14845	eleitor do alistamento ao voto_notion.csv
+14846	Endrentamento à desinformação eleitoral.csv
+14847	Endrentamento à desinformação eleitoral.txt
+14848	Endrentamento à desinformação eleitoral_notion.csv
+14849	Filiação Partidária.csv
+14850	Filiação Partidária.txt
+14851	Filiação Partidária_notion.csv
+14852	inelegibilidades_e_condicoes_de_elegibilidade.csv
+14853	inelegibilidades_e_condicoes_de_elegibilidade_notion.csv
+14854	mandato_eletivo.csv
+14855	mandato_eletivo.txt
+14856	mandato_eletivo_notion.csv
+14857	Mapa da Coletanea - atualizado em 10-9-14.pdf
+14858	materia_processual.csv
+14859	materia_processual.txt
+14860	materia_processual_notion.csv
+14861	Matéria_administrativa.csv
+14862	Matéria_administrativa_notion.csv
+14863	Partido_politico.csv
+14864	Partido_politico.txt
+14865	Partido_politico_notion.csv
+14866	pesquisa eleitoral.csv
+14867	pesquisa eleitoral.txt
+14868	Propaganda Eleitoral.csv
+14869	Propaganda Eleitoral.txt
+14870	Propaganda Eleitoral_notion.csv
+14871	registro_de_candidato.csv
+14872	registro_de_candidato.txt
+14873	registro_de_candidato_notion.csv
+14874	taxonomia.txt
+14875	Temas Diversos.csv
+14876	Temas Diversos.txt
+14877	Temas Diversos_notion.csv
+14878	TEMAS_SELC_csv_to_notion.py
+14879	TEMAS_SELC_txt_csv_v7.py
+14880	TEMAS_SELC_txt_csv_v8.py
+14881	TEMAS_SELC_txt_to_csv_v4.py
+14882	TEMAS_SELC_txt_to_csv_v6.py
+14883	temas_selec_TSE_all.csv
+14884	temas_selec_TSE_all_part1.csv
+14885	temas_selec_TSE_all_part2.csv
+14886	(Esqueleto) - Artigo.docx
+14887	(Vídeo) - Nos tempos de Moysés Viana (1).txt
+14888	(Vídeo) - Nos tempos de Moysés Viana.txt
+14889	Bibliografia_Doutorado - Departamento de Ciência Política.docx
+14890	CORPO DOCENTE_PÓS-GRADUAÇÃO_USP.xlsx
+14891	Currículo lattes.docx
+14892	Currículo.docx
+14893	DECISOES HISTORICAS REPETIDAS.xls
+14894	Dialética - Aprovação.pdf
+14895	Dialética - E-mail.pdf
+14896	Dialética - Folder.pdf
+14897	Dialética - proposta de revisão (2).pdf
+14898	Dialética - proposta de revisão.pdf
+14899	FUVEST - proficiência - inglês.pdf
+14900	Língua Estrangeira_Inglês_ FD_USP_2018.pdf
+14901	Manual estudando no exterior.pdf
+14902	Minha Biblioteca Virtual.pdf
+14903	Passagem SP  - Língua Estrangeira_Inglês - 19_08_17.pdf
+14904	Professor PUC_RS (indicação Prof. Paolo).txt
+14905	Slides Conquer.pptx
+14906	Tabela SJUR.pdf
+14907	toefl access.txt
+14908	toefl.GIF
+14909	Acordo de Cooperação Técnica USP-TSE.pdf
+14910	RICCI, Paolo - Carta ao TSE.pdf
+14911	TA_Acordo de Cooperação Técnica USP-TSE.pdf
+14912	Comissão de Conciliação Prévia na Administração Pública.docx
+14913	Direito e Temporalidades - impactos do tempo na hermenêutica jurídica.docx
+14914	Prestação de contas eleitoral falsa.docx
+14915	Prestação de contas eleitoral falsa.pdf
+14916	(Conversa) - Elda.docx
+14917	(Defesa de doutorado) - Gustavo Zatelli Correa.docx
+14918	(Palestra) ESPÍNDOLA, Ruy Samuel - justiça eleitoral contramajoritária e soberania popular.docx
+14919	(Resumo) OLIVEIRA, Marcelo Roseno de - Controle das eleições.docx
+14920	(USP) A linha do tempo da estratégia federal de disseminação da COVID-19.pdf
+14921	ABRANCHES, Sérgio - Presidencialismo de coalizão.grifado.pdf
+14922	AGRA, Walber - Temas polêmicos.grifado.pdf
+14923	ANDRADE NETO, João - O positivismo juridico nos labirintos da legalidade.pdf
+14924	ANDRADE NETO, João Andrade; SIQUEIRA, Gustavo Silveira - Um debate sobre a justiça eleitoral no Brasil.pdf
+14925	As_Eleicoes_na_Primeira_Republica.zip
+14926	BARBURY, Victor Emanuel Vilela - Ideias juridicas de José de Alencar.pdf
+14927	BARROSO, Luis Roberto - A judicialização da vida.grifado.pdf
+14928	BOQUADY, Natália Ribeiro Levy - Democracia e internet - os impactos das mídias digitais nas Eleições Gerais de 2018.pdf
+14929	Cadernos Adenauer - Justiça Eleitoral.pdf
+14930	Cadernos Adenauer - Reforma política.pdf
+14931	CARVALHO, Claudia Paiva - Presidencialismo e democracia no Brasil (1946-1956) - sistema de governo, legalidade e crise política.pdf
+14932	CASTRO, Alexander - Max Weber e história do direito - Fundamentos empíricos e historiográficos da soc. jur. Weberiana.pdf
+14933	CHALOUB, Jorge - uma obra entre o reacionismo e o conservadorismo - o pensamento de Olavo de Carvalho.pdf
+14934	DAL FORNO, Rodrigo - A revolta tenentista de 1924 e a participação da aliança libertadora no RS.pdf
+14935	DAVIDSON, James West - Uma breve historia dos Estados.pdf
+14936	DI TELLA, Torcuato - História social da Argentina contemporânea.pdf
+14937	Direito eleitoral no Japão.pdf
+14938	Documentários Globonews (1).txt
+14939	Documentários Globonews.txt
+14940	ELECTORAL JUSTICE - The international IDEA Handbook.pdf
+14941	ESPÍNDOLA, Ruy Samuel - Abuso do poder regulamentar no TSE - contas eleitorais rejeitadas e quitação eleitoral.pdf
+14942	FARRANHA, Ana Cláudia - Bacharelismo, judicialização e toga.pdf
+14943	FERRAZ JR., Tércio Sampaio - O jud. frente à divisão dos poderes - um princípio em decadência.pdf
+14944	FERREIRA, Pinto - Os sistemas eleitorais.pdf
+14945	FRANÇA, Felipe Gallo da - Reforma política - entre a governança e o sistema eleitoral.pdf
+14946	FREYRE, Gilberto - Sobrados e Mucambos.pdf
+14947	FUX, Luiz - Abuso de poder e perda de mandato.grifado.pdf
+14948	FUX, Luiz - Direito Constitucional Eleitoral.grifado.pdf
+14949	GODOY, Arnaldo Sampaio de Moraes - A CF de 1934 no contexto da história do const. brasileiro.pdf
+14950	GOMES, José Jairo - Bens jurídicos eleitorais.pdf
+14951	GOMES, Reginaldo Gonçalves - Natureza coletiva do direito eleitoral.pdf
+14952	HABERMAS, Jürgen - A inclusão do outro.pdf
+14953	HORBACH, Carlos Bastide - Memória jurisprudencial do Min. Pedro Lessa.pdf
+14954	KARNAL, Leandro - História dos EUA - das origens ao séc. XXI.pdf
+14955	LAKATOS e MARCONI - Fundamentos de metodologia científica.pdf
+14956	Leandro_Karnal_História_dos_Estados.mobi
+14957	LIMA, Iara Menezes - Escola da exegese.pdf
+14958	LYNCH, Christian Edward Cyril - A primeira encruzilhada da democracia.pdf
+14959	MAGALHÃES, Maria Carmem Cortês – O mecanismo das “comissões verificadoras” de poderes.pdf
+14960	MANSO, Bruno Paes - A República das milícias.pdf
+14961	MARCON, Marcelo - O Globo e as disputas em cena Brizola e a criação e uma sigla emblemática.pdf
+14962	MARTINIANO, Rodrigo - Direito Eleitoral no EDD.grifado.pdf
+14963	MARTINY, Carina – O chefe político dos mais avançados republicanos – Julho de Castilhos.pdf
+14964	MENON, Gustavo - A tentativa de racionalização do Estado brasileiro na Era Vargas.pdf
+14965	NAKAMURA, Luis Antonio Corona - La justicia electoral en el sistema constitucional mexicano.pdf
+14966	NEVES, Henrique - A Justiça Eleitoral - Breve apanhado histórico, estrutura atual, natureza e noções da competência.pdf
+14967	OLIVEIRA, Bruno Augusto Santos - A erosão do juíz como símbolo.pdf
+14968	PEREIRA, Manuela de Souza - Governança eleitoral na américa latina - dispositivos consttucionais comparados.pdf
+14969	PEREIRA, Rodolfo Viana - Contencioso eleitoral - polissemia conceitural , sistemas comparados e posição brasileira.pdf
+14970	PEREIRA, Rodolfo Viana - Direito eleitoral contra o inimigo.pdf
+14971	PINTO, Joaquim Antônio - Teoria matemática das eleições.pdf
+14972	RECONDO, Felipe - Os Onze - O STF, seus bastidores e suas crises.pdf
+14973	RECONDO, Felipe - Tanques e togas - O STF e a ditadura militar.epub
+14974	ROCHA, Carmen Lúcia Antunes - A reforma eleitoral e sos rumos da democracia no Brasil.pdf
+14975	SILVA, Paulo Rogério - Habermas e a Educação - horizonte do pensamento pós-metafísico.pdf
+14976	SILVA, Thiago; SILVA, Estevão - Eleições no Brasil antes da democracia - o CE de 1932.pdf
+14977	SOUZA, Leonardo e CASTILHO, Rodrigo - O processo civil eleitoral.grifado.pdf
+14978	STRECK, Lenio Luiz - Recepções teóricas inadequadas em terrae brasilis.pdf
+14979	Temas de Direito Eleitoral no Século XXI (2012).pdf
+14980	Uma breve historia dos Estados  - James West Davidson.mobi
+14981	VERBICARO, Loiane Prado - Política, ativismo e discricionariedade judicial.grifado.pdf
+14982	VIEIRA, Tarcísio - Transparência do processo eleitoral brasileiro.pdf
+14983	La dottrina del fascismo 1939.pdf
+14984	ALVIM, Frederico Franco; CARVALHO, Volgane - Da cruz aos códigos - novas formas de abuso e os mec. de prot. da integridade eleitoral.pdf
+14985	ANDRADE NETO, João - Mutações legais no direito eleitoral - repercussões no sistema das invalidades eleitorais e na renovação das eleições.pdf
+14986	BARBOZA, Juliana Costa - Insegurança jurídica das decisões do TSE - análise da cassação de mandatos por abuso do poder econômico.pdf
+14987	GONÇALVES, Luiz Carlos dos Santos - Justiça para os vencedores.pdf
+14988	MALDONADO, Hélio Deivid Amorim - Abuso de poder e seu reflexo na normalidade e legitimidade do pleito.pdf
+14989	MEXICO - El contencioso y la jurisprudencia electorales en derecho comparado.pdf
+14990	MILAGRES, Marcelo de Oliviera - Abuso de poder no processo eleitoral.pdf
+14991	NETO, Raimundo Augusto Fernandes - A gravidade da conduta no abuso de poder.pdf
+14992	OLIVEIRA, Vinícius de - considerações na fundamentação da cassação de mandato.pdf
+14993	SOUZA, Leonardo Fernandes de e PAULA, Jônatas Luiz Moreira de - A questão da ilegitimidade da soberania popular na jurisp. eleitoral.pdf
+14994	MENDES, Conrado Hubner - Direitos fundamentais, separação de poderes e deliberação.pdf
+14995	ANDRADE NETO, João - Ponderação e dever geral de fundamentação no direito eleitoral.pdf
+14996	SALGADO, Eneida Desiree e outros - O livre convencimento do juiz eleitoral versus a fundamentação analítica exigida pelo NCPC.pdf
+14997	BERCOVICI, Gilberto - A origem do sistema eleitoral proporcional no Brasil.pdf
+14998	(Mestrado) PASSOS, Manoel Caetano de Araújo - Representação pol. no pensamento de J. F. de Assis Brasil.pdf
+14999	Assis Brasil - um diplomata da República - vol 1.pdf
+15000	Assis Brasil - um diplomata da República - vol 2.pdf

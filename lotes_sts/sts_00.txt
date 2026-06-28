@@ -1,0 +1,36 @@
+﻿1	.txt	ana.arakaki@unb.br.txt
+2	.pptx	Apresentação - Condutas Vedadas Eleições 2026 - INFRAERO.pptx
+3	.pptx	Apresentação - Metodologia de Desenho dos Distritos para Voto Distrital Misto.pptx
+4	.pptx	Apresentação - Sistema Distrital Misto - Dep. Domingos (revisado).pptx
+5	.pptx	Apresentação - Sistema Eleitoral Distrital Misto - Eleições 2028.pptx
+6	.pptx	APRESENTAÇÃO DA METODOLOGIA DE DESENHO DOS DISTRITOS.pptx
+7	.xlsx	Aprovadas conclusivamente_2011 a 2025.xlsx
+8	.xlsx	Aprovados em Plenário_2011 a 2025.xlsx
+9	.pdf	Aula 04 - voto em parecer - Consultor Legislativo CD (Camile Sabino, 2023).pdf
+10	.pdf	Aula 08 LC 95-98 - Senado (Advogado) Estratégia - 2023-05-15.pdf
+11	.pdf	Aula minuta com proposição - Consultor Legislativo CD - Camile Sabino 2023.pdf
+12	.pdf	Carômetro 13_04.pdf
+13	.pptx	CONDUTAS VEDADAS - INFRAERO.pptx
+14	.pdf	Condutas vedadas aos agentes públicos federais em eleições - AGU 10ª ed. 2024.pdf
+15	.docx	Consulta EC 111_2021 distribuição fundos CONLE.docx
+16	.mp4	Consultoria Digital.mp4
+17	.docx	Coordenação - orientações de distribuição e revisão.docx
+18	.docx	Esboço PLC - Inelegibilidade por perda de mandato (LC 64-1990).docx
+19	.docx	Estudo técnico - bancada feminina ao TSE - 2026-05.docx
+20	.docx	Estudo técnico - Candidaturas femininas resoluções do TSE em 2026 - Maurício - abr 2026.docx
+21	.docx	Estudo Técnico 2025_19680_5 - Hipertrofia do regime de urgências - CONLE - 2026-04.docx
+22	.pdf	HOLTHE, Leo Van - Direito Constitucional - 5ª ed. 2009.pdf
+23	.docx	Informação Técnica - PL vinculando Fundo Partidário e Eleitoral a KPIs.docx
+24	.pdf	Manual de Redação da Presidência da República - 2ª edição (2002).pdf
+25	.pdf	Manual de Redação_2006 - Senado.pdf
+26	.pdf	Manual de Técnica Legislativa 2002 - Senado Federal.pdf
+27	.docx	OF. 54-2026-SECMULHER - posição da Bancada Feminina sobre minirreforma da Lei dos Partidos - 2026-05-05.docx
+28	.pdf	Ofício ONMP nº 26 ao Min. Nunes Marques - resoluções Eleições 2026 - fev. 2026.pdf
+29	.docx	Ofício SECM apoio à Consulta 0601908-68.2022.6.00.0000 - cotas de gênero nos partidos.docx
+30	.doc	Ofício SECMULHER nº 54 de 2026 - minirreforma da Lei dos Partidos Políticos.doc
+31	.docx	OFSECM 26 - ONMP ao Min. Nunes Marques - contribuições às resoluções Eleições 2026.docx
+32	.pdf	Redistritamento SDM sistema distrital misto (2026-04-07).pdf
+33	.pdf	Representação no TSE - JP e Rodrigo Constantino - Coligação Brasil da Esperança.pdf
+34	.xlsx	Simulações Distrital Misto.xlsx
+35	.pptx	Tecnologias, Redes Sociais e IA nas Eleições.pptx
+36	.xlsx	TSE_quadro_bimestral_de_composição.xlsx

@@ -1,0 +1,79 @@
+﻿1	Agravo de Instrumento - prova de títulos (mandado de segurança CD).docx
+2	Análise de sessões de julgamento do TSE no YouTube.txt
+3	Análise jurídica de aula em vídeo do YouTube.txt
+4	Assistente de catalogação jurídica (resumos de jurisprudência).txt
+5	Assistente para registro de atas de julgamento (Grupo TSE).txt
+6	Biblioteca de prompts - diretrizes para análise e catalogação de jurisprudência.docx
+7	Catalogar - prompt assistente de catalogação jurídica (jurisprudência STF e STJ).txt
+8	Complementar pesquisa jurídica com fontes da web.txt
+9	Conferir jurisprudência e números de processos.txt
+10	Conle - PEC 27-2024 Igualdade Racial (FNREPIR) - emenda de redação.docx
+11	Elaboração de sentença penal (árvore e modelo criminal).txt
+12	Elaborador de provas FGV TRF1 - análise do dossiê da banca.txt
+13	Enriquecimento - Informação Técnica CONLE.docx
+14	Estruturar base jurídica no Notion.txt
+15	Estruturar base.md
+16	Expandir ponto do edital - persona Procurador da República - MPF.txt
+17	Explicação de DVS (destaque de votação em separado).rtf
+18	Explicação de Emenda parlamentar.rtf
+19	Explicação destaque emenda CONLE.rtf
+20	Garimpar processos de intervenção e cassação 1932-1937 (Era Vargas).txt
+21	Gemini - Análise jurídica de sessão do TSE em vídeo.docx
+22	IA - seleção de artigos para concurso BNDES (advogado).txt
+23	IA DOD - validação da ferramenta - feedback (concursos).pdf
+24	Informação Técnica (Conle).rtf
+25	JSON Gemini - Criador de mapa mental jurídico (2).txt
+26	JSON Gemini - criador de mapa mental jurídico.txt
+27	JurisConsultor IA (Comentador) - concursos jurídicos.txt
+28	Justificativa de proposição (Conle).rtf
+29	Lcp95.md
+30	Organizar Ata de julgamento de tribunal.txt
+31	Parecer CCJC - datas comemorativas (Conle).rtf
+32	Parecer CCJC sobre admissibilidade de PEC.rtf
+33	Parecer de constitucionalidade - Conle.rtf
+34	Parecer de Plenário a PDL de sustação - CONLE.rtf
+35	Parecer de Plenário datas comemorativas (CONLE).rtf
+36	Parecer de Plenário PRC - Conle.rtf
+37	Parecer de projeto na CCJC (mérito) - Conle.rtf
+38	Parecer Emendas de Plenário - APROVA.rtf
+39	Parecer Emendas de Plenário REJEITA - CONLE.rtf
+40	Parecer PRC Regimento mérito.rtf
+41	Parecer projeto CCJC art. 54 - CONLE.rtf
+42	Perplexity - legislação e julgados.txt
+43	Pesquisa jurídica - Informativos jurisprudenciais.txt
+44	Prompt - explicação de Destaque de Emenda (CONLE).rtf
+45	Prompt - Explicação de DVS (Destaque para Votação em Separado) - CONLE.rtf
+46	Prompt - explicação de Emenda - Conle.rtf
+47	Prompt - parecer de constitucionalidade (CONLE).rtf
+48	Prompt - Parecer de Plenário a PDL de sustação.rtf
+49	Prompt - Parecer de Plenário PRC (CONLE).rtf
+50	Prompt - parecer projeto CCJC art. 54.rtf
+51	Prompt CONLE - informação técnica (INF TEC).rtf
+52	Prompt Conle - Parecer admissibilidade art. 54 CCJC.docx
+53	Prompt Conle - Parecer Emendas de Plenário (rejeita).rtf
+54	Prompt CONLE - parecer PRC sobre Regimento (mérito).rtf
+55	Prompt Consultor Legislativo - elaboração de Projeto de Lei (Conle).docx
+56	Prompt justificativa de proposição - CONLE.rtf
+57	Prompt Parecer CCJC - admissibilidade de PEC.rtf
+58	Prompt Parecer CCJC sobre datas comemorativas.rtf
+59	Prompt Parecer de Plenário - Datas comemorativas.rtf
+60	Prompt Parecer Emendas de Plenário - aprova (Conle).rtf
+61	Prompt Parecer projeto CCJC mérito.rtf
+62	Prompt relatório Parecer - CONLE.rtf
+63	Prova discursiva para magistratura federal.txt
+64	Recurso de nota em prova de sentença criminal - TRF1.txt
+65	Recurso de prova de títulos (pós-graduação) - CD TÍTULOS.docx
+66	Recurso para discursiva da magistratura federal (TRF6).docx
+67	Reformatação de anotações de aula em conteúdo acadêmico.txt
+68	Relatório de atividades em regime híbrido TSE 2022-2024 (Portaria 490 2022).docx
+69	Relatório de inteligência jurídica eleitoral 2026 (Notion @DJe).docx
+70	Relatório de Parecer (Conle).rtf
+71	Revise sua sentença anterior (completude e temas pendentes).txt
+72	Seleção de dispositivos legais a partir de URLs - concurso MPF.txt
+73	Seleção de dispositivos legais em PDFs para concurso MPF.txt
+74	Tabela de questões objetivas TRF6.txt
+75	Tabelas - Recursos Especiais repetitivos.txt
+76	Tabelas de jurisprudência (2).txt
+77	Tabelas didáticas de legislação para concursos.txt
+78	URLs - prompt assistente concurso MPF e sistematização do Direito.txt
+79	YouTube - análise técnica de aula em vídeo (juiz federal).txt

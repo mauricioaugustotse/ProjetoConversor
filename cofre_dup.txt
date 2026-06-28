@@ -1,0 +1,42 @@
+/c/Users/mauri/OneDrive/Cofre Pessoal/Amazon.txt
+/c/Users/mauri/OneDrive/Cofre Pessoal/Carteira de ID - DF - MAURÍCIO.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/Carteira de ID - MG.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/Carteira de ID - SP.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/Carteira de identidade - ANA CAROLINA.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/CASAMENTO/Proposta de viagem (Bariloche).pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/Certidão de casamento - MAURÍCIO e CAROL.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/Certificado de alistamento (antigo).pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/Certificado de alistamento militar-BOOK-32B45C8B6G.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/Certificado de alistamento militar.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/CERTIFICADO DIGITAL/Senha.txt
+/c/Users/mauri/OneDrive/Cofre Pessoal/Conta-salário - CD - MAURÍCIO.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/Diploma Graduação.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/Diploma Mestrado.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/Histórico graduação.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/Histórico mestrado.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/IRPF/2016/Nomeação TSE.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/IRPF/2016/Termo de posse.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/IRPF/2017/NF1.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/IRPF/2017/NF2.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/IRPF/2019/NFe 1.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/IRPF/2023/02533258113-IRPF-A-2024-2023-DEC.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/IRPF/2023/09094168693-IRPF-A-2024-2023-DEC.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/IRPF/2023/Aluguéis SQS 409.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/IRPF/2023/BB.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/IRPF/2023/BRB.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/IRPF/2023/Consórcio - senha 02570670.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/IRPF/2023/Cruze Fipe 2023.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/IRPF/2023/Genial.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/IRPF/2023/Itaú.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/IRPF/2023/ITI.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/IRPF/2023/NFe - integrato odontologia (1).pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/IRPF/2023/NFe - integrato odontologia (2).pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/IRPF/2023/NFe - integrato odontologia (3).pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/IRPF/2023/NFe - integrato odontologico (4).pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/IRPF/2023/NFe - Pacini.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/IRPF/2023/NFS-e - Fenelon.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/IRPF/2023/NFS-e - Ortosul.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/IRPF/2023/Nubank.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/IRPF/2023/Porto Seguro.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/IRPF/2023/TSE.pdf
+/c/Users/mauri/OneDrive/Cofre Pessoal/IRPF/Testar token.txt

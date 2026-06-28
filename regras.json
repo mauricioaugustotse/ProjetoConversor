@@ -1,0 +1,29 @@
+{
+  "lixo": {
+    "extensoes": [".download", ".js", ".css", ".map", ".tmp", ".crdownload"],
+    "nomePatterns": ["saved_resource", "bootstrap", "jquery", "popper", "owl.carousel", "recaptcha", "fancybox", "gijgo", "modernizr", "slick", "datatables", "additional-methods", "jquery.validate", "green-audio-player", "form-validation", "config-je", "rybena", "default.js", "ga.js"]
+  },
+  "normalizacao": {
+    "removerFim": ["\\s*-\\s*C[oó]pia(\\s*\\(\\d+\\))?\\s*$", "\\s*\\(\\d+\\)\\s*$", "\\s*-\\s*[Cc]opy(\\s*\\(\\d+\\))?\\s*$", "\\s*\\(\\d+\\)\\s*-\\s*C[oó]pia\\s*$"],
+    "removerInicio": ["^\\s*C[oó]pia de\\s+"]
+  },
+  "regras": [
+    {"nat": "02 - Estudos e concursos", "tipo": "", "pat": "(disserta[çc][ãa]o|\\btese\\b|monografia|^artigo\\b|\\(artigo\\)|\\bpaper\\b|aula\\s*\\d|^aula\\b|ponto dos concursos|simulado|apostila|gabarito|s[úu]mula|esquematizado|vade ?mecum|^prova\\b|caderno de quest|\\bdoutrina\\b|gran ?curso|estrat[ée]gia concursos|^resumo\\b)"},
+    {"nat": "01 - Jurídico", "tipo": "Recursos", "pat": "^(REspe|AREspe|ARE|AgR|AgRg|AgInt|AI|RO|RR|RE|AC|ED|EDcl|EDv|EAR|REsp|RHC|AgR-RE|AgR-REspe|AgR-AI|AgRg-AI)\\b"},
+    {"nat": "01 - Jurídico", "tipo": "Petições", "pat": "(^pet[\\s_\\.\\-]|peti[çc][ãa]o)"},
+    {"nat": "01 - Jurídico", "tipo": "Acórdãos e decisões", "pat": "(ac[óo]rd[ãa]o|decis[ãa]o|deics[ãa]o|^dec\\b)"},
+    {"nat": "01 - Jurídico", "tipo": "Despachos e votos", "pat": "(despacho|\\bvoto\\b)"},
+    {"nat": "01 - Jurídico", "tipo": "Contestações e manifestações", "pat": "(contesta[çc][ãa]o|manifesta[çc][ãa]o|^cont\\b|^cont\\.|preposi[çc][ãa]o|r[ée]plica|impugna[çc][ãa]o|contrarraz|contra-?raz|raz[õo]es)"},
+    {"nat": "01 - Jurídico", "tipo": "Outros processuais", "pat": "(laudo|mandado|certid[ãa]o|procura[çc][ãa]o|liminar|senten[çc]a|parecer|c[áa]lculo|custas|t[íi]tulo|intima[çc][ãa]o|cita[çc][ãa]o|per[íi]cia|^ms\\b|^hc\\b|^mi\\b|^rcl\\b|jurisdicional|subsidi[áa]ria|execu[çc][ãa]o|habilita[çc][ãa]o|liquida[çc][ãa]o|inadmissibilidade|admissibilidade|\\bautos\\b|den[úu]ncia|^denc\\b|querela|inicial)"},
+    {"nat": "01 - Jurídico", "tipo": "Recursos", "pat": "(\\brecurso\\b|\\bagravo\\b|embargos|apela[çc][ãa]o|revista|^resp\\b)"},
+    {"nat": "03 - Administrativo", "tipo": "", "pat": "(^ci\\b|^of\\b|of[íi]cio|memorando|portaria|^ata\\b|\\bata\\b|edital|^nj\\b|nota jur[íi]dica|^pt\\b|^pc\\b|^pa\\b|^ta\\b|termo aditivo|termo de|cess[ãa]o de uso|manlic|manpes|manpat|^lista|^listas|conv[êe]nio|contrato|^cr\\b|^lt\\b|resolu[çc][ãa]o|comunica[çc][ãa]o interna|formul[áa]rio|sei\\b|espelho)"},
+    {"nat": "04 - Pessoal e financeiro", "tipo": "", "pat": "(comprovante|recibo|pgto|pagto|pagamento|declara[çc][ãa]o|fatura|nota fiscal|imposto|irpf|extrato|boleto|sal[áa]rio|contracheque|holerite|comprob|despesa|or[çc]amento|docs?[\\._]+comprob)"}
+  ],
+  "default": {"nat": "05 - Diversos (a revisar)", "tipo": ""},
+  "taxonomia": {
+    "juridicoNat": "01 - Jurídico",
+    "tipoJuridicoDefault": "Outros processuais",
+    "nats": ["01 - Jurídico", "02 - Estudos e concursos", "03 - Administrativo", "04 - Pessoal e financeiro", "05 - Diversos (a revisar)"],
+    "tiposJuridico": ["Recursos", "Petições", "Acórdãos e decisões", "Despachos e votos", "Contestações e manifestações", "Pareceres e notas técnicas", "Modelos e minutas", "Outros processuais"]
+  }
+}

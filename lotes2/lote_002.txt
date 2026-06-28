@@ -1,0 +1,250 @@
+﻿501	01 - Jurídico	Acórdãos e decisões	Ementário das Ações Rescisórias Ministro Luiz Fux.doc
+502	01 - Jurídico	Acórdãos e decisões	Ementário dos Agravos de Instrumento Ministro Luiz Fux.doc
+503	01 - Jurídico	Acórdãos e decisões	Ementário dos Recursos Especiais Eleitorais Ministro Luiz Fux.doc
+504	01 - Jurídico	Acórdãos e decisões	Ementário Habeas Corpus Ministro Luiz Fux.doc
+505	01 - Jurídico	Acórdãos e decisões	Ementário Outros Ministro Luiz Fux.doc
+506	01 - Jurídico	Acórdãos e decisões	Ementário Petições Luiz Fux.doc
+507	01 - Jurídico	Acórdãos e decisões	Ementário Processos Administrativos Luiz Fux.doc
+508	01 - Jurídico	Acórdãos e decisões	Ementário Protocolos Ministro Luiz Fux.doc
+509	01 - Jurídico	Acórdãos e decisões	Ementário Reclamações Ministro Luiz Fux.doc
+510	01 - Jurídico	Acórdãos e decisões	Ementário Recursos Ordinários Luiz Fux.doc
+511	01 - Jurídico	Acórdãos e decisões	EMPREGADO DA ECT. DISPENSA POR JUSTA CAUSA. AUSENCIA DE NECESSIDADE DE INQUERITO.doc
+512	01 - Jurídico	Acórdãos e decisões	Esqueleto para decisão - AI - mantém decisão agravada.doc
+513	01 - Jurídico	Acórdãos e decisões	Esqueleto para decisão - AI - Negativa de seguimento.docx
+514	01 - Jurídico	Acórdãos e decisões	Esqueleto para decisão - AI - Provimento.docx
+515	01 - Jurídico	Acórdãos e decisões	Esqueleto para decisão - Outros.docx
+516	01 - Jurídico	Acórdãos e decisões	Esqueleto para decisão - REspe.docx
+517	01 - Jurídico	Acórdãos e decisões	EXC 191323 - DECISÃO - Min. Maria Thereza - ausencia - enquadramento - hipoteses - 134,135 CPC - DEZ2014 - VSP.docx
+518	01 - Jurídico	Acórdãos e decisões	Extraordinária 1ª Decisão Comunicação-VIGEP-001-2012.pdf
+519	01 - Jurídico	Acórdãos e decisões	FÁBIO ALVES DECISAO.pdf
+520	01 - Jurídico	Acórdãos e decisões	HABEAS CORPUS Nº 0602348-74 - DECISÃO - extinção - ausência de ilegalidade - OUT2016 - AM - REVISADO.docx
+521	01 - Jurídico	Acórdãos e decisões	HC 060001756 - DECISÃO - substituto revisão criminal -ausencia de excepcionalidade - HC não conhecido - NOV2015 - JBS.doc
+522	01 - Jurídico	Acórdãos e decisões	HC 060002011 - DECISÃO - Desistência - homologação - DEZ2015 - JBS.docx
+523	01 - Jurídico	Acórdãos e decisões	HC 060002011 - DECISÃO - falta debate na origem - supressão instância - NOV2015 - JBS.doc
+524	01 - Jurídico	Acórdãos e decisões	HC 060003220 - DECISÃO - LIMINAR -substituto revisão criminal - supressão instância - JAN2018 - AT.doc
+525	01 - Jurídico	Acórdãos e decisões	HC 060100509 - DECISÃO -substituto revisão criminal - supressão instância - MAR2017 -AM.doc
+526	01 - Jurídico	Acórdãos e decisões	HC 060153110 - DECISÃO - liberdade de runião e expressão -incompetência da JE - AGO2016 - AM.doc
+527	01 - Jurídico	Acórdãos e decisões	HC 060153110 - DECISÃO- PLEBISUL- nega seguimento.doc
+528	01 - Jurídico	Acórdãos e decisões	HC 060268359 - DECISÃO - PERDA DE OBJETO - JUN2017 - AM.doc
+529	01 - Jurídico	Acórdãos e decisões	HC 060391691- DECISÃO -SUCEDANEO RECURSAL-AUSENCIA EXCEPCIONALIDADE-NEGA SEG - SET2017 -AG.doc
+530	01 - Jurídico	Acórdãos e decisões	HC 14627 - DECISÃO - litispendência, extinção sem resolução de mérito - MAI2016 - AT.doc
+531	01 - Jurídico	Acórdãos e decisões	HC 186564- DECISÃO - LIMINAR - NEGATIVA - AUSÊNCIA DE PERIGO - MAR2015 - NB.doc
+532	01 - Jurídico	Acórdãos e decisões	HC 193391 - DECISÃO - extinção - fundamentação abstrata - SET2016 - JBS.doc
+533	01 - Jurídico	Acórdãos e decisões	HC 33406 - DECISÃO - LIMINAR -substituto recurso e revisão criminal -falta debate na origem - supressão instância - JUN2015 - BP.doc
+534	01 - Jurídico	Acórdãos e decisões	HC 3458 - DECISÃO - LIMINAR -substituto revisão criminal - supressão instância - ABR2016 - JBS.doc
+535	01 - Jurídico	Acórdãos e decisões	HC 8555 - DECISÃO - LIMINAR - NEGATIVA - AUSÊNCIA DE PERIGO - FEV2015 - AM.doc
+536	01 - Jurídico	Acórdãos e decisões	HC 8555- DECISÃO- ação penal, trancamento, gravação, exame de provas, nega seguimento - OUT2016 - TPR.doc
+537	01 - Jurídico	Acórdãos e decisões	HC 8739 - DECISÃO - deferimento liminar - incompetencia - juiz eleitoral - MAI2016 - AT - TRANF REL E VOTO JB..doc
+538	01 - Jurídico	Acórdãos e decisões	HC 8739 - DECISÃO - inépcia da inicial - falta de indicação de paciente e ato coator - ABR2016 - JBS.doc
+539	01 - Jurídico	Acórdãos e decisões	HC nº 060014627 - AP - DECISÃO - Desistência - homologação - MAI2016 - ACR-AM.doc
+540	01 - Jurídico	Acórdãos e decisões	HC nº 060014627 - AP - DECISÃO - Desistência - homologação - MAI2016 - ACR.doc
+541	01 - Jurídico	Acórdãos e decisões	HC nº 060234874 - DECISÃO - Desistência - homologação - OUT2016 -AM - AT.doc
+542	01 - Jurídico	Acórdãos e decisões	HC nº 060240155 -DECISÃO - manutenção - distribuição - exercício - presidência - NOV2016 - AT.doc
+543	01 - Jurídico	Acórdãos e decisões	HC nº 060240240 -DECISÃO - Distribuição - Dúvida - Submissão à Presidente do Tribunal - NOV2016 - AM.doc
+544	01 - Jurídico	Acórdãos e decisões	HC nº 060248641 - DECISÃO -supressão de isntância - exame de provas - NOV2016 - AM.doc
+545	01 - Jurídico	Acórdãos e decisões	HC nº 060275228 - DECISÃO - transporte ilegal - flagrante - outra condenação - ordem pública - DEZ2016 - AM.doc
+546	01 - Jurídico	Acórdãos e decisões	HC nº 060275228 - DECISÃO - transporte ilegal - prisão reventiva- outra condenação - reiteração delitiva - ordem pública - MAI2017 - TPR.doc
+547	01 - Jurídico	Acórdãos e decisões	HC nº 060391691- DECISÃO - Desistência - homologação - FGPC.docx
+548	01 - Jurídico	Acórdãos e decisões	HC nº 060427626 - PJe - confirmada liminar princípio da correlação acórdão diferente da denúncia presença de justa causa ordem denegada - MAI2018 - MACV - ORN.docx
+549	01 - Jurídico	Acórdãos e decisões	HC nº 060427626 - PJe - confirmada liminar, princípio da correlação, acórdão diferente da denúncia, presença de justa causa, ordem denegada - MAI2018 - MACV - ORN.docx
+550	01 - Jurídico	Acórdãos e decisões	HC nº 060427626 - PJe - confirmada liminar, princípio da correlação, acórdão diferente da denúncia, presença de justa causa, ordem denegada - MAI2018 - MACV.docx
+551	01 - Jurídico	Acórdãos e decisões	HC nº 060427626 - PJe - princípio da correlação, acórdão diferente da denúncia, concessão da ordem - MAR2018 - MACV (revisado).docx
+552	01 - Jurídico	Acórdãos e decisões	HC nº 060427626 - PJe - princípio da correlação, acórdão diferente da denúncia, concessão da ordem - MAR2018 - MACV.docx
+553	01 - Jurídico	Acórdãos e decisões	HC nº 060427626 - PJe - prisão preventiva, novo delito durante semi-aberto, decisão fundamentada, nega seguimento - ABR2018 - MACV.docx
+554	01 - Jurídico	Acórdãos e decisões	HD nº 0601460-37 - RS - PJe, El 2018, ausência comprovação filiação partidária, acesso Filiaweb, não conhecimento - SET2018 - KCMR - LL - LC.docx
+555	01 - Jurídico	Acórdãos e decisões	Indeferimento de PCA's.pdf
+556	01 - Jurídico	Acórdãos e decisões	Indeferimento inscrição definitiva.pdf
+557	01 - Jurídico	Acórdãos e decisões	Indertido Proibitório.pdf
+558	01 - Jurídico	Acórdãos e decisões	INTEIRO TEOR - PARENTESCO.doc
+559	01 - Jurídico	Acórdãos e decisões	InteiroTeor_10079073464376001.pdf
+560	01 - Jurídico	Acórdãos e decisões	InteiroTeor_10245091713306001.pdf
+561	01 - Jurídico	Acórdãos e decisões	Irregularidades afastadas na PC 267-46.docx
+562	01 - Jurídico	Acórdãos e decisões	Irregularidades afastadas PPS.docx
+563	01 - Jurídico	Acórdãos e decisões	Irregularidades afastadas PSC.docx
+564	01 - Jurídico	Acórdãos e decisões	José Martins Moreira - Prescrição na Justiça do Trabalho - decisão interlocutória.doc
+565	01 - Jurídico	Acórdãos e decisões	JULGAR COM O RESPE - AC 0601976-57 - BA - aije abuso meios comunicação, ausência dos dois requisitos, indeferimento, TCCB -MFF - ORN.docx
+566	01 - Jurídico	Acórdãos e decisões	jurisprudencia_base.csv
+567	01 - Jurídico	Acórdãos e decisões	Leading Case - Min. Og - Re 060182047-ES -Ausência de multa.doc
+568	01 - Jurídico	Acórdãos e decisões	Leading case MS 26860 - MS - Acórdão.pdf
+569	01 - Jurídico	Acórdãos e decisões	Leading case MS 28440 - PR - Acórdão.pdf
+570	01 - Jurídico	Acórdãos e decisões	LT 06005566- DECISÃO - duplicidade - ARQUIVAMENTO - MAR2017 - AM.doc
+571	01 - Jurídico	Acórdãos e decisões	LT 43106 - DECISÃO - Cumprimento de diligências e sobrestamento do processo - DEZ2015 - JBS.doc
+572	01 - Jurídico	Acórdãos e decisões	LT 43106 - DECISÃO - sobrestamento do processo - OUT2016 - ACR.doc
+573	01 - Jurídico	Acórdãos e decisões	LT n° 51740 -BA - redator para acórdão, relatório e voto, nepotismo afastado, encaminhamento - JAN2018 - AVB.docx
+574	01 - Jurídico	Acórdãos e decisões	LT nº 0600019-84 - BA- diligências, solicitar ata ou acórdão - certidão circunstanciada - encaminhar à ASSEC - PAA - LL.docx
+575	01 - Jurídico	Acórdãos e decisões	LT nº 060002732 -DECISÃO -encaminhamento ao regional para instrução - MAR2017 - AM.doc
+576	01 - Jurídico	Acórdãos e decisões	LT nº 060017084 - PA - PJe - decisão, juiz substituto, lista incompleta, devolução ao regional para complementação - MAR18 - TF.docx
+577	01 - Jurídico	Acórdãos e decisões	LT nº 060029030 - AM - PJe - decisão, juiz efetivo, não comprovação de atividade advocatícia, assessor de desembargador, devolução ao regional - MAI18 - TF.docx
+578	01 - Jurídico	Acórdãos e decisões	LT nº 31075 - DECISÃO - SOBRESTAMENTO - OUT2015 - AM.doc
+579	01 - Jurídico	Acórdãos e decisões	LT nº 48302 -DECISÃO - desistência - hologação - sobrestamento - NOV2016 - AM.doc
+580	01 - Jurídico	Acórdãos e decisões	LT nº 48302 -DECISÃO - desistência - homologação - sobrestamento - JUN2017 - KTL.doc
+581	01 - Jurídico	Acórdãos e decisões	MARIA ELENA MARQUES COUTO - AFASTOU RESPONS. SUBS. 0000845-45.2011.5.03.0064-data-20120702-seq-925920.pdf
+582	01 - Jurídico	Acórdãos e decisões	Milton Emerenciano - Acórdão TRT 07.06.08.doc
+583	01 - Jurídico	Acórdãos e decisões	Modelo de decisão Whatsapp.pdf
+584	01 - Jurídico	Acórdãos e decisões	MS 060004235- DECISÃO - direito líquido e certo - ausência - MAR2016 - AM.doc
+585	01 - Jurídico	Acórdãos e decisões	MS 060129524 - PR - DECISÃO - pesquisa eleitoral - ato de membro do TRE - teratologia - direito líquido e certo - MAR2017 -.doc
+586	01 - Jurídico	Acórdãos e decisões	MS 060145316- DECISÃO - comissão partidária - competência da justiça eleitotal - direito líquido e certo - AGO2016 - AM.doc
+587	01 - Jurídico	Acórdãos e decisões	MS 0601645-75 - PI - PJe - decisão transitada em julgado Súm 23 TSE- não conhecimento- OUT2018 - LCMB - LC - ORN.doc
+588	01 - Jurídico	Acórdãos e decisões	MS 060235736 - DECISÃO - direito de resposta - ausência teratologia - nega seguimento - OUT2016 - AT.doc
+589	01 - Jurídico	Acórdãos e decisões	MS 060235736 - DECISÃO - direito de resposta - teratologia - direito líquido e certo - OUT2016 - AT_REVISADO FRAZÃO.doc
+590	01 - Jurídico	Acórdãos e decisões	MS 060292807- DECISÃO - Desistência - homologação - FEV2016 - AM.doc
+591	01 - Jurídico	Acórdãos e decisões	MS 101692 - DECISÃO - substituto de recurso - SET2014 - AM.doc
+592	01 - Jurídico	Acórdãos e decisões	MS 11323- DECISÃO - direito líquido e certo - ausência - MAR2015 - AM.doc
+593	01 - Jurídico	Acórdãos e decisões	MS 117013 - DECISÃO - substituto de recurso - SET2014 - AM.doc
+594	01 - Jurídico	Acórdãos e decisões	MS 118664- DECISÃO - PRESENÇA DOS REQUISITOS - COPIA INTEIRO TEOR - LIMINAR INDEFERIDA - OUT2014 - NB.doc
+595	01 - Jurídico	Acórdãos e decisões	MS 161968- DECISÃO - substituto de recurso - OUT2014 - NB.doc
+596	01 - Jurídico	Acórdãos e decisões	MS 162053-DECISÃO - ELEIÇÕES 2014 - RESOLUÇÃO TRE perda superviente de objeto - MAI2015 - AM.doc
+597	01 - Jurídico	Acórdãos e decisões	MS 35142- DECISÃO - conexão - xxxx -JUN2015 - AM.doc
+598	01 - Jurídico	Acórdãos e decisões	MS 35142- Prot 167592015 - 174162015 - DECISÃO - pedido de reconsideração - descumprimento de decisão - OUT2015 - AM.doc
+599	01 - Jurídico	Acórdãos e decisões	MS 35142- Prot 167592015 - DECISÃO - descumprimento de decisão - não configurado -SET2015 - AM.doc
+600	01 - Jurídico	Acórdãos e decisões	MS 37507 - DECISÃO - PRESENÇA DOS REQUISITOS - LIMINAR DEFERIDA - JUN2014 - MV revisada pelo Frazão.doc
+601	01 - Jurídico	Acórdãos e decisões	MS 43021- DECISÃO -efeito suspensivo a recurso - impossibilidade - AGO2015 - AM.doc
+602	01 - Jurídico	Acórdãos e decisões	MS 55438 - DECISÃO - RES. TSE. ADI NO STF - SOBRESTAMENTO - JUN2014 - MV.doc
+603	01 - Jurídico	Acórdãos e decisões	MS 6904- DECISÃO - RCED - art. 216 - Liminar deferida - FEV2015 - AM.doc
+604	01 - Jurídico	Acórdãos e decisões	MS nº 060002329 - DECISÃO - Desistência - homologação - MAR2016 - AM.doc
+605	01 - Jurídico	Acórdãos e decisões	MS nº 060016817 - CE - PJe - realização de novas eleições interposição de REspe decisão não teratológica indef liminar - MAR2018 - HCF.doc
+606	01 - Jurídico	Acórdãos e decisões	MS nº 060017691 - SP - decisão interlocutória, não cabimento - FGPC - MFF - CGRYN.docx
+607	01 - Jurídico	Acórdãos e decisões	MS nº 0600543-18 - DF - anotação de nome de presidente de partido, decisão administrativa, desprovimento- AGO2018 - LCMB.doc
+608	01 - Jurídico	Acórdãos e decisões	MS nº 0601295-24 - DECISÃO - Perda de objeto - AGO2017 - AT.doc
+609	01 - Jurídico	Acórdãos e decisões	MS nº 0601384-13 - SP - PJe, Eleições 2018, decisão monocrática, incompetência TSE, nega seguimento - SET2018 - KCMR - AO.doc
+610	01 - Jurídico	Acórdãos e decisões	MS nº 060141215 - DECISÃO - sucedâneo recursal - AM - MAR2017.doc
+611	01 - Jurídico	Acórdãos e decisões	MS nº 0601443-98 - CE - PJe- decisão de TRE, incompetência TSE, nega seguimento - SET2018 - LCMB - MFF - LL.doc
+612	01 - Jurídico	Acórdãos e decisões	MS nº 060145583 - DECISÃO - inadequação da via eleira e sucedâneo recursal - AGO2015.doc
+613	01 - Jurídico	Acórdãos e decisões	MS nº 060148181 - DECISÃO - sucedâneo recursal - AGO2015.doc
+614	01 - Jurídico	Acórdãos e decisões	MS nº 0601941-97 - RN - decisão TRE, prefeita, ausência de teratologia, súm 22 TSE e súm 634 e 635 STF- DEZ2018- LCMB - ORN.doc
+615	01 - Jurídico	Acórdãos e decisões	MS nº 0601945-37- RN - decisão TRE, vice-prefeito, ausência de teratologia, súm. 22 TSE e súm. 634 e 635 STF- DEZ2018- LCMB - ORN.doc
+616	01 - Jurídico	Acórdãos e decisões	MS nº 0601946-22- RN - decisão TRE, vereadora, ausência de teratologia, súm. 22 TSE e súm. 634 e 635 STF- DEZ2018- LCMB - ORN.doc
+617	01 - Jurídico	Acórdãos e decisões	MS nº 0601947-07- RN - decisão TRE, vereador, ausência de teratologia, súm. 22 TSE - NOV2018- LCMB - ORN.doc
+618	01 - Jurídico	Acórdãos e decisões	MS nº 0601948-89- RN - decisão TRE, vereadores, ausência de teratologia, súm. 22-TSE- NOV2018- LCMB - ORN.doc
+619	01 - Jurídico	Acórdãos e decisões	MS nº 060197628 - DECISÃO - DRAP - sucedâneo recursal - OUT2016 - AT.doc
+620	01 - Jurídico	Acórdãos e decisões	MS nº 060236491 - DECISÃO - direito liquido e certo - ausência- AM - MAI2017.doc
+621	01 - Jurídico	Acórdãos e decisões	MS nº 060245521 - DECISÃO - RRC - trânsito em julgado - S. 268 STF - inviabilidade - decisão monocrática - membro TRE - NOV2016 - AT.doc
+622	01 - Jurídico	Acórdãos e decisões	MS nº 060292518 -DECISÃO - PERDA DE OBJETOl - JUN2017 - AM.doc
+623	01 - Jurídico	Acórdãos e decisões	MS nº 060323439 -DECISÃO - lista triplice - MS contra acórdão do TSE materia administrativa - JUL2017 - JBS.doc
+624	01 - Jurídico	Acórdãos e decisões	MS nº 060324131 -DECISÃO - conduta vedada, MS, concessão de efeito suspensivo a recurso, liminar deferida - JUL2017 - AVB KTL.doc
+625	01 - Jurídico	Acórdãos e decisões	MS nº 060335482 -decisão - sucedâneo recursal - AGO2017 - AM.doc
+626	01 - Jurídico	Acórdãos e decisões	MS nº 060359119 - DECISÃO - perda de objeto - NOV2017 - AT.doc
+627	01 - Jurídico	Acórdãos e decisões	MS nº 060359119 -decisão - acórdão dos embargos pendente de publicação - execução da medida - indeferimento - AGO2017 - AM.doc
+628	01 - Jurídico	Acórdãos e decisões	MS nº 060430831 -decisão - DEM propaganda partidária - liminar deferida - DEZ2017 - JBS.doc
+629	01 - Jurídico	Acórdãos e decisões	MS nº 060430831 -decisão - DEM propaganda partidária - suspensão - sucedâneo recursal - DEZ2017 - JBS.doc
+630	01 - Jurídico	Acórdãos e decisões	MS nº 117013- AgR- ausência impugnação específica - decisão mantida - OUT2014 - AM.doc
+631	01 - Jurídico	Acórdãos e decisões	MS nº 133123 - DECISÃO - trânsito em julgado -SET2014 - AM.doc
+632	01 - Jurídico	Acórdãos e decisões	MS nº 133123- AgR- ausência impugnação específica - decisão mantida - OUT2014 - AM.doc
+633	01 - Jurídico	Acórdãos e decisões	MS nº 2582 - AgR - NÃO CABIMENTO - decisão mantida - MAR2015 - VSP.docx
+634	01 - Jurídico	Acórdãos e decisões	MS nº 35142 - DECISÃO - perda superveniente de objeto - ABR2016 - AM.doc
+635	01 - Jurídico	Acórdãos e decisões	MS nº 8612 - DECISÃO - RRC - trânsito em julgado - S. 268 STF - inviabilidade - ABR2015 - MV.doc
+636	01 - Jurídico	Acórdãos e decisões	NJ-0452-2008 terceirização de serviços de transporte - acórdão TCU 215-2008.pdf
+637	01 - Jurídico	Acórdãos e decisões	NT DEJUR- pedido revisão acordão 9_7_2013.doc
+638	01 - Jurídico	Acórdãos e decisões	nulidade processual - publicação.doc
+639	01 - Jurídico	Acórdãos e decisões	nº 12180 - SP - doação acima do limite legal, art. 81, revogação, inconstitucionalidade, fatos anteriores, não incidência, sanção, proporcionalida - OUT2016 - AG.doc
+640	01 - Jurídico	Acórdãos e decisões	nº 1804 - PE - doação acima do limite legal, art. 81, revogação, inconstitucionalidade,não incidência, , art. 23, § 7º, LE, sanção, proporcionalida - SET2016 - KTL.doc
+641	01 - Jurídico	Acórdãos e decisões	Oficio 131_2016 cumprimento de decisão judicial.doc
+642	01 - Jurídico	Acórdãos e decisões	PA 102554 - DECISÃO - Requisição de Servidor - Perda de objeto - SET2014 - VSP.docx
+643	01 - Jurídico	Acórdãos e decisões	PA 104375- DECISÃO - Requisição ordinária de Servidor - COMPETÊNCIA TRE - AGO2014 - AM.doc
+644	01 - Jurídico	Acórdãos e decisões	PA 106281 - DECISÃO - Requisição de Servidor - ausência - documentos - OUT2014 - VSP.docx
+645	01 - Jurídico	Acórdãos e decisões	PA 106281 - DECISÃO -PEDIDO DE RECONSIDERAÇÃO - Requisição de Servidor - ausência - documentos - OUT2014 - VSP.doc
+646	01 - Jurídico	Acórdãos e decisões	PA 133390 - DECISÃO - Requisição de Servidor - homologação - SET2014 - JB - AM.doc
+647	01 - Jurídico	Acórdãos e decisões	PA 138926 - Decisão - requisição de força federal após a oitiva do governador - SET2014 - AM.doc
+648	01 - Jurídico	Acórdãos e decisões	PA 20649 - DECISÃO -PREJUIZO - SET2016 - AM.doc
+649	01 - Jurídico	Acórdãos e decisões	PA 319283 - DECISÃO - Sist. totalização, apuração de exc. doações, juiz aux. corregedoria - NOV2017 - AAS.doc
+650	01 - Jurídico	Acórdãos e decisões	PA 3240- DECISÃO - Requisição de Servidor - homologação - MAR2016 - TG - JBS.docx
+651	01 - Jurídico	Acórdãos e decisões	PA 3848 - DECISÃO -requerimento - senha SAPF - autorização - ABR2016 - TG-AM.docx
+652	01 - Jurídico	Acórdãos e decisões	PA 39561- DECISÃO - Requisição de Servidor - homologação - SET2015 - AM.doc
+653	01 - Jurídico	Acórdãos e decisões	PA 45131- DECISÃO - Requisição de Servidor - homologação - JUN2014 - AM.doc
+654	01 - Jurídico	Acórdãos e decisões	PA 4976 - DECISÃO - Requisição extraordinaria de Servidor - homologação - MAR2016 - TG.doc
+655	01 - Jurídico	Acórdãos e decisões	PA 7002- DECISÃO - Requisição extraordinária de servidor - COMPETÊNCIA TRE - AGO2016 - ACR.doc
+656	01 - Jurídico	Acórdãos e decisões	PA 83761- DECISÃO - Requisição ordinária de Servidor - COMPETÊNCIA TRE - JUL2014 - AM.doc
+657	01 - Jurídico	Acórdãos e decisões	PA nº 060170434 - PROTOCOLO -DECISÃO - ESCLARECIMENTOS - SET2016 - AM.doc
+658	01 - Jurídico	Acórdãos e decisões	PA nº 113031 - DECISÃO - afastamento de magistrado - requerido pelo TRE - SET2014 - VSP.docx
+659	01 - Jurídico	Acórdãos e decisões	PA nº 157549 - DECISÃO - afastamento de magistrado - requerido pelo TRE até o término das eleições - OUT2014 - JB - VSP.doc
+660	01 - Jurídico	Acórdãos e decisões	PA nº 157986 - DECISÃO - afastamento de magistrado - requerido pelo TRE a partir de 5.7 -OUT2014 - JB - VSP.doc
+661	01 - Jurídico	Acórdãos e decisões	PA nº 28006 - DECISÃO - afastamento de magistrado - substituição pelo Regional em virtude de renúncia - JUN2016 - ACR.doc
+662	01 - Jurídico	Acórdãos e decisões	PA nº 36237 - DECISÃO - afastamento de magistrado - período eleitoral - AGO2016 - ACR.doc
+663	01 - Jurídico	Acórdãos e decisões	PA nº 37859 - DECISÃO - afastamento de magistrado - requerido pelo TRE a partir de 1º.7 - JUN2014 - BP.doc
+664	01 - Jurídico	Acórdãos e decisões	PA nº 39272- DECISÃO - afastamento de magistrado - período eleitoral - SET2016 - ACR.doc
+665	01 - Jurídico	Acórdãos e decisões	PA nº 39879 - DECISÃO - afastamento de magistrado - período eleitoral - SET2016 - ACR.doc
+666	01 - Jurídico	Acórdãos e decisões	PA nº 41093 - DECISÃO - afastamento de magistrado - período eleitoral - SET2016 - ACR.doc
+667	01 - Jurídico	Acórdãos e decisões	PA nº 45767-PR - DECISÃO - afastamento de magistrado - período eleitoral - SET2016 - ACR.doc
+668	01 - Jurídico	Acórdãos e decisões	PA nº 46782 - DECISÃO - afastamento de magistrado - requerido pelo TRE a partir de 5.7 - JUN2014 - BP.doc
+669	01 - Jurídico	Acórdãos e decisões	PA nº 46782 - DECISÃO - afastamento de magistrado - substituição pelo Regional em virtude de renúncia - JUN2014 - BP.doc
+670	01 - Jurídico	Acórdãos e decisões	PA nº 49465 - DECISÃO - afastamento de magistrado - requerido pelo TRE a partir de 5.7 - JUN2014 - BP.doc
+671	01 - Jurídico	Acórdãos e decisões	PA nº 53277 - DECISÃO - afastamento de magistrado - requerido pelo TRE a partir de 1º.7 - JUN2014 - BP.doc
+672	01 - Jurídico	Acórdãos e decisões	PA nº 55875 - DECISÃO - gratificação eleitoral de promotor - JAN2018 - JV.doc
+673	01 - Jurídico	Acórdãos e decisões	PA nº 55875 - MG - decisão gratificação eleitoral membro do MP responsabilidade da justiça eleitoral indeferimento.docx
+674	01 - Jurídico	Acórdãos e decisões	PA nº 560-45- CE - decisão, consulta, TRE CE, averbação, tempo de contribuição, perda objeto - JUN2018 - KCMR.doc
+675	01 - Jurídico	Acórdãos e decisões	PA nº 84198 - DECISÃO - afastamento de magistrado - requerido pelo TRE a partir de 1º.7 - SET2014 - LM - VSP.doc
+676	01 - Jurídico	Acórdãos e decisões	PC 18 - DECISÃO - PRESCRIÇÃO - QUESTÃO DE ORDEM PC37 - ABR2015 - VSP.docx
+677	01 - Jurídico	Acórdãos e decisões	PC 24092 - Prot. 298262014 - DECISÃO - Prorrogação - Deferimento - OUT2014 - VSP.docx
+678	01 - Jurídico	Acórdãos e decisões	PC 25447 - DECISÃO - indeferimento - juntada de provas - À ASEPA - JUL2016 - AT.docx
+679	01 - Jurídico	Acórdãos e decisões	PC 25447 - DECISÃO - Prorrogação - Deferimento - JUN2016 - AT.docx
+680	01 - Jurídico	Acórdãos e decisões	PC 25702 - Prot. 337292014 - DECISÃO - Prorrogação - Deferimento - NOV2014 - VSP.docx
+681	01 - Jurídico	Acórdãos e decisões	PC 28159 - Prot. 298172014 - DECISÃO - Prorrogação - Deferimento - OUT2014 - VSP.docx
+682	01 - Jurídico	Acórdãos e decisões	PC 28159 - Prot. 359192014 - DECISÃO - Vista - cópias - portaria 2602014 - DEZ2014 - VSP.docx
+683	01 - Jurídico	Acórdãos e decisões	PC 49 - DECISÃO - PRESCRIÇÃO - QUESTÃO DE ORDEM PC37 - MAR2017- AT.docx
+684	01 - Jurídico	Acórdãos e decisões	PC 97795 - Prot. 329922014 - DECISÃO - Prorrogação - Deferimento - NOV2014 - VSP.docx
+685	01 - Jurídico	Acórdãos e decisões	PC 98305 - Prot. 335272014 - DECISÃO - Prorrogação - Deferimento - NOV2014 - VSP.docx
+686	01 - Jurídico	Acórdãos e decisões	PC 99871 - Prot. 332982014 - DECISÃO - Prorrogação - Deferimento - NOV2014 - VSP.docx
+687	01 - Jurídico	Acórdãos e decisões	PC 99956 - Prot. 335282014 - DECISÃO - Prorrogação - Deferimento - NOV2014 - VSP.docx
+688	01 - Jurídico	Acórdãos e decisões	PC nº 060180622 - Decisão - remessa ao juízo competente - MAI2017 - AM.doc
+689	01 - Jurídico	Acórdãos e decisões	PC nº 060185478 - Decisão - remessa ao juízo competente - MAI2017 - AM.doc
+690	01 - Jurídico	Acórdãos e decisões	PC nº 23019 - DECISÃO - indeferimento - produção de provas - alegações finais - ABR2017 - AT.docx
+691	01 - Jurídico	Acórdãos e decisões	PC nº 25447 - DECISÃO - indeferimento - produção de provas - alegações finais - MAR2017 - AT.docx
+692	01 - Jurídico	Acórdãos e decisões	PC nº 25447 - DECISÃO MONOCRÁTICA - PR - desaprovação - ATUALIZADO - ABR2017 - AT.docx
+693	01 - Jurídico	Acórdãos e decisões	PC nº 25702 - DECISÃO - embargos- isns.docx
+694	01 - Jurídico	Acórdãos e decisões	PC nº 25702 - DECISÃO - indeferimento - produção de provas - alegações finais - OUT2016 - AT.docx
+695	01 - Jurídico	Acórdãos e decisões	PC nº 25702 - DECISÃO MONOCRÁTICA - atualizado - PCB - desaprovação - NOV2016 - AT.docx
+696	01 - Jurídico	Acórdãos e decisões	PC nº 27098 - DECISÃO - defesa intempestiva - intimação - alegações finais - ABR2017 - AT.docx
+697	01 - Jurídico	Acórdãos e decisões	PC nº 89217 - DECISÃO - prazo de 10 dias ao partido - JBS - FEV2016.doc
+698	01 - Jurídico	Acórdãos e decisões	PC nº 90516 - decisão - adoção rito processual - vista - alegações finais - JUL2015 - BP.docx
+699	01 - Jurídico	Acórdãos e decisões	PC nº 93233 - decisão - adoção rito processual - abertura de vista - alegações finais - MAR2015 - MV.docx
+700	01 - Jurídico	Acórdãos e decisões	PC nº 96960 - decisão - adoção rito processual - abertura de vista - alegações finais - ABR2015 - VSP.docx
+701	01 - Jurídico	Acórdãos e decisões	PCCS - DECISÃO FAVORÁVEL.htm 2.doc
+702	01 - Jurídico	Acórdãos e decisões	PCCS_2008 Descrição cargos versão Acordão TST ago_10pdf.doc.pdf
+703	01 - Jurídico	Acórdãos e decisões	PCCS_2008 versão Acordão TST Agosto_2010 pdf.doc.pdf
+704	01 - Jurídico	Acórdãos e decisões	PCCS_2008_Acordao_TST.pdf
+705	01 - Jurídico	Acórdãos e decisões	PDF452 ACORDAO_012.pdf
+706	01 - Jurídico	Acórdãos e decisões	PJe - AC nº 060406587-SC PJE agravo interposto contra decisão de outro processo AGO-2018 TCCB-MFF.doc
+707	01 - Jurídico	Acórdãos e decisões	PJe - MS nº 0600291-15 - SP - suspender decisão e justa causa para desfiliação, incompetência do TSE, negado seguimento - ABR2018 - LCMB.doc
+708	01 - Jurídico	Acórdãos e decisões	PJe - MS nº 060359119- MT - efeito suspensivo a recurso, publicação decisão, perda do objeto- ABR2018 - LCMB - AI foi julgado - MFF_vRevAO.doc
+709	01 - Jurídico	Acórdãos e decisões	PJe - Pet nº 060044011 - Agravo regimental contra decisão em autos físicos, descabimento, pedido de desistência, homologação - MAI2018 - MACV - ORN_vRevAO.docx
+710	01 - Jurídico	Acórdãos e decisões	PJe - Pet nº 060044011 - Agravo regimental contra decisão em autos físicos, descabimento, pedido de desistência, homologação - MAI2018 - MACV.docx
+711	01 - Jurídico	Acórdãos e decisões	PJe REspe nº 0601038-51 AM (eleições 2018 - registro de candidatura - deputado estadual - recurso interposto contra decisão monocrática de rel)-SET2018-LCM.docx
+712	01 - Jurídico	Acórdãos e decisões	PJe REspe nº 060308288 - MA - ação rescisória, não cabimento, acórdão de TRE - ABR2018 - JV - ORN.doc
+713	01 - Jurídico	Acórdãos e decisões	PJe-AC 0600459-17 - SP - condenação por abuso de poder econômico prefeito novas eleições após decisão do TSE- concessão MAI2018 - LCMB -MFF.doc
+714	01 - Jurídico	Acórdãos e decisões	PJe-AI 0600234-71 - SP - recurso especial em decisão interlocutória impossibilidade nega seguimento ao AI, decadência - AGO2018 - LCMB - LL - AO.doc
+715	01 - Jurídico	Acórdãos e decisões	PJe-AI 0600239-93 - SP - recurso especial em decisão interlocutória, impossibilidade, nega seguimento ao AI - JUL2018 - LCMB - LL.doc
+716	01 - Jurídico	Acórdãos e decisões	PJe-AI 0600359-39 - SP - recurso especial em decisão interlocutória, impossibilidade, nega seguimento ao AI - AGO2018 - LCMB - LL - AO.doc
+717	01 - Jurídico	Acórdãos e decisões	PP 060000486 - DECISÃO - Propaganda partidária - PR - deferimento - SET2017 - AT.doc
+718	01 - Jurídico	Acórdãos e decisões	PP 060000486- DECISÃO - Propaganda partidária PR - perda do objeto - NOV2017 - JBS.doc
+719	01 - Jurídico	Acórdãos e decisões	PP 060000656- DECISÃO - Propaganda partidária - deferimento - SET2017 - JBS.doc
+720	01 - Jurídico	Acórdãos e decisões	PP 060000656- DECISÃO - Propaganda partidária PSDB - perda do objeto - NOV2017 - JBS.doc
+721	01 - Jurídico	Acórdãos e decisões	PP 060000741 - DECISÃO - Propaganda partidária - PROS - deferimento - SET2017 - AT.doc
+722	01 - Jurídico	Acórdãos e decisões	PP 060000741- DECISÃO - Propaganda partidária PROS - perda do objeto - NOV2017 - JBS.doc
+723	01 - Jurídico	Acórdãos e decisões	PP 060004383- DECISÃO - Propaganda partidária - deferimento - SET2017 - JBS.doc
+724	01 - Jurídico	Acórdãos e decisões	PP 060004383- DECISÃO - Propaganda partidária PP - perda do objeto - NOV2017 - JBS.doc
+725	01 - Jurídico	Acórdãos e decisões	PP 060004468 - DECISÃO - Propaganda partidária - PTB - deferimento - SET2017 - AT.doc
+726	01 - Jurídico	Acórdãos e decisões	PP 060004468- DECISÃO - Propaganda partidária PTB - perda do objeto - NOV2017 - JBS.doc
+727	01 - Jurídico	Acórdãos e decisões	PP 060004638- DECISÃO - Propaganda partidária - deferimento - SET2017 - JBS.doc
+728	01 - Jurídico	Acórdãos e decisões	PP 060004638- DECISÃO - Propaganda partidária PDT - perda do objeto - NOV2017 - JBS.doc
+729	01 - Jurídico	Acórdãos e decisões	PP 060031917 - DECISÃO - Propaganda partidária - PCdoB - deferimento - SET2017 - AT.doc
+730	01 - Jurídico	Acórdãos e decisões	PP 060031917- DECISÃO - Propaganda partidária PC do B - perda do objeto - NOV2017 - JBS.doc
+731	01 - Jurídico	Acórdãos e decisões	PP 060375581- DECISÃO - Propaganda partidária PV - deferimento - SET2017 - JBS.doc
+732	01 - Jurídico	Acórdãos e decisões	PP 060375581- DECISÃO - Propaganda partidária PV - perda do objeto - OUT2017 - JBS.doc
+733	01 - Jurídico	Acórdãos e decisões	PP 1079 - DECISÃO - Propaganda partidária -alteração - deferimento - NOV2017 - KTL.doc
+734	01 - Jurídico	Acórdãos e decisões	PP 1079- DECISÃO - Propaganda partidária - deferimento - DEZ2016 - AM.doc
+735	01 - Jurídico	Acórdãos e decisões	PP 1079- DECISÃO - Propaganda partidária - sobrestamento - MAR2016 - AM.doc
+736	01 - Jurídico	Acórdãos e decisões	PP 1079- DECISÃO - Propaganda partidária -alteração - deferimento - JUN2017 - ACR.doc
+737	01 - Jurídico	Acórdãos e decisões	PP 1079- DECISÃO - Propaganda partidária -alteração - inserção - deferimento - OUT2017 - TPR.doc
+738	01 - Jurídico	Acórdãos e decisões	PP 13059 - DECISÃO - Propaganda partidária - deferimento do pedido de veiculação - MAC2015 - AM.doc
+739	01 - Jurídico	Acórdãos e decisões	PP 1623- DECISÃO- Propaganda partidária - DEFERIMENTO - MAR2015 - AM.doc
+740	01 - Jurídico	Acórdãos e decisões	PP 182145 - DECISÃO - Propaganda partidária - deferimento do pedido de veiculação - NOV2014 - AM.doc
+741	01 - Jurídico	Acórdãos e decisões	PP 187511 - DECISÃO - Propaganda partidária - deferimento do pedido de veiculação - DEZ2014 - AM (2).doc
+742	01 - Jurídico	Acórdãos e decisões	PP 187511 - DECISÃO - Propaganda partidária - deferimento do pedido de veiculação - DEZ2014 - AM.doc
+743	01 - Jurídico	Acórdãos e decisões	PP 188- DECISÃO - Propaganda partidária - alteração de emissora - ja analisada - AGO2015 - AM set.doc
+744	01 - Jurídico	Acórdãos e decisões	PP 188- DECISÃO - Propaganda partidária - alteração de emissora - ja analisada - AGO2015 - AM.doc
+745	01 - Jurídico	Acórdãos e decisões	PP 188- DECISÃO - Propaganda partidária - deferimento do pedido de veiculação - NOV2014 - AM.doc
+746	01 - Jurídico	Acórdãos e decisões	PP 191153 - DECISÃO - Propaganda partidária - deferimento do pedido de veiculação - pco - NOV2014 - VSP.docx
+747	01 - Jurídico	Acórdãos e decisões	PP 191153 - DECISÃO - Propaganda partidária - indeferimento - alteração - pedido de veiculação - PCO - MAI2015 - VSP.docx
+748	01 - Jurídico	Acórdãos e decisões	PP 22004- DECISÃO - Propaganda partidária - deferimento do pedido de veiculação - NOV2014 - AM.doc
+749	01 - Jurídico	Acórdãos e decisões	PP 23218 - DECISÃO - Propaganda partidária - deferimento do pedido de veiculação - NOV2014 - AM.doc
+750	01 - Jurídico	Acórdãos e decisões	PP 23218 - DECISÃO - Propaganda partidária - impossibilidade de transmissão -OUT2015 - AM.doc

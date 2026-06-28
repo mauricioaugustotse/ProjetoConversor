@@ -1,0 +1,35 @@
+﻿1	03 - Financeiro\IRPF\2014	Certidão negativa CPF - MAURÍCIO AUGUSTO CHIARAMONTE VIEIRA.pdf
+2	03 - Financeiro\IRPF\2014	Certidão negativa CPF - Relatório de Situação Fiscal.pdf
+3	03 - Financeiro\IRPF\2014	CPF - RFB - Informações apresentadas em DIRF.pdf
+4	03 - Financeiro\IRPF\2023	Declaração de Ajuste Anual IRPF exercício 2024 ano-base 2023 - Mauricio (CPF 025.332.581-13).pdf
+5	03 - Financeiro\IRPF\2023	Declaração IRPF 2024 ano-base 2023 - Ana Carolina Miguel - CPF 090.941.686-93.pdf
+6	03 - Financeiro\IRPF\2023	Recibo de entrega IRPF exercício 2024 ano-base 2023 - Ana Carolina (CPF 090.941.686-93).pdf
+7	03 - Financeiro\IRPF\2024\Carol	IRPF 2024 ano-calend 2023 - Ana Carolina (CPF 090.941.686-93).pdf
+8	03 - Financeiro\IRPF\2024	Declaração de Ajuste Anual IRPF 2025 ano-base 2024 - CPF 025.332.581-13.pdf
+9	03 - Financeiro\IRPF\2025	IRPF 2026 ano-calendário 2025 - Declaração de Ajuste Anual - Maurício (CPF 025.332.581-13).pdf
+10	03 - Financeiro\IRPF\2025	Recibo de entrega IRPF exercício 2026 ano-base 2025 - Mauricio (CPF 025.332.581-13).pdf
+11	04 - Imóveis\Mykonos\Financiamento (FHE, POUPEX, FGTS)	Comprovante situação cadastral CPF - Ana Carolina - 2026-01-19.pdf
+12	04 - Imóveis\Mykonos\Financiamento (FHE, POUPEX, FGTS)	CTPS Digital - Ana Carolina - emissão 2023-02-25.pdf
+13	04 - Imóveis\Mykonos\Financiamento (FHE, POUPEX, FGTS)	Demonstrativo de Pagamento de Salário IGESDF 10-2025 - Ana Carolina Miguel - CPF 090.941.686-93 - Matrícula 14931.pdf
+14	04 - Imóveis\Mykonos\Financiamento (FHE, POUPEX, FGTS)	RG_Ana Carolina.pdf
+15	04 - Imóveis\Mykonos\Financiamento (FHE, POUPEX, FGTS)	RG_Maurício Augusto.pdf
+16	05 - Jurídico e trabalho\Guillon\Jose Antonio de Souza	Comprovante Situação Cadastral CPF - José Antonio de Sousa - 2017-10-31.pdf
+17	05 - Jurídico e trabalho\Guillon\Kamilla	CTPS.pdf
+18	05 - Jurídico e trabalho\Processos\Azul	CNH de Anne Catherine Miguel Meira - DETRAN-MG.pdf
+19	05 - Jurídico e trabalho\TSE\AGEL\Despachos e Informações	Despacho AGEL - alistamento eleitoral de indígena - processo 2023.00.000010390-0.docx
+20	05 - Jurídico e trabalho\TSE\Posse	18. Identidade - MAURÍCIO AUGUSTO CHIARAMONTE VIEIRA.pdf
+21	05 - Jurídico e trabalho\TSE\SEDEG	Comprovante Situação Cadastral CPF - Alexandre de Moraes - 2020-09-16.pdf
+22	06 - Estudos, concursos e leitura\1_CONCURSOS\MPDFT\2021	GRU MPDFT 2021 - Maurício Augusto Chiaramonte Vieira - CPF 025.332.581-13.pdf
+23	06 - Estudos, concursos e leitura\1_CONCURSOS\MPF\Tributário	DOD - Jurisprudência em teses 3 - PIS e COFINS sobre locação.txt
+24	06 - Estudos, concursos e leitura\Tese\Disciplinas (créditos)\Filosofia Política e Direito Constitucional\Textos	ROSENFELD, Michel - A identidade do sujeito constitucional (livro).pdf
+25	06 - Estudos, concursos e leitura\Tese\Disciplinas (créditos)\Tópicos em Direito Eleitoral\Artigo Final	Roteiro artigo - transgênero e direito eleitoral - identidade de gênero.docx
+26	06 - Estudos, concursos e leitura\Tese\Disciplinas (créditos)\Tópicos em Direito Tributário\Direito Tributário 2 - Valcir Gassen	Artigo - ICMS na base de cálculo do PIS-COFINS - interpretação econômica.docx
+27	06 - Estudos, concursos e leitura\Tese\Disciplinas (créditos)\Tópicos em Direito Tributário\Direito Tributário 2 - Valcir Gassen	Crítica à tributação sobre a renda e o lucro (IRPJ, CSLL, PIS, COFINS).docx
+28	06 - Estudos, concursos e leitura\Tese\Disciplinas (créditos)\Tópicos em Direito Tributário\Direito Tributário 2 - Valcir Gassen\Exclusão do ICMS da base de cálculo do PIS e da COFINS	Alargamento_da_Base_de_Calculo_de_Pis_e_Cofins-28_10_2014.doc
+29	06 - Estudos, concursos e leitura\Tese\Disciplinas (créditos)\Tópicos em Direito Tributário\Direito Tributário 2 - Valcir Gassen\Exclusão do ICMS da base de cálculo do PIS e da COFINS	EXCLUSÃO_DO_ICMS_DA_BASE_DE_CALCULO_DO_PIS_E_COFINS-13_11_2013.doc
+30	06 - Estudos, concursos e leitura\Tese\Disciplinas (créditos)\Tópicos em Direito Tributário\Direito Tributário 2 - Valcir Gassen\Exclusão do ICMS da base de cálculo do PIS e da COFINS	Exclusão_ICMS_Base_de_Calculo_do_PIS_2FCOFINS-31_10_2014.doc
+31	06 - Estudos, concursos e leitura\Tese\Disciplinas (créditos)\Tópicos em Direito Tributário\Direito Tributário 2 - Valcir Gassen\Exclusão do ICMS da base de cálculo do PIS e da COFINS	ICMS entra no cálculo do PIS e Cofins, decide STJ - JOTA.pdf
+32	06 - Estudos, concursos e leitura\Tese\Disciplinas (créditos)\Tópicos em Direito Tributário\Direito Tributário 2 - Valcir Gassen\Exclusão do ICMS da base de cálculo do PIS e da COFINS	ICMS x PIS_COFINS_ STJ perde chance de alinhar sua jurisprudência ao precedente do STF - JOTA.pdf
+33	06 - Estudos, concursos e leitura\Tese\Disciplinas (créditos)\Tópicos em Direito Tributário\Direito Tributário 2 - Valcir Gassen\Exclusão do ICMS da base de cálculo do PIS e da COFINS	PIS_e_COFINS_-_Alargamento_da_base_de_cálculo-29_05_2014.doc
+34	08 - Veículos\HRV Clone	2.3_CNH.txt
+35	08 - Veículos\HRV Clone	2.4_CPF.txt

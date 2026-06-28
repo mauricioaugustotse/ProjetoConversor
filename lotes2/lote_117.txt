@@ -1,0 +1,250 @@
+﻿29251	03 - Administrativo		Retorno Itaú - Prot 13812.pdf
+29252	03 - Administrativo		Retorno Itaú - Prot 13840.pdf
+29253	03 - Administrativo		Retorno Itaú 01_08_2014 - PROT 10811.pdf
+29254	03 - Administrativo		Retorno Itaú 01_08_2016 - Prot 13525 13529 e 13532.pdf
+29255	03 - Administrativo		Retorno Itaú 02_08_2016 - Prot 13546 e 13547.pdf
+29256	03 - Administrativo		Retorno Itaú 09_08_2016 - Prot 13558.pdf
+29257	03 - Administrativo		Retorno Itaú 10_08_2016 - Prot 13594.pdf
+29258	03 - Administrativo		Retorno Itaú 11_08_2016 - Prot 13551.pdf
+29259	03 - Administrativo		Retorno Itaú 16_08_2016 - Prot 13588.pdf
+29260	03 - Administrativo		Retorno Itaú 17_07_2014 - PROT 10723 10738 10739 10740 10741 10755 10762.pdf
+29261	03 - Administrativo		Retorno Itaú 17_08_2016 - Prot 13608.pdf
+29262	03 - Administrativo		Retorno Itaú 18_08_2016 - Prot 13603 13604 e 13610.pdf
+29263	03 - Administrativo		Retorno Itaú 21_07_2014 - PROT 10747.pdf
+29264	03 - Administrativo		Retorno Portal de Documentos - Prot 13717.pdf
+29265	03 - Administrativo		Retorno Portal de Documentos Out 05 16 - Prot 13733.pdf
+29266	03 - Administrativo		Revalidação - PROLEX 14 JUL 16.doc
+29267	03 - Administrativo		Revalidação - PROLEX 30 Jul 15.doc
+29268	03 - Administrativo		RI ALMENARA - ABR2012.pdf
+29269	03 - Administrativo		RI BARÃO DOS COCAIS - ABR2012.pdf
+29270	03 - Administrativo		RI BELO VALE - ABR2012.pdf
+29271	03 - Administrativo		RI BELO VALE - MAR2012.pdf
+29272	03 - Administrativo		RI BRUMADINHO - MAI2012.pdf
+29273	03 - Administrativo		RI ERVÁLIA - JAN2012.pdf
+29274	03 - Administrativo		RI ERVÁLIA - MAI2012.pdf
+29275	03 - Administrativo		RI FRANCISCO SÁ - ABR2012.pdf
+29276	03 - Administrativo		RI FRANCISCO SÁ - MAR2012.pdf
+29277	03 - Administrativo		RI ITAGUARA - ABR2012.pdf
+29278	03 - Administrativo		RI ITAGUARA - MAR2012.pdf
+29279	03 - Administrativo		RI ITAÚNA - ABR2012.pdf
+29280	03 - Administrativo		RI JACINTO - DEZ2011.pdf
+29281	03 - Administrativo		RI JACINTO - NOV2011.pdf
+29282	03 - Administrativo		RI JANAÚBA - ABR2012.pdf
+29283	03 - Administrativo		RI JANAÚBA - MAR2012.pdf
+29284	03 - Administrativo		RI NANUQUE - MAR2012.pdf
+29285	03 - Administrativo		RI NANUQUE- ABR2012.pdf
+29286	03 - Administrativo		RI NATÉRCIA - ABR2012.pdf
+29287	03 - Administrativo		RI NATÉRCIA - MAR2012.pdf
+29288	03 - Administrativo		RI PEDRA AZUL - DEZ2011.pdf
+29289	03 - Administrativo		RI PEDRA AZUL - JAN2012.pdf
+29290	03 - Administrativo		RI PERDIZES - FEV2012.pdf
+29291	03 - Administrativo		RI PERDIZES - JAN2012.pdf
+29292	03 - Administrativo		RI RIO CASCA- ABR2012.pdf
+29293	03 - Administrativo		RI SÃO JOÃO DO PARAÍSO - ABR2012.pdf
+29294	03 - Administrativo		RI SÃO JOÃO DO PARAÍSO - MAR2012.pdf
+29295	03 - Administrativo		RI SÃO JOÃO EVANGELISTA - ABR2012.pdf
+29296	03 - Administrativo		RI SÃO JOÃO EVANGELISTA - MAI2012.pdf
+29297	03 - Administrativo		RI TOMBOS - ABR2012.pdf
+29298	03 - Administrativo		RI TOMBOS - JUL2011.pdf
+29299	03 - Administrativo		RI TOMBOS - MAR2012.pdf
+29300	03 - Administrativo		RISTF.pdf
+29301	03 - Administrativo		RISTJ.pdf
+29302	03 - Administrativo		RITRT.pdf
+29303	03 - Administrativo		RI_Bueno Brandão.pdf
+29304	03 - Administrativo		RI_Conquista.pdf
+29305	03 - Administrativo		RI_Cruzília.pdf
+29306	03 - Administrativo		RI_Curvelo.pdf
+29307	03 - Administrativo		RI_Lagoa Santa.pdf
+29308	03 - Administrativo		RI_Paraguaçu.pdf
+29309	03 - Administrativo		RI_Rio Paranaíba.pdf
+29310	03 - Administrativo		RI_Virginópolis.pdf
+29311	03 - Administrativo		Rol ANS.pdf
+29312	03 - Administrativo		Roteiro de Elaboração de Relatório.doc
+29313	03 - Administrativo		Roteiro do Negociador para Locacao Novos Imoveis.pdf
+29314	03 - Administrativo		RTDCPJ_Aimorés.pdf
+29315	03 - Administrativo		RTDCPJ_Alpinópolis.pdf
+29316	03 - Administrativo		RTDCPJ_Além Paraíba.pdf
+29317	03 - Administrativo		RTDCPJ_Areado.pdf
+29318	03 - Administrativo		RTDCPJ_Bambuí.pdf
+29319	03 - Administrativo		RTDCPJ_Boa Esperança.pdf
+29320	03 - Administrativo		RTDCPJ_Bocaiúva.pdf
+29321	03 - Administrativo		RTDCPJ_Brumadinho.pdf
+29322	03 - Administrativo		RTDCPJ_Camanducaia.pdf
+29323	03 - Administrativo		RTDCPJ_Cambuí.pdf
+29324	03 - Administrativo		RTDCPJ_Campanha.pdf
+29325	03 - Administrativo		RTDCPJ_Campestre.pdf
+29326	03 - Administrativo		RTDCPJ_Campina Verde.pdf
+29327	03 - Administrativo		RTDCPJ_Campos Gerais.pdf
+29328	03 - Administrativo		RTDCPJ_Candeias.pdf
+29329	03 - Administrativo		RTDCPJ_Capinópolis.pdf
+29330	03 - Administrativo		RTDCPJ_Carandaí.pdf
+29331	03 - Administrativo		RTDCPJ_Carmo do Paranaíba.pdf
+29332	03 - Administrativo		RTDCPJ_Conceição do Mato Dentro.pdf
+29333	03 - Administrativo		RTDCPJ_Conselheiro Lafaiete.pdf
+29334	03 - Administrativo		RTDCPJ_Corinto.pdf
+29335	03 - Administrativo		RTDCPJ_Cruzília.pdf
+29336	03 - Administrativo		RTDCPJ_Cássia.pdf
+29337	03 - Administrativo		RTDCPJ_Francisco Sá.pdf
+29338	03 - Administrativo		RTDCPJ_Ibirité.pdf
+29339	03 - Administrativo		RTDCPJ_Igarapé.pdf
+29340	03 - Administrativo		RTDCPJ_Itabirito.pdf
+29341	03 - Administrativo		RTDCPJ_Itambacuri.pdf
+29342	03 - Administrativo		RTDCPJ_Itapecerica.pdf
+29343	03 - Administrativo		RTDCPJ_Jequitinhonha.pdf
+29344	03 - Administrativo		RTDCPJ_Lajinha.pdf
+29345	03 - Administrativo		RTDCPJ_Luz.pdf
+29346	03 - Administrativo		RTDCPJ_Manhumirim.pdf
+29347	03 - Administrativo		RTDCPJ_Mateus Leme.pdf
+29348	03 - Administrativo		RTDCPJ_Matias Barbosa.pdf
+29349	03 - Administrativo		RTDCPJ_Matozinhos.pdf
+29350	03 - Administrativo		RTDCPJ_Montalvânia.pdf
+29351	03 - Administrativo		RTDCPJ_Nanuque.pdf
+29352	03 - Administrativo		RTDCPJ_Nova Serrana.pdf
+29353	03 - Administrativo		RTDCPJ_Oliveira.pdf
+29354	03 - Administrativo		RTDCPJ_Paraisópolis.pdf
+29355	03 - Administrativo		RTDCPJ_Passa Quatro.pdf
+29356	03 - Administrativo		RTDCPJ_Raul Soares.pdf
+29357	03 - Administrativo		RTDCPJ_Sabinópolis.pdf
+29358	03 - Administrativo		RTDCPJ_Santo Antônio do Monte.pdf
+29359	03 - Administrativo		RTDCPJ_São Domingos do Prata.pdf
+29360	03 - Administrativo		RTDCPJ_São João Del Rei.pdf
+29361	03 - Administrativo		RTDCPJ_Três Marias.pdf
+29362	03 - Administrativo		RTDCPJ_Viçosa.pdf
+29363	03 - Administrativo		RTDCPJ_Várzea da Palma.pdf
+29364	03 - Administrativo		RTDPJ IBIRACI - ABR2012.pdf
+29365	03 - Administrativo		RTDPJ ITAÚNA - ABR2012.pdf
+29366	03 - Administrativo		RTDPJ JOÃO MONLEVADE - ABR2012.pdf
+29367	03 - Administrativo		RTDPJ MONTE SIÃO - JUN2012.pdf
+29368	03 - Administrativo		RTDPJ POUSO ALEGRE - JAN2012.pdf
+29369	03 - Administrativo		Rve n° 2239-AL - pedido revisão do eleitorado de ofício pelo TSE, ausência de requisitos, ano eleitoral, indeferido - SET2016 - ACR.doc
+29370	03 - Administrativo		Rve n° 47962 -MG - pedido revisão do eleitorado de ofício pelo TSE, sem indicação do TRE, indeferido - NOV2015 - AVB.doc
+29371	03 - Administrativo		RÔMULO PEREIRA DE ARAÚJO - reintegração - contrato experiência.doc
+29372	03 - Administrativo		SADP_Consulta02_08_2017_12_36_16_433.doc
+29373	03 - Administrativo		SADP_Consulta02_12_2014_16_43_42_335.doc
+29374	03 - Administrativo		SADP_Consulta09_08_2014_13_00_04_133.rtf
+29375	03 - Administrativo		SADP_Consulta10_03_2017_16_28_46_41.docx
+29376	03 - Administrativo		SADP_Consulta10_12_2014_14_58_36_904.doc
+29377	03 - Administrativo		SADP_Consulta13_11_2014_13_31_23_427.doc
+29378	03 - Administrativo		SADP_Consulta14_10_2016_18_46_55_151.doc
+29379	03 - Administrativo		SADP_Estatistica13_11_2014_17_59_45_984.rtf
+29380	03 - Administrativo		SADP_Estatistica27_02_2015_16_05_14_572.rtf
+29381	03 - Administrativo		saidas após 9_4 SADP.doc
+29382	03 - Administrativo		saidas após 9_4 SADP11.doc
+29383	03 - Administrativo		Sanar Documentação Relação Cartórios.pdf
+29384	03 - Administrativo		SCDS - Sistema de Certificação Digital do Serpro - CNPJ.pdf
+29385	03 - Administrativo		SEFIP GEFIP manual de preenchimento.pdf
+29386	03 - Administrativo		SEFIP_ _ERRO - Mensagem nao gerada (CNS-A0519)_ - GuiaTech.pdf
+29387	03 - Administrativo		SEI - Acompanhamento especial.pdf
+29388	03 - Administrativo		SEI TJMG.txt
+29389	03 - Administrativo		Senha DAP e malote digital.txt
+29390	03 - Administrativo		Senha STF.txt
+29391	03 - Administrativo		Serventias oficializadas.pdf
+29392	03 - Administrativo		SERVENTIAS PROVIMENTO - 01-12-2016-assinado.pdf
+29393	03 - Administrativo		Serventias Provimento.pdf
+29394	03 - Administrativo		Servidores em teletrabalho.xls
+29395	03 - Administrativo		Servidores GEREC.txt
+29396	03 - Administrativo		Sessão Administrativa 16.06.rtf
+29397	03 - Administrativo		Sessão de escolha.pdf
+29398	03 - Administrativo		Sessão extraordinária por Meio Eletrônico - 28 de outubro de 2021.docx
+29399	03 - Administrativo		Sessão por Meio Eletrônico - 1 a 7 de outubro de 2021.doc
+29400	03 - Administrativo		Sessão por Meio Eletrônico - 10 a 16 de setembro de 2021.docx
+29401	03 - Administrativo		Sessão por Meio Eletrônico - 13 a 19 de agosto de 2021.docx
+29402	03 - Administrativo		Sessão por Meio Eletrônico - 15 a 21 de outubro de 2021.doc
+29403	03 - Administrativo		Sessão por Meio Eletrônico - 17 a 23 de setembro de 2021.docx
+29404	03 - Administrativo		Sessão por Meio Eletrônico - 20.8.2021 a 26.8.2021.docx
+29405	03 - Administrativo		Sessão por Meio Eletrônico - 22 a 28 de outubro de 2021.docx
+29406	03 - Administrativo		Sessão por Meio Eletrônico - 24 a 30 de setembro de 2021.docx
+29407	03 - Administrativo		Sessão por Meio Eletrônico - 27 de agosto a 2 de setembro de 2021.docx
+29408	03 - Administrativo		Sessão por Meio Eletrônico - 8 a 14 de outubro de 2021.docx
+29409	03 - Administrativo		Sessão por Meio Eletrônico - período de 11.6.2021 a 17.6.2021.docx
+29410	03 - Administrativo		Sessão por Meio Eletrônico - período de 14.5.2021 a 20.5.2021.docx
+29411	03 - Administrativo		Sessão por Meio Eletrônico - período de 18.6.2021 a 24.6.2021.docx
+29412	03 - Administrativo		Sessão por Meio Eletrônico - período de 21.5.2021 a 27.5.2021.docx
+29413	03 - Administrativo		Sessão por Meio Eletrônico - período de 25.6 a 1.7.2021.docx
+29414	03 - Administrativo		Sessão por Meio Eletrônico - período de 28.5.2021 a 4.6.2021.docx
+29415	03 - Administrativo		Sessão por Meio Eletrônico - período de 4.6.2021 a 10.6.2021.docx
+29416	03 - Administrativo		Sessão por Meio Eletrônico - período de 6.8.2021 a 12.8.2021.docx
+29417	03 - Administrativo		Sessão Solene - CÂMERA DOS DEPUTADOS.pdf
+29418	03 - Administrativo		Sessão Solene 27º aniversário - TRF1ª região.docx
+29419	03 - Administrativo		Sessão solene de Posse do Desembargador Federal.pdf
+29420	03 - Administrativo		Sessão solene extraordinária - TCU.pdf
+29421	03 - Administrativo		Sessão virtual - período de 11.12 a 17.12.2020.docx
+29422	03 - Administrativo		Sessão virtual - período de 12.2.2021 a 18.2.2021.docx
+29423	03 - Administrativo		Sessão virtual - período de 12.3.2021 a 18.3.2021.docx
+29424	03 - Administrativo		Sessão virtual - período de 13 a 19.11.2020.docx
+29425	03 - Administrativo		Sessão virtual - período de 16.10 a 22.10.2020.docx
+29426	03 - Administrativo		Sessão virtual - período de 16.4.2021 a 22.4.2021.docx
+29427	03 - Administrativo		Sessão Virtual - período de 19.2.0221 a 25.2.2021.docx
+29428	03 - Administrativo		Sessão Virtual - período de 19.3.2021 a 25.3.2021.doc
+29429	03 - Administrativo		Sessão virtual - período de 2.10 a 8.10.2020.docx
+29430	03 - Administrativo		Sessão virtual - período de 20.11 a 26.11.2020.docx
+29431	03 - Administrativo		Sessão virtual - período de 23.10 a 29.10.2020.docx
+29432	03 - Administrativo		Sessão virtual - período de 23.4.2021 a 29.4.2021.docx
+29433	03 - Administrativo		Sessão Virtual - período de 26.2.2021 a 4.3.2021.docx
+29434	03 - Administrativo		Sessão virtual - período de 26.3.2021 a 5.4.2021.docx
+29435	03 - Administrativo		Sessão virtual - período de 27.11 a 3.12.docx
+29436	03 - Administrativo		Sessão virtual - período de 30.10 a 5.11.2020.docx
+29437	03 - Administrativo		Sessão virtual - período de 30.4.2021 a 6.5.2021.docx
+29438	03 - Administrativo		Sessão virtual - período de 4.12 a 10.12.2020.docx
+29439	03 - Administrativo		Sessão Virtual - período de 5.3.2021 a 11.3.2021.docx
+29440	03 - Administrativo		Sessão virtual - período de 6.12 a 12.11.2020.docx
+29441	03 - Administrativo		Sessão Virtual - período de 7.5.2021 a 13.5.2021.docx
+29442	03 - Administrativo		Sessão virtual - período de 9.10 a 15.10.2020.docx
+29443	03 - Administrativo		Sessão virtual - período de 9.4.2021 a 15.4.2021.docx
+29444	03 - Administrativo		Sessão virtual extraordinária - 11.12 a 14.12.2020.docx
+29445	03 - Administrativo		Sessão virtual extraordinária - 16.12 a 18.12.2020.docx
+29446	03 - Administrativo		Sessão virtual extraordinária - período de 1.12 a 4.12.2020.docx
+29447	03 - Administrativo		Sessão virtual extraordinária - período de 12.11 a 12.11.2020.docx
+29448	03 - Administrativo		Sessão virtual extraordinária - período de 17.12 a 18.12.2020.docx
+29449	03 - Administrativo		Sessão virtual extraordinária - período de 18.11 a 20.11.2020.docx
+29450	03 - Administrativo		Sessão virtual extraordinária - período de 20.10 a 23.11.2020.docx
+29451	03 - Administrativo		Sessão virtual extraordinária - período de 25 a 27.11.2020.docx
+29452	03 - Administrativo		Sessão virtual extraordinária - período de 4.12 a 7.12.2020.docx
+29453	03 - Administrativo		Sessão virtual extraordinária - período de 9.12 a 11.12.2020.docx
+29454	03 - Administrativo		SGE EMENTA.doc
+29455	03 - Administrativo		Sindicância administrativa.docx
+29456	03 - Administrativo		Sindicâncias do TCU.doc
+29457	03 - Administrativo		SINTECT - BARBACENA.pdf
+29458	03 - Administrativo		SINTECT-AL Equacionamento de Deficit 2013 AL.doc
+29459	03 - Administrativo		Sintese da Auditoria Especial ECT 6 - cofres.pdf
+29460	03 - Administrativo		Sistema de cadastro do INCRA.pdf
+29461	03 - Administrativo		SITE DO CERTIFICADO SERPRO.txt
+29462	03 - Administrativo		SITE DO DRIVER SAFENET.txt
+29463	03 - Administrativo		Sobre o Office 2007 - validação.docx
+29464	03 - Administrativo		SOMENTE PROCESSOS PARA TRANSFERIR PARA GAB-LF.doc
+29465	03 - Administrativo		SUBS - ANA MARIA LUIZ - Trevoservis x Contrato 142 11 Região Sul de Minas.doc
+29466	03 - Administrativo		SUBS - APARECIDA DE FÁTIMA PEREIRA LADEIRA - Trevoservis x Contrato 142 11 Região Sul de Minas.doc
+29467	03 - Administrativo		SUBS - ERMELINDA CONCEIÇÃO DOMINGUES - Trevoservis x Contrato 132 Região Mista.doc
+29468	03 - Administrativo		SUBS - MARILDA NAVES DE OLIVEIRA ASSIS - Trevoservis x Contrato 142 11 Região Sul de Minas.doc
+29469	03 - Administrativo		SUBS - MÔNICA APARECIDA BATSITA NERES - Trevoservis x Contrato 142 11 Região Sul de Minas.doc
+29470	03 - Administrativo		SUBS -MARISTELA CORREA MENDES - Trevoservis x Contrato 132 Região Mista.doc
+29471	03 - Administrativo		subsidios banco postal.doc
+29472	03 - Administrativo		Subsídios Cida.docx
+29473	03 - Administrativo		SVE 1 a 4.12.docx
+29474	03 - Administrativo		SVE 10.9.2021 a 16.9.2021.docx
+29475	03 - Administrativo		SVE 11 a 14.12.docx
+29476	03 - Administrativo		SVE 12 a 12.11.docx
+29477	03 - Administrativo		SVE 12.2.2021 a 18.2.2021.docx
+29478	03 - Administrativo		SVE 12.3.2021 a 18.3.2021 (2).docx
+29479	03 - Administrativo		SVE 12.3.2021 a 18.3.2021 (complemento).docx
+29480	03 - Administrativo		SVE 12.3.2021 a 18.3.2021.docx
+29481	03 - Administrativo		SVE 13.2021 a 19.8.2021.docx
+29482	03 - Administrativo		SVE 14.5.2021 a 20.5.2021.docx
+29483	03 - Administrativo		SVE 16 a 18.12.2020 (v.2).docx
+29484	03 - Administrativo		SVE 16 a 18.12.2020.docx
+29485	03 - Administrativo		SVE 16.4.2021 a 22.4.2021.docx
+29486	03 - Administrativo		SVE 17 a 18.12.2020.docx
+29487	03 - Administrativo		SVE 17.9.2021 a 23.9.2021.docx
+29488	03 - Administrativo		SVE 18 a 20.11.docx
+29489	03 - Administrativo		SVE 18.6.2021 a 24.6.2021.docx
+29490	03 - Administrativo		SVE 19.2.2021 a 25.2.2021 (2).docx
+29491	03 - Administrativo		SVE 19.2.2021 a 25.2.2021.docx
+29492	03 - Administrativo		SVE 19.3.2021 a 25.3.2021 (2).docx
+29493	03 - Administrativo		SVE 19.3.2021 a 25.3.2021.docx
+29494	03 - Administrativo		SVE 1º.10.2021 a 7.10.2021.docx
+29495	03 - Administrativo		SVE 1º.10.2021 a 7.9.2021.docx
+29496	03 - Administrativo		SVE 20.8.2021 a 26.8.2021.docx
+29497	03 - Administrativo		SVE 21.5.2021 a 27.5.2021.docx
+29498	03 - Administrativo		SVE 23.4.2021 a 29.4.2021.docx
+29499	03 - Administrativo		SVE 24.9.2021 a 30.9.2021.docx
+29500	03 - Administrativo		SVE 25.6.2021 a 1.7.2021.docx

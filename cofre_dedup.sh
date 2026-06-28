@@ -1,0 +1,16 @@
+#!/bin/bash
+export LC_ALL=C
+DOC="/c/Users/mauri/OneDrive/Documentos"
+COFRE="/c/Users/mauri/OneDrive/Cofre Pessoal"
+OUT="/c/Users/mauri/ProjetoConversor"
+echo "Hasheando Documentos..."
+find "$DOC" -type f -not -path "*/LUIZ CELSO VIEIRA/*" -exec md5sum {} + 2>/dev/null > "$OUT/doc_now.md5"
+awk '{print substr($0,1,32)}' "$OUT/doc_now.md5" | sort -u > "$OUT/doc_now_hashes.txt"
+echo "Hasheando Cofre..."
+find "$COFRE" -type f -exec md5sum {} + 2>/dev/null > "$OUT/cofre.md5"
+: > "$OUT/cofre_dup.txt"; : > "$OUT/cofre_uniq.txt"
+awk 'NR==FNR{h[$1]=1;next}{hash=substr($0,1,32);path=substr($0,35); if(hash in h) print path >> "'"$OUT"'/cofre_dup.txt"; else print path >> "'"$OUT"'/cofre_uniq.txt"}' "$OUT/doc_now_hashes.txt" "$OUT/cofre.md5"
+echo "RESULTADO:"
+echo "  Cofre total: $(wc -l < "$OUT/cofre.md5")"
+echo "  Ja existem em Documentos (remover do cofre): $(wc -l < "$OUT/cofre_dup.txt")"
+echo "  Unicos (mover): $(wc -l < "$OUT/cofre_uniq.txt")"

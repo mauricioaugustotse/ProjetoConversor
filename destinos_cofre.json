@@ -1,0 +1,15 @@
+{
+  "Identidade": "01|Identidade",
+  "CPF": "01|CPF",
+  "Eleitoral": "01|Eleitoral",
+  "Militar": "01|Militar",
+  "Certidoes": "01|Certidões",
+  "Trabalho": "01|Carteira de trabalho",
+  "Formacao": "01|Formação acadêmica",
+  "Funcional": "01|Funcional e cargos",
+  "Saude": "02|Documentos pessoais",
+  "Veiculo": "08|Documentos pessoais",
+  "Familia": "09|Documentos da família",
+  "Senhas": "10|SENHAS",
+  "Outros": "01|Outros documentos (do Cofre)"
+}

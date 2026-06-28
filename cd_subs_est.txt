@@ -1,0 +1,68 @@
+﻿1_CONCURSOS
+1_CONCURSOS\Aft
+1_CONCURSOS\AGU
+1_CONCURSOS\Arquivos
+1_CONCURSOS\BNDES
+1_CONCURSOS\CD
+1_CONCURSOS\DOCxs de concurso
+1_CONCURSOS\Enac
+1_CONCURSOS\ENAM
+1_CONCURSOS\Leituras no Tablet
+1_CONCURSOS\Mapas mentais
+1_CONCURSOS\MPDFT
+1_CONCURSOS\MPE's
+1_CONCURSOS\MPF
+1_CONCURSOS\Mpmg
+1_CONCURSOS\Notarial
+1_CONCURSOS\Pgdf
+1_CONCURSOS\Pge-go
+1_CONCURSOS\Pgesp
+1_CONCURSOS\Senado
+1_CONCURSOS\STJ (Carol)
+1_CONCURSOS\Tcdf
+1_CONCURSOS\Tjdft
+1_CONCURSOS\TRF1
+1_CONCURSOS\TRF5
+1_CONCURSOS\TRF6
+Aulas do Youtube
+ENFAM
+ENFAM\Módulo 1
+ENFAM\Módulo 2
+ENFAM\Módulo 3
+ENFAM\Trilha de capacitação
+EsPCEx
+Italiano
+Italiano\Capítulo 1
+Italiano\Documentos do Curso
+Italiano\Os números e as horas
+Mapas da Lulu
+Mapas da Lulu\outros materiais
+My Kindle Content
+My Kindle Content\B003WUYRGI_EBOK
+My Kindle Content\B005EOCESI_EBOK
+My Kindle Content\B00AGZCJV2_EBOK
+My Kindle Content\B00KDLKF6A_EBOK
+My Kindle Content\B00NGR25GQ_EBOK
+My Kindle Content\B01DJNCPAM_EBOK
+My Kindle Content\B01J4J9XRI_EBOK
+My Kindle Content\B06WVDYWWG_EBSP
+My Kindle Content\B073DGKR6Z_EBOK
+My Kindle Content\B07G87HKB7_EBOK
+My Kindle Content\B07TTJR74W_EBOK
+My Kindle Content\B08563VTJP_EBOK
+My Kindle Content\B087YT8YDW_EBOK
+My Kindle Content\B08B491SQJ_EBOK
+My Kindle Content\B0CW198LXB_EBOK
+Tese
+Tese\(Recuperados do backup OneDrive)
+Tese\Acordo USP
+Tese\Artigos (A Publicar)
+Tese\Bibliografia de apoio
+Tese\Disciplinas (créditos)
+Tese\Dissertação
+Tese\Grupo TSE
+Tese\Maria Pia Guerra
+Tese\Paolo Ricci
+Tese\Processo seletivo - Doutorado - 2023
+Tese\Processo seletivo - Mestrado - 2019
+Tese\Usp

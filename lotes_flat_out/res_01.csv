@@ -1,0 +1,47 @@
+id|decisao|motivo
+47|MANTER|Faz parte de conjunto de autores (Bibliografia de apoio); padrao de irmas tematicas
+48|MANTER|Conjunto de autores na Bibliografia de apoio; manter padrao
+49|MANTER|Conjunto de autores na Bibliografia de apoio; manter padrao
+50|MANTER|Conjunto de autores na Bibliografia de apoio; manter padrao
+51|MANTER|Conjunto de autores na Bibliografia de apoio; manter padrao
+52|MANTER|Conjunto de autores na Bibliografia de apoio; manter padrao
+53|MANTER|Parte de conjunto de SEMINARIOS; manter padrao de irmas
+54|MANTER|Parte de conjunto de anos (2009..2018); manter padrao
+55|MANTER|Parte de conjunto de anos; manter padrao
+56|MANTER|Parte de conjunto de anos; manter padrao
+57|MANTER|Parte de conjunto de anos; manter padrao
+58|MANTER|Parte de conjunto de anos; manter padrao
+59|MANTER|Parte de conjunto de anos; manter padrao
+60|MANTER|Parte de conjunto de aulas numeradas; manter padrao
+61|ACHATAR|Subpasta isolada de artigos sugeridos sem irmas; nome redundante
+62|MANTER|Parte de conjunto de materiais por professor/tema; manter padrao
+63|MANTER|Parte de conjunto de Seminarios; manter padrao
+64|MANTER|Parte de conjunto de Seminarios; manter padrao
+65|MANTER|Parte de conjunto de Seminarios; manter padrao
+66|MANTER|Parte de conjunto de Seminarios; manter padrao
+67|MANTER|Parte de conjunto de Seminarios; manter padrao
+68|MANTER|Parte de conjunto de Seminarios; manter padrao
+69|ACHATAR|Corredor com subpasta unica (Lidos); sem valor proprio
+70|ACHATAR|Corredor com subpasta unica (Lidos); duplica Prioridades de leitura
+71|MANTER|Tema proprio (Questao bancaria) dentro da monografia
+72|ACHATAR|Pasta Lidos isolada com 1 arquivo; residuo de subdivisao
+73|MANTER|Parte de conjunto de destinos de viagem; manter padrao
+74|MANTER|Parte de conjunto de destinos de viagem; manter padrao
+75|MANTER|Parte de conjunto de destinos de viagem; manter padrao
+76|MANTER|Parte de conjunto de destinos de viagem; manter padrao
+77|MANTER|Parte de conjunto de destinos de viagem; manter padrao
+78|MANTER|Parte de conjunto de subpastas do veiculo CRUZE; manter padrao
+79|MANTER|Parte de conjunto de subpastas do veiculo CRUZE; manter padrao
+80|MANTER|Parte de conjunto de subpastas do veiculo CRUZE; manter padrao
+81|ACHATAR|Backups e residuo tecnico do app Garmin; achatar
+82|MANTER|Pasta BRASIL (mapa) distinta de Backups; identidade propria
+83|ACHATAR|Residuo tecnico de backup Garmin (GPX); sem valor organizacional
+84|ACHATAR|Residuo tecnico de backup Garmin (GPX); sem valor organizacional
+85|ACHATAR|Residuo tecnico de backup Garmin (GPX); sem valor organizacional
+86|MANTER|Parte de conjunto de pessoas em REVISOES (Carol/Mauricio); manter padrao
+87|MANTER|Tema proprio (Termo de voluntariado) em estudos espiritas
+88|ACHATAR|ARQUIVOS_n e residuo tecnico generico; achatar
+89|MANTER|Parte de conjunto de temas de tecnologia (irmas tematicas)
+90|MANTER|Parte de conjunto de temas de tecnologia (irmas tematicas)
+91|ACHATAR|Residuo tecnico (Blocos OneNote) com 1 arquivo .url; achatar
+92|ACHATAR|UPDATE e residuo tecnico de firmware GoPro; achatar

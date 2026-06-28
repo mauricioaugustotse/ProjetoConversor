@@ -1,0 +1,9 @@
+{
+  "nats": ["01 - Jurídico", "02 - Estudos e concursos", "03 - Administrativo", "04 - Pessoal e financeiro", "05 - Diversos (a revisar)"],
+  "juridicoNat": "01 - Jurídico",
+  "diversosNat": "05 - Diversos (a revisar)",
+  "tiposJur": ["Recursos", "Petições", "Acórdãos e decisões", "Despachos e votos", "Contestações e manifestações", "Pareceres e notas técnicas", "Modelos e minutas", "Outros processuais"],
+  "tipoJurDefault": "Outros processuais",
+  "subgrupos": ["Eleitoral", "Trabalhista", "Cível", "Penal", "Administrativo", "Tributário", "Constitucional", "Previdenciário", "Empresarial", "Família e Sucessões", "Consumidor", "Ambiental", "Outros", "Direito Constitucional", "Direito Administrativo", "Direito Penal", "Direito Processual Penal", "Direito Civil", "Direito Processual Civil", "Direito Eleitoral", "Direito do Trabalho", "Direito Tributário", "Direito Empresarial", "Direito Internacional", "Direito Ambiental", "Direito Previdenciário", "Português", "Raciocínio Lógico e Matemática", "Informática", "Atualidades e Outros", "Comunicações internas", "Ofícios e memorandos", "Contratos e termos", "Atas e sessões", "Editais", "Portarias e resoluções", "Listas e planilhas", "Formulários", "Comprovantes e recibos", "Declarações", "Faturas e boletos", "Impostos", "Documentos pessoais"],
+  "subgrupoDefault": "Outros"
+}

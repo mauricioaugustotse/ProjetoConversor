@@ -1,0 +1,250 @@
+﻿1	(-VISI~1.DOC
+2	(10) Procurações.pdf
+3	(2) CMAI e CRRR - WUEBERSON DE SOUZA DOS SANTOS (2).doc
+4	(2)Andreivison Mendes 0317.09.111820-6 Denc 306 e 309 CTB.doc
+5	(9) Retificação de registro de óbito.pdf
+6	(E-mail) Relatório simplificado de atividades - 60 dias de gestão - Thiago Fini Kanashiro.pdf
+7	(E-mail) Repositório de dados eleitorais - resultados 2018.pdf
+8	(e-mail) UnB.pdf
+9	(JOTA) Honorários advocatícios e as alterações na lei eleitoral.pdf
+10	(Livro) - CASTRO, Leandro Nunes de; FERRARI, Daniel Gomes - Introdução à mineração de dados.pdf
+11	(Modelo) - ESTUDO ESCRITO DE PAUTA.docx
+12	(Modelo) Coexistência de filiação partidária.docx
+13	(Modelo) ED recebido como AgR (AI 64-05 - GO).docx
+14	(Modelo) Memória de reunião.docx
+15	(Modelo) Parágrafos GabLRB.docx
+16	(Modelo) Relatório de Atividades individual.docx
+17	(Modelos) Dra. Cristina.docx
+18	(Nota Informativa) COVID.pdf
+19	(O GLOBO) - Mulheres sem espaço na política.pdf
+20	(Ok) Alterações legislativas no CP e no CPP.pdf
+21	(Ok) Apresentação - Lei Maria da Penha.pdf
+22	(Ok) Ato infracional, medidas socioeducativas, remissão e medidas contra pais e responsáveis.pdf
+23	(Ok) Crimes de Lavagem.pdf
+24	(Ok) Crimes de trânsito.pdf
+25	(Ok) Crimes Licitatórios (parte 1).pdf
+26	(Ok) Crimes Licitatórios (parte 2).pdf
+27	(Ok) Direito Administrativo - Atos Administrativos.pdf
+28	(Ok) Direito Ambiental - O meio ambiente na CF-88.pdf
+29	(Ok) Direito Civil - Casamento, regime de bens e dissolução. União Estável.pdf
+30	(Ok) Direito Civil - Introdução ao Direito de Família.pdf
+31	(Ok) Direito Civil - Pessoa Natural.pdf
+32	(Ok) Direito Civil - Responsabilidade civil.pdf
+33	(Ok) Direito Constitucional - Controle de Constitucionalidade.pdf
+34	(Ok) Direito da Criança e do Adolescente - Família substituta.pdf
+35	(Ok) Direito do Consumidor - Defesa do consumidor em ju¡zo.pdf
+36	(Ok) Direito do Consumidor - Disposições gerais.pdf
+37	(Ok) Direito do Consumidor - Prescrição e decadência.pdf
+38	(Ok) Direito do Consumidor - Práticas comerciais.pdf
+39	(Ok) Direito Eleitoral - Condições de elegibilidade e causas de inelegibilidade.pdf
+40	(Ok) Direito Eleitoral - Crimes eleitorais e processo penal eleitoral.pdf
+41	(Ok) Direito Penal - Aplicação das penas.pdf
+42	(Ok) Direito Penal - Crimes contra o patrimônio.pdf
+43	(Ok) Direito Penal - Crimes funcionais.pdf
+44	(Ok) Direito Penal - Culpabilidade.pdf
+45	(Ok) Direito Penal - Derrubada de vetos do pacote anticrime.pdf
+46	(Ok) Direito Penal - Fato típico.pdf
+47	(Ok) Direito Penal - Ilicitude.pdf
+48	(Ok) Direito Penal - Introdução, fontes e aplicação da lei penal.pdf
+49	(Ok) Direito Penal - Lei Maria da Penha.pdf
+50	(Ok) Direito Penal - Punibilidade.pdf
+51	(Ok) Direito Penal Militar - Crimes contra a pessoa.pdf
+52	(Ok) Direito Penal Militar - Crimes contra o patrimônio.pdf
+53	(Ok) Direito Processo Penal - Jurisdição e competência.pdf
+54	(Ok) Direito Processual Civil - Atos processuais e vícios dos atos processuais.pdf
+55	(Ok) Direito Processual Civil - Normas, Principios Fundamentais do Processo Civil.pdf
+56	(Ok) Direito Processual Penal - Ação Penal.pdf
+57	(Ok) Direito Processual Penal - Inquérito.pdf
+58	(Ok) Direito Processual Penal - Noções introdutórias de Processo Penal.pdf
+59	(Ok) Direito Processual Penal - Prisões e liberdade provisória.pdf
+60	(Ok) Direito Processual Penal - Provas em espécie.pdf
+61	(Ok) Direitos Coletivos - Ação civil pública, Inquérito Civil e TAC.pdf
+62	(Ok) Direitos Coletivos - Tutela coletiva em juízo.pdf
+63	(Ok) Interceptação telefônica.pdf
+64	(Ok) Juizados Especiais.pdf
+65	(Ok) Lei de Drogas.pdf
+66	(Ok) Lei de Drogras (atualização).pdf
+67	(Ok) Lei dos Crimes Hediondos.pdf
+68	(Ok) Metas da semana 1.pdf
+69	(Ok) Metas da semana 2.pdf
+70	(Ok) Metas da semana 3.pdf
+71	(Ok) Organização criminosa.pdf
+72	(Ok) Processo Penal Militar - Ação Penal Militar.pdf
+73	(Ok) Processo Penal Militar - Competência da Justiça Militar.pdf
+74	(Ok) Processo Penal Militar - Inquérito Policial Militar.pdf
+75	(Ok) Tribunal do júri.pdf
+76	(Ok) Tutela penal e processual penal do meio ambiente.pdf
+77	(Palestra) Prof. Miguel Calmon Dantas - Judicialização eleitoral.docx
+78	(Palestra) Prof. Ruy Samuel Espíndola - justiça eleitoral contramajoritária e soberania popular.docx
+79	(Resenha 1) POGREBINSCHI, Thamy - Judicialização ou representação - política direito e democracia no Brasil.pdf
+80	(Resenha 2) POGREBINSCHI, Thamy - Judicialização ou representação - política direito e democracia no Brasil.pdf
+81	(Resumo) TASSINARI, Clarissa - A supremacia judicial consentida - STF a partir da relação direito e política.docx
+82	(Trecho) HUME, Robert - judges as policymakers.docx
+83	(USP) A linha do tempo da estratégia federal de disseminação da COVID-19.pdf
+84	._dizerodireito.com.br-Comentrios__Lei_128752013__altera_a_Lei_dos_Partidos_Polticos_e_a_Lei_das_Eleies.pdf
+85	._dizerodireito.com.br-STF_julga_constitucional_a_Lei_da_Ficha_Limpa__entenda.pdf
+86	0. Documentos exigidos para posse.pdf
+87	00000023.PDF
+88	0000179-97.2013.5.03.0153-data-20130902-seq-1032296.pdf
+89	000018-0.doc
+90	0000184-98.2010.5.03.0097-data-20100726-seq-10516122.pdf
+91	0000184-98.2010.5.03.0097-data-20101129-seq-646372.pdf
+92	0000184-98.2010.5.03.0097-data-20101215-seq-210480.pdf
+93	0000184-98.2010.5.03.0097-data-20110124-seq-791578.pdf
+94	0000184-98.2010.5.03.0097-data-20110221-seq-12175313.pdf
+95	0000203-44.2012.5.03.0062-data-20121001-seq-948555.pdf
+96	0000399-63.2012.5.03.0078-data-20120816-seq-938316.pdf
+97	0000408-98.2012.5.03.0086-data-20120427-seq-0860040812000008.pdf
+98	0000498-67.2011.5.03.0078-data-20111006-seq-867042.pdf
+99	0000598-44.2011.5.03.0103-data-20111017-seq-868846.pdf
+100	0000598-44.2011.5.03.0103-data-20111205-seq-880559.pdf
+101	0000607-61.2012.5.03.0041-data-20120504-seq-0410060712000011.pdf
+102	0000719-14.2013.5.03.0132-data-20130902-seq-1320071913000010.pdf
+103	0000753-57.2012.5.03.0153-data-20120629-seq-1530075312000005.pdf
+104	0000782-82.2011.5.03.0108-data-20130910-seq-1080078211000157.pdf
+105	0000801-04.2012.5.03.0060-data-20131007-seq-1041559.pdf
+106	0000804-53.2010.5.03.0019-data-20100628-seq-10173058.pdf
+107	0000804-53.2010.5.03.0019-data-20100803-seq-10615047.pdf
+108	0000804-53.2010.5.03.0019-data-20101015-seq-774990.pdf
+109	0000865-04.2011.5.03.0107-data-20120316-seq-901897.pdf
+110	0000865-04.2011.5.03.0107-data-20120531-seq-777319.pdf
+111	0000872-61-2010-5-04-0023-20110922.rtf
+112	0000947-80.2013.5.03.0037-data-20130910-seq-0370094713000013.pdf
+113	0000969-11.2011.5.03.0005-data-20120420-seq-909676.pdf
+114	0001031-70.2010.5.03.0010-data-20120628-seq-785071(1).pdf
+115	000106-6.doc
+116	000110-9.doc
+117	0001162-39.2010.5.03.0012-data-20120403-seq-0120116210000087.pdf
+118	0001222-55.2010.5.03.0030-data-20110502-seq-0300122210000039.pdf
+119	0001222-55.2010.5.03.0030-data-20110919-seq-861741.pdf
+120	0001222-55.2010.5.03.0030-data-20111128-seq-879695.pdf
+121	0001376-12.2010.5.03.0018-data-20120423-seq-0180137610000133.pdf
+122	0001376-12.2010.5.03.0018-data-20120924-seq-947305.pdf
+123	0001434-18.2011.5.03.0038-data-20120427-seq-0380143411000046.pdf
+124	0001443-61.2011.5.03.0108-data-20111128-seq-292409.pdf
+125	0001443-61.2011.5.03.0108-data-20111202-seq-881054.pdf
+126	000146-7.doc
+127	0001585-47.2011.5.03.0017-data-20120402-seq-905956.pdf
+128	0001585-47.2011.5.03.0017-data-20120517-seq-774546.pdf
+129	0001585-47.2011.5.03.0017-data-20120612-seq-781527.pdf
+130	0001638-37.2011.5.03.0014-data-20111212-seq-0140163811000024.pdf
+131	0001640-69.2011.5.03.0058-data-20120703-seq-928190.pdf
+132	0001866-27.2011.5.03.0106-data-20111117-seq-1060186611000013.pdf
+133	0001866-27.2011.5.03.0106-data-20120322-seq-903353.pdf
+134	0001879-48.2011.5.03.0131-data-20111010-seq-1310187911000017.pdf
+135	0002058-72.2011.5.03.0004-data-20120419-seq-0040205811000017.pdf
+136	0002358-79.2012.5.03.0107-data-20130926-seq-1070235812000019.pdf
+137	000339-5.doc
+138	000342-6.doc
+139	0003556-78.2016.2.00.0000.pdf
+140	000378-5.doc
+141	00039782-5.doc
+142	000446-9.doc
+143	000450-2.doc
+144	0004700-74.2009.5.03.0008-data-20090427-seq-5907675.pdf
+145	0004700-74.2009.5.03.0008-data-20090805-seq-683649.pdf
+146	000489-4ED.doc
+147	000564-2.doc
+148	000685997.pdf
+149	000812-3.doc
+150	000838-9.doc
+151	000979-6.doc
+152	001.pdf
+153	001045-8.doc
+154	00113644520034013800_3-1.DOC
+155	001242-8.doc
+156	001291-8.doc
+157	001322-8.doc
+158	001324-5.doc
+159	001328-0.doc
+160	001329-3.doc
+161	001497-3.doc
+162	001770-5.doc
+163	001786-0.doc
+164	0018300-81.2008.5.03.0111-data-20080822-seq-4167927.pdf
+165	0018300-81.2008.5.03.0111-data-20081209-seq-55466.pdf
+166	0018300-81.2008.5.03.0111-data-20101201-seq-784351.pdf
+167	001837-8 ED.doc
+168	002.pdf
+169	002054-5.doc
+170	002054-5A.doc
+171	002126-6.doc
+172	002134-9.doc
+173	002150-6.doc
+174	002166-4.doc
+175	00226 - Prática do Inquérito Policial.pdf
+176	002313-8.doc
+177	002314-9.doc
+178	002330-0.doc
+179	002410-0.doc
+180	00258-2.doc
+181	00258-2ED.doc
+182	00272-2006-088-03-00-6 RO-Ementa.rtf
+183	002752-8.doc
+184	002911-0.doc
+185	0029700-63.2008.5.03.0056-data-20080516-seq-3353432.pdf
+186	0029700-63.2008.5.03.0056-data-20080911-seq-618602.pdf
+187	0029700-63.2008.5.03.0056-data-20101028-seq-11622336.pdf
+188	0029700-63.2008.5.03.0056-data-20110418-seq-811947.pdf
+189	002971-5.doc
+190	002971-5ED.doc
+191	002TJBAPROV14_001_01.pdf
+192	002TJBAPROV14_001_01_Gab_Definitivo.pdf
+193	002TJBAREMV14_002_04.pdf
+194	002TJBAREMV14_002_04_Gab_Definitivo.pdf
+195	003.pdf
+196	003018-3.doc
+197	003018-3ED.doc
+198	003018-3EDa.doc
+199	003094-0.doc
+200	003140-8.doc
+201	003320-6.doc
+202	003320-6ED.doc
+203	003348-0.doc
+204	003348-3.doc
+205	003348-3ED.doc
+206	0033500-25.2009.5.03.0037-data-20090723-seq-6656035.pdf
+207	0033500-25.2009.5.03.0037-data-20090821-seq-6914435.pdf
+208	0033500-25.2009.5.03.0037-data-20091214-seq-131794.pdf
+209	0033500-25.2009.5.03.0037-data-20100517-seq-9714923.pdf
+210	0033500-25.2009.5.03.0037-data-20100526-seq-9836247.pdf
+211	0033500-25.2009.5.03.0037-data-20101014-seq-773920.pdf
+212	0033500-25.2009.5.03.0037-data-20101118-seq-780418.pdf
+213	0033500-25.2009.5.03.0037-data-20110218-seq-665603.pdf
+214	0033500-25.2009.5.03.0037-data-20110323-seq-673777.pdf
+215	003378-5.doc
+216	003420-8.doc
+217	003420-8ED.doc
+218	003437-2.doc
+219	003442-0.doc
+220	003494-4ED.doc
+221	003494-9.doc
+222	003498-2.doc
+223	003536-0.doc
+224	003536-0A.doc
+225	003568-9.doc
+226	003578-9.doc
+227	003634-5.doc
+228	003634-5ED.doc
+229	003662-0.doc
+230	003719-3.doc
+231	003798-7.doc
+232	00381-2013 - Elaboração de nota Técnica..pdf
+233	003852-0.doc
+234	003898-6.doc
+235	003918-3.doc
+236	00391_005565[1].pdf
+237	00391_007789[1].pdf
+238	003934-4.doc
+239	003964-2.doc
+240	003_TJBA14-DISC_001_01_prática.pdf
+241	003_TJBA14-DISC_002_02_prática.pdf
+242	004.pdf
+243	004024-6.doc
+244	004024-6ED.doc
+245	004058-9.doc
+246	004076-7.doc
+247	004118-6.doc
+248	004171-3.doc
+249	004190-2.doc
+250	004190-2ED.doc

@@ -1,0 +1,77 @@
+﻿1	Ação de Impugnação de Mandato Eletivo (AIME) - alegações finais - atual. 2024-02-15.txt
+2	apuração de votos e eleições extraordinárias_2.csv
+3	apuração de votos e eleições extraordinárias_3.csv
+4	apuração de votos e eleições extraordinárias_3_final.csv
+5	apuração de votos e eleições extraordinárias_3_notion.csv
+6	Apuração votos e eleições extraordinárias (2024-01-23).txt
+7	Captação de Sufrágio - AIME, conexão com ação penal - atualizado 2024-07-10.txt
+8	Captação de Sufrágio.csv
+9	Captação de Sufrágio_notion.csv
+10	Captacao_de_sufragio_notion_final.csv
+11	Coligação e convenção - jurisprudência TSE sobre denominação (atualizado 2024-01-31).txt
+12	coligação e convenção.csv
+13	coligação e convenção_notion.csv
+14	coligação e convenção_notion_final.csv
+15	coligação e convenção_notion_final_invertido.csv
+16	Comprovação de receitas e gastos partidários - TSE - atualizado 2024-11-16.txt
+17	Comprovação de receitas e gastos partidários.csv
+18	Comprovação de receitas e gastos partidários_notion.csv
+19	Comprovacao_de_receitas_e_gastos_partidarios_notion_final.csv
+20	Condutas vedadas a agentes públicos - jurisprudência abuso de poder político.txt
+21	condutas_vedadas_a_agentes_publicos.csv
+22	condutas_vedadas_a_agentes_publicos_notion_final.csv
+23	condutas_vedadas_a_agentes_publicos_notion_final_invertido.csv
+24	Contas de Campanha Eleitoral - abuso de poder econômico - atualizado 2025-05-15.txt
+25	Contas_de_Campanha_Eleitoral.csv
+26	Contas_de_Campanha_Eleitoral_notion.csv
+27	Contas_de_Campanha_Eleitoral_notion_final.csv
+28	Contas_de_Campanha_Eleitoral_notion_final_invertido.csv
+29	Crimes eleitorais e Processo Penal Eleitoral - jurisprudência (atual. 2023-09-05).txt
+30	crimes_eleitorais_e_processo_penal.csv
+31	crimes_eleitorais_e_processo_penal_notion.csv
+32	Desincompatibilização e afastamentos - jurisprudência TSE.txt
+33	Desincompatibilizacao_e_afastamento.csv
+34	Desincompatibilizacao_e_afastamento_notion.csv
+35	Diplomação - cassação por abuso em benefício de terceiro - jurisprudência TSE.txt
+36	diplomacao.csv
+37	diplomacao_notion.csv
+38	Direito de resposta na propaganda eleitoral.csv
+39	Direito de resposta na propaganda eleitoral_notion.csv
+40	Eleitor do alistamento ao voto - jurisprudência alistabilidade e voto.txt
+41	eleitor do alistamento ao voto.csv
+42	eleitor do alistamento ao voto_notion.csv
+43	Endrentamento à desinformação eleitoral.csv
+44	Endrentamento à desinformação eleitoral_notion.csv
+45	Enfrentamento à desinformação eleitoral - ameaças e violência contra a Justiça Eleitoral.txt
+46	Filiação Partidária - jurisprudência TSE (atualizado 2025-02-13).txt
+47	Filiação Partidária.csv
+48	Filiação Partidária_notion.csv
+49	inelegibilidades_e_condicoes_de_elegibilidade.csv
+50	inelegibilidades_e_condicoes_de_elegibilidade_notion.csv
+51	mandato_eletivo.csv
+52	mandato_eletivo_notion.csv
+53	Mapa da Coletânea de Jurisprudência Eleitoral - atualizado em 2014-09-10.pdf
+54	Matéria processual eleitoral - ação rescisória e cabimento - atualizado 2025-04-24.txt
+55	Matéria_administrativa.csv
+56	Matéria_administrativa_notion.csv
+57	materia_processual.csv
+58	materia_processual_notion.csv
+59	Partido político - autonomia partidária - jurisprudência TSE (atual. 2025-10-15).txt
+60	Partido_politico.csv
+61	Partido_politico_notion.csv
+62	Pesquisa eleitoral e abuso de poder econômico - jurisprudência (atual. 2022-02-09).txt
+63	pesquisa eleitoral.csv
+64	Propaganda eleitoral - caracterização e propaganda antecipada - atualizado 2025-10-15.txt
+65	Propaganda Eleitoral.csv
+66	Propaganda Eleitoral_notion.csv
+67	Questão direito de resposta - propaganda eleitoral (FGV 2025).txt
+68	Registro de candidato - jurisprudência TSE (atualizado 2023-03-03).txt
+69	registro_de_candidato.csv
+70	registro_de_candidato_notion.csv
+71	Taxonomia de temas eleitorais TSE - apuração de votos e eleições.txt
+72	Temas Diversos - Atos preparatórios da votação - Cédula eleitoral.txt
+73	Temas Diversos.csv
+74	Temas Diversos_notion.csv
+75	temas_selec_TSE_all.csv
+76	temas_selec_TSE_all_part1.csv
+77	temas_selec_TSE_all_part2.csv

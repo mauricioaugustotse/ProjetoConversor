@@ -1,0 +1,250 @@
+﻿27001	03 - Administrativo		Moradores_31 Mar 12_Ocupação.doc
+27002	03 - Administrativo		Movimentações do PCA.pdf
+27003	03 - Administrativo		MPF OFICIO Nº 0084-2013.pdf
+27004	03 - Administrativo		Msg Automatiza - 15 JUN 16 - Selo Eletrônico_01.doc
+27005	03 - Administrativo		Msg Automatiza - Ago 11 16.doc
+27006	03 - Administrativo		Msg Automatiza - Ago 15 16.doc
+27007	03 - Administrativo		Msg Automatiza 07JUL 16 - Atualização do Prolex - CLEVER.doc
+27008	03 - Administrativo		Msg Automatiza AGO 01 16 - Atualização do Prolex - DAP.doc
+27009	03 - Administrativo		Msg Automatiza Ago 01 16.doc
+27010	03 - Administrativo		Msg Automatiza Jul 06 16 - Selo Eletrônico_02.doc
+27011	03 - Administrativo		Msg Automatiza JUL 07 16 - 2ª etapa da Atualização do Prolex.doc
+27012	03 - Administrativo		Msg BOA VISTA JUL 11 16 - Tabela.doc
+27013	03 - Administrativo		Msg BOA VISTA JUL 11 16.doc
+27014	03 - Administrativo		Msg IEPTB - 08 Ago 16.doc
+27015	03 - Administrativo		Msg IEPTB Ago 02 16.doc
+27016	03 - Administrativo		Msg IEPTB AGO 02 2016.doc
+27017	03 - Administrativo		Msg IEPTB Ago 26 16.doc
+27018	03 - Administrativo		Msg IEPTB Out 04 16_01.doc
+27019	03 - Administrativo		Msg IEPTB Out 04 16_02.doc
+27020	03 - Administrativo		Msg IEPTB Out 07 16.doc
+27021	03 - Administrativo		Msg IEPTB Out 10 16 (2).doc
+27022	03 - Administrativo		Msg IEPTB Out 10 16.doc
+27023	03 - Administrativo		Msg IEPTB Out 13 16.doc
+27024	03 - Administrativo		Msg IEPTB Out 27 16.doc
+27025	03 - Administrativo		Msg IEPTB Set 21 16.doc
+27026	03 - Administrativo		Msg_01_05_06_14.doc
+27027	03 - Administrativo		Msg_02_05_06_14.doc
+27028	03 - Administrativo		Msg_IEPTB_10_6_14.doc
+27029	03 - Administrativo		Msg_IEPTB_24_7_14.doc
+27030	03 - Administrativo		Msg_IEPTB_24_7_14_01.doc
+27031	03 - Administrativo		Msg_IEPTB_28_7_14.doc
+27032	03 - Administrativo		Mudar dados no Active Directory.pdf
+27033	03 - Administrativo		Na tela de Login.doc
+27034	03 - Administrativo		Navegação privada internet.doc
+27035	03 - Administrativo		NDJ - Regularidade fiscal.pdf
+27036	03 - Administrativo		NI 13040-2011 CPL-GERAD.pdf
+27037	03 - Administrativo		NI 14457 - Serviços de Manutenção COM aplicação de peças.doc
+27038	03 - Administrativo		NILVA VIEIRA DE OLIVEIRA x TREVOSERVIS e ECT - CONTRATO 005-2011 - RO.doc
+27039	03 - Administrativo		NJ - 13193 - DLe - Locação Imóveis - Uberaba.doc
+27040	03 - Administrativo		NJ - 13532 - TA - Aluguel - Prorrogar e Reajustar - CDD de Betim - CNPJ 042842400001_16.doc
+27041	03 - Administrativo		NJ - 13573 - TA - Prorrogar e Reajustar - COOPERATIVA OTIMIZAR LOGÍSTICA LTDA.doc
+27042	03 - Administrativo		NJ - 13659 - GPA - Sumiço de cartas.doc
+27043	03 - Administrativo		NJ - 13980 - TA - Prorrogar e reajustar - Alarmes para a DR_MG - SEVIG COMÉRCIO DE EQUIPAMENTOS LTDA.doc
+27044	03 - Administrativo		NJ - 14074 - TOMADA DE PREÇOS - AC CAPINÓPOLIS.doc
+27045	03 - Administrativo		NJ - 14178 - TOMADA DE PREÇOS - AC FELIXLANDIA (2).doc
+27046	03 - Administrativo		NJ - 14178 - TOMADA DE PREÇOS - AC FELIXLANDIA.doc
+27047	03 - Administrativo		NJ - 14183 - TA - Aluguel - Prorrogar e Reajustar - AC MANGA.doc
+27048	03 - Administrativo		NJ - 14350 - PGE - Reforma AC SÃO GONÇALO DO PARÁ - 140,90 m².doc
+27049	03 - Administrativo		NJ - 14416 - Cessão de Imóveis - Curral de Dentro.doc
+27050	03 - Administrativo		NJ - 14457 - Serviços de manutenção ON SITE.doc
+27051	03 - Administrativo		NJ - 14491 - TA - Reajustar - Apenas - SUPERMOTOS LTDA.doc
+27052	03 - Administrativo		NJ - 14596 - TOMADA DE PREÇOS - AC JOÃO MONLEVADE.doc
+27053	03 - Administrativo		NJ - 14598 - TA - Aluguel - Prorrogar e REVISAR - ACCI NOVA SERRANA.doc
+27054	03 - Administrativo		NJ - 14687 - TA - Prorrogar e reajustar - Transporte de empregados da ECT - VIAÇÃO SERTANEJA LTDA.doc
+27055	03 - Administrativo		NJ - 14973 - PGE - Reforma CDD UBERLÂNDIA.doc
+27056	03 - Administrativo		NJ - 15049 - TA - Reajustar apenas - TBI SEGURANÇA LTDA.doc
+27057	03 - Administrativo		NJ - 15105 - TA - Reajustar apenas - DRC PRODUTOS ELETRÔNICOS LTDA.doc
+27058	03 - Administrativo		NJ - 15273 - Serviço de manutenção com aplicação de peças ON SITE.doc
+27059	03 - Administrativo		NJ - 15692 - Serviço de manutenção com aplicação de peças genuínas ON SITE.doc
+27060	03 - Administrativo		NJ - 15837 - Serviço de manutenção com aplicação de peças genuínas ON SITE.doc
+27061	03 - Administrativo		NJ - 18112 - TA - Reajustar apenas - HP HIDRÁULICA AUTO PEÇAS EPP.doc
+27062	03 - Administrativo		NJ - 18197 - TA - Prorrogar e reajustar - Transporte de empregados da ECT - VIAÇÃO PRESIDENTE LTDA.doc
+27063	03 - Administrativo		NJ - 18263 - Serviço de clipping eletrônico.doc
+27064	03 - Administrativo		NJ - 20018 - Suspensão de licitar - AMAZONVIP COMÉRCIO ELETRÔNICO LTDA.doc
+27065	03 - Administrativo		NJ - 206 - TA - Prorrogar e reajustar - Transporte de empregados da ECT - BPA TRANSPORTES LTDA.doc
+27066	03 - Administrativo		NJ - 24814 - Serviço de comunicação de dados.doc
+27067	03 - Administrativo		NJ - 26552 - Serviço de manutenção com aplicação de peças genuínas ON SITE.doc
+27068	03 - Administrativo		NJ - 371 - PGE - AC SANTO ANTÔNIO DO JACINTO.doc
+27069	03 - Administrativo		NJ - 508 - 2011 - GUIA DE LOCAÇÃO DE BENS IMÓVEIS.doc
+27070	03 - Administrativo		NJ - 526 - TA - Aluguel - Prorrogar e REVISAR - AC SARZEDO.doc
+27071	03 - Administrativo		NJ - 536 - 2011 - PAF.doc
+27072	03 - Administrativo		NJ - 685 - TA - Aluguel - Prorrogar e REVISAR - AC DR LUND - LAGOA SANTA.doc
+27073	03 - Administrativo		NJ - 904 - 2005 - PRAZO SUPERIOR A 05 ANOS.doc
+27074	03 - Administrativo		NJ - ASJUR - CESSÃO DE USO DE IMÓVEL BB CCE.doc
+27075	03 - Administrativo		NJ - CARLOS ANTONIO OREFICE.doc
+27076	03 - Administrativo		NJ - CONVÊNIO.doc
+27077	03 - Administrativo		NJ - dif caixa - falsificação de VP - concorrência desleal - WANDERLEY CALAZANS.doc
+27078	03 - Administrativo		NJ - EUDAS MARIA - RESP SUBSD.doc
+27079	03 - Administrativo		NJ - EUDAS MARIA - RESP. SUBSD..doc
+27080	03 - Administrativo		NJ - GPA - Abandono de emprego - WAGNER RODRIGUES DE MENEZES.doc
+27081	03 - Administrativo		NJ - Imovel hipotecado - GMAJ - SPM.doc
+27082	03 - Administrativo		NJ - Interdito Proibitório - Just Fed - Declinação de Competência.doc
+27083	03 - Administrativo		NJ - inviabilidade economica miriam silva (2).doc
+27084	03 - Administrativo		NJ - inviabilidade economica miriam silva.doc
+27085	03 - Administrativo		NJ - LÚCIO OTÁVIO DE SOUZA VICENTE.doc
+27086	03 - Administrativo		NJ - MANOEL CARNEIRO FERNANDO SANTANNA.doc
+27087	03 - Administrativo		NJ - MARCUS VINICIUS ANDRADE.doc
+27088	03 - Administrativo		NJ - NOTIFICAÇÃO DE DOENTE E PRESO.pdf
+27089	03 - Administrativo		NJ - VITOR APARTECIDO CAIVANO JOPPERT.doc
+27090	03 - Administrativo		NJ -15749 - TA - Aluguel - Prorrogar e reajustar - AC ITUMIRIM.doc
+27091	03 - Administrativo		NJ -banco - máquinas auto atendimento.doc
+27092	03 - Administrativo		NJ 09549-2012 - JOPPERT ENQUADRAMENTO - ALÍNEAS 482 CLT II - DVC.doc
+27093	03 - Administrativo		NJ 1052 - TA - Acréscimo - Aquisição de peças e acessórios genuínos - SRP.doc
+27094	03 - Administrativo		NJ 1058 - GECOM - Ajuste minuta contrato padrão - TRE-MG.doc
+27095	03 - Administrativo		NJ 11717 - DLe - Seguro estagiários.doc
+27096	03 - Administrativo		NJ 1188_07.doc
+27097	03 - Administrativo		NJ 11990 - Resilição - FUSION TRANSPORTADORA LTDA.doc
+27098	03 - Administrativo		NJ 12574 - Doação de Móveis_jaboticatubas.doc
+27099	03 - Administrativo		NJ 1258 - DEJUR.doc
+27100	03 - Administrativo		NJ 12603 - INEX - Patrocínio - Câmara Americana de Comércio.doc
+27101	03 - Administrativo		NJ 12630 - TA- Prorrogar e reajustar - SKY BLUE COMÉRCIO E SERVIÇOS LTDA.doc
+27102	03 - Administrativo		NJ 12764 - Aquisição de coletes - SRP.doc
+27103	03 - Administrativo		NJ 12926 - TA - Repactuação (mão-de-obra) PAF e PQM - Atto Recursos Humanos.doc
+27104	03 - Administrativo		NJ 12958 - TA - Aquisição de pneus - SRP.doc
+27105	03 - Administrativo		NJ 13040 - Plaqueta de identificação de bens - SRP.doc
+27106	03 - Administrativo		NJ 13087 - LTR - Patos de Minas-São Gonçalo do Abaeté.doc
+27107	03 - Administrativo		NJ 13252 - LTU - Região Norte do Estado de Minas Gerais.doc
+27108	03 - Administrativo		NJ 13253 - LTU - Região do Vale do Mucuri.doc
+27109	03 - Administrativo		NJ 13365 - Doação de Móveis_Serrania.doc
+27110	03 - Administrativo		NJ 13757 - Doação de Móveis_Lar dos Idosos Rosina de Paula.doc
+27111	03 - Administrativo		NJ 1403 - LTU - São João Del Rei.doc
+27112	03 - Administrativo		NJ 14041 - INEX - Patrocínio - ARAXÁ - XIV Congresso das Associações Comerciais de MG.doc
+27113	03 - Administrativo		NJ 14125 - Aquisição de pneus - SRP.doc
+27114	03 - Administrativo		NJ 14148 - LTR - Belo Horizonte - Matozinhos.doc
+27115	03 - Administrativo		NJ 14326 - Doação de Móveis_Baependi.doc
+27116	03 - Administrativo		NJ 14397 - Aquisição de peças genuínas VOLKSWAGEN.doc
+27117	03 - Administrativo		NJ 14402 - TA - Altera servidor - Convênio nº 0010_07 - SARZEDO.doc
+27118	03 - Administrativo		NJ 14440 - DLe - Locação cc obras_AC São Gonçalo do Pará.doc
+27119	03 - Administrativo		NJ 14500 - TA - Alteração quilometragem preço e horário linha - LTR.doc
+27120	03 - Administrativo		NJ 14506 - Doação de Móveis_Poço Fundo.doc
+27121	03 - Administrativo		NJ 14610 - TA - Alteração quilometragem preço e horário linha - LTR.doc
+27122	03 - Administrativo		NJ 14648 - TA - Prorrogar e reajustar - LTRs-MG - TRANSMAX TRANSPORTES LTDA.doc
+27123	03 - Administrativo		NJ 14696 - Aquisição de Televisores - SRP.doc
+27124	03 - Administrativo		NJ 14866 - Aquisição de material de limpeza - SRP.doc
+27125	03 - Administrativo		NJ 14925 - Termo de Quitação - Repactuação Mão de Obra - OLIVEIRA E SCHLICKMANN.doc
+27126	03 - Administrativo		NJ 14942 - Aquisição de material de escritório - SRP.doc
+27127	03 - Administrativo		NJ 15186 - TA - Aditamento - Aquisição de baterias - SRP.doc
+27128	03 - Administrativo		NJ 15203 - DLe - Confecção de placas.doc
+27129	03 - Administrativo		NJ 1527_08.doc
+27130	03 - Administrativo		NJ 15422 - Aquisição de Fitas de Demarcação de Solo - SRP.doc
+27131	03 - Administrativo		NJ 15547 - Aquisição de serviço de fotografia - SRP.doc
+27132	03 - Administrativo		NJ 15876 - TA - Prorrogar e Reajustar - Locação de serviço de empilhadeira.doc
+27133	03 - Administrativo		NJ 15918 - Aquisição de peças FIAT.doc
+27134	03 - Administrativo		NJ 15942 - TA - Prorrogar apenas - INJETEC LTDA.doc
+27135	03 - Administrativo		NJ 16005 - Aquisição de Pneus e Câmaras de Ar - SRP.doc
+27136	03 - Administrativo		NJ 16024 - TA - Prorrogar e reajustar - LTR 221 - MARTINS E FILHO TRANSPORTE E TURISMO LTDA.doc
+27137	03 - Administrativo		NJ 16038 - DLe - Locação cc obras_AC Costa Teles.doc
+27138	03 - Administrativo		NJ 16249 - TA - Repactuação (mão-de-obra) PAF e PQM - Trevoservis Ltda.doc
+27139	03 - Administrativo		NJ 16309 - Termo de Cesso de Uso - Municipio de Campanha.doc
+27140	03 - Administrativo		NJ 16441 - TA - Prorrogar apenas - A PONTO RÁPIDO LTDA.doc
+27141	03 - Administrativo		NJ 16514 - Rechancela fl. 4 PGE nº. 11000313.doc
+27142	03 - Administrativo		NJ 16534 - TA - Prorrogar e reajustar - AUTOMECÂNICA LANTORK LTDA.doc
+27143	03 - Administrativo		NJ 16861 - Aquisição de Fitas de Demarcação de Solo - SRP.doc
+27144	03 - Administrativo		NJ 16883 - Termo de Cessão de Uso de Imóvel - SEF-MG.doc
+27145	03 - Administrativo		NJ 17009 - TA - Repactuação (mão-de-obra) PAF, PQM, RECICLAGEM DE PESSOAL - Trevoservis Ltda.doc
+27146	03 - Administrativo		NJ 17098 - TA - Prorrogar e reajustar - MINAS FORTES SEGURANÇA E VIGILÂNCIA LTDA.doc
+27147	03 - Administrativo		NJ 17304 - Aquisição de peças e acessórios - SRP.doc
+27148	03 - Administrativo		NJ 17542 - DLe - Locação sem obras_UD OURO BRANCO.doc
+27149	03 - Administrativo		NJ 17751 - TA - Ajustar Contrato - RIBEIRO LOGÍSITCA E TRANSPORTE LTDA.doc
+27150	03 - Administrativo		NJ 17869 - TA - Prorrogar e reajustar - GARANTIA COMÉRCIO E MONTAGENS LTDA.doc
+27151	03 - Administrativo		NJ 17885 - TA - Repactuação (mão-de-obra) RECICLAGEM DE PESSOAL - TBI SEGURANÇA LTDA.doc
+27152	03 - Administrativo		NJ 18004 - LTR - SES_MG CARGA HIGIENIZADA.doc
+27153	03 - Administrativo		NJ 20016 - TA - Prorrogar e Reajustar - SAN MARCO AUTOMÓVEIS LTDA.doc
+27154	03 - Administrativo		NJ 20428 - Suspensão de licitar e impedimento de contratar com a ECT - Penalidade 2.doc
+27155	03 - Administrativo		NJ 20430 - Suspensão de licitar e impedimento de contratar com a ECT - Penalidade 1.doc
+27156	03 - Administrativo		NJ 214984 - Suspensão de licitar e impedimento de contratar com a ECT - DELTA CONSERVAÇÃO LTDA.doc
+27157	03 - Administrativo		NJ 234 - Termo de Cesso de Uso de Imóvel - FHIEMIG.doc
+27158	03 - Administrativo		NJ 23511 - Aquisição de material de escritório - SRP.doc
+27159	03 - Administrativo		NJ 23729 - Termo de Cesso de Uso - Municipio de Serra dos Aimorés.doc
+27160	03 - Administrativo		NJ 23927 - Aquisição de papel A4 Jamaica - SRP.doc
+27161	03 - Administrativo		NJ 24103 - Aquisição de Óleos Lubrificantes - SRP.doc
+27162	03 - Administrativo		NJ 24906 - Doação de Imóvel - Município Campanha_MG.doc
+27163	03 - Administrativo		NJ 25082 - DLe - Confecção de placas.doc
+27164	03 - Administrativo		NJ 251_04.doc
+27165	03 - Administrativo		NJ 26502 - DLe - Confecção de placas 2.doc
+27166	03 - Administrativo		NJ 26868 - Aquisição de carimbos - SRP.doc
+27167	03 - Administrativo		NJ 3103 ITF - FAT - FAO - GPTF.pdf
+27168	03 - Administrativo		NJ 336 - DLe - Água Mineral.doc
+27169	03 - Administrativo		NJ 455_08.doc
+27170	03 - Administrativo		NJ 468 - DISPENSA POR JUSTA CAUSA - ADILSON DA SILVA.doc
+27171	03 - Administrativo		NJ 653 - TA - Repactuação (mão-de-obra) POTENZA EMPRESA DE TRABALHO TEMPORÁRIO.doc
+27172	03 - Administrativo		NJ 656_2012.doc
+27173	03 - Administrativo		NJ 715 - AGC - Agência de Correios Comunitária - Sobral Pinto_MG.doc
+27174	03 - Administrativo		NJ 75 - LTR - LTR 037, 056 E 100.doc
+27175	03 - Administrativo		NJ 825 - TA - Prorrogar e reajustar - CIRCUITO INTEGRADO COMUNICAÇÃO LTDA.doc
+27176	03 - Administrativo		NJ 897 - 2010.doc
+27177	03 - Administrativo		NJ Acidente de Trabalho.doc
+27178	03 - Administrativo		NJ acumulação indevida de cargos.doc
+27179	03 - Administrativo		NJ Advogado empregado que patrocina causas contra a ECT conduta contraria a etica.doc
+27180	03 - Administrativo		nj aguas lindas de goiás - acordo (2).doc
+27181	03 - Administrativo		nj aguas lindas de goiás - acordo.doc
+27182	03 - Administrativo		NJ anexo 0 vistoria armário.doc
+27183	03 - Administrativo		NJ ASSISTENCIA JUDICIARIA.doc
+27184	03 - Administrativo		NJ Banheiros Públicos Hall das Agências.pdf
+27185	03 - Administrativo		NJ construção dr-bsb.doc
+27186	03 - Administrativo		NJ contratação remanescente.doc
+27187	03 - Administrativo		NJ Contratação Serv_Terceiros.doc
+27188	03 - Administrativo		NJ Correspondência Agrupada.pdf
+27189	03 - Administrativo		NJ CPL - PGE 12000038 - Mão-de-obra temporária MOT - SRP.doc
+27190	03 - Administrativo		NJ CPL - PGE11 000084 - AQUISIÇÃO DE TAPETE ANTIFADIGA.doc
+27191	03 - Administrativo		NJ DEJUR 757 - 2006.doc
+27192	03 - Administrativo		NJ DEJUR Doação.doc
+27193	03 - Administrativo		NJ GCEJ DEJUR - 864_10 - Reserva técnica + reciclagem-PQM.doc
+27194	03 - Administrativo		NJ GCOJ DEJUR - 849-11 - AS - MANLIC 3 2.doc
+27195	03 - Administrativo		NJ GCOJ DEJUR 98_10 - Planilha de custos.doc
+27196	03 - Administrativo		NJ GCON DEJUR 466-08 - DL Remanescente e rescisão.doc
+27197	03 - Administrativo		NJ GENAF - GPA 200094 - Intempestividade - Roubo - VIA EXPRESS LOGÍSTICA.doc
+27198	03 - Administrativo		NJ GENAF GPA 2000068 - Arrombamento de carga.doc
+27199	03 - Administrativo		NJ GENAF GPA 200094 - Arrombamento de carga.doc
+27200	03 - Administrativo		NJ GERAD - DL 11000258 - Locação CEE Montes Claros.doc
+27201	03 - Administrativo		NJ GERAD - DL remanescente 11000033-2011- SERVIÇOS DE MANUTENÇÃO PREVENTIVA EQUIPAMENTOS HIDRAULICOS.doc
+27202	03 - Administrativo		NJ GERAD - Pagamento de salários pelo remanescente diversos daqueles da remanescida - análise jurídica.doc
+27203	03 - Administrativo		NJ GERAD - Planilha de formação de custos - pesquisa de mercado.doc
+27204	03 - Administrativo		NJ GERAD - Serviço de Engenharia Comum - REFORMA E ADAPTAÇÃO - AC EUGENOPOLIS.doc
+27205	03 - Administrativo		NJ GERAD ALTERAÇÃO QUALITATIVA KAAP TRANSPORTES - CTR 350-08.doc
+27206	03 - Administrativo		NJ GESAU 12030 - Prorrogação Termo de Credenciamento Médico - RM SANTA CATARINA SS LTDA.doc
+27207	03 - Administrativo		NJ GESAU 12087- Prorrogação Termo de Credenciamento Médico - LABORATÓRIO OSWALDO CRUZ LTDA ME.doc
+27208	03 - Administrativo		NJ GESAU 12092 - Prorrogação Termo de Credenciamento Médico - FISIOTERAPIA ESPECIALIZADA LTDA.doc
+27209	03 - Administrativo		NJ GESAU 12093 - Prorrogação Termo de Credenciamento Médico - FISIOTERAPIA ESPECIALIZADA LTDA.doc
+27210	03 - Administrativo		NJ GESAU 12094 - Prorrogação Termo de Credenciamento Médico - FERNANDA DE PAULA JUNQUEIRA.doc
+27211	03 - Administrativo		NJ GESAU 12095 - Prorrogação Termo de Credenciamento Médico - PISSAIA CLÍNICA ODONTOLÓGIA LTDA.doc
+27212	03 - Administrativo		NJ GESAU 12101 - Prorrogação Termo de Credenciamento Médico - GRUPO ODONTOLÓGICO ESPECIALIZADO LTDA.doc
+27213	03 - Administrativo		NJ GESAU 12102 - Prorrogação Termo de Credenciamento Médico - ÉLIDA LÚCIA FERREIRA ASSUNÇÃO.doc
+27214	03 - Administrativo		NJ GESAU 12103 - Prorrogação Termo de Credenciamento Médico - MÁRLIN PAULA CLÍNICA ODONTOLÓGICA LTDA.doc
+27215	03 - Administrativo		NJ GESAU 12104 - Prorrogação Termo de Credenciamento Médico - SURERUS E SANTANA LTDA.doc
+27216	03 - Administrativo		NJ GESAU 12105 - Prorrogação Termo de Credenciamento Médico - FONOLYRA E PRÓTESEROCHA LTDA.doc
+27217	03 - Administrativo		NJ GESAU 12106 - Prorrogação Termo de Credenciamento Médico - Clínica Cirúrgica Trauma One Ltda.doc
+27218	03 - Administrativo		NJ GESAU 12121 - Prorrogação Termo de Credenciamento Médico - FISIOCLIM FISIOTERAPIA LTDA.doc
+27219	03 - Administrativo		NJ GESAU 12293 - Prorrogação Termo de Credenciamento Médico - RRJJ Laboratório de Análises Clínicas.doc
+27220	03 - Administrativo		NJ GESAU 12796 - Prorrogação de Termo de Credenciamento Médico - LABORATÓRIO ANACLIN LTDA.doc
+27221	03 - Administrativo		NJ GESAU 12797 - Prorrogação de Termo de Credenciamento Médico - CENTRO MÉDICO SÃO CAMILO LTDA.doc
+27222	03 - Administrativo		NJ GESAU 12968 - Prorrogação de Termo de Credenciamento Médico - GRAZIELE MARQUES BRITO.doc
+27223	03 - Administrativo		NJ GESAU 12972 - Prorrogação de Termo de Credenciamento Médico - ALBA VALÉRIA JERÔNIMO BARROSO.doc
+27224	03 - Administrativo		NJ GESAU 12975 - Prorrogação de Termo de Credenciamento Médico - LABORANALYSES LTDA.doc
+27225	03 - Administrativo		NJ GESAU 13504 - Prorrogação de Termo de Credenciamento Médico - RICARDO LESSA DO CARMO.doc
+27226	03 - Administrativo		NJ GESAU 13606 - Prorrogação de Termo de Credenciamento Médico - JUSSARA MACHADO MIGLIO DE OLIVEIRA.doc
+27227	03 - Administrativo		NJ GESAU 13632 - Prorrogação de Termo de Credenciamento Médico - ASSOCIAÇÃO HOSPITALAR SANTA ROSÁLIA.doc
+27228	03 - Administrativo		NJ GESAU 13634 - Prorrogação de Termo de Credenciamento Médico - WAGNER DE LACERDA DUTRA.doc
+27229	03 - Administrativo		NJ GESAU 13636 - Prorrogação de Termo de Credenciamento Médico - ARMANDO LACERDA GOBIRA.doc
+27230	03 - Administrativo		NJ GESAU 13651 - Prorrogação de Termo de Credenciamento Médico - MARIA CECILIA MAIA.doc
+27231	03 - Administrativo		NJ GESAU 13652 - Prorrogação de Termo de Credenciamento Médico - DANUSA RODRIGUES TOLENTINO.doc
+27232	03 - Administrativo		NJ GESAU 13686 - Prorrogação de Termo de Credenciamento Médico - ALEXANDRE MELO DE OLIVEIRA.doc
+27233	03 - Administrativo		NJ GESAU 13690 - Prorrogação de Termo de Credenciamento Médico - LUCIULA DE SOUZA.doc
+27234	03 - Administrativo		NJ GESAU 13692 - Prorrogação de Termo de Credenciamento Médico - HELENA MARIA ABREU.doc
+27235	03 - Administrativo		NJ GESAU 13693 - Prorrogação de Termo de Credenciamento Médico - BEATRIZ CAMARGOS FABEL.doc
+27236	03 - Administrativo		NJ GESAU 13696 - Prorrogação de Termo de Credenciamento Médico - GUSTAVO GOMES DE OLIVEIRA.doc
+27237	03 - Administrativo		NJ GESAU 13697 - Prorrogação de Termo de Credenciamento Médico - JOYCE BREDER EMERICH.doc
+27238	03 - Administrativo		NJ GESAU 13698 - Prorrogação de Termo de Credenciamento Médico - SEBASTIÃO MANTIOLHE.doc
+27239	03 - Administrativo		NJ GESAU 13699 - Prorrogação de Termo de Credenciamento Médico - CIBELE ALVES GRILO SIVORI.doc
+27240	03 - Administrativo		NJ GESAU 13702 - Prorrogação de Termo de Credenciamento Médico - PEDRO PAULO MANSUR ALMEIDA METZKER.doc
+27241	03 - Administrativo		NJ GESAU 13703 - Prorrogação de Termo de Credenciamento Médico - LANNER LUCIO MESQUITA.doc
+27242	03 - Administrativo		NJ GESAU 13705 - Prorrogação de Termo de Credenciamento Médico - MARIA JOSÉ MOREIRA FELIPE.doc
+27243	03 - Administrativo		NJ GESAU 13706 - Prorrogação de Termo de Credenciamento Médico - FRANCISCO ANTÔNIO DE CASTRO BARROSO.doc
+27244	03 - Administrativo		NJ GESAU 13707 - Prorrogação de Termo de Credenciamento Médico - SANDREA MENDES RIBEIRO.doc
+27245	03 - Administrativo		NJ GESAU 13708 - Prorrogação de Termo de Credenciamento Médico - MARIA BERNADETE DUARTE MANTIOLHE.doc
+27246	03 - Administrativo		NJ GESAU 13709 - Prorrogação de Termo de Credenciamento Médico - EDNA LUZIA RENO GONÇALVES.doc
+27247	03 - Administrativo		NJ GESAU 13710 - Prorrogação de Termo de Credenciamento Médico - PATRICIA BUSTAMANTE TORRES.doc
+27248	03 - Administrativo		NJ GESAU 13711 - Prorrogação de Termo de Credenciamento Médico - NILTON RUSTE DE CARVALHO JUNIOR.doc
+27249	03 - Administrativo		NJ GESAU 13712 - Prorrogação de Termo de Credenciamento Médico - MARIA LUCIA COSTA.doc
+27250	03 - Administrativo		NJ GESAU 13713 - Prorrogação de Termo de Credenciamento Médico - SILVANA FERREIRA DE BRITO VILELA.doc
