@@ -1212,6 +1212,9 @@ def resolve_openai_key() -> str:
     if value:
         return value
     candidates = (
+        KEYS_DIR / "Chave_secreta_OpenAI.txt",
+        SCRIPT_DIR / "Chave_secreta_OpenAI.txt",
+        Path.cwd() / "Chave_secreta_OpenAI.txt",
         KEYS_DIR / "CHAVE_SECRETA_API_Mauricio_local.txt",
         KEYS_DIR / "Chave Secreta API_Mauricio_local.txt",
         SCRIPT_DIR / "CHAVE_SECRETA_API_Mauricio_local.txt",

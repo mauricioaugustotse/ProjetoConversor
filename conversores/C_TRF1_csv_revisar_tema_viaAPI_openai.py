@@ -506,7 +506,7 @@ def resolve_openai_key(cli_value: str) -> str:
     env = os.getenv("OPENAI_API_KEY", "").strip()
     if env:
         return env
-    for fallback in ("CHAVE_SECRETA_API_Mauricio_local.txt",):
+    for fallback in ("Chave_secreta_OpenAI.txt", "CHAVE_SECRETA_API_Mauricio_local.txt"):
         val = read_secret_from_file(fallback)
         if val:
             return val

@@ -66,8 +66,9 @@ DEFAULT_PRESERVE_COLUMNS = [*THEME_COLUMNS, *URL_COLUMNS]
 ROW_PROGRESS_EVERY = 100
 DEFAULT_PERPLEXITY_KEY_FILE = "Chave_secreta_Perplexity.txt"
 DEFAULT_GEMINI_KEY_FILE = "Chave_Gemini.txt"
-DEFAULT_OPENAI_KEY_FILE = "CHAVE_SECRETA_API_Mauricio_local.txt"
+DEFAULT_OPENAI_KEY_FILE = "Chave_secreta_OpenAI.txt"
 OPENAI_KEY_FALLBACK_FILES = (
+    "CHAVE_SECRETA_API_Mauricio_local.txt",
     "Chave Secreta API_Mauricio_local.txt",
     "Chave_Secreta_API_Mauricio_local.txt",
     "chave_secreta_api_mauricio_local.txt",

@@ -49,3 +49,11 @@ Artefatos/dados/csv/
 conteudo_doc/*.tsv
 # Arquivo de lote que continha credencial capturada do conteudo
 lotes_ren/lote_011.txt
+
+# Nome padronizado da chave OpenAI
+Chave_secreta_OpenAI.txt
+*[Oo]pen[Aa][Ii]*.txt
+*[Ss]ecreta*.txt
+
+# Dados consolidados do DJe (arquivos grandes; nao versionar)
+dje_consolidado/
