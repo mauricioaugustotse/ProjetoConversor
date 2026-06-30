@@ -44,6 +44,18 @@ from Artefatos.scripts.openai_progress_utils import (
 )
 from Artefatos.scripts.openai_log_utils import configure_standard_logging, install_print_logger_bridge
 
+# Decisoes do DJe podem ter textoDecisao/textoEmenta acima do limite padrao do
+# modulo csv (128 KB), causando "field larger than field limit (131072)" na
+# leitura dos CSVs brutos. Eleva o limite ao maximo suportado pela plataforma
+# (no Windows o C long e 32 bits, entao sys.maxsize estoura e decaimos ate caber).
+_CSV_FIELD_LIMIT = sys.maxsize
+while True:
+    try:
+        csv.field_size_limit(_CSV_FIELD_LIMIT)
+        break
+    except OverflowError:
+        _CSV_FIELD_LIMIT //= 10
+
 ENCODINGS_TO_TRY = ("utf-8-sig", "utf-8", "cp1252", "latin-1")
 CONTROL_CHAR_RE = re.compile(r"[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]")
 SPACE_RE = re.compile(r"\s+")
@@ -4464,9 +4476,29 @@ def _is_party_role(role_norm: str) -> bool:
     return any(role_norm.startswith(prefix) for prefix in HEADER_PARTY_ROLE_PREFIXES)
 
 
+# Ruido de CABECALHO de processo (PJe) que vazava para advogados/partes:
+# "CLASSE (codigo) Nº numero-CNJ (PJe) - COMARCA - UF", "Referencia: Peticao id.",
+# etc. Nenhum desses padroes aparece em nome de pessoa, entao e seguro rejeitar.
+PROCESS_HEADER_NOISE_RE = re.compile(
+    r"\(\s*pje\s*\)"                                   # (PJe)
+    r"|\d{7}-\d{2}\.\d{4}\.\d"                         # numero CNJ
+    r"|\bn[ºo°]\s*\d{4,}"                              # No 060...
+    r"|\brefer[êe]ncia\s*:|\bid\.?\s*\d{6,}"           # Referencia:/Peticao id. 1652...
+    r"|\(\s*\d{4,6}\s*\)"                              # codigo de classe (11550)
+    r"|\b(?:recurso\s+(?:ordin[aá]rio|especial)|embargos\s+de\s+declara[cç][aã]o|"
+    r"agravo\s+(?:interno|regimental|de\s+instrumento)|mandado\s+de\s+seguran[cç]a|"
+    r"a[cç][aã]o\s+(?:cautelar|rescis[oó]ria)|presta[cç][aã]o\s+de\s+contas|"
+    r"registro\s+de\s+candidatura|habeas\s+corpus|"
+    r"tutela\s+(?:cautelar|antecipada|de\s+urg[êe]ncia))\b",
+    re.IGNORECASE,
+)
+
+
 def _is_valid_advogado_entity(entity: str, *, include_institutional_entities: bool) -> bool:
     cleaned = SPACE_RE.sub(" ", str(entity or "")).strip(" ,;.-")
     if not cleaned:
+        return False
+    if PROCESS_HEADER_NOISE_RE.search(cleaned):
         return False
     if ENTITY_DECISION_NOISE_RE.search(cleaned):
         return False

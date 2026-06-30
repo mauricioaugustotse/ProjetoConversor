@@ -1943,6 +1943,16 @@ def _property_select(prop: Dict[str, Any]) -> str:
     return _normalize_ws(obj.get("name")) if isinstance(obj, dict) else ""
 
 
+def _property_select_or_text(prop: Dict[str, Any]) -> str:
+    """Le uma propriedade que pode ser select OU rich_text. Colunas de alta
+    cardinalidade (ex.: nomeMunicipio) foram convertidas de select p/ rich_text
+    para nao estourar o schema do Notion; este leitor funciona com os dois tipos."""
+    value = _property_select(prop)
+    if value:
+        return value
+    return _property_rich_text(prop)
+
+
 def _property_multi_select(prop: Dict[str, Any]) -> List[str]:
     raw = prop.get("multi_select")
     if not isinstance(raw, list):
@@ -2096,7 +2106,7 @@ def build_case_record(page_obj: Dict[str, Any]) -> CaseRecord:
         sigla_classe=_property_select(props.get("siglaClasse", {})),
         descricao_classe=_property_select(props.get("descricaoClasse", {})),
         sigla_uf=sigla_uf,
-        nome_municipio=_property_select(props.get("nomeMunicipio", {})),
+        nome_municipio=_property_select_or_text(props.get("nomeMunicipio", {})),
         descricao_tipo_decisao=_property_select(props.get("descricaoTipoDecisao", {})),
         assuntos=_property_multi_select(props.get("assuntos", {})),
         partes=partes,

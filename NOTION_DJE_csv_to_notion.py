@@ -37,6 +37,14 @@ PROPERTY_ALIASES = {
 MAX_SELECT_NAME_CHARS = 100
 DEFAULT_MAX_RICH_TEXT_CHARS = 9000
 HIGH_CARDINALITY_MULTI_SELECT_COLUMNS = {"partes", "advogados"}
+# Colunas que devem ser TEXTO (rich_text) em vez de select/multi_select, para
+# nao estourar o tamanho maximo do schema do Notion. 'nomeMunicipio' (select)
+# acumulava 1 opcao por municipio (3.363) e estourou o schema em 29/06/2026:
+# convertida para rich_text. Mantida aqui para que QUALQUER import garanta o
+# tipo texto (o importer converte automaticamente caso a coluna volte a ser
+# select/multi_select). Candidatos a incluir se voltarem a crescer demais:
+# siglaTipoProcesso, nomeTipoProcesso, relator.
+FORCE_TEXT_COLUMNS = {"nomeMunicipio"}
 LIST_DISPLAY_TEXT_COLUMNS = {"partes", "advogados", "partes_texto", "advogados_texto"}
 NEWS_URL_COLUMNS = {"noticia_TSE", "noticia_TRE", "noticia_geral_1", "noticia_geral_2"}
 TEXT_MIRROR_PROPERTY_SOURCES = {
@@ -278,6 +286,11 @@ def ensure_high_cardinality_text_properties(
         for prop_name in HIGH_CARDINALITY_MULTI_SELECT_COLUMNS
         if _normalize_ws((schema.get(prop_name) or {}).get("type")) == "multi_select"
     }
+    # Colunas que devem ser texto: converte se ainda forem select OU multi_select
+    # (ex.: nomeMunicipio, que estourava o schema como select de alta cardinalidade).
+    for prop_name in FORCE_TEXT_COLUMNS:
+        if _normalize_ws((schema.get(prop_name) or {}).get("type")) in ("select", "multi_select"):
+            to_convert[prop_name] = {"rich_text": {}}
     if not to_convert:
         return schema
     logger.warning(

@@ -24,7 +24,11 @@ from Artefatos.scripts.openai_progress_utils import utc_now_iso, write_json_atom
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent
-DEFAULT_CSV_DIR = PROJECT_ROOT / "dje"
+# Pasta padrao dos CSVs do DJe. A partir de 28/06/2026 os exports passam a ser
+# salvos na pasta da Consultoria no OneDrive; mantem fallback para a antiga
+# `dje/` (e para quando rodar em outra maquina onde o OneDrive nao exista).
+_CSV_DIR_ONEDRIVE = Path(r"C:\Users\mauri\OneDrive\Documentos\12 - Consultoria Legislativa\DJe")
+DEFAULT_CSV_DIR = _CSV_DIR_ONEDRIVE if _CSV_DIR_ONEDRIVE.exists() else (PROJECT_ROOT / "dje")
 DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "Artefatos" / "dados" / "csv"
 DEFAULT_REPORTS_PARENT_PAGE_ID = "31772195-5c64-803f-902d-d2cb8600b4dd"
 DEFAULT_REPORTS_PARENT_URL = f"https://www.notion.so/{DEFAULT_REPORTS_PARENT_PAGE_ID.replace('-', '')}"
@@ -426,6 +430,8 @@ def process_import_and_generate(
     reports_parent_url: str,
     log: Any,
     force_regenerate: bool = False,
+    skip_reports: bool = False,
+    import_mode: str = "upsert",
 ) -> None:
     if not files:
         raise RuntimeError("Nenhum CSV selecionado.")
@@ -508,13 +514,24 @@ def process_import_and_generate(
             "--database-url",
             database_url,
             "--mode",
-            "upsert",
+            import_mode,
             "--model",
             report_model,
             "--verbose",
         ],
         log=log,
     )
+
+    # Modo "somente popular a base": concluido o import, pula toda a geracao de
+    # relatorios (e a busca de noticias / chamadas de IA do relatorio). Marca os
+    # CSVs como processados para nao reaparecerem como novos.
+    if skip_reports:
+        mark_files_processed(files, combined_csv=combined_csv, periods=periods)
+        log(
+            "Modo 'somente popular a base': import concluido; geracao de "
+            f"relatorios pulada (modo de import = {import_mode})."
+        )
+        return
 
     # Apos o import, identifica o "delta atrasado": decisoes recem-criadas cuja
     # dataDecisao e de semana anterior a principal. Esses casos (alvo ou risco
@@ -717,6 +734,8 @@ def launch_gui() -> None:
     status_var = tk.StringVar(value="Pronto.")
     count_var = tk.StringVar(value="Nenhum CSV carregado.")
     force_regen_var = tk.BooleanVar(value=False)
+    skip_reports_var = tk.BooleanVar(value=False)
+    create_only_var = tk.BooleanVar(value=False)
     show_advanced_var = tk.BooleanVar(value=False)
     log_queue: "queue.Queue[str]" = queue.Queue()
     busy = tk.BooleanVar(value=False)
@@ -900,7 +919,12 @@ def launch_gui() -> None:
             return
 
         force_regenerate = bool(force_regen_var.get())
-        set_busy(True, f"Processando {len(paths)} CSV(s)...")
+        skip_reports = bool(skip_reports_var.get())
+        import_mode = "create-only" if bool(create_only_var.get()) else "upsert"
+        if skip_reports:
+            set_busy(True, f"Populando a base com {len(paths)} CSV(s) (sem relatorios)...")
+        else:
+            set_busy(True, f"Processando {len(paths)} CSV(s)...")
         _run_in_thread(
             lambda: process_import_and_generate(
                 paths,
@@ -908,6 +932,8 @@ def launch_gui() -> None:
                 reports_parent_url=parent_url_var.get().strip(),
                 log=log,
                 force_regenerate=force_regenerate,
+                skip_reports=skip_reports,
+                import_mode=import_mode,
             ),
             "Concluido.",
         )
@@ -940,6 +966,28 @@ def launch_gui() -> None:
 
     chk_regen = ttk.Checkbutton(actions, text="Regerar existentes", variable=force_regen_var)
     chk_regen.grid(row=0, column=1, sticky="w", padx=(14, 0))
+
+    chk_skip_reports = ttk.Checkbutton(
+        actions, text="Somente popular a base (sem relatórios)", variable=skip_reports_var
+    )
+    chk_skip_reports.grid(row=0, column=2, columnspan=2, sticky="w", padx=(14, 0))
+    _add_tooltip(
+        chk_skip_reports,
+        "Trata os CSVs e atualiza a base no Notion, mas NÃO gera os relatórios\n"
+        "semanais (pula toda a etapa de IA do relatório). Use quando o objetivo\n"
+        "é apenas alimentar a base de casos.",
+    )
+
+    chk_create_only = ttk.Checkbutton(
+        actions, text="Só criar faltantes (não atualizar existentes)", variable=create_only_var
+    )
+    chk_create_only.grid(row=0, column=4, columnspan=3, sticky="w", padx=(14, 0))
+    _add_tooltip(
+        chk_create_only,
+        "Importa apenas as decisões que ainda não existem na base; as que já\n"
+        "estão preenchidas não são tocadas. Mais rápido e seguro para reimportar\n"
+        "lotes grandes sem sobrescrever curadoria manual.",
+    )
 
     ttk.Label(actions, text="Manutenção:", foreground="#555555").grid(row=1, column=0, sticky="w", pady=(10, 0))
     _add_tooltip(
