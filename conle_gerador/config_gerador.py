@@ -125,6 +125,22 @@ BASES_RAG = {
         "props_texto": None,
         "flag_rag": None,
     },
+    # Acórdãos do STF (Repercussão Geral) — 1 linha por fase (RG/mérito); a Ementa
+    # já traz o inteiro teor resumido. "conteúdo primeiro": tese/descrição do tema
+    # ao início do embedding; ementa por último (a cauda > 8000 é só relatório).
+    # Props "Tema (descrição)", "Decisão" e "incluir_no_rag" são criadas por _stf_schema.py.
+    "stf": {
+        "id": "36172195-5c64-8061-8411-c787d5ddff76",
+        "titulo": "stf",
+        "label": "Acórdãos STF (Repercussão Geral)",
+        "categoria": "jurisprudencia",
+        "props_conteudo": ["Resumo IA", "Tese", "Tema (descrição)", "Ementa", "Decisão"],
+        "props_contexto": ["Tema da RG", "Ramo do direito", "Relator", "Resultado",
+                            "Órgão julgador", "Legislação", "Jurisprudência",
+                            "Palavras-chave", "Data de julgamento"],
+        "props_texto": None,
+        "flag_rag": "incluir_no_rag",
+    },
     # Biblioteca CONLE "Livros e artigos" — obras limpas/estruturadas (interseccionalidade,
     # Cartilha AGU 2024, TSE perfil racial, NT 30 anos de cotas, Eleições 2026/Senado, Entre Nós
     # e o relatório IDP/LIA — todos CONSOLIDADOS aqui), 1 linha por chunk + coluna "obra".
@@ -142,7 +158,7 @@ BASES_RAG = {
 }
 
 # Bases ligadas por padrão na GUI (DJe fica opcional; sessões agora incluída, curada).
-BASES_PADRAO = ["vademecum", "resolucoes_tse", "codigo_eleitoral", "temas", "sess_es", "livros"]
+BASES_PADRAO = ["vademecum", "resolucoes_tse", "codigo_eleitoral", "temas", "sess_es", "livros", "stf"]
 
 # Nunca indexar/consultar bases cujo título contenha estes termos.
 EXCLUIR_TITULOS = ("BACKUP",)
