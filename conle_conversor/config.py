@@ -16,19 +16,24 @@ TEMPLATES_DIR = PROJECT_ROOT / "templates"
 TEMPLATE_IT = TEMPLATES_DIR / "template_IT.docx"
 TEMPLATE_PROPOSICAO = TEMPLATES_DIR / "template_proposicao.docx"
 
-# Pastas-modelo usadas para (re)gerar os templates
-MODELO_IT = Path(
-    r"C:\Users\mauri\OneDrive\Documentos\CONLE\STs\INFO TÉCNICA"
-    r"\IT - Júlio Lopes - Lei de Responsabilidade Gerencial - KPIs - FEFC e FP.docx"
-)
-MODELO_PROPOSICAO = Path(
-    r"C:\Users\mauri\OneDrive\Documentos\CONLE\STs\PROPOSIÇÕES"
-    r"\2026_22_12 - PLP - inclui inelegibilidade por envolvimento com organizações criminosas.docx"
-)
+# Base das pastas-padrão da casa (Consultoria Legislativa)
+STS_DIR = Path(r"C:\Users\mauri\OneDrive\Documentos\12 - Consultoria Legislativa\STs")
 
-# Saída
-OUTPUT_IT_DIR = Path(r"C:\Users\mauri\OneDrive\Documentos\CONLE\STs\INFO TÉCNICA")
-OUTPUT_PROPOSICAO_DIR = Path(r"C:\Users\mauri\OneDrive\Documentos\CONLE\STs\PROPOSIÇÕES")
+# Saída dos documentos gerados (.docx)
+OUTPUT_IT_DIR = STS_DIR / "Info Técnica"
+OUTPUT_PROPOSICAO_DIR = STS_DIR / "Proposições"
+
+# Pastas-modelo usadas para (re)gerar os templates (build_templates).
+# Documentos reais equivalentes aos modelos originais (renomeados na
+# reorganização das pastas); usados apenas ao regenerar templates/.
+MODELO_IT = OUTPUT_IT_DIR / (
+    "Informação Técnica - Dep. Julio Lopes - "
+    "condicionando Fundo Partidário e Fundo Eleitoral a KPIs_1.docx"
+)
+MODELO_PROPOSICAO = OUTPUT_PROPOSICAO_DIR / (
+    "Minuta de PLP 2026 - inelegibilidade por vínculo com "
+    "organizações criminosas (Dep. Coronel Assis).docx"
+)
 
 # ---------------------------------------------------------------------------
 # Credenciais

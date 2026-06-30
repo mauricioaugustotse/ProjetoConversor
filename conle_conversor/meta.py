@@ -24,9 +24,28 @@ class MetaDocumento:
         return self.sisconle.strip() or f"{self.ano}-____"
 
     @property
+    def genero(self) -> str:
+        """Gênero do parlamentar — "M", "F" ou "" (neutro) — inferido do vocativo
+        escolhido na GUI: "Senhor Deputado," ⇒ M; "Senhora Deputada," ⇒ F;
+        "Senhor(a) Deputado(a)," ⇒ neutro (mantém as formas com "(a)")."""
+        v = (self.vocativo or "").lower()
+        if "(a)" in v:
+            return ""
+        if "deputada" in v or "senhora" in v:
+            return "F"
+        if "deputado" in v or "senhor" in v:
+            return "M"
+        return ""
+
+    @property
+    def tratamento_deputado(self) -> str:
+        """"Deputado"/"Deputada"/"Deputado(a)" conforme o gênero do vocativo."""
+        return {"M": "Deputado", "F": "Deputada"}.get(self.genero, "Deputado(a)")
+
+    @property
     def solicitante_capa(self) -> str:
         nome = self.deputado_nome.strip()
-        return f"Deputado(a) {nome}" if nome else "[NOME DO(A) SOLICITANTE]"
+        return f"{self.tratamento_deputado} {nome}" if nome else "[NOME DO(A) SOLICITANTE]"
 
     @property
     def autor_linhas(self) -> list:
@@ -35,12 +54,14 @@ class MetaDocumento:
     @property
     def autoria_prop(self) -> str:
         nome = self.deputado_nome.strip()
-        return f"(Do(a) Sr.(a) {nome or '[NOME DO(A) AUTOR(A)]'})"
+        artigo = {"M": "Do", "F": "Da"}.get(self.genero, "Do(a)")
+        senhor = {"M": "Sr.", "F": "Sra."}.get(self.genero, "Sr.(a)")
+        return f"({artigo} {senhor} {nome or '[NOME DO(A) AUTOR(A)]'})"
 
     @property
     def assinatura_prop(self) -> str:
         nome = self.deputado_nome.strip()
-        return f"Deputado(a) {nome or '[NOME DO(A) AUTOR(A)]'}"
+        return f"{self.tratamento_deputado} {nome or '[NOME DO(A) AUTOR(A)]'}"
 
     @property
     def fecho_it_txt(self) -> str:

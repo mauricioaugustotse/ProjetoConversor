@@ -20,8 +20,8 @@ from .splitter import split_page, PaginaSeparada
 
 _INVALIDOS = re.compile(r'[\\/:*?"<>|]+')
 # Prefixo de sigla de proposição no início do título da página (ex.: "PL - ",
-# "PLP – "): redundante porque o conversor já prefixa "IT - "/"PL - " no nome do
-# arquivo. Removê-lo evita nomes como "PL - PL - …" e "IT - PL - …".
+# "PLP – "): redundante porque o nome do arquivo da minuta já traz a sigla
+# ("Minuta de PLP 2026 - …"). Removê-lo evita "Minuta de PLP 2026 - PLP - …".
 _SIGLA_PREFIXO = re.compile(
     r"^(PLP|PEC|PRC|PDL|PDC|PLV|MPV|PL)\s*[-–—:]\s*", re.IGNORECASE
 )
@@ -38,6 +38,41 @@ def _tema(titulo: str) -> str:
     base = base.split("—")[0].split("–")[0]
     base = _SIGLA_PREFIXO.sub("", base.strip(" -–—"))
     return _sanitize(base.strip(" -–—"))
+
+
+# Solicitante e composição dos nomes de arquivo, no padrão das pastas-padrão:
+#   IT:     "Informação Técnica - Dep. <Nome> - <tema>.docx"
+#   minuta: "Minuta de <SIGLA> <ano> - <tema> (Dep. <Nome>).docx"
+_DEP_PREFIXO = re.compile(r"^\s*dep(?:utad[oa])?\.?\s+", re.IGNORECASE)
+# Solicitante que não é parlamentar individual não recebe o prefixo "Dep."
+# (ex.: "Secretaria da Mulher - …").
+_ORGAO = re.compile(
+    r"\b(secretaria|comiss[ãa]o|mesa|bancada|lideran[çc]a|frente|n[úu]cleo|"
+    r"procuradoria|ouvidoria|presid[êe]ncia|gabinete|colegiado)\b",
+    re.IGNORECASE,
+)
+# Teto do nome do arquivo (sem extensão): as pastas-padrão são profundas e o
+# Windows limita o caminho total; quando preciso, só o tema é encurtado.
+_MAX_STEM = 160
+
+
+def _solicitante_rotulo(nome: str) -> str:
+    """Solicitante no padrão dos nomes de arquivo: "Dep. <Nome>" para parlamentar,
+    o próprio nome para órgãos/colegiados, "" se não informado. Remove um prefixo
+    "Dep."/"Deputado(a)" já digitado, para não duplicar."""
+    nome = _DEP_PREFIXO.sub("", (nome or "").strip()).strip(" -–—")
+    if not nome:
+        return ""
+    return nome if _ORGAO.search(nome) else f"Dep. {nome}"
+
+
+def _compor_nome(fixas: str, tema: str, sufixo: str = "") -> str:
+    """Monta "<fixas><tema><sufixo>.docx" sanitizado, encurtando SÓ o tema para
+    caber em _MAX_STEM (preserva os componentes estruturais e o sufixo)."""
+    folga = _MAX_STEM - len(fixas) - len(sufixo)
+    if folga > 0 and len(tema) > folga:
+        tema = tema[:folga].rstrip(" -–—.,;")
+    return _sanitize(fixas + tema + sufixo, limite=400) + ".docx"
 
 
 def _caminho_unico(pasta: Path, nome: str) -> Path:
@@ -135,7 +170,9 @@ def converter(
         it_dir.mkdir(parents=True, exist_ok=True)
         log("Montando o documento da Informação Técnica…")
         doc_it = build_it(sep, abertura, meta)
-        caminho = _caminho_unico(it_dir, _sanitize(f"IT - {tema}") + ".docx")
+        rot = _solicitante_rotulo(meta.deputado_nome)
+        prefixo = "Informação Técnica - " + (f"{rot} - " if rot else "")
+        caminho = _caminho_unico(it_dir, _compor_nome(prefixo, tema))
         doc_it.save(str(caminho))
         resultado.caminhos.append(caminho)
         log(f"IT salva em: {caminho}")
@@ -144,7 +181,9 @@ def converter(
         prop_dir.mkdir(parents=True, exist_ok=True)
         log("Montando a minuta de proposição…")
         doc_prop = build_proposicao(sep, meta)
-        nome = _sanitize(f"{sep.tipo.sigla} - {tema}") + ".docx"
+        rot = _solicitante_rotulo(meta.deputado_nome)
+        sufixo = f" ({rot})" if rot else ""
+        nome = _compor_nome(f"Minuta de {sep.tipo.sigla} {meta.ano} - ", tema, sufixo)
         caminho = _caminho_unico(prop_dir, nome)
         doc_prop.save(str(caminho))
         resultado.caminhos.append(caminho)
