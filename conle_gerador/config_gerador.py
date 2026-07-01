@@ -141,6 +141,21 @@ BASES_RAG = {
         "props_texto": None,
         "flag_rag": "incluir_no_rag",
     },
+    # Precedentes qualificados do STJ (painel NUGEPNAC): recursos repetitivos, IAC, PUIL, SIRDR.
+    # 1 linha por Tema (processos afetados agregados). "conteúdo primeiro": resumo IA + tese +
+    # questão ao início do embedding. Cancelados ficam na base com incluir_no_rag=False.
+    "stj": {
+        "id": "39072195-5c64-81ae-8e45-ee6649007aa3",
+        "titulo": "STJ — Precedentes Qualificados (RAG)",
+        "label": "Precedentes STJ (repetitivos/IAC/PUIL)",
+        "categoria": "jurisprudencia",
+        "props_conteudo": ["Resumo IA", "Tese Firmada", "Questão"],
+        "props_contexto": ["Tipo de precedente", "Ramo do direito", "Situação", "Relator",
+                            "Órgão julgador", "Assuntos", "Referência legislativa", "Súmula",
+                            "Tema STF vinculado", "Palavras-chave", "Julgado em"],
+        "props_texto": None,
+        "flag_rag": "incluir_no_rag",
+    },
     # Biblioteca CONLE "Livros e artigos" — obras limpas/estruturadas (interseccionalidade,
     # Cartilha AGU 2024, TSE perfil racial, NT 30 anos de cotas, Eleições 2026/Senado, Entre Nós
     # e o relatório IDP/LIA — todos CONSOLIDADOS aqui), 1 linha por chunk + coluna "obra".
@@ -158,7 +173,7 @@ BASES_RAG = {
 }
 
 # Bases ligadas por padrão na GUI (DJe fica opcional; sessões agora incluída, curada).
-BASES_PADRAO = ["vademecum", "resolucoes_tse", "codigo_eleitoral", "temas", "sess_es", "livros", "stf"]
+BASES_PADRAO = ["vademecum", "resolucoes_tse", "codigo_eleitoral", "temas", "sess_es", "livros", "stf", "stj"]
 
 # Nunca indexar/consultar bases cujo título contenha estes termos.
 EXCLUIR_TITULOS = ("BACKUP",)
