@@ -156,6 +156,21 @@ BASES_RAG = {
         "props_texto": None,
         "flag_rag": "incluir_no_rag",
     },
+    # Jurisprudência do TRF1 (Boletins Informativos de Jurisprudência): 1 linha por julgado.
+    # A base já traz campos ricos (punchline/tese/bullet_points/contexto) do pipeline A/B/C/CC;
+    # Resumo IA/Palavras-chave/jurisprudencia são preenchidos por _trf1_enriquecer.py (gpt-5.4-nano).
+    "trf1": {
+        "id": "30e72195-5c64-804a-977c-e39c2ff3193c",
+        "titulo": "trf1",
+        "label": "Jurisprudência TRF1 (Boletins)",
+        "categoria": "jurisprudencia",
+        "props_conteudo": ["Resumo IA", "punchline", "tese", "bullet_points", "contexto"],
+        "props_contexto": ["ramo_do_direito", "subramo_do_direito", "classe", "relator(a)",
+                            "orgao_julgador", "legislacao", "jurisprudencia", "Palavras-chave",
+                            "decisao", "data_julgamento"],
+        "props_texto": None,
+        "flag_rag": "incluir_no_rag",
+    },
     # Biblioteca CONLE "Livros e artigos" — obras limpas/estruturadas (interseccionalidade,
     # Cartilha AGU 2024, TSE perfil racial, NT 30 anos de cotas, Eleições 2026/Senado, Entre Nós
     # e o relatório IDP/LIA — todos CONSOLIDADOS aqui), 1 linha por chunk + coluna "obra".
@@ -173,7 +188,7 @@ BASES_RAG = {
 }
 
 # Bases ligadas por padrão na GUI (DJe fica opcional; sessões agora incluída, curada).
-BASES_PADRAO = ["vademecum", "resolucoes_tse", "codigo_eleitoral", "temas", "sess_es", "livros", "stf", "stj"]
+BASES_PADRAO = ["vademecum", "resolucoes_tse", "codigo_eleitoral", "temas", "sess_es", "livros", "stf", "stj", "trf1"]
 
 # Nunca indexar/consultar bases cujo título contenha estes termos.
 EXCLUIR_TITULOS = ("BACKUP",)

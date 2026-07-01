@@ -51,6 +51,15 @@ from Artefatos.scripts.openai_log_utils import configure_standard_logging
 import requests
 from requests.adapters import HTTPAdapter
 
+# Motor de busca de notícias via Gemini (grounding Google Search) — substitui a Perplexity
+# (chave descontinuada). Réplica enxuta do padrão do TSE YouTube; degrada sem quebrar.
+try:
+    from conle_gerador import gemini_web as _gemini_web
+    from conle_gerador import config_gerador as _cfg_gerador
+except Exception:  # pragma: no cover
+    _gemini_web = None
+    _cfg_gerador = None
+
 try:
     import pdfplumber
 except ImportError as exc:  # pragma: no cover
