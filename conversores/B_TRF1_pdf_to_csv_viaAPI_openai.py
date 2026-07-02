@@ -438,6 +438,22 @@ def resolve_perplexity_key(cli_value: str) -> str:
     return ""
 
 
+def resolve_gemini_key_for_news() -> str:
+    """Chave Gemini para a busca de noticias (env GEMINI/GOOGLE ou Chave_Gemini.txt)."""
+    if _cfg_gerador is not None:
+        try:
+            k = _cfg_gerador.load_gemini_key()
+            if k:
+                return k
+        except Exception:
+            pass
+    for env_name in ("GEMINI_API_KEY", "GOOGLE_API_KEY", "GOOGLE_AI_API_KEY"):
+        v = os.getenv(env_name, "").strip()
+        if v:
+            return v
+    return read_secret_from_file("Chave_Gemini.txt") or ""
+
+
 def sha1_file(path: Path) -> str:
     h = hashlib.sha1()
     with path.open("rb") as f:
@@ -2469,6 +2485,142 @@ def perplexity_call_single(
     return False, "", saw_rate_limit, last_err, fallback_reason
 
 
+# ======================================================================================
+# MOTOR DE NOTICIAS VIA GEMINI (grounding Google Search) — mesmo formato de candidatos
+# que a Perplexity, para reusar 100% do scoring/politica/cache (select_best_noticia_candidate).
+# ======================================================================================
+
+_GEMINI_REDIRECT_MARKERS = ("vertexaisearch.cloud.google.com", "grounding-api-redirect")
+
+
+def build_gemini_news_query(row: Dict[str, str], stage: int = 1, *, text_max_chars: int = 0) -> str:
+    classe = normalize_ws(row.get("classe", ""))
+    proc = normalize_ws(row.get("numero_processo", ""))
+    rel = normalize_ws(row.get("relator(a)", ""))
+    tema = normalize_ws(row.get("tema", ""))
+    texto = normalize_ws(row.get("texto_do_boletim", ""))
+    if text_max_chars and text_max_chars > 0:
+        texto = texto[:text_max_chars]
+    partes = [
+        "Busque REPORTAGENS DE IMPRENSA (veiculos jornalisticos consagrados) ou noticias de "
+        "paginas oficiais (gov.br, jus.br) sobre o seguinte julgado do TRF1 (Tribunal Regional "
+        "Federal da 1a Regiao). Liste as URLs das reportagens encontradas, priorizando "
+        "correspondencia exata ao caso (numero do processo, relator(a), tema).",
+    ]
+    if stage >= 2:
+        partes.append("Faca uma busca ampla, priorizando o numero do processo e o(a) relator(a).")
+    partes.append(f"Classe/processo: {classe} {proc}".strip())
+    if rel:
+        partes.append(f"Relator(a): {rel}")
+    if tema:
+        partes.append(f"Tema: {tema}")
+    if texto:
+        partes.append(f"Resumo do julgado: {texto}")
+    partes.append(
+        "NAO inclua links de consulta processual, acordao, inteiro teor, PDF, PJe ou repositorios "
+        "juridicos — apenas noticias/reportagens. Se nao houver noticia especifica, diga que nao encontrou."
+    )
+    return "\n".join(p for p in partes if p)
+
+
+def resolver_url_final(url: str, session: requests.Session, timeout: int = 6) -> str:
+    """Resolve URLs de redirect do grounding do Gemini para a URL real do veiculo.
+    Retorna '' se nao conseguir resolver (a fonte e descartada)."""
+    url = normalize_ws(url)
+    if not url:
+        return ""
+    if not any(m in url for m in _GEMINI_REDIRECT_MARKERS):
+        return url  # ja e a URL final
+    for method in ("GET", "HEAD"):
+        try:
+            resp = session.request(
+                method, url, allow_redirects=True, timeout=(5, timeout), stream=True
+            )
+            final = normalize_ws(resp.url or "")
+            try:
+                resp.close()
+            except Exception:
+                pass
+            if final and not any(m in final for m in _GEMINI_REDIRECT_MARKERS):
+                return final
+        except Exception:
+            continue
+    return ""
+
+
+def gemini_call_single(
+    session: requests.Session,
+    model: str,
+    row: Dict[str, str],
+    *,
+    stage: int,
+    min_score_mainstream: int,
+    min_score_official: int,
+    domain_policy: str,
+    timeout: int,
+    retries: int,
+    max_tokens: int,
+    text_max_chars: int,
+    pacer: Optional[RequestPacer],
+    logger: logging.Logger,
+) -> Tuple[bool, str, bool, str, str]:
+    """Espelha perplexity_call_single: retorna (ok, selected_url, rate_limited, err, reason).
+    1 chamada grounded (Google Search) por julgado; resolve os redirects; reusa o scoring."""
+    if _gemini_web is None:
+        return False, "", False, "conle_gerador.gemini_web indisponivel", "error"
+    query = build_gemini_news_query(row, stage=stage, text_max_chars=text_max_chars)
+    last_err = ""
+    saw_rate_limit = False
+    reason = ""
+    for attempt in range(1, retries + 1):
+        try:
+            if pacer is not None:
+                pacer.wait_turn()
+            res = _gemini_web.pesquisar(query, model=(model or None), timeout=timeout)
+            if not res.get("ok"):
+                err = str(res.get("erro", "") or "")
+                low = err.lower()
+                if "429" in err or "rate" in low or "quota" in low or "resource_exhausted" in low:
+                    saw_rate_limit = True
+                    last_err = err
+                    reason = "rate_limit"
+                else:
+                    last_err = err or "sem resultado"
+                    reason = "error"
+                if attempt < retries:
+                    time.sleep((2 ** (attempt - 1)) + random.uniform(0.0, 0.35))
+                    continue
+                return False, "", saw_rate_limit, last_err, (reason or "error")
+            texto = normalize_ws(str(res.get("texto", "") or ""))[:400]
+            candidates: List[Dict[str, str]] = []
+            seen: set = set()
+            for fonte in (res.get("fontes") or [])[:8]:
+                real = resolver_url_final(fonte, session, timeout=min(8, timeout))
+                if real and real not in seen:
+                    seen.add(real)
+                    candidates.append({"url": real, "evidencia": texto, "confianca": "alta"})
+            candidates = dedupe_candidates(candidates)
+            selected_url, selected_reason = select_best_noticia_candidate(
+                row,
+                candidates,
+                min_score_mainstream=min_score_mainstream,
+                min_score_official=min_score_official,
+                domain_policy=domain_policy,
+                stage=stage,
+            )
+            return True, selected_url, False, "", selected_reason
+        except requests.Timeout as exc:
+            last_err = str(exc)
+            reason = "timeout"
+        except Exception as exc:  # noqa: BLE001
+            last_err = str(exc)
+            reason = "error"
+            logger.debug("Gemini erro tentativa %d/%d: %s", attempt, retries, exc)
+        if attempt < retries:
+            time.sleep((2 ** (attempt - 1)) + random.uniform(0.0, 0.35))
+    return False, "", saw_rate_limit, last_err, (("rate_limit" if saw_rate_limit else reason) or "error")
+
+
 def write_csv(path: Path, rows: Sequence[Dict[str, str]]) -> None:
     with path.open("w", encoding="utf-8-sig", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=CSV_COLUMNS)
@@ -2981,6 +3133,9 @@ class PerplexityConfig:
     max_tokens: int = PERPLEXITY_DEFAULT_MAX_TOKENS
     text_max_chars: int = PERPLEXITY_DEFAULT_TEXT_MAX_CHARS
     skip_terminal_reasons: bool = PERPLEXITY_DEFAULT_SKIP_TERMINAL_REASONS
+    # Motor de busca de noticias: "gemini" (grounding Google Search, padrao) ou "perplexity".
+    news_provider: str = "gemini"
+    gemini_model: str = ""
 
 
 def run_openai_enrichment(
@@ -3534,6 +3689,16 @@ def run_perplexity_enrichment(
         if not stage_rows:
             return 0
 
+        # Escolhe o motor de busca (Gemini grounded por padrao; Perplexity legado se pedido).
+        if config.news_provider == "gemini":
+            motor = gemini_call_single
+            motor_model = config.gemini_model or (
+                _cfg_gerador.MODEL_GEMINI if _cfg_gerador is not None else "gemini-3.1-flash-lite"
+            )
+        else:
+            motor = perplexity_call_single
+            motor_model = config.model
+
         stage_total = len(stage_rows)
         dedupe_map: Dict[str, Dict[str, str]] = {}
         duplicates_by_primary: Dict[str, List[Dict[str, str]]] = {}
@@ -3582,9 +3747,9 @@ def run_perplexity_enrichment(
                 for row in batch:
                     futures[
                         ex.submit(
-                            perplexity_call_single,
+                            motor,
                             session,
-                            config.model,
+                            motor_model,
                             row,
                             stage=stage,
                             min_score_mainstream=config.min_score_mainstream,

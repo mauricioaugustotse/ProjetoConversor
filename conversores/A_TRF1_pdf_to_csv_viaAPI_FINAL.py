@@ -273,6 +273,14 @@ def add_final_args(parser: argparse.ArgumentParser) -> argparse.ArgumentParser:
     parser.add_argument("--no-startup-backup", action="store_true", help="Desativa backup preventivo inicial.")
 
     parser.add_argument("--disable-perplexity", action="store_true")
+    parser.add_argument(
+        "--news-provider", choices=["gemini", "perplexity"], default="gemini",
+        help="Motor da busca de noticias: 'gemini' (grounding Google Search, padrao) ou 'perplexity' (legado).",
+    )
+    parser.add_argument(
+        "--gemini-model", default="",
+        help="Modelo Gemini da busca de noticias (padrao: MODEL_GEMINI do config_gerador).",
+    )
     parser.add_argument("--perplexity-api-key", default="", help="API key Perplexity.")
     parser.add_argument("--perplexity-model", default="sonar", help="Modelo Perplexity.")
     parser.add_argument("--perplexity-batch-size", type=int, default=3)
@@ -1113,11 +1121,17 @@ def main() -> None:
     elif args.disable_openai:
         logger.info("OpenAI: etapa desabilitada por flag.")
 
-    perplexity_key = core.resolve_perplexity_key(args.perplexity_api_key)
+    news_provider = str(getattr(args, "news_provider", "gemini") or "gemini")
+    if news_provider == "gemini":
+        news_key = core.resolve_gemini_key_for_news()
+    else:
+        news_key = core.resolve_perplexity_key(args.perplexity_api_key)
     perplexity_cfg = core.PerplexityConfig(
-        enabled=(not args.disable_perplexity) and bool(perplexity_key),
-        api_key=perplexity_key,
+        enabled=(not args.disable_perplexity) and bool(news_key),
+        api_key=news_key,
         model=(args.perplexity_model or "sonar").strip() or "sonar",
+        news_provider=news_provider,
+        gemini_model=str(getattr(args, "gemini_model", "") or "").strip(),
         batch_size=max(1, int(args.perplexity_batch_size)),
         max_workers=max(1, int(args.perplexity_max_workers)),
         delay=max(0.0, float(args.perplexity_delay)),
@@ -1138,7 +1152,7 @@ def main() -> None:
     )
 
     if not perplexity_cfg.enabled and not args.disable_perplexity:
-        logger.warning("Perplexity desabilitado por ausência de API key.")
+        logger.warning("Busca de notícias (%s) desabilitada por ausência de API key.", news_provider)
 
     if perplexity_cfg.enabled:
         perplexity_state = core.run_perplexity_enrichment(
@@ -1163,8 +1177,9 @@ def main() -> None:
     env = os.environ.copy()
     if openai_key:
         env["OPENAI_API_KEY"] = openai_key
-    if perplexity_key:
-        env["PERPLEXITY_API_KEY"] = perplexity_key
+    if news_key:
+        # Propaga a chave da busca de noticias para eventuais subprocessos, conforme o provider.
+        env["PERPLEXITY_API_KEY" if news_provider == "perplexity" else "GEMINI_API_KEY"] = news_key
 
     run_final_tema_review_if_enabled(
         args=args,
