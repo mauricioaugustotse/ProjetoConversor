@@ -42,9 +42,10 @@ HIGH_CARDINALITY_MULTI_SELECT_COLUMNS = {"partes", "advogados"}
 # acumulava 1 opcao por municipio (3.363) e estourou o schema em 29/06/2026:
 # convertida para rich_text. Mantida aqui para que QUALQUER import garanta o
 # tipo texto (o importer converte automaticamente caso a coluna volte a ser
-# select/multi_select). Candidatos a incluir se voltarem a crescer demais:
-# siglaTipoProcesso, nomeTipoProcesso, relator.
-FORCE_TEXT_COLUMNS = {"nomeMunicipio"}
+# select/multi_select). Em 02/07/2026 (tratamento RAG) nomeTipoProcesso (545
+# options) e siglaTipoProcesso (577) tambem viraram rich_text no Notion.
+# Candidato remanescente se voltar a crescer demais: relator.
+FORCE_TEXT_COLUMNS = {"nomeMunicipio", "nomeTipoProcesso", "siglaTipoProcesso"}
 LIST_DISPLAY_TEXT_COLUMNS = {"partes", "advogados", "partes_texto", "advogados_texto"}
 NEWS_URL_COLUMNS = {"noticia_TSE", "noticia_TRE", "noticia_geral_1", "noticia_geral_2"}
 TEXT_MIRROR_PROPERTY_SOURCES = {

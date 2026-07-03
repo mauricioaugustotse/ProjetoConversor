@@ -17,7 +17,7 @@ import math
 import re
 import time
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from typing import Any, Dict, List, Optional
 
 import requests
@@ -41,17 +41,25 @@ def _headers() -> dict:
     }
 
 
-def _req(method: str, path: str, body: Optional[dict] = None, params=None) -> dict:
-    for tentativa in range(5):
-        r = requests.request(method, f"{API}{path}", headers=_headers(), params=params,
-                             data=json.dumps(body) if body is not None else None, timeout=60)
-        if r.status_code == 429 or r.status_code >= 500:
-            time.sleep(float(r.headers.get("Retry-After", "2")))
-            continue
-        if r.status_code >= 400:
-            raise RuntimeError(f"Notion {method} {path} -> {r.status_code}: {r.text[:300]}")
-        return r.json()
-    raise RuntimeError(f"Notion {method} {path} falhou após retries")
+def _req(method: str, path: str, body: Optional[dict] = None, params=None, *,
+         tries: int = 12) -> dict:
+    """Robusto a rede instável (ConnectionReset/timeout frequentes com o Notion)."""
+    last = None
+    for i in range(tries):
+        try:
+            r = requests.request(method, f"{API}{path}", headers=_headers(), params=params,
+                                 data=json.dumps(body) if body is not None else None, timeout=60)
+            if r.status_code == 429 or r.status_code >= 500:
+                time.sleep(float(r.headers.get("Retry-After", "2")) + i * 0.5)
+                last = r.text[:200]
+                continue
+            if r.status_code >= 400:
+                raise RuntimeError(f"Notion {method} {path} -> {r.status_code}: {r.text[:300]}")
+            return r.json()
+        except requests.exceptions.RequestException as e:
+            last = f"{type(e).__name__}: {str(e)[:120]}"
+            time.sleep(min(1.5 + i * 1.0, 12))
+    raise RuntimeError(f"Notion {method} {path} falhou após retries (last={last})")
 
 
 # ---------------------------------------------------------------- extração de texto
@@ -134,39 +142,106 @@ def _resolver(base: dict):
         eh_meta = nome.lower() in _META_COLS
         if (eh_url or eh_meta) and p.get("id") and p["id"] not in prop_ids:
             prop_ids.append(p["id"])
-    return db_id, props, flag, prop_ids
+    # prop numérica de partição (bases >10k): precisa vir no payload para o boundary avançar
+    part_prop = base.get("particao_prop")
+    if part_prop and (all_props.get(part_prop) or {}).get("type") == "number":
+        pid = all_props[part_prop]["id"]
+        if pid not in prop_ids:
+            prop_ids.append(pid)
+    else:
+        part_prop = None
+    return db_id, props, flag, prop_ids, part_prop
 
 
 def _query_all(db_id: str, flag: Optional[str], *, prop_ids=None, desde: Optional[str] = None,
-               limite: Optional[int] = None, progress=None) -> List[dict]:
+               limite: Optional[int] = None, progress=None,
+               part_prop: Optional[str] = None) -> List[dict]:
+    """A paginação do Notion PARA silenciosamente em ~10k resultados (descoberto em
+    02/07/2026: o cache de 'temas' vinha truncado em 10.000; dje/vademecum/código idem).
+    Varremos por segmentos e retomamos quando um segmento bate no teto (dedup por id):
+    - com `part_prop` (prop number da base, ex. temas.ID): sort pela prop + gte, e
+      varredura final dos valores vazios. Necessário quando muitas páginas compartilham
+      o mesmo last_edited_time (ex.: conversão de tipo no schema reescreve todas);
+    - senão: sort por last_edited_time + on_or_after (`desde` vira o boundary inicial)."""
+    LIMITE_SEGMENTO = 10000
     results: List[dict] = []
-    cursor = None
+    vistos: set = set()
     # filter_properties reduz MUITO o payload (baixa ~5 props em vez de 40-55).
     params = [("filter_properties", pid) for pid in (prop_ids or [])]
-    filtros: List[dict] = []
-    if flag:
-        filtros.append({"property": flag, "checkbox": {"equals": True}})
-    if desde:
-        filtros.append({"timestamp": "last_edited_time", "last_edited_time": {"on_or_after": desde}})
+
+    def _varrer(filtros_extra: List[dict], sorts: Optional[list]):
+        seg = 0
+        cursor = None
+        ultimo = {"edit": None, "num": None}
+        while True:
+            body: Dict[str, Any] = {"page_size": 100}
+            if sorts:
+                body["sorts"] = sorts
+            if cursor:
+                body["start_cursor"] = cursor
+            filtros: List[dict] = []
+            if flag:
+                filtros.append({"property": flag, "checkbox": {"equals": True}})
+            if desde:
+                filtros.append({"timestamp": "last_edited_time",
+                                "last_edited_time": {"on_or_after": desde}})
+            filtros += filtros_extra
+            if len(filtros) == 1:
+                body["filter"] = filtros[0]
+            elif len(filtros) > 1:
+                body["filter"] = {"and": filtros}
+            d = _req("POST", f"/databases/{db_id}/query", body, params=params or None)
+            for pg in d.get("results", []):
+                seg += 1
+                ultimo["edit"] = pg.get("last_edited_time") or ultimo["edit"]
+                if part_prop:
+                    v = ((pg.get("properties") or {}).get(part_prop) or {}).get("number")
+                    if v is not None:
+                        ultimo["num"] = v
+                if pg["id"] not in vistos:
+                    vistos.add(pg["id"])
+                    results.append(pg)
+            if progress and len(results) % 500 < 100:
+                progress(f"   baixados {len(results)} registros...")
+            if limite and len(results) >= limite:
+                return seg, ultimo, True
+            if not d.get("has_more"):
+                break
+            cursor = d.get("next_cursor")
+            if not cursor:
+                break
+        return seg, ultimo, False
+
+    if part_prop:
+        boundary_num = None
+        while True:
+            extra = ([{"property": part_prop, "number": {"greater_than_or_equal_to": boundary_num}}]
+                     if boundary_num is not None else [])
+            seg, ultimo, chega = _varrer(extra, [{"property": part_prop, "direction": "ascending"}])
+            if chega:
+                return results[:limite]
+            if seg < LIMITE_SEGMENTO or ultimo["num"] is None:
+                break
+            if boundary_num is not None and ultimo["num"] <= boundary_num:
+                raise RuntimeError(f"_query_all: partição por '{part_prop}' não avançou")
+            boundary_num = ultimo["num"]
+        _varrer([{"property": part_prop, "number": {"is_empty": True}}], None)
+        return results
+
+    boundary = None
     while True:
-        body: Dict[str, Any] = {"page_size": 100}
-        if cursor:
-            body["start_cursor"] = cursor
-        if len(filtros) == 1:
-            body["filter"] = filtros[0]
-        elif len(filtros) > 1:
-            body["filter"] = {"and": filtros}
-        d = _req("POST", f"/databases/{db_id}/query", body, params=params or None)
-        results.extend(d.get("results", []))
-        if progress and len(results) % 500 == 0:
-            progress(f"   baixados {len(results)} registros...")
-        if limite and len(results) >= limite:
+        extra = ([{"timestamp": "last_edited_time", "last_edited_time": {"on_or_after": boundary}}]
+                 if boundary else [])
+        seg, ultimo, chega = _varrer(extra, [{"timestamp": "last_edited_time",
+                                              "direction": "ascending"}])
+        if chega:
             return results[:limite]
-        if not d.get("has_more"):
+        if seg < LIMITE_SEGMENTO or not ultimo["edit"]:
             break
-        cursor = d.get("next_cursor")
-        if not cursor:
-            break
+        if boundary == ultimo["edit"]:
+            raise RuntimeError("_query_all: partição por last_edited_time não avançou "
+                               "(>10k itens no mesmo minuto) — defina 'particao_prop' na base")
+        boundary = ultimo["edit"]
     return results
 
 
@@ -285,17 +360,27 @@ def _urls_da_pagina(page: dict) -> str:
 def _texto_da_pagina(page: dict, base: dict) -> str:
     """Monta o texto a EMBEDDAR. Se a base define `props_conteudo`, usa a estratégia
     'conteúdo primeiro' (texto distintivo no início; metadados de contexto ao fim),
-    o que melhora a densidade do embedding. Senão, cai no `texto_rag`/`props_texto`."""
+    o que melhora a densidade do embedding. Senão, cai no `texto_rag`/`props_texto`.
+
+    `prefixo_se_vazio` (opcional na base): tupla (prop, prefixo) — quando a prop
+    estiver VAZIA, o texto indexado ganha o prefixo. Uso: stj com Tese Firmada vazia
+    (tema afetado/em julgamento) é marcado [PENDENTE DE JULGAMENTO], para a IA nunca
+    o citar como precedente consolidado, mesmo se ignorar a instrução do Analista."""
     pr = page.get("properties") or {}
 
     def val(nome: str) -> str:
         p = pr.get(nome)
         return _plain_prop(p).strip() if p else ""
 
+    prefixo = ""
+    cond = base.get("prefixo_se_vazio")
+    if cond and not val(cond[0]):
+        prefixo = cond[1]
+
     conteudo = base.get("props_conteudo")
     if conteudo:
         partes = [v for v in (val(c) for c in conteudo) if v]
-        texto = "\n".join(partes).strip()
+        texto = prefixo + "\n".join(partes).strip()
         ctx = [f"{c}: {val(c)}" for c in (base.get("props_contexto") or []) if val(c)]
         if ctx:
             texto += "\n[" + " | ".join(ctx) + "]"
@@ -310,9 +395,9 @@ def _texto_da_pagina(page: dict, base: dict) -> str:
         if p:
             t = _plain_prop(p).strip()
             if len(t) >= 20:
-                return t[:8000]
+                return (prefixo + t)[:8000]
     partes = [val(n) for n in props if n != "texto_rag"]
-    return "\n".join(v for v in partes if v).strip()[:8000]
+    return (prefixo + "\n".join(v for v in partes if v).strip())[:8000]
 
 
 # ---------------------------------------------------------------- indexação
@@ -347,7 +432,7 @@ def indexar(bases: Optional[List[str]] = None, *, limite: Optional[int] = None,
             log(f"[{chave}] base desconhecida; pulando.")
             continue
         log(f"[{base['label']}] resolvendo base...")
-        db_id, props, flag, prop_ids = _resolver(base)
+        db_id, props, flag, prop_ids, part_prop = _resolver(base)
 
         cache_path = cfg.RAG_CACHE_DIR / f"{chave}.jsonl"
         existing: Dict[str, dict] = {}
@@ -363,7 +448,8 @@ def indexar(bases: Optional[List[str]] = None, *, limite: Optional[int] = None,
         t_inicio = datetime.now(timezone.utc).isoformat()
         modo = "completa" if not desde else f"incremental (desde {desde[:10]})"
         log(f"[{base['label']}] indexação {modo}; baixando registros...")
-        pages = _query_all(db_id, flag, prop_ids=prop_ids, desde=desde, limite=limite, progress=log)
+        pages = _query_all(db_id, flag, prop_ids=prop_ids, desde=desde, limite=limite,
+                           progress=log, part_prop=part_prop)
         log(f"[{base['label']}] {len(pages)} registros a processar (cache atual: {len(existing)}).")
 
         registros: Dict[str, dict] = dict(existing)  # mantém os não modificados
@@ -400,7 +486,8 @@ def indexar(bases: Optional[List[str]] = None, *, limite: Optional[int] = None,
             vigentes = None  # amostragem de teste: não mexe no índice existente
         elif desde:          # incremental: varre só os ids vigentes à parte (leve)
             ids_props = [p for p in (prop_ids or [])[:1]] or None
-            vigentes = {pg["id"] for pg in _query_all(db_id, flag, prop_ids=ids_props, desde=None)}
+            vigentes = {pg["id"] for pg in _query_all(db_id, flag, prop_ids=prop_ids if part_prop else ids_props,
+                                                      desde=None, part_prop=part_prop)}
         else:                # completa (sem limite): `pages` já é o conjunto vigente atual
             vigentes = {pg["id"] for pg in pages}
         if vigentes:  # retrato não-vazio — só então é seguro expurgar
@@ -429,6 +516,26 @@ def indexar(bases: Optional[List[str]] = None, *, limite: Optional[int] = None,
         _meta_save(meta)
         resumo[chave] = len(regs)
         log(f"[{base['label']}] indexado: {len(regs)} trechos -> {cache_path.name}")
+
+        # RETAGUARDA (02/07/2026): registros RECENTES com a flag desmarcada indicam
+        # pipeline que esqueceu de marcar incluir_no_rag (degradação silenciosa) —
+        # ou curadoria intencional; o alerta permite distinguir.
+        if flag and not limite:
+            try:
+                corte = (datetime.now(timezone.utc) - timedelta(days=30)).isoformat()
+                d = _req("POST", f"/databases/{db_id}/query", {
+                    "page_size": 100,
+                    "filter": {"and": [
+                        {"property": flag, "checkbox": {"equals": False}},
+                        {"timestamp": "created_time", "created_time": {"on_or_after": corte}},
+                    ]}})
+                recentes_fora = d.get("results", [])
+                if recentes_fora:
+                    n_txt = f"{len(recentes_fora)}{'+' if d.get('has_more') else ''}"
+                    log(f"[{base['label']}] ⚠ ATENÇÃO: {n_txt} registros criados nos últimos 30 dias "
+                        f"estão com {flag} DESMARCADO (curadoria intencional ou pipeline sem a flag?).")
+            except Exception as e:  # noqa: BLE001 — alerta é acessório, não pode derrubar a indexação
+                log(f"[{base['label']}] (alerta de retaguarda indisponível: {str(e)[:80]})")
     return resumo
 
 

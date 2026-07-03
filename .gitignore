@@ -57,3 +57,8 @@ Chave_secreta_OpenAI.txt
 
 # Dados consolidados do DJe (arquivos grandes; nao versionar)
 dje_consolidado/
+
+# Tratamento RAG jul/2026: dumps locais e caches por base (dados; nao versionar)
+temas_work/
+sessoes_work/
+schema_backups/

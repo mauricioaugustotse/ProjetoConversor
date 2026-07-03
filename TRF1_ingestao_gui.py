@@ -73,6 +73,12 @@ def launch_gui() -> None:
     root.title("TRF1 — Ingestão de boletins")
     root.geometry("940x680")
     root.minsize(820, 600)
+    _ico = PROJECT_ROOT / "icones" / "trf1.ico"
+    if _ico.exists():
+        try:
+            root.iconbitmap(str(_ico))
+        except Exception:
+            pass
 
     log_queue: "queue.Queue[str]" = queue.Queue()
     busy = tk.BooleanVar(value=False)

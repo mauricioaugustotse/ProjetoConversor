@@ -690,8 +690,11 @@ _re_space_after_arts = re.compile(r"\b(arts\.)\s*(?=(\d|[IVXLCDM]))", re.IGNOREC
 _re_inciso_word = re.compile(r"\binciso\b", re.IGNORECASE)
 _re_inc_abbrev = re.compile(r"\binc(?!\.)\b", re.IGNORECASE)
 _re_space_after_inc = re.compile(r"\b(inc\.)\s*(?=[IVXLCDM])", re.IGNORECASE)
+# CUIDADO: a abreviacao exige o PONTO ("al. a"); com ponto opcional a regex
+# engolia o inicio de QUALQUER palavra em "al-" ("alimentos"->"imentos",
+# "alienacao"->"ienacao") — bug corrigido em 03/07/2026 (afetou cargas stj/stf).
 _re_alinea_to_letter = re.compile(
-    r'\b(?:al[ií]nea|al\.?|AL[IÍ]NEA|AL\.?)\s*["“\']?([A-Za-z])["”\']?',
+    r'\b(?:al[ií]nea|al\.)\s*["“\']?([A-Za-z])["”\']?(?![A-Za-zÀ-ÿ])',
     re.IGNORECASE,
 )
 _re_list_roman = re.compile(r"(^|\s)([IVXLCDM]+|[ivxlcdm]+)\s*[\)\-–—\.]\s+", re.MULTILINE)

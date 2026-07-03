@@ -70,6 +70,7 @@ BASES_RAG = {
         "props_texto": ["texto_rag", "norma_titulo", "hierarquia_normativa",
                          "texto_dispositivo", "palavras_chave"],
         "flag_rag": "incluir_no_rag",
+        "particao_prop": "id",   # base >10k: partição da paginação (limite silencioso do Notion)
     },
     "resolucoes_tse": {
         "id": "6eff337f-d025-4513-b5a3-003ff34b419d",
@@ -90,6 +91,7 @@ BASES_RAG = {
         "props_contexto": ["norma_nome_popular", "hierarquia_normativa"],
         "props_texto": ["texto_rag", "norma_titulo", "hierarquia_normativa", "texto_dispositivo"],
         "flag_rag": "incluir_no_rag",
+        "particao_prop": "id",   # base >10k: partição da paginação (limite silencioso do Notion)
     },
     # Jurisprudência do TSE estruturada: cada linha tem link oficial (link_1) + análise rica.
     "temas": {
@@ -100,7 +102,8 @@ BASES_RAG = {
         "props_conteudo": ["tema", "tese", "punchline", "texto_original", "contexto"],
         "props_contexto": ["relator", "ramo", "subramo"],
         "props_texto": ["tema", "tese", "punchline", "contexto", "texto_original", "relator"],
-        "flag_rag": None,
+        "flag_rag": "incluir_no_rag",   # criada em 02/07/2026 (tratamento RAG); updater marca True
+        "particao_prop": "ID",   # base >10k: partição da paginação (limite silencioso do Notion)
     },
     # Plenário do TSE (deliberações analisadas) — só os campos JURÍDICOS vão ao embedding;
     # notícias/advogados/partes ficam de fora (ruído).
@@ -113,7 +116,9 @@ BASES_RAG = {
                             "fundamentacao_normativa", "precedentes_citados"],
         "props_contexto": ["resultado", "votacao", "relator", "classe_processo", "numero_processo"],
         "props_texto": None,
-        "flag_rag": None,
+        # criada em 02/07/2026 (tratamento RAG). ATENÇÃO: o pipeline do JULES-IA que cria
+        # registros novos ainda não marca o checkbox — precisa marcar para entrarem no RAG.
+        "flag_rag": "incluir_no_rag",
     },
     "dje": {
         "id": None,                 # resolvido por título
@@ -124,6 +129,7 @@ BASES_RAG = {
         "props_contexto": ["relator", "siglaClasse", "numeroProcesso"],
         "props_texto": None,
         "flag_rag": None,
+        "particao_prop": "numeroProcesso",   # base >10k: partição da paginação (limite silencioso do Notion)
     },
     # Acórdãos do STF (Repercussão Geral) — 1 linha por fase (RG/mérito); a Ementa
     # já traz o inteiro teor resumido. "conteúdo primeiro": tese/descrição do tema
@@ -155,6 +161,11 @@ BASES_RAG = {
                             "Tema STF vinculado", "Palavras-chave", "Julgado em"],
         "props_texto": None,
         "flag_rag": "incluir_no_rag",
+        # Temas afetados/em julgamento (sem tese) ficam no RAG para pesquisa prospectiva,
+        # mas o trecho indexado nasce marcado — nunca citar como precedente consolidado.
+        "prefixo_se_vazio": ("Tese Firmada",
+                             "[PENDENTE DE JULGAMENTO — questão afetada, sem tese firmada; "
+                             "não citar como precedente consolidado]\n"),
     },
     # Jurisprudência do TRF1 (Boletins Informativos de Jurisprudência): 1 linha por julgado.
     # A base já traz campos ricos (punchline/tese/bullet_points/contexto) do pipeline A/B/C/CC;
