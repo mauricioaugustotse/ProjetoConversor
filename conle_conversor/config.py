@@ -118,19 +118,55 @@ class S:
 # dispositivo de origem ("RICD - Art. 54", "Constituição Federal - Art. 24, VII").
 # No .docx o link interno do Notion nunca é preservado (o público não acessa as
 # bases); quando o padrão abaixo casa, o texto ganha hyperlink para a fonte
-# pública oficial. Cada entrada é (regex, template de URL com \1 etc., aliases
-# do nome da norma — usados também para podar o "eco" redundante que o texto ao
-# redor às vezes repete, ex. "(RICD - Art. 151, RICD)" -> "(RICD - Art. 151)").
+# pública oficial. Cada entrada é (regex, template de URL com \1 etc. OU callable
+# que recebe o Match e devolve a URL, aliases do nome da norma — usados também
+# para podar o "eco" redundante que o texto ao redor às vezes repete, ex.
+# "(RICD - Art. 151, RICD)" -> "(RICD - Art. 151)").
 # Extensível: novas normas = novas tuplas. Resolver via propriedades da página
 # mencionada (norma_id) exigiria chamadas extras à API — fora de escopo.
+
+# Constituição Federal no Planalto (âncora nativa #artN por artigo).
+CF_PLANALTO_URL = "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"
+
+
+def ancora_artigo_cf(num: int) -> str:
+    return f"#art{num}"
+
+
+# Resolução da Câmara nº 17/1989 (RICD), texto consolidado no LEGIN — NÃO a
+# página institucional genérica (troca pedida pelo usuário).
+RICD_LEGIN_URL = (
+    "https://www2.camara.leg.br/legin/fed/rescad/1989/"
+    "resolucaodacamaradosdeputados-17-21-setembro-1989-320110-normaatualizada-pl.html"
+)
+
+
+def ancora_artigo_ricd(num: int) -> str:
+    """Fragmento de destaque de texto (#:~:text=) que abre a página do LEGIN
+    já no caput do artigo. A página consolidada não tem âncoras HTML próprias
+    (só bookmarks residuais de Word), então usa-se o text fragment do browser —
+    mesmo recurso já presente nos links dos documentos-modelo da casa. O alvo
+    reproduz a grafia do caput no LEGIN: "Art. 5º" (1º-9º) / "Art. 54." (10+);
+    aferido contra o HTML real: em 264 dos 278 artigos a 1ª ocorrência é o
+    próprio caput; nos demais o link apenas destaca uma remissão anterior."""
+    alvo = f"Art.%20{num}%C2%BA" if num < 10 else f"Art.%20{num}."
+    return f"#:~:text={alvo}"
+
+
+def _url_ricd(m: "re.Match") -> str:
+    return RICD_LEGIN_URL + ancora_artigo_ricd(int(m.group(1)))
+
+
+def _url_cf(m: "re.Match") -> str:
+    return CF_PLANALTO_URL + ancora_artigo_cf(int(m.group(1)))
+
+
 FONTES_OFICIAIS = [
     (r"^Constitui[çc][ãa]o Federal\s*[-–—]\s*Art\.?\s*(\d+)",
-     r"https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm#art\1",
+     _url_cf,
      ("Constituição Federal", "CF")),
-    # Resolução da Câmara nº 17/1989 (RICD), texto consolidado no LEGIN.
-    (r"^RICD\s*[-–—]\s*Art\.?\s*\d+",
-     r"https://www2.camara.leg.br/legin/fed/rescad/1989/"
-     r"resolucaodacamaradosdeputados-17-21-setembro-1989-320110-normaatualizada-pl.html",
+    (r"^RICD\s*[-–—]\s*Art\.?\s*(\d+)",
+     _url_ricd,
      ("RICD",)),
 ]
 

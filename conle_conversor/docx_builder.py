@@ -35,14 +35,14 @@ def _style_name(doc, name: str) -> str:
 
 
 def _p(doc, style: str, *, text: Optional[str] = None, rich: Optional[List[RichText]] = None,
-       force_bold: Optional[bool] = None):
+       force_bold: Optional[bool] = None, linkificar: bool = True):
     para = doc.add_paragraph(style=_style_name(doc, style))
     if text is not None:
         run = para.add_run(text)
         if force_bold:
             run.bold = True
     elif rich is not None:
-        add_runs(para, rich, force_bold=force_bold)
+        add_runs(para, rich, force_bold=force_bold, linkificar=linkificar)
     return para
 
 
@@ -57,8 +57,9 @@ def _add_bullet(doc, rich: List[RichText]):
 
 
 def _add_quote_as_transcricao(doc, rich: List[RichText]):
+    # transcrição de texto de lei: sem linkificação de citações (fidelidade)
     for linha in split_rich_lines(rich):
-        _p(doc, S.TRANSCRICAO, rich=linha)
+        _p(doc, S.TRANSCRICAO, rich=linha, linkificar=False)
 
 
 def _add_equation(doc, block: Block):
@@ -302,6 +303,8 @@ def _epigrafe_text(sep: PaginaSeparada, meta: MetaDocumento) -> str:
 
 
 def _render_articulado(doc, blocks: List[Block], tipo: TipoProposicao):
+    # texto normativo proposto: sem linkificação de citações (o articulado da
+    # minuta/substitutivo vai a protocolo limpo, sem links azuis no meio)
     for b in blocks:
         if b.type == "paragraph":
             t = plain(b.rich).strip()
@@ -310,14 +313,14 @@ def _render_articulado(doc, blocks: List[Block], tipo: TipoProposicao):
             if _PREAMBULO_RE.search(t) and len(t) <= 120:
                 _p(doc, S.PREAMBULO, text=tipo.preambulo)
             else:
-                _p(doc, S.CORPO, rich=b.rich)
+                _p(doc, S.CORPO, rich=b.rich, linkificar=False)
         elif b.type == "quote":
             _add_quote_as_transcricao(doc, b.rich)
         elif b.type in ("heading_1", "heading_2", "heading_3"):
             # eventual subtítulo dentro do articulado -> corpo
-            _p(doc, S.CORPO, rich=b.rich)
+            _p(doc, S.CORPO, rich=b.rich, linkificar=False)
         elif b.type == "bulleted_list_item" or b.type == "numbered_list_item":
-            _p(doc, S.CORPO, rich=b.rich)
+            _p(doc, S.CORPO, rich=b.rich, linkificar=False)
         elif b.type == "table":
             _add_table(doc, b)
         elif b.type == "equation":
@@ -383,6 +386,25 @@ def _rotulo_relator(relator: str) -> str:
     return "Relator"
 
 
+def _sisconle_rodape(doc, meta: MetaDocumento):
+    """Nº do trabalho SISCONLE no rodapé REAL da página (w:ftr), em todas as
+    páginas do parecer — pedido do usuário (04/07/26), que sobrepõe o modelo
+    da casa (lá o número é parágrafo do corpo no fim de cada peça). Com
+    titlePg ativo a 1ª página usa o footer "first", então os dois footers são
+    preenchidos."""
+    for section in doc.sections:
+        footers = [section.footer]
+        if section.different_first_page_header_footer:
+            footers.append(section.first_page_footer)
+        for footer in footers:
+            footer.is_linked_to_previous = False
+            para = footer.paragraphs[0]
+            para.style = doc.styles[_style_name(doc, S.SISCONLE)]
+            for run in list(para.runs):
+                run.text = ""
+            para.add_run(meta.sisconle_txt)
+
+
 def _render_parecer_blocks(doc, blocks: List[Block]):
     """Corpo do Relatório/Voto: sub-headings (II.1, II.2…) em TÍTULO SUBITEM;
     o resto segue o padrão do corpo da IT."""
@@ -432,10 +454,10 @@ def build_parecer(par: ParecerSeparado, meta: MetaDocumento) -> Document:
     _p(doc, S.AUTOR_RELATOR, text=f"{rotulo_autor}: {par.autoria or '[AUTOR(A)]'}")
     _p(doc, S.AUTOR_RELATOR, text=f"{rotulo_rel}: {relator}")
 
-    # I – Relatório
+    # I – Relatório (o nº SISCONLE fica no rodapé de página, não no corpo)
     _p(doc, S.RELATORIO_VOTO, text=par.relatorio_heading or "I - Relatório")
     _render_parecer_blocks(doc, par.relatorio_blocks)
-    _p(doc, S.SISCONLE, text=meta.sisconle_txt)
+    doc.add_page_break()
 
     # II – Voto do Relator
     _p(doc, S.RELATORIO_VOTO, text=par.voto_heading or "II - Voto do Relator")
@@ -443,7 +465,6 @@ def build_parecer(par: ParecerSeparado, meta: MetaDocumento) -> Document:
     _p(doc, S.FECHO, text=meta.fecho_prop_txt(config.LOCAL_FECHO_PARECER))
     _p(doc, S.ASSINATURA, text=relator)
     _p(doc, S.ASSINATURA, text=rotulo_rel)
-    _p(doc, S.SISCONLE, text=meta.sisconle_txt)
 
     # Substitutivo (nova página, mesmo .docx — como no modelo)
     if par.tem_substitutivo:
@@ -456,7 +477,7 @@ def build_parecer(par: ParecerSeparado, meta: MetaDocumento) -> Document:
         _p(doc, S.FECHO, text=meta.fecho_prop_txt(config.LOCAL_FECHO_PARECER))
         _p(doc, S.ASSINATURA, text=relator)
         _p(doc, S.ASSINATURA, text=rotulo_rel)
-        _p(doc, S.SISCONLE, text=meta.sisconle_txt)
 
+    _sisconle_rodape(doc, meta)
     _limpar_hyperlinks_orfaos(doc)
     return doc

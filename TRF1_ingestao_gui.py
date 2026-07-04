@@ -39,14 +39,16 @@ def listar_pdfs(pasta: Path) -> List[Path]:
 
 
 def informativos_na_base() -> set:
-    """Números de boletim (informativo) já presentes na base Notion."""
+    """Números de boletim (informativo) já presentes na base Notion.
+
+    'informativo' é um select: as opções do schema equivalem aos valores
+    distintos da base e chegam num único GET (vs. paginar ~7,7k linhas).
+    Limitação: opção órfã (páginas removidas) ainda conta como "já na base".
+    """
     import _trf1_lib as L
-    nums = set()
-    for pg in L.query_all(only_props=["informativo"]):
-        v = str(L.plain(pg["properties"].get("informativo")) or "").strip()
-        if v:
-            nums.add(v)
-    return nums
+    db = L.req("GET", f"https://api.notion.com/v1/databases/{L.DB_ID}")
+    opts = db["properties"]["informativo"]["select"]["options"]
+    return {str(o.get("name", "")).strip() for o in opts if str(o.get("name", "")).strip()}
 
 
 def run_command(cmd: List[str], log: Callable[[str], None], env: Dict[str, str] | None = None) -> int:
@@ -205,9 +207,6 @@ def launch_gui() -> None:
             status_var.set(status_text)
 
     def _run_in_thread(target: Callable[[], None], done_message: str) -> None:
-        if busy.get():
-            return
-
         def worker() -> None:
             try:
                 target()
@@ -223,6 +222,8 @@ def launch_gui() -> None:
             pasta_var.set(d)
 
     def _detectar() -> None:
+        if busy.get():
+            return
         pasta = Path(pasta_var.get().strip())
         if not pasta.is_dir():
             messagebox.showwarning("Pasta inválida", "Escolha uma pasta existente.")
@@ -239,12 +240,18 @@ def launch_gui() -> None:
                 log(f"AVISO: não consegui consultar a base ({exc}). Tratando todos como novos.")
                 na_base = set()
 
+            linhas = []
+            for p in pdfs:
+                info = extrair_informativo(p)
+                novo = bool(info) and info not in na_base
+                linhas.append((p, info, novo))
+            # Novos primeiro (por número do boletim), depois os que já estão na base.
+            linhas.sort(key=lambda t: (not t[2], int(t[1]) if t[1].isdigit() else 10**9, str(t[0])))
+
             def preencher() -> None:
                 tree.delete(*tree.get_children())
                 itens.clear()
-                for p in pdfs:
-                    info = extrair_informativo(p)
-                    novo = bool(info) and info not in na_base
+                for p, info, novo in linhas:
                     iid = tree.insert("", "end")
                     itens[iid] = {"path": str(p), "info": info, "novo": novo, "marcado": novo}
                     _refresh_row(iid)
@@ -253,6 +260,8 @@ def launch_gui() -> None:
         _run_in_thread(job, "Detecção concluída.")
 
     def _ingerir() -> None:
+        if busy.get():
+            return
         marcados = [it for it in itens.values() if it["marcado"]]
         if not marcados:
             messagebox.showinfo("Nada marcado", "Marque ao menos um boletim (clique nas linhas).")

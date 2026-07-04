@@ -33,8 +33,83 @@ def resolver_fonte_publica(texto: str) -> Optional[str]:
     for padrao, template, _aliases in config.FONTES_OFICIAIS:
         m = re.search(padrao, texto or "")
         if m:
-            return m.expand(template)
+            return template(m) if callable(template) else m.expand(template)
     return None
+
+
+# "art. 7º", "arts. 14 a 17" (âncora do primeiro), "art. 10-B" (letra entra
+# na âncora do Planalto: #art10b)
+_RE_ARTIGO = re.compile(r"\bArts?\.?\s*(\d+)(?:[ºo°])?(?:\s*[-–]\s*([A-Za-z])\b)?", re.I)
+
+# Normas hospedadas no Planalto (ccivil_03): todas têm âncora nativa #artN.
+_RE_PLANALTO = re.compile(r"^https?://(?:www\.)?planalto\.gov\.br/ccivil_03/", re.I)
+
+# Citação textual de CF/RICD digitada no corpo (fora de mention), ex.
+# "art. 3º, incisos II e III, da CF", "art. 24, § 1º, da CF", "art. 54 do
+# RICD". O miolo (incisos/§§/alíneas) não cruza ; ( ) nem pode citar OUTRA
+# norma no caminho ("art. 7º da LC 95/1998 ... da CF" não pode linkar a CF) —
+# daí a lista negra de nomes de norma dentro do miolo.
+_MIOLO_CITACAO = (
+    r"(?:(?!\b(?:lei|decreto|c[óo]digo|resolu[çc][ãa]o|emenda|regimento|"
+    r"ricd|adct|lc|ec)\b)[^;()]){0,60}?"
+)
+_RE_CITACAO_TEXTUAL = re.compile(
+    rf"\barts?\.\s*(?P<num>\d+)[ºo]?{_MIOLO_CITACAO}"
+    rf"(?:d[ae]\s+(?P<cf>CF(?:/88)?\b|Constitui[çc][ãa]o(?:\s+Federal|\s+da\s+"
+    rf"Rep[úu]blica(?:\s+Federativa\s+do\s+Brasil)?)?(?:\s+de\s+1988)?)"
+    rf"|do\s+(?P<ricd>RICD\b|Regimento\s+Interno(?:\s+da\s+C[âa]mara(?:\s+dos\s+"
+    rf"Deputados)?)?))",
+    re.I,
+)
+
+
+def linkificar_citacoes(rich_list: List[RichText]) -> List[RichText]:
+    """Citações textuais de CF/RICD em texto puro (sem href) ganham o mesmo
+    hyperlink oficial das mentions equivalentes — o trecho citado inteiro vira
+    o texto do link, como nos documentos-modelo da casa. Limitação assumida:
+    só citações contidas num único run (o caso real; formatação no meio da
+    citação a dividiria em runs)."""
+    out: List[RichText] = []
+    for r in rich_list or []:
+        if r.href or r.kind != "text" or not r.text:
+            out.append(r)
+            continue
+        pos = 0
+        for m in _RE_CITACAO_TEXTUAL.finditer(r.text):
+            num = int(m.group("num"))
+            if m.group("ricd"):
+                url = config.RICD_LEGIN_URL + config.ancora_artigo_ricd(num)
+            else:
+                url = config.CF_PLANALTO_URL + config.ancora_artigo_cf(num)
+            if m.start() > pos:
+                out.append(replace(r, text=r.text[pos:m.start()]))
+            out.append(replace(r, text=m.group(0), href=url))
+            pos = m.end()
+        if pos == 0:
+            out.append(r)
+        elif pos < len(r.text):
+            out.append(replace(r, text=r.text[pos:]))
+    return out
+
+
+def _ancorar_dispositivo(href: str, texto: str) -> str:
+    """Link http externo para norma SEM âncora: se o texto do trecho cita um
+    artigo ("art. 7º da LC 95/1998"), anexa a âncora que abre a página já no
+    dispositivo — o "deslocamento" que o usuário exige em toda citação. No
+    Planalto a âncora nativa é #artN (letra de artigo acrescido entra: art.
+    10-B -> #art10b); no LEGIN do RICD é o text fragment de ancora_artigo_ricd.
+    Âncora inexistente degrada para abrir no topo (comportamento antigo)."""
+    if not href or "#" in href:
+        return href
+    m = _RE_ARTIGO.search(texto or "")
+    if not m:
+        return href
+    if href.startswith(config.RICD_LEGIN_URL):
+        return config.RICD_LEGIN_URL + config.ancora_artigo_ricd(int(m.group(1)))
+    if _RE_PLANALTO.match(href):
+        letra = (m.group(2) or "").lower()
+        return f"{href}#art{int(m.group(1))}{letra}"
+    return href
 
 
 def _aliases_da_norma(texto: str) -> List[str]:
@@ -156,14 +231,19 @@ def _add_hyperlink(paragraph, text: str, url: str, *, bold: bool = False, italic
     return hyperlink
 
 
-def add_runs(paragraph, rich_list: List[RichText], *, force_bold: Optional[bool] = None):
+def add_runs(paragraph, rich_list: List[RichText], *, force_bold: Optional[bool] = None,
+             linkificar: bool = True):
     """Adiciona runs ao parágrafo preservando bold/italic/underline e os hyperlinks
     EXTERNOS (viram links clicáveis no .docx). Links/mentions internos do Notion
     nunca viram hyperlink: quando o texto casa com config.FONTES_OFICIAIS, ganham
     link para a fonte pública oficial; senão, saem como texto puro. Também poda o
     eco redundante do nome da norma que às vezes segue a mention (ver
-    limpar_ecos_redundantes). '\n' dentro de um run vira quebra de linha (soft break)."""
+    limpar_ecos_redundantes) e, com `linkificar` (desligado nas transcrições de
+    lei e no articulado), dá link às citações textuais de CF/RICD (ver
+    linkificar_citacoes). '\n' dentro de um run vira quebra de linha (soft break)."""
     rich_list = limpar_ecos_redundantes(rich_list)
+    if linkificar:
+        rich_list = linkificar_citacoes(rich_list)
     for r in rich_list or []:
         if not r.text:
             continue
@@ -171,6 +251,8 @@ def add_runs(paragraph, rich_list: List[RichText], *, force_bold: Optional[bool]
         if _link_interno_notion(href):
             # o match usa o texto completo da mention, não cada parte pós-split
             href = resolver_fonte_publica(r.text) or ""
+        else:
+            href = _ancorar_dispositivo(href, r.text)
         partes = r.text.split("\n")
         for i, parte in enumerate(partes):
             if i > 0:
