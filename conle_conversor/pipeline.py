@@ -10,12 +10,12 @@ from typing import Callable, Dict, List, Optional
 
 from . import config
 from .config import data_extenso
-from .docx_builder import build_it, build_proposicao
+from .docx_builder import build_it, build_parecer, build_proposicao
 from .harmonizer import gerar_abertura
 from .meta import MetaDocumento
 from .notion_api import fetch_page
-from .notion_parser import parse_blocks, flatten_blocks
-from .splitter import split_page, PaginaSeparada
+from .notion_parser import Block, parse_blocks, flatten_blocks
+from .splitter import detectar_layout, split_page, split_parecer, PaginaSeparada, ParecerSeparado
 
 
 _INVALIDOS = re.compile(r'[\\/:*?"<>|]+')
@@ -103,7 +103,46 @@ def _hoje() -> datetime.date:
     return datetime.date.today()
 
 
-def build_meta(sep: PaginaSeparada, overrides: Optional[Dict] = None) -> MetaDocumento:
+# Nome de arquivo do parecer, no padrão da pasta Pareceres:
+#   "Parecer <SIGLA COMISSÃO> - <SIGLA> nº <num>-<ano> - <tema> (Rel. <Nome>).docx"
+_RE_NUM_ANO = re.compile(r"n[ºo°.]?\s*([\d.]+)\s*,?\s*de\s*(\d{4})", re.IGNORECASE)
+_RE_SIGLA_TITULO = re.compile(
+    r"\b(PL|PLP|PEC|PDL|PDC|PRC)\s*n?[ºo°.]*\s*([\d.]+)\s*/\s*(\d{4})", re.IGNORECASE
+)
+_RE_TEMA_POS_SIGLA = re.compile(
+    r"^(?:PL|PLP|PEC|PDL|PDC|PRC)[\s\d.,/º°-]*[—–-]\s*(.+)$", re.IGNORECASE
+)
+
+
+def _ref_proposicao(par: ParecerSeparado) -> str:
+    m = _RE_NUM_ANO.search(par.proposicao or "")
+    if m:
+        return f"{par.tipo.sigla} nº {m.group(1)}-{m.group(2)}"
+    m = _RE_SIGLA_TITULO.search(par.titulo or "")
+    if m:
+        return f"{m.group(1).upper()} nº {m.group(2)}-{m.group(3)}"
+    return f"{par.tipo.sigla} s-n"
+
+
+def _tema_parecer(titulo: str) -> str:
+    """Tema do título de página-parecer ("PL 3.031/2025 — Rota…" → "Rota…").
+    O _tema comum pegaria o lado ERRADO do travessão (a referência do PL)."""
+    m = _RE_TEMA_POS_SIGLA.match((titulo or "").strip())
+    if m:
+        return _sanitize(m.group(1).strip(" -–—"))
+    return _tema(titulo)
+
+
+def _rel_curto(relator: str) -> str:
+    """"Deputado Hildo Rocha (MDB/MA)" → "Hildo Rocha" (para o nome do arquivo)."""
+    r = re.sub(r"^\s*Deputad[oa](?:\(a\))?\s+", "", (relator or "").strip())
+    r = re.sub(r"\s*\([^)]*\)\s*$", "", r).strip()
+    return "" if (not r or "[" in r) else r
+
+
+def build_meta(sep: Optional[PaginaSeparada], overrides: Optional[Dict] = None) -> MetaDocumento:
+    # `sep` não é usado (mantido na assinatura por compatibilidade); no fluxo de
+    # parecer é passado None.
     overrides = overrides or {}
     hoje = _hoje()
     ano = int(overrides.get("ano") or hoje.year)
@@ -132,6 +171,7 @@ def converter(
     overrides: Optional[Dict] = None,
     out_it_dir: Optional[Path] = None,
     out_prop_dir: Optional[Path] = None,
+    out_parecer_dir: Optional[Path] = None,
     progress: Optional[Callable[[str], None]] = None,
 ) -> ResultadoConversao:
     log = progress or (lambda _m: None)
@@ -140,6 +180,20 @@ def converter(
     page_id, titulo, raw = fetch_page(url)
     log(f"Página: “{titulo}”. Processando blocos…")
     blocks = flatten_blocks(parse_blocks(raw))
+
+    # O tipo de documento é decidido pela ESTRUTURA da página (auto-detecção):
+    # layout de parecer de comissão gera o parecer; senão, IT/minuta.
+    if detectar_layout(blocks) == "parecer":
+        return _converter_parecer(
+            page_id, titulo, blocks, overrides, out_parecer_dir,
+            checkboxes_marcados=(gerar_it or gerar_proposicao), log=log,
+        )
+
+    if not gerar_it and not gerar_proposicao:
+        raise RuntimeError(
+            "Selecione ao menos um documento: Informação Técnica ou minuta de proposição."
+        )
+
     sep = split_page(blocks, titulo)
     log(f"Tipo de proposição identificado: {sep.tipo.sigla} ({sep.tipo.nome_extenso}).")
 
@@ -189,5 +243,54 @@ def converter(
         resultado.caminhos.append(caminho)
         log(f"Minuta salva em: {caminho}")
 
+    log("Concluído.")
+    return resultado
+
+
+def _converter_parecer(
+    page_id: str,
+    titulo: str,
+    blocks: List[Block],
+    overrides: Optional[Dict],
+    out_parecer_dir: Optional[Path],
+    *,
+    checkboxes_marcados: bool,
+    log: Callable[[str], None],
+) -> ResultadoConversao:
+    log("Layout de PARECER DE COMISSÃO detectado — gerando o parecer "
+        "(as opções de IT/minuta/IA não se aplicam a este layout).")
+    par = split_parecer(blocks, titulo)
+    log(f"Comissão: {par.comissao_sigla or par.comissao or '—'}; "
+        f"proposição: {par.proposicao or titulo}; tipo {par.tipo.sigla}.")
+
+    meta = build_meta(None, overrides)
+    resultado = ResultadoConversao(
+        page_id=page_id,
+        titulo=titulo,
+        tipo_sigla=par.tipo.sigla,
+        tipo_extenso=par.tipo.nome_extenso,
+        abertura_via_ia=False,
+    )
+    if checkboxes_marcados:
+        resultado.avisos.append(
+            "Página com layout de parecer de comissão: as opções de IT/minuta foram ignoradas."
+        )
+    if not par.tem_substitutivo:
+        resultado.avisos.append(
+            "Não foi encontrado Substitutivo na página — o parecer foi gerado sem essa parte."
+        )
+
+    pasta = Path(out_parecer_dir or config.OUTPUT_PARECER_DIR)
+    pasta.mkdir(parents=True, exist_ok=True)
+    log("Montando o documento do parecer…")
+    doc = build_parecer(par, meta)
+
+    rel = _rel_curto(par.relator)
+    sufixo = f" (Rel. {rel})" if rel else ""
+    prefixo = f"Parecer {par.comissao_sigla or 'Comissão'} - {_ref_proposicao(par)} - "
+    caminho = _caminho_unico(pasta, _compor_nome(prefixo, _tema_parecer(titulo), sufixo))
+    doc.save(str(caminho))
+    resultado.caminhos.append(caminho)
+    log(f"Parecer salvo em: {caminho}")
     log("Concluído.")
     return resultado

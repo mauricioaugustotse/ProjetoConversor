@@ -92,9 +92,29 @@ def build_template_proposicao() -> None:
     print(f"OK template PROP -> {config.TEMPLATE_PROPOSICAO}")
 
 
+def build_template_parecer() -> None:
+    """Parecer: remove todo o corpo, preservando apenas o sectPr final e os estilos.
+
+    O modelo do parecer não tem tabela-capa nem quebra de seção pós-cabeçalho
+    (a quebra de página antes do substitutivo é um w:br manual dentro do corpo,
+    removida junto — o builder a recria)."""
+    config.TEMPLATES_DIR.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(config.MODELO_PARECER, config.TEMPLATE_PARECER)
+    doc = Document(str(config.TEMPLATE_PARECER))
+    body = doc.element.body
+    for ch in list(body.iterchildren()):
+        if ch.tag.endswith("}sectPr"):
+            continue
+        body.remove(ch)
+    _clear_core_props(doc)
+    doc.save(str(config.TEMPLATE_PARECER))
+    print(f"OK template PARECER -> {config.TEMPLATE_PARECER}")
+
+
 def main() -> None:
     build_template_it()
     build_template_proposicao()
+    build_template_parecer()
 
 
 if __name__ == "__main__":

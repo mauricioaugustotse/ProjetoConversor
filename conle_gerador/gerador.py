@@ -50,8 +50,10 @@ def _fmt_rag(trechos) -> str:
             meta.append(t.ancora)  # jurisprudência: Rel. X | resultado Y | proc. Z
         if getattr(t, "data", ""):
             meta.append(f"data {t.data}")
-        if getattr(t, "url", ""):
-            meta.append(f"LINK OFICIAL: {t.url}")
+        url = getattr(t, "url", "")
+        # URL interna do Notion não é fonte pública — não oferecer como LINK OFICIAL
+        if url and not re.search(r"(?:^notion://|//(?:www\.)?notion\.so\b|//app\.notion\.com\b)", url):
+            meta.append(f"LINK OFICIAL: {url}")
         tag = ("  [" + " | ".join(meta) + "]") if meta else ""
         linhas.append(f"- ({t.fonte} · {t.titulo}){tag}\n  {t.texto[:800]}")
     return "\n".join(linhas) if linhas else "(sem trechos relevantes nas bases internas)"

@@ -35,9 +35,15 @@ class ConversorGUI(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title("CONLE · Conversor Notion → Informação Técnica")
-        self.geometry("820x760")
-        self.minsize(720, 680)
+        self.geometry("820x800")
+        self.minsize(720, 700)
         self.configure(bg=CINZA)
+        ico = Path(__file__).resolve().parent / "icones" / "conle_conversor.ico"
+        if ico.exists():
+            try:
+                self.iconbitmap(str(ico))
+            except Exception:
+                pass
         self._fila: queue.Queue = queue.Queue()
         self._rodando = False
         self._ultimos_caminhos = []
@@ -71,7 +77,7 @@ class ConversorGUI(tk.Tk):
         topo = ttk.Frame(self, padding=(18, 16, 18, 6))
         topo.pack(fill="x")
         ttk.Label(topo, text="Conversor Notion → Informação Técnica", style="Cab.TLabel").pack(anchor="w")
-        ttk.Label(topo, text="Consultoria Legislativa · transpõe a página do Notion em IT + minuta de proposição (.docx)",
+        ttk.Label(topo, text="Consultoria Legislativa · transpõe a página do Notion em IT + minuta ou parecer de comissão (.docx)",
                   style="Sub.TLabel").pack(anchor="w")
 
         corpo = ttk.Frame(self, padding=(18, 4, 18, 4))
@@ -120,8 +126,12 @@ class ConversorGUI(tk.Tk):
 
         self.var_dir_it = tk.StringVar(value=str(config.OUTPUT_IT_DIR))
         self.var_dir_prop = tk.StringVar(value=str(config.OUTPUT_PROPOSICAO_DIR))
+        self.var_dir_parecer = tk.StringVar(value=str(config.OUTPUT_PARECER_DIR))
         self._campo_pasta(saida, "Pasta da IT:", self.var_dir_it)
         self._campo_pasta(saida, "Pasta da minuta:", self.var_dir_prop)
+        self._campo_pasta(saida, "Pasta do parecer:", self.var_dir_parecer)
+        ttk.Label(saida, text="Página com layout de parecer de comissão é detectada\ne gerada automaticamente (parecer + substitutivo).",
+                  style="Sub.TLabel").pack(anchor="w", pady=(4, 0))
 
         # botão -------------------------------------------------------------
         acoes = ttk.Frame(corpo)
@@ -168,9 +178,8 @@ class ConversorGUI(tk.Tk):
         if not url:
             messagebox.showwarning("Atenção", "Cole a URL (ou ID) da página do Notion.")
             return
-        if not self.var_it.get() and not self.var_prop.get():
-            messagebox.showwarning("Atenção", "Selecione ao menos um documento para gerar.")
-            return
+        # a validação "selecione ao menos um" fica no pipeline: página-parecer
+        # é detectada pela estrutura e gera o parecer mesmo sem checkbox marcado
 
         overrides = {
             "deputado_nome": self.var_dep.get().strip(),
@@ -187,6 +196,7 @@ class ConversorGUI(tk.Tk):
             overrides=overrides,
             out_it_dir=Path(self.var_dir_it.get()),
             out_prop_dir=Path(self.var_dir_prop.get()),
+            out_parecer_dir=Path(self.var_dir_parecer.get()),
         )
 
         self._rodando = True

@@ -64,7 +64,14 @@ REGRAS_CITACAO = (
     "DENSIDADE DE LINKS: cada precedente e cada diploma ÚNICO citado deve ter link na 1ª menção (ou o "
     "sentinela [LINK?]); uma IT deste porte traz ~30 a 50 links — citação sem link nem sentinela é "
     "citação incompleta. AO LINKAR, preserve a SUBSTÂNCIA (ratio, relator/data quando útil): a âncora "
-    "é forte e explicada, não um número solto."
+    "é forte e explicada, não um número solto.\n"
+    "5. FONTES INTERNAS ≠ FONTES PÚBLICAS: NUNCA use URL de notion.so/app.notion.com como link no "
+    "texto — as bases internas (RAG) servem à pesquisa, não à citação; o leitor externo não as acessa. "
+    "Todo dado vindo delas é citado pelo dispositivo/registro de ORIGEM (\"o art. 54 do RICD\", "
+    "\"o Tema 123 do STF\") com link para a fonte PÚBLICA oficial (Planalto, Câmara, portal do "
+    "tribunal) — sem fonte pública disponível, cite o dispositivo sem link (ou [LINK?] se for "
+    "precedente). E INTEGRE a citação naturalmente à frase, no fluxo do argumento — nunca cole o "
+    "título da ficha interna (errado: \"(RICD - Art. 151, RICD)\"; certo: \"o art. 151 do RICD\")."
 )
 
 # Eixo central: ancoragem que SUSTENTA a ideia, sem virar checklist de dispositivos.

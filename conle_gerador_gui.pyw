@@ -35,6 +35,12 @@ class GeradorGUI(tk.Tk):
         self.geometry("880x820")
         self.minsize(780, 720)
         self.configure(bg=CINZA)
+        ico = Path(__file__).resolve().parent / "icones" / "conle_gerador.ico"
+        if ico.exists():
+            try:
+                self.iconbitmap(str(ico))
+            except Exception:
+                pass
         self._fila: queue.Queue = queue.Queue()
         self._rodando = False
         self._page_url = ""

@@ -13,6 +13,10 @@ class RichText:
     italic: bool = False
     underline: bool = False
     href: Optional[str] = None
+    # Tipo do rich_text no Notion: "text" | "mention" | "equation". Campo FINAL
+    # com default: construções posicionais de 5 args continuam válidas (degrada
+    # para "text"; a decisão de hyperlink é primariamente pelo domínio do href).
+    kind: str = "text"
 
 
 @dataclass
@@ -47,6 +51,7 @@ def extract_rich(rt_list: Optional[List[Dict[str, Any]]]) -> List[RichText]:
                 italic=bool(ann.get("italic")),
                 underline=bool(ann.get("underline")),
                 href=t.get("href"),
+                kind=t.get("type", "text"),
             )
         )
     return out

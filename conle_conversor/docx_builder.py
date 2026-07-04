@@ -19,7 +19,7 @@ from .classifier import TipoProposicao
 from .meta import MetaDocumento
 from .notion_parser import Block, RichText, plain
 from .richtext import add_runs, split_rich_lines
-from .splitter import PaginaSeparada
+from .splitter import PaginaSeparada, ParecerSeparado
 from .harmonizer import Abertura
 
 
@@ -81,7 +81,14 @@ def _add_table(doc, block: Block):
     ncols = block.extra.get("table_width") or max((len(r) for r in rows), default=1)
     has_header = block.extra.get("has_column_header", False) or _looks_like_header(rows)
     table = doc.add_table(rows=len(rows), cols=ncols)
-    table.style = doc.styles[_style_name(doc, "Plain Table 1")]
+    # primeiro estilo de TABELA disponível no template (o fallback "Normal" de
+    # _style_name é de parágrafo e não se aplica a tabelas)
+    for nome in ("Plain Table 1", "TABELA CONLE", "Table Grid"):
+        try:
+            table.style = doc.styles[nome]
+            break
+        except (KeyError, ValueError):
+            continue
     table.autofit = True
     for ri, row in enumerate(rows):
         for ci in range(ncols):
@@ -350,5 +357,106 @@ def build_proposicao(sep: PaginaSeparada, meta: MetaDocumento) -> Document:
     _p(doc, S.FECHO, text=meta.fecho_prop_txt(tipo.local_fecho))
     _p(doc, S.ASSINATURA, text=meta.assinatura_prop)
     _p(doc, S.SISCONLE, text=meta.sisconle_txt)
+    _limpar_hyperlinks_orfaos(doc)
+    return doc
+
+
+# ---------------------------------------------------------------------------
+# build parecer de comissão (com substitutivo)
+# ---------------------------------------------------------------------------
+def _relator_txt(par: ParecerSeparado, meta: MetaDocumento) -> str:
+    """Relator na ordem de precedência: callout/assinatura da página (já
+    resolvidos no splitter) → campo da GUI → placeholder."""
+    if par.relator:
+        return par.relator
+    nome = meta.deputado_nome.strip()
+    if nome:
+        return f"{meta.tratamento_deputado} {nome}"
+    return "Deputado(a) [RELATOR(A)]"
+
+
+def _rotulo_relator(relator: str) -> str:
+    if "Deputado(a)" in relator:
+        return "Relator(a)"
+    if "Deputada" in relator:
+        return "Relatora"
+    return "Relator"
+
+
+def _render_parecer_blocks(doc, blocks: List[Block]):
+    """Corpo do Relatório/Voto: sub-headings (II.1, II.2…) em TÍTULO SUBITEM;
+    o resto segue o padrão do corpo da IT."""
+    for b in blocks:
+        if b.type in ("heading_1", "heading_2", "heading_3"):
+            if plain(b.rich).strip():
+                _p(doc, S.TITULO_SUB, rich=b.rich)
+        elif b.type == "paragraph":
+            if plain(b.rich).strip():
+                _p(doc, S.CORPO, rich=b.rich)
+        elif b.type in ("bulleted_list_item", "numbered_list_item"):
+            _add_bullet(doc, b.rich)
+        elif b.type == "quote":
+            _add_quote_as_transcricao(doc, b.rich)
+        elif b.type == "callout":
+            if plain(b.rich).strip():
+                _p(doc, S.CORPO, rich=b.rich)
+        elif b.type == "table":
+            _add_table(doc, b)
+        elif b.type == "equation":
+            _add_equation(doc, b)
+        elif b.type == "divider":
+            continue
+        else:
+            if plain(b.rich).strip():
+                _p(doc, S.CORPO, rich=b.rich)
+
+
+def build_parecer(par: ParecerSeparado, meta: MetaDocumento) -> Document:
+    """Parecer de comissão no padrão do modelo da casa: cabeçalho de
+    identificação, I-Relatório, II-Voto e, em nova página, o Substitutivo —
+    tudo em um único .docx."""
+    doc = Document(str(config.TEMPLATE_PARECER))
+    relator = _relator_txt(par, meta)
+    rotulo_rel = _rotulo_relator(relator)
+    rotulo_autor = "Autora" if par.autoria.strip().startswith("Deputada") else "Autor"
+
+    # cabeçalho de identificação (os estilos COMISSÃO/EPÍGRAFE forçam caps)
+    _p(doc, S.COMISSAO, text=par.comissao or "[COMISSÃO]")
+    _p(doc, S.EPIGRAFE, text=par.proposicao or par.titulo)
+    if par.apensados:
+        _p(doc, S.APENSO, text=f"Apensados: {par.apensados}")
+    if par.ementa:
+        _p(doc, S.EMENTA, rich=par.ementa)
+    else:
+        _p(doc, S.EMENTA, text="[EMENTA]")
+    _p(doc, S.AUTOR_RELATOR, text=f"{rotulo_autor}: {par.autoria or '[AUTOR(A)]'}")
+    _p(doc, S.AUTOR_RELATOR, text=f"{rotulo_rel}: {relator}")
+
+    # I – Relatório
+    _p(doc, S.RELATORIO_VOTO, text=par.relatorio_heading or "I - Relatório")
+    _render_parecer_blocks(doc, par.relatorio_blocks)
+    _p(doc, S.SISCONLE, text=meta.sisconle_txt)
+
+    # II – Voto do Relator
+    _p(doc, S.RELATORIO_VOTO, text=par.voto_heading or "II - Voto do Relator")
+    _render_parecer_blocks(doc, par.voto_blocks)
+    _p(doc, S.FECHO, text=meta.fecho_prop_txt(config.LOCAL_FECHO_PARECER))
+    _p(doc, S.ASSINATURA, text=relator)
+    _p(doc, S.ASSINATURA, text=rotulo_rel)
+    _p(doc, S.SISCONLE, text=meta.sisconle_txt)
+
+    # Substitutivo (nova página, mesmo .docx — como no modelo)
+    if par.tem_substitutivo:
+        doc.add_page_break()
+        _p(doc, S.COMISSAO, text=par.comissao or "[COMISSÃO]")
+        _p(doc, S.EPIGRAFE, text=par.sub_epigrafe)
+        if par.sub_ementa:
+            _p(doc, S.EMENTA, rich=par.sub_ementa)
+        _render_articulado(doc, par.sub_articulado_blocks, par.tipo)
+        _p(doc, S.FECHO, text=meta.fecho_prop_txt(config.LOCAL_FECHO_PARECER))
+        _p(doc, S.ASSINATURA, text=relator)
+        _p(doc, S.ASSINATURA, text=rotulo_rel)
+        _p(doc, S.SISCONLE, text=meta.sisconle_txt)
+
     _limpar_hyperlinks_orfaos(doc)
     return doc

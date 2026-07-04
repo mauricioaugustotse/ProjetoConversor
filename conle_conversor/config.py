@@ -15,6 +15,7 @@ TEMPLATES_DIR = PROJECT_ROOT / "templates"
 
 TEMPLATE_IT = TEMPLATES_DIR / "template_IT.docx"
 TEMPLATE_PROPOSICAO = TEMPLATES_DIR / "template_proposicao.docx"
+TEMPLATE_PARECER = TEMPLATES_DIR / "template_parecer.docx"
 
 # Base das pastas-padrão da casa (Consultoria Legislativa)
 STS_DIR = Path(r"C:\Users\mauri\OneDrive\Documentos\12 - Consultoria Legislativa\STs")
@@ -22,6 +23,7 @@ STS_DIR = Path(r"C:\Users\mauri\OneDrive\Documentos\12 - Consultoria Legislativa
 # Saída dos documentos gerados (.docx)
 OUTPUT_IT_DIR = STS_DIR / "Info Técnica"
 OUTPUT_PROPOSICAO_DIR = STS_DIR / "Proposições"
+OUTPUT_PARECER_DIR = STS_DIR / "Pareceres"
 
 # Pastas-modelo usadas para (re)gerar os templates (build_templates).
 # Documentos reais equivalentes aos modelos originais (renomeados na
@@ -33,6 +35,10 @@ MODELO_IT = OUTPUT_IT_DIR / (
 MODELO_PROPOSICAO = OUTPUT_PROPOSICAO_DIR / (
     "Minuta de PLP 2026 - inelegibilidade por vínculo com "
     "organizações criminosas (Dep. Coronel Assis).docx"
+)
+MODELO_PARECER = OUTPUT_PARECER_DIR / (
+    "Parecer CCJC - PL nº 7.684-2017 - loterias e prevenção "
+    "à lavagem de dinheiro_2.docx"
 )
 
 # ---------------------------------------------------------------------------
@@ -76,6 +82,7 @@ CONSULTOR_AREA = (
 )
 LOCAL_FECHO_IT = "Consultoria Legislativa"
 LOCAL_FECHO_PROPOSICAO = "Sala das Sessões"
+LOCAL_FECHO_PARECER = "Sala da Comissão"
 
 OPENAI_MODEL = "gpt-4o"
 
@@ -97,6 +104,35 @@ class S:
     EMENTA = "EMENTA"
     PREAMBULO = "PREÂMBULO"
     JUSTIFICACAO = "JUSTIFICAÇÃO"
+    # Parecer de comissão
+    COMISSAO = "COMISSÃO"
+    APENSO = "APENSO"
+    AUTOR_RELATOR = "AUTOR/RELATOR EMENTA"
+    RELATORIO_VOTO = "RELATÓRIO/VOTO"
+
+
+# ---------------------------------------------------------------------------
+# Fontes públicas oficiais para mentions internas do Notion
+# ---------------------------------------------------------------------------
+# O texto das mentions (@página das bases internas, ex. Vademecum) já cita o
+# dispositivo de origem ("RICD - Art. 54", "Constituição Federal - Art. 24, VII").
+# No .docx o link interno do Notion nunca é preservado (o público não acessa as
+# bases); quando o padrão abaixo casa, o texto ganha hyperlink para a fonte
+# pública oficial. Cada entrada é (regex, template de URL com \1 etc., aliases
+# do nome da norma — usados também para podar o "eco" redundante que o texto ao
+# redor às vezes repete, ex. "(RICD - Art. 151, RICD)" -> "(RICD - Art. 151)").
+# Extensível: novas normas = novas tuplas. Resolver via propriedades da página
+# mencionada (norma_id) exigiria chamadas extras à API — fora de escopo.
+FONTES_OFICIAIS = [
+    (r"^Constitui[çc][ãa]o Federal\s*[-–—]\s*Art\.?\s*(\d+)",
+     r"https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm#art\1",
+     ("Constituição Federal", "CF")),
+    # Resolução da Câmara nº 17/1989 (RICD), texto consolidado no LEGIN.
+    (r"^RICD\s*[-–—]\s*Art\.?\s*\d+",
+     r"https://www2.camara.leg.br/legin/fed/rescad/1989/"
+     r"resolucaodacamaradosdeputados-17-21-setembro-1989-320110-normaatualizada-pl.html",
+     ("RICD",)),
+]
 
 
 # ---------------------------------------------------------------------------

@@ -12,6 +12,16 @@ from . import config
 API = "https://api.notion.com/v1"
 NOTION_VERSION = "2022-06-28"
 
+# Exceções de rede que merecem nova tentativa (a rede do Notion sofre resets
+# intermitentes no handshake TLS — WinError 10054). ConnectionError do requests
+# já cobre SSLError (herda dela); não listar separado.
+_RETRIABLE = (
+    requests.exceptions.ConnectionError,
+    requests.exceptions.Timeout,
+    requests.exceptions.ChunkedEncodingError,
+)
+MAX_TENTATIVAS = 6
+
 
 def normalize_page_id(url_or_id: str) -> str:
     """Extrai e formata o ID da página (UUID 8-4-4-4-12) a partir de URL ou id."""
@@ -48,8 +58,14 @@ class NotionClient:
     def _request(self, method: str, path: str, **kw) -> Dict[str, Any]:
         url = f"{API}{path}"
         last = None
-        for attempt in range(5):
-            resp = self.session.request(method, url, timeout=60, **kw)
+        last_exc: Optional[Exception] = None
+        for attempt in range(MAX_TENTATIVAS):
+            try:
+                resp = self.session.request(method, url, timeout=60, **kw)
+            except _RETRIABLE as exc:
+                last_exc = exc
+                time.sleep(min(1.5 * (attempt + 1), 8.0))
+                continue
             if resp.status_code == 429:
                 time.sleep(float(resp.headers.get("Retry-After", "2")))
                 continue
@@ -62,6 +78,11 @@ class NotionClient:
                     f"Notion {method} {path} -> {resp.status_code}: {resp.text[:400]}"
                 )
             return resp.json()
+        if last is None and last_exc is not None:
+            raise RuntimeError(
+                f"Falha de conexão com o Notion após {MAX_TENTATIVAS} tentativas "
+                f"({type(last_exc).__name__}). Verifique a rede e tente novamente."
+            )
         raise RuntimeError(
             f"Notion {method} {path} falhou: {last.status_code if last else '??'} "
             f"{last.text[:300] if last else ''}"
