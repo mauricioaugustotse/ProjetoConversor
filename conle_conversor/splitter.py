@@ -179,10 +179,20 @@ _RE_HEAD_RELATORIO = re.compile(r"^I\s*-?\s*RELATORIO")
 _RE_HEAD_VOTO = re.compile(r"^II\s*-?\s*VOTO")
 _RE_SIGLA_COMISSAO = re.compile(r"\(([A-Z]{2,6})\)")
 _RE_PREFIXO_CAMPO = re.compile(
-    r"^\s*(Proposi[çc][ãa]o|Autoria|Relator(?:a)?|Ementa|"
+    r"^\s*(Proposi[çc][ãa]o|Autor(?:ia|a)?|Relator(?:a)?|Ementa|"
     r"Objeto(?:\s+do\s+parecer)?|Apensad[oa]s?|Apensos?)\s*:\s*",
     re.IGNORECASE,
 )
+# Designação de proposição sem rótulo ("Projeto de Lei nº 3.263, de 2023",
+# "PL 3.263/2023"), comparada sobre _norm ("nº" vira "NO"); usada quando a
+# página traz o cabeçalho no formato do documento final, sem "Proposição:" etc.
+_RE_DESIGNACAO_PROP = re.compile(
+    r"^(?:PROJETO DE LEI(?: COMPLEMENTAR)?|PROPOSTA DE EMENDA(?: A CONSTITUICAO)?|"
+    r"PROJETO DE DECRETO(?: LEGISLATIVO)?|PROJETO DE RESOLUCAO|MEDIDA PROVISORIA|"
+    r"PL|PLP|PEC|PDL|PDC|PRC)\s+(?:N[O.]?\s*)?[\d.]+"
+)
+# Separador de campos na mesma linha: "Autor: X · Relatora: Y"
+_RE_SEP_CAMPOS = re.compile(r"\s*[·•]\s*")
 _RE_ASSINATURA_RELATOR = re.compile(r"^(?P<nome>.+?)\s*[-–—]\s*Relator[a]?\.?\s*$", re.IGNORECASE)
 _RE_FECHO_COMISSAO = re.compile(r"^\s*Sala da Comiss[ãa]o", re.IGNORECASE)
 
@@ -259,7 +269,7 @@ def _campo_chave(rotulo: str) -> str:
     r = _norm(rotulo)
     if r.startswith("PROPOSI"):
         return "proposicao"
-    if r.startswith("AUTORIA"):
+    if r.startswith("AUTOR"):
         return "autoria"
     if r.startswith("RELATOR"):
         return "relator"
@@ -270,33 +280,74 @@ def _campo_chave(rotulo: str) -> str:
     return "apensados"  # APENSADOS / APENSOS
 
 
+def _consumir_campo_cabecalho(par: ParecerSeparado, b: Block, txt: str, ultimo_campo: str) -> str:
+    """Atribui um parágrafo entre o callout e o I-Relatório aos campos do
+    parecer. Aceita o formato rotulado ("Proposição: …", "Ementa: …") e o
+    formato "cru" do documento final (designação sem rótulo, parágrafo-ementa,
+    "Autor: X · Relatora: Y" na mesma linha). Devolve o último campo tratado
+    (para continuação multi-parágrafo)."""
+    # linha multi-campo: divide em "·"/"•" quando os segmentos são rotulados
+    partes = _RE_SEP_CAMPOS.split(txt)
+    if len(partes) > 1 and all(_RE_PREFIXO_CAMPO.match(p) for p in partes[1:]):
+        for parte in partes:
+            m = _RE_PREFIXO_CAMPO.match(parte)
+            if m:
+                ultimo_campo = _campo_chave(m.group(1))
+                valor = parte[m.end():].strip()
+                if ultimo_campo == "ementa":
+                    par.ementa = [RichText(valor)]
+                else:
+                    setattr(par, ultimo_campo, valor)
+            elif not par.proposicao and _RE_DESIGNACAO_PROP.match(_norm(parte)):
+                par.proposicao = parte.strip()
+                ultimo_campo = ""
+        return ultimo_campo
+
+    m = _RE_PREFIXO_CAMPO.match(txt)
+    if m:
+        campo = _campo_chave(m.group(1))
+        if campo == "ementa":
+            par.ementa = _strip_prefixo_rich(b.rich, m.end())
+        else:
+            setattr(par, campo, txt[m.end():].strip())
+        return campo
+    # sem rótulo: 1º candidato é a designação da proposição (linha única)…
+    if not par.proposicao and _RE_DESIGNACAO_PROP.match(_norm(txt)):
+        par.proposicao = txt
+        return ""
+    if ultimo_campo == "ementa":  # continuação da ementa (multi-parágrafo)
+        par.ementa = par.ementa + [RichText("\n")] + list(b.rich)
+        return ultimo_campo
+    if ultimo_campo:  # continuação de campo texto
+        atual = getattr(par, ultimo_campo)
+        setattr(par, ultimo_campo, f"{atual} {txt}".strip())
+        return ultimo_campo
+    # …e, já identificada a proposição, o parágrafo sem rótulo é a ementa
+    if par.proposicao and not par.ementa:
+        par.ementa = list(b.rich)
+        return "ementa"
+    return ultimo_campo
+
+
 def split_parecer(blocks: List[Block], titulo: str) -> ParecerSeparado:
     par = ParecerSeparado(titulo=titulo)
 
-    # 1) callout da comissão + campos por prefixo nos parágrafos seguintes
+    # 1) callout da comissão + campos nos parágrafos seguintes
     idx_apos_cabecalho = 0
     for i, b in enumerate(blocks):
         if _eh_callout_comissao(b):
-            par.comissao = plain(b.rich).strip().splitlines()[0].strip()
-            m = _RE_SIGLA_COMISSAO.search(par.comissao)
+            linha = plain(b.rich).strip().splitlines()[0].strip()
+            m = _RE_SIGLA_COMISSAO.search(linha)
+            # sufixo após a sigla (ex.: "… (CCJC) — Parecer de Admissibilidade")
+            # fica fora do parágrafo COMISSÃO, como no modelo da casa
+            par.comissao = linha[: m.end()].strip() if m else linha
             par.comissao_sigla = m.group(1) if m else ""
             j = i + 1
             ultimo_campo = ""
             while j < len(blocks) and blocks[j].type in ("paragraph", "divider"):
                 txt = plain(blocks[j].rich).strip()
                 if txt:
-                    m = _RE_PREFIXO_CAMPO.match(txt)
-                    if m:
-                        ultimo_campo = _campo_chave(m.group(1))
-                        if ultimo_campo == "ementa":
-                            par.ementa = _strip_prefixo_rich(blocks[j].rich, m.end())
-                        else:
-                            setattr(par, ultimo_campo, txt[m.end():].strip())
-                    elif ultimo_campo == "ementa":
-                        par.ementa = par.ementa + [RichText("\n")] + list(blocks[j].rich)
-                    elif ultimo_campo:  # continuação de campo texto
-                        atual = getattr(par, ultimo_campo)
-                        setattr(par, ultimo_campo, f"{atual} {txt}".strip())
+                    ultimo_campo = _consumir_campo_cabecalho(par, blocks[j], txt, ultimo_campo)
                 j += 1
             idx_apos_cabecalho = j
             break

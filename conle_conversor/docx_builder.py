@@ -577,7 +577,9 @@ def build_parecer(par: ParecerSeparado, meta: MetaDocumento) -> Document:
     _p(doc, S.RELATORIO_VOTO, text=par.voto_heading or "II - Voto do Relator")
     _render_parecer_blocks(doc, par.voto_blocks)
     _p(doc, S.FECHO, text=meta.fecho_prop_txt(config.LOCAL_FECHO_PARECER))
-    _p(doc, S.ASSINATURA, text=relator)
+    # assinatura sem o "(Partido/UF)" que o cabeçalho pode trazer — no modelo
+    # da casa o relator assina só com o nome
+    _p(doc, S.ASSINATURA, text=re.sub(r"\s*\([^)]*\)\s*$", "", relator).strip())
     _p(doc, S.ASSINATURA, text=rotulo_rel)
 
     # Substitutivo (nova página, mesmo .docx — como no modelo)
