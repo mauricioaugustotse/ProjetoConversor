@@ -1,0 +1,10 @@
+{
+  "timestamp": "20260704_154327",
+  "input_csv": "C:\\Users\\mauri\\ProjetoConversor\\boletins_de_jurisprudencia_TRF1_with_news.csv",
+  "backup_csv": "C:\\Users\\mauri\\ProjetoConversor\\boletins_de_jurisprudencia_TRF1_with_news.csv.backup_classe_20260704_154327",
+  "rows_total": 1035,
+  "rows_changed": 2,
+  "rules_canonical_count": 80,
+  "rules_alias_count": 7,
+  "report_applied": "C:\\Users\\mauri\\ProjetoConversor\\reports\\pipeline_classe_20260704_154327_aplicadas.csv"
+}

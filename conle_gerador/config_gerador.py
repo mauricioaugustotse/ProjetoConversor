@@ -77,10 +77,13 @@ BASES_RAG = {
         "titulo": "Resolucoes TSE - RAG consolidado",
         "label": "Resoluções TSE",
         "categoria": "normativo",
-        "props_conteudo": ["dispositivo", "texto_em_vigor", "texto_dispositivo", "resumo_curto", "palavras_chave"],
+        # notas_texto: "(Redação dada/Incluído/Revogado pela Resolução nº X)" —
+        # sinal de retrieval sobre o que mudou (ingestão do site compilado, jul/2026)
+        "props_conteudo": ["dispositivo", "texto_em_vigor", "texto_dispositivo", "resumo_curto", "notas_texto", "palavras_chave"],
         "props_contexto": ["norma_nome_popular", "hierarquia_normativa"],
         "props_texto": ["texto_rag", "norma_titulo", "hierarquia_normativa", "texto_dispositivo"],
         "flag_rag": "incluir_no_rag",
+        "particao_prop": "id",   # base >10k pós-catálogo 1994-2026: partição da paginação
     },
     "codigo_eleitoral": {
         "id": "66da171f-0acd-42af-8875-0860265f5d23",

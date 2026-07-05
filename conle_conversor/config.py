@@ -5,6 +5,7 @@ from __future__ import annotations
 import os
 import re
 from pathlib import Path
+from typing import Callable, NamedTuple, Optional
 
 # ---------------------------------------------------------------------------
 # Caminhos
@@ -112,25 +113,41 @@ class S:
 
 
 # ---------------------------------------------------------------------------
-# Fontes públicas oficiais para mentions internas do Notion
+# Fontes públicas oficiais: normas reconhecidas por texto (tabela única)
 # ---------------------------------------------------------------------------
-# O texto das mentions (@página das bases internas, ex. Vademecum) já cita o
-# dispositivo de origem ("RICD - Art. 54", "Constituição Federal - Art. 24, VII").
-# No .docx o link interno do Notion nunca é preservado (o público não acessa as
-# bases); quando o padrão abaixo casa, o texto ganha hyperlink para a fonte
-# pública oficial. Cada entrada é (regex, template de URL com \1 etc. OU callable
-# que recebe o Match e devolve a URL, aliases do nome da norma — usados também
-# para podar o "eco" redundante que o texto ao redor às vezes repete, ex.
-# "(RICD - Art. 151, RICD)" -> "(RICD - Art. 151)").
-# Extensível: novas normas = novas tuplas. Resolver via propriedades da página
-# mencionada (norma_id) exigiria chamadas extras à API — fora de escopo.
+# A tabela NORMAS_OFICIAIS alimenta DOIS mecanismos do richtext:
+#   1. mentions internas do Notion (@página das bases Vademecum, ex.
+#      "Lei das Eleições - Art. 36-A") -> hyperlink para a fonte pública
+#      oficial (o link interno do Notion nunca é preservado no .docx);
+#   2. citações TEXTUAIS digitadas no corpo ("art. 22, XVI, da LC nº 64/1990")
+#      -> mesmo hyperlink, montado pelos padrões de richtext.linkificar_citacoes.
+# Cada norma declara: o prefixo da mention (mention_re), as designações usadas
+# no corpo do texto após "da/do" (citacao_re), a designação NUMERADA que pode
+# ser linkada sozinha, sem artigo (citacao_isolada_re; None = não linkar solta,
+# p/ evitar over-linking de "Constituição Federal"/"RICD" soltos), o callable
+# que monta a URL a partir do Match (grupos nomeados num/letra/res) e os
+# aliases do nome — usados também para podar o "eco" redundante que o texto ao
+# redor às vezes repete, ex. "(RICD - Art. 151, RICD)" -> "(RICD - Art. 151)".
 
 # Constituição Federal no Planalto (âncora nativa #artN por artigo).
 CF_PLANALTO_URL = "https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"
+# LC 64/1990 (Lei das Inelegibilidades) e Lei 9.504/1997 (Lei das Eleições) no
+# Planalto — mesmas URLs que os autores das páginas já usam nos links manuais.
+LC64_PLANALTO_URL = "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp64.htm"
+L9504_PLANALTO_URL = "https://www.planalto.gov.br/ccivil_03/leis/l9504.htm"
+# Código Eleitoral (Lei 4.737/1965): a versão ORIGINAL tem âncoras name="artN"
+# (aferido: art242/art299 existem); a "compilado" NÃO tem âncora nenhuma.
+L4737_PLANALTO_URL = "https://www.planalto.gov.br/ccivil_03/leis/l4737.htm"
 
 
 def ancora_artigo_cf(num: int) -> str:
     return f"#art{num}"
+
+
+def ancora_planalto(num: int, letra: str = "") -> str:
+    """Âncora nativa do Planalto: #artN, letra de artigo acrescido em minúscula
+    (art. 36-A -> #art36a) — convenção já usada em richtext._ancorar_dispositivo."""
+    return f"#art{num}{(letra or '').lower()}"
 
 
 # Resolução da Câmara nº 17/1989 (RICD), texto consolidado no LEGIN — NÃO a
@@ -153,22 +170,148 @@ def ancora_artigo_ricd(num: int) -> str:
     return f"#:~:text={alvo}"
 
 
-def _url_ricd(m: "re.Match") -> str:
-    return RICD_LEGIN_URL + ancora_artigo_ricd(int(m.group(1)))
+# Resoluções do TSE com página compilada conhecida (a URL traz a data por
+# extenso e não é derivável do número — mapa extensível, chave normalizada
+# "NN.NNN"). Fora do mapa -> sem link (mention vira texto puro; citação
+# textual não é linkada).
+RESOLUCOES_TSE = {
+    "23.610": "https://www.tse.jus.br/legislacao/compilada/res/2019/"
+              "resolucao-no-23-610-de-18-de-dezembro-de-2019",
+    "23.607": "https://www.tse.jus.br/legislacao/compilada/res/2019/"
+              "resolucao-no-23-607-de-17-de-dezembro-de-2019",
+    "23.735": "https://www.tse.jus.br/legislacao/compilada/res/2024/"
+              "resolucao-no-23-735-de-27-de-fevereiro-de-2024",
+}
 
 
-def _url_cf(m: "re.Match") -> str:
-    return CF_PLANALTO_URL + ancora_artigo_cf(int(m.group(1)))
+def url_resolucao_tse(numero: str) -> Optional[str]:
+    """URL da página compilada da resolução ("23735"/"23.735" -> mapa), ou None."""
+    n = re.sub(r"[^\d]", "", numero or "")
+    if len(n) == 5:
+        n = f"{n[:2]}.{n[2:]}"
+    return RESOLUCOES_TSE.get(n)
 
 
-FONTES_OFICIAIS = [
-    (r"^Constitui[çc][ãa]o Federal\s*[-–—]\s*Art\.?\s*(\d+)",
-     _url_cf,
-     ("Constituição Federal", "CF")),
-    (r"^RICD\s*[-–—]\s*Art\.?\s*(\d+)",
-     _url_ricd,
-     ("RICD",)),
+def ancora_artigo_tse(num: int, letra: str = "") -> str:
+    """Âncora de artigo nas páginas compiladas do TSE: id="artN" nativo existe
+    só em PARTE dos artigos (aferido: 23.735 tem art1/2/6/11/15; 23.610 tem 51
+    ids) — por isso combina-se o fragmento nativo com um text fragment de
+    fallback na grafia do caput ("Art. 6º" / "Art. 10."), no espírito de
+    ancora_artigo_ricd. Nenhum dos dois existindo, degrada para o topo."""
+    letra = (letra or "").lower()
+    if letra:
+        alvo = f"Art.%20{num}-{letra.upper()}."
+    else:
+        alvo = f"Art.%20{num}%C2%BA" if num < 10 else f"Art.%20{num}."
+    return f"#art{num}{letra}:~:text={alvo}"
+
+
+# Sufixo comum dos prefixos de mention: "… - Art. 36-A" (nº + letra opcional).
+_ART_MENTION = r"Art\.?\s*(?P<num>\d+)(?:[ºo°])?(?:\s*[-–‑]\s*(?P<letra>[A-Za-z])\b)?"
+
+
+def _fonte_planalto(base_url: str) -> Callable[[Optional["re.Match"]], Optional[str]]:
+    """Callable de URL p/ normas no Planalto: com grupo num -> âncora #artN
+    (letra entra minúscula); sem artigo -> topo da página."""
+    def montar(m: Optional["re.Match"]) -> Optional[str]:
+        d = m.groupdict() if m else {}
+        if not d.get("num"):
+            return base_url
+        return base_url + ancora_planalto(int(d["num"]), d.get("letra") or "")
+    return montar
+
+
+def _fonte_ricd(m: Optional["re.Match"]) -> Optional[str]:
+    d = m.groupdict() if m else {}
+    if not d.get("num"):
+        return RICD_LEGIN_URL
+    return RICD_LEGIN_URL + ancora_artigo_ricd(int(d["num"]))
+
+
+def _fonte_res_tse(m: Optional["re.Match"]) -> Optional[str]:
+    """Resolução do TSE: URL do mapa (None se não mapeada) + âncora de artigo."""
+    d = m.groupdict() if m else {}
+    base = url_resolucao_tse(d.get("res") or "")
+    if not base:
+        return None
+    if not d.get("num"):
+        return base
+    return base + ancora_artigo_tse(int(d["num"]), d.get("letra") or "")
+
+
+class NormaOficial(NamedTuple):
+    mention_re: str                      # prefixo do texto da mention interna
+    citacao_re: str                      # designações no corpo, após "da/do"
+    citacao_isolada_re: Optional[str]    # designação numerada linkável sozinha
+    montar_url: Callable[[Optional["re.Match"]], Optional[str]]
+    aliases: tuple                       # p/ poda de eco redundante
+
+
+NORMAS_OFICIAIS = [
+    NormaOficial(
+        mention_re=rf"^Constitui[çc][ãa]o Federal\s*[-–—]\s*{_ART_MENTION}",
+        citacao_re=(r"CF(?:/88)?\b|Constitui[çc][ãa]o(?:\s+Federal|\s+da\s+"
+                    r"Rep[úu]blica(?:\s+Federativa\s+do\s+Brasil)?)?(?:\s+de\s+1988)?"),
+        citacao_isolada_re=None,
+        montar_url=_fonte_planalto(CF_PLANALTO_URL),
+        aliases=("Constituição Federal", "CF"),
+    ),
+    NormaOficial(
+        mention_re=rf"^RICD\s*[-–—]\s*{_ART_MENTION}",
+        citacao_re=(r"RICD\b|Regimento\s+Interno(?:\s+da\s+C[âa]mara(?:\s+dos\s+"
+                    r"Deputados)?)?"),
+        citacao_isolada_re=None,
+        montar_url=_fonte_ricd,
+        aliases=("RICD",),
+    ),
+    NormaOficial(
+        # Base Vademecum "Lei de Inelegibilidade - Art. 22"
+        mention_re=rf"^Lei d[ae]s? Inelegibilidades?\s*[-–—]\s*{_ART_MENTION}",
+        citacao_re=(r"(?:LC|Lei\s+Complementar)\s*n?[ºo°.]*\s*64"
+                    r"(?:\s*/\s*(?:19)?90|,?\s+de(?:\s+18\s+de\s+maio\s+de)?\s+1990)?"
+                    r"|Lei\s+d[ae]s?\s+Inelegibilidades?"),
+        citacao_isolada_re=(r"(?:LC|Lei\s+Complementar)\s*n?[ºo°.]*\s*64"
+                            r"(?:\s*/\s*(?:19)?90|,?\s+de(?:\s+18\s+de\s+maio\s+de)?\s+1990)"),
+        montar_url=_fonte_planalto(LC64_PLANALTO_URL),
+        aliases=("Lei de Inelegibilidade", "Lei de Inelegibilidades",
+                 "Lei das Inelegibilidades", "LC nº 64/1990", "LC 64/1990"),
+    ),
+    NormaOficial(
+        mention_re=rf"^Lei das Elei[çc][õo]es\s*[-–—]\s*{_ART_MENTION}",
+        citacao_re=(r"Lei\s*n?[ºo°.]*\s*9\.?504"
+                    r"(?:\s*/\s*(?:19)?97|,?\s+de(?:\s+30\s+de\s+setembro\s+de)?\s+1997)?"
+                    r"|Lei\s+das\s+Elei[çc][õo]es|Lei\s+Eleitoral"),
+        citacao_isolada_re=(r"Lei\s*n?[ºo°.]*\s*9\.?504"
+                            r"(?:\s*/\s*(?:19)?97|,?\s+de(?:\s+30\s+de\s+setembro\s+de)?\s+1997)"),
+        montar_url=_fonte_planalto(L9504_PLANALTO_URL),
+        aliases=("Lei das Eleições", "Lei nº 9.504/1997", "Lei 9.504/1997"),
+    ),
+    NormaOficial(
+        mention_re=rf"^C[óo]digo Eleitoral\s*[-–—]\s*{_ART_MENTION}",
+        citacao_re=(r"C[óo]digo\s+Eleitoral"
+                    r"|Lei\s*n?[ºo°.]*\s*4\.?737"
+                    r"(?:\s*/\s*(?:19)?65|,?\s+de(?:\s+15\s+de\s+julho\s+de)?\s+1965)?"),
+        citacao_isolada_re=(r"Lei\s*n?[ºo°.]*\s*4\.?737"
+                            r"(?:\s*/\s*(?:19)?65|,?\s+de(?:\s+15\s+de\s+julho\s+de)?\s+1965)"),
+        montar_url=_fonte_planalto(L4737_PLANALTO_URL),
+        aliases=("Código Eleitoral",),
+    ),
+    NormaOficial(
+        # Base Vademecum "Res.-TSE n. 23.735/2024 - Ilicitos eleitorais"
+        mention_re=(r"^Res(?:\.|olu[çc][ãa]o)?\s*[-–.]?\s*TSE\s*n[ºo°.]*\s*"
+                    r"(?P<res>\d{2}\.?\d{3})(?:\s*/\s*\d{4})?"),
+        citacao_re=(r"Resolu[çc][ãa]o\s*(?:do\s+)?TSE\s*n[ºo°.]*\s*"
+                    r"(?P<res>\d{2}\.?\d{3})\s*(?:/\s*\d{4}|,?\s+de\s+[^,;()]{4,40}?\d{4})"),
+        citacao_isolada_re=(r"Resolu[çc][ãa]o\s*(?:do\s+)?TSE\s*n[ºo°.]*\s*"
+                            r"(?P<res>\d{2}\.?\d{3})\s*(?:/\s*\d{4}|,?\s+de\s+[^,;()]{4,40}?\d{4})"),
+        montar_url=_fonte_res_tse,
+        aliases=(),
+    ),
 ]
+
+# Formato consumido por richtext.resolver_fonte_publica/_aliases_da_norma:
+# (regex do texto da mention, callable(Match) -> URL ou None, aliases).
+FONTES_OFICIAIS = [(n.mention_re, n.montar_url, n.aliases) for n in NORMAS_OFICIAIS]
 
 
 # ---------------------------------------------------------------------------
@@ -204,9 +347,8 @@ BLOCO_RESOLUCAO_INTRO_SEM_APENSACAO = "O inciso IV do art. 6º da Resolução de
 # Fecho padrão da IT (também costuma constar na própria página do Notion)
 FECHO_IT_LINHA_1 = "Era o que tínhamos a informar."
 FECHO_IT_LINHA_2 = (
-    "Outrossim, aproveitamos o ensejo para renovar votos de estima e consideração e "
-    "colocarmo-nos ao dispor para prestar qualquer esclarecimento ou para tomar providências "
-    "adicionais que se façam necessárias."
+    "Outrossim, colocamo-nos à disposição para prestar qualquer esclarecimento ou "
+    "para tomar providências adicionais que se façam necessárias."
 )
 
 # Vocativos aceitos

@@ -101,6 +101,21 @@ DIRETRIZ_FUNDAMENTACAO = (
     "espinha dorsal do parecer; o checklist de artigos é o seu oposto."
 )
 
+# Perfil do leitor: analista de dados legislativos — quantificação e evidência verificável.
+DIRETRIZ_EVIDENCIA = (
+    "DIRETRIZ DE EVIDÊNCIA (o leitor é analista de dados jurídicos e legislativos):\n"
+    "1. QUANTIFIQUE sempre que o CONTEXTO trouxer números (contagens de proposições, distribuições "
+    "por ano/situação, datas de julgamento): prefira \"foram identificadas 12 proposições desde "
+    "2019, 5 em tramitação\" a \"diversas proposições\". NUNCA invente, estime ou extrapole números "
+    "— use SOMENTE os que constam do contexto, com o recorte que eles cobrem.\n"
+    "2. SEPARE dado observado de interpretação: primeiro o fato verificável (norma com artigo, "
+    "precedente com número e data, contagem com período), depois a leitura analítica, em oração ou "
+    "frase distinta.\n"
+    "3. Toda afirmação factual deve ser RASTREÁVEL a uma fonte citada no texto — dispositivo com a "
+    "norma, julgado com o tribunal, proposição com a ficha — com link público oficial na 1ª menção, "
+    "conforme as regras de citação."
+)
+
 # Regras de redação argumentativa do CORPO da IT (fio condutor, transições, economia).
 REGRAS_REDACAO_IT = (
     "REDAÇÃO ARGUMENTATIVA (a IT é um arco que conduz a UMA recomendação):\n"
@@ -162,54 +177,111 @@ SYS_ANALISE = (
 )
 
 # ---------------------------------------------------------------- corpo da IT (1-5,7)
-SYS_IT = (
-    ESTILO + "\n\n" + LINKS_PLANALTO + "\n\n" + REGRAS_CITACAO + "\n\n" + DIRETRIZ_FUNDAMENTACAO + "\n\n"
-    + REGRAS_REDACAO_IT + "\n\n"
-    "TAREFA: redigir o CORPO ANALÍTICO de uma Informação Técnica (IT), com base na DEMANDA, na "
-    "ANÁLISE e no CONTEXTO, seguindo as REGRAS DE CITAÇÃO, a DIRETRIZ DE FUNDAMENTAÇÃO e a REDAÇÃO "
-    "ARGUMENTATIVA acima. Estrutura fixa:\n"
-    "1. INTRODUÇÃO — apresenta a demanda e fixa TRÊS premissas (constitucional; sistemática: o que o "
-    "ordenamento já contempla; jurisprudencial/empírica). Termina com roteiro das seções.\n"
-    "2. MARCO CONSTITUCIONAL E JURISPRUDENCIAL — fundamento constitucional (competência, reserva, bens "
-    "jurídicos), citando os dispositivos da Constituição aplicáveis E a JURISPRUDÊNCIA CONSOLIDADA do "
-    "STF e do TSE pertinente — apresente os julgados-chave com a respectiva tese (ratio) e o link, "
-    "explicando por que sustentam (ou limitam) a proposta.\n"
-    "3. QUADRO NORMATIVO ATUAL — o que a legislação vigente JÁ prevê, em subseções (3.1, 3.2, …): cite "
-    "com PRECISÃO os dispositivos de leis, do Código Eleitoral e das RESOLUÇÕES do TSE aplicáveis "
-    "(transcrevendo o núcleo do dispositivo entre aspas quando esclarecer) e a jurisprudência que os "
-    "interpreta; inclua reformas recentes que constem do contexto.\n"
-    "4. MAPEAMENTO DOS DISPOSITIVOS AFETADOS — identifica CADA dispositivo a alterar/inserir (todos "
-    "os artigos relevantes, ex.: art. 77, 28, 29) e inclui TABELA (subseção 4.1) com 4 colunas: "
-    "Dispositivo | O que diz hoje | Dificuldade atual | Solução na minuta. A minuta adiante deve "
-    "alterar EXATAMENTE esses dispositivos — seja completo e coerente.\n"
-    "5. ANÁLISE ESPECÍFICA DA SOLICITAÇÃO — examina, em subseções, as expressões/escolhas da demanda, "
-    "ancorando CADA juízo em dispositivo e/ou julgado (não opine sem base normativa/jurisprudencial).\n"
-    "7. CONCLUSÃO — sintetiza os ajustes e conclui pela viabilidade (com ressalvas), retomando os "
-    "principais fundamentos legais e jurisprudenciais que a sustentam.\n\n"
-    "Responda SOMENTE com JSON:\n"
-    '{ "introducao": [par, ...],\n'
-    '  "marco_constitucional": {"titulo": "2. ...", "paragrafos": [par, ...]},\n'
-    '  "quadro_normativo": {"titulo": "3. ...", "intro": [par, ...], "subsecoes": [{"titulo": "3.1 — ...", "paragrafos": [par, ...]}, ...]},\n'
-    '  "mapeamento": {"titulo": "4. ...", "intro": [par, ...], "tabela": {"colunas": ["Dispositivo", "O que diz hoje", "Dificuldade atual no dispositivo", "Solução adotada na minuta"], "linhas": [[c1, c2, c3, c4], ...]}},\n'
-    '  "analise_solicitacao": {"titulo": "5. ...", "intro": [par, ...], "subsecoes": [{"titulo": "5.1 — \\"...\\"", "paragrafos": [par, ...]}, ...]},\n'
-    '  "conclusao": [par, ...] }\n'
-    "Cada 'par' é um parágrafo de texto corrido. NÃO numere os parágrafos."
-)
+def sys_it(com_minuta: bool = True) -> str:
+    """System prompt do corpo da IT. `com_minuta=False` (modo só-IT): a tabela da
+    Seção 4 traz a 'Solução proposta' e o texto não promete 'minuta adiante'."""
+    if com_minuta:
+        col4 = "Solução adotada na minuta"
+        secao4_fecho = (
+            "Solução na minuta. A minuta adiante deve alterar EXATAMENTE esses dispositivos — "
+            "seja completo e coerente.\n")
+        conclusao = ("7. CONCLUSÃO — sintetiza os ajustes e conclui pela viabilidade (com "
+                     "ressalvas), retomando os principais fundamentos legais e jurisprudenciais "
+                     "que a sustentam.\n\n")
+    else:
+        col4 = "Solução proposta"
+        secao4_fecho = (
+            "Solução proposta. ATENÇÃO: esta IT NÃO será acompanhada de minuta — a coluna final "
+            "traz a SOLUÇÃO RECOMENDADA (alteração/redação sugerida) para cada dispositivo, de "
+            "modo que a seção baste por si; NÃO prometa nem mencione \"minuta adiante\", "
+            "\"minuta anexa\" ou seção de minuta.\n")
+        conclusao = ("7. CONCLUSÃO — sintetiza os ajustes recomendados e conclui pela viabilidade "
+                     "(com ressalvas), retomando os principais fundamentos legais e "
+                     "jurisprudenciais; NÃO mencione minuta anexa.\n\n")
+    return (
+        ESTILO + "\n\n" + LINKS_PLANALTO + "\n\n" + REGRAS_CITACAO + "\n\n"
+        + DIRETRIZ_FUNDAMENTACAO + "\n\n" + DIRETRIZ_EVIDENCIA + "\n\n"
+        + REGRAS_REDACAO_IT + "\n\n"
+        "TAREFA: redigir o CORPO ANALÍTICO de uma Informação Técnica (IT), com base na DEMANDA, na "
+        "ANÁLISE e no CONTEXTO, seguindo as REGRAS DE CITAÇÃO, a DIRETRIZ DE FUNDAMENTAÇÃO, a "
+        "DIRETRIZ DE EVIDÊNCIA e a REDAÇÃO ARGUMENTATIVA acima. Estrutura fixa:\n"
+        "1. INTRODUÇÃO — apresenta a demanda e fixa TRÊS premissas (constitucional; sistemática: o que o "
+        "ordenamento já contempla; jurisprudencial/empírica). Termina com roteiro das seções.\n"
+        "2. MARCO CONSTITUCIONAL E JURISPRUDENCIAL — fundamento constitucional (competência, reserva, bens "
+        "jurídicos), citando os dispositivos da Constituição aplicáveis E a JURISPRUDÊNCIA CONSOLIDADA do "
+        "STF e do TSE pertinente — apresente os julgados-chave com a respectiva tese (ratio) e o link, "
+        "explicando por que sustentam (ou limitam) a proposta.\n"
+        "3. QUADRO NORMATIVO ATUAL — o que a legislação vigente JÁ prevê, em subseções (3.1, 3.2, …): cite "
+        "com PRECISÃO os dispositivos de leis, do Código Eleitoral e das RESOLUÇÕES do TSE aplicáveis "
+        "(transcrevendo o núcleo do dispositivo entre aspas quando esclarecer) e a jurisprudência que os "
+        "interpreta; inclua reformas recentes que constem do contexto.\n"
+        "4. MAPEAMENTO DOS DISPOSITIVOS AFETADOS — identifica CADA dispositivo a alterar/inserir (todos "
+        "os artigos relevantes, ex.: art. 77, 28, 29) e inclui TABELA (subseção 4.1) com 4 colunas: "
+        "Dispositivo | O que diz hoje | Dificuldade atual | " + secao4_fecho +
+        "5. ANÁLISE ESPECÍFICA DA SOLICITAÇÃO — examina, em subseções, as expressões/escolhas da demanda, "
+        "ancorando CADA juízo em dispositivo e/ou julgado (não opine sem base normativa/jurisprudencial).\n"
+        + conclusao +
+        "Responda SOMENTE com JSON:\n"
+        '{ "introducao": [par, ...],\n'
+        '  "marco_constitucional": {"titulo": "2. ...", "paragrafos": [par, ...]},\n'
+        '  "quadro_normativo": {"titulo": "3. ...", "intro": [par, ...], "subsecoes": [{"titulo": "3.1 — ...", "paragrafos": [par, ...]}, ...]},\n'
+        '  "mapeamento": {"titulo": "4. ...", "intro": [par, ...], "tabela": {"colunas": ["Dispositivo", "O que diz hoje", "Dificuldade atual no dispositivo", "' + col4 + '"], "linhas": [[c1, c2, c3, c4], ...]}},\n'
+        '  "analise_solicitacao": {"titulo": "5. ...", "intro": [par, ...], "subsecoes": [{"titulo": "5.1 — \\"...\\"", "paragrafos": [par, ...]}, ...]},\n'
+        '  "conclusao": [par, ...] }\n'
+        "Cada 'par' é um parágrafo de texto corrido. NÃO numere os parágrafos."
+    )
+
+
+SYS_IT = sys_it(True)  # retrocompatibilidade (fluxo IT+minuta)
 
 # ---------------------------------------------------------------- seção 6
 SYS_SECAO6 = (
-    ESTILO + "\n\nTAREFA: redigir a Seção 6 (PROPOSIÇÕES LEGISLATIVAS SEMELHANTES NA CÂMARA) e a "
-    "análise de RISCO DE APENSAÇÃO, com base SOMENTE na lista de proposições fornecida (dados reais "
-    "da API da Câmara). Selecione as efetivamente correlatas, descarte ruído. CITE cada proposição "
-    "relevante SEMPRE com o link da ficha de tramitação, como [SIGLA nº/ANO](url) — autor, ementa "
-    "resumida e a semelhança/diferença frente à proposta. Avalie o risco de apensação (o art. 142 do "
-    "Regimento Interno da Câmara dos Deputados opera por conexão/semelhança de matéria, não por "
-    "identidade de objeto). Responda SOMENTE com JSON:\n"
+    ESTILO + "\n\n" + DIRETRIZ_EVIDENCIA + "\n\n"
+    "TAREFA: redigir a Seção 6 (PROPOSIÇÕES LEGISLATIVAS SEMELHANTES NA CÂMARA) e a análise de "
+    "RISCO DE APENSAÇÃO, com base SOMENTE no RESUMO QUANTITATIVO e na lista de proposições "
+    "fornecidos (dados reais da API da Câmara). Regras:\n"
+    "1. ABERTURA QUANTIFICADA: comece pelo DADO OBSERVADO — quantas proposições alteram a "
+    "norma/artigos-alvo no período coberto, a distribuição por ano e por situação — usando APENAS "
+    "os números do RESUMO (nunca calcule, some ou estime além dele; se a distribuição de situação "
+    "cobre só as proposições listadas, diga isso expressamente). Só DEPOIS do dado venha a leitura "
+    "interpretativa (adensamento recente? tema recorrente sem êxito?), em frase separada.\n"
+    "2. ITENS: selecione as efetivamente correlatas, descarte ruído. CITE cada uma SEMPRE como "
+    "[SIGLA nº/ANO](url da ficha) — autor; ementa resumida; SITUAÇÃO ATUAL com órgão e data quando "
+    "disponíveis (ex.: \"aguarda parecer na CCJC desde 2024\"; \"apensada ao PL 999/2019\"; "
+    "\"arquivada\"); e a semelhança/diferença OBJETIVA frente à proposta (mesmo dispositivo? mesmo "
+    "mecanismo? recorte distinto?).\n"
+    "3. RISCO DE APENSAÇÃO com base na TRAMITAÇÃO REAL: pelo art. 142 do Regimento Interno da "
+    "Câmara dos Deputados (RICD), proposições da mesma espécie sobre matéria análoga ou conexa "
+    "tramitam em conjunto — a apensação se dá à mais antiga (prevalecendo a do Senado, se houver), "
+    "e PEC apensa-se a PEC, PL a PL; o art. 143 traz as regras complementares (a apensada segue o "
+    "regime da principal). Use os campos \"apensada ao ...\" e \"N relacionadas\" da lista para "
+    "identificar a(s) proposição(ões)-TRONCO (a que concentra as demais) e aponte A QUAL delas a "
+    "nova proposição tende a ser apensada. Distinga correlatas ATIVAS (risco real de apensação) "
+    "das ARQUIVADAS (sem risco atual; valem como histórico — registre o padrão: quantas tentativas, "
+    "de quando, e o desfecho, se o dado permitir).\n"
+    "Responda SOMENTE com JSON:\n"
     '{ "abertura": [par, ...], "itens": ["texto do bullet 1", ...], "fecho_risco": [par, ...] }'
 )
 
 # ---------------------------------------------------------------- minuta
-SYS_MINUTA = (
+_SYS_MINUTA_C_COM_IT = (
+    "C. COERÊNCIA TOTAL COM A IT: a minuta deve alterar/inserir EXATAMENTE os dispositivos que a IT "
+    "(Seções 4 e 5) apontou como afetados — nenhum pode faltar. Se a IT afirma que é preciso alterar, "
+    "p. ex., o art. 77 (e os arts. 28 e 29), a minuta DEVE conter esses artigos e a JUSTIFICATIVA "
+    "DEVE explicá-los. Minuta e justificativa têm de ser harmônicas e coesas entre si e com a IT.\n"
+)
+_SYS_MINUTA_C_SEM_IT = (
+    "C. COERÊNCIA TOTAL COM A ANÁLISE: não há IT prévia — a minuta deve alterar/inserir EXATAMENTE "
+    "os dispositivos apontados na ANÁLISE (dispositivos_alvo) — nenhum pode faltar — e a "
+    "JUSTIFICATIVA deve explicá-los com a fundamentação do CONTEXTO (constitucional, legal e "
+    "jurisprudencial). Minuta e justificativa têm de ser harmônicas e coesas entre si.\n"
+)
+
+
+def sys_minuta(com_it: bool = True) -> str:
+    """System prompt da minuta. `com_it=False` (modo só-minuta): a coerência de
+    dispositivos ancora-se na ANÁLISE, não no corpo (inexistente) da IT."""
+    return (
     ESTILO + "\n\nTAREFA: redigir a MINUTA da proposição (tipo informado) e sua JUSTIFICATIVA. "
     "A minuta é a parte MAIS SENSÍVEL — observe rigorosamente:\n"
     "A. TEXTO OFICIAL POR EXTENSO (no ARTICULADO): no texto normativo da minuta, escreva tudo por "
@@ -220,10 +292,7 @@ SYS_MINUTA = (
     "com numeração e pontuação corretas; fórmula de alteração (\"passa a vigorar com a seguinte "
     "redação:\" / \"acrescido do seguinte artigo:\"); \"(NR)\" ao final de dispositivo com nova "
     "redação; cláusula de vigência ao final.\n"
-    "C. COERÊNCIA TOTAL COM A IT: a minuta deve alterar/inserir EXATAMENTE os dispositivos que a IT "
-    "(Seções 4 e 5) apontou como afetados — nenhum pode faltar. Se a IT afirma que é preciso alterar, "
-    "p. ex., o art. 77 (e os arts. 28 e 29), a minuta DEVE conter esses artigos e a JUSTIFICATIVA "
-    "DEVE explicá-los. Minuta e justificativa têm de ser harmônicas e coesas entre si e com a IT.\n"
+    + (_SYS_MINUTA_C_COM_IT if com_it else _SYS_MINUTA_C_SEM_IT) +
     "D. A JUSTIFICAÇÃO: EQUILÍBRIO ENTRE ORALIDADE E TECNICIDADE (a parte MAIS SENSÍVEL). Ela será "
     "LIDA EM VOZ ALTA na tribuna — logo, precisa ser clara e fluida —, MAS a sua FUNÇÃO é JUSTIFICAR: "
     "convencer pela RAZÃO JURÍDICA, não apenas pela retórica. Procure o ponto de equilíbrio:\n"
@@ -252,4 +321,7 @@ SYS_MINUTA = (
     "passa a vigorar acrescida do seguinte artigo:\"); 'quote' para o texto inserido/alterado na "
     "norma (entre aspas, com \"(NR)\" quando for nova redação). NÃO inclua epígrafe nem preâmbulo "
     "(são gerados automaticamente)."
-)
+    )
+
+
+SYS_MINUTA = sys_minuta(True)  # retrocompatibilidade (fluxo IT+minuta)

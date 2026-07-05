@@ -30,6 +30,8 @@ class Resultado:
     n_blocos: int
     fontes_web: List[str] = field(default_factory=list)
     avisos: List[str] = field(default_factory=list)
+    gerou_it: bool = True
+    gerou_minuta: bool = True
 
 
 # ============================ etapas ============================
@@ -62,10 +64,46 @@ def _fmt_rag(trechos) -> str:
 def _fmt_camara(props: List[dict]) -> str:
     linhas = []
     for p in props:
-        sit = f" — situação: {p['situacao']}" if p.get("situacao") else ""
-        aut = f" (autor: {p['autor']})" if p.get("autor") else ""
-        linhas.append(f"- {p['sigla']} {p['numero']}/{p['ano']}{aut}: {p['ementa'][:240]}{sit} | {p['url']}")
+        aut = ""
+        if p.get("autor"):
+            extra = f" +{p['n_autores'] - 1}" if (p.get("n_autores") or 0) > 1 else ""
+            aut = f" (autor: {p['autor']}{extra})"
+        # situação com a tramitação real: órgão, regime e data (quando detalhados)
+        sit = ""
+        if p.get("situacao"):
+            det = [d for d in (p.get("orgao"), p.get("regime"),
+                               f"em {p['data_situacao']}" if p.get("data_situacao") else "") if d]
+            sit = f" — situação: {p['situacao']}" + (f" ({', '.join(det)})" if det else "")
+        apensada = f"; apensada ao {p['apensada_a']}" if p.get("apensada_a") else ""
+        rel = (f"; {p['n_relacionadas']} relacionada(s)/apensada(s) na árvore"
+               if p.get("n_relacionadas") else "")
+        linhas.append(f"- {p['sigla']} {p['numero']}/{p['ano']}{aut}: "
+                      f"{p['ementa'][:240]}{sit}{apensada}{rel} | {p['url']}")
     return "\n".join(linhas) if linhas else "(nenhuma proposição correlata localizada)"
+
+
+def _fmt_camara_resumo(resumo: dict) -> str:
+    """Bloco quantitativo agregado da busca na Câmara (dados reais p/ a abertura da Seção 6)."""
+    if not resumo:
+        return ""
+    partes = [f"RESUMO QUANTITATIVO (dados reais da API da Câmara; varredura da espécie no período "
+              f"{resumo.get('periodo', '?')} — a busca complementar por palavras-chave pode "
+              f"acrescentar proposições de anos anteriores):"]
+    if resumo.get("total_norma_alvo") is not None:
+        partes.append(f"- {resumo['total_norma_alvo']} proposição(ões) da espécie alteram a "
+                      f"norma/artigos-alvo (de {resumo.get('total_candidatas', '?')} candidatas examinadas).")
+    por_ano = resumo.get("por_ano_norma_alvo") or {}
+    if por_ano:
+        serie = "; ".join(f"{a}: {n}" for a, n in sorted(por_ano.items(), reverse=True))
+        partes.append(f"- Distribuição por ano (das que alteram a norma/artigos-alvo): {serie}.")
+    por_sit = resumo.get("por_situacao_listadas") or {}
+    if por_sit:
+        dist = "; ".join(f"{s}: {n}" for s, n in sorted(por_sit.items(), key=lambda x: -x[1]))
+        partes.append(f"- Das {resumo.get('listadas', '?')} LISTADAS abaixo (as mais correlatas), "
+                      f"situação atual: {dist}. Esta distribuição cobre SOMENTE as listadas.")
+    if resumo.get("apensadas_listadas"):
+        partes.append(f"- {resumo['apensadas_listadas']} da(s) listada(s) já tramita(m) apensada(s) a outra proposição.")
+    return "\n".join(partes)
 
 
 def _fmt_web(web: List[dict]) -> str:
@@ -73,7 +111,8 @@ def _fmt_web(web: List[dict]) -> str:
     for w in web:
         if w.get("texto"):
             fontes = "; ".join(w.get("fontes", [])[:5])
-            blocos.append(f"{w['texto']}\nFontes: {fontes}")
+            # teto por resposta: era o único bloco do contexto sem limite de tamanho
+            blocos.append(f"{w['texto'][:6000]}\nFontes: {fontes}")
     return "\n\n".join(blocos) if blocos else "(sem resultados de pesquisa web)"
 
 
@@ -142,7 +181,8 @@ def coletar_contexto(
         trechos = []
         for q in consultas:
             log(f"RAG: consultando bases internas — “{q[:60]}”")
-            for t in notion_rag.buscar(q, k=6, bases=bases_rag, somente_vigente=somente_vigente):
+            for t in notion_rag.buscar(q, k=6, bases=bases_rag, somente_vigente=somente_vigente,
+                                       progress=log):
                 chave = t.page_id or (t.titulo, t.texto[:40])  # dedup por identidade real (page_id)
                 if chave not in vistos:
                     vistos.add(chave)
@@ -155,10 +195,13 @@ def coletar_contexto(
         kws = analise.get("palavras_chave_camara") or []
         rel = kws + [analise.get("tema", "")]
         log(f"Câmara: buscando proposições correlatas ({', '.join(kws[:6])})…")
-        ctx["camara"] = camara_api.proposicoes_correlatas(
+        r = camara_api.proposicoes_correlatas(
             kws, sigla=tipo_sigla, norma_alvo=analise.get("norma_alvo", ""),
-            tema=analise.get("tema", ""), termos_relevancia=rel, max_total=12, log=log)
-        log(f"Câmara: {len(ctx['camara'])} proposições correlatas.")
+            tema=analise.get("tema", ""), dispositivos_alvo=analise.get("dispositivos_alvo"),
+            termos_relevancia=rel, max_total=20, log=log)
+        ctx["camara"], ctx["camara_resumo"] = r["itens"], r["resumo"]
+        log(f"Câmara: {len(ctx['camara'])} proposições correlatas "
+            f"({ctx['camara_resumo'].get('total_norma_alvo', 0)} alteram a norma/artigos-alvo).")
 
     if usar_web:
         # ECONOMIA: 1 ÚNICA chamada grounded agrupando as perguntas (o grounding é cobrado por
@@ -177,9 +220,15 @@ def coletar_contexto(
 
 
 def _contexto_txt(ctx: dict) -> str:
+    # IT/minuta recebem o resumo + as 12 mais correlatas (controle de tokens);
+    # a Seção 6 (redigir_secao6) recebe a lista completa.
+    camara_txt = _fmt_camara(ctx.get("camara", [])[:12])
+    resumo_txt = _fmt_camara_resumo(ctx.get("camara_resumo", {}))
+    if resumo_txt:
+        camara_txt = resumo_txt + "\n\n" + camara_txt
     return (
         "=== TRECHOS DAS BASES INTERNAS (RAG) ===\n" + _fmt_rag(ctx.get("rag", [])) +
-        "\n\n=== PROPOSIÇÕES NA CÂMARA (API oficial) ===\n" + _fmt_camara(ctx.get("camara", [])) +
+        "\n\n=== PROPOSIÇÕES NA CÂMARA (API oficial) ===\n" + camara_txt +
         "\n\n=== PESQUISA WEB (Gemini grounded) ===\n" + _fmt_web(ctx.get("web", [])) +
         "\n\n=== LINKS OFICIAIS — para linkar a 1ª menção de cada precedente/norma (nunca invente "
         "URL) ===\nUse os \"[LINK OFICIAL: ...]\" dos trechos do RAG, a TABELA DE LINKS do Planalto e "
@@ -188,22 +237,26 @@ def _contexto_txt(ctx: dict) -> str:
     )
 
 
-def redigir_it(demanda: str, analise: dict, ctx: dict, *, model=None, log: Callable = print) -> dict:
+def redigir_it(demanda: str, analise: dict, ctx: dict, *, com_minuta: bool = True,
+               model=None, log: Callable = print) -> dict:
     log("Redigindo o corpo da Informação Técnica (seções 1–5 e 7)…")
     user = (
         f"DEMANDA:\n{demanda}\n\nANÁLISE:\n{json.dumps(analise, ensure_ascii=False)}\n\n"
         f"CONTEXTO:\n{_contexto_txt(ctx)}"
     )
-    it = llm.chat(prompts.SYS_IT, user, json_mode=True, model=model)
+    it = llm.chat(prompts.sys_it(com_minuta), user, json_mode=True, model=model)
     return it if isinstance(it, dict) else {}
 
 
-def redigir_secao6(analise: dict, camara: List[dict], *, model=None, log: Callable = print) -> dict:
+def redigir_secao6(analise: dict, camara: List[dict], resumo: Optional[dict] = None,
+                   *, model=None, log: Callable = print) -> dict:
     # gera a Seção 6 mesmo sem correlatas (dirá que não foram localizadas proposições semelhantes)
     log("Redigindo a Seção 6 (proposições correlatas / risco de apensação)…")
+    resumo_txt = _fmt_camara_resumo(resumo or {})
     user = (
         f"TEMA: {analise.get('tema')}\nESPÉCIE: {analise.get('tipo_sigla')}\n\n"
-        f"PROPOSIÇÕES (dados reais da Câmara):\n{_fmt_camara(camara)}"
+        + (resumo_txt + "\n\n" if resumo_txt else "")
+        + f"PROPOSIÇÕES (dados reais da Câmara):\n{_fmt_camara(camara)}"
     )
     s6 = llm.chat(prompts.SYS_SECAO6, user, json_mode=True, model=model)
     return s6 if isinstance(s6, dict) else {}
@@ -227,7 +280,7 @@ def redigir_minuta(demanda: str, analise: dict, ctx: dict, tipo, it: Optional[di
         f"DEMANDA:\n{demanda}\n\nESPÉCIE: {tipo.sigla} — {tipo.nome_extenso}\n"
         f"ANÁLISE:\n{json.dumps(analise, ensure_ascii=False)}\n\n{it_resumo}CONTEXTO:\n{_contexto_txt(ctx)}"
     )
-    m = llm.chat(prompts.SYS_MINUTA, user, json_mode=True, model=model)
+    m = llm.chat(prompts.sys_minuta(com_it=bool(it)), user, json_mode=True, model=model)
     return m if isinstance(m, dict) else {}
 
 
@@ -449,11 +502,14 @@ def _tit(t, default: str) -> str:
     return (t or default).strip().upper()
 
 
-def montar_blocos(analise: dict, it: dict, sec6: dict, minuta: dict, tipo, ano: int) -> List[dict]:
+def montar_blocos(analise: dict, it: dict, sec6: dict, minuta: dict, tipo, ano: int, *,
+                  gerar_it: bool = True, gerar_minuta: bool = True) -> List[dict]:
     B: List[dict] = []
     area = cconf.CONSULTOR_AREA
 
     # ---- cabeçalho (callout com Objeto:) ----
+    # SEMPRE presente, em qualquer escopo: é a âncora que o splitter do conversor
+    # usa para reconhecer a página (OBJETO/CONSULTORIA LEGISLATIVA/ESTUDO).
     objeto = (analise.get("objeto") or analise.get("tema") or "").strip()
     objeto = re.sub(r"^\s*objeto\s*:\s*", "", objeto, flags=re.IGNORECASE)  # evita "Objeto: Objeto:"
     cab = (f"**CÂMARA DOS DEPUTADOS — CONSULTORIA LEGISLATIVA**\n"
@@ -461,80 +517,85 @@ def montar_blocos(analise: dict, it: dict, sec6: dict, minuta: dict, tipo, ano: 
     B.append(nw.bloco_callout(cab, emoji="📋", cor="green_background"))
     B.append(nw.bloco_divider())
 
-    # ---- 1. Introdução ----
-    B.append(nw.bloco_heading(2, "1. INTRODUÇÃO"))
-    B += _paras(it.get("introducao"))
+    if gerar_it:
+        # ---- 1. Introdução ----
+        B.append(nw.bloco_heading(2, "1. INTRODUÇÃO"))
+        B += _paras(it.get("introducao"))
 
-    # ---- 2. Marco constitucional ----
-    mc = it.get("marco_constitucional") or {}
-    B.append(nw.bloco_heading(2, _tit(mc.get("titulo"), "2. MARCO CONSTITUCIONAL")))
-    B += _paras(mc.get("paragrafos"))
+        # ---- 2. Marco constitucional ----
+        mc = it.get("marco_constitucional") or {}
+        B.append(nw.bloco_heading(2, _tit(mc.get("titulo"), "2. MARCO CONSTITUCIONAL")))
+        B += _paras(mc.get("paragrafos"))
 
-    # ---- 3. Quadro normativo ----
-    qn = it.get("quadro_normativo") or {}
-    B.append(nw.bloco_heading(2, _tit(qn.get("titulo"), "3. QUADRO NORMATIVO ATUAL")))
-    B += _paras(qn.get("intro"))
-    for sub in qn.get("subsecoes") or []:
-        B.append(nw.bloco_heading(3, sub.get("titulo") or "3.x"))
-        B += _paras(sub.get("paragrafos"))
+        # ---- 3. Quadro normativo ----
+        qn = it.get("quadro_normativo") or {}
+        B.append(nw.bloco_heading(2, _tit(qn.get("titulo"), "3. QUADRO NORMATIVO ATUAL")))
+        B += _paras(qn.get("intro"))
+        for sub in qn.get("subsecoes") or []:
+            B.append(nw.bloco_heading(3, sub.get("titulo") or "3.x"))
+            B += _paras(sub.get("paragrafos"))
 
-    # ---- 4. Mapeamento + tabela ----
-    mp = it.get("mapeamento") or {}
-    B.append(nw.bloco_heading(2, _tit(mp.get("titulo"), "4. MAPEAMENTO DOS DISPOSITIVOS AFETADOS")))
-    B += _paras(mp.get("intro"))
-    tab = mp.get("tabela") or {}
-    colunas = tab.get("colunas") or ["Dispositivo", "O que diz hoje", "Dificuldade atual", "Solução na minuta"]
-    linhas = tab.get("linhas") or []
-    if linhas:
-        B.append(nw.bloco_heading(3, "4.1 — Tabela consolidada"))
-        header = [f"**{c}**" for c in colunas]
-        B.append(nw.bloco_tabela([header] + [[str(c) for c in ln] for ln in linhas], header=True))
+        # ---- 4. Mapeamento + tabela ----
+        mp = it.get("mapeamento") or {}
+        B.append(nw.bloco_heading(2, _tit(mp.get("titulo"), "4. MAPEAMENTO DOS DISPOSITIVOS AFETADOS")))
+        B += _paras(mp.get("intro"))
+        tab = mp.get("tabela") or {}
+        colunas = tab.get("colunas") or ["Dispositivo", "O que diz hoje", "Dificuldade atual",
+                                         "Solução na minuta" if gerar_minuta else "Solução proposta"]
+        linhas = tab.get("linhas") or []
+        if linhas:
+            B.append(nw.bloco_heading(3, "4.1 — Tabela consolidada"))
+            header = [f"**{c}**" for c in colunas]
+            B.append(nw.bloco_tabela([header] + [[str(c) for c in ln] for ln in linhas], header=True))
 
-    # ---- 5. Análise da solicitação ----
-    an = it.get("analise_solicitacao") or {}
-    B.append(nw.bloco_heading(2, _tit(an.get("titulo"), "5. ANÁLISE ESPECÍFICA DA SOLICITAÇÃO")))
-    B += _paras(an.get("intro"))
-    for sub in an.get("subsecoes") or []:
-        B.append(nw.bloco_heading(3, sub.get("titulo") or "5.x"))
-        B += _paras(sub.get("paragrafos"))
+        # ---- 5. Análise da solicitação ----
+        an = it.get("analise_solicitacao") or {}
+        B.append(nw.bloco_heading(2, _tit(an.get("titulo"), "5. ANÁLISE ESPECÍFICA DA SOLICITAÇÃO")))
+        B += _paras(an.get("intro"))
+        for sub in an.get("subsecoes") or []:
+            B.append(nw.bloco_heading(3, sub.get("titulo") or "5.x"))
+            B += _paras(sub.get("paragrafos"))
 
-    # ---- 6. Proposições correlatas ----
-    if sec6:
-        B.append(nw.bloco_heading(2, "6. PROPOSIÇÕES LEGISLATIVAS SEMELHANTES NA CÂMARA DOS DEPUTADOS"))
-        B += _paras(sec6.get("abertura"))
-        for item in sec6.get("itens") or []:
-            if str(item).strip():
-                B.append(nw.bloco_bullet(str(item)))
-        B += _paras(sec6.get("fecho_risco"))
+        # ---- 6. Proposições correlatas ----
+        if sec6:
+            B.append(nw.bloco_heading(2, "6. PROPOSIÇÕES LEGISLATIVAS SEMELHANTES NA CÂMARA DOS DEPUTADOS"))
+            B += _paras(sec6.get("abertura"))
+            for item in sec6.get("itens") or []:
+                if str(item).strip():
+                    B.append(nw.bloco_bullet(str(item)))
+            B += _paras(sec6.get("fecho_risco"))
 
-    # ---- 7. Conclusão + fecho da IT ----
-    B.append(nw.bloco_heading(2, "7. CONCLUSÃO"))
-    B += _paras(it.get("conclusao"))
-    B.append(nw.bloco_paragraph(cconf.FECHO_IT_LINHA_1))
-    B.append(nw.bloco_paragraph(cconf.FECHO_IT_LINHA_2))
+        # ---- 7. Conclusão + fecho da IT ----
+        B.append(nw.bloco_heading(2, "7. CONCLUSÃO"))
+        B += _paras(it.get("conclusao"))
+        B.append(nw.bloco_paragraph(cconf.FECHO_IT_LINHA_1))
+        B.append(nw.bloco_paragraph(cconf.FECHO_IT_LINHA_2))
 
-    # ---- 8. Minuta ----
-    B.append(nw.bloco_heading(2, f"8. MINUTA DE {tipo.nome_extenso}"))
-    ementa = (minuta.get("ementa") or "").strip()
-    epigrafe = f"**{tipo.nome_extenso} Nº ___, DE {ano}**" + (f"\n{ementa}" if ementa else "")
-    B.append(nw.bloco_callout(epigrafe, emoji="📜", cor="gray_background"))
-    B.append(nw.bloco_paragraph(tipo.preambulo))
-    for item in minuta.get("articulado") or []:
-        # tolera o LLM desviando do formato {tipo, texto} e emitindo strings cruas no articulado
-        # (senão item.get quebraria com AttributeError e perderia toda a geração já paga)
-        if isinstance(item, str):
-            texto, tipo_item = item.strip(), "paragraph"
-        elif isinstance(item, dict):
-            texto, tipo_item = str(item.get("texto") or "").strip(), item.get("tipo")
-        else:
-            continue
-        if not texto:
-            continue
-        B.append(nw.bloco_quote(texto) if tipo_item == "quote" else nw.bloco_paragraph(texto))
+    if gerar_minuta:
+        # ---- 8. Minuta (sem o "8."/"9." quando a página não traz a IT) ----
+        # o splitter exige apenas "MINUTA" no heading e o callout de epígrafe intocado
+        B.append(nw.bloco_heading(2, (f"8. MINUTA DE {tipo.nome_extenso}" if gerar_it
+                                      else f"MINUTA DE {tipo.nome_extenso}")))
+        ementa = (minuta.get("ementa") or "").strip()
+        epigrafe = f"**{tipo.nome_extenso} Nº ___, DE {ano}**" + (f"\n{ementa}" if ementa else "")
+        B.append(nw.bloco_callout(epigrafe, emoji="📜", cor="gray_background"))
+        B.append(nw.bloco_paragraph(tipo.preambulo))
+        for item in minuta.get("articulado") or []:
+            # tolera o LLM desviando do formato {tipo, texto} e emitindo strings cruas no articulado
+            # (senão item.get quebraria com AttributeError e perderia toda a geração já paga)
+            if isinstance(item, str):
+                texto, tipo_item = item.strip(), "paragraph"
+            elif isinstance(item, dict):
+                texto, tipo_item = str(item.get("texto") or "").strip(), item.get("tipo")
+            else:
+                continue
+            if not texto:
+                continue
+            B.append(nw.bloco_quote(texto) if tipo_item == "quote" else nw.bloco_paragraph(texto))
 
-    # ---- 9. Justificativa ----
-    B.append(nw.bloco_heading(2, "9. JUSTIFICATIVA"))
-    B += _paras(minuta.get("justificativa"))
+        # ---- 9. Justificativa ----
+        B.append(nw.bloco_heading(2, "9. JUSTIFICATIVA" if gerar_it else "JUSTIFICATIVA"))
+        B += _paras(minuta.get("justificativa"))
     return B
 
 
@@ -589,6 +650,8 @@ def gerar(
     usar_web: bool = True,
     bases_rag: Optional[List[str]] = None,
     somente_vigente: bool = True,
+    gerar_it: bool = True,
+    gerar_minuta: bool = True,
     ano: Optional[int] = None,
     model: Optional[str] = None,
     progress: Optional[Callable[[str], None]] = None,
@@ -596,17 +659,26 @@ def gerar(
     log = progress or (lambda _m: None)
     ano = ano or datetime.date.today().year
     avisos: List[str] = []
+    if not gerar_it and not gerar_minuta:
+        raise RuntimeError("Selecione ao menos um documento: Informação Técnica ou minuta de proposição.")
 
     # valida o acesso à página ANTES de gastar qualquer chamada de IA
     page_id = nw.page_id_from_url(page_url)
     log("Verificando acesso à página do Notion…")
     nw.verificar_acesso_pagina(page_id)
+    if gerar_it and gerar_minuta:
+        log("Escopo: Informação Técnica + minuta de proposição.")
+    else:
+        log("Escopo: apenas " + ("a Informação Técnica." if gerar_it else "a minuta de proposição."))
 
     analise = analisar_demanda(demanda, model=model, log=log)
     tipo = classifier.detectar_tipo(analise.get("tipo_sigla", ""), demanda)
     log(f"Espécie identificada: {tipo.sigla} — {tipo.nome_extenso}.")
 
-    ctx = coletar_contexto(analise, usar_rag=usar_rag, usar_camara=usar_camara,
+    # a Câmara alimenta a Seção 6 (parte da IT): no modo só-minuta é a etapa mais lenta sem valor
+    if usar_camara and not gerar_it:
+        log("Câmara: pulada (a Seção 6 pertence à IT, fora do escopo).")
+    ctx = coletar_contexto(analise, usar_rag=usar_rag, usar_camara=usar_camara and gerar_it,
                            usar_web=usar_web, bases_rag=bases_rag, tipo_sigla=tipo.sigla,
                            somente_vigente=somente_vigente, log=log)
     if usar_rag and not ctx["rag"]:
@@ -615,13 +687,16 @@ def gerar(
     # corpo da IT e Seção 6 são independentes — redige em paralelo (ambos I/O em chamadas de API);
     # a minuta vem depois, pois depende do corpo da IT (coerência de dispositivos).
     with ThreadPoolExecutor(max_workers=2) as ex:
-        fut_it = ex.submit(redigir_it, demanda, analise, ctx, model=model, log=log)
-        fut_s6 = (ex.submit(redigir_secao6, analise, ctx.get("camara", []), model=model, log=log)
-                  if usar_camara else None)
+        fut_it = (ex.submit(redigir_it, demanda, analise, ctx, com_minuta=gerar_minuta,
+                            model=model, log=log)
+                  if gerar_it else None)
+        fut_s6 = (ex.submit(redigir_secao6, analise, ctx.get("camara", []),
+                            ctx.get("camara_resumo"), model=model, log=log)
+                  if (usar_camara and gerar_it) else None)
         # não deixar a falha de uma redação abortar tudo e perder as chamadas já pagas:
         # captura, segue com o que houver e sinaliza no resultado
         try:
-            it = fut_it.result()
+            it = fut_it.result() if fut_it else {}
         except Exception as e:  # noqa: BLE001
             log(f"   redação do corpo da IT falhou: {e}")
             it, avisos = {}, avisos + ["A redação do corpo da IT falhou — a página pode estar incompleta."]
@@ -630,24 +705,31 @@ def gerar(
         except Exception as e:  # noqa: BLE001
             log(f"   redação da Seção 6 falhou: {e}")
             sec6 = {}
-    minuta = redigir_minuta(demanda, analise, ctx, tipo, it=it, model=model, log=log)
+    minuta = (redigir_minuta(demanda, analise, ctx, tipo, it=it, model=model, log=log)
+              if gerar_minuta else {})
     # alerta de seção vazia (parse/truncamento do modelo): evita gravar em silêncio
-    if not it:
+    if gerar_it and not it:
         avisos.append("Corpo da IT vazio (possível truncamento/JSON inválido do modelo) — revise a página.")
-    if not minuta:
+    if gerar_minuta and not minuta:
         avisos.append("Minuta vazia (possível truncamento/JSON inválido do modelo) — revise a página.")
 
     # 2ª passada de links: linka precedentes citados sem link/marcados [LINK?] no corpo e na Seção 6
     # (a minuta/justificativa NÃO leva links, por regra). Dirigida pelo que o redator efetivamente citou.
-    try:
-        _enriquecer_links([it, sec6], ctx, analise, usar_web=usar_web, log=log)
-    except Exception as e:  # noqa: BLE001
-        log(f"   enriquecimento de links falhou (seguindo sem): {e}")
+    if gerar_it:
+        try:
+            _enriquecer_links([it, sec6], ctx, analise, usar_web=usar_web, log=log)
+        except Exception as e:  # noqa: BLE001
+            log(f"   enriquecimento de links falhou (seguindo sem): {e}")
 
-    blocos = montar_blocos(analise, it, sec6, minuta, tipo, ano)
+    blocos = montar_blocos(analise, it, sec6, minuta, tipo, ano,
+                           gerar_it=gerar_it, gerar_minuta=gerar_minuta)
     log(f"Montados {len(blocos)} blocos na anatomia da IT.")
 
-    titulo = f"{analise.get('tema', 'Estudo')} — minuta de {tipo.sigla}"
+    tema = analise.get("tema", "Estudo")
+    if gerar_it and not gerar_minuta:
+        titulo = f"{tema} — Informação Técnica"
+    else:  # ambas ou só-minuta: o sufixo "— minuta" orienta o conversor
+        titulo = f"{tema} — minuta de {tipo.sigla}"
     # salva o resultado em disco ANTES de gravar — se a gravação falhar, nada se perde
     _salvar_resultado(page_id, titulo, blocos)
     _set_titulo(page_id, titulo)
@@ -655,6 +737,12 @@ def gerar(
     n = nw.escrever_pagina(page_id, blocos, progress=log)
 
     fontes_web = [u for w in ctx.get("web", []) for u in w.get("fontes", [])]
-    avisos.append("Confira a numeração de dispositivos da minuta (alíneas/parágrafos) antes de protocolar.")
+    if gerar_minuta:
+        avisos.append("Confira a numeração de dispositivos da minuta (alíneas/parágrafos) antes de protocolar.")
+    if gerar_it and not gerar_minuta:
+        avisos.append("No conversor, marque apenas 'Gerar Informação Técnica' (não há minuta na página).")
+    elif gerar_minuta and not gerar_it:
+        avisos.append("No conversor, marque apenas 'Gerar minuta de proposição' (não há IT na página).")
     return Resultado(page_id=page_id, titulo=titulo, tipo_sigla=tipo.sigla,
-                     n_blocos=n, fontes_web=fontes_web[:12], avisos=avisos)
+                     n_blocos=n, fontes_web=fontes_web[:12], avisos=avisos,
+                     gerou_it=gerar_it, gerou_minuta=gerar_minuta)

@@ -4,6 +4,8 @@
 Cole a DEMANDA do parlamentar e a URL de uma página EM BRANCO do Notion; o app
 pesquisa as bases internas (RAG), a API da Câmara e a web (Gemini) e grava a IT +
 minuta na página, na anatomia que o Conversor (outro app) transforma em .docx.
+O escopo é selecionável: só a Informação Técnica, só a minuta de proposição, ou
+ambas (checkboxes em Opções).
 """
 from __future__ import annotations
 
@@ -134,6 +136,13 @@ class GeradorGUI(tk.Tk):
         # opções -----------------------------------------------------------
         opc = ttk.Labelframe(cols, text=" Opções ", style="Sec.TLabelframe", padding=10)
         opc.grid(row=0, column=1, sticky="nsew", padx=(8, 0))
+        self.var_gerar_it = tk.BooleanVar(value=True)
+        self.var_gerar_minuta = tk.BooleanVar(value=True)
+        ttk.Checkbutton(opc, text="Gerar Informação Técnica", variable=self.var_gerar_it).pack(anchor="w")
+        ttk.Checkbutton(opc, text="Gerar minuta de proposição", variable=self.var_gerar_minuta).pack(anchor="w")
+        ttk.Label(opc, text="Marque um ou ambos (a Seção 6 — correlatas — integra a IT).",
+                  style="Sub.TLabel").pack(anchor="w")
+        ttk.Separator(opc).pack(fill="x", pady=8)
         ttk.Label(opc, text="Modelo de redação (OpenAI):").pack(anchor="w")
         self.var_modelo = tk.StringVar(value=cfg.MODEL_REDACAO)
         ttk.Combobox(opc, textvariable=self.var_modelo, state="readonly",
@@ -189,11 +198,16 @@ class GeradorGUI(tk.Tk):
         if not url:
             messagebox.showwarning("Atenção", "Cole a URL (ou ID) da página EM BRANCO do Notion.")
             return
+        if not self.var_gerar_it.get() and not self.var_gerar_minuta.get():
+            messagebox.showwarning("Atenção", "Marque ao menos um documento: "
+                                   "Informação Técnica ou minuta de proposição.")
+            return
         params = dict(
             demanda=demanda, page_url=url,
             usar_rag=bool(self._bases_sel()), usar_camara=self.var_camara.get(),
             usar_web=self.var_web.get(), bases_rag=self._bases_sel(),
             somente_vigente=self.var_vigente.get(), model=self.var_modelo.get(),
+            gerar_it=self.var_gerar_it.get(), gerar_minuta=self.var_gerar_minuta.get(),
         )
         self._iniciar()
         threading.Thread(target=self._worker_gerar, kwargs=params, daemon=True).start()
@@ -243,8 +257,12 @@ class GeradorGUI(tk.Tk):
     def _fim_gerar(self, res):
         self._parar()
         self._page_url = f"https://www.notion.so/{res.page_id.replace('-', '')}"
+        gerou_it = getattr(res, "gerou_it", True)
+        gerou_minuta = getattr(res, "gerou_minuta", True)
+        escopo = (f"IT + minuta de {res.tipo_sigla}" if gerou_it and gerou_minuta
+                  else "Informação Técnica" if gerou_it else f"minuta de {res.tipo_sigla}")
         self._append_log("")
-        self._append_log(f"✓ Gerado e gravado: {res.tipo_sigla} — {res.n_blocos} blocos.")
+        self._append_log(f"✓ Gerado e gravado: {escopo} — {res.n_blocos} blocos.")
         self._append_log(f"   Título: {res.titulo}")
         for a in res.avisos:
             self._append_log(f"   ⚠ {a}")
@@ -253,7 +271,9 @@ class GeradorGUI(tk.Tk):
             for u in res.fontes_web:
                 self._append_log(f"     • {u}")
         self.btn_abrir.config(state="normal")
-        messagebox.showinfo("Concluído", f"{res.tipo_sigla} gravado na página do Notion ({res.n_blocos} blocos).")
+        messagebox.showinfo("Concluído", f"{escopo} gravada na página do Notion ({res.n_blocos} blocos)."
+                            if gerou_it and not gerou_minuta else
+                            f"{escopo} gravado(a) na página do Notion ({res.n_blocos} blocos).")
 
     def _fim_indexar(self, resumo):
         self._parar()

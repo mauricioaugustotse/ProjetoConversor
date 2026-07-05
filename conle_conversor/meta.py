@@ -69,5 +69,7 @@ class MetaDocumento:
         return f"{config.LOCAL_FECHO_IT}, em {data}."
 
     def fecho_prop_txt(self, local: str) -> str:
-        data = self.data_fecho_prop.strip() or "        de                      de %d" % self.ano
+        # lacunas de dia/mês com 8 e 21 espaços após "em" — idêntico ao modelo
+        # oficial da Câmara (o parágrafo precisa de xml:space="preserve", ver _p)
+        data = self.data_fecho_prop.strip() or "       de                     de %d" % self.ano
         return f"{local}, em {data}."

@@ -118,6 +118,72 @@ def page_title(page_meta: Dict[str, Any]) -> str:
     return ""
 
 
+def url_publica_da_pagina(client: NotionClient, page_id: str) -> Optional[str]:
+    """Primeira propriedade tipo 'url' com valor PÚBLICO (não-Notion) da página,
+    em ordem alfabética de nome — na base de julgados do TSE, link_1 traz o PDF
+    do acórdão no sjur. None se a página não tem URL pública ou a chamada falha
+    (rede/permissão): a mention degrada para o comportamento antigo."""
+    try:
+        meta = client.get_page(page_id)
+    except Exception:
+        return None
+    urls = []
+    for nome, prop in (meta.get("properties") or {}).items():
+        if prop.get("type") == "url" and prop.get("url"):
+            u = str(prop["url"]).strip()
+            if u.startswith("http") and "notion" not in u.lower():
+                urls.append((nome.lower(), u))
+    return min(urls)[1] if urls else None
+
+
+def resolver_mentions_publicas(blocks, client: Optional[NotionClient] = None) -> int:
+    """Pré-resolução das mentions internas que NÃO casam com uma norma de
+    config.FONTES_OFICIAIS (ex. julgados do TSE citados como "(cf. @página)"):
+    consulta a própria página mencionada e troca o href interno pela URL
+    pública dela (prop 'url', ex. o PDF do sjur) — assim a referência externa
+    sobrevive no .docx em vez de virar texto morto. Mentions de norma ficam
+    como estão (richtext as resolve por texto, sem rede). Cache por página;
+    sem URL pública ou com falha, o href interno permanece (vira texto puro).
+    Muta blocks in place (rich e células de tabela); retorna o nº de mentions
+    resolvidas."""
+    from dataclasses import replace as _replace
+
+    from .richtext import _link_interno_notion, resolver_fonte_publica
+
+    client = client or NotionClient()
+    cache: Dict[str, Optional[str]] = {}
+    resolvidas = 0
+
+    def _url_da_mention(href: str) -> Optional[str]:
+        try:
+            pid = normalize_page_id(href)
+        except ValueError:
+            return None
+        if pid not in cache:
+            cache[pid] = url_publica_da_pagina(client, pid)
+        return cache[pid]
+
+    def _varre(rich_list) -> None:
+        nonlocal resolvidas
+        for i, r in enumerate(rich_list or []):
+            h = (r.href or "").strip()
+            if not h or not _link_interno_notion(h):
+                continue
+            if resolver_fonte_publica(r.text):
+                continue
+            url = _url_da_mention(h)
+            if url:
+                rich_list[i] = _replace(r, href=url)
+                resolvidas += 1
+
+    for b in blocks or []:
+        _varre(b.rich)
+        for row in (b.extra or {}).get("rows") or []:
+            for cell in row:
+                _varre(cell)
+    return resolvidas
+
+
 def fetch_page(url_or_id: str, token: Optional[str] = None):
     """Retorna (page_id, titulo, blocos)."""
     client = NotionClient(token)

@@ -15,28 +15,33 @@ class TipoProposicao:
     local_fecho: str           # "Sala das Sessões" etc.
 
 
+# Fecho das minutas no padrão do modelo oficial da Câmara (a forma dupla é
+# proposital — o autor apaga a que não se aplica na hora do protocolo;
+# pedido do usuário, 04/07/26, conferido no .docx que a Câmara fornece).
+_LOCAL_FECHO_MINUTA = "Sala da Comissão/Sala das Sessões"
+
 # Catálogo dos tipos suportados
 PLP = TipoProposicao(
     "PLP", "PROJETO DE LEI COMPLEMENTAR",
-    "O Congresso Nacional decreta:", "Sala das Sessões",
+    "O Congresso Nacional decreta:", _LOCAL_FECHO_MINUTA,
 )
 PL = TipoProposicao(
     "PL", "PROJETO DE LEI",
-    "O Congresso Nacional decreta:", "Sala das Sessões",
+    "O Congresso Nacional decreta:", _LOCAL_FECHO_MINUTA,
 )
 PEC = TipoProposicao(
     "PEC", "PROPOSTA DE EMENDA À CONSTITUIÇÃO",
     "As Mesas da Câmara dos Deputados e do Senado Federal, nos termos do § 3º do art. 60 da "
     "Constituição Federal, promulgam a seguinte emenda ao texto constitucional:",
-    "Sala das Sessões",
+    _LOCAL_FECHO_MINUTA,
 )
 PRC = TipoProposicao(
     "PRC", "PROJETO DE RESOLUÇÃO",
-    "A Câmara dos Deputados resolve:", "Sala das Sessões",
+    "A Câmara dos Deputados resolve:", _LOCAL_FECHO_MINUTA,
 )
 PDL = TipoProposicao(
     "PDL", "PROJETO DE DECRETO LEGISLATIVO",
-    "O Congresso Nacional decreta:", "Sala das Sessões",
+    "O Congresso Nacional decreta:", _LOCAL_FECHO_MINUTA,
 )
 
 

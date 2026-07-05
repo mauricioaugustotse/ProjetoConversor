@@ -62,3 +62,13 @@ dje_consolidado/
 temas_work/
 sessoes_work/
 schema_backups/
+
+# Pipeline resolucoes TSE (dumps, cache HTML, manifests; nao versionar)
+resolucoes_work/
+vademecum_work/
+
+# Pesquisador PJe: perfis de navegador (~180 MB) e dumps de sondagem HTTP
+# (respostas/reqs/eventos podem conter cookies de sessao e tokens de captcha)
+pje_work/
+# Backups automaticos timestamped de CSV (o CSV real ja e versionado)
+*.backup_*

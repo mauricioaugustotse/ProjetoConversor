@@ -572,49 +572,119 @@ def _ajuste_score(r: dict, *, ano_atual: int = 0) -> float:
     return p
 
 
-def _load_cache(bases: List[str]) -> List[dict]:
+# ------------------------- boost lexical (identificadores fortes) -------------------------
+# Embedding é fraco para números "secos" (nº de lei, nº de artigo): "art. 16-A da Lei 9.504"
+# pode não aproximar o trecho certo. Quando a query traz esses identificadores, os candidatos
+# do topo semântico que os CONTÊM literalmente ganham um bônus pequeno (×1.12) — preserva o
+# ranking semântico e, sem identificador na query, o comportamento é idêntico ao anterior.
+def _identificadores(query: str) -> List[str]:
+    ids: List[str] = []
+    for m in re.finditer(r"\b(\d{1,2})\.(\d{3})\b", query):        # 9.504 -> "9504"
+        ids.append(m.group(1) + m.group(2))
+    for m in re.finditer(r"\b\d{4,5}\b", query):                    # 14133 (não-ano)
+        d = m.group(0)
+        if not (len(d) == 4 and d[:2] in ("19", "20")):
+            ids.append(d)
+    for m in re.finditer(r"art\w*\.?\s*(\d+(?:-[A-Za-z])?)", query, re.IGNORECASE):
+        ids.append("art " + m.group(1).lower())                     # "art 16-a"
+    return list(dict.fromkeys(ids))
+
+
+def _regex_identificador(ident: str) -> "re.Pattern":
+    if ident.startswith("art "):
+        return re.compile(rf"\bart\w*\.?\s*{re.escape(ident[4:])}\b", re.IGNORECASE)
+    if len(ident) > 3:  # nº de norma com ponto de milhar opcional (9504 <-> 9.504)
+        return re.compile(rf"\b{ident[:-3]}\.?{ident[-3:]}\b")
+    return re.compile(rf"\b{ident}\b")
+
+
+# Índice residente por base: o parse do .jsonl é PAGO UMA VEZ por sessão (o gerador faz
+# ~8 consultas por geração; reler 2,5 GB do dje a cada uma custava ~1 min/consulta). O
+# vetor sai do dict (1536 floats "boxed" ≈ 50 KB/registro) e vira UMA matriz float32
+# normalizada — a consulta fica em 1 produto de matriz. Invalidação por (mtime, size).
+_INDICE_MEM: Dict[str, dict] = {}
+
+
+def _indice_base(chave: str, progress=None) -> Optional[dict]:
+    p = cfg.RAG_CACHE_DIR / f"{chave}.jsonl"
+    if not p.exists():
+        return None
+    st = p.stat()
+    stamp = (st.st_mtime_ns, st.st_size)
+    ent = _INDICE_MEM.get(chave)
+    if ent and ent["stamp"] == stamp:
+        return ent
+    if progress and st.st_size > 20_000_000:
+        progress(f"RAG: carregando índice '{chave}' ({st.st_size / 1e6:.0f} MB — "
+                 "1ª consulta da sessão; as próximas reusam da memória)…")
     recs: List[dict] = []
-    for chave in bases:
-        p = cfg.RAG_CACHE_DIR / f"{chave}.jsonl"
-        if not p.exists():
-            continue
-        for line in p.read_text(encoding="utf-8").splitlines():
+    vetores: List[list] = []
+    with open(p, encoding="utf-8") as f:  # streaming: evita read_text de arquivo gigante
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
             try:
                 r = json.loads(line)
-                if r.get("vetor"):
-                    recs.append(r)
             except Exception:  # noqa: BLE001
-                pass
-    return recs
+                continue
+            v = r.pop("vetor", None)
+            if not v:
+                continue
+            recs.append(r)
+            vetores.append(v)
+    if _np is not None and vetores:
+        M = _np.array(vetores, dtype="float32")
+        M /= (_np.linalg.norm(M, axis=1, keepdims=True) + 1e-9)
+    else:
+        M = vetores  # fallback sem numpy (lento; cosseno em Python puro)
+    ent = {"stamp": stamp, "recs": recs, "M": M}
+    _INDICE_MEM[chave] = ent
+    return ent
 
 
 def buscar(query: str, *, k: int = 8, bases: Optional[List[str]] = None,
-           somente_vigente: bool = True) -> List[Trecho]:
+           somente_vigente: bool = True, progress=None) -> List[Trecho]:
     bases = bases or cfg.BASES_PADRAO
-    recs = _load_cache(bases)
-    if somente_vigente:
-        recs = [r for r in recs if r.get("vigente", True)]  # exclui revogados/cancelados/redação anterior
-    if not recs:
+    indices = [(c, e) for c in bases if (e := _indice_base(c, progress)) and e["recs"]]
+    if not indices:
         return []
     qv = llm.embed([query])[0]
-    if _np is not None:
-        M = _np.array([r["vetor"] for r in recs], dtype="float32")
-        q = _np.array(qv, dtype="float32")
-        M /= (_np.linalg.norm(M, axis=1, keepdims=True) + 1e-9)
-        q /= (_np.linalg.norm(q) + 1e-9)
-        sims = (M @ q).tolist()
-    else:
-        qn = math.sqrt(sum(x * x for x in qv)) + 1e-9
-        sims = []
-        for r in recs:
-            v = r["vetor"]
-            dot = sum(a * b for a, b in zip(qv, v))
-            vn = math.sqrt(sum(b * b for b in v)) + 1e-9
-            sims.append(dot / (qn * vn))
-    # re-ranking: score_final = cosseno x peso(prioridade_rag/qualidade) x recência
     ano_atual = datetime.now(timezone.utc).year
-    scored = sorted(((sims[i] * _ajuste_score(recs[i], ano_atual=ano_atual), recs[i])
-                     for i in range(len(recs))), key=lambda x: x[0], reverse=True)
+    candidatos: List[tuple] = []
+    if _np is not None:
+        q = _np.array(qv, dtype="float32")
+        q /= (_np.linalg.norm(q) + 1e-9)
+    for _chave, ent in indices:
+        recs = ent["recs"]
+        if _np is not None and not isinstance(ent["M"], list):
+            sims = (ent["M"] @ q).tolist()
+        else:
+            qn = math.sqrt(sum(x * x for x in qv)) + 1e-9
+            sims = []
+            for v in ent["M"]:
+                dot = sum(a * b for a, b in zip(qv, v))
+                vn = math.sqrt(sum(b * b for b in v)) + 1e-9
+                sims.append(dot / (qn * vn))
+        for i, r in enumerate(recs):
+            if somente_vigente and not r.get("vigente", True):
+                continue  # exclui revogados/cancelados/redação anterior
+            candidatos.append((sims[i] * _ajuste_score(r, ano_atual=ano_atual), r))
+    # re-ranking: score_final = cosseno x peso(prioridade_rag/qualidade) x recência
+    scored = sorted(candidatos, key=lambda x: x[0], reverse=True)
+    # 2ª fase (lexical): bônus para candidatos do topo que contêm literalmente os
+    # identificadores fortes da query (nº de lei / nº de artigo) — só nos top-200
+    idents = _identificadores(query)
+    if idents:
+        regs = [_regex_identificador(i) for i in idents]
+        topo = []
+        for sc, r in scored[:200]:
+            alvo = (r.get("titulo") or "") + " " + (r.get("texto") or "")[:2000]
+            if any(rx.search(alvo) for rx in regs):
+                sc *= 1.12
+            topo.append((sc, r))
+        topo.sort(key=lambda x: x[0], reverse=True)
+        scored = topo + scored[200:]
     return [Trecho(r["fonte"], r["titulo"], r["texto"], float(sc), r.get("url", ""),
                    r.get("vigente", True), r.get("prioridade", "principal"), r.get("data", ""),
                    r.get("page_id", ""), r.get("ancora", ""))

@@ -1,128 +1,132 @@
 {
-  "generated_at": "2026-07-02T14:57:43.157665+00:00",
-  "total_rows": 10,
+  "generated_at": "2026-07-04T18:43:29.030569+00:00",
+  "total_rows": 1035,
   "fill_rate": {
     "tema": {
-      "filled": 10,
+      "filled": 1035,
       "missing": 0,
       "fill_pct": 100.0
     },
     "bullet_points": {
-      "filled": 0,
-      "missing": 10,
-      "fill_pct": 0.0
+      "filled": 1035,
+      "missing": 0,
+      "fill_pct": 100.0
     },
     "classe": {
-      "filled": 10,
+      "filled": 1035,
       "missing": 0,
       "fill_pct": 100.0
     },
     "contexto": {
-      "filled": 0,
-      "missing": 10,
-      "fill_pct": 0.0
+      "filled": 1035,
+      "missing": 0,
+      "fill_pct": 100.0
     },
     "data_julgamento": {
-      "filled": 10,
+      "filled": 1035,
       "missing": 0,
       "fill_pct": 100.0
     },
     "data_publicacao": {
-      "filled": 10,
+      "filled": 1035,
       "missing": 0,
       "fill_pct": 100.0
     },
     "decisao": {
-      "filled": 10,
-      "missing": 0,
-      "fill_pct": 100.0
+      "filled": 1033,
+      "missing": 2,
+      "fill_pct": 99.81
     },
     "informativo": {
-      "filled": 10,
+      "filled": 1035,
       "missing": 0,
       "fill_pct": 100.0
     },
     "jurisprudência": {
-      "filled": 0,
-      "missing": 10,
-      "fill_pct": 0.0
+      "filled": 341,
+      "missing": 694,
+      "fill_pct": 32.95
     },
     "legislacao": {
-      "filled": 0,
-      "missing": 10,
-      "fill_pct": 0.0
+      "filled": 993,
+      "missing": 42,
+      "fill_pct": 95.94
     },
     "noticia_1": {
-      "filled": 0,
-      "missing": 10,
-      "fill_pct": 0.0
+      "filled": 22,
+      "missing": 1013,
+      "fill_pct": 2.13
     },
     "noticia_2": {
       "filled": 0,
-      "missing": 10,
+      "missing": 1035,
       "fill_pct": 0.0
     },
     "numero_processo": {
-      "filled": 10,
+      "filled": 1035,
       "missing": 0,
       "fill_pct": 100.0
     },
     "orgao_julgador": {
-      "filled": 10,
+      "filled": 1026,
+      "missing": 9,
+      "fill_pct": 99.13
+    },
+    "punchline": {
+      "filled": 1035,
       "missing": 0,
       "fill_pct": 100.0
     },
-    "punchline": {
-      "filled": 0,
-      "missing": 10,
-      "fill_pct": 0.0
-    },
     "ramo_do_direito": {
-      "filled": 0,
-      "missing": 10,
-      "fill_pct": 0.0
+      "filled": 1035,
+      "missing": 0,
+      "fill_pct": 100.0
     },
     "relator(a)": {
-      "filled": 10,
+      "filled": 1035,
       "missing": 0,
       "fill_pct": 100.0
     },
     "subramo_do_direito": {
-      "filled": 0,
-      "missing": 10,
-      "fill_pct": 0.0
+      "filled": 1035,
+      "missing": 0,
+      "fill_pct": 100.0
     },
     "tese": {
-      "filled": 0,
-      "missing": 10,
-      "fill_pct": 0.0
+      "filled": 1035,
+      "missing": 0,
+      "fill_pct": 100.0
     },
     "texto_do_boletim": {
-      "filled": 10,
+      "filled": 1035,
       "missing": 0,
       "fill_pct": 100.0
     },
     "tribunal": {
-      "filled": 10,
+      "filled": 1035,
       "missing": 0,
       "fill_pct": 100.0
     }
   },
   "metrics": {
     "starts_with_oletim_nformativo": 0,
-    "multiple_unanime": 0,
+    "multiple_unanime": 8,
     "citation_then_new_sentence": 0,
     "openai_done_but_missing_critical": 0,
     "data_julgamento_invalid": 0,
     "data_publicacao_invalid": 0,
     "bullet_blank_like": 0,
     "tema_too_short_count": 0,
-    "openai_done": 0,
-    "perplexity_done": 0,
-    "noticia_fill_rate_pct": 0.0,
+    "openai_done": 975,
+    "perplexity_done": 22,
+    "noticia_fill_rate_pct": 2.13,
     "perplexity_stage1_accept_count": 0,
     "perplexity_stage2_accept_count": 0,
-    "perplexity_reject_by_reason": {},
-    "perplexity_empty_or_error_reasons": {}
+    "perplexity_reject_by_reason": {
+      "ok": 22
+    },
+    "perplexity_empty_or_error_reasons": {
+      "ok": 22
+    }
   }
 }

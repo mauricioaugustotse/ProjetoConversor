@@ -8,9 +8,10 @@ import unicodedata
 from typing import List, Optional
 
 from docx import Document
-from docx.shared import Pt, RGBColor
-from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.shared import Pt, RGBColor, Twips
+from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_TAB_ALIGNMENT, WD_TAB_LEADER
 from docx.opc.constants import RELATIONSHIP_TYPE
+from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 
 from . import config
@@ -34,32 +35,122 @@ def _style_name(doc, name: str) -> str:
         return "Normal"
 
 
+# Nível de estrutura de tópicos (painel de Navegação do Word) por estilo de
+# título. Nos modelos da casa só o TÍTULO SUBITEM (1.1) traz outlineLvl — os
+# itens "1." e os subitens "1.1.1" ficavam FORA da navegação (reclamação do
+# usuário, 04/07/26); o builder força o nível correto em cada parágrafo.
+_OUTLINE_POR_ESTILO = {S.TITULO_ITEM: 0, S.TITULO_SUB: 1, S.TITULO_SUB2: 2}
+
+
+def _nivel_topico(para, nivel: int):
+    pPr = para._p.get_or_add_pPr()
+    for velho in pPr.findall(qn("w:outlineLvl")):
+        pPr.remove(velho)
+    el = OxmlElement("w:outlineLvl")
+    el.set(qn("w:val"), str(nivel))
+    pPr.append(el)
+
+
+def _recuo_alinhado_corpo(doc):
+    """Recuo esquerdo que alinha um elemento ao início da 1ª linha dos
+    parágrafos do corpo (firstLine do CORPO PADRÃO; 1701 twips nos modelos).
+    Padrão do usuário (04/07/26) p/ transcrições e bullets — o left=2268 do
+    estilo TRANSCRIÇÃO LEI ficava "mais para dentro" que o corpo."""
+    try:
+        fl = doc.styles[_style_name(doc, S.CORPO)].paragraph_format.first_line_indent
+    except KeyError:
+        fl = None
+    return fl if fl and int(fl) > 0 else Twips(1701)
+
+
 def _p(doc, style: str, *, text: Optional[str] = None, rich: Optional[List[RichText]] = None,
        force_bold: Optional[bool] = None, linkificar: bool = True):
     para = doc.add_paragraph(style=_style_name(doc, style))
+    if style in _OUTLINE_POR_ESTILO:
+        _nivel_topico(para, _OUTLINE_POR_ESTILO[style])
+    elif style == S.TRANSCRICAO:
+        para.paragraph_format.left_indent = _recuo_alinhado_corpo(doc)
     if text is not None:
         run = para.add_run(text)
         if force_bold:
             run.bold = True
+        if "  " in text:
+            # lacunas de espaços (fecho, epígrafe "Nº     ,") sobrevivem à
+            # normalização de whitespace do OOXML só com xml:space=preserve
+            for t in run._r.findall(qn("w:t")):
+                t.set(qn("xml:space"), "preserve")
     elif rich is not None:
         add_runs(para, rich, force_bold=force_bold, linkificar=linkificar)
     return para
 
 
 def _add_bullet(doc, rich: List[RichText]):
+    """Bullet no padrão fixado pelo usuário (04/07/26, ajuste manual replicado):
+    recuo esquerdo no início da 1ª linha do corpo (texto alinhado aos demais
+    parágrafos) e hanging de 1 twip só para anular o firstLine herdado do
+    estilo CORPO PADRÃO."""
     para = doc.add_paragraph(style=_style_name(doc, S.CORPO))
     pf = para.paragraph_format
-    pf.first_line_indent = Pt(-14.2)
-    pf.left_indent = Pt(28.4)
-    para.add_run("•\t")
+    pf.left_indent = _recuo_alinhado_corpo(doc)
+    pf.first_line_indent = Twips(-1)
+    para.add_run("•")
+    para.add_run().add_tab()
     add_runs(para, rich)
+    return para
+
+
+# Linha de supressão do texto legislativo ("Art. 29. ........."): sequência
+# longa de pontos. O Notion traz um nº arbitrário de pontos (ex. 125), que em
+# fonte proporcional estoura ou não alcança a margem — vira tab com leader.
+_RE_PONTILHADO = re.compile(r"\.{8,}")
+
+
+def _tem_pontilhado(linha: List[RichText]) -> bool:
+    return any(_RE_PONTILHADO.search(r.text) for r in linha)
+
+
+def _tab_margem_direita(doc, style: str):
+    """Posição (da margem esquerda do texto) da margem direita efetiva de um
+    parágrafo do estilo dado — onde o tab-leader do pontilhado deve terminar."""
+    sec = doc.sections[-1]
+    largura = sec.page_width - sec.left_margin - sec.right_margin
+    try:
+        ri = doc.styles[_style_name(doc, style)].paragraph_format.right_indent
+    except KeyError:
+        ri = None
+    return largura - (ri or 0)
+
+
+def _p_pontilhado(doc, linha: List[RichText], style: str):
+    """Parágrafo com linha de supressão: cada sequência longa de pontos vira
+    um TAB até tab-stop na margem direita com leader de pontos — preenche a
+    linha exata, qualquer que seja o nº de pontos vindo do Notion."""
+    para = doc.add_paragraph(style=_style_name(doc, style))
+    if style == S.TRANSCRICAO:
+        para.paragraph_format.left_indent = _recuo_alinhado_corpo(doc)
+    para.paragraph_format.tab_stops.add_tab_stop(
+        _tab_margem_direita(doc, style), WD_TAB_ALIGNMENT.RIGHT, WD_TAB_LEADER.DOTS)
+    for r in linha:
+        partes = _RE_PONTILHADO.split(r.text)
+        for i, parte in enumerate(partes):
+            if i:
+                para.add_run().add_tab()
+            if parte:
+                run = para.add_run(parte)
+                if r.bold:
+                    run.bold = True
+                if r.italic:
+                    run.italic = True
     return para
 
 
 def _add_quote_as_transcricao(doc, rich: List[RichText]):
     # transcrição de texto de lei: sem linkificação de citações (fidelidade)
     for linha in split_rich_lines(rich):
-        _p(doc, S.TRANSCRICAO, rich=linha, linkificar=False)
+        if _tem_pontilhado(linha):
+            _p_pontilhado(doc, linha, S.TRANSCRICAO)
+        else:
+            _p(doc, S.TRANSCRICAO, rich=linha, linkificar=False)
 
 
 def _add_equation(doc, block: Block):
@@ -277,7 +368,12 @@ def build_it(sep: PaginaSeparada, abertura: Abertura, meta: MetaDocumento) -> Do
         _p(doc, S.CORPO, text=config.BLOCO_RESOLUCAO_INTRO_SEM_APENSACAO)
         transcricao = config.BLOCO_RESOLUCAO_TRANSCRICAO_SEM_APENSACAO
     for linha in transcricao:
-        _p(doc, S.TRANSCRICAO, text=linha)
+        if set(linha) == {"."}:
+            # linha PONTILHADO do bloco fixo: tab-leader (o nº fixo de pontos
+            # era calibrado p/ o recuo antigo; o leader preenche em qualquer)
+            _p_pontilhado(doc, [RichText(linha, False, False, False, None)], S.TRANSCRICAO)
+        else:
+            _p(doc, S.TRANSCRICAO, text=linha)
     _p(doc, S.CORPO, text=abertura.transicao)
 
     _render_it_blocks(doc, sep.it_blocks)
@@ -285,7 +381,7 @@ def build_it(sep: PaginaSeparada, abertura: Abertura, meta: MetaDocumento) -> Do
     _p(doc, S.FECHO, text=meta.fecho_it_txt)
     _p(doc, S.ASSINATURA, text=meta.consultor)
     _p(doc, S.ASSINATURA, text=meta.consultor_cargo)
-    _p(doc, S.SISCONLE, text=meta.sisconle_txt)
+    _sisconle_rodape(doc, meta)
     _limpar_hyperlinks_orfaos(doc)
     return doc
 
@@ -312,6 +408,8 @@ def _render_articulado(doc, blocks: List[Block], tipo: TipoProposicao):
                 continue
             if _PREAMBULO_RE.search(t) and len(t) <= 120:
                 _p(doc, S.PREAMBULO, text=tipo.preambulo)
+            elif _tem_pontilhado(b.rich):
+                _p_pontilhado(doc, b.rich, S.CORPO)
             else:
                 _p(doc, S.CORPO, rich=b.rich, linkificar=False)
         elif b.type == "quote":
@@ -349,8 +447,15 @@ def build_proposicao(sep: PaginaSeparada, meta: MetaDocumento) -> Document:
     tipo = sep.tipo
 
     _p(doc, S.EPIGRAFE, text=_epigrafe_text(sep, meta))
-    _p(doc, S.AUTORIA, text=meta.autoria_prop)
-    _p(doc, S.EMENTA, rich=sep.ementa or [RichText(plain(sep.ementa))])
+    autoria = meta.autoria_prop
+    if tipo.sigla == "PEC":
+        # PEC nunca é individual (exige 1/3 da Câmara): "(Do Sr. NOME e outros)",
+        # como no modelo oficial da Câmara
+        autoria = autoria[:-1] + " e outros)"
+    _p(doc, S.AUTORIA, text=autoria)
+    # Ementa é parte do texto oficial da proposição: sai limpa, sem hyperlinks
+    # (mesma política do articulado), ainda que o autor tenha linkado no Notion.
+    _p(doc, S.EMENTA, rich=sep.ementa or [RichText(plain(sep.ementa))], linkificar=False)
 
     _render_articulado(doc, sep.articulado_blocks, tipo)
 
@@ -359,7 +464,7 @@ def build_proposicao(sep: PaginaSeparada, meta: MetaDocumento) -> Document:
 
     _p(doc, S.FECHO, text=meta.fecho_prop_txt(tipo.local_fecho))
     _p(doc, S.ASSINATURA, text=meta.assinatura_prop)
-    _p(doc, S.SISCONLE, text=meta.sisconle_txt)
+    _sisconle_rodape(doc, meta)
     _limpar_hyperlinks_orfaos(doc)
     return doc
 
@@ -388,20 +493,29 @@ def _rotulo_relator(relator: str) -> str:
 
 def _sisconle_rodape(doc, meta: MetaDocumento):
     """Nº do trabalho SISCONLE no rodapé REAL da página (w:ftr), em todas as
-    páginas do parecer — pedido do usuário (04/07/26), que sobrepõe o modelo
-    da casa (lá o número é parágrafo do corpo no fim de cada peça). Com
-    titlePg ativo a 1ª página usa o footer "first", então os dois footers são
-    preenchidos."""
-    for section in doc.sections:
+    páginas de todos os documentos — pedido do usuário (04/07/26), que sobrepõe
+    o modelo da casa (lá o número é parágrafo no fim do corpo). Preserva o que
+    o template já tem no rodapé (timbre da IT, disclaimer da capa): o número
+    entra como parágrafo ADICIONAL. Seção sem footer próprio que herda o da
+    anterior (corpo da IT) não é desvinculada — herda o rodapé já numerado.
+    Cobre first page (titlePg) e páginas pares (evenAndOddHeaders)."""
+    for si, section in enumerate(doc.sections):
         footers = [section.footer]
         if section.different_first_page_header_footer:
             footers.append(section.first_page_footer)
+        if doc.settings.odd_and_even_pages_header_footer:
+            footers.append(section.even_page_footer)
         for footer in footers:
-            footer.is_linked_to_previous = False
-            para = footer.paragraphs[0]
+            if footer.is_linked_to_previous:
+                if si > 0:
+                    continue  # herda (da seção anterior) o rodapé já numerado
+                footer.is_linked_to_previous = False  # cria o footer vazio
+            if any(meta.sisconle_txt in p.text for p in footer.paragraphs):
+                continue
+            p0 = footer.paragraphs[0]
+            vazio = len(footer.paragraphs) == 1 and not p0.runs and not p0.text.strip()
+            para = p0 if vazio else footer.add_paragraph()
             para.style = doc.styles[_style_name(doc, S.SISCONLE)]
-            for run in list(para.runs):
-                run.text = ""
             para.add_run(meta.sisconle_txt)
 
 
@@ -472,7 +586,8 @@ def build_parecer(par: ParecerSeparado, meta: MetaDocumento) -> Document:
         _p(doc, S.COMISSAO, text=par.comissao or "[COMISSÃO]")
         _p(doc, S.EPIGRAFE, text=par.sub_epigrafe)
         if par.sub_ementa:
-            _p(doc, S.EMENTA, rich=par.sub_ementa)
+            # ementa do substitutivo = texto oficial, sem hyperlinks
+            _p(doc, S.EMENTA, rich=par.sub_ementa, linkificar=False)
         _render_articulado(doc, par.sub_articulado_blocks, par.tipo)
         _p(doc, S.FECHO, text=meta.fecho_prop_txt(config.LOCAL_FECHO_PARECER))
         _p(doc, S.ASSINATURA, text=relator)

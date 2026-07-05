@@ -13,8 +13,9 @@ from .config import data_extenso
 from .docx_builder import build_it, build_parecer, build_proposicao
 from .harmonizer import gerar_abertura
 from .meta import MetaDocumento
-from .notion_api import fetch_page
+from .notion_api import fetch_page, resolver_mentions_publicas
 from .notion_parser import Block, parse_blocks, flatten_blocks
+from .residual import polir_residuos_pagina
 from .splitter import detectar_layout, split_page, split_parecer, PaginaSeparada, ParecerSeparado
 
 
@@ -25,6 +26,13 @@ _INVALIDOS = re.compile(r'[\\/:*?"<>|]+')
 _SIGLA_PREFIXO = re.compile(
     r"^(PLP|PEC|PRC|PDL|PDC|PLV|MPV|PL)\s*[-–—:]\s*", re.IGNORECASE
 )
+# Título no layout invertido "Minuta — PEC: <tema>" / "Minuta de PEC — <tema>"
+# (a palavra "minuta" vem ANTES do tema): o prefixo é descartado; a sigla que
+# sobrar cai no _SIGLA_PREFIXO. Sem isso o tema virava literalmente "Minuta".
+_MINUTA_PREFIXO = re.compile(
+    r"^minuta(?:\s+de)?\s*(?:(?:PLP|PEC|PRC|PDL|PDC|PLV|MPV|PL)\b\s*)?[-–—:]+\s*",
+    re.IGNORECASE,
+)
 
 
 def _sanitize(nome: str, limite: int = 150) -> str:
@@ -34,7 +42,8 @@ def _sanitize(nome: str, limite: int = 150) -> str:
 
 
 def _tema(titulo: str) -> str:
-    base = re.split(r"[—–-]\s*minuta", titulo, flags=re.IGNORECASE)[0]
+    base = _MINUTA_PREFIXO.sub("", (titulo or "").strip())
+    base = re.split(r"[—–-]\s*minuta", base, flags=re.IGNORECASE)[0]
     base = base.split("—")[0].split("–")[0]
     base = _SIGLA_PREFIXO.sub("", base.strip(" -–—"))
     return _sanitize(base.strip(" -–—"))
@@ -181,6 +190,12 @@ def converter(
     log(f"Página: “{titulo}”. Processando blocos…")
     blocks = flatten_blocks(parse_blocks(raw))
 
+    # Mentions internas sem norma mapeada (ex. julgados do TSE) ganham a URL
+    # pública da própria página mencionada — a referência não se perde no docx.
+    n_pub = resolver_mentions_publicas(blocks)
+    if n_pub:
+        log(f"Referências de mentions internas resolvidas para fonte pública: {n_pub}.")
+
     # O tipo de documento é decidido pela ESTRUTURA da página (auto-detecção):
     # layout de parecer de comissão gera o parecer; senão, IT/minuta.
     if detectar_layout(blocks) == "parecer":
@@ -196,6 +211,15 @@ def converter(
 
     sep = split_page(blocks, titulo)
     log(f"Tipo de proposição identificado: {sep.tipo.sigla} ({sep.tipo.nome_extenso}).")
+
+    if usar_ia:
+        # Rede de segurança: resíduos de citação que as regras determinísticas
+        # não resolveram (raro) são polidos pontualmente pela IA, com validação
+        # anti-perda (ver conle_conversor.residual).
+        log("Verificando resíduos de citação…")
+        resultado_polimento = polir_residuos_pagina(sep, log)
+    else:
+        resultado_polimento = []
 
     meta = build_meta(sep, overrides)
 
@@ -214,6 +238,7 @@ def converter(
     )
     if not abertura.via_ia and usar_ia:
         resultado.avisos.append("A abertura foi gerada por modelo-padrão (IA indisponível).")
+    resultado.avisos.extend(resultado_polimento)
 
     tema = _tema(titulo)
 
