@@ -138,6 +138,20 @@ L9504_PLANALTO_URL = "https://www.planalto.gov.br/ccivil_03/leis/l9504.htm"
 # Código Eleitoral (Lei 4.737/1965): a versão ORIGINAL tem âncoras name="artN"
 # (aferido: art242/art299 existem); a "compilado" NÃO tem âncora nenhuma.
 L4737_PLANALTO_URL = "https://www.planalto.gov.br/ccivil_03/leis/l4737.htm"
+# Lei 5.889/1973 (trabalho rural) — âncoras nativas #artN aferidas (inclusive
+# letra minúscula: name="art14a"), padrão ccivil_03.
+L5889_PLANALTO_URL = "https://www.planalto.gov.br/ccivil_03/leis/l5889.htm"
+# LC 95/1998 (elaboração/redação das leis) — citada em todo exame de técnica
+# legislativa; mesma URL que os autores já usam nos links manuais.
+LCP95_PLANALTO_URL = "https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp95.htm"
+# NR-31 (segurança e saúde no trabalho rural) — página oficial vigente no
+# portal do MTE (aferida 05/07/2026; NR não tem artigos, link sem âncora).
+NR31_MTE_URL = (
+    "https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/"
+    "participacao-social/conselhos-e-orgaos-colegiados/"
+    "comissao-tripartite-partitaria-permanente/normas-regulamentadora/"
+    "normas-regulamentadoras-vigentes/norma-regulamentadora-no-31-nr-31"
+)
 
 
 def ancora_artigo_cf(num: int) -> str:
@@ -295,6 +309,33 @@ NORMAS_OFICIAIS = [
                             r"(?:\s*/\s*(?:19)?65|,?\s+de(?:\s+15\s+de\s+julho\s+de)?\s+1965)"),
         montar_url=_fonte_planalto(L4737_PLANALTO_URL),
         aliases=("Código Eleitoral",),
+    ),
+    NormaOficial(
+        mention_re=rf"^Lei\s*n?[ºo°.]*\s*5\.?889(?:\s*/\s*(?:19)?73)?\s*[-–—]\s*{_ART_MENTION}",
+        citacao_re=(r"Lei\s*n?[ºo°.]*\s*5\.?889"
+                    r"(?:\s*/\s*(?:19)?73|,?\s+de(?:\s+8\s+de\s+junho\s+de)?\s+1973)?"),
+        citacao_isolada_re=(r"Lei\s*n?[ºo°.]*\s*5\.?889"
+                            r"(?:\s*/\s*(?:19)?73|,?\s+de(?:\s+8\s+de\s+junho\s+de)?\s+1973)"),
+        montar_url=_fonte_planalto(L5889_PLANALTO_URL),
+        aliases=("Lei nº 5.889/1973", "Lei 5.889/1973"),
+    ),
+    NormaOficial(
+        mention_re=rf"^(?:LC|Lei Complementar)\s*n?[ºo°.]*\s*95(?:\s*/\s*(?:19)?98)?\s*[-–—]\s*{_ART_MENTION}",
+        citacao_re=(r"(?:LC|Lei\s+Complementar)\s*n?[ºo°.]*\s*95"
+                    r"(?:\s*/\s*(?:19)?98|,?\s+de(?:\s+26\s+de\s+fevereiro\s+de)?\s+1998)?"),
+        citacao_isolada_re=(r"(?:LC|Lei\s+Complementar)\s*n?[ºo°.]*\s*95"
+                            r"(?:\s*/\s*(?:19)?98|,?\s+de(?:\s+26\s+de\s+fevereiro\s+de)?\s+1998)"),
+        montar_url=_fonte_planalto(LCP95_PLANALTO_URL),
+        aliases=("Lei Complementar nº 95/1998", "LC nº 95/1998", "LC 95/1998"),
+    ),
+    NormaOficial(
+        # NR não tem artigos (itens 31.x.x) — link sempre para o topo da página.
+        mention_re=r"^(?:NR[-\s]?31|Norma\s+Regulamentadora\s*n?[ºo°.]*\s*31)\b",
+        citacao_re=r"NR[-\s]?31\b|Norma\s+Regulamentadora\s*n?[ºo°.]*\s*31\b",
+        citacao_isolada_re=(r"Norma\s+Regulamentadora\s*n?[ºo°.]*\s*31"
+                            r"(?:\s*\(NR[-\s]?31\))?|NR[-\s]?31\b"),
+        montar_url=lambda m: NR31_MTE_URL,
+        aliases=("NR-31", "Norma Regulamentadora nº 31"),
     ),
     NormaOficial(
         # Base Vademecum "Res.-TSE n. 23.735/2024 - Ilicitos eleitorais"

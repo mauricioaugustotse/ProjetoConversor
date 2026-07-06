@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+import unicodedata
 from dataclasses import replace
 from typing import List, Optional
 
@@ -136,6 +137,42 @@ def _montar_padroes_citacao() -> list:
 
 
 _PADROES_CITACAO = _montar_padroes_citacao()
+
+
+def resolver_links_notion_texto(rich_list: List[RichText]) -> List[RichText]:
+    """Hyperlink de TEXTO (não mention) apontando para página interna do Notion
+    — o autor linkou a citação a uma base interna (ex. Vademecum), que o leitor
+    do .docx não acessa. Texto que casa uma norma de config.FONTES_OFICIAIS
+    ganha a URL oficial; senão o href é ZERADO ainda no início da cadeia, para
+    a citação textual poder ser linkada por linkificar_citacoes (um href
+    presente a faria ser pulada — caso real: "art. 54 do RICD" linkado à página
+    do Vademecum saía como texto morto no parecer do PL 3.263/2023). Mentions
+    não passam por aqui: as de norma são resolvidas por texto em add_runs e as
+    demais já chegam com URL pública via notion_api.resolver_mentions_publicas."""
+    out: List[RichText] = []
+    for r in rich_list or []:
+        if r.kind == "text" and _link_interno_notion((r.href or "").strip()):
+            out.append(replace(r, href=resolver_fonte_publica(r.text)))
+        else:
+            out.append(r)
+    return out
+
+
+def fundir_runs_lisos(rich_list: List[RichText]) -> List[RichText]:
+    """Une runs adjacentes SEM formatação e sem href (kind text). Um link
+    interno zerado por resolver_links_notion_texto deixa a citação espalhada
+    em runs contíguos ("…alínea 'a', do " + "Regimento Interno…" + ", compete…")
+    que linkificar_citacoes — limitado a um run — não casaria."""
+    out: List[RichText] = []
+    for r in rich_list or []:
+        liso = not (r.bold or r.italic or r.underline or r.href) and r.kind == "text"
+        if liso and out:
+            p = out[-1]
+            if not (p.bold or p.italic or p.underline or p.href) and p.kind == "text":
+                out[-1] = replace(p, text=p.text + r.text)
+                continue
+        out.append(r)
+    return out
 
 
 def linkificar_citacoes(rich_list: List[RichText]) -> List[RichText]:
@@ -308,6 +345,25 @@ _RE_NORMA_ADIANTE = re.compile(
     r"regimento|ricd\b|cf\b|constitui[çc][ãa]o|adct\b|lc\b|ec\b)",
     re.I,
 )
+# Dispositivo precedido de possessivo ("Por meio de seu art. 1º, a proposição
+# acrescenta…"): pertence ao sujeito da frase (a proposição em exame), não à
+# norma linkada antes — anáfora NÃO se aplica.
+_RE_POSSESSIVO_ANTES = re.compile(r"\b(?:seus?|suas?|dest[ea]s?)\s+$", re.I)
+# Cláusula de vigência logo após ("O art. 2º dispõe sobre a vigência"): é o
+# fecho padrão da PRÓPRIA proposição — nunca ancorável na norma alterada.
+_RE_VIGENCIA_ADIANTE = re.compile(r"^[^.;]{0,40}?\b(?:vig[êe]ncia|vigor)\b", re.I)
+# Regência de ACRÉSCIMO imediatamente antes ("o acréscimo do art. 9º-A",
+# "acrescenta o art. 9º-A à referida lei"): o dispositivo é o próprio objeto
+# da deliberação — ainda NÃO existe no texto oficial da norma alterada, então
+# fica SEM link (decisão do usuário, 05/07/2026: "abrir a lei não resultaria
+# em nada, visto que o próprio artigo está em deliberação").
+_RE_ACRESCIMO_ANTES = re.compile(
+    r"(?:\b(?:acr[ée]scimo|inclus[ãa]o|inser[çc][ãa]o)\s+d[oa]s?"
+    r"|\b(?:acrescent\w+|inclui\w*|insere\w*|inserind\w+|introduz\w*)\s+[oa]s?"
+    r"|\b(?:acrescid|inclu[ií]d|inserid|introduzid)\w+\s+[oa]s?)"
+    r"\s+(?:novo\s+)?$",
+    re.I,
+)
 
 
 def linkificar_dispositivos_anaforicos(rich_list: List[RichText]) -> List[RichText]:
@@ -320,7 +376,11 @@ def linkificar_dispositivos_anaforicos(rich_list: List[RichText]) -> List[RichTe
     Lei nº 9.504/1997. …critérios ao próprio art. 22…", em que o art. 22 é da
     LC 64: fica sem link em vez de ganhar o errado). Também não linka sem
     antecedente, quando outra norma é nomeada logo após o artigo, nem em runs
-    já linkados."""
+    já linkados. Refinos do parecer (05/07/2026, PL 3.263/2023): dispositivo
+    com possessivo antes ("seu art. 1º"), cláusula de vigência depois ("O
+    art. 2º dispõe sobre a vigência") ou regido por acréscimo/inclusão ("o
+    acréscimo do art. 9º-A") pertence à PRÓPRIA proposição em deliberação —
+    nunca herda link (o dispositivo ainda não existe no texto oficial)."""
     out: List[RichText] = []
     bases_vistas: set = set()
     for r in rich_list or []:
@@ -342,6 +402,13 @@ def linkificar_dispositivos_anaforicos(rich_list: List[RichText]) -> List[RichTe
                 continue
             if _RE_NORMA_ADIANTE.match(r.text[m.end():]):
                 continue
+            prefixo = r.text[:m.start()]
+            if _RE_POSSESSIVO_ANTES.search(prefixo):
+                continue  # "seu art. 1º" — dispositivo da proposição
+            if _RE_VIGENCIA_ADIANTE.match(r.text[m.end():]):
+                continue  # "O art. 2º dispõe sobre a vigência" — idem
+            if _RE_ACRESCIMO_ANTES.search(prefixo):
+                continue  # "o acréscimo do art. 9º-A" — em deliberação, sem link
             url = _ancorar_dispositivo(base, m.group(0))
             if url == base:
                 continue  # base sem regra de âncora
@@ -729,15 +796,23 @@ def preparar_rich(rich_list: List[RichText], *, linkificar: bool = True) -> List
     dispositivo citado logo após ("Resolução…, no art. 28") — depois da
     supressão, porque o "(cf. mention)" pode estar ENTRE o link e o ", no
     art. N" (caso real do bloco da Res. 23.610); (6) "caput" em itálico por
-    último (divide runs e quebraria o casamento dos padrões)."""
+    último (divide runs e quebraria o casamento dos padrões). Antes de (2),
+    links de texto para páginas internas do Notion são resolvidos para a fonte
+    oficial ou zerados (resolver_links_notion_texto) — um href residual do
+    Notion blindaria a citação contra a linkificação textual."""
     rich_list = limpar_ecos_redundantes(rich_list)
     if linkificar:
+        rich_list = resolver_links_notion_texto(rich_list)
+        rich_list = fundir_runs_lisos(rich_list)
         rich_list = limpar_colchetes_citacoes(rich_list)
         rich_list = linkificar_citacoes(rich_list)
         rich_list = suprimir_cf_redundante(rich_list)
         rich_list = estender_link_dispositivo(rich_list)
         rich_list = linkificar_dispositivos_anaforicos(rich_list)
-    return italicizar_caput(rich_list)
+    # canonicaliza no fim: os passos acima podem deixar runs lisos adjacentes
+    # (ex. supressão do "(cf. …)"), e sem a fusão final uma 2ª passada os
+    # uniria — quebrando a idempotência da cadeia
+    return fundir_runs_lisos(italicizar_caput(rich_list))
 
 
 def add_runs(paragraph, rich_list: List[RichText], *, force_bold: Optional[bool] = None,
@@ -785,6 +860,74 @@ def add_runs(paragraph, rich_list: List[RichText], *, force_bold: Optional[bool]
             if r.underline:
                 run.underline = True
     return paragraph
+
+
+# ---------------------------------------------------------------------------
+# Detector de normas citadas sem fonte mapeada (vira aviso na conversão)
+# ---------------------------------------------------------------------------
+# Designação genérica de norma numerada no texto corrido. O lookbehind
+# descarta "Projeto de Lei nº 3.263" (a proposição em exame não é lacuna).
+_RE_NORMA_GENERICA = re.compile(
+    r"(?<!Projeto de )\b"
+    r"(?:Lei\s+Complementar|Lei\s+Delegada|Decreto-Lei|Decreto\s+Legislativo|"
+    r"Decreto|Emenda\s+Constitucional|Medida\s+Provis[óo]ria|Lei|LC|EC|MPV?)"
+    r"\s*n[ºo°.]*\s*\d{1,3}(?:\.\d{3})*"
+    r"(?:\s*/\s*\d{2,4}|,?\s+de(?:\s+\d{1,2}[ºo°]?\s+de\s+[a-zA-Zçãéêô]+\s+de)?\s+\d{4})?"
+    r"|\bNorma\s+Regulamentadora\s*n[ºo°.]*\s*\d{1,2}(?:\s*\(NR[-\s]?\d{1,2}\))?"
+    r"|\bNR[-\s]\d{1,2}\b"
+    r"|\bResolu[çc][ãa]o\s+(?:d[oa]\s+)?(?:TSE|CNJ|CNMP|Senado\s+Federal|"
+    r"C[âa]mara\s+dos\s+Deputados)\s*n[ºo°.]*\s*[\d.]+(?:\s*/\s*\d{4})?",
+    re.I,
+)
+
+
+def _chave_norma(cand: str) -> str:
+    """Chave de dedupe: classe + dígitos ("Lei nº 5.889, de 8 de junho de
+    1973" e "Lei nº 5.889/1973" são a MESMA lacuna)."""
+    s = unicodedata.normalize("NFKD", cand).encode("ascii", "ignore").decode().upper()
+    m = re.search(r"[\d.]+", s)
+    num = re.sub(r"\D", "", m.group(0)) if m else ""
+    if "COMPLEMENTAR" in s or re.match(r"\s*LC\b", s):
+        cls = "LC"
+    elif "REGULAMENTADORA" in s or re.match(r"\s*NR\b", s):
+        cls = "NR"
+    elif "EMENDA" in s or re.match(r"\s*EC\b", s):
+        cls = "EC"
+    elif "PROVIS" in s or re.match(r"\s*MPV?\b", s):
+        cls = "MPV"
+    elif "DECRETO-LEI" in s:
+        cls = "DL"
+    elif "DECRETO" in s:
+        cls = "DEC"
+    elif "RESOLU" in s:
+        cls = "RES"
+    else:
+        cls = "LEI"
+    return f"{cls}:{num}"
+
+
+def detectar_normas_sem_fonte(rich_lists: List[List[RichText]]) -> List[str]:
+    """Designações de norma citadas no texto que NÃO sairão com hyperlink no
+    .docx: não estão em config.NORMAS_OFICIAIS (a citação não linkifica) nem
+    foram linkadas pelo autor. Passa cada parágrafo pela cadeia preparar_rich
+    (pura/idempotente — a mesma que o build usa) e só varre os runs que
+    restaram SEM href. Retorna a 1ª ocorrência de cada norma, na ordem do
+    texto — o pipeline transforma em aviso, para o usuário decidir se mapeia
+    a norma na tabela (passo manual: verificar URL/âncoras da fonte oficial)."""
+    achados: dict = {}
+    for rich in rich_lists or []:
+        prep = preparar_rich(list(rich or []))
+        # \x00 impede que um candidato atravesse a fronteira entre runs
+        solto = "\x00".join(r.text for r in prep if not r.href and r.kind == "text")
+        for m in _RE_NORMA_GENERICA.finditer(solto):
+            cand = m.group(0).strip()
+            chave = _chave_norma(cand)
+            if chave in achados:
+                continue
+            if any(r2.href for r2 in linkificar_citacoes([RichText(cand)])):
+                continue  # designação mapeada — não é lacuna
+            achados[chave] = cand
+    return list(achados.values())
 
 
 def split_rich_lines(rich_list: List[RichText]) -> List[List[RichText]]:

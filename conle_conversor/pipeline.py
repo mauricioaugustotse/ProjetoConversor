@@ -16,6 +16,7 @@ from .meta import MetaDocumento
 from .notion_api import fetch_page, resolver_mentions_publicas
 from .notion_parser import Block, parse_blocks, flatten_blocks
 from .residual import polir_residuos_pagina
+from .richtext import detectar_normas_sem_fonte
 from .splitter import detectar_layout, split_page, split_parecer, PaginaSeparada, ParecerSeparado
 
 
@@ -95,6 +96,21 @@ def _caminho_unico(pasta: Path, nome: str) -> Path:
         if not cand.exists():
             return cand
         i += 1
+
+
+def _avisar_normas_sem_fonte(resultado: "ResultadoConversao", blocos, extras=()):
+    """Aviso de lacunas da tabela de fontes: normas citadas que sairão SEM
+    hyperlink. Só considera o que é renderizado COM linkificação (quotes/
+    transcrições e articulado ficam de fora — saem sem link por política)."""
+    rich_lists = [list(extra) for extra in extras if extra]
+    rich_lists += [b.rich for b in blocos if b.type != "quote"]
+    lacunas = detectar_normas_sem_fonte(rich_lists)
+    if lacunas:
+        resultado.avisos.append(
+            "Normas citadas sem fonte mapeada (ficarão sem link): "
+            + "; ".join(lacunas)
+            + ". Para linkar, mapeie-as em config.NORMAS_OFICIAIS com a URL oficial verificada."
+        )
 
 
 @dataclass
@@ -240,6 +256,9 @@ def converter(
         resultado.avisos.append("A abertura foi gerada por modelo-padrão (IA indisponível).")
     resultado.avisos.extend(resultado_polimento)
 
+    # justificativa linkifica; ementa da minuta e articulado saem sem link
+    _avisar_normas_sem_fonte(resultado, sep.it_blocks + sep.justificativa_blocks)
+
     tema = _tema(titulo)
 
     it_dir = Path(out_it_dir or config.OUTPUT_IT_DIR)
@@ -304,6 +323,10 @@ def _converter_parecer(
         resultado.avisos.append(
             "Não foi encontrado Substitutivo na página — o parecer foi gerado sem essa parte."
         )
+    # relatório/voto e a ementa do cabeçalho linkificam; substitutivo sai sem link
+    _avisar_normas_sem_fonte(
+        resultado, par.relatorio_blocks + par.voto_blocks, extras=(par.ementa,)
+    )
 
     pasta = Path(out_parecer_dir or config.OUTPUT_PARECER_DIR)
     pasta.mkdir(parents=True, exist_ok=True)
