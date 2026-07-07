@@ -91,3 +91,5 @@ plano_od_*.csv
 org2_snapshot_*.csv
 od_snapshot_*.csv
 conteudo_metadados.csv
+od_dups_bin.json
+org2_ia_respostas.jsonl
