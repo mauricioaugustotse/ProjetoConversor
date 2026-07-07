@@ -20,7 +20,7 @@ from .classifier import TipoProposicao
 from .meta import MetaDocumento
 from .notion_parser import Block, RichText, plain
 from .richtext import add_runs, split_rich_lines
-from .splitter import PaginaSeparada, ParecerSeparado
+from .splitter import PaginaSeparada, ParecerSeparado, dispositivos_criados
 from .harmonizer import Abertura
 
 
@@ -64,7 +64,7 @@ def _recuo_alinhado_corpo(doc):
 
 
 def _p(doc, style: str, *, text: Optional[str] = None, rich: Optional[List[RichText]] = None,
-       force_bold: Optional[bool] = None, linkificar: bool = True):
+       force_bold: Optional[bool] = None, linkificar: bool = True, proibidos=frozenset()):
     para = doc.add_paragraph(style=_style_name(doc, style))
     if style in _OUTLINE_POR_ESTILO:
         _nivel_topico(para, _OUTLINE_POR_ESTILO[style])
@@ -80,11 +80,12 @@ def _p(doc, style: str, *, text: Optional[str] = None, rich: Optional[List[RichT
             for t in run._r.findall(qn("w:t")):
                 t.set(qn("xml:space"), "preserve")
     elif rich is not None:
-        add_runs(para, rich, force_bold=force_bold, linkificar=linkificar)
+        add_runs(para, rich, force_bold=force_bold, linkificar=linkificar,
+                 dispositivos_proibidos=proibidos)
     return para
 
 
-def _add_bullet(doc, rich: List[RichText]):
+def _add_bullet(doc, rich: List[RichText], proibidos=frozenset()):
     """Bullet no padrão fixado pelo usuário (04/07/26, ajuste manual replicado):
     recuo esquerdo no início da 1ª linha do corpo (texto alinhado aos demais
     parágrafos) e hanging de 1 twip só para anular o firstLine herdado do
@@ -95,7 +96,7 @@ def _add_bullet(doc, rich: List[RichText]):
     pf.first_line_indent = Twips(-1)
     para.add_run("•")
     para.add_run().add_tab()
-    add_runs(para, rich)
+    add_runs(para, rich, dispositivos_proibidos=proibidos)
     return para
 
 
@@ -166,7 +167,7 @@ def _add_equation(doc, block: Block):
     return para
 
 
-def _add_table(doc, block: Block):
+def _add_table(doc, block: Block, proibidos=frozenset()):
     rows = block.extra.get("rows", [])
     if not rows:
         return
@@ -189,7 +190,8 @@ def _add_table(doc, block: Block):
             for r in list(para.runs):
                 r.text = ""
             cell_rich = row[ci] if ci < len(row) else []
-            add_runs(para, cell_rich, force_bold=True if (ri == 0 and has_header) else None)
+            add_runs(para, cell_rich, force_bold=True if (ri == 0 and has_header) else None,
+                     dispositivos_proibidos=proibidos)
 
 
 def _looks_like_header(rows) -> bool:
@@ -240,35 +242,39 @@ def _tem_risco_apensacao(blocks: List[Block]) -> bool:
 # ---------------------------------------------------------------------------
 # corpo da IT
 # ---------------------------------------------------------------------------
-def _render_it_blocks(doc, blocks: List[Block]):
+def _render_it_blocks(doc, blocks: List[Block], proibidos=frozenset()):
     for b in blocks:
         if b.type == "heading_1":
-            _p(doc, S.TITULO_ITEM, rich=b.rich)
+            _p(doc, S.TITULO_ITEM, rich=b.rich, proibidos=proibidos)
         elif b.type == "heading_2":
-            _p(doc, S.TITULO_ITEM, rich=b.rich)
+            _p(doc, S.TITULO_ITEM, rich=b.rich, proibidos=proibidos)
         elif b.type == "heading_3":
-            _p(doc, S.TITULO_SUB, rich=b.rich)
+            _p(doc, S.TITULO_SUB, rich=b.rich, proibidos=proibidos)
+        elif b.type == "heading_4":
+            # subtítulo "1.1.1" (a API do Notion devolve heading_4 desde
+            # 2026): estilo verde de 3º nível, como no modelo da casa
+            _p(doc, S.TITULO_SUB2, rich=b.rich, proibidos=proibidos)
         elif b.type == "paragraph":
             if plain(b.rich).strip():
-                _p(doc, S.CORPO, rich=b.rich)
+                _p(doc, S.CORPO, rich=b.rich, proibidos=proibidos)
         elif b.type == "bulleted_list_item":
-            _add_bullet(doc, b.rich)
+            _add_bullet(doc, b.rich, proibidos)
         elif b.type == "numbered_list_item":
-            _add_bullet(doc, b.rich)
+            _add_bullet(doc, b.rich, proibidos)
         elif b.type == "quote":
             _add_quote_as_transcricao(doc, b.rich)
         elif b.type == "callout":
             if plain(b.rich).strip():
-                _p(doc, S.CORPO, rich=b.rich)
+                _p(doc, S.CORPO, rich=b.rich, proibidos=proibidos)
         elif b.type == "table":
-            _add_table(doc, b)
+            _add_table(doc, b, proibidos)
         elif b.type == "equation":
             _add_equation(doc, b)
         elif b.type == "divider":
             continue
         else:
             if plain(b.rich).strip():
-                _p(doc, S.CORPO, rich=b.rich)
+                _p(doc, S.CORPO, rich=b.rich, proibidos=proibidos)
 
 
 def _fold(s: str) -> str:
@@ -356,6 +362,11 @@ def _preencher_capa(doc, teor: str, solicitante: str, autor_linhas):
 def build_it(sep: PaginaSeparada, abertura: Abertura, meta: MetaDocumento) -> Document:
     doc = Document(str(config.TEMPLATE_IT))
     _preencher_capa(doc, abertura.teor, meta.solicitante_capa, meta.autor_linhas)
+    # dispositivos criados pelas minutas anexas: citados na IT, saem sem link
+    minutas = sep.minutas or [sep]
+    proibidos = frozenset().union(
+        *(dispositivos_criados(m.articulado_blocks) for m in minutas)
+    )
 
     _p(doc, S.CORPO, text=meta.vocativo)
     _p(doc, S.CORPO, text=abertura.encaminhamento)
@@ -376,7 +387,7 @@ def build_it(sep: PaginaSeparada, abertura: Abertura, meta: MetaDocumento) -> Do
             _p(doc, S.TRANSCRICAO, text=linha)
     _p(doc, S.CORPO, text=abertura.transicao)
 
-    _render_it_blocks(doc, sep.it_blocks)
+    _render_it_blocks(doc, sep.it_blocks, proibidos)
 
     _p(doc, S.FECHO, text=meta.fecho_it_txt)
     _p(doc, S.ASSINATURA, text=meta.consultor)
@@ -414,7 +425,7 @@ def _render_articulado(doc, blocks: List[Block], tipo: TipoProposicao):
                 _p(doc, S.CORPO, rich=b.rich, linkificar=False)
         elif b.type == "quote":
             _add_quote_as_transcricao(doc, b.rich)
-        elif b.type in ("heading_1", "heading_2", "heading_3"):
+        elif b.type in ("heading_1", "heading_2", "heading_3", "heading_4"):
             # eventual subtítulo dentro do articulado -> corpo
             _p(doc, S.CORPO, rich=b.rich, linkificar=False)
         elif b.type == "bulleted_list_item" or b.type == "numbered_list_item":
@@ -425,21 +436,21 @@ def _render_articulado(doc, blocks: List[Block], tipo: TipoProposicao):
             _add_equation(doc, b)
 
 
-def _render_justificativa(doc, blocks: List[Block]):
+def _render_justificativa(doc, blocks: List[Block], proibidos=frozenset()):
     for b in blocks:
         if b.type == "quote":
             _add_quote_as_transcricao(doc, b.rich)
-        elif b.type in ("heading_1", "heading_2", "heading_3"):
+        elif b.type in ("heading_1", "heading_2", "heading_3", "heading_4"):
             if plain(b.rich).strip():
-                _p(doc, S.CORPO, rich=b.rich)
+                _p(doc, S.CORPO, rich=b.rich, proibidos=proibidos)
         elif b.type in ("bulleted_list_item", "numbered_list_item"):
-            _add_bullet(doc, b.rich)
+            _add_bullet(doc, b.rich, proibidos)
         elif b.type == "table":
-            _add_table(doc, b)
+            _add_table(doc, b, proibidos)
         elif b.type == "equation":
             _add_equation(doc, b)
         elif plain(b.rich).strip():
-            _p(doc, S.CORPO, rich=b.rich)
+            _p(doc, S.CORPO, rich=b.rich, proibidos=proibidos)
 
 
 def build_proposicao(sep: PaginaSeparada, meta: MetaDocumento) -> Document:
@@ -460,7 +471,9 @@ def build_proposicao(sep: PaginaSeparada, meta: MetaDocumento) -> Document:
     _render_articulado(doc, sep.articulado_blocks, tipo)
 
     _p(doc, S.JUSTIFICACAO, text="Justificação")
-    _render_justificativa(doc, sep.justificativa_blocks)
+    # os artigos que a própria minuta CRIA não linkam quando citados aqui
+    _render_justificativa(doc, sep.justificativa_blocks,
+                          dispositivos_criados(sep.articulado_blocks))
 
     _p(doc, S.FECHO, text=meta.fecho_prop_txt(tipo.local_fecho))
     _p(doc, S.ASSINATURA, text=meta.assinatura_prop)
@@ -519,32 +532,32 @@ def _sisconle_rodape(doc, meta: MetaDocumento):
             para.add_run(meta.sisconle_txt)
 
 
-def _render_parecer_blocks(doc, blocks: List[Block]):
+def _render_parecer_blocks(doc, blocks: List[Block], proibidos=frozenset()):
     """Corpo do Relatório/Voto: sub-headings (II.1, II.2…) em TÍTULO SUBITEM;
     o resto segue o padrão do corpo da IT."""
     for b in blocks:
-        if b.type in ("heading_1", "heading_2", "heading_3"):
+        if b.type in ("heading_1", "heading_2", "heading_3", "heading_4"):
             if plain(b.rich).strip():
-                _p(doc, S.TITULO_SUB, rich=b.rich)
+                _p(doc, S.TITULO_SUB, rich=b.rich, proibidos=proibidos)
         elif b.type == "paragraph":
             if plain(b.rich).strip():
-                _p(doc, S.CORPO, rich=b.rich)
+                _p(doc, S.CORPO, rich=b.rich, proibidos=proibidos)
         elif b.type in ("bulleted_list_item", "numbered_list_item"):
-            _add_bullet(doc, b.rich)
+            _add_bullet(doc, b.rich, proibidos)
         elif b.type == "quote":
             _add_quote_as_transcricao(doc, b.rich)
         elif b.type == "callout":
             if plain(b.rich).strip():
-                _p(doc, S.CORPO, rich=b.rich)
+                _p(doc, S.CORPO, rich=b.rich, proibidos=proibidos)
         elif b.type == "table":
-            _add_table(doc, b)
+            _add_table(doc, b, proibidos)
         elif b.type == "equation":
             _add_equation(doc, b)
         elif b.type == "divider":
             continue
         else:
             if plain(b.rich).strip():
-                _p(doc, S.CORPO, rich=b.rich)
+                _p(doc, S.CORPO, rich=b.rich, proibidos=proibidos)
 
 
 def build_parecer(par: ParecerSeparado, meta: MetaDocumento) -> Document:
@@ -561,8 +574,10 @@ def build_parecer(par: ParecerSeparado, meta: MetaDocumento) -> Document:
     _p(doc, S.EPIGRAFE, text=par.proposicao or par.titulo)
     if par.apensados:
         _p(doc, S.APENSO, text=f"Apensados: {par.apensados}")
+    # dispositivos criados pelo substitutivo: citados no parecer, sem link
+    proibidos = dispositivos_criados(par.sub_articulado_blocks)
     if par.ementa:
-        _p(doc, S.EMENTA, rich=par.ementa)
+        _p(doc, S.EMENTA, rich=par.ementa, proibidos=proibidos)
     else:
         _p(doc, S.EMENTA, text="[EMENTA]")
     _p(doc, S.AUTOR_RELATOR, text=f"{rotulo_autor}: {par.autoria or '[AUTOR(A)]'}")
@@ -570,12 +585,12 @@ def build_parecer(par: ParecerSeparado, meta: MetaDocumento) -> Document:
 
     # I – Relatório (o nº SISCONLE fica no rodapé de página, não no corpo)
     _p(doc, S.RELATORIO_VOTO, text=par.relatorio_heading or "I - Relatório")
-    _render_parecer_blocks(doc, par.relatorio_blocks)
+    _render_parecer_blocks(doc, par.relatorio_blocks, proibidos)
     doc.add_page_break()
 
     # II – Voto do Relator
     _p(doc, S.RELATORIO_VOTO, text=par.voto_heading or "II - Voto do Relator")
-    _render_parecer_blocks(doc, par.voto_blocks)
+    _render_parecer_blocks(doc, par.voto_blocks, proibidos)
     _p(doc, S.FECHO, text=meta.fecho_prop_txt(config.LOCAL_FECHO_PARECER))
     # assinatura sem o "(Partido/UF)" que o cabeçalho pode trazer — no modelo
     # da casa o relator assina só com o nome

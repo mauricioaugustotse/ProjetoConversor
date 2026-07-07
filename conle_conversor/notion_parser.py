@@ -32,6 +32,9 @@ TEXTUAL = {
     "heading_1",
     "heading_2",
     "heading_3",
+    # A API do Notion passou a devolver heading_4 (observado 06/07/2026 na
+    # página "Auditoria e verificabilidade"); títulos de 4º nível existem.
+    "heading_4",
     "bulleted_list_item",
     "numbered_list_item",
     "quote",

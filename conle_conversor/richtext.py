@@ -61,7 +61,7 @@ _RE_PLANALTO = re.compile(r"^https?://(?:www\.)?planalto\.gov\.br/ccivil_03/", r
 # nº 9.504/1997") vira um único link com a âncora do PRIMEIRO artigo — mesma
 # convenção de _RE_ARTIGO.
 _MIOLO_CITACAO = (
-    r"(?:(?!\b(?:lei|decreto|c[óo]digo|resolu[çc][ãa]o|emenda|regimento|"
+    r"(?:(?!\b(?:lei|decreto|c[óo]digo|resolu[çc][ãa]o|res|emenda|regimento|"
     r"ricd|adct|lc|ec)\b)[^;()]){0,60}?"
 )
 
@@ -153,6 +153,45 @@ def resolver_links_notion_texto(rich_list: List[RichText]) -> List[RichText]:
     for r in rich_list or []:
         if r.kind == "text" and _link_interno_notion((r.href or "").strip()):
             out.append(replace(r, href=resolver_fonte_publica(r.text)))
+        else:
+            out.append(r)
+    return out
+
+
+def canonicalizar_hrefs(rich_list: List[RichText]) -> List[RichText]:
+    """URL "equivalente" que o autor linkou no Notion (página institucional do
+    RICD, "compilado" do Planalto sem âncoras) vira a URL oficial canônica do
+    padrão da casa (config.URLS_CANONICAS, mapa fechado e verificado). Sem a
+    canonização, os passos seguintes não conseguem anexar âncora de artigo —
+    achado do usuário (06/07/2026): "arts. 139, I, e 142 do RICD" abria a
+    página institucional genérica."""
+    out: List[RichText] = []
+    for r in rich_list or []:
+        href = (r.href or "").strip()
+        canon = config.url_canonica(href) if href.startswith("http") else None
+        if canon and canon != href.split("#")[0]:
+            frag = href.split("#", 1)[1] if "#" in href else ""
+            out.append(replace(r, href=canon + (f"#{frag}" if frag else "")))
+        else:
+            out.append(r)
+    return out
+
+
+def ancorar_links_por_texto(rich_list: List[RichText]) -> List[RichText]:
+    """Antecipação da âncora que add_runs aplicaria no final: link http de
+    norma SEM "#" cujo TEXTO cita o dispositivo ("art. 51, III, da
+    Constituição Federal" linkado pelo autor no topo da norma) ganha a âncora
+    JÁ NA CADEIA — os passos seguintes (supressão de parêntese remissivo,
+    anáfora) enxergam a URL efetiva e comparam igualdade com as mentions
+    (caso real da PRC Bancada Negra, 06/07/2026). Links cujo texto não cita
+    artigo (designações, julgados) ficam intactos — a extensão de link e a
+    retro-extensão continuam vendo-os sem âncora, como exigem."""
+    out: List[RichText] = []
+    for r in rich_list or []:
+        href = (r.href or "").strip()
+        if href.startswith("http") and "#" not in href and r.kind == "text":
+            novo = _ancorar_dispositivo(href, r.text)
+            out.append(replace(r, href=novo) if novo != href else r)
         else:
             out.append(r)
     return out
@@ -322,6 +361,270 @@ def estender_link_dispositivo(rich_list: List[RichText]) -> List[RichText]:
     return [x for x in out if x.text]
 
 
+# ---------------------------------------------------------------------------
+# Lista de dispositivos ("arts. 1º, parágrafo único, 23, IX e XVIII, e 23-A"):
+# consumo procedural com tolerância a complementos (caput, §§, incisos,
+# alíneas, parágrafo único) entre os itens numéricos. Cada item vira UM link
+# com âncora própria — decisão do usuário (06/07/2026), a mesma convenção da
+# transferência do "(cf.)" em lista.
+# ---------------------------------------------------------------------------
+# Primeiro item, com o prefixo "art(s)./artigo(s)" incluído no span do link.
+_RE_ARTS_INICIO = re.compile(
+    r"\b(?:arts?\.|artigos?)\s*(?P<num>\d+)(?!\.?\d)(?:[ºo°])?"
+    r"(?:\s*[-–‑]\s*(?P<letra>[A-Za-z])(?![A-Za-zº°]))?",
+    re.I,
+)
+# Separador entre itens: vírgula e/ou conector ("e", "a", "até") ou traço de
+# intervalo ("arts. 173–174" -> itens 173 e 174, cada um com sua âncora).
+_RE_SEP_ITEM = re.compile(r"(?:\s*,\s*(?:e\s+|a\s+|at[ée]\s+)?|\s+(?:e|a|at[ée])\s+|\s*[-–‑]\s*)", re.I)
+# Item numérico subsequente da lista (sem o prefixo "arts?.").
+_RE_ITEM = re.compile(
+    r"(?P<num>\d+)(?!\.?\d)(?:[ºo°])?(?:\s*[-–‑]\s*(?P<letra>[A-Za-z])(?![A-Za-zº°]))?"
+)
+# Complemento de dispositivo que NÃO é item ("caput", "parágrafo único",
+# "IX e XVIII", "§§ 1º a 7º", 'alínea "a"'): consumido sem gerar link, mantém
+# a lista viva. Os dígitos de §§ ficam dentro do complemento (não viram item).
+_RE_COMPLEMENTO = re.compile(
+    r"(?:\s*,\s*|\s+)(?:e\s+)?(?:caput\b|par[áa]grafos?\s+[úu]nicos?\b"
+    r"|§§?\s*\d+[ºo°]?(?:\s*(?:a|e)\s*\d+[ºo°]?)*"
+    r"|incisos?\s+[IVXLCDM]+\b(?:\s+(?:a|e)\s+[IVXLCDM]+\b)*"
+    r"|al[íi]neas?\s+[\"'“”‘’]?[a-z][\"'“”‘’]?"
+    r"|[IVXLCDM]+\b(?:\s+(?:a|e)\s+[IVXLCDM]+\b)*)",
+    re.I,
+)
+
+
+def _consumir_lista_dispositivos(texto: str, m_inicio: "re.Match") -> tuple:
+    """A partir do match de _RE_ARTS_INICIO, consome a lista de dispositivos.
+    Retorna (itens, fim): itens = [(ini, fim, num, letra)] de cada trecho
+    linkável (o 1º inclui o "art(s).") e fim = posição após o último elemento
+    consumido (item ou complemento)."""
+    itens = [(m_inicio.start(), m_inicio.end(),
+              int(m_inicio.group("num")), m_inicio.group("letra") or "")]
+    pos = m_inicio.end()
+    while True:
+        mc = _RE_COMPLEMENTO.match(texto, pos)
+        if mc:
+            pos = mc.end()
+            continue
+        ms = _RE_SEP_ITEM.match(texto, pos)
+        if not ms:
+            break
+        mi = _RE_ITEM.match(texto, ms.end())
+        if not mi:
+            break
+        itens.append((ms.end(), mi.end(), int(mi.group("num")), mi.group("letra") or ""))
+        pos = mi.end()
+    return itens, pos
+
+
+def _dividir_por_spans(r: RichText, spans) -> List[RichText]:
+    """Divide o run `r` conforme spans [(ini, fim, url)], linkando cada trecho."""
+    pedacos: List[RichText] = []
+    pos = 0
+    for ini, fim, url in spans:
+        if ini > pos:
+            pedacos.append(replace(r, text=r.text[pos:ini]))
+        pedacos.append(replace(r, text=r.text[ini:fim], href=url))
+        pos = fim
+    if pos < len(r.text):
+        pedacos.append(replace(r, text=r.text[pos:]))
+    return pedacos
+
+
+def _spans_itens(itens, base: str) -> Optional[list]:
+    """Spans (ini, fim, url) dos itens de lista, cada um com a âncora do seu
+    dispositivo em `base`. None se a base não tem regra de âncora."""
+    if _ancora_para(base, itens[0][2], itens[0][3]) == base:
+        return None
+    return [(ini, fim, _ancora_para(base, num, letra)) for ini, fim, num, letra in itens]
+
+
+def _linkar_itens(r: RichText, itens, base: str) -> Optional[List[RichText]]:
+    """Divide o run `r` linkando cada item da lista à âncora correspondente em
+    `base`. None se a base não tem regra de âncora (nada é linkado)."""
+    spans = _spans_itens(itens, base)
+    return _dividir_por_spans(r, spans) if spans else None
+
+
+# Fecho do gatilho da lista ANTES do link: "...arts. 139, I, e 142 do [RICD]"
+# — entre o fim da lista e o fim do run só pode haver ", do "/" da ".
+_RE_FECHO_DO = re.compile(r"\s*,?\s*d[aeo]s?\s+$", re.I)
+# Gatilho da lista DEPOIS do link: "[Código Eleitoral], arts. 1º, ..." —
+# vírgula DIRETA (com conector "no/na/em/cujo" quem age é a extensão do link;
+# advérbio no meio, ex. ", especialmente nos arts.", continua de fora).
+_RE_VIRGULA_ARTS = re.compile(r"^\s*,\s*(?=arts?\.|artigos?\b)", re.I)
+
+
+def linkificar_dispositivos_junto_a_link(rich_list: List[RichText]) -> List[RichText]:
+    """Dispositivos citados em texto puro COLADOS a um link de norma (achados
+    do usuário, 06/07/2026). Dois gatilhos, sempre com a norma linkada pelo
+    autor (ou pela linkificação) SEM âncora de artigo:
+
+    - ANTES do link: "…arts. 139, I, e 142 do [RICD]" / "O art. 49, V, da
+      [Constituição Federal]" / "arts. 66 e 68 da [Lei nº 9.504/1997]" — o run
+      de texto anterior termina com a lista + "do/da";
+    - DEPOIS do link: "[Código Eleitoral], arts. 1º, parágrafo único, 23, IX
+      e XVIII, e 23-A" — vírgula direta (sem conector).
+
+    Cada item da lista vira um link individual com a âncora do dispositivo na
+    URL do link vizinho (decisão do usuário: âncora por dispositivo, não um
+    link único). O link da norma em si não muda. Roda ANTES do anafórico —
+    sem isso o anafórico herdaria outra base do parágrafo e linkaria errado
+    (caso real: "arts. 66 e 68 da [Lei 9.504]" recebia âncora da CF)."""
+    out: List[RichText] = list(rich_list or [])
+    i = 0
+    while i < len(out):
+        r = out[i]
+        href = (r.href or "").strip().split("#")[0]
+        if not href.startswith("http") or "#" in (r.href or ""):
+            i += 1
+            continue
+        # -- lista ANTES do link ------------------------------------------
+        # A citação pode atravessar runs sem href ("O art. 66, " + "caput"
+        # em itálico + " e §§1º a 7º, da " + [Lei…]): concatena os runs de
+        # texto anteriores contíguos e redistribui os itens por run.
+        if i > 0:
+            j0 = i
+            while j0 > 0 and not out[j0 - 1].href and out[j0 - 1].kind == "text" \
+                    and out[j0 - 1].text and i - j0 < 4:
+                j0 -= 1
+            if j0 < i:
+                offsets = []  # (idx_run, ini_concat)
+                concat = ""
+                for j in range(j0, i):
+                    offsets.append((j, len(concat)))
+                    concat += out[j].text
+                melhor = None
+                for m in _RE_ARTS_INICIO.finditer(concat):
+                    itens, fim = _consumir_lista_dispositivos(concat, m)
+                    if _RE_FECHO_DO.match(concat, fim):
+                        melhor = itens  # última lista que fecha no fim do trecho
+                spans = _spans_itens(melhor, href) if melhor else None
+                if spans:
+                    novos: List[RichText] = []
+                    for k, (j, ini_run) in enumerate(offsets):
+                        fim_run = ini_run + len(out[j].text)
+                        do_run = [(a - ini_run, b - ini_run, u) for a, b, u in spans
+                                  if a >= ini_run and b <= fim_run]
+                        novos.extend(_dividir_por_spans(out[j], do_run) if do_run else [out[j]])
+                    out[j0:i] = novos
+                    i = j0 + len(novos)
+                    r = out[i]
+        # -- lista DEPOIS do link -----------------------------------------
+        if i + 1 < len(out):
+            seg = out[i + 1]
+            if not seg.href and seg.kind == "text" and seg.text:
+                mv = _RE_VIRGULA_ARTS.match(seg.text)
+                if mv:
+                    m = _RE_ARTS_INICIO.search(seg.text, mv.end())
+                    if m and m.start() == mv.end():
+                        itens, _fim = _consumir_lista_dispositivos(seg.text, m)
+                        pedacos = _linkar_itens(seg, itens, href)
+                        if pedacos:
+                            out[i + 1 : i + 2] = pedacos
+        i += 1
+    return [x for x in out if x.text]
+
+
+# Designações textuais das normas mapeadas (citacao_re por norma), para o
+# padrão "norma ANTES do dispositivo": "CF, art. 121" / "Constituição (art.
+# 121, caput)". O gatilho é imediato: vírgula ou parêntese + "art(s).".
+# O \b à esquerda evita casar sufixos de palavra ("esclarece" -> "CE") — nos
+# padrões de citação o contexto "d[aeo] " dava esse boundary de graça.
+_DESIGNACOES_NORMAS = [
+    (re.compile(rf"\b(?:{n.citacao_re})", re.I), n) for n in config.NORMAS_OFICIAIS
+]
+_RE_GATILHO_PARENS = re.compile(r"\s*\(\s*(?=arts?\.|artigos?\b)", re.I)
+_RE_GATILHO_VIRGULA = re.compile(r"\s*,\s*(?=arts?\.|artigos?\b)", re.I)
+# Outra norma nomeada logo após a lista ("art. 5º da Lei X"): os itens não são
+# da norma-contexto — mesma lista-negra do miolo de citação.
+_RE_NORMA_LOGO_APOS = re.compile(
+    r"^\s*,?\s*d[aeo]s?\s+(?:lei|decreto|c[óo]digo|resolu[çc]|res\b|emenda|regimento|"
+    r"ricd\b|cf\b|constitui[çc]|adct\b|lc\b|ec\b|nr\b|norma\s+regulamentadora)",
+    re.I,
+)
+
+
+def _designacao_com_gatilho(texto: str, pos: int):
+    """Próxima designação de norma (a partir de pos) seguida IMEDIATAMENTE de
+    "(art…" ou ", art…". Retorna (m_designacao, norma, m_gatilho, parens) da
+    ocorrência mais à esquerda (mais longa no desempate), ou None."""
+    melhor = None
+    for pat, norma in _DESIGNACOES_NORMAS:
+        for m in pat.finditer(texto, pos):
+            gat_p = _RE_GATILHO_PARENS.match(texto, m.end())
+            gat_v = None if gat_p else _RE_GATILHO_VIRGULA.match(texto, m.end())
+            gat = gat_p or gat_v
+            if not gat:
+                continue
+            chave = (m.start(), -m.end())
+            if melhor is None or chave < melhor[0]:
+                melhor = (chave, m, norma, gat, bool(gat_p))
+            break  # das ocorrências desta norma, só a primeira com gatilho
+    return melhor[1:] if melhor else None
+
+
+def linkificar_norma_antes_dispositivo(rich_list: List[RichText]) -> List[RichText]:
+    """Citação com a norma nomeada ANTES dos dispositivos, em texto puro
+    (achados do usuário, 06/07/2026): "CF, art. 121, caput" e "pela
+    Constituição (art. 121, caput) e pelo Código Eleitoral (art. 1º,
+    parágrafo único; art. 23, IX e XVIII; art. 23-A)". Cada dispositivo ganha
+    link individual com âncora própria; a designação da norma NÃO é linkada
+    solta (anti-overlinking, coerente com citacao_isolada_re=None de CF/RICD).
+    O contexto de parêntese persiste entre runs — o "caput" em run itálico
+    separado não interrompe a região (limitação de 1 run do linkificar
+    clássico). Norma fora do mapa (ex. resolução TSE desconhecida) e item
+    seguido da designação de OUTRA norma ficam sem link."""
+    out: List[RichText] = []
+    contexto: Optional[str] = None  # URL-base da norma do parêntese aberto
+    for r in rich_list or []:
+        if r.href or r.kind != "text" or not r.text:
+            contexto = None
+            out.append(r)
+            continue
+        texto = r.text
+        spans: list = []
+        pos = 0
+        while pos < len(texto):
+            if contexto:
+                m_arts = _RE_ARTS_INICIO.search(texto, pos)
+                i_fecha = texto.find(")", pos)
+                if i_fecha != -1 and (m_arts is None or i_fecha < m_arts.start()):
+                    contexto = None
+                    pos = i_fecha + 1
+                    continue
+                if m_arts is None:
+                    break  # região continua no próximo run
+                itens, fim = _consumir_lista_dispositivos(texto, m_arts)
+                if not _RE_NORMA_LOGO_APOS.match(texto[fim:]):
+                    spans.extend(_spans_itens(itens, contexto) or [])
+                pos = fim
+                continue
+            achado = _designacao_com_gatilho(texto, pos)
+            if not achado:
+                break
+            m_desig, norma, gat, parens = achado
+            base = norma.montar_url(m_desig)
+            if not base:
+                pos = m_desig.end()
+                continue
+            if parens:
+                contexto = base
+                pos = gat.end()
+                continue
+            m_arts = _RE_ARTS_INICIO.match(texto, gat.end())
+            if not m_arts:
+                pos = m_desig.end()
+                continue
+            itens, fim = _consumir_lista_dispositivos(texto, m_arts)
+            if not _RE_NORMA_LOGO_APOS.match(texto[fim:]):
+                spans.extend(_spans_itens(itens, base) or [])
+            pos = fim
+        out.extend(_dividir_por_spans(r, spans) if spans else [r])
+    return out
+
+
 # URLs-base (sem âncora) das normas oficiais conhecidas — antecedentes válidos
 # para a resolução de anáfora ("No art. 36-A, …" depois de um link da Lei
 # 9.504). Links de julgados/proposições NÃO entram.
@@ -330,18 +633,10 @@ _BASES_NORMAS = (
     | set(config.RESOLUCOES_TSE.values())
 )
 
-# Dispositivo citado sem nomear a norma: "art(s). N[-letra]" + eventual lista
-# curta de outros números ("arts. 57-B e 57-C" — o span inteiro vira UM link,
-# âncora do primeiro, convenção de _RE_ARTIGO).
-_RE_ART_ANAFORICO = re.compile(
-    r"\barts?\.\s*(?P<num>\d+)(?:[ºo°])?(?:\s*[-–‑]\s*(?P<letra>[A-Za-z])\b)?"
-    r"(?P<lista>(?:\s*(?:,|e)\s*\d+(?:[ºo°])?(?:\s*[-–‑]\s*[A-Za-z]\b)?)*)",
-    re.I,
-)
 # Outra norma nomeada logo adiante ("art. 7º da LC nº 95/1998…"): o artigo NÃO
 # é anáfora da norma anterior — mesmo critério da lista-negra do miolo.
 _RE_NORMA_ADIANTE = re.compile(
-    r"^[^;()]{0,60}?\bd[aeo]s?\s+(?:lei|decreto|c[óo]digo|resolu[çc][ãa]o|emenda|"
+    r"^[^;()]{0,60}?\bd[aeo]s?\s+(?:lei|decreto|c[óo]digo|resolu[çc][ãa]o|res\b|emenda|"
     r"regimento|ricd\b|cf\b|constitui[çc][ãa]o|adct\b|lc\b|ec\b)",
     re.I,
 )
@@ -358,12 +653,47 @@ _RE_VIGENCIA_ADIANTE = re.compile(r"^[^.;]{0,40}?\b(?:vig[êe]ncia|vigor)\b", re
 # fica SEM link (decisão do usuário, 05/07/2026: "abrir a lei não resultaria
 # em nada, visto que o próprio artigo está em deliberação").
 _RE_ACRESCIMO_ANTES = re.compile(
-    r"(?:\b(?:acr[ée]scimo|inclus[ãa]o|inser[çc][ãa]o)\s+d[oa]s?"
-    r"|\b(?:acrescent\w+|inclui\w*|insere\w*|inserind\w+|introduz\w*)\s+[oa]s?"
-    r"|\b(?:acrescid|inclu[ií]d|inserid|introduzid)\w+\s+[oa]s?)"
+    r"(?:\b(?:acr[ée]scimo|inclus[ãa]o|inser[çc][ãa]o|cria[çc][ãa]o)\s+d[oa]s?"
+    r"|\b(?:acrescent\w+|inclui\w*|insere\w*|inserind\w+|introduz\w*|cria\w*)\s+[oa]s?"
+    r"|\b(?:acrescid|inclu[ií]d|inserid|introduzid|criad)\w+\s+[oa]s?)"
     r"\s+(?:novo\s+)?$",
     re.I,
 )
+# Dispositivo PROPOSTO — "os novos arts. 66-A e 67-A" / "arts. 66-A e 67-A
+# propostos": é texto da minuta em deliberação, não existe na norma oficial —
+# fica sem link (achado do usuário, 06/07/2026; mesma decisão do acréscimo).
+_RE_NOVO_ANTES = re.compile(r"\bnov[oa]s?\s+$", re.I)
+_RE_PROPOSTO_APOS = re.compile(r"^\s*(?:ora\s+)?propost[oa]s?\b", re.I)
+# Anáfora com a CLASSE da norma ("art. 216 da mesma Resolução", "da referida
+# lei", "do mesmo diploma"): designação genérica SEM número — resolve para a
+# única base daquela classe já linkada no parágrafo. O lookahead barra as
+# designações completas ("da Lei nº 9.504", "do Código Eleitoral"), que são
+# assunto da linkificação textual, não desta anáfora.
+_RE_ANAFORA_CLASSE = re.compile(
+    r"^\s*,?\s*d[aeo]s?\s+(?:mesm[oa]s?\s+|referid[oa]s?\s+|pr[óo]pri[oa]s?\s+|citad[oa]s?\s+)?"
+    r"(?P<classe>resolu[çc][ãa]o|lei|c[óo]digo|regimento|constitui[çc][ãa]o|diploma|norma)"
+    r"(?!\s*(?:n[ºo°.]?\s*\d|\d|complementar\b|federal\b|eleitoral\b|interno\b|"
+    r"regulamentadora\b|d[aeo]s?\b))",
+    re.I,
+)
+
+
+def _norm_ascii(s: str) -> str:
+    return unicodedata.normalize("NFKD", s or "").encode("ascii", "ignore").decode().lower()
+
+
+def _classes_da_base(base: str) -> tuple:
+    """Classes de designação genérica que podem retomar a norma `base` — o
+    Código Eleitoral atende por "código" e por "lei" (é a Lei nº 4.737)."""
+    if base in config.RESOLUCOES_TSE.values():
+        return ("resolucao",)
+    if base == config.RICD_LEGIN_URL:
+        return ("regimento",)
+    if "constituicao" in base:
+        return ("constituicao",)
+    if base == config.L4737_PLANALTO_URL:
+        return ("codigo", "lei")
+    return ("lei",)
 
 
 def linkificar_dispositivos_anaforicos(rich_list: List[RichText]) -> List[RichText]:
@@ -375,61 +705,156 @@ def linkificar_dispositivos_anaforicos(rich_list: List[RichText]) -> List[RichTe
     ÚNICA norma (com duas ou mais, a retomada é ambígua — ex. "…do art. 74 da
     Lei nº 9.504/1997. …critérios ao próprio art. 22…", em que o art. 22 é da
     LC 64: fica sem link em vez de ganhar o errado). Também não linka sem
-    antecedente, quando outra norma é nomeada logo após o artigo, nem em runs
-    já linkados. Refinos do parecer (05/07/2026, PL 3.263/2023): dispositivo
-    com possessivo antes ("seu art. 1º"), cláusula de vigência depois ("O
-    art. 2º dispõe sobre a vigência") ou regido por acréscimo/inclusão ("o
-    acréscimo do art. 9º-A") pertence à PRÓPRIA proposição em deliberação —
-    nunca herda link (o dispositivo ainda não existe no texto oficial)."""
+    antecedente, quando outra norma é nomeada logo após o artigo (mesmo se o
+    nome estiver no run linkado seguinte), nem em runs já linkados. Lista de
+    dispositivos ("arts. 173–174", "arts. 57-B e 57-C") linka POR ITEM, cada
+    um com sua âncora (decisão do usuário, 06/07/2026). Refinos do parecer
+    (05/07/2026, PL 3.263/2023): dispositivo com possessivo antes ("seu art.
+    1º"), cláusula de vigência depois ("O art. 2º dispõe sobre a vigência")
+    ou regido por acréscimo/inclusão ("o acréscimo do art. 9º-A") pertence à
+    PRÓPRIA proposição em deliberação — nunca herda link; idem "novos arts.
+    66-A e 67-A propostos" (06/07/2026)."""
     out: List[RichText] = []
     bases_vistas: set = set()
-    for r in rich_list or []:
+    por_classe: dict = {}
+    rich = list(rich_list or [])
+    for idx, r in enumerate(rich):
         href = (r.href or "").strip()
         if href:
             b = href.split("#")[0]
             if b in _BASES_NORMAS:
                 bases_vistas.add(b)
+                for cl in _classes_da_base(b):
+                    por_classe.setdefault(cl, set()).add(b)
             out.append(r)
             continue
-        if len(bases_vistas) != 1 or r.kind != "text" or not r.text:
+        if r.kind != "text" or not r.text:
             out.append(r)
             continue
-        base = next(iter(bases_vistas))
+        # Designações TEXTUAIS de norma também contam para a ambiguidade, mas
+        # só DALI PARA A FRENTE (caso real 06/07/2026: "No Código Eleitoral, o
+        # novo art. 165-A cria… evita sobrecarregar o art. 165" — só a 9.504
+        # estava LINKADA e o art. 165, do CE, herdava a base errada; já em
+        # "…o art. 66, que já assegura… O Código Eleitoral permanece…" a
+        # designação vem DEPOIS e não pode ofuscar o art. 66 da 9.504).
+        desigs: list = []
+        for pat, norma in _DESIGNACOES_NORMAS:
+            for m_d in pat.finditer(r.text):
+                b_d = norma.montar_url(m_d)
+                if b_d:
+                    desigs.append((m_d.start(), b_d))
+        if not bases_vistas and not desigs:
+            out.append(r)
+            continue
+
+        def _ate(pos):
+            bs = set(bases_vistas)
+            pc = {k: set(v) for k, v in por_classe.items()}
+            for s, b in desigs:
+                if s < pos:
+                    bs.add(b)
+                    for cl in _classes_da_base(b):
+                        pc.setdefault(cl, set()).add(b)
+            return bs, pc
+        # texto "adiante" p/ os bloqueios inclui o começo do run seguinte — a
+        # designação da norma pode estar num run linkado ("arts. 66 e 68 da
+        # [Lei nº 9.504/1997]": o run atual acaba em "da " e o nome vem depois)
+        prox = rich[idx + 1] if idx + 1 < len(rich) else None
+        prox_txt = (prox.text or "")[:80] if prox is not None else ""
+        spans: list = []
         pos = 0
-        pedacos: List[RichText] = []
-        for m in _RE_ART_ANAFORICO.finditer(r.text):
+        for m in _RE_ARTS_INICIO.finditer(r.text):
             if m.start() < pos:
                 continue
-            if _RE_NORMA_ADIANTE.match(r.text[m.end():]):
-                continue
+            itens, fim = _consumir_lista_dispositivos(r.text, m)
+            adiante = r.text[fim:] + prox_txt
+            pos = fim
+            bases_m, por_classe_m = _ate(m.start())
+            m_cl = _RE_ANAFORA_CLASSE.match(adiante)
+            if m_cl:
+                # "art. 216 da mesma Resolução": resolve pela classe citada
+                classe = _norm_ascii(m_cl.group("classe"))
+                if classe in ("diploma", "norma"):
+                    candidatas = bases_m
+                else:
+                    candidatas = por_classe_m.get(classe, set())
+                if len(candidatas) != 1:
+                    continue  # nenhuma ou mais de uma norma da classe: ambíguo
+                base = next(iter(candidatas))
+            else:
+                if len(bases_m) != 1:
+                    continue  # 2+ normas no parágrafo: retomada ambígua
+                base = next(iter(bases_m))
+                if _RE_NORMA_ADIANTE.match(adiante):
+                    continue  # "art. 7º da LC 95/1998" — não é anáfora
+                if prox is not None and prox.href and _RE_FECHO_DO.match(r.text, fim):
+                    continue  # "arts. 66 e 68 da [<norma linkada>]" — idem
             prefixo = r.text[:m.start()]
             if _RE_POSSESSIVO_ANTES.search(prefixo):
                 continue  # "seu art. 1º" — dispositivo da proposição
-            if _RE_VIGENCIA_ADIANTE.match(r.text[m.end():]):
+            if _RE_VIGENCIA_ADIANTE.match(r.text[fim:]):
                 continue  # "O art. 2º dispõe sobre a vigência" — idem
             if _RE_ACRESCIMO_ANTES.search(prefixo):
                 continue  # "o acréscimo do art. 9º-A" — em deliberação, sem link
-            url = _ancorar_dispositivo(base, m.group(0))
-            if url == base:
-                continue  # base sem regra de âncora
-            if m.start() > pos:
-                pedacos.append(replace(r, text=r.text[pos:m.start()]))
-            pedacos.append(replace(r, text=m.group(0), href=url))
-            pos = m.end()
-        if pos == 0:
-            out.append(r)
-        else:
-            if pos < len(r.text):
-                pedacos.append(replace(r, text=r.text[pos:]))
-            out.extend(pedacos)
+            if _RE_NOVO_ANTES.search(prefixo) or _RE_PROPOSTO_APOS.match(r.text[fim:]):
+                continue  # "novos arts. 66-A e 67-A propostos" — idem
+            spans.extend(_spans_itens(itens, base) or [])
+        # as designações do run valem integralmente para os runs seguintes
+        for _s, b_d in desigs:
+            bases_vistas.add(b_d)
+            for cl in _classes_da_base(b_d):
+                por_classe.setdefault(cl, set()).add(b_d)
+        out.extend(_dividir_por_spans(r, spans) if spans else [r])
     return out
 
 
-# Abertura de parêntese remissivo "(cf." no FIM de um run de texto — gatilho da
-# supressão do "(cf. <mention>)" redundante.
-_RE_ABRE_CF = re.compile(r"\(\s*cf\.?\s*$", re.I)
-# Separador aceitável entre duas mentions dentro do parêntese (", " / " e ").
-_RE_SEP_MENTION = re.compile(r"^\s*(?:[,;]|e)\s*$", re.I)
+# Número de dispositivo solto (texto de um link por item de lista: "142", "23-A").
+_RE_NUM_SOLTO = re.compile(
+    r"^\s*(?:arts?\.\s*|artigos?\s+)?(\d+)(?:[ºo°])?(?:\s*[-–‑]\s*([A-Za-z])\b)?\s*$", re.I
+)
+
+
+def _zerar_links_proibidos(rich_list: List[RichText], proibidos) -> List[RichText]:
+    """Remove o hyperlink dos runs que citam dispositivo PROIBIDO — artigos
+    criados pela própria minuta (conjunto de (num, LETRA) vindo de
+    splitter.dispositivos_criados). Vale para qualquer origem do link
+    (citação textual, anafórico, item de lista, mention): dispositivo em
+    deliberação não existe na norma oficial e sai sem link (decisões do
+    usuário de 05-06/07/2026). Roda como último passo de linkificação da
+    cadeia preparar_rich — depois de TODOS os linkificadores."""
+    out: List[RichText] = []
+    for r in rich_list or []:
+        if not (r.href or "").startswith("http"):
+            out.append(r)
+            continue
+        candidatos = [(int(m.group(1)), (m.group(2) or "").upper())
+                      for m in _RE_ARTIGO.finditer(r.text or "")]
+        for m in _RE_ARTS_INICIO.finditer(r.text or ""):
+            itens, _fim = _consumir_lista_dispositivos(r.text, m)
+            candidatos += [(num, (letra or "").upper()) for _a, _b, num, letra in itens]
+        m = _RE_NUM_SOLTO.match(r.text or "")
+        if m:
+            candidatos.append((int(m.group(1)), (m.group(2) or "").upper()))
+        if any(c in proibidos for c in candidatos):
+            out.append(replace(r, href=None))
+        else:
+            out.append(r)
+    return out
+
+
+# Abertura de parêntese remissivo no FIM de um run de texto — gatilho da
+# supressão do "(cf. <mention>)"/"(<mention>)" redundante. O "cf." é opcional
+# (página PRC Bancada Negra, 06/07/2026: o Gerador emite "([RICD - Art.
+# 13-A], campo texto_em_vigor)" sem o "cf."); a semântica de "parêntese
+# puramente remissivo" é garantida pelo laço, que aborta com conteúdo extra.
+_RE_ABRE_CF = re.compile(r"\(\s*(?:cf\.?\s*)?$", re.I)
+# Separador aceitável entre duas mentions dentro do parêntese (", " / " e " /
+# "; incisos em " — este último também artefato do Gerador via RAG).
+_RE_SEP_MENTION = re.compile(r"^\s*(?:[,;]\s*)?(?:e|incisos?\s+em)?\s*$", re.I)
+# Sufixo aceitável entre a última mention e o ")": vazio ou rótulo técnico de
+# RAG (", campo texto_em_vigor" — pode vir fatiado em vários runs do Notion),
+# descartado junto com o parêntese.
+_RE_SUFIXO_MENTION = re.compile(r"\s*(?:,\s*campo\s+\w+\s*)?", re.I)
 # Janela (chars p/ trás) em que se procura o link equivalente à mention do "(cf.)".
 _JANELA_CF = 300
 
@@ -539,37 +964,90 @@ def suprimir_cf_redundante(rich_list: List[RichText]) -> List[RichText]:
         if not m_abre:
             i += 1
             continue
-        # Conteúdo do parêntese: só runs com href (mentions/links) e separadores.
+        com_cf = "cf" in m_abre.group(0).lower()
+        # Conteúdo do parêntese: só runs com href (mentions/links), separadores
+        # e um eventual sufixo técnico antes do ")". O texto entre as refs é
+        # ACUMULADO (o Notion fatia livremente: ", campo " + "texto_em_vigor").
         refs: List[int] = []
         j = i + 1
         fecha = None
+        fim_fecha = 0
+        interm = ""  # texto acumulado desde a última ref (ou desde o "(")
+        valido = True
         while j < len(out):
             rj = out[j]
             if (rj.href or "").strip():
+                if not _RE_SEP_MENTION.fullmatch(interm):
+                    valido = False  # conteúdo extra antes da ref -> não mexe
+                    break
                 refs.append(j)
+                interm = ""
                 j += 1
                 continue
-            if rj.text and rj.text.lstrip().startswith(")"):
-                fecha = j
+            txt = rj.text or ""
+            pos_f = txt.find(")")
+            if pos_f != -1:
+                if refs and _RE_SUFIXO_MENTION.fullmatch(interm + txt[:pos_f]):
+                    fecha = j
+                    fim_fecha = pos_f + 1
+                else:
+                    valido = False
                 break
-            if refs and rj.text and _RE_SEP_MENTION.fullmatch(rj.text):
-                j += 1
-                continue
-            break  # conteúdo extra ("cf. X; ver também…") -> não mexe
+            interm += txt
+            if len(interm) > 60:
+                valido = False
+                break
+            j += 1
+        if not valido:
+            i += 1
+            continue
         if fecha is None or not refs:
+            i += 1
+            continue
+        if not com_cf and not all(
+            out[k].kind == "mention" or resolver_fonte_publica(out[k].text or "")
+            for k in refs
+        ):
+            # sem o "cf.", só o parêntese de refs do Gerador é remissivo por
+            # definição: @mention OU link de texto cujo conteúdo tem o formato
+            # de mention de norma ("Constituicao Federal - Art. 51, III").
+            # Um "(art. 151)" que a própria cadeia linkou não casa o formato e
+            # não pode ser suprimido na passada seguinte (idempotência).
             i += 1
             continue
         urls = [_url_do_run(out[k]) for k in refs]
         if not all(urls):
+            if not com_cf and not any(urls):
+                # parêntese de mentions SEM fonte pública (ex. "(RICD -
+                # CAPÍTULO VI)", página interna não mapeada): no .docx viraria
+                # texto técnico morto — sai inteiro (o "(cf. …)" explícito
+                # continua preservado, como aprovado em jul/2026)
+                seg_fecha = out[fecha]
+                texto_fecha = seg_fecha.text[fim_fecha:]
+                prefixo_txt = r.text[: m_abre.start()]
+                if texto_fecha[:1] in ",.;:)" and prefixo_txt.endswith(" "):
+                    prefixo_txt = prefixo_txt.rstrip()
+                novos = [replace(r, text=prefixo_txt)] if prefixo_txt else []
+                out[i : fecha + 1] = novos + [replace(seg_fecha, text=texto_fecha)]
+                i += len(novos)
+                continue
             i += 1
             continue
-        # URLs efetivas já presentes antes do "(cf." (janela p/ trás).
+        # URLs efetivas já presentes antes do "(cf." (janela p/ trás). Um link
+        # de LISTA ("arts. 3º, …, 4º, …, e 5º, … da Constituição", âncora do
+        # 1º) cobre TODOS os dispositivos citados no seu texto — as âncoras
+        # individuais entram no conjunto para o teste de redundância.
         anteriores = set()
         recuo = 0
         for k in range(i - 1, -1, -1):
             u = _url_do_run(out[k])
             if u:
                 anteriores.add(u)
+                base_k = u.split("#")[0]
+                for m_l in _RE_ARTS_INICIO.finditer(out[k].text or ""):
+                    itens_k, _f = _consumir_lista_dispositivos(out[k].text, m_l)
+                    for _a, _b2, num_k, letra_k in itens_k:
+                        anteriores.add(_ancora_para(base_k, num_k, letra_k))
             recuo += len(out[k].text or "")
             if recuo > _JANELA_CF:
                 break
@@ -593,7 +1071,7 @@ def suprimir_cf_redundante(rich_list: List[RichText]) -> List[RichText]:
                 continue
         # Suprime o parêntese (e, no caso (b), transfere os links p/ o texto).
         seg_fecha = out[fecha]
-        texto_fecha = seg_fecha.text.lstrip()[1:]
+        texto_fecha = seg_fecha.text[fim_fecha:]
         novos: List[RichText] = []
         if transferencias:
             pos = 0
@@ -645,6 +1123,19 @@ def italicizar_caput(rich_list: List[RichText]) -> List[RichText]:
     return out
 
 
+def _ancora_para(base: str, num: int, letra: str = "") -> str:
+    """URL da norma `base` (sem âncora) apontando para o artigo num[-letra],
+    conforme a regra de âncora do host; sem regra conhecida, retorna a própria
+    base (o chamador decide se ainda vale linkar)."""
+    if base.startswith(config.RICD_LEGIN_URL):
+        return config.RICD_LEGIN_URL + config.ancora_artigo_ricd(num, letra or "")
+    if _RE_PLANALTO.match(base):
+        return f"{base}#art{num}{(letra or '').lower()}"
+    if any(base.startswith(u) for u in config.RESOLUCOES_TSE.values()):
+        return base + config.ancora_artigo_tse(num, letra or "")
+    return base
+
+
 def _ancorar_dispositivo(href: str, texto: str) -> str:
     """Link http externo para norma SEM âncora: se o texto do trecho cita um
     artigo ("art. 7º da LC 95/1998"), anexa a âncora que abre a página já no
@@ -657,14 +1148,7 @@ def _ancorar_dispositivo(href: str, texto: str) -> str:
     m = _RE_ARTIGO.search(texto or "")
     if not m:
         return href
-    if href.startswith(config.RICD_LEGIN_URL):
-        return config.RICD_LEGIN_URL + config.ancora_artigo_ricd(int(m.group(1)))
-    if _RE_PLANALTO.match(href):
-        letra = (m.group(2) or "").lower()
-        return f"{href}#art{int(m.group(1))}{letra}"
-    if any(href.startswith(u) for u in config.RESOLUCOES_TSE.values()):
-        return href + config.ancora_artigo_tse(int(m.group(1)), m.group(2) or "")
-    return href
+    return _ancora_para(href, int(m.group(1)), m.group(2) or "")
 
 
 def _aliases_da_norma(texto: str) -> List[str]:
@@ -786,29 +1270,51 @@ def _add_hyperlink(paragraph, text: str, url: str, *, bold: bool = False, italic
     return hyperlink
 
 
-def preparar_rich(rich_list: List[RichText], *, linkificar: bool = True) -> List[RichText]:
+def preparar_rich(rich_list: List[RichText], *, linkificar: bool = True,
+                  dispositivos_proibidos=frozenset()) -> List[RichText]:
     """Cadeia (pura e idempotente) de harmonização das citações de um parágrafo,
     na ordem que os passos exigem: (1) poda de ecos ANTES de qualquer split de
-    runs (a janela de busca depende dos offsets originais); (2) colchetes antes
-    de linkificar (expõe "[ADI nº 4.650]" para o padrão casar por inteiro);
-    (3) linkificação das citações textuais; (4) supressão do "(cf. mention)"
-    redundante (precisa dos hrefs do passo 3); (5) extensão do link ao
-    dispositivo citado logo após ("Resolução…, no art. 28") — depois da
-    supressão, porque o "(cf. mention)" pode estar ENTRE o link e o ", no
-    art. N" (caso real do bloco da Res. 23.610); (6) "caput" em itálico por
-    último (divide runs e quebraria o casamento dos padrões). Antes de (2),
-    links de texto para páginas internas do Notion são resolvidos para a fonte
-    oficial ou zerados (resolver_links_notion_texto) — um href residual do
-    Notion blindaria a citação contra a linkificação textual."""
+    runs (a janela de busca depende dos offsets originais); (2) resolução de
+    links internos do Notion + canonização de URLs "equivalentes" do autor
+    (RICD institucional → LEGIN etc.; um href residual do Notion ou fora do
+    padrão blindaria a citação contra os passos seguintes); (3) colchetes
+    antes de linkificar (expõe "[ADI nº 4.650]" para o padrão casar por
+    inteiro); (4) linkificação das citações textuais + padrão "norma ANTES do
+    dispositivo" ("CF, art. 121"; "Constituição (art. 121, caput)");
+    (5) supressão do "(cf. mention)" redundante (precisa dos hrefs do passo
+    4); (6) extensão do link ao dispositivo citado logo após ("Resolução…, no
+    art. 28") — depois da supressão, porque o "(cf. mention)" pode estar
+    ENTRE o link e o ", no art. N" — e listas de dispositivos coladas a um
+    link de norma ("arts. 139, I, e 142 do [RICD]"; "[Código Eleitoral],
+    arts. 1º, …"), item a item; (7) anáfora de dispositivo por último entre
+    os linkificadores (só herda base quando os passos anteriores não
+    resolveram); (8) "caput" em itálico por último (divide runs e quebraria o
+    casamento dos padrões)."""
     rich_list = limpar_ecos_redundantes(rich_list)
     if linkificar:
         rich_list = resolver_links_notion_texto(rich_list)
+        rich_list = canonicalizar_hrefs(rich_list)
+        rich_list = ancorar_links_por_texto(rich_list)
         rich_list = fundir_runs_lisos(rich_list)
         rich_list = limpar_colchetes_citacoes(rich_list)
         rich_list = linkificar_citacoes(rich_list)
+        rich_list = linkificar_norma_antes_dispositivo(rich_list)
         rich_list = suprimir_cf_redundante(rich_list)
         rich_list = estender_link_dispositivo(rich_list)
+        rich_list = linkificar_dispositivos_junto_a_link(rich_list)
         rich_list = linkificar_dispositivos_anaforicos(rich_list)
+        # 2ª passada da supressão remissiva: o dispositivo equivalente à
+        # mention pode estar em OUTRO run e só ganhar link nos passos acima
+        # (anafórico) — ex. "O art. 13-A disciplina… ([RICD - Art. 13-A],
+        # campo texto_em_vigor)" da página PRC: na 1ª passada o art. 13-A do
+        # texto ainda não tinha href e o parêntese ficava; sem esta chamada a
+        # cadeia nem seria idempotente (a supressão ocorreria na conversão
+        # seguinte). Só age nos gatilhos; custo desprezível.
+        rich_list = suprimir_cf_redundante(rich_list)
+        if dispositivos_proibidos:
+            # dispositivos criados pela PRÓPRIA minuta: qualquer link que os
+            # cite é desfeito, venha do autor ou dos passos acima
+            rich_list = _zerar_links_proibidos(rich_list, dispositivos_proibidos)
     # canonicaliza no fim: os passos acima podem deixar runs lisos adjacentes
     # (ex. supressão do "(cf. …)"), e sem a fusão final uma 2ª passada os
     # uniria — quebrando a idempotência da cadeia
@@ -816,7 +1322,7 @@ def preparar_rich(rich_list: List[RichText], *, linkificar: bool = True) -> List
 
 
 def add_runs(paragraph, rich_list: List[RichText], *, force_bold: Optional[bool] = None,
-             linkificar: bool = True):
+             linkificar: bool = True, dispositivos_proibidos=frozenset()):
     """Adiciona runs ao parágrafo preservando bold/italic/underline e os hyperlinks
     EXTERNOS (viram links clicáveis no .docx). Links/mentions internos do Notion
     nunca viram hyperlink: quando o texto casa com config.FONTES_OFICIAIS, ganham
@@ -826,7 +1332,8 @@ def add_runs(paragraph, rich_list: List[RichText], *, force_bold: Optional[bool]
     de colchetes editoriais, link às citações textuais de normas/precedentes e
     supressão do "(cf. mention)" redundante. '\n' dentro de um run vira quebra
     de linha (soft break)."""
-    rich_list = preparar_rich(rich_list, linkificar=linkificar)
+    rich_list = preparar_rich(rich_list, linkificar=linkificar,
+                              dispositivos_proibidos=dispositivos_proibidos)
     for r in rich_list or []:
         if not r.text:
             continue

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import datetime
 import re
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from pathlib import Path
 from typing import Callable, Dict, List, Optional
 
@@ -17,15 +17,17 @@ from .notion_api import fetch_page, resolver_mentions_publicas
 from .notion_parser import Block, parse_blocks, flatten_blocks
 from .residual import polir_residuos_pagina
 from .richtext import detectar_normas_sem_fonte
-from .splitter import detectar_layout, split_page, split_parecer, PaginaSeparada, ParecerSeparado
+from .splitter import detectar_layout, split_page, split_parecer, Minuta, PaginaSeparada, ParecerSeparado
 
 
 _INVALIDOS = re.compile(r'[\\/:*?"<>|]+')
 # Prefixo de sigla de proposição no início do título da página (ex.: "PL - ",
 # "PLP – "): redundante porque o nome do arquivo da minuta já traz a sigla
 # ("Minuta de PLP 2026 - …"). Removê-lo evita "Minuta de PLP 2026 - PLP - …".
+# Aceita sequência de siglas ("PL e PLP:", "PL/PLP —") em página multi-minuta.
+_SIGLAS = r"(?:PLP|PEC|PRC|PDL|PDC|PLV|MPV|PL)"
 _SIGLA_PREFIXO = re.compile(
-    r"^(PLP|PEC|PRC|PDL|PDC|PLV|MPV|PL)\s*[-–—:]\s*", re.IGNORECASE
+    rf"^{_SIGLAS}(?:\s*(?:,|e|/)\s*{_SIGLAS})*\s*[-–—:]\s*", re.IGNORECASE
 )
 # Título no layout invertido "Minuta — PEC: <tema>" / "Minuta de PEC — <tema>"
 # (a palavra "minuta" vem ANTES do tema): o prefixo é descartado; a sigla que
@@ -226,7 +228,13 @@ def converter(
         )
 
     sep = split_page(blocks, titulo)
-    log(f"Tipo de proposição identificado: {sep.tipo.sigla} ({sep.tipo.nome_extenso}).")
+    # A página pode trazer mais de uma minuta (ex. "PL e PLP"): gera-se um .docx
+    # por minuta; sem epígrafe na página, mantém-se a moldura única de antes.
+    minutas = sep.minutas or [Minuta(tipo=sep.tipo)]
+    tipo_sigla = " e ".join(m.tipo.sigla for m in minutas)
+    tipo_extenso = " e ".join(m.tipo.nome_extenso for m in minutas)
+    plural = "s" if len(minutas) > 1 else ""
+    log(f"Tipo{plural} de proposição identificado{plural}: {tipo_sigla} ({tipo_extenso}).")
 
     if usar_ia:
         # Rede de segurança: resíduos de citação que as regras determinísticas
@@ -241,15 +249,15 @@ def converter(
 
     log("Harmonizando a abertura da Informação Técnica…")
     abertura = gerar_abertura(
-        sep.objeto, sep.introducao_texto, titulo, sep.tipo.nome_extenso, usar_ia=usar_ia
+        sep.objeto, sep.introducao_texto, titulo, tipo_extenso, usar_ia=usar_ia
     )
     log("Abertura gerada por IA." if abertura.via_ia else "Abertura gerada por modelo-padrão (sem IA).")
 
     resultado = ResultadoConversao(
         page_id=page_id,
         titulo=titulo,
-        tipo_sigla=sep.tipo.sigla,
-        tipo_extenso=sep.tipo.nome_extenso,
+        tipo_sigla=tipo_sigla,
+        tipo_extenso=tipo_extenso,
         abertura_via_ia=abertura.via_ia,
     )
     if not abertura.via_ia and usar_ia:
@@ -257,7 +265,8 @@ def converter(
     resultado.avisos.extend(resultado_polimento)
 
     # justificativa linkifica; ementa da minuta e articulado saem sem link
-    _avisar_normas_sem_fonte(resultado, sep.it_blocks + sep.justificativa_blocks)
+    justificativas = [b for m in minutas for b in m.justificativa_blocks]
+    _avisar_normas_sem_fonte(resultado, sep.it_blocks + justificativas)
 
     tema = _tema(titulo)
 
@@ -277,15 +286,24 @@ def converter(
 
     if gerar_proposicao:
         prop_dir.mkdir(parents=True, exist_ok=True)
-        log("Montando a minuta de proposição…")
-        doc_prop = build_proposicao(sep, meta)
         rot = _solicitante_rotulo(meta.deputado_nome)
         sufixo = f" ({rot})" if rot else ""
-        nome = _compor_nome(f"Minuta de {sep.tipo.sigla} {meta.ano} - ", tema, sufixo)
-        caminho = _caminho_unico(prop_dir, nome)
-        doc_prop.save(str(caminho))
-        resultado.caminhos.append(caminho)
-        log(f"Minuta salva em: {caminho}")
+        for m in minutas:
+            log(f"Montando a minuta de proposição ({m.tipo.sigla})…")
+            sep_m = replace(
+                sep,
+                epigrafe=m.epigrafe,
+                ementa=m.ementa,
+                articulado_blocks=m.articulado_blocks,
+                justificativa_blocks=m.justificativa_blocks,
+                tipo=m.tipo,
+            )
+            doc_prop = build_proposicao(sep_m, meta)
+            nome = _compor_nome(f"Minuta de {m.tipo.sigla} {meta.ano} - ", tema, sufixo)
+            caminho = _caminho_unico(prop_dir, nome)
+            doc_prop.save(str(caminho))
+            resultado.caminhos.append(caminho)
+            log(f"Minuta salva em: {caminho}")
 
     log("Concluído.")
     return resultado

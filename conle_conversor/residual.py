@@ -188,8 +188,12 @@ def polir_residuos_pagina(sep, log: Optional[Callable[[str], None]] = None) -> L
 
     # Só a prosa que LINKA no .docx (IT + justificação). Ementa/articulado da
     # minuta saem sem hyperlinks (texto oficial) e ficam fora do polimento.
+    justificativas: List[Block] = (
+        [b for m in sep.minutas for b in m.justificativa_blocks]
+        if sep.minutas else list(sep.justificativa_blocks)
+    )
     alvos: List[Block] = [
-        b for b in (list(sep.it_blocks) + list(sep.justificativa_blocks))
+        b for b in (list(sep.it_blocks) + justificativas)
         if b.type in _TIPOS_POLIVEIS and b.rich
     ]
 

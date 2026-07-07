@@ -152,6 +152,9 @@ NR31_MTE_URL = (
     "comissao-tripartite-partitaria-permanente/normas-regulamentadora/"
     "normas-regulamentadoras-vigentes/norma-regulamentadora-no-31-nr-31"
 )
+# Lei 1.079/1950 (crimes de responsabilidade) — âncoras nativas #artN aferidas
+# (06/07/2026; inclusive por inciso: art4i), padrão ccivil_03.
+L1079_PLANALTO_URL = "https://www.planalto.gov.br/ccivil_03/leis/l1079.htm"
 
 
 def ancora_artigo_cf(num: int) -> str:
@@ -172,14 +175,19 @@ RICD_LEGIN_URL = (
 )
 
 
-def ancora_artigo_ricd(num: int) -> str:
+def ancora_artigo_ricd(num: int, letra: str = "") -> str:
     """Fragmento de destaque de texto (#:~:text=) que abre a página do LEGIN
     já no caput do artigo. A página consolidada não tem âncoras HTML próprias
     (só bookmarks residuais de Word), então usa-se o text fragment do browser —
     mesmo recurso já presente nos links dos documentos-modelo da casa. O alvo
-    reproduz a grafia do caput no LEGIN: "Art. 5º" (1º-9º) / "Art. 54." (10+);
-    aferido contra o HTML real: em 264 dos 278 artigos a 1ª ocorrência é o
-    próprio caput; nos demais o link apenas destaca uma remissão anterior."""
+    reproduz a grafia do caput no LEGIN: "Art. 5º" (1º-9º) / "Art. 54." (10+) /
+    "Art. 13-A." (artigo acrescido — aferido 06/07/2026: a 1ª ocorrência de
+    "Art. 13-A"/"Art. 20-A" na página é o próprio caput); aferido contra o
+    HTML real: em 264 dos 278 artigos sem letra a 1ª ocorrência é o caput;
+    nos demais o link apenas destaca uma remissão anterior."""
+    if letra:
+        base = f"Art.%20{num}%C2%BA" if num < 10 else f"Art.%20{num}"
+        return f"#:~:text={base}-{letra.upper()}."
     alvo = f"Art.%20{num}%C2%BA" if num < 10 else f"Art.%20{num}."
     return f"#:~:text={alvo}"
 
@@ -195,6 +203,14 @@ RESOLUCOES_TSE = {
               "resolucao-no-23-607-de-17-de-dezembro-de-2019",
     "23.735": "https://www.tse.jus.br/legislacao/compilada/res/2024/"
               "resolucao-no-23-735-de-27-de-fevereiro-de-2024",
+    # Aferidas 06/07/2026 (IT "Auditoria e verificabilidade"):
+    "23.751": "https://www.tse.jus.br/legislacao/compilada/res/2026/"
+              "resolucao-no-23-751-de-26-de-fevereiro-de-2026",
+    # CUIDADO: o slug desta NÃO tem o "de" antes do dia (irregularidade do site)
+    "23.673": "https://www.tse.jus.br/legislacao/compilada/res/2021/"
+              "resolucao-no-23-673-14-de-dezembro-de-2021",
+    "23.444": "https://www.tse.jus.br/legislacao/compilada/res/2015/"
+              "resolucao-no-23-444-de-30-de-abril-de-2015",
 }
 
 
@@ -239,7 +255,7 @@ def _fonte_ricd(m: Optional["re.Match"]) -> Optional[str]:
     d = m.groupdict() if m else {}
     if not d.get("num"):
         return RICD_LEGIN_URL
-    return RICD_LEGIN_URL + ancora_artigo_ricd(int(d["num"]))
+    return RICD_LEGIN_URL + ancora_artigo_ricd(int(d["num"]), d.get("letra") or "")
 
 
 def _fonte_res_tse(m: Optional["re.Match"]) -> Optional[str]:
@@ -302,7 +318,9 @@ NORMAS_OFICIAIS = [
     ),
     NormaOficial(
         mention_re=rf"^C[óo]digo Eleitoral\s*[-–—]\s*{_ART_MENTION}",
-        citacao_re=(r"C[óo]digo\s+Eleitoral"
+        # "CE" só casa como designação após "art(s). N … do" (contexto do padrão
+        # de citação) — não há risco com a sigla do estado do Ceará.
+        citacao_re=(r"C[óo]digo\s+Eleitoral|\bCE\b"
                     r"|Lei\s*n?[ºo°.]*\s*4\.?737"
                     r"(?:\s*/\s*(?:19)?65|,?\s+de(?:\s+15\s+de\s+julho\s+de)?\s+1965)?"),
         citacao_isolada_re=(r"Lei\s*n?[ºo°.]*\s*4\.?737"
@@ -338,12 +356,25 @@ NORMAS_OFICIAIS = [
         aliases=("NR-31", "Norma Regulamentadora nº 31"),
     ),
     NormaOficial(
-        # Base Vademecum "Res.-TSE n. 23.735/2024 - Ilicitos eleitorais"
+        mention_re=rf"^Lei\s*n?[ºo°.]*\s*1\.?079(?:\s*/\s*(?:19)?50)?\s*[-–—]\s*{_ART_MENTION}",
+        citacao_re=(r"Lei\s*n?[ºo°.]*\s*1\.?079"
+                    r"(?:\s*/\s*(?:19)?50|,?\s+de(?:\s+10\s+de\s+abril\s+de)?\s+1950)?"
+                    r"|Lei\s+dos\s+Crimes\s+de\s+Responsabilidade"),
+        citacao_isolada_re=(r"Lei\s*n?[ºo°.]*\s*1\.?079"
+                            r"(?:\s*/\s*(?:19)?50|,?\s+de(?:\s+10\s+de\s+abril\s+de)?\s+1950)"),
+        montar_url=_fonte_planalto(L1079_PLANALTO_URL),
+        aliases=("Lei nº 1.079/1950", "Lei 1.079/1950"),
+    ),
+    NormaOficial(
+        # Base Vademecum "Res.-TSE n. 23.735/2024 - Ilicitos eleitorais".
+        # Nas citações textuais o "TSE" e o "nº" são opcionais ("Resolução nº
+        # 23.751/2026", "Res. 23.673/2021") — número 2X.XXX de 5 dígitos é
+        # assinatura das resoluções do TSE; fora do mapa continua sem link.
         mention_re=(r"^Res(?:\.|olu[çc][ãa]o)?\s*[-–.]?\s*TSE\s*n[ºo°.]*\s*"
                     r"(?P<res>\d{2}\.?\d{3})(?:\s*/\s*\d{4})?"),
-        citacao_re=(r"Resolu[çc][ãa]o\s*(?:do\s+)?TSE\s*n[ºo°.]*\s*"
+        citacao_re=(r"Res(?:\.|olu[çc][ãa]o)\s*[-–.]?\s*(?:do\s+)?(?:TSE\s*)?(?:n[ºo°.]*\s*)?"
                     r"(?P<res>\d{2}\.?\d{3})\s*(?:/\s*\d{4}|,?\s+de\s+[^,;()]{4,40}?\d{4})"),
-        citacao_isolada_re=(r"Resolu[çc][ãa]o\s*(?:do\s+)?TSE\s*n[ºo°.]*\s*"
+        citacao_isolada_re=(r"Res(?:\.|olu[çc][ãa]o)\s*[-–.]?\s*(?:do\s+)?(?:TSE\s*)?(?:n[ºo°.]*\s*)?"
                             r"(?P<res>\d{2}\.?\d{3})\s*(?:/\s*\d{4}|,?\s+de\s+[^,;()]{4,40}?\d{4})"),
         montar_url=_fonte_res_tse,
         aliases=(),
@@ -353,6 +384,43 @@ NORMAS_OFICIAIS = [
 # Formato consumido por richtext.resolver_fonte_publica/_aliases_da_norma:
 # (regex do texto da mention, callable(Match) -> URL ou None, aliases).
 FONTES_OFICIAIS = [(n.mention_re, n.montar_url, n.aliases) for n in NORMAS_OFICIAIS]
+
+
+# ---------------------------------------------------------------------------
+# URLs "equivalentes" que os autores costumam linkar no Notion, canonizadas
+# para a fonte oficial do padrão da casa (mapa FECHADO, cada par verificado —
+# nunca chutar URL). Ex.: a página institucional do RICD vira o texto
+# consolidado no LEGIN; os "compilado" do Planalto viram a versão com âncoras
+# #artN (o compilado não tem âncora nenhuma). Comparação por URL normalizada
+# (sem esquema/www, path em minúsculas, sem "/" final).
+# ---------------------------------------------------------------------------
+def _norm_url(u: str) -> str:
+    u = re.sub(r"^https?://(?:www\d?\.)?", "", (u or "").strip(), flags=re.I)
+    return u.split("#")[0].rstrip("/").lower()
+
+
+_URLS_CANONICAS = {
+    _norm_url("https://www2.camara.leg.br/atividade-legislativa/legislacao/"
+              "regimento-interno-da-camara-dos-deputados"): RICD_LEGIN_URL,
+    # download .docx do RICD atualizado (visto na página da PRC Bancada Negra)
+    _norm_url("https://www2.camara.leg.br/atividade-legislativa/legislacao/"
+              "regimento-interno-da-camara-dos-deputados/arquivos-1/"
+              "copy_of_RICDatualizadoatRCD342026.docx"): RICD_LEGIN_URL,
+    # publicação ORIGINAL da Resolução 17/1989 -> texto consolidado
+    _norm_url("https://www2.camara.leg.br/legin/fed/rescad/1989/"
+              "resolucaodacamaradosdeputados-17-21-setembro-1989-320110-"
+              "publicacaooriginal-1-pl.html"): RICD_LEGIN_URL,
+    _norm_url("https://www.planalto.gov.br/ccivil_03/constituicao/"
+              "ConstituicaoCompilado.htm"): CF_PLANALTO_URL,
+    _norm_url("https://www.planalto.gov.br/ccivil_03/leis/l4737compilado.htm"): L4737_PLANALTO_URL,
+    _norm_url("https://www.planalto.gov.br/ccivil_03/leis/L9504compilado.htm"): L9504_PLANALTO_URL,
+}
+
+
+def url_canonica(href: str) -> Optional[str]:
+    """URL oficial canônica para um href conhecido como equivalente (None se o
+    href não está no mapa). Fragment existente é preservado pelo chamador."""
+    return _URLS_CANONICAS.get(_norm_url(href))
 
 
 # ---------------------------------------------------------------------------

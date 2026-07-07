@@ -18,11 +18,22 @@ def _norm(s: str) -> str:
 
 
 def _is_heading(b: Block) -> bool:
-    return b.type in ("heading_1", "heading_2", "heading_3")
+    return b.type in ("heading_1", "heading_2", "heading_3", "heading_4")
 
 
 def _heading_text(b: Block) -> str:
     return _norm(plain(b.rich))
+
+
+@dataclass
+class Minuta:
+    """Uma minuta de proposição da página (a página pode trazer mais de uma,
+    ex. "PL e PLP": cada epígrafe com articulado e justificativa próprios)."""
+    epigrafe: List[RichText] = field(default_factory=list)
+    ementa: List[RichText] = field(default_factory=list)
+    articulado_blocks: List[Block] = field(default_factory=list)
+    justificativa_blocks: List[Block] = field(default_factory=list)
+    tipo: classifier.TipoProposicao = classifier.PL
 
 
 @dataclass
@@ -31,11 +42,14 @@ class PaginaSeparada:
     objeto: str                                  # texto após "Objeto:" do callout-cabeçalho
     introducao_texto: str                        # texto da seção introdutória (p/ harmonização)
     it_blocks: List[Block] = field(default_factory=list)
+    # Campos da 1ª minuta (compatibilidade: build_proposicao e chamadores
+    # antigos leem daqui); a lista completa fica em `minutas`.
     epigrafe: List[RichText] = field(default_factory=list)
     ementa: List[RichText] = field(default_factory=list)
     articulado_blocks: List[Block] = field(default_factory=list)
     justificativa_blocks: List[Block] = field(default_factory=list)
     tipo: classifier.TipoProposicao = classifier.PL
+    minutas: List[Minuta] = field(default_factory=list)
 
 
 def _extrai_objeto(callout: Block) -> str:
@@ -99,63 +113,71 @@ def split_page(blocks: List[Block], titulo: str) -> PaginaSeparada:
     while idx_apos_cabecalho < len(blocks) and blocks[idx_apos_cabecalho].type in ("divider", "image"):
         idx_apos_cabecalho += 1
 
-    # 2) marcos: início da minuta (callout de epígrafe) e justificativa
-    idx_epigrafe: Optional[int] = None
-    for i in range(idx_apos_cabecalho, len(blocks)):
-        if _eh_callout_epigrafe(blocks[i]):
-            idx_epigrafe = i
-            break
+    # 2) marcos: epígrafes das minutas (a página pode ter mais de uma, ex. "PL e PLP")
+    idx_epigrafes = [
+        i for i in range(idx_apos_cabecalho, len(blocks)) if _eh_callout_epigrafe(blocks[i])
+    ]
 
-    idx_justif: Optional[int] = None
-    if idx_epigrafe is not None:
-        for i in range(idx_epigrafe + 1, len(blocks)):
-            if _is_heading(blocks[i]) and ("JUSTIFIC" in _heading_text(blocks[i])):
-                idx_justif = i
-                break
-
-    # 3) fim da IT = heading "MINUTA" imediatamente antes da epígrafe, ou a própria epígrafe
-    if idx_epigrafe is not None:
-        it_end = idx_epigrafe
+    def _inicio_minuta(idx_epi: int) -> int:
         # recua sobre headings/divisores órfãos que anunciam a minuta
-        j = idx_epigrafe - 1
+        inicio = idx_epi
+        j = idx_epi - 1
         while j >= idx_apos_cabecalho and (
             blocks[j].type in ("divider",)
             or (_is_heading(blocks[j]) and "MINUTA" in _heading_text(blocks[j]))
         ):
-            it_end = j
+            inicio = j
             j -= 1
-    else:
-        it_end = len(blocks)
+        return inicio
 
+    inicios = [_inicio_minuta(i) for i in idx_epigrafes]
+
+    # 3) fim da IT = início da 1ª minuta (heading "MINUTA"/divisores antes da epígrafe)
+    it_end = inicios[0] if idx_epigrafes else len(blocks)
     it_blocks = blocks[idx_apos_cabecalho:it_end]
 
-    # 4) minuta
-    epigrafe: List[RichText] = []
-    ementa: List[RichText] = []
-    articulado_blocks: List[Block] = []
-    justificativa_blocks: List[Block] = []
-    if idx_epigrafe is not None:
-        epigrafe, ementa = _split_callout_epigrafe(blocks[idx_epigrafe])
-        fim_articulado = idx_justif if idx_justif is not None else len(blocks)
-        articulado_blocks = blocks[idx_epigrafe + 1 : fim_articulado]
-        if idx_justif is not None:
-            justificativa_blocks = blocks[idx_justif + 1 :]
+    # 4) minutas: cada epígrafe delimita articulado + justificativa até a próxima
+    minutas: List[Minuta] = []
+    for k, idx_epi in enumerate(idx_epigrafes):
+        fim = inicios[k + 1] if k + 1 < len(idx_epigrafes) else len(blocks)
+        idx_justif: Optional[int] = None
+        for i in range(idx_epi + 1, fim):
+            if _is_heading(blocks[i]) and ("JUSTIFIC" in _heading_text(blocks[i])):
+                idx_justif = i
+                break
+        epigrafe, ementa = _split_callout_epigrafe(blocks[idx_epi])
+        fim_articulado = idx_justif if idx_justif is not None else fim
+        justificativa = blocks[idx_justif + 1 : fim] if idx_justif is not None else []
+        # Tipo: com uma única minuta o título da página ajuda na detecção; com
+        # várias ele é ambíguo por definição ("PL e PLP") e só a epígrafe e o
+        # heading da própria minuta decidem.
+        textos_tipo = ([titulo] if len(idx_epigrafes) == 1 else []) + [
+            plain(epigrafe), _heading_text_da_minuta(blocks, idx_epi)
+        ]
+        minutas.append(Minuta(
+            epigrafe=epigrafe,
+            ementa=ementa,
+            articulado_blocks=blocks[idx_epi + 1 : fim_articulado],
+            justificativa_blocks=justificativa,
+            tipo=classifier.detectar_tipo(*textos_tipo),
+        ))
 
     # 5) texto introdutório (1ª seção) para harmonização
     introducao_texto = _coleta_introducao(it_blocks)
 
-    tipo = classifier.detectar_tipo(titulo, plain(epigrafe), _heading_text_da_minuta(blocks, idx_epigrafe))
+    primeira = minutas[0] if minutas else Minuta(tipo=classifier.detectar_tipo(titulo, "", ""))
 
     return PaginaSeparada(
         titulo=titulo,
         objeto=objeto,
         introducao_texto=introducao_texto,
         it_blocks=it_blocks,
-        epigrafe=epigrafe,
-        ementa=ementa,
-        articulado_blocks=articulado_blocks,
-        justificativa_blocks=justificativa_blocks,
-        tipo=tipo,
+        epigrafe=primeira.epigrafe,
+        ementa=primeira.ementa,
+        articulado_blocks=primeira.articulado_blocks,
+        justificativa_blocks=primeira.justificativa_blocks,
+        tipo=primeira.tipo,
+        minutas=minutas,
     )
 
 
@@ -411,6 +433,63 @@ def split_parecer(blocks: List[Block], titulo: str) -> ParecerSeparado:
 
     par.tipo = classifier.detectar_tipo(par.proposicao, par.sub_epigrafe, titulo)
     return par
+
+
+# Caput de artigo dentro de quote do articulado: '"Art. 165-A. Quando a…"' /
+# '"Art. 161. (…)' / '"Art. 36-A. ......'.
+_RE_CAPUT_QUOTE = re.compile(
+    r"^\s*[\"'“”‘’]?\s*Art\.?\s*(\d+)(?:[ºo°])?(?:\s*[-–‑]\s*([A-Za-z])\b)?\s*\.?\s*(?P<resto>.*)$"
+)
+# Caput preservado: "(…)"/"(...)" ou linha de pontilhado de supressão — o
+# artigo EXISTE na norma alterada (só recebe §/inciso ou mantém o caput).
+_RE_CAPUT_PRESERVADO = re.compile(r"^(?:\(\s*(?:…|\.{3,})\s*\)|[.…\s]{3,}$)")
+_RE_VERBO_ACRESCIMO = re.compile(
+    r"acrescid\w+|acrescent\w+|inclu[ií]\w+|inserid\w+|insere\w*|introduz\w*", re.I
+)
+
+
+def dispositivos_criados(articulado_blocks: List[Block]) -> frozenset:
+    """Artigos CRIADOS pelo articulado da minuta — conjunto de (num, LETRA)
+    usado para NÃO linkar esses dispositivos quando citados na justificação/
+    IT/parecer (achado do usuário, 06/07/2026: "art. 66-A da Lei das Eleições"
+    proposto saía linkado para uma âncora que não existe; a decisão de
+    05/07/2026 já vedava o link a dispositivo em deliberação).
+
+    Heurística (calibrada nas minutas reais de 05-06/07/2026): caput com
+    "(…)"/pontilhado ⇒ artigo EXISTENTE; caput de texto pleno ⇒ criado quando
+    tem sufixo de letra ("Art. 165-A. Quando…") ou quando o comando de
+    alteração imediatamente anterior ACRESCE aquele artigo — mas NÃO quando o
+    comando altera o próprio artigo ("O art. 36-A … passa a vigorar…", que
+    prova que ele existe) nem quando é reescrita sem letra ("Art. 22.
+    Qualquer partido…" sob "passa a vigorar com as seguintes alterações")."""
+    criados = set()
+    comando = ""
+    for b in articulado_blocks or []:
+        if b.type == "paragraph":
+            t = plain(b.rich).strip()
+            if t:
+                comando = t
+            continue
+        if b.type != "quote":
+            continue
+        for linha in plain(b.rich).splitlines():
+            m = _RE_CAPUT_QUOTE.match(linha)
+            if not m:
+                continue
+            num, letra = int(m.group(1)), (m.group(2) or "").upper()
+            resto = m.group("resto").strip()
+            if _RE_CAPUT_PRESERVADO.match(resto or "…"):
+                continue  # "(…)" ou "……": artigo existente
+            ref = rf"art(?:igo)?s?\.?\s*{num}(?:[ºo°])?" + (
+                rf"\s*[-–‑]\s*{letra}\b" if letra else r"(?!\s*[-–‑]\s*[A-Za-z])"
+            )
+            if re.search(rf"\b{ref}[^.;]{{0,80}}?passa(?:m|r[áã]o?)?\s+a\s+vigorar", comando, re.I):
+                continue  # o comando altera o PRÓPRIO artigo: ele existe
+            if letra:
+                criados.add((num, letra))
+            elif _RE_VERBO_ACRESCIMO.search(comando) and re.search(rf"\b{ref}", comando, re.I):
+                criados.add((num, letra))  # acréscimo explícito de artigo sem letra
+    return frozenset(criados)
 
 
 def _coleta_introducao(it_blocks: List[Block]) -> str:

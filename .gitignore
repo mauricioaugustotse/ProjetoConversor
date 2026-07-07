@@ -72,3 +72,22 @@ vademecum_work/
 pje_work/
 # Backups automaticos timestamped de CSV (o CSV real ja e versionado)
 *.backup_*
+
+# Caches de CONTEUDO extraido de documentos pessoais (podem conter senhas/CPF/dados)
+org2_cabecalhos.tsv
+org2_cache_fulltext.tsv
+org2_ia_*.jsonl
+od_cabecalhos.tsv
+od_fulltext.tsv
+od_ia_*.jsonl
+suf_*.json
+conteudo/
+conteudo_doc/
+# Logs/planos de reorganizacao: caminhos contem nomes de arquivos com dados pessoais
+log_org2_*.csv
+log_od_*.csv
+plano_org2_*.csv
+plano_od_*.csv
+org2_snapshot_*.csv
+od_snapshot_*.csv
+conteudo_metadados.csv
