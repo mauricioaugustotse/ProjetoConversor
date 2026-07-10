@@ -71,7 +71,14 @@ REGRAS_CITACAO = (
     "\"o Tema 123 do STF\") com link para a fonte PÚBLICA oficial (Planalto, Câmara, portal do "
     "tribunal) — sem fonte pública disponível, cite o dispositivo sem link (ou [LINK?] se for "
     "precedente). E INTEGRE a citação naturalmente à frase, no fluxo do argumento — nunca cole o "
-    "título da ficha interna (errado: \"(RICD - Art. 151, RICD)\"; certo: \"o art. 151 do RICD\")."
+    "título da ficha interna (errado: \"(RICD - Art. 151, RICD)\"; certo: \"o art. 151 do RICD\").\n"
+    "6. PROIBIDO TRANSCREVER METADADOS DO CONTEXTO: nomes de campos/propriedades das bases "
+    "(\"campo texto_em_vigor\", \"texto_dispositivo\", \"link_1\"), rótulos como \"Untitled\"/"
+    "\"(sem título)\" e títulos de ficha no formato \"Norma - Art. N\" são ANOTAÇÕES INTERNAS do "
+    "material de pesquisa — NUNCA aparecem no texto final, nem entre parênteses. Também é PROIBIDO "
+    "o parêntese remissivo composto só de referências internas (errado: \"...na mesma legislatura "
+    "(RICD - Art. 13-A, campo texto_em_vigor)\"; certo: \"...na mesma legislatura, nos termos do "
+    "art. 13-A do RICD\" — com o link público embutido na própria citação)."
 )
 
 # Eixo central: ancoragem que SUSTENTA a ideia, sem virar checklist de dispositivos.

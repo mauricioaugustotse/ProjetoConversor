@@ -57,7 +57,12 @@ def _fmt_rag(trechos) -> str:
         if url and not re.search(r"(?:^notion://|//(?:www\.)?notion\.so\b|//app\.notion\.com\b)", url):
             meta.append(f"LINK OFICIAL: {url}")
         tag = ("  [" + " | ".join(meta) + "]") if meta else ""
-        linhas.append(f"- ({t.fonte} · {t.titulo}){tag}\n  {t.texto[:800]}")
+        # ficha sem título vira rótulo derivado do conteúdo — "Untitled"/"(sem
+        # título)" no cabeçalho induzia o redator a citá-lo literalmente
+        titulo = (getattr(t, "titulo", "") or "").strip()
+        if not titulo or titulo.lower() in ("untitled", "(sem título)", "sem título"):
+            titulo = (getattr(t, "texto", "") or "").strip().splitlines()[0][:60] or "trecho"
+        linhas.append(f"- ({t.fonte} · {titulo}){tag}\n  {t.texto[:800]}")
     return "\n".join(linhas) if linhas else "(sem trechos relevantes nas bases internas)"
 
 

@@ -21,8 +21,15 @@ API = "https://api.notion.com/v1"
 def _url_valida(href) -> bool:
     """URL aceitável para um link do Notion: http(s) sem espaços. Evita o 400
     'Invalid URL for link' quando o redator gera um link com placeholder/sentinela
-    (ex.: [ADC nº 29](LINK?)) ou URL malformada."""
-    return bool(href) and re.fullmatch(r"https?://\S+", str(href).strip()) is not None
+    (ex.: [ADC nº 29](LINK?)) ou URL malformada. URLs INTERNAS do Notion também
+    são rejeitadas (o link vira texto puro): o Notion as renderia como mention
+    da página — e página de base sem título aparece como "Untitled" no texto
+    (achado do usuário, 06/07/2026, Estudo Resoluções TSE 2026); a regra 5 das
+    REGRAS_CITACAO já proíbe citá-las, isto é o cinto de segurança."""
+    h = str(href or "").strip()
+    if not h or re.fullmatch(r"https?://\S+", h) is None:
+        return False
+    return not re.search(r"//(?:www\.)?(?:notion\.so|app\.notion\.com)\b", h)
 
 
 # ===================== markdown inline -> rich_text =====================

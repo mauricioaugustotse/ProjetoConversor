@@ -94,6 +94,14 @@ def _digitos(s: str) -> str:
     return re.sub(r"\D", "", s or "")
 
 
+_RE_RES_CAMARA = re.compile(
+    r"^Resolu[çc][ãa]o(?:\s+da\s+C[âa]mara(?:\s+dos\s+Deputados)?)?\s*"
+    r"n[ºo°.]*\s*(?P<num>\d{1,3})\s*"
+    r"(?:/\s*(?P<ano1>\d{4})|,?\s+de(?:\s+\d{1,2}[ºo°]?\s+de\s+[a-zç]+\s+de)?\s+(?P<ano2>\d{4}))$",
+    re.I,
+)
+
+
 def parsear_designacao(txt: str) -> Optional[Achado]:
     t = " ".join((txt or "").split()).strip(" .,;")
     m = _RE_RES_TSE.match(t)
@@ -103,6 +111,10 @@ def parsear_designacao(txt: str) -> Optional[Achado]:
                      int(m.group("ano1") or m.group("ano2") or 0) or None)
         ach._detalhe = m.groupdict()  # dia/mês p/ montar o slug
         return ach
+    m = _RE_RES_CAMARA.match(t)
+    if m:
+        ano = int(m.group("ano1") or m.group("ano2"))
+        return Achado(t, "resolucao_camara", f"{int(m.group('num'))}/{ano}", ano)
     m = _RE_EC.match(t)
     if m:
         return Achado(t, "emenda", _digitos(m.group("num")),
@@ -169,6 +181,11 @@ def candidatas_de(ach: Achado) -> List[str]:
             return [f"{base}/resolucao-no-{slug_num}-de-{int(dia)}-de-{mes_slug}-de-{ano}",
                     f"{base}/resolucao-no-{slug_num}-{int(dia)}-de-{mes_slug}-de-{ano}"]
         return _buscar_res_tse_no_site(n, ach.ano)
+    if ach.classe == "resolucao_camara":
+        # o slug do LEGIN tem id interno não-derivável e o site bloqueia
+        # busca programática — as candidatas vêm do APRENDIZADO dos links do
+        # autor na própria página (analisar_pagina) ou do --url manual
+        return list(getattr(ach, "_aprendidas", []) or [])
     return []
 
 
@@ -209,23 +226,32 @@ def validar(cand: Candidata, chave: str) -> Candidata:
         cand.obs = f"HTTP {r.status_code}"
         return cand
     r.encoding = r.apparent_encoding
-    digs = _digitos(chave)
+    digs = _digitos(chave.split("/")[0])  # "10/2009" (Res. Câmara) -> "10"
     padrao_num = re.escape(_com_ponto(digs)) + "|" + re.escape(digs)
     if not re.search(padrao_num, r.text):
         cand.obs = "página não menciona o número da norma"
         return cand
     cand.valida = True
-    cand.tem_ancoras = bool(re.search(r'(?:name|id)="art\d', r.text))
+    # páginas do LEGIN não precisam de âncora nativa: o conversor usa text
+    # fragment (#:~:text=Art.%20N), que desce ao artigo mesmo sem elas
+    cand.tem_ancoras = bool(re.search(r'(?:name|id)="art\d', r.text)) or \
+        "camara.leg.br/legin/" in cand.url
     cand.obs = "com âncoras #artN" if cand.tem_ancoras else "SEM âncoras de artigo"
     return cand
 
 
-def descobrir(designacao: str, log: Callable[[str], None] = lambda m: None) -> Optional[Achado]:
-    """Parse + candidatas + validação de uma designação de norma."""
+def descobrir(designacao: str, log: Callable[[str], None] = lambda m: None,
+              aprendidas: Optional[dict] = None) -> Optional[Achado]:
+    """Parse + candidatas + validação de uma designação de norma. `aprendidas`
+    = {chave: url} de links do AUTOR na própria página (resoluções da Câmara
+    no LEGIN, cujo slug não é derivável)."""
     ach = parsear_designacao(designacao)
     if ach is None:
         log(f"  ? não sei derivar URL para: {designacao!r} (classe não suportada)")
         return None
+    if ach.classe == "resolucao_camara" and aprendidas and ach.chave in aprendidas:
+        ach._aprendidas = [aprendidas[ach.chave]]
+        log("  (candidata aprendida de link do autor na própria página)")
     for url in candidatas_de(ach):
         c = validar(Candidata(url), ach.chave)
         ach.candidatas.append(c)
@@ -239,7 +265,7 @@ def descobrir(designacao: str, log: Callable[[str], None] = lambda m: None) -> O
 # persistência (normas_extras.json) + merge em memória
 # ---------------------------------------------------------------------------
 _CLASSE_JSON = {"lei": "leis", "lcp": "lcps", "emenda": "emendas",
-                "resolucao_tse": "resolucoes_tse"}
+                "resolucao_tse": "resolucoes_tse", "resolucao_camara": "resolucoes_camara"}
 
 
 def carregar_extras() -> dict:
@@ -266,6 +292,8 @@ def gravar_achado(ach: Achado) -> str:
     # merge em memória
     if ach.classe == "resolucao_tse":
         config.RESOLUCOES_TSE[ach.chave] = melhor.url
+    elif ach.classe == "resolucao_camara":
+        config.RESOLUCOES_CAMARA[ach.chave] = melhor.url
     elif ach.classe == "emenda":
         config.EMENDAS_CONSTITUCIONAIS[ach.chave] = melhor.url
     elif ach.classe == "lei":
@@ -293,10 +321,21 @@ def analisar_pagina(url_notion: str, log: Callable[[str], None] = lambda m: None
     lacunas = detectar_normas_sem_fonte(rich_lists)
     log(f"Página “{titulo}”: {len(lacunas)} norma(s) sem fonte." if lacunas
         else f"Página “{titulo}”: nenhuma lacuna — todas as normas citadas já linkam.")
+    # aprendizado: links do AUTOR para resoluções da Câmara no LEGIN — a mesma
+    # resolução citada COM link num trecho e SEM link em outro
+    aprendidas: dict = {}
+    for rich in rich_lists:
+        for r in rich:
+            m = re.search(
+                r"legin/fed/rescad/(\d{4})/resolucaodacamaradosdeputados-(\d+)-",
+                r.href or "",
+            )
+            if m:
+                aprendidas[f"{int(m.group(2))}/{m.group(1)}"] = (r.href or "").split("#")[0]
     achados = []
     for lac in lacunas:
         log(f"— {lac}")
-        ach = descobrir(lac, log)
+        ach = descobrir(lac, log, aprendidas)
         if ach is not None:
             achados.append(ach)
     return achados
@@ -311,11 +350,28 @@ def main(argv: Optional[List[str]] = None) -> int:
     auto = "--auto" in args
     if auto:
         args.remove("--auto")
+    url_manual = None
+    if "--url" in args:
+        i = args.index("--url")
+        url_manual = args[i + 1]
+        del args[i:i + 2]
     if not args:
         print(__doc__)
         return 2
     if args[0] == "--norma":
-        achados = [a for a in [descobrir(args[1], print)] if a is not None]
+        ach = parsear_designacao(args[1]) if url_manual else None
+        if url_manual:
+            # URL informada manualmente: só valida e confirma (caminho para as
+            # resoluções da Câmara, cujo slug do LEGIN não é derivável)
+            if ach is None:
+                print(f"designação não reconhecida: {args[1]!r}")
+                return 2
+            c = validar(Candidata(url_manual), ach.chave)
+            ach.candidatas.append(c)
+            print(f"  {'✓' if c.valida else '✗'} {url_manual}  ({c.obs})")
+            achados = [ach]
+        else:
+            achados = [a for a in [descobrir(args[1], print)] if a is not None]
     else:
         achados = analisar_pagina(args[0], print)
     gravadas = 0

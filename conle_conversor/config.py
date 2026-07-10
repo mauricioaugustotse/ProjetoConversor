@@ -282,6 +282,24 @@ RESOLUCOES_TSE.update(_NORMAS_EXTRAS.get("resolucoes_tse", {}))
 EMENDAS_CONSTITUCIONAIS.update(_NORMAS_EXTRAS.get("emendas", {}))
 LEIS_EXTRAS = dict(_NORMAS_EXTRAS.get("leis", {}))    # {"12034": url}
 LCPS_EXTRAS = dict(_NORMAS_EXTRAS.get("lcps", {}))    # {"101": url}
+# Resoluções da CÂMARA (chave "N/AAAA" — número pequeno exige o ano): o slug
+# do LEGIN tem id interno não-derivável, então as entradas nascem no
+# descobridor — aprendidas dos links do AUTOR na própria página ou informadas
+# manualmente com --url. Fora do mapa -> sem link, como sempre.
+RESOLUCOES_CAMARA = dict(_NORMAS_EXTRAS.get("resolucoes_camara", {}))
+
+
+def _fonte_res_camara(m: Optional["re.Match"]) -> Optional[str]:
+    d = m.groupdict() if m else {}
+    if not (d.get("rcd") and d.get("rcd_ano")):
+        return None
+    base = RESOLUCOES_CAMARA.get(f"{int(d['rcd'])}/{d['rcd_ano']}")
+    if not base:
+        return None
+    if not d.get("num"):
+        return base
+    # páginas do LEGIN: mesmo text fragment do RICD
+    return base + ancora_artigo_ricd(int(d["num"]), d.get("letra") or "")
 
 
 def _fonte_lei_extra(m: Optional["re.Match"]) -> Optional[str]:
@@ -378,9 +396,14 @@ NORMAS_OFICIAIS = [
     ),
     NormaOficial(
         mention_re=rf"^RICD\s*[-–—]\s*{_ART_MENTION}",
+        # "Resolução nº 17, de 1989" é a designação FORMAL do RICD — específica
+        # aqui para não cair na genérica de resolução da Câmara (mapa fechado)
         citacao_re=(r"RICD\b|Regimento\s+Interno(?:\s+da\s+C[âa]mara(?:\s+dos\s+"
-                    r"Deputados)?)?"),
-        citacao_isolada_re=None,
+                    r"Deputados)?)?"
+                    r"|Resolu[çc][ãa]o(?:\s+da\s+C[âa]mara(?:\s+dos\s+Deputados)?)?"
+                    r"\s*n[ºo°.]*\s*17,?\s+de\s+(?:21\s+de\s+setembro\s+de\s+)?1989"),
+        citacao_isolada_re=(r"Resolu[çc][ãa]o(?:\s+da\s+C[âa]mara(?:\s+dos\s+Deputados)?)?"
+                            r"\s*n[ºo°.]*\s*17,?\s+de\s+(?:21\s+de\s+setembro\s+de\s+)?1989"),
         montar_url=_fonte_ricd,
         aliases=("RICD",),
     ),
@@ -535,6 +558,26 @@ NORMAS_OFICIAIS = [
         citacao_isolada_re=(r"(?:LC|Lei\s+Complementar)\s*n?[ºo°.]*\s*(?P<lcpnum>\d{1,3})"
                             r"(?:\s*/\s*\d{2,4}|,?\s+de\s+[^,;()]{0,30}?\d{4})"),
         montar_url=_fonte_lcp_extra,
+        aliases=(),
+    ),
+    NormaOficial(
+        # Resolução da Câmara aprovada no mapa (qualificador opcional: "a
+        # Resolução nº 6, de 2023" no contexto CONLE é da Câmara; só linka o
+        # que estiver em RESOLUCOES_CAMARA, então não há risco de acertar a
+        # casa errada). O ano é OBRIGATÓRIO (número pequeno é ambíguo sem ele).
+        mention_re=(r"^Resolu[çc][ãa]o(?:\s+da\s+C[âa]mara(?:\s+dos\s+Deputados)?)?"
+                    r"\s*n[ºo°.]*\s*(?P<rcd>\d{1,3})\s*"
+                    r"(?:/\s*|,?\s+de\s+(?:\d{1,2}[ºo°]?\s+de\s+[a-zA-Zç]+\s+de\s+)?)"
+                    rf"(?P<rcd_ano>\d{{4}})\s*[-–—,]\s*{_ART_MENTION}"),
+        citacao_re=(r"Resolu[çc][ãa]o(?:\s+da\s+C[âa]mara(?:\s+dos\s+Deputados)?)?"
+                    r"\s*n[ºo°.]*\s*(?P<rcd>\d{1,3})\s*"
+                    r"(?:/\s*|,?\s+de\s+(?:\d{1,2}[ºo°]?\s+de\s+[a-zA-Zç]+\s+de\s+)?)"
+                    r"(?P<rcd_ano>\d{4})"),
+        citacao_isolada_re=(r"Resolu[çc][ãa]o(?:\s+da\s+C[âa]mara(?:\s+dos\s+Deputados)?)?"
+                            r"\s*n[ºo°.]*\s*(?P<rcd>\d{1,3})\s*"
+                            r"(?:/\s*|,?\s+de\s+(?:\d{1,2}[ºo°]?\s+de\s+[a-zA-Zç]+\s+de\s+)?)"
+                            r"(?P<rcd_ano>\d{4})"),
+        montar_url=_fonte_res_camara,
         aliases=(),
     ),
 ]

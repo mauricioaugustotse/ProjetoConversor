@@ -664,12 +664,18 @@ def linkificar_norma_antes_dispositivo(rich_list: List[RichText]) -> List[RichTe
 
 # URLs-base (sem âncora) das normas oficiais conhecidas — antecedentes válidos
 # para a resolução de anáfora ("No art. 36-A, …" depois de um link da Lei
-# 9.504). Links de julgados/proposições NÃO entram.
-_BASES_NORMAS = (
-    {u for u in (n.montar_url(None) for n in config.NORMAS_OFICIAIS) if u}
-    | set(config.RESOLUCOES_TSE.values())
-    | set(config.EMENDAS_CONSTITUCIONAIS.values())
-)
+# 9.504). Links de julgados/proposições NÃO entram. Calculado POR CHAMADA
+# (barato) para enxergar fontes aprovadas pelo descobridor NA MESMA SESSÃO da
+# GUI — antes era congelado no import e a anáfora só valia após reiniciar.
+def _bases_normas() -> set:
+    return (
+        {u for u in (n.montar_url(None) for n in config.NORMAS_OFICIAIS) if u}
+        | set(config.RESOLUCOES_TSE.values())
+        | set(config.RESOLUCOES_CAMARA.values())
+        | set(config.EMENDAS_CONSTITUCIONAIS.values())
+        | set(config.LEIS_EXTRAS.values())
+        | set(config.LCPS_EXTRAS.values())
+    )
 
 # Outra norma nomeada logo adiante ("art. 7º da LC nº 95/1998…"): o artigo NÃO
 # é anáfora da norma anterior — mesmo critério da lista-negra do miolo.
@@ -723,8 +729,10 @@ def _norm_ascii(s: str) -> str:
 def _classes_da_base(base: str) -> tuple:
     """Classes de designação genérica que podem retomar a norma `base` — o
     Código Eleitoral atende por "código" e por "lei" (é a Lei nº 4.737)."""
-    if base in config.RESOLUCOES_TSE.values():
+    if base in config.RESOLUCOES_TSE.values() or base in config.RESOLUCOES_CAMARA.values():
         return ("resolucao",)
+    if base in config.EMENDAS_CONSTITUCIONAIS.values():
+        return ("emenda",)
     if base in config.EMENDAS_CONSTITUCIONAIS.values():
         return ("emenda",)
     if base == config.RICD_LEGIN_URL:
@@ -757,12 +765,13 @@ def linkificar_dispositivos_anaforicos(rich_list: List[RichText]) -> List[RichTe
     out: List[RichText] = []
     bases_vistas: set = set()
     por_classe: dict = {}
+    bases_conhecidas = _bases_normas()
     rich = list(rich_list or [])
     for idx, r in enumerate(rich):
         href = (r.href or "").strip()
         if href:
             b = href.split("#")[0]
-            if b in _BASES_NORMAS:
+            if b in bases_conhecidas:
                 bases_vistas.add(b)
                 for cl in _classes_da_base(b):
                     por_classe.setdefault(cl, set()).add(b)
@@ -1682,7 +1691,11 @@ _RE_NORMA_GENERICA = re.compile(
     r"|\bNorma\s+Regulamentadora\s*n[ºo°.]*\s*\d{1,2}(?:\s*\(NR[-\s]?\d{1,2}\))?"
     r"|\bNR[-\s]\d{1,2}\b"
     r"|\bResolu[çc][ãa]o\s+(?:d[oa]\s+)?(?:TSE|CNJ|CNMP|Senado\s+Federal|"
-    r"C[âa]mara\s+dos\s+Deputados)\s*n[ºo°.]*\s*[\d.]+(?:\s*/\s*\d{4})?",
+    r"C[âa]mara\s+dos\s+Deputados)\s*n[ºo°.]*\s*[\d.]+(?:\s*/\s*\d{4})?"
+    # sem qualificador o ANO é obrigatório ("Resolução nº 10, de 2009" — no
+    # contexto CONLE é da Câmara; achado do usuário: ficava sem link E sem aviso)
+    r"|\bResolu[çc][ãa]o\s*n[ºo°.]*\s*\d{1,3}(?:\s*/\s*\d{4}"
+    r"|,?\s+de(?:\s+\d{1,2}[ºo°]?\s+de\s+[a-zA-Zç]+\s+de)?\s+\d{4})",
     re.I,
 )
 
