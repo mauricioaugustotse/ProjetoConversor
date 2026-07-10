@@ -138,8 +138,10 @@ class ConversorGUI(tk.Tk):
         acoes.pack(fill="x", pady=(12, 6))
         self.btn = ttk.Button(acoes, text="Gerar documentos", style="Gerar.TButton", command=self._on_gerar)
         self.btn.pack(side="left")
+        self.btn_fontes = ttk.Button(acoes, text="Verificar fontes de normas", command=self._on_fontes)
+        self.btn_fontes.pack(side="left", padx=8)
         self.btn_abrir = ttk.Button(acoes, text="Abrir pasta de saída", command=self._abrir_pasta, state="disabled")
-        self.btn_abrir.pack(side="left", padx=8)
+        self.btn_abrir.pack(side="left", padx=(0, 8))
 
         # log ---------------------------------------------------------------
         ttk.Label(corpo, text="Progresso:", font=("Segoe UI Semibold", 10)).pack(anchor="w", pady=(6, 2))
@@ -213,6 +215,58 @@ class ConversorGUI(tk.Tk):
         except Exception as exc:
             self._fila.put(("erro", f"{exc}\n\n{traceback.format_exc()}"))
 
+    # ------------------------------------------------- verificação de fontes
+    def _on_fontes(self):
+        """Passo 2 do detector de lacunas: descobre a URL oficial das normas
+        citadas sem fonte mapeada (convenção + GET de validação), pede a
+        confirmação e grava em normas_extras.json — a geração seguinte linka."""
+        if self._rodando:
+            return
+        url = self.var_url.get().strip()
+        if not url:
+            messagebox.showwarning("Atenção", "Cole a URL (ou ID) da página do Notion.")
+            return
+        self._rodando = True
+        self.btn.config(state="disabled")
+        self.btn_fontes.config(state="disabled", text="Verificando…")
+        self._limpar_log()
+        self.barra.start(12)
+        threading.Thread(target=self._worker_fontes, args=(url,), daemon=True).start()
+
+    def _worker_fontes(self, url):
+        try:
+            from conle_conversor import fontes
+            achados = fontes.analisar_pagina(url, log=lambda m: self._fila.put(("log", m)))
+            self._fila.put(("fontes", achados))
+        except Exception as exc:
+            self._fila.put(("erro", f"{exc}\n\n{traceback.format_exc()}"))
+
+    def _fim_fontes(self, achados):
+        from conle_conversor import fontes
+        self._rodando = False
+        self.barra.stop()
+        self.btn.config(state="normal", text="Gerar documentos")
+        self.btn_fontes.config(state="normal", text="Verificar fontes de normas")
+        gravadas = 0
+        for ach in achados:
+            melhor = ach.melhor
+            if melhor is None:
+                self._append_log(f"✗ {ach.designacao}: nenhuma URL validada — mapear manualmente.")
+                continue
+            alerta = "" if melhor.tem_ancoras else "\n\nATENÇÃO: a página não tem âncoras de artigo — o link abrirá no topo."
+            if messagebox.askyesno(
+                "Aprovar fonte",
+                f"{ach.designacao}\n\n→ {melhor.url}{alerta}\n\nGravar esta fonte?",
+            ):
+                fontes.gravar_achado(ach)
+                gravadas += 1
+                self._append_log(f"✓ aprovada: {ach.designacao} → {melhor.url}")
+            else:
+                self._append_log(f"— descartada: {ach.designacao}")
+        self._append_log("")
+        self._append_log(f"{gravadas} fonte(s) aprovada(s)." + (
+            " Clique em Gerar documentos: os links já saem corretos." if gravadas else ""))
+
     def _consumir_fila(self):
         try:
             while True:
@@ -221,6 +275,8 @@ class ConversorGUI(tk.Tk):
                     self._append_log(dado)
                 elif tipo == "ok":
                     self._fim_ok(dado)
+                elif tipo == "fontes":
+                    self._fim_fontes(dado)
                 elif tipo == "erro":
                     self._fim_erro(dado)
         except queue.Empty:
@@ -247,6 +303,7 @@ class ConversorGUI(tk.Tk):
         self._rodando = False
         self.barra.stop()
         self.btn.config(state="normal", text="Gerar documentos")
+        self.btn_fontes.config(state="normal", text="Verificar fontes de normas")
         self._append_log("")
         self._append_log("✗ ERRO:")
         self._append_log(msg)

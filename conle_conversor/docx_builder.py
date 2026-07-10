@@ -242,18 +242,83 @@ def _tem_risco_apensacao(blocks: List[Block]) -> bool:
 # ---------------------------------------------------------------------------
 # corpo da IT
 # ---------------------------------------------------------------------------
+_FOLD_SUMARIO = ("SUMARIO", "INDICE")
+
+
+def _substituir_sumario(blocks: List[Block]) -> List[Block]:
+    """Página com seção "SUMÁRIO" (heading + lista manual de itens do Notion):
+    a lista vira um CAMPO TOC nativo do Word — níveis pelos outline levels dos
+    títulos e entradas com hyperlink para o trecho (pedido do usuário,
+    06/07/2026; a lista manual saía como texto desconfigurado e sem links).
+    O heading vira o tipo sintético "heading_sumario" (fica FORA do próprio
+    sumário) e os itens manuais até o próximo heading são descartados."""
+    out: List[Block] = []
+    i = 0
+    while i < len(blocks):
+        b = blocks[i]
+        if b.type in ("heading_1", "heading_2", "heading_3") and \
+                _fold(plain(b.rich)).strip() in _FOLD_SUMARIO:
+            out.append(Block(type="heading_sumario", rich=b.rich))
+            out.append(Block(type="toc"))
+            i += 1
+            while i < len(blocks) and not blocks[i].type.startswith("heading"):
+                i += 1
+            continue
+        out.append(b)
+        i += 1
+    return out
+
+
+def _add_campo_toc(doc):
+    """Campo TOC do Word ({ TOC \\h \\z \\u }): monta o sumário pelos outline
+    levels que o builder força nos títulos, com hyperlink em cada entrada.
+    w:dirty faz o Word recalcular o campo ao abrir o documento."""
+    para = doc.add_paragraph()
+
+    def _fld(tipo, dirty=False):
+        r = OxmlElement("w:r")
+        f = OxmlElement("w:fldChar")
+        f.set(qn("w:fldCharType"), tipo)
+        if dirty:
+            f.set(qn("w:dirty"), "true")
+        r.append(f)
+        return r
+
+    para._p.append(_fld("begin", dirty=True))
+    r = OxmlElement("w:r")
+    t = OxmlElement("w:instrText")
+    t.set(qn("xml:space"), "preserve")
+    t.text = r" TOC \h \z \u "
+    r.append(t)
+    para._p.append(r)
+    para._p.append(_fld("separate"))
+    para.add_run("Sumário gerado pelo Word — se não aparecer, selecione tudo e pressione F9.")
+    para._p.append(_fld("end"))
+    return para
+
+
+def _mapa_estilo_headings(blocks: List[Block]) -> dict:
+    """Nível dos títulos RELATIVO à página: nas ITs clássicas o topo é o
+    heading_2 ("1. INTRODUÇÃO"); em páginas-estudo o topo é o heading_1 e o
+    heading_2 é SUBNÍVEL — sem o deslocamento, "5.1" saía achatado no mesmo
+    nível do "5" (sumário sem hierarquia, achado do usuário 06/07/2026)."""
+    if any(b.type == "heading_1" for b in blocks):
+        return {"heading_1": S.TITULO_ITEM, "heading_2": S.TITULO_SUB,
+                "heading_3": S.TITULO_SUB2, "heading_4": S.TITULO_SUB2}
+    return {"heading_1": S.TITULO_ITEM, "heading_2": S.TITULO_ITEM,
+            "heading_3": S.TITULO_SUB, "heading_4": S.TITULO_SUB2}
+
+
 def _render_it_blocks(doc, blocks: List[Block], proibidos=frozenset()):
+    estilo_h = _mapa_estilo_headings(blocks)
     for b in blocks:
-        if b.type == "heading_1":
-            _p(doc, S.TITULO_ITEM, rich=b.rich, proibidos=proibidos)
-        elif b.type == "heading_2":
-            _p(doc, S.TITULO_ITEM, rich=b.rich, proibidos=proibidos)
-        elif b.type == "heading_3":
-            _p(doc, S.TITULO_SUB, rich=b.rich, proibidos=proibidos)
-        elif b.type == "heading_4":
-            # subtítulo "1.1.1" (a API do Notion devolve heading_4 desde
-            # 2026): estilo verde de 3º nível, como no modelo da casa
-            _p(doc, S.TITULO_SUB2, rich=b.rich, proibidos=proibidos)
+        if b.type == "heading_sumario":
+            para = _p(doc, S.TITULO_ITEM, rich=b.rich, proibidos=proibidos)
+            _nivel_topico(para, 9)  # 9 = sem nível: o título não entra no TOC
+        elif b.type == "toc":
+            _add_campo_toc(doc)
+        elif b.type in estilo_h:
+            _p(doc, estilo_h[b.type], rich=b.rich, proibidos=proibidos)
         elif b.type == "paragraph":
             if plain(b.rich).strip():
                 _p(doc, S.CORPO, rich=b.rich, proibidos=proibidos)
@@ -387,7 +452,7 @@ def build_it(sep: PaginaSeparada, abertura: Abertura, meta: MetaDocumento) -> Do
             _p(doc, S.TRANSCRICAO, text=linha)
     _p(doc, S.CORPO, text=abertura.transicao)
 
-    _render_it_blocks(doc, sep.it_blocks, proibidos)
+    _render_it_blocks(doc, _substituir_sumario(sep.it_blocks), proibidos)
 
     _p(doc, S.FECHO, text=meta.fecho_it_txt)
     _p(doc, S.ASSINATURA, text=meta.consultor)

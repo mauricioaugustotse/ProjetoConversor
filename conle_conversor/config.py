@@ -155,6 +155,12 @@ NR31_MTE_URL = (
 # Lei 1.079/1950 (crimes de responsabilidade) — âncoras nativas #artN aferidas
 # (06/07/2026; inclusive por inciso: art4i), padrão ccivil_03.
 L1079_PLANALTO_URL = "https://www.planalto.gov.br/ccivil_03/leis/l1079.htm"
+# Lei 14.192/2021 (violência política contra a mulher) e Lei 14.211/2021 —
+# aferidas por GET 06/07/2026 (páginas do Estudo Resoluções TSE 2026).
+L14192_PLANALTO_URL = "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14192.htm"
+L14211_PLANALTO_URL = "https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14211.htm"
+# Lei 9.096/1995 (Lei dos Partidos Políticos) — âncora nativa #art15 aferida.
+L9096_PLANALTO_URL = "https://www.planalto.gov.br/ccivil_03/leis/l9096.htm"
 
 
 def ancora_artigo_cf(num: int) -> str:
@@ -196,22 +202,106 @@ def ancora_artigo_ricd(num: int, letra: str = "") -> str:
 # extenso e não é derivável do número — mapa extensível, chave normalizada
 # "NN.NNN"). Fora do mapa -> sem link (mention vira texto puro; citação
 # textual não é linkada).
+_TSE_COMPILADA = "https://www.tse.jus.br/legislacao/compilada/res/"
 RESOLUCOES_TSE = {
-    "23.610": "https://www.tse.jus.br/legislacao/compilada/res/2019/"
-              "resolucao-no-23-610-de-18-de-dezembro-de-2019",
-    "23.607": "https://www.tse.jus.br/legislacao/compilada/res/2019/"
-              "resolucao-no-23-607-de-17-de-dezembro-de-2019",
-    "23.735": "https://www.tse.jus.br/legislacao/compilada/res/2024/"
-              "resolucao-no-23-735-de-27-de-fevereiro-de-2024",
-    # Aferidas 06/07/2026 (IT "Auditoria e verificabilidade"):
-    "23.751": "https://www.tse.jus.br/legislacao/compilada/res/2026/"
-              "resolucao-no-23-751-de-26-de-fevereiro-de-2026",
-    # CUIDADO: o slug desta NÃO tem o "de" antes do dia (irregularidade do site)
-    "23.673": "https://www.tse.jus.br/legislacao/compilada/res/2021/"
-              "resolucao-no-23-673-14-de-dezembro-de-2021",
-    "23.444": "https://www.tse.jus.br/legislacao/compilada/res/2015/"
-              "resolucao-no-23-444-de-30-de-abril-de-2015",
+    "23.444": _TSE_COMPILADA + "2015/resolucao-no-23-444-de-30-de-abril-de-2015",
+    "23.600": _TSE_COMPILADA + "2019/resolucao-no-23-600-de-12-de-dezembro-de-2019",
+    "23.605": _TSE_COMPILADA + "2019/resolucao-no-23-605-de-17-de-dezembro-de-2019",
+    "23.607": _TSE_COMPILADA + "2019/resolucao-no-23-607-de-17-de-dezembro-de-2019",
+    "23.608": _TSE_COMPILADA + "2019/resolucao-no-23-608-de-18-de-dezembro-de-2019",
+    "23.609": _TSE_COMPILADA + "2019/resolucao-no-23-609-de-18-de-dezembro-de-2019",
+    "23.610": _TSE_COMPILADA + "2019/resolucao-no-23-610-de-18-de-dezembro-de-2019",
+    "23.659": _TSE_COMPILADA + "2021/resolucao-no-23-659-de-26-de-outubro-de-2021",
+    "23.664": _TSE_COMPILADA + "2021/resolucao-no-23-664-de-9-de-dezembro-de-2021",
+    "23.665": _TSE_COMPILADA + "2021/resolucao-no-23-665-de-9-de-dezembro-de-2021",
+    "23.670": _TSE_COMPILADA + "2021/resolucao-no-23-670-de-14-de-dezembro-de-2021",
+    "23.671": _TSE_COMPILADA + "2021/resolucao-no-23-671-de-14-de-dezembro-de-2021",
+    # CUIDADO: o slug da 23.673 NÃO tem o "de" antes do dia (irregularidade do site)
+    "23.673": _TSE_COMPILADA + "2021/resolucao-no-23-673-14-de-dezembro-de-2021",
+    "23.675": _TSE_COMPILADA + "2021/resolucao-no-23-675-de-16-de-dezembro-de-2021",
+    "23.677": _TSE_COMPILADA + "2021/resolucao-no-23-677-de-16-de-dezembro-de-2021",
+    "23.679": _TSE_COMPILADA + "2022/resolucao-no-23-679-de-8-de-fevereiro-de-2022",
+    "23.729": _TSE_COMPILADA + "2024/resolucao-no-23-729-de-27-de-fevereiro-de-2024",
+    "23.731": _TSE_COMPILADA + "2024/resolucao-no-23-731-de-27-de-fevereiro-de-2024",
+    "23.732": _TSE_COMPILADA + "2024/resolucao-no-23-732-de-27-de-fevereiro-de-2024",
+    "23.734": _TSE_COMPILADA + "2024/resolucao-no-23-734-de-27-de-fevereiro-de-2024",
+    "23.735": _TSE_COMPILADA + "2024/resolucao-no-23-735-de-27-de-fevereiro-de-2024",
+    "23.746": _TSE_COMPILADA + "2025/resolucao-no-23-746-de-11-de-marco-de-2025",
+    "23.749": _TSE_COMPILADA + "2026/resolucao-no-23-749-de-26-de-fevereiro-de-2026",
+    "23.750": _TSE_COMPILADA + "2026/resolucao-no-23-750-de-26-de-fevereiro-de-2026",
+    "23.751": _TSE_COMPILADA + "2026/resolucao-no-23-751-de-26-de-fevereiro-de-2026",
+    "23.752": _TSE_COMPILADA + "2026/resolucao-no-23-752-de-26-de-fevereiro-de-2026",
+    "23.754": _TSE_COMPILADA + "2026/resolucao-no-23-754-de-2-de-marco-de-2026",
+    "23.755": _TSE_COMPILADA + "2026/resolucao-no-23-755-de-2-de-marco-de-2026",
+    "23.756": _TSE_COMPILADA + "2026/resolucao-no-23-756-de-2-de-marco-de-2026",
+    "23.757": _TSE_COMPILADA + "2026/resolucao-no-23-757-de-2-de-marco-de-2026",
+    "23.758": _TSE_COMPILADA + "2026/resolucao-no-23-758-de-2-de-marco-de-2026",
+    "23.759": _TSE_COMPILADA + "2026/resolucao-no-23-759-de-26-de-fevereiro-de-2026",
+    "23.760": _TSE_COMPILADA + "2026/resolucao-no-23-760-de-2-de-marco-de-2026",
 }
+
+# Emendas Constitucionais no Planalto (mapa fechado, verificado por GET
+# 06/07/2026; a convenção emc/emcNNN.htm não é chutada para números novos).
+EMENDAS_CONSTITUCIONAIS = {
+    "117": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc117.htm",
+    "133": "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc133.htm",
+}
+
+
+def _fonte_emenda(m: Optional["re.Match"]) -> Optional[str]:
+    d = m.groupdict() if m else {}
+    base = EMENDAS_CONSTITUCIONAIS.get(re.sub(r"\D", "", d.get("emc") or ""))
+    if not base:
+        return None
+    if not d.get("num"):
+        return base
+    return base + ancora_planalto(int(d["num"]), d.get("letra") or "")
+
+
+# ---------------------------------------------------------------------------
+# Normas descobertas/aprovadas pelo usuário (conle_conversor/normas_extras.json,
+# gravado pela ferramenta `py -m conle_conversor.fontes` ou pelo botão
+# "Verificar fontes" da GUI). O merge acontece aqui, no import: leis e LCs
+# aprovadas linkam pela NormaOficial GENÉRICA no fim da tabela; resoluções do
+# TSE e ECs entram nos mapas respectivos.
+# ---------------------------------------------------------------------------
+def _carregar_normas_extras() -> dict:
+    try:
+        import json as _json
+        from pathlib import Path as _Path
+        p = _Path(__file__).resolve().parent / "normas_extras.json"
+        if p.exists():
+            return _json.loads(p.read_text(encoding="utf-8"))
+    except Exception:
+        pass
+    return {}
+
+
+_NORMAS_EXTRAS = _carregar_normas_extras()
+RESOLUCOES_TSE.update(_NORMAS_EXTRAS.get("resolucoes_tse", {}))
+EMENDAS_CONSTITUCIONAIS.update(_NORMAS_EXTRAS.get("emendas", {}))
+LEIS_EXTRAS = dict(_NORMAS_EXTRAS.get("leis", {}))    # {"12034": url}
+LCPS_EXTRAS = dict(_NORMAS_EXTRAS.get("lcps", {}))    # {"101": url}
+
+
+def _fonte_lei_extra(m: Optional["re.Match"]) -> Optional[str]:
+    d = m.groupdict() if m else {}
+    base = LEIS_EXTRAS.get(re.sub(r"\D", "", d.get("leinum") or ""))
+    if not base:
+        return None
+    if not d.get("num"):
+        return base
+    return base + ancora_planalto(int(d["num"]), d.get("letra") or "")
+
+
+def _fonte_lcp_extra(m: Optional["re.Match"]) -> Optional[str]:
+    d = m.groupdict() if m else {}
+    base = LCPS_EXTRAS.get(re.sub(r"\D", "", d.get("lcpnum") or ""))
+    if not base:
+        return None
+    if not d.get("num"):
+        return base
+    return base + ancora_planalto(int(d["num"]), d.get("letra") or "")
 
 
 def url_resolucao_tse(numero: str) -> Optional[str]:
@@ -366,17 +456,85 @@ NORMAS_OFICIAIS = [
         aliases=("Lei nº 1.079/1950", "Lei 1.079/1950"),
     ),
     NormaOficial(
+        mention_re=(r"^(?:EC|Emenda Constitucional)\s*n?[ºo°.]*\s*(?P<emc>\d{1,3})"
+                    rf"(?:\s*/\s*\d{{4}})?\s*[-–—]\s*{_ART_MENTION}"),
+        citacao_re=(r"(?:EC|Emenda\s+Constitucional)\s*n?[ºo°.]*\s*(?P<emc>\d{1,3})"
+                    r"(?:\s*/\s*\d{4}|,?\s+de\s+\d{4})?"),
+        citacao_isolada_re=(r"(?:EC|Emenda\s+Constitucional)\s*n?[ºo°.]*\s*(?P<emc>\d{1,3})"
+                            r"(?:\s*/\s*\d{4}|,?\s+de\s+\d{4})"),
+        montar_url=_fonte_emenda,
+        aliases=(),
+    ),
+    NormaOficial(
+        # Base Vademecum "Lei dos Partidos Políticos - Art. 15"
+        mention_re=(r"^(?:Lei dos Partidos Pol[ií]ticos|Lei\s*n?[ºo°.]*\s*9\.?096"
+                    rf"(?:\s*/\s*(?:19)?95)?)\s*[-–—,]\s*{_ART_MENTION}"),
+        citacao_re=(r"Lei\s*n?[ºo°.]*\s*9\.?096"
+                    r"(?:\s*/\s*(?:19)?95|,?\s+de(?:\s+19\s+de\s+setembro\s+de)?\s+1995)?"
+                    r"|Lei\s+dos\s+Partidos\s+Pol[ií]ticos"),
+        citacao_isolada_re=(r"Lei\s*n?[ºo°.]*\s*9\.?096"
+                            r"(?:\s*/\s*(?:19)?95|,?\s+de(?:\s+19\s+de\s+setembro\s+de)?\s+1995)"),
+        montar_url=_fonte_planalto(L9096_PLANALTO_URL),
+        aliases=("Lei dos Partidos Políticos", "Lei nº 9.096/1995", "Lei 9.096/1995"),
+    ),
+    NormaOficial(
+        mention_re=rf"^Lei\s*n?[ºo°.]*\s*14\.?192(?:\s*/\s*(?:20)?21)?\s*[-–—]\s*{_ART_MENTION}",
+        citacao_re=(r"Lei\s*n?[ºo°.]*\s*14\.?192"
+                    r"(?:\s*/\s*(?:20)?21|,?\s+de(?:\s+4\s+de\s+agosto\s+de)?\s+2021)?"),
+        citacao_isolada_re=(r"Lei\s*n?[ºo°.]*\s*14\.?192"
+                            r"(?:\s*/\s*(?:20)?21|,?\s+de(?:\s+4\s+de\s+agosto\s+de)?\s+2021)"),
+        montar_url=_fonte_planalto(L14192_PLANALTO_URL),
+        aliases=("Lei nº 14.192/2021", "Lei 14.192/2021"),
+    ),
+    NormaOficial(
+        mention_re=rf"^Lei\s*n?[ºo°.]*\s*14\.?211(?:\s*/\s*(?:20)?21)?\s*[-–—]\s*{_ART_MENTION}",
+        citacao_re=(r"Lei\s*n?[ºo°.]*\s*14\.?211"
+                    r"(?:\s*/\s*(?:20)?21|,?\s+de(?:\s+27\s+de\s+setembro\s+de)?\s+2021)?"),
+        citacao_isolada_re=(r"Lei\s*n?[ºo°.]*\s*14\.?211"
+                            r"(?:\s*/\s*(?:20)?21|,?\s+de(?:\s+27\s+de\s+setembro\s+de)?\s+2021)"),
+        montar_url=_fonte_planalto(L14211_PLANALTO_URL),
+        aliases=("Lei nº 14.211/2021", "Lei 14.211/2021"),
+    ),
+    NormaOficial(
         # Base Vademecum "Res.-TSE n. 23.735/2024 - Ilicitos eleitorais".
         # Nas citações textuais o "TSE" e o "nº" são opcionais ("Resolução nº
         # 23.751/2026", "Res. 23.673/2021") — número 2X.XXX de 5 dígitos é
         # assinatura das resoluções do TSE; fora do mapa continua sem link.
-        mention_re=(r"^Res(?:\.|olu[çc][ãa]o)?\s*[-–.]?\s*TSE\s*n[ºo°.]*\s*"
-                    r"(?P<res>\d{2}\.?\d{3})(?:\s*/\s*\d{4})?"),
+        # Mentions também no formato "Res. 23.677/2021, Art. 7º" (TSE e nº
+        # opcionais; dispositivo após vírgula/traço vira âncora) — base de
+        # resoluções por dispositivo vista na Consulta distrital (06/07/2026).
+        mention_re=(r"^Res(?:\.|olu[çc][ãa]o)?\s*[-–.]?\s*(?:TSE\s*)?n?[ºo°.]*\s*"
+                    rf"(?P<res>\d{{2}}\.?\d{{3}})(?:\s*/\s*\d{{4}})?(?:\s*[,;–—-]\s*{_ART_MENTION})?"),
+        # O ano também é opcional ("art. 187 da Res. 23.751" — páginas de
+        # 06/07/2026): o número de 5 dígitos é chave unívoca do mapa fechado.
         citacao_re=(r"Res(?:\.|olu[çc][ãa]o)\s*[-–.]?\s*(?:do\s+)?(?:TSE\s*)?(?:n[ºo°.]*\s*)?"
-                    r"(?P<res>\d{2}\.?\d{3})\s*(?:/\s*\d{4}|,?\s+de\s+[^,;()]{4,40}?\d{4})"),
+                    r"(?P<res>\d{2}\.?\d{3})(?:\s*(?:/\s*\d{4}|,?\s+de\s+[^,;()]{4,40}?\d{4}))?"),
         citacao_isolada_re=(r"Res(?:\.|olu[çc][ãa]o)\s*[-–.]?\s*(?:do\s+)?(?:TSE\s*)?(?:n[ºo°.]*\s*)?"
-                            r"(?P<res>\d{2}\.?\d{3})\s*(?:/\s*\d{4}|,?\s+de\s+[^,;()]{4,40}?\d{4})"),
+                            r"(?P<res>\d{2}\.?\d{3})(?:\s*(?:/\s*\d{4}|,?\s+de\s+[^,;()]{4,40}?\d{4}))?"),
         montar_url=_fonte_res_tse,
+        aliases=(),
+    ),
+    # --- genéricas das normas APROVADAS em normas_extras.json (sempre por
+    # ÚLTIMO: as específicas acima vencem no linkificar por ordem da tabela;
+    # número fora do mapa -> montar_url None -> sem link, como sempre) ------
+    NormaOficial(
+        mention_re=(r"^Lei\s*n?[ºo°.]*\s*(?P<leinum>\d{1,2}\.?\d{3})"
+                    rf"(?:\s*/\s*\d{{2,4}})?\s*[-–—,]\s*{_ART_MENTION}"),
+        citacao_re=(r"Lei\s*n?[ºo°.]*\s*(?P<leinum>\d{1,2}\.?\d{3})"
+                    r"(?:\s*/\s*\d{2,4}|,?\s+de\s+[^,;()]{0,30}?\d{4})?"),
+        citacao_isolada_re=(r"Lei\s*n?[ºo°.]*\s*(?P<leinum>\d{1,2}\.?\d{3})"
+                            r"(?:\s*/\s*\d{2,4}|,?\s+de\s+[^,;()]{0,30}?\d{4})"),
+        montar_url=_fonte_lei_extra,
+        aliases=(),
+    ),
+    NormaOficial(
+        mention_re=(r"^(?:LC|Lei Complementar)\s*n?[ºo°.]*\s*(?P<lcpnum>\d{1,3})"
+                    rf"(?:\s*/\s*\d{{2,4}})?\s*[-–—,]\s*{_ART_MENTION}"),
+        citacao_re=(r"(?:LC|Lei\s+Complementar)\s*n?[ºo°.]*\s*(?P<lcpnum>\d{1,3})"
+                    r"(?:\s*/\s*\d{2,4}|,?\s+de\s+[^,;()]{0,30}?\d{4})?"),
+        citacao_isolada_re=(r"(?:LC|Lei\s+Complementar)\s*n?[ºo°.]*\s*(?P<lcpnum>\d{1,3})"
+                            r"(?:\s*/\s*\d{2,4}|,?\s+de\s+[^,;()]{0,30}?\d{4})"),
+        montar_url=_fonte_lcp_extra,
         aliases=(),
     ),
 ]
@@ -414,6 +572,9 @@ _URLS_CANONICAS = {
               "ConstituicaoCompilado.htm"): CF_PLANALTO_URL,
     _norm_url("https://www.planalto.gov.br/ccivil_03/leis/l4737compilado.htm"): L4737_PLANALTO_URL,
     _norm_url("https://www.planalto.gov.br/ccivil_03/leis/L9504compilado.htm"): L9504_PLANALTO_URL,
+    # compilado da Lei 9.096 NÃO tem âncora nenhuma (aferido 06/07/2026: o
+    # "art. 44" abria no topo) — o original tem #artN nativo
+    _norm_url("https://www.planalto.gov.br/ccivil_03/leis/L9096compilado.htm"): L9096_PLANALTO_URL,
 }
 
 

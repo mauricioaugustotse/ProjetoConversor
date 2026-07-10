@@ -177,6 +177,43 @@ def canonicalizar_hrefs(rich_list: List[RichText]) -> List[RichText]:
     return out
 
 
+# Mention de página interna SEM TÍTULO: o Notion devolve o texto "Untitled" —
+# referência ilegível que só polui o documento ("(Untitled; Untitled)" nas
+# tabelas do Estudo Resoluções TSE 2026, achado do usuário 06/07/2026).
+_TEXTOS_MENTION_VAZIA = {"untitled", "sem titulo", "sem título"}
+# Parêntese que ficou só com separadores após a remoção ("(; )", "()").
+# CUIDADO: sem "." na classe — "(...)"/"(…)" de supressão de citação é legítimo.
+_RE_PARENTESE_VAZIO = re.compile(r"\s*\(\s*[;,\s]*\)")
+
+
+def limpar_mencoes_sem_titulo(rich_list: List[RichText]) -> List[RichText]:
+    """Remove mentions cujo texto é "Untitled" (página interna sem título):
+    não referenciam nada legível no .docx. O parêntese que as continha fica
+    vazio e é limpo por _limpar_parenteses_vazios no fim da cadeia."""
+    out: List[RichText] = []
+    for r in rich_list or []:
+        if r.kind == "mention" and (r.text or "").strip().lower() in _TEXTOS_MENTION_VAZIA:
+            continue
+        out.append(r)
+    return out
+
+
+def _limpar_parenteses_vazios(rich_list: List[RichText]) -> List[RichText]:
+    """Apaga "( ; )"/"()" residuais nos runs de texto (sobras da remoção de
+    mentions sem título) e normaliza a pontuação ao redor."""
+    out: List[RichText] = []
+    for r in rich_list or []:
+        if not r.href and r.kind == "text" and "(" in (r.text or ""):
+            novo = _RE_PARENTESE_VAZIO.sub("", r.text)
+            if novo != r.text:
+                novo = _RE_ESPACOS_DUPLOS.sub(" ", novo)
+                novo = _RE_ESPACO_ANTES_PONTUACAO.sub(r"\1", novo)
+                out.append(replace(r, text=novo))
+                continue
+        out.append(r)
+    return [x for x in out if x.text]
+
+
 def ancorar_links_por_texto(rich_list: List[RichText]) -> List[RichText]:
     """Antecipação da âncora que add_runs aplicaria no final: link http de
     norma SEM "#" cujo TEXTO cita o dispositivo ("art. 51, III, da
@@ -631,6 +668,7 @@ def linkificar_norma_antes_dispositivo(rich_list: List[RichText]) -> List[RichTe
 _BASES_NORMAS = (
     {u for u in (n.montar_url(None) for n in config.NORMAS_OFICIAIS) if u}
     | set(config.RESOLUCOES_TSE.values())
+    | set(config.EMENDAS_CONSTITUCIONAIS.values())
 )
 
 # Outra norma nomeada logo adiante ("art. 7º da LC nº 95/1998…"): o artigo NÃO
@@ -671,9 +709,9 @@ _RE_PROPOSTO_APOS = re.compile(r"^\s*(?:ora\s+)?propost[oa]s?\b", re.I)
 # assunto da linkificação textual, não desta anáfora.
 _RE_ANAFORA_CLASSE = re.compile(
     r"^\s*,?\s*d[aeo]s?\s+(?:mesm[oa]s?\s+|referid[oa]s?\s+|pr[óo]pri[oa]s?\s+|citad[oa]s?\s+)?"
-    r"(?P<classe>resolu[çc][ãa]o|lei|c[óo]digo|regimento|constitui[çc][ãa]o|diploma|norma)"
+    r"(?P<classe>resolu[çc][ãa]o|lei|c[óo]digo|regimento|constitui[çc][ãa]o|emenda|diploma|norma)"
     r"(?!\s*(?:n[ºo°.]?\s*\d|\d|complementar\b|federal\b|eleitoral\b|interno\b|"
-    r"regulamentadora\b|d[aeo]s?\b))",
+    r"regulamentadora\b|constitucional\b|d[aeo]s?\b))",
     re.I,
 )
 
@@ -687,6 +725,8 @@ def _classes_da_base(base: str) -> tuple:
     Código Eleitoral atende por "código" e por "lei" (é a Lei nº 4.737)."""
     if base in config.RESOLUCOES_TSE.values():
         return ("resolucao",)
+    if base in config.EMENDAS_CONSTITUCIONAIS.values():
+        return ("emenda",)
     if base == config.RICD_LEGIN_URL:
         return ("regimento",)
     if "constituicao" in base:
@@ -888,25 +928,49 @@ def _span_dispositivo(prefixo: str, num: str, letra: str, em_lista: bool) -> Opt
     return (base + ms[-1].start(), base + ms[-1].end())
 
 
+# Intervalo de artigos citado no texto: "arts. 106 a 109", "arts. 7º a 11",
+# "arts. 173–178" — cobre os números intermediários que não aparecem escritos.
+_RE_INTERVALO_ARTS = re.compile(
+    r"\b(\d+)(?:[ºo°])?\s*(?:a|at[ée])\s+(\d+)\b|\b(\d+)(?:[ºo°])?\s*[-–—]\s*(\d+)\b"
+)
+
+
+def _intervalos_de(texto: str) -> List[tuple]:
+    """Pares (início, fim) dos intervalos numéricos citados em `texto`."""
+    out = []
+    for m in _RE_INTERVALO_ARTS.finditer(texto or ""):
+        a, b = (m.group(1), m.group(2)) if m.group(1) else (m.group(3), m.group(4))
+        a, b = int(a), int(b)
+        if a < b and b - a <= 60:
+            out.append((a, b))
+    return out
+
+
 def _localizar_transferencias(
     prefixo: str, textos_mentions: List[str], urls: List[str]
 ) -> Optional[List[tuple]]:
     """Spans (ini, fim, url) do prefixo que receberão os links das mentions do
     parêntese — caso (b) da supressão, inclusive com VÁRIAS mentions ("arts.
     1º, V, 5º, … e 220 (cf. CF - Art. 1º, CF - Art. 5º, …)"): cada link vai
-    para o número correspondente da lista. None se algum dispositivo não for
-    localizado com segurança (aí o parêntese fica como está). Várias mentions
-    só transferem quando todas são da MESMA norma — números soltos da lista
-    não identificam a norma por si."""
+    para o número correspondente da lista. Dispositivo SEM token próprio no
+    prefixo mas DENTRO de um intervalo citado ("arts. 106 a 109" cobre o 107
+    da mention — Consulta distrital, 06/07/2026) conta como coberto sem
+    transferência. None se algum dispositivo não for localizado/coberto com
+    segurança (aí o parêntese fica como está). Várias mentions só transferem
+    quando todas são da MESMA norma — números soltos da lista não identificam
+    a norma por si."""
     disps = [_dispositivo_da_mention(t) for t in textos_mentions]
     if any(d is None for d in disps):
         return None
     if len(disps) > 1 and len({u.split("#")[0] for u in urls}) > 1:
         return None
+    intervalos = _intervalos_de(prefixo)
     spans = []
     for (num, letra), url in zip(disps, urls):
         span = _span_dispositivo(prefixo, num, letra, em_lista=len(disps) > 1)
         if span is None:
+            if not letra and any(a <= int(num) <= b for a, b in intervalos):
+                continue  # coberto pelo intervalo; sem transferência própria
             return None
         spans.append((span[0], span[1], url))
     spans.sort()
@@ -914,6 +978,51 @@ def _localizar_transferencias(
         if b[0] < a[1]:
             return None  # sobreposição: remissão ambígua
     return spans
+
+
+def _urls_efetivas_antes(out: List[RichText], i: int) -> set:
+    """URLs efetivas presentes nos runs anteriores a `i` (janela p/ trás).
+    Um link de LISTA ("arts. 3º, …, 4º, …, e 5º, … da Constituição", âncora
+    do 1º) cobre TODOS os dispositivos citados no seu texto — as âncoras
+    individuais entram no conjunto; intervalo ("arts. 7º a 11") cobre também
+    os números intermediários, MESMO quando as pontas estão em links
+    separados da mesma base ("[arts. 106] a [109 do CE]", pós-linkificação
+    por item)."""
+    anteriores: set = set()
+    janela: List[tuple] = []  # (texto, base) na ordem original
+    recuo = 0
+    for k in range(i - 1, -1, -1):
+        u = _url_do_run(out[k])
+        txt = out[k].text or ""
+        base_k = u.split("#")[0] if u else None
+        if u:
+            anteriores.add(u)
+            for m_l in _RE_ARTS_INICIO.finditer(txt):
+                itens_k, _f = _consumir_lista_dispositivos(txt, m_l)
+                for _a, _b2, num_k, letra_k in itens_k:
+                    anteriores.add(_ancora_para(base_k, num_k, letra_k))
+        janela.append((txt, base_k))
+        recuo += len(txt)
+        if recuo > _JANELA_CF:
+            break
+    janela.reverse()
+    concat = ""
+    base_por_char: List[Optional[str]] = []
+    for txt, base_k in janela:
+        concat += txt
+        base_por_char.extend([base_k] * len(txt))
+    for m in _RE_INTERVALO_ARTS.finditer(concat):
+        a_s = m.start(1) if m.group(1) else m.start(3)
+        b_s = m.start(2) if m.group(2) else m.start(4)
+        base_a = base_por_char[a_s] if a_s < len(base_por_char) else None
+        base_b = base_por_char[b_s] if b_s < len(base_por_char) else None
+        if base_a and base_a == base_b:
+            a_i, b_i = (int(m.group(1)), int(m.group(2))) if m.group(1) else (
+                int(m.group(3)), int(m.group(4)))
+            if a_i < b_i and b_i - a_i <= 60:
+                for n_i in range(a_i, b_i + 1):
+                    anteriores.add(_ancora_para(base_a, str(n_i), ""))
+    return anteriores
 
 
 def _url_do_run(r: RichText) -> Optional[str]:
@@ -1033,24 +1142,8 @@ def suprimir_cf_redundante(rich_list: List[RichText]) -> List[RichText]:
                 continue
             i += 1
             continue
-        # URLs efetivas já presentes antes do "(cf." (janela p/ trás). Um link
-        # de LISTA ("arts. 3º, …, 4º, …, e 5º, … da Constituição", âncora do
-        # 1º) cobre TODOS os dispositivos citados no seu texto — as âncoras
-        # individuais entram no conjunto para o teste de redundância.
-        anteriores = set()
-        recuo = 0
-        for k in range(i - 1, -1, -1):
-            u = _url_do_run(out[k])
-            if u:
-                anteriores.add(u)
-                base_k = u.split("#")[0]
-                for m_l in _RE_ARTS_INICIO.finditer(out[k].text or ""):
-                    itens_k, _f = _consumir_lista_dispositivos(out[k].text, m_l)
-                    for _a, _b2, num_k, letra_k in itens_k:
-                        anteriores.add(_ancora_para(base_k, num_k, letra_k))
-            recuo += len(out[k].text or "")
-            if recuo > _JANELA_CF:
-                break
+        # URLs efetivas já presentes antes do "(cf." (janela p/ trás).
+        anteriores = _urls_efetivas_antes(out, i)
         bases_anteriores = {u.split("#")[0] for u in anteriores}
         prefixo = r.text[: m_abre.start()]
         disps = [_dispositivo_da_mention(out[k].text) for k in refs]
@@ -1096,6 +1189,206 @@ def suprimir_cf_redundante(rich_list: List[RichText]) -> List[RichText]:
     return [x for x in out if x.text]
 
 
+# Remissão do Gerador colada por TRAVESSÃO à citação (mesma família do
+# parêntese remissivo): "arts. 7º a 11 — Res. 23.677/2021, Art. 7º, …".
+_RE_TRAVESSAO_FIM = re.compile(r"\s[—–]\s*$")
+# Fecho da remissão: fechamento/ponto/quebra (não consumido) ou fim do
+# parágrafo. Vírgula e ponto-e-vírgula NÃO fecham — são separadores entre as
+# refs ("…, Art. 8º, … e … Art. 11").
+_RE_FECHO_REMISSAO = re.compile(r"^\s*$|^\s*[)\].\n]")
+
+
+def suprimir_remissao_travessao(rich_list: List[RichText]) -> List[RichText]:
+    """"…alterando o art. 15 da Lei nº 9.096/1995 — Lei dos Partidos
+    Políticos - Art. 15)" / "(arts. 7º a 11 — Res. 23.677/2021, Art. 7º, …,
+    e Res. 23.677/2021, Art. 11)": a sequência de mentions após o travessão
+    repete a citação do texto (achados do usuário, 06/07/2026). Mesmas regras
+    do parêntese remissivo sem "cf.": refs no formato de mention, cobertas
+    pela citação anterior (URL igual, token transferível ou número dentro de
+    intervalo citado) — saem junto com o travessão; dispositivos com token no
+    prefixo recebem a âncora por transferência (as PONTAS do intervalo)."""
+    out: List[RichText] = list(rich_list or [])
+    i = 0
+    while i < len(out):
+        r = out[i]
+        if r.href or r.kind != "text" or not r.text:
+            i += 1
+            continue
+        m_trav = _RE_TRAVESSAO_FIM.search(r.text)
+        if not m_trav:
+            i += 1
+            continue
+        refs: List[int] = []
+        j = i + 1
+        interm = ""
+        ok = True
+        fechado = False
+        while j < len(out):
+            rj = out[j]
+            if (rj.href or "").strip():
+                if not _RE_SEP_MENTION.fullmatch(interm):
+                    ok = False
+                    break
+                refs.append(j)
+                interm = ""
+                j += 1
+                continue
+            txt = rj.text or ""
+            if refs and _RE_FECHO_REMISSAO.match(txt):
+                fechado = True
+                break
+            interm += txt
+            if len(interm) > 40:
+                ok = False
+                break
+            j += 1
+        if j >= len(out):
+            fechado = True
+        if not ok or not fechado or not refs or interm.strip():
+            i += 1
+            continue
+        if not all(
+            out[k].kind == "mention" or resolver_fonte_publica(out[k].text or "")
+            for k in refs
+        ):
+            i += 1
+            continue
+        urls = [_url_do_run(out[k]) for k in refs]
+        if not all(urls):
+            i += 1
+            continue
+        anteriores = _urls_efetivas_antes(out, i)
+        bases_anteriores = {u.split("#")[0] for u in anteriores}
+        prefixo = r.text[: m_trav.start()]
+        disps = [_dispositivo_da_mention(out[k].text) for k in refs]
+
+        def _presente(u, d):
+            return u in anteriores or (d is None and u.split("#")[0] in bases_anteriores)
+
+        transferencias = None
+        if not all(_presente(u, d) for u, d in zip(urls, disps)):
+            transferencias = _localizar_transferencias(
+                prefixo, [out[k].text for k in refs], urls
+            )
+            if transferencias is None:
+                i += 1
+                continue
+        novos: List[RichText] = []
+        if transferencias:
+            pos = 0
+            for ini, fim, url in transferencias:
+                if ini > pos:
+                    novos.append(replace(r, text=prefixo[pos:ini]))
+                novos.append(replace(r, text=prefixo[ini:fim], href=url))
+                pos = fim
+            if prefixo[pos:]:
+                novos.append(replace(r, text=prefixo[pos:]))
+        elif prefixo:
+            novos.append(replace(r, text=prefixo))
+        # costura: espaço sobrando antes da pontuação do fecho (não consumido)
+        if novos and not novos[-1].href and j < len(out):
+            prox = out[j].text or ""
+            if prox[:1] in ",.;:)]" and novos[-1].text.endswith(" "):
+                novos[-1] = replace(novos[-1], text=novos[-1].text.rstrip())
+        out[i:j] = novos
+        i += len(novos)
+    return [x for x in out if x.text]
+
+
+# Enumeração de resoluções com a designação COMPARTILHADA: "Res.-TSE nº
+# 23.732/2024 e nº 23.755/2026" — o item seguinte vem só com "nº <número>"
+# (achado do usuário, 06/07/2026: o segundo ficava sem link).
+# (sem "^": o encadeamento usa .match(texto, pos) e o "^" não casa em pos>0)
+_RE_ENUM_RES = re.compile(
+    r"(?P<con>\s*(?:,\s*(?:e\s+)?|e\s+))(?P<item>(?:n[ºo°.]*\s*)?"
+    r"(?P<res>\d{2}\.?\d{3})(?:\s*/\s*\d{4})?)"
+)
+
+
+def linkificar_enumeracao_resolucoes(rich_list: List[RichText]) -> List[RichText]:
+    """Continuações "e nº NN.NNN/AAAA" logo após um link de resolução do TSE
+    ganham o link do MAPA correspondente ao próprio número (fora do mapa,
+    ficam sem link, como sempre). Encadeia ("nº X, nº Y e nº Z")."""
+    out: List[RichText] = []
+    for r in rich_list or []:
+        anterior_res = bool(out) and (out[-1].href or "").split("#")[0] in set(
+            config.RESOLUCOES_TSE.values()
+        )
+        if r.href or r.kind != "text" or not r.text or not anterior_res:
+            out.append(r)
+            continue
+        pos = 0
+        pedacos: List[RichText] = []
+        while True:
+            m = _RE_ENUM_RES.match(r.text, pos)
+            if not m:
+                break
+            url = config.url_resolucao_tse(m.group("res"))
+            fim_con = pos + len(m.group("con"))
+            if url:
+                pedacos.append(replace(r, text=r.text[pos:fim_con]))
+                pedacos.append(replace(r, text=m.group("item"), href=url))
+            else:
+                pedacos.append(replace(r, text=r.text[pos:m.end()]))
+            pos = m.end()
+        if pos == 0:
+            out.append(r)
+        else:
+            if pos < len(r.text):
+                pedacos.append(replace(r, text=r.text[pos:]))
+            out.extend(pedacos)
+    return out
+
+
+# Conector aceitável entre dois links fundíveis (" da ", "; ", ", ", espaço).
+_RE_CONECTOR_LINKS = re.compile(r"^\s*(?:d[aeo]s?|[;,])?\s*$")
+
+
+def fundir_links_adjacentes(rich_list: List[RichText]) -> List[RichText]:
+    """Dois links vizinhos para o MESMO destino viram UM só (achados do
+    usuário, 06/07/2026): "[art. 15]#art15 da [Lei nº 9.096/1995]" é a mesma
+    estrutura e não deve ter 2 links; "[RCEd nº 638, rel. …]; [Efeitos do
+    registro …]" (mention de julgado resolvida para a MESMA URL do link do
+    autor) vira um link único com " - " no lugar do ";". Só funde com a mesma
+    base, âncoras compatíveis (iguais ou uma ausente — dois dispositivos com
+    âncoras próprias NÃO fundem) e formatação igual."""
+    out: List[RichText] = list(rich_list or [])
+    i = 0
+    while i < len(out) - 1:
+        a = out[i]
+        u_a = _url_do_run(a)
+        if not u_a:
+            i += 1
+            continue
+        j = i + 1
+        conector = ""
+        if (
+            j < len(out) - 1 and not out[j].href and out[j].kind == "text"
+            and _RE_CONECTOR_LINKS.fullmatch(out[j].text or "")
+        ):
+            conector = out[j].text or ""
+            j += 1
+        b = out[j]
+        u_b = _url_do_run(b)
+        if not u_b:
+            i += 1
+            continue
+        base_a, _, frag_a = u_a.partition("#")
+        base_b, _, frag_b = u_b.partition("#")
+        if base_a != base_b or (frag_a and frag_b and frag_a != frag_b):
+            i += 1
+            continue
+        if (a.bold, a.italic, a.underline) != (b.bold, b.italic, b.underline):
+            i += 1
+            continue
+        sep = " - " if conector.strip() == ";" else conector
+        out[i : j + 1] = [replace(
+            a, text=a.text + sep + b.text, href=u_a if frag_a else u_b, kind="text",
+        )]
+        # sem i += 1: o fundido pode fundir com o próximo
+    return out
+
+
 # Latinismo "caput" SEMPRE em itálico (norma tipográfica; regra do usuário,
 # 04/07/26) — vale em corpo, transcrições e articulado.
 _RE_CAPUT = re.compile(r"\bcaput\b", re.I)
@@ -1123,10 +1416,11 @@ def italicizar_caput(rich_list: List[RichText]) -> List[RichText]:
     return out
 
 
-def _ancora_para(base: str, num: int, letra: str = "") -> str:
+def _ancora_para(base: str, num, letra: str = "") -> str:
     """URL da norma `base` (sem âncora) apontando para o artigo num[-letra],
     conforme a regra de âncora do host; sem regra conhecida, retorna a própria
-    base (o chamador decide se ainda vale linkar)."""
+    base (o chamador decide se ainda vale linkar). `num` aceita int ou str."""
+    num = int(num)
     if base.startswith(config.RICD_LEGIN_URL):
         return config.RICD_LEGIN_URL + config.ancora_artigo_ricd(num, letra or "")
     if _RE_PLANALTO.match(base):
@@ -1292,12 +1586,14 @@ def preparar_rich(rich_list: List[RichText], *, linkificar: bool = True,
     casamento dos padrões)."""
     rich_list = limpar_ecos_redundantes(rich_list)
     if linkificar:
+        rich_list = limpar_mencoes_sem_titulo(rich_list)
         rich_list = resolver_links_notion_texto(rich_list)
         rich_list = canonicalizar_hrefs(rich_list)
         rich_list = ancorar_links_por_texto(rich_list)
         rich_list = fundir_runs_lisos(rich_list)
         rich_list = limpar_colchetes_citacoes(rich_list)
         rich_list = linkificar_citacoes(rich_list)
+        rich_list = linkificar_enumeracao_resolucoes(rich_list)
         rich_list = linkificar_norma_antes_dispositivo(rich_list)
         rich_list = suprimir_cf_redundante(rich_list)
         rich_list = estender_link_dispositivo(rich_list)
@@ -1311,14 +1607,17 @@ def preparar_rich(rich_list: List[RichText], *, linkificar: bool = True,
         # cadeia nem seria idempotente (a supressão ocorreria na conversão
         # seguinte). Só age nos gatilhos; custo desprezível.
         rich_list = suprimir_cf_redundante(rich_list)
+        rich_list = suprimir_remissao_travessao(rich_list)
+        rich_list = fundir_links_adjacentes(rich_list)
         if dispositivos_proibidos:
             # dispositivos criados pela PRÓPRIA minuta: qualquer link que os
             # cite é desfeito, venha do autor ou dos passos acima
             rich_list = _zerar_links_proibidos(rich_list, dispositivos_proibidos)
     # canonicaliza no fim: os passos acima podem deixar runs lisos adjacentes
     # (ex. supressão do "(cf. …)"), e sem a fusão final uma 2ª passada os
-    # uniria — quebrando a idempotência da cadeia
-    return fundir_runs_lisos(italicizar_caput(rich_list))
+    # uniria — quebrando a idempotência da cadeia. A limpeza de parênteses
+    # vazios roda por último (a fusão junta o "(" e o ")" órfãos num run só).
+    return _limpar_parenteses_vazios(fundir_runs_lisos(italicizar_caput(rich_list)))
 
 
 def add_runs(paragraph, rich_list: List[RichText], *, force_bold: Optional[bool] = None,

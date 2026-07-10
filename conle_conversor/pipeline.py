@@ -29,11 +29,14 @@ _SIGLAS = r"(?:PLP|PEC|PRC|PDL|PDC|PLV|MPV|PL)"
 _SIGLA_PREFIXO = re.compile(
     rf"^{_SIGLAS}(?:\s*(?:,|e|/)\s*{_SIGLAS})*\s*[-–—:]\s*", re.IGNORECASE
 )
-# Título no layout invertido "Minuta — PEC: <tema>" / "Minuta de PEC — <tema>"
-# (a palavra "minuta" vem ANTES do tema): o prefixo é descartado; a sigla que
-# sobrar cai no _SIGLA_PREFIXO. Sem isso o tema virava literalmente "Minuta".
+# Título com rótulo de gênero documental antes do tema ("Minuta — PEC: <tema>",
+# "Estudo — <tema>", "Consulta — <tema>"): o rótulo é descartado; a sigla que
+# sobrar cai no _SIGLA_PREFIXO. Sem isso o tema virava literalmente "Minuta"
+# (ou "Estudo"/"Consulta" — páginas de 06/07/2026, o corte no 1º travessão
+# jogava o tema fora).
 _MINUTA_PREFIXO = re.compile(
-    r"^minuta(?:\s+de)?\s*(?:(?:PLP|PEC|PRC|PDL|PDC|PLV|MPV|PL)\b\s*)?[-–—:]+\s*",
+    r"^(?:minuta|estudo|consulta|nota\s+t[ée]cnica|relat[óo]rio)(?:\s+de)?\s*"
+    r"(?:(?:PLP|PEC|PRC|PDL|PDC|PLV|MPV|PL)\b\s*)?[-–—:]+\s*",
     re.IGNORECASE,
 )
 
@@ -111,7 +114,8 @@ def _avisar_normas_sem_fonte(resultado: "ResultadoConversao", blocos, extras=())
         resultado.avisos.append(
             "Normas citadas sem fonte mapeada (ficarão sem link): "
             + "; ".join(lacunas)
-            + ". Para linkar, mapeie-as em config.NORMAS_OFICIAIS com a URL oficial verificada."
+            + ". Para linkar, use o botão “Verificar fontes de normas” da GUI (ou rode "
+            "py -m conle_conversor.fontes <url-da-página>) e gere novamente."
         )
 
 
