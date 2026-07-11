@@ -180,7 +180,13 @@ def escrever_pagina(page_id: str, blocos: List[dict], *, progress=None) -> int:
         lote = blocos[i:i + 90]
         body = json.dumps({"children": lote})
         for tentativa in range(4):
-            r = sess.patch(f"{API}/blocks/{page_id}/children", data=body, timeout=60)
+            try:
+                r = sess.patch(f"{API}/blocks/{page_id}/children", data=body, timeout=60)
+            except (requests.exceptions.ConnectionError, requests.exceptions.Timeout,
+                    requests.exceptions.ChunkedEncodingError):
+                # rede do Notion sofre resets intermitentes (WinError 10054)
+                time.sleep(min(2.0 * (tentativa + 1), 8.0))
+                continue
             if r.status_code == 429 or r.status_code >= 500:
                 time.sleep(float(r.headers.get("Retry-After", "2")))
                 continue
@@ -188,10 +194,12 @@ def escrever_pagina(page_id: str, blocos: List[dict], *, progress=None) -> int:
                 raise RuntimeError(f"Notion append -> {r.status_code}: {r.text[:400]}")
             break
         else:
-            # as 4 tentativas se esgotaram em 429/5xx — NÃO mascarar como sucesso
+            # as 4 tentativas se esgotaram (429/5xx ou erro de conexão) — NÃO mascarar
+            detalhe = (f"último status {r.status_code}: {r.text[:300]}"
+                       if "r" in locals() and r is not None else "erros de conexão")
             raise RuntimeError(
                 f"Notion append falhou após 4 tentativas no lote {i // 90 + 1} "
-                f"(blocos {i}..{i + len(lote)}): último status {r.status_code}: {r.text[:300]}")
+                f"(blocos {i}..{i + len(lote)}): {detalhe}")
         total += len(lote)
         log(f"   gravados {total}/{len(blocos)} blocos...")
         time.sleep(0.34)

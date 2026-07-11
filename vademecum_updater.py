@@ -42,7 +42,7 @@ import _vade_parser as VP
 HASHES_PATH = L.WORK_DIR / "hashes.json"
 MANIFEST = L.WORK_DIR / "inseridos.jsonl"
 CACHE_IA = L.WORK_DIR / "updater_cache.jsonl"
-MODELO_PADRAO = "gpt-5.4-nano"
+MODELO_PADRAO = "gpt-5.6-luna"
 PROMPT_VERSION = "v1"
 HOJE = datetime.now().strftime("%Y-%m-%d")
 

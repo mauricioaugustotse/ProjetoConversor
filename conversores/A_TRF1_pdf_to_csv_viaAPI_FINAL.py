@@ -6,7 +6,7 @@ Orquestra o pipeline final do TRF1 (PDF -> CSV enriquecido).
 Fluxo de trabalho:
 1. Resolve entradas (pastas/arquivos PDF), perfil de execução e parâmetros.
 2. Executa extração base e enriquecimento OpenAI para gerar o CSV estruturado.
-3. Executa enriquecimento Perplexity para notícias com cache/checkpoint de retomada.
+3. Executa busca de notícias (Gemini; Perplexity apenas como legado) com cache/checkpoint de retomada.
 4. Aplica padronizações finais (classe, relator(a), ramo/subramo e legislação).
 5. Salva CSV final, checkpoint e relatório de qualidade.
 """
@@ -253,7 +253,7 @@ def apply_classe_standardization(
 
 def add_final_args(parser: argparse.ArgumentParser) -> argparse.ArgumentParser:
     parser.description = (
-        "Pipeline consolidado TRF1: PDF -> CSV final com OpenAI + Perplexity + padronizações."
+        "Pipeline consolidado TRF1: PDF -> CSV final com OpenAI + notícias via Gemini + padronizações."
     )
 
     parser.add_argument(
@@ -345,7 +345,7 @@ def add_final_args(parser: argparse.ArgumentParser) -> argparse.ArgumentParser:
     parser.add_argument("--ramo-subramo-max-rows", type=int, default=0)
     parser.add_argument("--ramo-subramo-cache-file", default=str(_PROJECT_ROOT / ".checkpoint" / "ramo_subramo_openai_cache.json"))
     parser.add_argument("--disable-ramo-subramo-openai", action="store_true")
-    parser.add_argument("--ramo-subramo-openai-model", default="gpt-5-mini")
+    parser.add_argument("--ramo-subramo-openai-model", default="gpt-5.6-luna")
     parser.add_argument("--ramo-subramo-openai-max-workers", type=int, default=16)
     parser.add_argument("--ramo-subramo-openai-batch-size", type=int, default=80)
     parser.add_argument("--ramo-subramo-openai-delay", type=float, default=0.0)
@@ -590,7 +590,7 @@ def open_gui_control_panel(args: argparse.Namespace) -> bool:
     row_a = ttk.Frame(stage_box)
     row_a.pack(fill="x")
     ttk.Checkbutton(row_a, text="Habilitar OpenAI (enriquecimento + tema)", variable=openai_var).pack(side="left")
-    ttk.Checkbutton(row_a, text="Habilitar Perplexity (notícias)", variable=perplexity_var).pack(side="left", padx=(12, 0))
+    ttk.Checkbutton(row_a, text="Habilitar busca de notícias (Gemini)", variable=perplexity_var).pack(side="left", padx=(12, 0))
     ttk.Checkbutton(row_a, text="Passe final opcional de tema", variable=tema_pass_var).pack(side="left", padx=(12, 0))
 
     row_b = ttk.Frame(stage_box)
@@ -1063,7 +1063,7 @@ def main() -> None:
     openai_cfg = core.OpenAIConfig(
         enabled=(not args.disable_openai) and bool(openai_key),
         api_key=openai_key,
-        model=args.openai_model.strip() or "gpt-5-mini",
+        model=args.openai_model.strip() or "gpt-5.6-luna",
         batch_size=max(1, int(args.openai_batch_size)),
         max_workers=max(1, int(args.openai_max_workers)),
         max_workers_cap=max(1, int(args.openai_max_workers_cap)),

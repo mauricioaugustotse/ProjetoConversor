@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """Atualizador da base Notion 'resoluções' (Resolucoes TSE - RAG consolidado).
 
 Fluxo: raspa os índices anuais de https://www.tse.jus.br/legislacao/compilada/res
@@ -7,7 +7,7 @@ o acervo → TEXTO INTEGRAL: para as resoluções monitoradas (resolucoes_work/
 monitoradas.json), baixa a página compilada, parseia dispositivo a dispositivo
 (_res_parser: redações tachadas descartadas, notas "(Redação dada/Incluído/
 Revogado pela Resolução nº X)" viram status_alteracao) e sincroniza por row_key
-com hash local (create/patch/archive) → enriquece via gpt-5.4-nano (nível norma +
+com hash local (create/patch/archive) → enriquece via gpt-5.6-luna (nível norma +
 dispositivos alterados) → opcionalmente reindexa o RAG.
 
 Idempotente: manifest resolucoes_work/inseridos.jsonl + hash-store hashes.json.
@@ -43,7 +43,7 @@ HASHES_PATH = L.WORK_DIR / "hashes.json"
 MANIFEST = L.WORK_DIR / "inseridos.jsonl"
 ARQUIVADAS = L.WORK_DIR / "arquivadas.jsonl"
 CACHE_IA = L.WORK_DIR / "updater_cache.jsonl"
-MODELO_PADRAO = "gpt-5.4-nano"
+MODELO_PADRAO = "gpt-5.6-luna"
 PROMPT_VERSION = "v1"
 
 # seed: as 12 resoluções estruturantes já mantidas na base
@@ -798,7 +798,7 @@ def main() -> None:
     ap.add_argument("--varredura-completa", action="store_true",
                     help="raspa todos os anos (1994-hoje); padrão: ano atual + anterior")
     ap.add_argument("--reingerir", nargs="*", help="força re-ingestão dessas resoluções (ex.: 23444)")
-    ap.add_argument("--sem-ia", action="store_true", help="não chama o gpt-5.4-nano")
+    ap.add_argument("--sem-ia", action="store_true", help="não chama o gpt-5.6-luna")
     ap.add_argument("--model", default=MODELO_PADRAO)
     ap.add_argument("--arquivar-antigas", action="store_true",
                     help="MIGRAÇÃO: arquiva as linhas textos_operacionais antigas")

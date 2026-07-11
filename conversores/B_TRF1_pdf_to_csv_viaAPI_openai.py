@@ -3624,7 +3624,7 @@ def run_perplexity_enrichment(
         return perplexity_state
     pending_total = [r for r in rows if r.get("_perplexity_done", "0") != "1" and needs_perplexity(r)]
     if not pending_total:
-        logger.info("Perplexity: nada pendente.")
+        logger.info("Notícias: nada pendente.")
         return perplexity_state
     pending = [row for row in pending_total if not should_skip_perplexity_row(row, config.skip_terminal_reasons)]
     skipped_terminal = len(pending_total) - len(pending)
@@ -3632,7 +3632,7 @@ def run_perplexity_enrichment(
     progress_pct = (progress["effective_done"] / progress["total_rows"] * 100.0) if progress["total_rows"] else 100.0
     logger.info(
         (
-            "Perplexity checkpoint: total=%d | com_url=%d | encerradas_terminal=%d | "
+            "Notícias checkpoint: total=%d | com_url=%d | encerradas_terminal=%d | "
             "pendentes_reais=%d | progresso=%.2f%%"
         ),
         progress["total_rows"],
@@ -3643,7 +3643,7 @@ def run_perplexity_enrichment(
     )
     if not pending:
         logger.info(
-            "Perplexity: nada pendente para chamadas API após filtros | faltando_noticia=%d skipped_terminal=%d",
+            "Notícias: nada pendente para chamadas API após filtros | faltando_noticia=%d skipped_terminal=%d",
             len(pending_total),
             skipped_terminal,
         )
@@ -3673,7 +3673,7 @@ def run_perplexity_enrichment(
 
     total = len(pending)
     logger.info(
-        "Perplexity pendentes: reais=%d | skipped_terminal=%d | faltando_noticia=%d",
+        "Notícias pendentes: reais=%d | skipped_terminal=%d | faltando_noticia=%d",
         total,
         skipped_terminal,
         len(pending_total),
@@ -3717,7 +3717,7 @@ def run_perplexity_enrichment(
         stage_done = 0
         stage_name = f"stage{stage}"
         logger.info(
-            "Perplexity %s: %d linhas (%d chamadas únicas).",
+            "Notícias %s: %d linhas (%d chamadas únicas).",
             stage_name,
             stage_total,
             stage_call_total,
@@ -3728,7 +3728,7 @@ def run_perplexity_enrichment(
             batch = stage_unique[start:end]
             batch_started = time.perf_counter()
             logger.info(
-                "Perplexity %s lote %d-%d/%d | workers=%d delay=%.2fs",
+                "Notícias %s lote %d-%d/%d | workers=%d delay=%.2fs",
                 stage_name,
                 start + 1,
                 end,
@@ -3782,7 +3782,7 @@ def run_perplexity_enrichment(
                             batch_http_errors += 1
                         else:
                             batch_other_errors += 1
-                        logger.debug("Perplexity falha row=%s stage=%s: %s", row.get("_row_id"), stage, err)
+                        logger.debug("Notícias falha row=%s stage=%s: %s", row.get("_row_id"), stage, err)
                     stage_done += 1
                     primary_id = row.get("_row_id") or str(id(row))
                     for dup in duplicates_by_primary.get(primary_id, []):
@@ -3799,7 +3799,7 @@ def run_perplexity_enrichment(
                 if batch_rate_limited > 0:
                     extra_sleep = min(12.0, 1.0 + 0.5 * batch_rate_limited)
                     logger.info(
-                        "Perplexity fixed cooldown extra: %.2fs (rate_limit_429=%d)",
+                        "Notícias fixed cooldown extra: %.2fs (rate_limit_429=%d)",
                         extra_sleep,
                         batch_rate_limited,
                     )
@@ -3807,11 +3807,11 @@ def run_perplexity_enrichment(
                 if batch_rate_limited > 0:
                     workers = max(1, workers - 1)
                     delay = min(5.0, delay * 1.5 + 0.1)
-                    logger.info("Perplexity autoajuste: reduzindo workers=%d delay=%.2f", workers, delay)
+                    logger.info("Notícias autoajuste: reduzindo workers=%d delay=%.2f", workers, delay)
                 elif batch_errors == 0 and workers < config.max_workers_cap:
                     workers += 1
                     delay = max(config.delay, delay * 0.9)
-                    logger.info("Perplexity autoajuste: aumentando workers=%d delay=%.2f", workers, delay)
+                    logger.info("Notícias autoajuste: aumentando workers=%d delay=%.2f", workers, delay)
 
             elapsed = max(0.001, time.perf_counter() - batch_started)
             throughput = len(batch) / elapsed
@@ -3825,7 +3825,7 @@ def run_perplexity_enrichment(
             )
             logger.info(
                 (
-                    "Perplexity %s lote concluído: %.2f req/s | "
+                    "Notícias %s lote concluído: %.2f req/s | "
                     "errors_total=%d rate_limit_429=%d timeout=%d http_error=%d other_error=%d"
                 ),
                 stage_name,
@@ -3836,7 +3836,7 @@ def run_perplexity_enrichment(
                 batch_http_errors,
                 batch_other_errors,
             )
-            logger.info("Perplexity %s progresso: %d/%d", stage_name, stage_done, stage_total)
+            logger.info("Notícias %s progresso: %d/%d", stage_name, stage_done, stage_total)
             if end < stage_call_total:
                 sleep_for = 0.0
                 if delay > 0:
@@ -3860,16 +3860,16 @@ def run_perplexity_enrichment(
         fallback_rows = fallback_pool[:fallback_budget]
         if fallback_rows:
             logger.info(
-                "Perplexity fallback: %d elegíveis | budget=%d | executando=%d",
+                "Notícias fallback: %d elegíveis | budget=%d | executando=%d",
                 len(fallback_pool),
                 fallback_budget,
                 len(fallback_rows),
             )
             process_perplexity_stage(fallback_rows, stage=2)
         else:
-            logger.info("Perplexity fallback: sem linhas elegíveis.")
+            logger.info("Notícias fallback: sem linhas elegíveis.")
     elif config.fallback_enabled:
-        logger.info("Perplexity fallback: budget=0, nenhuma linha reprocessada.")
+        logger.info("Notícias fallback: budget=0, nenhuma linha reprocessada.")
 
     session.close()
     return perplexity_state
@@ -3890,7 +3890,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     p.add_argument("--log-file", default="", help="Arquivo opcional para salvar logs.")
 
     p.add_argument("--openai-api-key", default="", help="API key OpenAI.")
-    p.add_argument("--openai-model", default="gpt-5-mini", help="Modelo OpenAI.")
+    p.add_argument("--openai-model", default="gpt-5.6-luna", help="Modelo OpenAI.")
     p.add_argument("--openai-batch-size", type=int, default=30)
     p.add_argument("--openai-max-workers", type=int, default=10)
     p.add_argument("--openai-max-workers-cap", type=int, default=14)
@@ -4129,7 +4129,7 @@ def main() -> None:
     openai_cfg = OpenAIConfig(
         enabled=(not args.disable_openai) and bool(openai_key),
         api_key=openai_key,
-        model=args.openai_model.strip() or "gpt-5-mini",
+        model=args.openai_model.strip() or "gpt-5.6-luna",
         batch_size=max(1, int(args.openai_batch_size)),
         max_workers=max(1, int(args.openai_max_workers)),
         max_workers_cap=max(1, int(args.openai_max_workers_cap)),

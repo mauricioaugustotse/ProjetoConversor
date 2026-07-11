@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """Configuração do gerador: modelos, bases RAG e chaves (reusa conle_conversor.config)."""
 from __future__ import annotations
 
@@ -14,10 +14,11 @@ RAG_CACHE_DIR = PACKAGE_DIR / ".rag_cache"
 NOTION_VERSION = "2022-06-28"
 
 # ---------------------------------------------------------------- modelos
-MODEL_REDACAO = "gpt-5.5"            # redação/análise (OpenAI) — nunca faz web
+MODEL_REDACAO = "gpt-5.6-sol"        # redação/análise (OpenAI) — nunca faz web
 MODEL_REDACAO_PRO = "gpt-5.5-pro"   # opção de alta qualidade
 MODEL_GEMINI = "gemini-3.1-flash-lite"   # pesquisa web grounded (econômico)
 MODEL_EMBED = "text-embedding-3-small"   # RAG
+MODEL_ANEXOS = "gpt-5.6-luna"            # condensação de documentos anexos longos (econômico)
 
 # ---------------------------------------------------------------- chaves
 # Reusa os loaders do conversor para Notion e OpenAI.
@@ -172,7 +173,7 @@ BASES_RAG = {
     },
     # Jurisprudência do TRF1 (Boletins Informativos de Jurisprudência): 1 linha por julgado.
     # A base já traz campos ricos (punchline/tese/bullet_points/contexto) do pipeline A/B/C/CC;
-    # Resumo IA/Palavras-chave/jurisprudencia são preenchidos por _trf1_enriquecer.py (gpt-5.4-nano).
+    # Resumo IA/Palavras-chave/jurisprudencia são preenchidos por _trf1_enriquecer.py (gpt-5.6-luna).
     "trf1": {
         "id": "30e72195-5c64-804a-977c-e39c2ff3193c",
         "titulo": "trf1",

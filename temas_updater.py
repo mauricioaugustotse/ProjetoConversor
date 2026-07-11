@@ -1,10 +1,10 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """Atualizador da base Notion 'temas' (Jurisprudência TSE por assunto).
 
 Fluxo: baixa os 22 ramos live de https://temasselecionados.tse.jus.br/ → extrai os
 julgados (parser validado de conversores/TEMAS_SELC_csv_to_csv_completadorHTML.py) →
 diff contra a base Notion (chave: ramo+processo+data+tipo e pelos links já gravados)
-→ enriquece os NOVOS via OpenAI (PROMPT_EXTRACAO, gpt-5.4-nano) → cria as páginas
+→ enriquece os NOVOS via OpenAI (PROMPT_EXTRACAO, gpt-5.6-luna) → cria as páginas
 direto no Notion (relator normalizado pelo de-para de _temas_normalizar_relator,
 incluir_no_rag=True) → opcionalmente reindexa o RAG.
 
@@ -37,7 +37,7 @@ HTML_CACHE = L.WORK_DIR / "html_cache"
 CACHE_IA = L.WORK_DIR / "updater_cache.jsonl"
 MANIFEST = L.WORK_DIR / "inseridos.jsonl"
 PROMPT_PATH = L.ROOT / "conversores" / "TEMAS_SELC_txt_to_csv.py"
-MODELO_PADRAO = "gpt-5.4-nano"
+MODELO_PADRAO = "gpt-5.6-luna"
 PROMPT_VERSION = "v1"
 
 RAMO_LINK_RE = re.compile(

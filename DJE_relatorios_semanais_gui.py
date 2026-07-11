@@ -36,7 +36,7 @@ MANIFEST_FILE = PROJECT_ROOT / "Artefatos" / "reports" / "dje_relatorios_semanai
 INTERMEDIARIOS_DIR = PROJECT_ROOT / "Artefatos" / "intermediarios"
 PIPELINE_VERSION = 3
 URL_PRESERVE_COLUMNS = ("noticia_TSE", "noticia_TRE", "noticia_geral_1", "noticia_geral_2")
-THEME_PUNCHLINE_MODEL = os.getenv("DJE_THEME_PUNCHLINE_MODEL", "gpt-5.4-nano") or "gpt-5.4-nano"
+THEME_PUNCHLINE_MODEL = os.getenv("DJE_THEME_PUNCHLINE_MODEL", "gpt-5.6-luna") or "gpt-5.6-luna"
 THEME_OPENAI_MAX_WORKERS = int(os.getenv("DJE_THEME_OPENAI_MAX_WORKERS", "4") or "4")
 THEME_OPENAI_BATCH_SIZE = int(os.getenv("DJE_THEME_OPENAI_BATCH_SIZE", "25") or "25")
 THEME_OPENAI_TARGET_RPM = int(os.getenv("DJE_THEME_OPENAI_TARGET_RPM", "120") or "120")
@@ -286,18 +286,31 @@ def select_delayed_created_pages(
     created_pages: Sequence[Mapping[str, str]],
     *,
     principal_start: date,
-) -> List[Dict[str, str]]:
-    """Mantem so as paginas criadas cuja dataDecisao e anterior a semana principal."""
+    exclude_week_starts: Optional[set[date]] = None,
+) -> tuple[List[Dict[str, str]], int]:
+    """Mantem so as paginas criadas cuja dataDecisao e anterior a semana principal.
+
+    ``exclude_week_starts`` remove as decisoes de semanas cujo relatorio sera
+    gerado NESTA mesma execucao (1a geracao ou regeneracao forcada): esses
+    casos ja aparecem no relatorio da propria semana e nao sao "atrasados".
+    Retorna (casos atrasados, quantidade excluida por esse criterio).
+    """
+    exclude = exclude_week_starts or set()
     delayed: List[Dict[str, str]] = []
+    skipped = 0
     for item in created_pages:
         raw = str(item.get("dataDecisao") or "").strip()
         try:
             decided = date.fromisoformat(raw[:10])
         except ValueError:
             continue
-        if decided < principal_start:
-            delayed.append(dict(item))
-    return delayed
+        if decided >= principal_start:
+            continue
+        if week_for_decision_day(decided).start in exclude:
+            skipped += 1
+            continue
+        delayed.append(dict(item))
+    return delayed, skipped
 
 
 def write_delayed_cases_file(
@@ -533,30 +546,7 @@ def process_import_and_generate(
         )
         return
 
-    # Apos o import, identifica o "delta atrasado": decisoes recem-criadas cuja
-    # dataDecisao e de semana anterior a principal. Esses casos (alvo ou risco
-    # critico/alto) serao destacados na semana principal, sem regenerar as
-    # semanas antigas. Em retomada, reaproveita o arquivo do pending_run, pois o
-    # import faz update na 2a passagem e nao recria as paginas.
     principal = periods[-1]
-    delayed_file = get_pending_delayed_cases_file()
-    if delayed_file is not None:
-        log(f"Reaproveitando casos atrasados de execucao anterior: {delayed_file}")
-    else:
-        delayed_entries = select_delayed_created_pages(
-            read_import_created_pages(), principal_start=principal.start
-        )
-        if delayed_entries:
-            delayed_file = write_delayed_cases_file(delayed_entries, principal=principal)
-            if delayed_file is not None:
-                set_pending_delayed_cases_file(delayed_file)
-            log(
-                f"Casos atrasados detectados (delta de semanas anteriores): {len(delayed_entries)} "
-                f"decisao(oes) -> serao destacados em {principal.title}."
-            )
-        else:
-            log("Nenhuma decisao de semana anterior neste import; sem secao de atrasados.")
-
     parent_page_id = report.extract_notion_id_from_url(reports_parent_url)
 
     class InitArgs:
@@ -577,6 +567,48 @@ def process_import_and_generate(
 
     database_id = report.extract_notion_id_from_url(database_url)
     data_source_id = report.retrieve_database_and_datasource_id(database_id)
+
+    # Apos o import, identifica o "delta atrasado": decisoes recem-criadas cuja
+    # dataDecisao e de semana anterior a principal. Esses casos (alvo ou risco
+    # critico/alto) serao destacados na semana principal, sem regenerar as
+    # semanas antigas. Em retomada, reaproveita o arquivo do pending_run, pois o
+    # import faz update na 2a passagem e nao recria as paginas.
+    delayed_file = get_pending_delayed_cases_file()
+    if delayed_file is not None:
+        log(f"Reaproveitando casos atrasados de execucao anterior: {delayed_file}")
+    else:
+        created_pages = read_import_created_pages()
+        # Semanas anteriores que serao geradas NESTA passada (relatorio ainda
+        # inexistente ou regeneracao forcada): os casos delas ja saem no
+        # relatorio da propria semana e nao devem entrar nos atrasados.
+        weeks_generated_now: set[date] = set()
+        if created_pages and len(periods) > 1:
+            existing_titles = set(list_report_pages(parent_page_id))
+            weeks_generated_now = {
+                period.start
+                for period in periods[:-1]
+                if force_regenerate or _normalize_title_key(period.title) not in existing_titles
+            }
+        delayed_entries, skipped_same_run = select_delayed_created_pages(
+            created_pages,
+            principal_start=principal.start,
+            exclude_week_starts=weeks_generated_now,
+        )
+        if skipped_same_run:
+            log(
+                f"{skipped_same_run} decisao(oes) de semanas anteriores ficaram fora dos atrasados: "
+                "o relatorio da propria semana sera gerado nesta execucao."
+            )
+        if delayed_entries:
+            delayed_file = write_delayed_cases_file(delayed_entries, principal=principal)
+            if delayed_file is not None:
+                set_pending_delayed_cases_file(delayed_file)
+            log(
+                f"Casos atrasados detectados (delta de semanas anteriores): {len(delayed_entries)} "
+                f"decisao(oes) -> serao destacados em {principal.title}."
+            )
+        else:
+            log("Nenhuma decisao de semana anterior fora dos relatorios desta execucao; sem secao de atrasados.")
 
     log("Periodos detectados: " + "; ".join(period.title for period in periods))
     anteriores = periods[:-1]

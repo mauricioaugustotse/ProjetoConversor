@@ -85,7 +85,7 @@ LOCAL_FECHO_IT = "Consultoria Legislativa"
 LOCAL_FECHO_PROPOSICAO = "Sala das Sessões"
 LOCAL_FECHO_PARECER = "Sala da Comissão"
 
-OPENAI_MODEL = "gpt-4o"
+OPENAI_MODEL = "gpt-5.6-luna"
 
 # Estilos (nomes exatos definidos nos templates Word) -----------------------
 class S:

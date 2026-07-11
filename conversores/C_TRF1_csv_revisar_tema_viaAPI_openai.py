@@ -1413,7 +1413,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     p.add_argument("--reprocess-mode", choices=("invalid_only", "all"), default="invalid_only")
 
     p.add_argument("--openai-api-key", default="", help="API key OpenAI.")
-    p.add_argument("--openai-model", default="gpt-5-mini", help="Modelo OpenAI.")
+    p.add_argument("--openai-model", default="gpt-5.6-luna", help="Modelo OpenAI.")
     p.add_argument("--openai-batch-size", type=int, default=40)
     p.add_argument("--openai-max-workers", type=int, default=10)
     p.add_argument("--openai-max-workers-cap", type=int, default=14)
