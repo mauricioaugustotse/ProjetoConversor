@@ -18,6 +18,7 @@ import requests
 
 from conle_conversor import classifier, config as cconf
 
+from . import anexos as anexos_mod
 from . import camara_api, config_gerador as cfg, gemini_web, llm, notion_rag, prompts
 from . import notion_writer as nw
 
@@ -35,9 +36,14 @@ class Resultado:
 
 
 # ============================ etapas ============================
-def analisar_demanda(demanda: str, *, model: Optional[str] = None, log: Callable = print) -> dict:
+def analisar_demanda(demanda: str, *, docs: Optional[List[anexos_mod.Anexo]] = None,
+                     model: Optional[str] = None, log: Callable = print) -> dict:
     log("Analisando a demanda (espécie, tema, dispositivos, palavras-chave)…")
-    data = llm.chat(prompts.SYS_ANALISE, f"DEMANDA:\n{demanda}", json_mode=True, model=model)
+    user = f"DEMANDA:\n{demanda}"
+    docs_txt = anexos_mod.resumo_para_analise(docs or [])
+    if docs_txt:
+        user += f"\n\nDOCUMENTOS ENCAMINHADOS PELO PARLAMENTAR (parte integrante da demanda):\n{docs_txt}"
+    data = llm.chat(prompts.SYS_ANALISE, user, json_mode=True, model=model)
     if not isinstance(data, dict) or not data.get("tema"):
         data = {"tema": demanda[:80], "tipo_sigla": "PL", "objeto": demanda,
                 "palavras_chave_camara": [], "consultas_rag": [demanda[:120]], "consultas_web": []}
@@ -231,7 +237,12 @@ def _contexto_txt(ctx: dict) -> str:
     resumo_txt = _fmt_camara_resumo(ctx.get("camara_resumo", {}))
     if resumo_txt:
         camara_txt = resumo_txt + "\n\n" + camara_txt
+    # documentos do parlamentar vêm ANTES das fontes de pesquisa: são parte da demanda
+    docs_txt = anexos_mod.formatar_contexto(ctx.get("anexos") or [])
+    bloco_docs = ("=== DOCUMENTOS ENCAMINHADOS PELO PARLAMENTAR (parte integrante da demanda) ===\n"
+                  + prompts.NOTA_ANEXOS + "\n\n" + docs_txt + "\n\n") if docs_txt else ""
     return (
+        bloco_docs +
         "=== TRECHOS DAS BASES INTERNAS (RAG) ===\n" + _fmt_rag(ctx.get("rag", [])) +
         "\n\n=== PROPOSIÇÕES NA CÂMARA (API oficial) ===\n" + camara_txt +
         "\n\n=== PESQUISA WEB (Gemini grounded) ===\n" + _fmt_web(ctx.get("web", [])) +
@@ -650,6 +661,7 @@ def gerar(
     demanda: str,
     page_url: str,
     *,
+    anexos: Optional[List[str]] = None,
     usar_rag: bool = True,
     usar_camara: bool = True,
     usar_web: bool = True,
@@ -676,7 +688,16 @@ def gerar(
     else:
         log("Escopo: apenas " + ("a Informação Técnica." if gerar_it else "a minuta de proposição."))
 
-    analise = analisar_demanda(demanda, model=model, log=log)
+    # documentos encaminhados pelo parlamentar: extraídos ANTES da análise (a alimentam)
+    docs: List[anexos_mod.Anexo] = []
+    if anexos:
+        log(f"Anexos: extraindo o texto de {len(anexos)} documento(s) encaminhado(s)…")
+        docs = anexos_mod.processar(list(anexos), log=log)
+        avisos += [f"Anexo “{a.nome}”: {a.aviso}" for a in docs if a.aviso]
+        if not any(a.texto for a in docs):
+            avisos.append("Nenhum anexo rendeu texto aproveitável — a geração seguiu só com a demanda digitada.")
+
+    analise = analisar_demanda(demanda, docs=docs, model=model, log=log)
     tipo = classifier.detectar_tipo(analise.get("tipo_sigla", ""), demanda)
     log(f"Espécie identificada: {tipo.sigla} — {tipo.nome_extenso}.")
 
@@ -686,6 +707,7 @@ def gerar(
     ctx = coletar_contexto(analise, usar_rag=usar_rag, usar_camara=usar_camara and gerar_it,
                            usar_web=usar_web, bases_rag=bases_rag, tipo_sigla=tipo.sigla,
                            somente_vigente=somente_vigente, log=log)
+    ctx["anexos"] = docs  # entram no _contexto_txt da redação (IT e minuta)
     if usar_rag and not ctx["rag"]:
         avisos.append("Nenhum trecho recuperado do RAG — as bases foram indexadas? (py -m conle_gerador.notion_rag --indexar)")
 

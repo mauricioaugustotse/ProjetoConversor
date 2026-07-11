@@ -158,6 +158,10 @@ REGRAS_REDACAO_IT = (
 # ---------------------------------------------------------------- análise da demanda
 SYS_ANALISE = (
     ESTILO + "\n\nTAREFA: analisar a DEMANDA parlamentar e planejar a Informação Técnica. "
+    "A demanda pode vir acompanhada de DOCUMENTOS ENCAMINHADOS pelo parlamentar (transcritos "
+    "após a demanda): eles são PARTE INTEGRANTE da demanda — extraia deles o objeto, os pedidos, "
+    "os dispositivos citados e os termos das consultas, com o MESMO peso do texto da demanda "
+    "(se documento e demanda divergirem, a demanda digitada prevalece quanto ao pedido). "
     "Responda SOMENTE com um objeto JSON com as chaves:\n"
     '- "tipo_sigla": uma de PEC|PLP|PL|PRC|PDL (espécie correta; alterar a Constituição => PEC; '
     'criar/alterar lei complementar => PLP; lei ordinária => PL).\n'
@@ -181,6 +185,19 @@ SYS_ANALISE = (
     "voltada à LEGISLAÇÃO/RESOLUÇÕES (dispositivos aplicáveis ao tema) e parte voltada à "
     "JURISPRUDÊNCIA (teses e julgados do STF/TSE sobre o tema).\n"
     '- "consultas_web": 2-4 perguntas objetivas para a pesquisa web (legislação/jurisprudência atual).'
+)
+
+# Cabeçalho do bloco de DOCUMENTOS ENCAMINHADOS no contexto da redação (IT e minuta).
+NOTA_ANEXOS = (
+    "Os documentos abaixo foram ENCAMINHADOS PELO PARLAMENTAR junto com a demanda e são parte "
+    "integrante dela: extraia deles pedidos, fatos, fundamentos e dispositivos, e faça a IT "
+    "DIALOGAR expressamente com o que trazem quando pertinente (acolhendo, ajustando ou "
+    "refutando com base normativa). Ao referi-los no texto, use \"documento encaminhado com a "
+    "demanda\" ou o título do próprio documento — nunca o nome do arquivo nem os rótulos "
+    "\"DOCUMENTO ENCAMINHADO Nº\". Eles NÃO são fonte pública: não os cite com link; dados "
+    "factuais deles extraídos são atribuídos ao documento (\"segundo o estudo encaminhado…\"). "
+    "Se um documento divergir da demanda digitada, prevalece a demanda quanto ao pedido — "
+    "registre a divergência na análise."
 )
 
 # ---------------------------------------------------------------- corpo da IT (1-5,7)

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Wrapper OpenAI para REDAÇÃO/ANÁLISE e embeddings. NUNCA faz pesquisa web
-(isso é papel exclusivo do gemini_web). Modelo padrão: gpt-5.5."""
+(isso é papel exclusivo do gemini_web). Modelo padrão: cfg.MODEL_REDACAO (gpt-5.6-sol)."""
 from __future__ import annotations
 
 import json
@@ -102,6 +102,44 @@ def chat(
                 continue
             raise
     raise RuntimeError(f"Falha no chat OpenAI (responses): {last}")
+
+
+def chat_visao(
+    system: str,
+    user: str,
+    imagens_png: List[bytes],
+    *,
+    model: Optional[str] = None,
+    max_retries: int = 3,
+    max_output_tokens: int = 16000,
+) -> str:
+    """Chamada com IMAGENS (Responses API) — transcrição de PDFs escaneados e fotos
+    de documentos anexados à demanda. Usa o modelo de redação (multimodal); o modelo
+    econômico dos anexos serve só para condensação de texto."""
+    import base64
+
+    client = _get_client()
+    model = model or cfg.MODEL_REDACAO
+    content: List[dict] = [{"type": "input_text", "text": user}]
+    for img in imagens_png:
+        b64 = base64.b64encode(img).decode("ascii")
+        content.append({"type": "input_image", "image_url": f"data:image/png;base64,{b64}"})
+    base = {"model": model,
+            "input": [{"role": "system", "content": system},
+                      {"role": "user", "content": content}],
+            "max_output_tokens": max_output_tokens}
+    last = None
+    for i in range(max_retries):
+        try:
+            resp = client.responses.create(**base)
+            return (getattr(resp, "output_text", "") or "").strip()
+        except Exception as exc:  # noqa: BLE001
+            last = exc
+            if i < max_retries - 1:
+                time.sleep(2.0 * (i + 1))
+                continue
+            raise
+    raise RuntimeError(f"Falha no chat de visão OpenAI: {last}")
 
 
 def embed(texts: List[str], *, model: Optional[str] = None, batch: int = 96) -> List[List[float]]:

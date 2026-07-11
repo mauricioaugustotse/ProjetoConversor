@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 """Interface gráfica do Gerador de Informação Técnica + Proposição (CONLE).
 
-Cole a DEMANDA do parlamentar e a URL de uma página EM BRANCO do Notion; o app
-pesquisa as bases internas (RAG), a API da Câmara e a web (Gemini) e grava a IT +
-minuta na página, na anatomia que o Conversor (outro app) transforma em .docx.
-O escopo é selecionável: só a Informação Técnica, só a minuta de proposição, ou
-ambas (checkboxes em Opções).
+Cole a DEMANDA do parlamentar — e, se houver, ANEXE os documentos que ele
+encaminhou (qualquer formato: PDF, Word, imagem, planilha…; por seleção ou
+arrastar-e-soltar) — e a URL de uma página EM BRANCO do Notion; o app extrai o
+texto dos documentos, pesquisa as bases internas (RAG), a API da Câmara e a web
+(Gemini) e grava a IT + minuta na página, na anatomia que o Conversor (outro
+app) transforma em .docx. O escopo é selecionável: só a Informação Técnica, só
+a minuta de proposição, ou ambas (checkboxes em Opções).
 """
 from __future__ import annotations
 
@@ -18,24 +20,32 @@ import webbrowser
 from pathlib import Path
 
 import tkinter as tk
-from tkinter import ttk, messagebox, scrolledtext
+from tkinter import ttk, filedialog, messagebox, scrolledtext
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from conle_gerador import config_gerador as cfg
 from conle_gerador import gerador, notion_rag
 
+# arrastar-e-soltar de arquivos (opcional): sem o tkinterdnd2, a GUI segue
+# funcionando com o botão "Adicionar…"
+try:
+    from tkinterdnd2 import DND_FILES, TkinterDnD
+    _TK_BASE, _DND_OK = TkinterDnD.Tk, True
+except Exception:  # noqa: BLE001
+    _TK_BASE, _DND_OK = tk.Tk, False
+
 VERDE = "#3E6F30"
 VERDE_ESCURO = "#2c4f22"
 CINZA = "#f4f5f2"
 
 
-class GeradorGUI(tk.Tk):
+class GeradorGUI(_TK_BASE):
     def __init__(self):
         super().__init__()
         self.title("CONLE · Gerador de Informação Técnica + Proposição")
-        self.geometry("880x820")
-        self.minsize(780, 720)
+        self.geometry("880x900")
+        self.minsize(780, 780)
         self.configure(bg=CINZA)
         ico = Path(__file__).resolve().parent / "icones" / "conle_gerador.ico"
         if ico.exists():
@@ -46,6 +56,7 @@ class GeradorGUI(tk.Tk):
         self._fila: queue.Queue = queue.Queue()
         self._rodando = False
         self._page_url = ""
+        self._anexos: list[str] = []
         self._montar_estilos()
         self._montar_widgets()
         self.after(120, self._consumir_fila)
@@ -88,6 +99,34 @@ class GeradorGUI(tk.Tk):
         ttk.Label(corpo, text="Demanda do parlamentar:", font=("Segoe UI Semibold", 10)).pack(anchor="w")
         self.txt_demanda = scrolledtext.ScrolledText(corpo, height=6, font=("Segoe UI", 10), wrap="word")
         self.txt_demanda.pack(fill="x", pady=(2, 8))
+
+        # documentos encaminhados (anexos) ----------------------------------
+        ttk.Label(corpo, text="Documentos encaminhados pelo parlamentar (opcional):",
+                  font=("Segoe UI Semibold", 10)).pack(anchor="w")
+        anx = ttk.Frame(corpo)
+        anx.pack(fill="x", pady=(2, 0))
+        self.lst_anexos = tk.Listbox(anx, height=3, font=("Segoe UI", 9), selectmode="extended",
+                                     activestyle="dotbox", relief="solid", borderwidth=1,
+                                     highlightthickness=0)
+        self.lst_anexos.pack(side="left", fill="both", expand=True)
+        sb = ttk.Scrollbar(anx, orient="vertical", command=self.lst_anexos.yview)
+        sb.pack(side="left", fill="y")
+        self.lst_anexos.config(yscrollcommand=sb.set)
+        btns = ttk.Frame(anx)
+        btns.pack(side="left", fill="y", padx=(6, 0))
+        ttk.Button(btns, text="Adicionar…", command=self._on_add_anexo).pack(fill="x")
+        ttk.Button(btns, text="Remover", command=self._on_remover_anexo).pack(fill="x", pady=(4, 0))
+        ttk.Button(btns, text="Limpar", command=self._on_limpar_anexos).pack(fill="x", pady=(4, 0))
+        dica = ("Arraste arquivos para a lista ou use Adicionar… — qualquer formato "
+                "(PDF, Word, imagem, planilha, e-mail…); escaneados são transcritos por IA."
+                if _DND_OK else
+                "Use Adicionar… — qualquer formato (PDF, Word, imagem, planilha, e-mail…); "
+                "escaneados são transcritos por IA.")
+        ttk.Label(corpo, text=dica, style="Sub.TLabel").pack(anchor="w", pady=(1, 8))
+        if _DND_OK:
+            for w in (self.lst_anexos, self.txt_demanda):
+                w.drop_target_register(DND_FILES)
+                w.dnd_bind("<<Drop>>", self._on_drop_anexos)
 
         ttk.Label(corpo, text="Página EM BRANCO do Notion (URL ou ID):", font=("Segoe UI Semibold", 10)).pack(anchor="w")
         self.var_url = tk.StringVar()
@@ -147,9 +186,7 @@ class GeradorGUI(tk.Tk):
         self.var_modelo = tk.StringVar(value=cfg.MODEL_REDACAO)
         ttk.Combobox(opc, textvariable=self.var_modelo, state="readonly",
                      values=[cfg.MODEL_REDACAO, cfg.MODEL_REDACAO_PRO]).pack(fill="x")
-        ttk.Label(opc, text="Recomendado: gpt-5.5. O 'pro' é ~7× mais lento e caro,", style="Sub.TLabel").pack(anchor="w", pady=(6, 0))
-        ttk.Label(opc, text="com qualidade equivalente para esta tarefa.", style="Sub.TLabel").pack(anchor="w")
-        ttk.Label(opc, text="A pesquisa web usa sempre o Gemini (econômico).", style="Sub.TLabel").pack(anchor="w")
+        ttk.Label(opc, text="A pesquisa web usa sempre o Gemini (econômico).", style="Sub.TLabel").pack(anchor="w", pady=(6, 0))
         ttk.Separator(opc).pack(fill="x", pady=8)
         self.var_vigente = tk.BooleanVar(value=True)
         ttk.Checkbutton(opc, text="Apenas direito vigente", variable=self.var_vigente).pack(anchor="w")
@@ -172,6 +209,46 @@ class GeradorGUI(tk.Tk):
         self.log.pack(fill="both", expand=True)
         self.barra = ttk.Progressbar(corpo, mode="indeterminate")
         self.barra.pack(fill="x", pady=(6, 0))
+
+    # --------------------------------------------------------------- anexos
+    def _add_anexos(self, paths):
+        for p in paths:
+            path = Path(p)
+            if path.is_dir():  # pasta solta na área: adiciona os arquivos do 1º nível
+                self._add_anexos(sorted(str(x) for x in path.iterdir() if x.is_file()))
+                continue
+            if not path.is_file() or str(path) in self._anexos:
+                continue
+            self._anexos.append(str(path))
+            kb = max(path.stat().st_size / 1024, 1)
+            self.lst_anexos.insert("end", f" {path.name}  ({kb:,.0f} KB)")
+
+    def _on_add_anexo(self):
+        paths = filedialog.askopenfilenames(
+            title="Documentos encaminhados pelo parlamentar",
+            filetypes=[("Todos os arquivos", "*.*"),
+                       ("Documentos", "*.pdf;*.docx;*.doc;*.rtf;*.txt;*.md"),
+                       ("Imagens", "*.png;*.jpg;*.jpeg;*.webp;*.tif;*.tiff;*.bmp"),
+                       ("Planilhas", "*.xlsx;*.xlsm;*.csv"),
+                       ("E-mails", "*.eml")])
+        if paths:
+            self._add_anexos(paths)
+
+    def _on_remover_anexo(self):
+        for i in reversed(self.lst_anexos.curselection()):
+            self.lst_anexos.delete(i)
+            del self._anexos[i]
+
+    def _on_limpar_anexos(self):
+        self.lst_anexos.delete(0, "end")
+        self._anexos.clear()
+
+    def _on_drop_anexos(self, event):
+        # event.data vem como lista Tcl ({caminho com espaço} caminho2 …)
+        try:
+            self._add_anexos(self.tk.splitlist(event.data))
+        except Exception:  # noqa: BLE001
+            pass
 
     # ---------------------------------------------------------------- ações
     def _bases_sel(self):
@@ -202,8 +279,14 @@ class GeradorGUI(tk.Tk):
             messagebox.showwarning("Atenção", "Marque ao menos um documento: "
                                    "Informação Técnica ou minuta de proposição.")
             return
+        sumiram = [p for p in self._anexos if not Path(p).is_file()]
+        if sumiram:
+            messagebox.showwarning("Atenção", "Anexo(s) não encontrado(s) no disco:\n"
+                                   + "\n".join(Path(p).name for p in sumiram)
+                                   + "\n\nRemova-o(s) da lista ou restaure o arquivo.")
+            return
         params = dict(
-            demanda=demanda, page_url=url,
+            demanda=demanda, page_url=url, anexos=list(self._anexos),
             usar_rag=bool(self._bases_sel()), usar_camara=self.var_camara.get(),
             usar_web=self.var_web.get(), bases_rag=self._bases_sel(),
             somente_vigente=self.var_vigente.get(), model=self.var_modelo.get(),
