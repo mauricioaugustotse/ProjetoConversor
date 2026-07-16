@@ -41,22 +41,31 @@ def ler_csv(path):
 
 
 def contar_lacunas():
-    """ano -> nº de atas do TSJE recuperadas (lacuna-*.md com corpo)."""
+    """ano -> nº de atas do TSJE recuperadas (lacuna-*.md com corpo).
+    Retorna tambem a contagem de so_resenha confirmadas por leitura de
+    imagem e de duplicatas/falsos achados auditados."""
     por_ano = defaultdict(int)
+    resenha = dup = 0
     for ano in ANOS:
         pasta = os.path.join(RAIZ, ano)
         if not os.path.isdir(pasta):
             continue
         for nome in os.listdir(pasta):
-            if not (nome.startswith('lacuna-') and nome.endswith('.md')):
+            if not (nome.startswith(('lacuna-', 'rev-'))
+                    and nome.endswith('.md')):
                 continue
             with io.open(os.path.join(pasta, nome), encoding='utf-8') as f:
                 t = f.read()
             m = re.search(r'---\n(.*?)\n---\n?(.*)', t, re.S)
-            if m and m.group(2).strip() and 'problema:' not in m.group(1) \
-                    and 'tribunal: superior' in m.group(1):
+            if not m or 'tribunal: superior' not in m.group(1):
+                continue
+            if 'problema: so_resenha' in m.group(1):
+                resenha += 1
+            elif 'problema: duplicata' in m.group(1):
+                dup += 1
+            elif m.group(2).strip() and 'problema:' not in m.group(1):
                 por_ano[ano] += 1
-    return por_ano
+    return por_ano, resenha, dup
 
 
 def tabela(doc, cab, linhas, sz=10):
@@ -77,7 +86,7 @@ def main():
     manifest = ler_csv(MANIFEST)
     diag = ler_csv(DIAG)
     malrot = ler_csv(MALROT)
-    lac = contar_lacunas()
+    lac, n_resenha, n_dup = contar_lacunas()
 
     por_ano = defaultdict(lambda: defaultdict(int))
     for m in manifest:
@@ -101,8 +110,8 @@ def main():
                 + por_ano[a]['final'] for a in ANOS)
     rec = sum(lac.values())
     ausentes = sum(1 for d in diag if d['situacao'] == 'BOLETIM_AUSENTE_NO_ACERVO')
-    so_resenha = sum(1 for d in diag if d['situacao'] == 'RECUPERAVEL')
-    faltam = ausentes + so_resenha
+    falsos = sum(1 for d in diag if d['situacao'] == 'RECUPERAVEL')
+    faltam = ausentes + falsos
     doc.add_paragraph(
         f'Foram transcritas fielmente {trans + rec} atas do TSJE do período '
         f'1932–1937 — {trans} a partir do índice do banco e {rec} recuperadas '
@@ -111,14 +120,18 @@ def main():
         f'fiel do impresso (não paráfrase): ortografia modernizada, mas '
         f'conteúdo, nomes e votos preservados.')
     doc.add_paragraph(
-        f'Pela numeração impressa das sessões, faltam cerca de {faltam} atas '
-        f'que NÃO puderam ser transcritas porque a ata formal não está no '
-        f'acervo digitalizado. Elas se dividem em dois casos: (a) {ausentes} '
-        f'sessões cujo boletim inteiro não veio no material do Drive; e (b) '
-        f'~{so_resenha} sessões cujo boletim traz apenas a RESENHA de '
-        f'julgamentos ("O Tribunal em sua Nª sessão resolveu…"), mas não a '
-        f'ata formal completa — que saiu em um boletim que também não está no '
-        f'acervo. A seção 5 detalha e lista os casos comprovados.')
+        f'Em 16/07/2026 o acervo local foi completado com o download de '
+        f'todos os Boletins Eleitorais 1932–1937 do arquivo público do TSE '
+        f'(AtoM, coleção "Primeira fase da Justiça Eleitoral"): 366 boletins '
+        f'novos, elevando o banco a 804 PDFs — essencialmente TODA a coleção '
+        f'digitalizada conhecida. Com isso, o diagnóstico de completude '
+        f'tornou-se definitivo: {faltam} sessões do TSJE NÃO têm a ata '
+        f'formal em nenhum boletim preservado ({ausentes} comprovadas por '
+        f'busca no acervo completo + {falsos} cujo único "achado" é ata '
+        f'homônima de outro ano, auditada e descartada). Dessas, {n_resenha} '
+        f'foram conferidas na imagem: o boletim traz apenas a RESENHA de '
+        f'julgamentos ("O Tribunal em sua Nª sessão resolveu…"), não a ata '
+        f'formal. A seção 5 detalha e lista os casos.')
     doc.add_paragraph(
         'O material está em D:\\TSJE_TRANSCRICOES: um arquivo .docx por ano '
         '(1932 a 1937) com as atas em ordem cronológica, além deste relatório '
@@ -177,26 +190,41 @@ def main():
     # ---- 5. o que falta (ausentes no acervo)
     doc.add_heading('5. O que falta — e por quê', 1)
     doc.add_paragraph(
-        f'Nenhuma das faltas é erro de transcrição — em todos os casos o '
-        f'documento não está no acervo digitalizado. Há dois tipos:')
+        f'Nenhuma das faltas é erro de transcrição — a busca varreu o texto '
+        f'de TODOS os {804} boletins do acervo completado (zips do Drive + '
+        f'coleção AtoM/TSE) e a ata formal dessas sessões não está em '
+        f'nenhum deles. O que se sabe sobre elas:')
     doc.add_paragraph(
-        f'(a) Boletim inteiro ausente: {ausentes} sessões cujo boletim não '
-        f'veio no material. Listadas nominalmente abaixo, para busca na '
-        f'origem.', style='List Bullet')
+        f'{n_resenha} sessões foram conferidas por leitura da imagem: o '
+        f'boletim publica apenas a resenha de julgamentos da sessão, e a '
+        f'seção "ACTAS" (que nos boletins de 1936–1937 sai em números '
+        f'POSTERIORES, com defasagem de várias sessões) não traz a ata '
+        f'formal em nenhum boletim preservado. O registro de cada conferência '
+        f'está nos arquivos lacuna-*.md com a marca "so_resenha".',
+        style='List Bullet')
     doc.add_paragraph(
-        f'(b) Só a resenha no acervo: ~{so_resenha} sessões em que o boletim '
-        f'disponível traz apenas a resenha de julgamentos, não a ata formal. '
-        f'A amostragem manual confirmou esse padrão repetidamente (sobretudo '
-        f'em 1935 e 1937): a ata formal completa saiu num boletim que não '
-        f'está no acervo. Onde a ata formal ESTAVA no acervo, ela foi '
-        f'recuperada (as 27 da seção 4).', style='List Bullet')
-    aus = [d for d in diag if d['situacao'] == 'BOLETIM_AUSENTE_NO_ACERVO']
+        f'{falsos} sessões têm um falso "achado" documentado: o buraco na '
+        f'numeração de um ano casa com ata homônima de OUTRO ano (boletins '
+        f'mal-arquivados entre anos ou atas de 1934 publicadas com atraso em '
+        f'1935). Todas auditadas e registradas como duplicata.',
+        style='List Bullet')
+    doc.add_paragraph(
+        f'As demais constam apenas pela numeração impressa: nem resenha '
+        f'localizável. Listadas nominalmente abaixo, para eventual busca em '
+        f'fontes físicas (hemerotecas, Diário da Justiça da época).',
+        style='List Bullet')
+    aus = [d for d in diag if d['situacao'] in
+           ('BOLETIM_AUSENTE_NO_ACERVO', 'RECUPERAVEL')]
     por_ano_aus = defaultdict(list)
     for d in aus:
         tp = 'extra.' if d['tipo'] == 'extraordinaria' else 'ord.'
-        por_ano_aus[d['ano']].append(f"{d['num']}ª {tp}")
+        marca = '*' if d['situacao'] == 'RECUPERAVEL' else ''
+        por_ano_aus[d['ano']].append(f"{d['num']}ª {tp}{marca}")
     linhas = [[a, ', '.join(por_ano_aus[a])] for a in ANOS if por_ano_aus[a]]
-    tabela(doc, ['Ano', 'Sessões do TSJE ausentes no acervo'], linhas, 9)
+    tabela(doc, ['Ano', 'Sessões do TSJE sem ata formal no acervo'], linhas, 9)
+    doc.add_paragraph(
+        '* = casos com falso "achado" auditado (ata homônima de outro ano).',
+        style='List Bullet')
 
     # ---- 6. achados sobre o acervo
     if malrot:

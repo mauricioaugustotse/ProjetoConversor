@@ -36,6 +36,13 @@ def lp(p):
     return p if p.startswith('\\\\?\\') else '\\\\?\\' + p
 
 
+def caminho_fisico(rel):
+    """Resolve a chave do cache: 'BEs ...' -> extraido; 'ATOM ...' -> banco."""
+    if rel.startswith('ATOM '):
+        return os.path.join(BANCO, rel[5:])
+    return os.path.join(EXTRAIDO, rel)
+
+
 def norm(t):
     t = unicodedata.normalize('NFD', t.lower())
     t = ''.join(c for c in t if not unicodedata.combining(c))
@@ -132,7 +139,7 @@ def main():
     # pre-normaliza (uma vez) o texto de cada PDF por ano
     por_ano_pdf = defaultdict(list)
     for rel, texto in pdfs.items():
-        m = re.match(r'BEs (\d{4})', rel)
+        m = re.match(r'(?:BEs|ATOM) (\d{4})', rel)
         if m:
             por_ano_pdf[m.group(1)].append((rel, texto, norm(texto)))
 
@@ -147,8 +154,13 @@ def main():
             for num in falt:
                 achou = None
                 for rel, texto, tn in por_ano_pdf.get(ano, []):
-                    if achar_cabecalho(tn, num, tp):
-                        pag = pagina_do_cabecalho(texto, num, tp)
+                    # pre-filtro frouxo barato; o match REAL exige pagina
+                    # do cabecalho formal (detector estrito por linha) —
+                    # sem parar no 1o PDF com mera resenha
+                    if not achar_cabecalho(tn, num, tp):
+                        continue
+                    pag = pagina_do_cabecalho(texto, num, tp)
+                    if pag:
                         achou = (rel, pag)
                         break
                 if achou:
@@ -174,7 +186,7 @@ def main():
     for ano, tp, num, rel, pag in achaveis:
         if not pag:
             continue
-        pdf = os.path.join(EXTRAIDO, rel)
+        pdf = caminho_fisico(rel)
         # ident UNICO por caminho (evita colisao de basename '00000020.pdf'
         # que existe em varios boletins): usa as 2 ultimas pastas + arquivo
         partes = re.split(r'[\\/]', rel)

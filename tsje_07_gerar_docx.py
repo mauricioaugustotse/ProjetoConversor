@@ -86,7 +86,7 @@ def lacunas_do_ano(ano):
     if not os.path.isdir(pasta):
         return regs
     for nome in sorted(os.listdir(pasta)):
-        if not nome.startswith('lacuna-') or not nome.endswith('.md'):
+        if not nome.startswith(('lacuna-', 'rev-')) or not nome.endswith('.md'):
             continue
         fm, corpo = front_matter(os.path.join(pasta, nome))
         if not corpo or fm.get('problema') or fm.get('tribunal') != 'superior':
