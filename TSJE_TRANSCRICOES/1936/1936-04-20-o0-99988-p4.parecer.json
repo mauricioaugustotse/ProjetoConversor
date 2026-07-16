@@ -1,0 +1,15 @@
+{
+ "fidelidade_0_10": 9.5,
+ "divergencias": [
+  {
+   "onde": "3º) não tomar conhecimento da reclamação de Asdrubal Gwyer de Azevedo",
+   "na_imagem": "processo n. 1.886",
+   "na_transcricao": "processo n. 1.888"
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [],
+ "observacoes": "Há apenas divergência material no número do processo da reclamação de Asdrubal Gwyer de Azevedo.",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

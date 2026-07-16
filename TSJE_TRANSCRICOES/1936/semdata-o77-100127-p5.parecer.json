@@ -1,0 +1,20 @@
+{
+ "fidelidade_0_10": 9,
+ "divergencias": [
+  {
+   "onde": "“para reformar a decisão recorrida e ... que, ex-vi do art. 158”",
+   "na_imagem": "“para reformar a decisão recorrida e declarar que, ex-vi do art. 158”",
+   "na_transcricao": "“para reformar a decisão recorrida e declara que, ex-vi do art. 158”"
+  },
+  {
+   "onde": "“deve ser convocado o suplente para ... a representação do Partido Autonomista”",
+   "na_imagem": "“deve ser convocado o suplente para integrar a representação do Partido Autonomista”",
+   "na_transcricao": "“deve ser convocado o suplente para entregar a representação do Partido Autonomista”"
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [],
+ "observacoes": "A ata ocupa o fim da pág. 2508 e o início da pág. 2509; fora as divergências indicadas, a transcrição confere.",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

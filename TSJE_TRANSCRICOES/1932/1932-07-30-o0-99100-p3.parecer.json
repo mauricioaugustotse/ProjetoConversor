@@ -1,0 +1,22 @@
+{
+ "fidelidade_0_10": 9.2,
+ "divergencias": [
+  {
+   "onde": "lista de juízes presentes: “Prudente de Moraes Filho e ... Celso”",
+   "na_imagem": "Affonso Celso",
+   "na_transcricao": "Afonso Celso"
+  },
+  {
+   "onde": "“Fala o Sr. Affonso ... Júnior”",
+   "na_imagem": "Affonso Penna Junior",
+   "na_transcricao": "Affonso Pena Júnior"
+  }
+ ],
+ "lacunas": [
+  "PRESIDENCIA DO SR. MINISTRO HERMENEGILDO DE BARROS, PRESIDENTE."
+ ],
+ "leituras_de_ilegiveis": [],
+ "observacoes": "A ata está substancialmente fiel; verificaram-se duas grafias divergentes de nomes próprios e a omissão da linha de presidência.",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

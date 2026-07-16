@@ -1,0 +1,20 @@
+{
+ "fidelidade_0_10": 9.7,
+ "divergencias": [
+  {
+   "onde": "Corpo da ata, recurso eleitoral n. 21: \"é recorrente Claro Dias de ...\"",
+   "na_imagem": "Claro Dias de Godoi",
+   "na_transcricao": "Claro Dias de Godoy"
+  },
+  {
+   "onde": "Sumário, item 13: \"Dr. Oswaldo ...\"",
+   "na_imagem": "Dr. Oswaldo Vergara",
+   "na_transcricao": "Dr. Oswaldo Vergára"
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [],
+ "observacoes": "A transcrição é substancialmente fiel; a grafia \"Godoy\" ocorre no sumário impresso, mas o corpo da ata traz \"Godoi\".",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

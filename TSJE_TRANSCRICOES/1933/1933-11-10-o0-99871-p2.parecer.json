@@ -1,0 +1,20 @@
+{
+ "fidelidade_0_10": 9.8,
+ "divergencias": [
+  {
+   "onde": "lista de deputados diplomados, item 6",
+   "na_imagem": "José Mattoso Sampaio Corrêa (avulso)",
+   "na_transcricao": "José Matoso Sampaio Corrêa (avulso)"
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [
+  {
+   "onde": "\"seção única da [ilegível] zona (Pojuca)\"",
+   "leitura": "2ª zona"
+  }
+ ],
+ "observacoes": "Transcrição substancialmente fiel; apenas a grafia do nome próprio e a lacuna indicada divergem.",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

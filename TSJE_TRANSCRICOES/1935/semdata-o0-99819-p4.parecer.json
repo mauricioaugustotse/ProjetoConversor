@@ -1,0 +1,20 @@
+{
+ "fidelidade_0_10": 9.8,
+ "divergencias": [
+  {
+   "onde": "como procurador do candidato Motta Maia",
+   "na_imagem": "como procurador do candidato Motta Maia-Trellar",
+   "na_transcricao": "como procurador do candidato Motta Maia"
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [
+  {
+   "onde": "Levanta-se a sessão às 17 horas e 45[?] minutos",
+   "leitura": "45"
+  }
+ ],
+ "observacoes": "Transcrição substancialmente fiel; o sobrenome composto do candidato foi truncado.",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

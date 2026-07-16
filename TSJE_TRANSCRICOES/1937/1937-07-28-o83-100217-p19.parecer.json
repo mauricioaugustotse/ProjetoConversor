@@ -1,0 +1,25 @@
+{
+ "fidelidade_0_10": 9.2,
+ "divergencias": [
+  {
+   "onde": "recurso eleitoral n. 718 — 3ª classe — Minas Geraes",
+   "na_imagem": "por falta de citação da jurisprudência offendida, unanimemente",
+   "na_transcricao": "por falta de citação da jurisprudência defendida, unanimemente"
+  },
+  {
+   "onde": "Sobre um requerimento apresentado pelo Dr.",
+   "na_imagem": "Cândido Drummond Filho",
+   "na_transcricao": "Cantidio[?] Drummond Filho"
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [
+  {
+   "onde": "requerimento apresentado pelo Dr. ... Drummond Filho",
+   "leitura": "Cândido Drummond Filho"
+  }
+ ],
+ "observacoes": "A transcrição acompanha corretamente a ata até o encerramento da sessão, ressalvadas as duas divergências acima.",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

@@ -1,0 +1,40 @@
+{
+ "fidelidade_0_10": 2,
+ "divergencias": [
+  {
+   "onde": "Ordem dos trabalhos, itens 3 a 6",
+   "na_imagem": "3) Leitura pelo senhor Carvalho Mourão do aviso-gabinete que recebeu do ministro da Justiça sobre o decreto consolidando as leis eleitorais; 4) Julgamento da Apelação Criminal n. 11 — São Paulo; 5) Julgamento do processo n. 65 — Divisão eleitoral do Estado da Baía; 6) Julgamento do processo n. 390 — Sobre o pedido de cancelamento do registo da União Progressista Fluminense; 7) Encerramento da sessão.",
+   "na_transcricao": "3) Julgamento do Recurso Eleitoral n. 54 — Pernambuco; 4) processo n. 600 — Rio Grande do Norte; 5) processo n. 601 — Paraíba; 6) Encerramento da sessão."
+  },
+  {
+   "onde": "Após “os acórdãos referentes aos processos julgados naquela mesma sessão”",
+   "na_imagem": "O Sr. Carvalho Mourão comunica haver recebido do ministro da Justiça um ofício sobre a demora da publicação do decreto relativo ao alistamento; segue-se o relato da Apelação Criminal n. 11, de São Paulo, pelo Sr. Pires e Albuquerque.",
+   "na_transcricao": "O Sr. José Linhares relata o recurso eleitoral n. 54, de Pernambuco."
+  },
+  {
+   "onde": "Julgamento subsequente à Apelação Criminal n. 11",
+   "na_imagem": "O Sr. Carvalho Mourão relata o processo de consulta n. 65, sobre alteração na divisão do Estado da Baía em zonas eleitorais.",
+   "na_transcricao": "O mesmo juiz relata o processo-consulta n. 600 (do Rio Grande do Norte, sobre impossibilidade de reabrir o alistamento...)."
+  },
+  {
+   "onde": "Último processo da sessão",
+   "na_imagem": "O Sr. Affonso Penna Junior relata o processo de consulta n. 390, relativo ao pedido de cancelamento do registo do Partido União Progressista Fluminense.",
+   "na_transcricao": "O SR. AFFONSO PENNA JÚNIOR relata o processo de consulta n. 601 (Paraíba), sobre a substituição do juiz eleitoral de Umbuzeiro."
+  },
+  {
+   "onde": "Encerramento",
+   "na_imagem": "Levanta-se a sessão às quatorze horas e trinta e cinco minutos.",
+   "na_transcricao": "Levanta-se a sessão às quatorze horas e quarenta e cinco minutos."
+  }
+ ],
+ "lacunas": [
+  "O comunicado do Sr. Carvalho Mourão acerca do ofício do ministro da Justiça, que explica a demora da publicação do decreto sobre alistamento e informa a próxima solução do assunto.",
+  "O relato e julgamento da Apelação Criminal n. 11, de São Paulo, por Pires e Albuquerque, envolvendo Antonio Francisco Leandro, Antonio Ferreira dos Santos e o procurador regional.",
+  "O relato e julgamento do processo de consulta n. 65, relativo à divisão eleitoral da Baía em zonas eleitorais.",
+  "O relato e julgamento do processo de consulta n. 390, sobre o cancelamento do registo do Partido União Progressista Fluminense, cujo pedido fora assinado por pessoa não acreditada para falar em nome do Partido."
+ ],
+ "leituras_de_ilegiveis": [],
+ "observacoes": "Após o trecho inicial comum, a transcrição substitui praticamente todo o conteúdo da 15ª sessão por deliberações da sessão anterior, visíveis na parte superior da página 334.",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

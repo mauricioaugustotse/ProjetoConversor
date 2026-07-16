@@ -1,0 +1,20 @@
+{
+ "fidelidade_0_10": 9.0,
+ "divergencias": [
+  {
+   "onde": "Introdução aos julgamentos",
+   "na_imagem": "Relativamente aos casos em pauta para julgamento, o Tribunal resolveu:",
+   "na_transcricao": "A seguir tratando dos casos em pauta para julgamento, o Tribunal resolveu:"
+  },
+  {
+   "onde": "Item 7º, votação da preliminar",
+   "na_imagem": "contra os votos dos Srs. Ministro de Camargo e Professor João Cabral",
+   "na_transcricao": "contra os votos dos Srs. Ministro Laudo de Camargo e Professor João Cabral"
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [],
+ "observacoes": "A ata da 35ª sessão encerra-se na página 159, antes do cabeçalho da 36ª sessão.",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

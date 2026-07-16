@@ -1,0 +1,15 @@
+{
+ "fidelidade_0_10": 9.8,
+ "divergencias": [
+  {
+   "onde": "3º) negar provimento à apelação criminal",
+   "na_imagem": "apelação criminal n. 84 — 5ª classe — Paraná",
+   "na_transcricao": "apelação criminal n. 81 — 5ª classe — Paraná"
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [],
+ "observacoes": "Há uma divergência material no número da apelação criminal.",
+ "_motivo_selecao": "dificil",
+ "_modelo": "gpt-5.6-terra"
+}

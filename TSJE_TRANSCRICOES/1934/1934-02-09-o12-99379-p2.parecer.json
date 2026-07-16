@@ -1,0 +1,15 @@
+{
+ "fidelidade_0_10": 9.8,
+ "divergencias": [
+  {
+   "onde": "Ata, consulta n. 598: “e o acórdão ... no Recurso Eleitoral n. 50”",
+   "na_imagem": "e o acórdão proferido no Recurso Eleitoral n. 50",
+   "na_transcricao": "e o acórdão propondo no Recurso Eleitoral n. 50"
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [],
+ "observacoes": "Transcrição muito fiel; há apenas a substituição material de “proferido” por “propondo”.",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

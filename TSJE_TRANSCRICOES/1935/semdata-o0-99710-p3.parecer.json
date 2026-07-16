@@ -1,0 +1,29 @@
+{
+ "fidelidade_0_10": 9.3,
+ "divergencias": [
+  {
+   "onde": "\"exercício de voto de pessoas não alistandas\"",
+   "na_imagem": "\"exercício de voto de pessoas não alistadas\"",
+   "na_transcricao": "\"exercício de voto de pessoas não alistandas\""
+  },
+  {
+   "onde": "lista de recursos a que se negou provimento unanimemente",
+   "na_imagem": "\"1.284, 1.285, 1.286, 1.289...\"",
+   "na_transcricao": "\"1.284, 1.285, 1.296, 1.289...\""
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [
+  {
+   "onde": "\"A da 1ª seção de Cachoeira da ... zona\"",
+   "leitura": "4ª zona"
+  },
+  {
+   "onde": "\"prosseguindo o julgamento na sessão ordinária de ... do corrente\"",
+   "leitura": "20 do corrente"
+  }
+ ],
+ "observacoes": "A ata foi corretamente delimitada entre o cabeçalho indicado e \"Levanta-se a sessão\".",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

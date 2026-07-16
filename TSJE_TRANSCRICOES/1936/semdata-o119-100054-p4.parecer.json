@@ -1,0 +1,25 @@
+{
+ "fidelidade_0_10": 9,
+ "divergencias": [
+  {
+   "onde": "3º) negar provimento ao ... interposto pelo advogado do Dr. Urbano Berquó",
+   "na_imagem": "ao aggravo",
+   "na_transcricao": "ao approvo"
+  },
+  {
+   "onde": "4º) ... sendo recorrentes Norival Soares de Freitas e Francisco de Almeida ...",
+   "na_imagem": "Francisco de Almeida Casas",
+   "na_transcricao": "Francisco de Almeida Cases[?]"
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [
+  {
+   "onde": "4º) recorrentes Norival Soares de Freitas e Francisco de Almeida [...]",
+   "leitura": "Casas"
+  }
+ ],
+ "observacoes": "A ata confere integralmente fora as divergências indicadas.",
+ "_motivo_selecao": "confianca",
+ "_modelo": "gpt-5.6-terra"
+}

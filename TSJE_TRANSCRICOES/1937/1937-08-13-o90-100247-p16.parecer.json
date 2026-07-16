@@ -1,0 +1,32 @@
+{
+ "fidelidade_0_10": 9.6,
+ "divergencias": [
+  {
+   "onde": "\"de invenção e fabrico de William ...\"",
+   "na_imagem": "William Mazzeo",
+   "na_transcricao": "William Mazzoco[?]"
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [
+  {
+   "onde": "\"recurso eleitoral n. 405[?]\"",
+   "leitura": "405"
+  },
+  {
+   "onde": "\"urnas de aço de Rivington[?] & Comp.\"",
+   "leitura": "Rivington"
+  },
+  {
+   "onde": "\"fabrico de William Mazzoco[?]\"",
+   "leitura": "William Mazzeo"
+  },
+  {
+   "onde": "\"de dois kilos[?] de peso\"",
+   "leitura": "dois kilos"
+  }
+ ],
+ "observacoes": "A ata foi corretamente delimitada e acompanha a imagem, salvo o sobrenome Mazzeo.",
+ "_motivo_selecao": "confianca",
+ "_modelo": "gpt-5.6-terra"
+}

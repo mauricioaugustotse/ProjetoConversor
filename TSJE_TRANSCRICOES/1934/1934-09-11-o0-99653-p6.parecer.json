@@ -1,0 +1,15 @@
+{
+ "fidelidade_0_10": 9.5,
+ "divergencias": [
+  {
+   "onde": "Identificação da ata informada nos metadados",
+   "na_imagem": "63ª SESSÃO ORDINÁRIA, EM 11 DE SETEMBRO DE 1934",
+   "na_transcricao": "62ª SESSÃO ORDINÁRIA, EM 11 DE SETEMBRO DE 1934"
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [],
+ "observacoes": "O corpo da ata corresponde à imagem; a divergência material está na numeração da sessão.",
+ "_motivo_selecao": "dificil",
+ "_modelo": "gpt-5.6-terra"
+}

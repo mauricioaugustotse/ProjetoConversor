@@ -1,0 +1,17 @@
+{
+ "fidelidade_0_10": 9.0,
+ "divergencias": [
+  {
+   "onde": "“Às nove horas, presentes os juízes...”",
+   "na_imagem": "“ministro Eduardo Espinola (ministro Plinio Casado, juiz substituto convocado em impedimento do ministro Carvalho Mourão, que faltou com causa justificada), desembargador José Linhares...”",
+   "na_transcricao": "“ministros Eduardo Espinola e Carvalho Mourão, desembargador José Linhares...”"
+  }
+ ],
+ "lacunas": [
+  "“ministro Plinio Casado, juiz substituto convocado em impedimento do ministro Carvalho Mourão, que faltou com causa justificada”"
+ ],
+ "leituras_de_ilegiveis": [],
+ "observacoes": "A transcrição atribui presença a Carvalho Mourão, mas a imagem registra sua ausência justificada e a convocação de Plinio Casado como substituto.",
+ "_motivo_selecao": "confianca",
+ "_modelo": "gpt-5.6-terra"
+}

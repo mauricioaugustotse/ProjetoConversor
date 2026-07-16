@@ -1,0 +1,15 @@
+{
+ "fidelidade_0_10": 9.8,
+ "divergencias": [
+  {
+   "onde": "recurso eleitoral n. 448 — Minas Geraes",
+   "na_imagem": "dar-lhe provimento, para mandar renovar a eleição",
+   "na_transcricao": "dar-lhe proximento, para mandar renovar a eleição"
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [],
+ "observacoes": "Transcrição integralmente compatível com a ata indicada, exceto pelo erro em “provimento”.",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

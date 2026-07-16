@@ -1,0 +1,24 @@
+{
+ "fidelidade_0_10": 9.8,
+ "divergencias": [
+  {
+   "onde": "\"indeferir o pedido de desistência do mesmo recurso, por ter sido...\"",
+   "na_imagem": "requerido por quem não o interpôs",
+   "na_transcricao": "apresentado[?] por quem não o interpôs"
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [
+  {
+   "onde": "\"por ter sido apresentado[?] por quem não o interpôs\"",
+   "leitura": "requerido"
+  },
+  {
+   "onde": "\"o Tribunal resolveu julgá-las improcedentes[?]\"",
+   "leitura": "improcedentes"
+  }
+ ],
+ "observacoes": "A transcrição corresponde à ata indicada; a única divergência material é \"apresentado\" em lugar de \"requerido\".",
+ "_motivo_selecao": "confianca",
+ "_modelo": "gpt-5.6-terra"
+}

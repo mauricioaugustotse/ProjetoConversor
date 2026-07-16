@@ -1,0 +1,32 @@
+{
+ "fidelidade_0_10": 9.2,
+ "divergencias": [
+  {
+   "onde": "Lista de suplentes do Grupo de Indústria",
+   "na_imagem": "Eduardo de Vasconcellos Pederneiras",
+   "na_transcricao": "Eduaro[?] de Vasconcellos Pederneiras"
+  },
+  {
+   "onde": "Antonio José de Oliveira, 2º suplente do Grupo de Funcionários Públicos",
+   "na_imagem": "Processo n. 15 — R. P.",
+   "na_transcricao": "Processo n. 45 — R. P."
+  },
+  {
+   "onde": "Relação de candidatos com pedidos impugnados",
+   "na_imagem": "Ricardino Franklin do Prado",
+   "na_transcricao": "Ricardino Franklim do Prado"
+  }
+ ],
+ "lacunas": [
+  "Na confirmação da apuração da 3ª seção de Assuruá, falta “não”: “porque não constitue nulidade o facto de terem votado, na mesma secção, dois fiscais de um só candidato”. "
+ ],
+ "leituras_de_ilegiveis": [
+  {
+   "onde": "Nome do suplente da classe de empregadores do Grupo de Indústria",
+   "leitura": "Eduardo de Vasconcellos Pederneiras"
+  }
+ ],
+ "observacoes": "A transcrição acompanha a ata da 32ª sessão até o encerramento; não foi considerada a ata da 33ª sessão iniciada na mesma página.",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

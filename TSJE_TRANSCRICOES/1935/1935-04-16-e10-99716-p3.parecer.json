@@ -1,0 +1,23 @@
+{
+ "fidelidade_0_10": 9.6,
+ "divergencias": [
+  {
+   "onde": "Após o item IX, no recurso n. 40",
+   "na_imagem": "X — negar provimento ao recurso n. 40 por um fundamento, sendo que o Sr. Miranda Valverde negou provimento pelos dois fundamentos indicados no parecer de relator",
+   "na_transcricao": "negar provimento ao recurso n. 40 por um fundamento, sendo que o Sr. Miranda Valverde negou provimento pelos fundamentos indicados no parecer do relator"
+  },
+  {
+   "onde": "Item V, sobre as quatro sobrecartas da seção única da 7ª zona — Coxim",
+   "na_imagem": "apuradas pela turma, em separado",
+   "na_transcricao": "apuradas pela turma, em separada"
+  }
+ ],
+ "lacunas": [
+  "X —",
+  "dois (em “pelos dois fundamentos indicados no parecer de relator”)"
+ ],
+ "leituras_de_ilegiveis": [],
+ "observacoes": "A transcrição corresponde à ata indicada e acompanha corretamente sua continuação na página 1041.",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

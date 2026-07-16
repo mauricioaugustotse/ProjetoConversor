@@ -1,0 +1,20 @@
+{
+ "fidelidade_0_10": 9.8,
+ "divergencias": [
+  {
+   "onde": "\"por ter servido como escrivão quem não era...\"",
+   "na_imagem": "\"quem não era eleitor\"",
+   "na_transcricao": "\"quem não era eleitora\""
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [
+  {
+   "onde": "\"recurso eleitoral n. 384 e 396[?] — São Paulo\"",
+   "leitura": "396"
+  }
+ ],
+ "observacoes": "A transcrição acompanha a ata correta e contém uma divergência material de gênero.",
+ "_motivo_selecao": "confianca",
+ "_modelo": "gpt-5.6-terra"
+}

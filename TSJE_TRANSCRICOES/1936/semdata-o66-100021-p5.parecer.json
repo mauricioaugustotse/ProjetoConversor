@@ -1,0 +1,15 @@
+{
+ "fidelidade_0_10": 9.8,
+ "divergencias": [
+  {
+   "onde": "recurso eleitoral n. 368 — Ceará — (Relator, Sr. Desembargador Ovidio ...)",
+   "na_imagem": "Ovidio Romeiro",
+   "na_transcricao": "Ovidio Robeiro"
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [],
+ "observacoes": "Transcrição fiel, com erro material no sobrenome do Relator do recurso n. 368.",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

@@ -1,0 +1,25 @@
+{
+ "fidelidade_0_10": 9.7,
+ "divergencias": [
+  {
+   "onde": "\"sem incorrer na perda do mandado\"",
+   "na_imagem": "\"sem incorrer na perda de mandato\"",
+   "na_transcricao": "\"sem incorrer na perda do mandado\""
+  },
+  {
+   "onde": "item 14, \"no processo n. 1.758[?]\"",
+   "na_imagem": "\"no processo n. 1.753\"",
+   "na_transcricao": "\"no processo n. 1.758[?]\""
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [
+  {
+   "onde": "item 14, número do processo relativo à consulta do Partido Popular do Rio Grande do Norte",
+   "leitura": "1.753"
+  }
+ ],
+ "observacoes": "A transcrição corresponde à ata indicada; há apenas as duas divergências materiais acima.",
+ "_motivo_selecao": "confianca",
+ "_modelo": "gpt-5.6-terra"
+}

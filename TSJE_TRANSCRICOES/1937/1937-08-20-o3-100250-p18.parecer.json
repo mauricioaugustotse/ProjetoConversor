@@ -1,0 +1,20 @@
+{
+ "fidelidade_0_10": 9.4,
+ "divergencias": [
+  {
+   "onde": "item 3º, nomes dos recorridos",
+   "na_imagem": "Octaviano da Costa Alkimim",
+   "na_transcricao": "Octaviano da Costa Alkimin"
+  },
+  {
+   "onde": "item 4º, regra de votação",
+   "na_imagem": "sem transferencia ou reserva, na forma da lei",
+   "na_transcricao": "sem transferência ou ressalva, na forma da lei"
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [],
+ "observacoes": "A ata correspondente foi localizada integralmente na coluna esquerda da primeira imagem; as demais imagens contêm conteúdo alheio a esta ata.",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

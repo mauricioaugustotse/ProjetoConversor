@@ -1,0 +1,20 @@
+{
+ "fidelidade_0_10": 9.4,
+ "divergencias": [
+  {
+   "onde": "Conclusão do julgamento do habeas-corpus n. 11",
+   "na_imagem": "O Tribunal não conheceu do habeas-corpus, por ser originário, unanimemente.",
+   "na_transcricao": "O Tribunal não conhece do habeas-corpus, por ser originário, unanimemente."
+  },
+  {
+   "onde": "Relato do processo n. 536, voto do relator",
+   "na_imagem": "vota no sentido de ser o julgamento convertido em diligência",
+   "na_transcricao": "vota no sentido de o julgamento convertido em diligência"
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [],
+ "observacoes": "Transcrição muito fiel; há uma alteração de tempo verbal e a omissão de \"ser\".",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

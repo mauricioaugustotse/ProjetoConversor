@@ -1,0 +1,20 @@
+{
+ "fidelidade_0_10": 9.7,
+ "divergencias": [
+  {
+   "onde": "habeas-corpus n. 14, do Distrito Federal",
+   "na_imagem": "vota no sentido de ser o julgamento convertido em diligência, para se pedir informações ao Sr. ministro da Guerra",
+   "na_transcricao": "vota no sentido de ser o julgamento convertido em julgamento, para se pedir informações ao Sr. ministro da Guerra"
+  },
+  {
+   "onde": "identificação do paciente e impetrante do habeas-corpus n. 14",
+   "na_imagem": "Dr. Honorio Hermeto Bezerra Cavalcante",
+   "na_transcricao": "Dr. Honorio Hermeto Bezerra Cavalcanti"
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [],
+ "observacoes": "Há uma substituição material de “diligência” por “julgamento” e um erro no sobrenome Cavalcante.",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

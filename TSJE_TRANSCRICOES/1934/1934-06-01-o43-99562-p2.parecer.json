@@ -1,0 +1,15 @@
+{
+ "fidelidade_0_10": 9.8,
+ "divergencias": [
+  {
+   "onde": "Sumário, item 3: “Julgamento do processo n. 639”",
+   "na_imagem": "Minas Gerais",
+   "na_transcricao": "Minas Gereis"
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [],
+ "observacoes": "Transcrição muito fiel; apenas erro material no nome do Estado no sumário.",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

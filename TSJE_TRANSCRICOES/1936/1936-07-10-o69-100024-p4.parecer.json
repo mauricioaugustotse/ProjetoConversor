@@ -1,0 +1,15 @@
+{
+ "fidelidade_0_10": 9.7,
+ "divergencias": [
+  {
+   "onde": "Item 14, recurso eleitoral do Pará",
+   "na_imagem": "recurso eleitoral n. 393 — Pará",
+   "na_transcricao": "recurso eleitoral n. 933 — Pará"
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [],
+ "observacoes": "Transcrição fiel no restante da ata; há erro material no número do recurso do item 14.",
+ "_motivo_selecao": "confianca",
+ "_modelo": "gpt-5.6-terra"
+}

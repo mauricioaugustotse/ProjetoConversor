@@ -1,0 +1,15 @@
+{
+ "fidelidade_0_10": 9.5,
+ "divergencias": [
+  {
+   "onde": "\"O mesmo juiz relata o processo n. 611 (de Minas Gerais...\"",
+   "na_imagem": "\"O mesmo juiz relata o processo n. 641 (de Minas Gerais, pedido de registo do Partido Unitista Ferroviário do Brasil)...\"",
+   "na_transcricao": "\"O mesmo juiz relata o processo n. 611 (de Minas Gerais, pedido de registo do Partido Unitista Ferroviário do Brasil)...\""
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [],
+ "observacoes": "O sumário impresso traz \"processo n. 611\", mas o corpo da ata traz claramente \"processo n. 641\".",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

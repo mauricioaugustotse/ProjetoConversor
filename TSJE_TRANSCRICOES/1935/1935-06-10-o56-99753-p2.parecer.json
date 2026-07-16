@@ -1,0 +1,33 @@
+{
+ "fidelidade_0_10": 2,
+ "divergencias": [
+  {
+   "onde": "Após «foi ... declarada aberta a sessão»",
+   "na_imagem": "«O Tribunal tratando de varios assumptos submettidos ao seu conhecimento resolveu o seguinte:»",
+   "na_transcricao": "«Continuou em julgamento o parecer indicativo dos efeitos do julgado sobre as eleições do Estado do Maranhão...»"
+  },
+  {
+   "onde": "Deliberações imediatamente posteriores à abertura",
+   "na_imagem": "Deliberações sobre as eleições do Rio Grande do Norte, Maranhão, consulta n. 1.092, agravo de Ricardo Franklin do Prado, consulta do Tribunal Regional do Rio de Janeiro e instruções para a eleição de representantes profissionais no Distrito Federal.",
+   "na_transcricao": "Julgamentos relativos ao Maranhão, recurso n. 92, recurso n. 38 do Rio Grande do Norte, recurso n. 91 do Espírito Santo e consultas ns. 1.095 e 1.073."
+  },
+  {
+   "onde": "Encerramento e autenticação da ata",
+   "na_imagem": "Após a assinatura do oficial Renato de Paula consta: «— Visto em 19 de junho de 1935. — Agripino Veado, secretario.»",
+   "na_transcricao": "O trecho final de visto e assinatura de Agripino Veado foi omitido."
+  }
+ ],
+ "lacunas": [
+  "«1) em relação as conclusões referentes as eleições do Rio Grande do Norte, que se telegraphe ao Tribunal Regional para mandar apurar as urnas das secções de que trata o n. 4 das referidas conclusões, devolvendo as sobrecartas que estão apensas ao respectivo processo, e que o Tribunal Superior mandou apurar, o serem pelo relator, determinando ainda que o “Boletim Eleitoral” rectifique a publicação das conclusões, por ter havido incorrecções no que concerne ao n. 19;»",
+  "«2º) em relação as eleições do Maranhão que se autorize o presidente do Tribunal Regional a convocar a Assembléa Constituinte, communicando-lhe ainda que o Tribunal mandou expedir diplomas de deputados a José de Souza Carvalho Branco e Manoel Tavares Neves, diploma de supplente a Rosa Castro;»",
+  "«3º) em relação à consulta, feita pela presidente da Camara dos Deputados (n. 1.092) relatada pelo Sr. ministro Eduardo Espinola que se convocasse o 2º supplente da Liga Eleitoral Catholica por ter o 1º supplente acceito a cadeira de deputado pela classe das profissões liberaes;»",
+  "«4º) em relação ao agravo em que é agravante o de Ricardo Franklin do Prado (Proc. R. P. n. 50) negar provimento ao recurso unanimemente;»",
+  "«5º) em relação ao officio do presidente do Tribunal Regional do Estado do Rio de Janeiro pedindo instrucções sobre o modo de agir a respeito de uma subtracção de sobrecartas da urna da 13ª secção da 4ª zona, na qual não procedera a perícia, não tomar conhecimento da consulta por versar sobre caso pendente que o Tribunal Regional decidirá como lhe parecer acertado, unanimemente;»",
+  "«6º) tratando-se das instrucções para a eleição dos representantes profissionais, na Camara Municipal do Distrito Federal, de que é relator o desembargador Linhares, approvar as mesmas instrucções unanimemente, mandando-as publicar.»",
+  "«— Visto em 19 de junho de 1935. — Agripino Veado, secretario.»"
+ ],
+ "leituras_de_ilegiveis": [],
+ "observacoes": "A transcrição reproduz, após a abertura, matéria de outra ata, em vez das deliberações da 56ª sessão.",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

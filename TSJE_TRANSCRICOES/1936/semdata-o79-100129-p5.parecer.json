@@ -1,0 +1,20 @@
+{
+ "fidelidade_0_10": 9.8,
+ "divergencias": [
+  {
+   "onde": "Item 4º, recurso eleitoral do Rio Grande do Sul",
+   "na_imagem": "recurso eleitoral n. 431 — Rio Grande do Sul",
+   "na_transcricao": "recurso eleitoral n. 434[?] — Rio Grande do Sul"
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [
+  {
+   "onde": "Item 4º, número do recurso eleitoral",
+   "leitura": "431"
+  }
+ ],
+ "observacoes": "Transcrição fiel no restante da ata.",
+ "_motivo_selecao": "confianca",
+ "_modelo": "gpt-5.6-terra"
+}

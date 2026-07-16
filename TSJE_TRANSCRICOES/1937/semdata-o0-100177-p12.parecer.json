@@ -1,0 +1,20 @@
+{
+ "fidelidade_0_10": 9.4,
+ "divergencias": [
+  {
+   "onde": "Item 3º, consulta do Presidente do Tribunal Regional da Bahia",
+   "na_imagem": "continua no exercício de Presidente do Tribunal Regional",
+   "na_transcricao": "continua no exercício de Presidente do Tribunal Superior"
+  },
+  {
+   "onde": "Em tempo, retificação relativa ao recurso n. 571",
+   "na_imagem": "e não conforme ficou constando da ata",
+   "na_transcricao": "e no conforme ficou constando da ata"
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [],
+ "observacoes": "A transcrição acompanha a ata correta na coluna esquerda da primeira página; as demais páginas pertencem a outros conteúdos.",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

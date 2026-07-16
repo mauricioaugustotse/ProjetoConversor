@@ -1,0 +1,15 @@
+{
+ "fidelidade_0_10": 9.8,
+ "divergencias": [
+  {
+   "onde": "Item 5 da ordem dos trabalhos",
+   "na_imagem": "Comunicação do Sr. Presidente sobre a hora em que se reunirá o Tribunal, em 20 do corrente",
+   "na_transcricao": "Comunicação do Sr. Presidente sobre a hora em que se reuniu o Tribunal, em 20 do corrente"
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [],
+ "observacoes": "Transcrição fiel, com divergência material no tempo verbal do item 5.",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

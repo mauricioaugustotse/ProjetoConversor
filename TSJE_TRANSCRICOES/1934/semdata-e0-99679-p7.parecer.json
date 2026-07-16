@@ -1,0 +1,14 @@
+{
+ "fidelidade_0_10": 10,
+ "divergencias": [],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [
+  {
+   "onde": "“devem distinguir cuidadosamente a capacidade[?] de ter direitos”",
+   "leitura": "a capacidade de ter direitos"
+  }
+ ],
+ "observacoes": "Transcrição fiel ao texto impresso nas páginas fornecidas.",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

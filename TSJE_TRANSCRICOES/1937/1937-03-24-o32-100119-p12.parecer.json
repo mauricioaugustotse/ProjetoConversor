@@ -1,0 +1,25 @@
+{
+ "fidelidade_0_10": 9,
+ "divergencias": [
+  {
+   "onde": "Título informado da ata",
+   "na_imagem": "ATA DA 33ª SESSÃO ORDINÁRIA REALIZADA EM 24 DE MARÇO DE 1937",
+   "na_transcricao": "ATA DA 32ª SESSÃO ORDINÁRIA REALIZADA EM 24 DE MARÇO DE 1937"
+  },
+  {
+   "onde": "Item 3º, identificação do relator",
+   "na_imagem": "Desembargador Collares Moreira",
+   "na_transcricao": "Desembargador Colares Moreira"
+  },
+  {
+   "onde": "Item 5º, identificação do relator",
+   "na_imagem": "Desembargador Collares Moreira",
+   "na_transcricao": "Desembargador Colares Moreira"
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [],
+ "observacoes": "O corpo transcrito corresponde à ata impressa, cujo cabeçalho é da 33ª sessão.",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

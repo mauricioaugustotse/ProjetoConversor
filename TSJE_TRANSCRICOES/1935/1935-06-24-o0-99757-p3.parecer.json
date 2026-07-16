@@ -1,0 +1,20 @@
+{
+ "fidelidade_0_10": 9.2,
+ "divergencias": [
+  {
+   "onde": "telegrama de Asdrubal ... de Azevedo",
+   "na_imagem": "Asdrubal Gwyer de Azevedo",
+   "na_transcricao": "Asdrubal Gwayer de Azevedo"
+  },
+  {
+   "onde": "foi pelo Sr. presidente ministro Hermenegildo de Barros, ... aberta a sessão",
+   "na_imagem": "foi pelo Sr. presidente ministro Hermenegildo de Barros, declarada aberta a sessão",
+   "na_transcricao": "foi pelo Sr. presidente ministro Hermenegildo de Barros, declarando aberta a sessão"
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [],
+ "observacoes": "A ata indicada está integralmente na primeira imagem; as imagens seguintes contêm outros textos.",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

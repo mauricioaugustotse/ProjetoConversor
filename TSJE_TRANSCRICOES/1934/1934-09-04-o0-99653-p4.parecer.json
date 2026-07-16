@@ -1,0 +1,15 @@
+{
+ "fidelidade_0_10": 9.9,
+ "divergencias": [
+  {
+   "onde": "Processo n. 852 — prazo para recebimento de requerimentos de inscrição",
+   "na_imagem": "...até às dezoito horas do dia 31 de agosto próximo passado...",
+   "na_transcricao": "...até às dezoito horas do dia 31 de agosto passado..."
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [],
+ "observacoes": "Transcrição substancialmente fiel; há apenas a omissão de «próximo».",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

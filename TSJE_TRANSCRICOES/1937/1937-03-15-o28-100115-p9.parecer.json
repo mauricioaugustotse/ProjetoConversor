@@ -1,0 +1,15 @@
+{
+ "fidelidade_0_10": 9,
+ "divergencias": [
+  {
+   "onde": "2º, responder à consulta do Tribunal Regional Eleitoral do Rio Grande do Sul",
+   "na_imagem": "Sr. desembargador Collares Moreira",
+   "na_transcricao": "Sr. desembargador Collares Mareira"
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [],
+ "observacoes": "A transcrição é fiel no restante da ata; a duplicação anômala da fórmula final consta da impressão.",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

@@ -1,0 +1,15 @@
+{
+ "fidelidade_0_10": 9.5,
+ "divergencias": [
+  {
+   "onde": "\"O Sr. Monteiro de Sales relata o processo de consulta n. 607\"",
+   "na_imagem": "\"O Sr. MONTEIRO DE SALLES relata o processo de consulta n. 607\"",
+   "na_transcricao": "\"O Sr. Monteiro de Sales relata o processo de consulta n. 607\""
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [],
+ "observacoes": "Transcrição fiel, exceto pela grafia do nome próprio no trecho do relato.",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}

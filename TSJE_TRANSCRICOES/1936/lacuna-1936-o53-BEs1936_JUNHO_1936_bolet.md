@@ -1,0 +1,22 @@
+---
+ata_id: lacuna-1936-o53-BEs1936_JUNHO_1936_bolet
+titulo: ATA DA 53ª SESSÃO ORDINÁRIA REALIZADA EM 1 DE JUNHO DE 1936
+data_sessao: 1936-06-01
+tipo: ordinaria
+num: 53
+tribunal: superior
+presidencia: Presidência do Sr. Ministro Hermenegildo de Barros
+boletim: n. 66, de 06/06/1936
+arquivo: BEs 1936\JUNHO\1936_boletim_eleitoral_a5_n66.pdf
+paginas: 5
+transcrito_por: claude-opus-4-8 (subagente)
+transcrito_em: 2026-07-16
+confianca: alta
+ilegiveis: 0
+corrigido_de: titulo impresso diz "REALIZADA EM 1 DE MAIO DE 1936" (erro de impressao, corrigido a mao no exemplar para "junho"); o preambulo confirma "primeiro dia do mes de junho", logo a data e 01/06/1936
+---
+ATA DA 53ª SESSÃO ORDINÁRIA REALIZADA EM 1 DE MAIO [sic; no impresso; leia-se JUNHO] DE 1936
+
+PRESIDÊNCIA DO SR. MINISTRO HERMENEGILDO DE BARROS
+
+Ao primeiro dia do mês de junho do ano de mil novecentos e trinta e seis, às nove horas, na sala das sessões do Tribunal Superior de Justiça Eleitoral, presentes os juízes Senhores ministros Plinio Casado e Laudo de Camargo, desembargador Collares Moreira, professores João Cabral e Candido de Oliveira Filho, presente ainda o Sr. Procurador Geral, Dr. Armando Prado, pelo presidente, Sr. ministro Hermenegildo de Barros, foi declarada aberta a sessão. É lida e aprovada a ata da sessão anterior. De início o Sr. ministro-presidente anunciou à Casa que se ia proceder a eleição de um dos membros substitutos da 2ª categoria, a fim de se preencher a vaga existente com a saída do Sr. desembargador José Linhares, procedida a eleição, verificou-se o seguinte resultado: desembargador Ovidio Romeiro, 4 votos, e desembargador Alfredo Russell, 2 votos, ficando, em consequência, eleito por maioria de votos o Sr. desembargador Ovidio Romeiro. Passando a tratar dos casos em pauta para julgamento, o Tribunal resolveu: 1º, não tomar conhecimento do pedido do Partido Trabalhista do Brasil (processo n. 1.761, sendo relator, Senhor desembargador Collares Moreira) no sentido de se cancelar o registro da Acção Integralista Brasileira, contra os votos dos Srs. professores João Cabral e Candido de Oliveira Filho; 2º, responder a consulta do presidente do Tribunal Regional da Parahyba (processo n. 1.920, sendo relator o Sr. professor Candido de Oliveira Filho) declarando que o quatriênio do Dr. Agripino Gouvêa de Barros, deve ser contado da data da sua primeira investidura do cargo, isto é, de 20 de julho de 1932, e não de 29 de agosto de 1934, não obstante a solução de continuidade verificada entre os dois períodos do exercício, e independente da diversidade de designações, pois na primeira phase o referido juiz fazia parte do Tribunal como jurista e na 2ª como juiz de direito, unanimemente; 3º, responder a consulta do presidente do Tribunal Regional de Sergipe (processo n. 1.925, sendo relator o Sr. professor João Cabral) declarando que o diretor secretario da Junta Commercial daquele Estado, nomeado Procurador Regional Eleitoral interino, não pode exercer as funções de um e outro cargo, à vista do que dispõe o art. 51 do Código Eleitoral, perdendo em consequência o cargo de diretor-secretario da Junta, se aceitar o de Procurador Regional, unanimemente; 4º, não tomar conhecimento da consulta do Partido Social Democratico do Paraná (processo n. 1.927, de que é relator Sr. ministro Plinio Casado) por se tratar de um caso concreto, que ao Tribunal Regional incumbe resolver, com recurso para o Tribunal Superior, unanimemente; 5º, não tomar conhecimento do recurso eleitoral do Partido Progressista de Minas Geraes, interposto da decisão do juiz eleitoral da 36ª zona daquele Estado (processo n. 1.929, sendo relator Sr. desembargador Collares Moreira) por não estar instruído nem devidamente processado, unanimemente; 6º, responder a consulta do Partido Progressista do Ceará (processo n. 1.930, de que é relator o Sr. professor João Cabral) e declarar que a expressão — "metade dos votos de um município" — usada pelo art. 160, § 1º do Código Eleitoral, se refere à metade dos eleitores que compareceram à eleição e votaram, e não da metade dos eleitores alistados, unanimemente. Considerando o adiantado da hora o Sr. ministro-presidente encerrou a sessão, convocando outra para o dia 3 do corrente, às mesmas horas. Do que para constar lavrei a presente. Eu, Raul Pacheco de Medeiros, auxiliar da Secretaria a escrevi. E eu, Agripino Veado, secretário do Tribunal, a subscrevo. — Hermenegildo de Barros, Presidente.

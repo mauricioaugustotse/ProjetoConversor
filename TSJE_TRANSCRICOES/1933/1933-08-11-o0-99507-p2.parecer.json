@@ -1,0 +1,20 @@
+{
+ "fidelidade_0_10": 9.5,
+ "divergencias": [
+  {
+   "onde": "Sumário, item 4: \"Defesa oral do contestado Dr. ...\"",
+   "na_imagem": "Edson Nobre de Lacerda",
+   "na_transcricao": "Edison Lacerda"
+  },
+  {
+   "onde": "\"doutores Affonso Penna Junior e Monteiro de ...\"",
+   "na_imagem": "Monteiro de Salles",
+   "na_transcricao": "Monteiro de Sales"
+  }
+ ],
+ "lacunas": [],
+ "leituras_de_ilegiveis": [],
+ "observacoes": "Transcrição substancialmente fiel.",
+ "_motivo_selecao": "amostra",
+ "_modelo": "gpt-5.6-terra"
+}
