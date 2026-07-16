@@ -94,3 +94,24 @@ conteudo_metadados.csv
 od_dups_bin.json
 org2_ia_respostas.jsonl
 od_ia_pastas.jsonl*
+
+# Extrator de imagens D:\ -> D:\IMAGENS (catalogo/planos/logs contem caminhos pessoais)
+img_catalogo.sqlite*
+img_plano.csv
+img_revisao_quaseduplicatas.csv
+img_revisao_classes.csv
+img_takeout_relatorio.csv
+img_zip_relatorio.csv
+log_img_*.csv
+
+# Organizacao do HD_Mau (pipeline acv_*): dumps de CONTEUDO extraido de documentos
+# pessoais CONTEM senhas/CPF/logins reais colados no texto (ex.: PJe, Magister) -
+# NAO versionar sob nenhuma circunstancia
+acv_cabecalhos_*.tsv
+acv_cache_texto_d.tsv
+acv_ia_*.jsonl
+acv_confronto.sqlite
+# Planos/logs de reorganizacao (caminhos com nomes de arquivos de dados pessoais)
+acv_plano_*.csv
+log_acv_*.csv
+acv_claude_lotes/
