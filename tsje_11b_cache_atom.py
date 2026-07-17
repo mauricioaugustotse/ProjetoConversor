@@ -71,7 +71,11 @@ def main():
         if not (os.path.isdir(d) and ano.isdigit()):
             continue
         for nome in sorted(os.listdir(d)):
-            if '[atom ' in nome and nome.lower().endswith('.pdf'):
+            # BEs baixados de repositorios externos (AtoM ou BDTSE); ambos
+            # entram no cache com prefixo ATOM (o caminho fisico e o mesmo
+            # BANCO\<ano>\<nome>, resolvido por caminho_fisico nos consumidores)
+            if ('[atom ' in nome or '[bdtse ' in nome) \
+                    and nome.lower().endswith('.pdf'):
                 rel = f'ATOM {ano}\\{nome}'
                 if rel not in ja:
                     alvos.append((rel, os.path.join(d, nome)))
