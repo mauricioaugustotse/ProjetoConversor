@@ -35,29 +35,38 @@ def req(method, path, body=None, version='2022-06-28'):
     return r
 
 
+# a API nao grava description em properties de RELATION (200 sem efeito,
+# verificado nas rotas /databases e /data_sources) — as arestas do grafo
+# ficam documentadas AQUI, na description da database, que a IA le no fetch
 DB_DESC = {
     'db_atas': (
         'Atas das sessões do Tribunal Superior de Justiça Eleitoral '
         '(1932-1937), primeira fase da Justiça Eleitoral. 1 página = 1 '
         'sessão; o CORPO da página é a transcrição fiel da ata publicada '
         'no Boletim Eleitoral (ortografia modernizada, nomes de época). '
-        'Fonte: acervo AtoM/TSE + coleção Searq.'),
+        'Fonte: acervo AtoM/TSE + coleção Searq. Relation "Processos '
+        'desta sessão" = deliberações julgadas nesta sessão (aresta '
+        'ata→processos do grafo).'),
     'db_processos': (
         'Processos e deliberações julgados pelo TSJE (1932-1937), '
         'extraídos das transcrições fiéis das atas. 1 página = 1 '
-        'deliberação/processo apreciado em sessão; liga-se à ata de '
-        'origem e, quando publicado, ao acórdão.'),
+        'deliberação/processo apreciado em sessão. Relations: "Ata de '
+        'origem" = sessão em que foi julgado (vazia apenas nos processos '
+        'fonte=acórdão); "Acórdão" = acórdão publicado deste processo, '
+        'quando localizado.'),
     'db_acordaos': (
         'Acórdãos do TSJE publicados na seção de jurisprudência dos '
         'Boletins Eleitorais (1932-1937). 1 página = 1 acórdão; o CORPO '
         'é o teor restaurado do OCR (sem invenção; [ilegível] onde '
-        'irrecuperável); liga-se ao processo correspondente.'),
+        'irrecuperável). Relation "Processo" = deliberação/processo '
+        'correspondente na base de Processos (aresta acórdão→processo).'),
 }
 
 PROPS_DESC = {
     'db_atas': {
         'data_sessao': 'Data em que a sessão foi realizada (impressa na ata).',
-        'tipo': 'Tipo da sessão: ordinária ou extraordinária.',
+        'tipo': ('Tipo da sessão: ordinária, extraordinária, preparatória, '
+                 'de instalação ou outra.'),
         'num': 'Número ordinal da sessão no ano (a numeração reinicia a cada ano).',
         'boletim': 'Boletim Eleitoral (nº e data) em que a ata foi publicada.',
         'arquivo_pdf': 'Arquivo PDF local do boletim (acervo D:\\TSJE_ATAS).',
