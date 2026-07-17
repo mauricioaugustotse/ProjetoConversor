@@ -64,12 +64,13 @@ UFS_1930 = {'DF', 'RJ', 'SP', 'MG', 'ES', 'BA', 'SE', 'AL', 'PE', 'PB',
 
 # nomes vistos no corpus que nao estao na semente
 CANONICOS_EXTRA = ['Monteiro de Salles', 'Públio de Mello',
-                   'Pedro de Moura Ferro', 'Leopoldo de Lima',
+                   'Pedro de Moura Ferro', 'Leopoldo Augusto de Lima',
                    'José Duarte', 'Vicente Piragibe', 'Castro Nunes']
 
 PALAVRAS_LIXO = {'vistos', 'vota', 'votado', 'autos', 'parecer', 'accordao',
                  'acordao', 'designado', 'desi', 'apresentada', 'relatados',
-                 'discutidos', 'divisao', 'pedida'}
+                 'discutidos', 'divisao', 'pedida', 'jtisi', 'desembargador',
+                 'ministro'}
 
 PROPS_POR_BASE = {
     'acordaos': ['relator', 'UF', 'classe'],
@@ -105,7 +106,8 @@ RE_PREFIXO = re.compile(
 
 def limpar_nome(v):
     """Remove prefixos honorificos (em loop, ate estabilizar), sufixo
-    'relator' e pega o primeiro nome de lista 'A; B'."""
+    'relator', sufixo pontuado ('. Habeas', '. Processo') e pega o
+    primeiro nome de lista 'A; B'."""
     v = (v or '').strip()
     if ';' in v:
         v = v.split(';')[0].strip()
@@ -114,6 +116,10 @@ def limpar_nome(v):
         antes = v
         v = RE_PREFIXO.sub('', v).strip(' .,-–')
         v = re.sub(r'\s+relator[a]?\s*$', '', v, flags=re.I)
+        # sufixo de secao apos o nome: 'Plínio Casado. Habeas' (APOS o
+        # prefixo, e so palavras de secao — nao comer iniciais 'A. de V.')
+        v = re.sub(r'\.\s+(Habeas|Processos?|Recursos?|Consultas?|'
+                   r'Registros?|Representa\w*|Embargos?)\b.*$', '', v)
         v = re.sub(r'\s+', ' ', v).strip()
         if v == antes:
             break
@@ -189,6 +195,14 @@ def construir_canonicos(valores_freq):
         # (evita que lixo unico de OCR se auto-canonize, ex. 'Jtisi')
         if ch in chaves_semente or sum(c.values()) >= 2:
             canonico[ch] = c.most_common(1)[0][0]
+    # funde canonicos-subsequencia: 'Leopoldo Lima' aponta para
+    # 'Leopoldo Augusto de Lima' quando ha alvo unico com nome mais completo
+    for ch, nome in list(canonico.items()):
+        toks = set(norm(nome).split())
+        alvos = [n for c2, n in canonico.items()
+                 if c2 != ch and toks < set(norm(n).split())]
+        if len(alvos) == 1:
+            canonico[ch] = alvos[0]
     return canonico
 
 
@@ -199,6 +213,13 @@ def resolver_nome(v, canonico):
         alvo = canonico.get(chave_grafia(lim))
         if alvo:
             return alvo, ('igual' if alvo == v else 'mesclado')
+        # subsequencia: 'Leopoldo Lima' ⊂ 'Leopoldo Augusto de Lima';
+        # token unico que e prefixo inequivoco: 'Laudo' -> 'Laudo de Camargo'
+        toks = set(norm(lim).split())
+        cands = [c for c in set(canonico.values())
+                 if toks <= set(norm(c).split())]
+        if len(cands) == 1:
+            return cands[0], 'subsequencia'
     return None, 'lixo'
 
 
@@ -249,11 +270,13 @@ def resolver_classe(v, teor):
 
 # ---------------- luna ----------------
 
-def luna_relator(teor):
+def luna_relator(teor, candidato=''):
+    extra = (f' O campo atual diz "{candidato}" — confirme, corrija ou '
+             f'negue pelo texto.' if candidato else '')
     data = llm.chat(
         'Você é um arquivista do Tribunal Superior de Justiça Eleitoral '
         '(1932-1937). Identifique o RELATOR no texto do acórdão. Ministros '
-        f'da época: {MINISTROS_ABREV}. Responda SOMENTE JSON: '
+        f'da época: {MINISTROS_ABREV}.{extra} Responda SOMENTE JSON: '
         '{"relator": "<nome>"|null}. NÃO invente.',
         (teor or '')[:6000], json_mode=True, model='gpt-5.6-luna',
         max_output_tokens=200)
@@ -326,24 +349,38 @@ def montar_plano():
         if 'relator' in r and r.get('relator'):
             v = r['relator']
             novo, met = resolver_nome(v, canonico)
+            if met == 'lixo' and not eh_lixo(limpar_nome(v)) \
+                    and base != 'acordaos':
+                # nome PLAUSIVEL raro sem canonico e sem teor para conferir
+                # (relator de instancia, procurador): manter (no maximo a
+                # limpeza de prefixos)
+                lim = limpar_nome(v)
+                novo, met = (lim, 'so_limpeza') if lim != v else (v, 'igual')
             if met == 'lixo':
-                # reextracao: regex no teor -> luna
+                plausivel = not eh_lixo(limpar_nome(v))
                 teor = ''
                 if base == 'acordaos':
                     aid = ac_por_page.get(pid, '')
                     teor = (teores.get(aid) or {}).get('teor', '')
-                m = re.search(
-                    r'[Rr]elator[,:]?\s+(?:o\s+)?(?:[Ss]r\.?\s+)?'
-                    r'(?:[Mm]inistro\s+|[Dd]esembargador\s+|[Dd]r\.?\s+)?'
-                    r'([A-ZÀ-Ú][\wÀ-ú\'.]+(?:\s+(?:de|da|do|dos)?\s*'
-                    r'[A-ZÀ-Ú][\wÀ-ú\'.]+){0,3})', teor)
-                if m:
-                    cand, met2 = resolver_nome(m.group(1), canonico)
-                    if cand:
-                        novo, met = cand, 'regex_teor'
-                if not novo and teor:
-                    met = 'fila_luna_relator'
+                if plausivel and teor:
+                    # nome raro plausivel: NAO substituir as cegas pelo
+                    # regex — o luna confirma pelo teor (mantem se null)
+                    met = 'fila_luna_confirma'
                     n_luna_rel += 1
+                elif not plausivel and teor:
+                    m = re.search(
+                        r'[Rr]elator[,:]?\s+(?:o\s+)?(?:[Ss]r\.?\s+)?'
+                        r'(?:[Mm]inistro\s+|[Dd]esembargador\s+|'
+                        r'[Dd]r\.?\s+)?'
+                        r'([A-ZÀ-Ú][\wÀ-ú\'.]+(?:\s+(?:de|da|do|dos)?\s*'
+                        r'[A-ZÀ-Ú][\wÀ-ú\'.]+){0,3})', teor)
+                    if m:
+                        cand, met2 = resolver_nome(m.group(1), canonico)
+                        if cand:
+                            novo, met = cand, 'regex_teor'
+                    if not novo:
+                        met = 'fila_luna_relator'
+                        n_luna_rel += 1
                 elif not novo:
                     met = 'esvaziar'
             if novo != v or met != 'igual':
@@ -457,12 +494,15 @@ def aplicar(plano, limite=0):
         k = f"{x['page_id']}|{x['prop']}"
         try:
             met, para = x['metodo'], x['para']
-            if met == 'fila_luna_relator':
+            if met in ('fila_luna_relator', 'fila_luna_confirma'):
                 aid = ac_por_page.get(x['page_id'], '')
                 teor = (teores.get(aid) or {}).get('teor', '')
-                para = luna_relator(teor) if teor else None
+                cand = (limpar_nome(x['de'])
+                        if met == 'fila_luna_confirma' else '')
+                para = luna_relator(teor, cand) if teor else None
                 if not para:
-                    para = ''
+                    # confirma: sem resposta segura, MANTEM o nome atual
+                    para = cand if met == 'fila_luna_confirma' else ''
             elif met == 'fila_luna_uf':
                 chave = chave_por_page.get(x['page_id'], '')
                 d = extr.get(chave) or {}
