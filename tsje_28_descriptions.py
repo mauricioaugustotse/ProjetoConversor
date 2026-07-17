@@ -123,6 +123,12 @@ PROPS_DESC = {
 }
 
 
+# data sources (schema mora aqui no modelo 2025-09-03)
+DS = {'db_atas': '39f72195-5c64-8161-adf1-000bf49c617d',
+      'db_acordaos': '39f72195-5c64-81c8-bb6e-000b4ccb0478',
+      'db_processos': '39f72195-5c64-8166-83d6-000b47b2ccdf'}
+
+
 def main():
     for db_key, desc in DB_DESC.items():
         db_id = IDS[db_key]
@@ -130,23 +136,37 @@ def main():
             'description': [{'type': 'text', 'text': {'content': desc}}]})
         print(f'{db_key} description: {r.status_code}')
 
-        atual = req('GET', f'/databases/{db_id}').json()
+        # property descriptions: PATCH no DATA SOURCE, incluindo o TIPO
+        # com a config ATUAL (senao a API rejeita / apagaria options)
+        ds_id = DS[db_key]
+        atual = req('GET', f'/data_sources/{ds_id}',
+                    version='2025-09-03').json()
         props_atuais = atual.get('properties') or {}
         corpo = {}
         for nome, d in PROPS_DESC.get(db_key, {}).items():
-            if nome in props_atuais:
-                corpo[nome] = {'description': d}
-            else:
+            spec = props_atuais.get(nome)
+            if not spec:
                 print(f'  (prop inexistente: {nome})')
+                continue
+            tipo = spec.get('type')
+            if tipo in ('formula', 'rollup', 'unique_id'):
+                continue
+            # LIMITACAO da API (verificada 17/07/2026): em relations o
+            # PATCH retorna 200 mas a description NAO e gravada — as
+            # relations ficam documentadas so na description da database
+            corpo[nome] = {tipo: spec.get(tipo) or {}, 'description': d}
         if not corpo:
             continue
-        r = req('PATCH', f'/databases/{db_id}', {'properties': corpo},
+        r = req('PATCH', f'/data_sources/{ds_id}', {'properties': corpo},
                 version='2025-09-03')
-        if r.status_code != 200:
-            # fallback: versao classica
-            r = req('PATCH', f'/databases/{db_id}', {'properties': corpo})
         print(f'  props ({len(corpo)}): {r.status_code}'
-              + ('' if r.status_code == 200 else f' {r.text[:120]}'))
+              + ('' if r.status_code == 200 else f' {r.text[:160]}'))
+        if r.status_code == 200:
+            g = req('GET', f'/data_sources/{ds_id}',
+                    version='2025-09-03').json()
+            ok = sum(1 for n in corpo
+                     if (g['properties'].get(n) or {}).get('description'))
+            print(f'  verificadas com description: {ok}/{len(corpo)}')
 
 
 if __name__ == '__main__':
