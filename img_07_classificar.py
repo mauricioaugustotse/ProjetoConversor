@@ -14,7 +14,9 @@ import os
 import re
 import sys
 
-from img_lib import conectar, lp
+from img_lib import EXT_VID, conectar, lp
+
+FILTRO_VID = "AND a.ext NOT IN (%s)" % ','.join(f"'{e}'" for e in sorted(EXT_VID))
 
 TELAS_RES = {(1080, 1920), (1920, 1080), (720, 1280), (1280, 720), (1440, 2560),
              (2560, 1440), (768, 1366), (1366, 768), (1080, 2340), (2340, 1080),
@@ -54,7 +56,7 @@ def heuristica():
     rows = con.execute("""
         SELECT a.path, a.width, a.height, a.exif_make, a.exif_model
         FROM movidos m JOIN arquivos a ON a.path = m.path
-        WHERE a.path NOT IN (SELECT path FROM classes)""").fetchall()
+        WHERE a.path NOT IN (SELECT path FROM classes) """ + FILTRO_VID).fetchall()
     lote = []
     for path, w, h, make, model in rows:
         nome = path.split('\\')[-1]
@@ -80,7 +82,8 @@ def clip_rodar(limite=None):
     garantir_tabela(con)
     pend = con.execute("""
         SELECT m.path, m.destino FROM movidos m
-        WHERE m.path NOT IN (SELECT path FROM classes)
+        JOIN arquivos a ON a.path = m.path
+        WHERE m.path NOT IN (SELECT path FROM classes) """ + FILTRO_VID + """
         ORDER BY m.path""").fetchall()
     if limite:
         import random
