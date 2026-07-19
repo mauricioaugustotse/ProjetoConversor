@@ -265,7 +265,10 @@ function Build-YtDlpSectionArgs {
         "--ffmpeg-location", $FfmpegPath,
         "--print", "after_move:filepath",
         "-o", "%(title)s.%(ext)s",
-        "-f", "bv*[height<=720][ext=mp4][vcodec^=avc1]+ba[ext=m4a]/b[height<=720][ext=mp4][vcodec^=avc1][acodec!=none]/18/bv*[ext=mp4][vcodec^=avc1]+ba[ext=m4a]/b[ext=mp4][vcodec^=avc1]",
+        # Full HD: aceita VP9/AV1 (o YouTube nao publica H.264 acima de 720p);
+        # o corte da fase 2 re-encoda para H.264/AAC, entao o codec da fonte nao
+        # afeta o mp4 final. Audio m4a preferido p/ o merge em mp4 ser direto.
+        "-f", "bv*[height<=1080]+ba[ext=m4a]/bv*[height<=1080]+ba/b[ext=mp4][height<=1080]/bv*+ba[ext=m4a]/b[ext=mp4]/18",
         "--merge-output-format", "mp4",
         $Url
     )

@@ -686,6 +686,23 @@ function Resolve-PythonYtDlpPathOrNull {
     return $null
 }
 
+function Get-WingetFfmpegCandidates {
+    # Instalacao via "winget install Gyan.FFmpeg": o binario fica em
+    # WinGet\Packages\Gyan.FFmpeg...\ffmpeg-<versao>\bin (PATH pode demorar a refletir).
+    $localAppData = [Environment]::GetFolderPath("LocalApplicationData")
+    $packagesDir = Join-Path -Path $localAppData -ChildPath "Microsoft\WinGet\Packages"
+    $candidates = @()
+
+    if (Test-Path -LiteralPath $packagesDir) {
+        $candidates += Get-ChildItem -Path (Join-Path $packagesDir "Gyan.FFmpeg*") -Directory -ErrorAction SilentlyContinue |
+            ForEach-Object { Get-ChildItem -Path (Join-Path $_.FullName "ffmpeg-*\bin\ffmpeg.exe") -ErrorAction SilentlyContinue } |
+            Sort-Object -Property FullName -Descending |
+            ForEach-Object { $_.FullName }
+    }
+
+    return @($candidates | Select-Object -Unique)
+}
+
 function Get-ImageioFfmpegCandidates {
     $candidates = @()
 
@@ -1119,7 +1136,7 @@ $btnDownload.Add_Click({
                 (Join-Path -Path $localAppData -ChildPath "Microsoft\WinGet\Links\ffmpeg.exe"),
                 (Join-Path -Path $programData -ChildPath "chocolatey\bin\ffmpeg.exe"),
                 (Join-Path -Path $userProfile -ChildPath "scoop\shims\ffmpeg.exe")
-            ) + (Get-ImageioFfmpegCandidates)
+            ) + (Get-WingetFfmpegCandidates) + (Get-ImageioFfmpegCandidates)
 
             $ytDlpPrefixArgs = @()
             $pythonYtDlpPath = Resolve-PythonYtDlpPathOrNull
